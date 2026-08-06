@@ -369,7 +369,158 @@
     /* ── DIVIDER ── */
     .divider { border: none; border-top: 1px solid rgba(255,255,255,.05); margin: 0; }
 
+    /* ── BUNDLE SELECTOR ── */
+    .bundle-section {
+      position: relative; z-index: 1;
+      padding: 5rem 2rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(200,169,110,.03) 50%, transparent 100%);
+    }
+    .bundle-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* Quick-pick presets */
+    .preset-row {
+      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.5rem; margin-bottom: 2.5rem;
+    }
+    .preset-btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--glass); border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted); font-size: .75rem; font-weight: 500;
+      letter-spacing: .05em; text-transform: uppercase;
+      padding: .5rem 1.1rem; border-radius: 2rem; cursor: pointer;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .preset-btn:hover, .preset-btn.active {
+      background: var(--gold-dim); border-color: rgba(200,169,110,.4); color: var(--gold);
+    }
+
+    /* Mock exam toggle cards */
+    .mock-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; margin-bottom: 2rem;
+    }
+    .mock-card {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      background: var(--glass); border: 1.5px solid rgba(255,255,255,.07);
+      padding: 1.75rem 1.5rem 1.5rem;
+      cursor: pointer; user-select: none;
+      transition: border-color .25s, box-shadow .25s, transform .2s, background .25s;
+    }
+    .mock-card:hover {
+      border-color: rgba(200,169,110,.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+    .mock-card.selected {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(200,169,110,.10) 0%, rgba(200,169,110,.04) 100%);
+      box-shadow: 0 0 0 1px rgba(200,169,110,.2), 0 16px 48px rgba(200,169,110,.08);
+    }
+    /* Checkmark overlay */
+    .mock-check {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 24px; height: 24px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, border-color .2s;
+      font-size: .75rem; color: transparent;
+    }
+    .mock-card.selected .mock-check {
+      background: var(--gold); border-color: var(--gold); color: #07080f;
+    }
+    .mock-num {
+      font-family: 'Playfair Display', serif;
+      font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .5rem; display: block;
+    }
+    .mock-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700; line-height: 1.2;
+      margin-bottom: .9rem;
+    }
+    .mock-date {
+      font-size: .78rem; color: var(--muted); margin-bottom: .7rem;
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .mock-date::before { content: '📅'; font-size: .7rem; }
+    .mock-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1.2rem; }
+    .mock-tag {
+      font-size: .62rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      padding: .22rem .6rem; border-radius: 2rem;
+      border: 1px solid rgba(100,160,255,.2); color: #7aadff;
+    }
+    .mock-tag.inperson { border-color: rgba(100,200,150,.2); color: #7adaaa; }
+    .mock-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--text);
+      transition: color .2s;
+    }
+    .mock-card.selected .mock-price { color: var(--gold); }
+    .mock-price-note { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
+
+    /* Summary panel */
+    .bundle-summary {
+      background: var(--glass);
+      border: 1px solid rgba(200,169,110,.18);
+      border-radius: var(--radius);
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      transition: opacity .2s;
+    }
+    .bundle-summary.empty { opacity: .5; }
+    .summary-left { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+    .summary-label {
+      font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .summary-list {
+      list-style: none; display: flex; flex-direction: column; gap: .3rem;
+    }
+    .summary-list li {
+      font-size: .85rem; color: var(--muted);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .summary-list li::before { content: '✦'; font-size: .55rem; color: var(--gold); }
+    .summary-empty-text { font-size: .85rem; color: var(--muted); font-style: italic; }
+
+    .summary-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: .75rem; flex-shrink: 0;
+    }
+    .summary-total-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .summary-total {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--gold);
+      line-height: 1; white-space: nowrap;
+    }
+    .summary-saving {
+      font-size: .72rem; color: #7adaaa;
+      background: rgba(100,200,150,.08); border: 1px solid rgba(100,200,150,.2);
+      padding: .2rem .65rem; border-radius: 2rem; white-space: nowrap;
+    }
+    .summary-saving.hidden { visibility: hidden; }
+    .bundle-enroll-btn {
+      display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
+      background: linear-gradient(135deg, var(--gold), #a8833a);
+      color: #07080f; font-weight: 700; font-size: .85rem;
+      padding: .85rem 1.8rem; border-radius: 3rem; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(200,169,110,.2);
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+      cursor: pointer;
+    }
+    .bundle-enroll-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,169,110,.3); }
+    .bundle-enroll-btn:disabled, .bundle-enroll-btn[disabled] {
+      opacity: .35; cursor: not-allowed; transform: none;
+    }
+
     /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .bundle-summary { grid-template-columns: 1fr; }
+      .summary-right { align-items: flex-start; }
+      .bundle-enroll-btn { width: 100%; justify-content: center; }
+    }
     @media (max-width: 640px) {
       .timeline-item { grid-template-columns: 80px 1px 1fr; }
       .t-day { font-size: 1.4rem; }
@@ -421,6 +572,103 @@
     <div><span class="stat-value">10+</span><span class="stat-label">Years of Excellence</span></div>
   </div>
 </div>
+
+<!-- BUNDLE SELECTOR -->
+<section class="bundle-section" id="build">
+  <div class="bundle-inner">
+    <div class="section-label">Build Your Bundle</div>
+    <h2 class="section-title">Pick Your Exams</h2>
+    <p class="section-desc">Select any combination — price updates instantly. The more you add, the more you save.</p>
+
+    <!-- Quick presets -->
+    <div class="preset-row">
+      <button class="preset-btn" data-preset="[]">Clear All</button>
+      <button class="preset-btn" data-preset="[1]">Mock 1 Only</button>
+      <button class="preset-btn" data-preset="[1,2]">Mock 1 + 2</button>
+      <button class="preset-btn" data-preset="[1,2,3]">Mock 1 + 2 + 3</button>
+      <button class="preset-btn" data-preset="[2,3]">Mock 2 + 3</button>
+      <button class="preset-btn" data-preset="[3,4]">Mock 3 + 4</button>
+      <button class="preset-btn" data-preset="[2,3,4]">Mock 2 + 3 + 4</button>
+      <button class="preset-btn" data-preset="[1,2,3,4]">All 4 Exams ✦</button>
+    </div>
+
+    <!-- Toggle cards -->
+    <div class="mock-grid">
+
+      <div class="mock-card" data-mock="1" role="checkbox" aria-checked="false" tabindex="0">
+        <div class="mock-check">✓</div>
+        <span class="mock-num">Full Mock · 01</span>
+        <div class="mock-name">Full Mock Exam 1</div>
+        <div class="mock-date">December 11, 2026</div>
+        <div class="mock-tags">
+          <span class="mock-tag">Online</span>
+          <span class="mock-tag">Live Discussion</span>
+        </div>
+        <div class="mock-price">$400 <span style="font-size:.85rem;font-weight:400">CAD</span></div>
+        <div class="mock-price-note">includes 2-day review</div>
+      </div>
+
+      <div class="mock-card" data-mock="2" role="checkbox" aria-checked="false" tabindex="0">
+        <div class="mock-check">✓</div>
+        <span class="mock-num">Full Mock · 02</span>
+        <div class="mock-name">Full Mock Exam 2</div>
+        <div class="mock-date">December 18, 2026</div>
+        <div class="mock-tags">
+          <span class="mock-tag">Online</span>
+          <span class="mock-tag">Live Discussion</span>
+        </div>
+        <div class="mock-price">$400 <span style="font-size:.85rem;font-weight:400">CAD</span></div>
+        <div class="mock-price-note">includes 2-day review</div>
+      </div>
+
+      <div class="mock-card" data-mock="3" role="checkbox" aria-checked="false" tabindex="0">
+        <div class="mock-check">✓</div>
+        <span class="mock-num">Full Mock · 03</span>
+        <div class="mock-name">Full Mock Exam 3</div>
+        <div class="mock-date">January 8, 2027</div>
+        <div class="mock-tags">
+          <span class="mock-tag">Online</span>
+          <span class="mock-tag inperson">In-Person Available</span>
+        </div>
+        <div class="mock-price">$400 <span style="font-size:.85rem;font-weight:400">CAD</span></div>
+        <div class="mock-price-note">live or pre-recorded review</div>
+      </div>
+
+      <div class="mock-card" data-mock="4" role="checkbox" aria-checked="false" tabindex="0">
+        <div class="mock-check">✓</div>
+        <span class="mock-num">Full Mock · 04</span>
+        <div class="mock-name">Full Mock Exam 4</div>
+        <div class="mock-date">January 15, 2027</div>
+        <div class="mock-tags">
+          <span class="mock-tag">Online</span>
+          <span class="mock-tag">Live Discussion</span>
+        </div>
+        <div class="mock-price">$400 <span style="font-size:.85rem;font-weight:400">CAD</span></div>
+        <div class="mock-price-note">includes 2-day review</div>
+      </div>
+
+    </div>
+
+    <!-- Summary + CTA -->
+    <div class="bundle-summary empty" id="bundleSummary">
+      <div class="summary-left">
+        <div class="summary-label" id="summaryCount">No exams selected</div>
+        <ul class="summary-list" id="summaryList">
+          <li class="summary-empty-text" id="summaryEmptyText">Click any exam card above to start building your bundle.</li>
+        </ul>
+      </div>
+      <div class="summary-right">
+        <div class="summary-total-label">Total</div>
+        <div class="summary-total" id="summaryTotal">$0</div>
+        <div class="summary-saving hidden" id="summarySaving">—</div>
+        <button class="bundle-enroll-btn" id="bundleEnrollBtn" disabled
+          onclick="enrollBundle()">
+          Select Exams to Enroll →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- PACKAGES -->
 <section class="section" id="packages">
@@ -692,5 +940,118 @@
   <a href="https://www.confidentist.ca/product/afk-mock-exam-august-2026/" class="btn-primary">Enroll Now →</a>
 </div>
 
+<script>
+  // ── DATA ──────────────────────────────────────────────────────────────────
+  const EXAMS = {
+    1: { label: 'Full Mock Exam 1', date: 'Dec 11, 2026' },
+    2: { label: 'Full Mock Exam 2', date: 'Dec 18, 2026' },
+    3: { label: 'Full Mock Exam 3', date: 'Jan 8, 2027'  },
+    4: { label: 'Full Mock Exam 4', date: 'Jan 15, 2027' },
+  }
+
+  // Bundle pricing: savings kick in for 2+ exams
+  const PRICE_TABLE = { 0: 0, 1: 400, 2: 750, 3: 1050, 4: 1400 }
+  const FULL_PRICE  = { 0: 0, 1: 400, 2: 800, 3: 1200,  4: 1600 }
+
+  // ── STATE ─────────────────────────────────────────────────────────────────
+  let selected = new Set()
+
+  // ── DOM REFS ──────────────────────────────────────────────────────────────
+  const cards       = document.querySelectorAll('.mock-card')
+  const summaryEl   = document.getElementById('bundleSummary')
+  const countEl     = document.getElementById('summaryCount')
+  const listEl      = document.getElementById('summaryList')
+  const emptyEl     = document.getElementById('summaryEmptyText')
+  const totalEl     = document.getElementById('summaryTotal')
+  const savingEl    = document.getElementById('summarySaving')
+  const enrollBtn   = document.getElementById('bundleEnrollBtn')
+  const presets     = document.querySelectorAll('.preset-btn')
+
+  // ── RENDER ────────────────────────────────────────────────────────────────
+  function render() {
+    const n    = selected.size
+    const cost = PRICE_TABLE[n] ?? n * 400
+    const full = FULL_PRICE[n]  ?? n * 400
+    const save = full - cost
+
+    // Cards
+    cards.forEach(card => {
+      const id = parseInt(card.dataset.mock)
+      const on = selected.has(id)
+      card.classList.toggle('selected', on)
+      card.setAttribute('aria-checked', on)
+    })
+
+    // Preset highlights
+    presets.forEach(btn => {
+      const ids = JSON.parse(btn.dataset.preset)
+      const match = ids.length === n && ids.every(i => selected.has(i))
+      btn.classList.toggle('active', match)
+    })
+
+    // Summary panel
+    summaryEl.classList.toggle('empty', n === 0)
+
+    if (n === 0) {
+      countEl.textContent = 'No exams selected'
+      listEl.innerHTML    = '<li class="summary-empty-text">Click any exam card above to start building your bundle.</li>'
+      totalEl.textContent = '$0'
+      savingEl.classList.add('hidden')
+      enrollBtn.disabled  = true
+      enrollBtn.textContent = 'Select Exams to Enroll →'
+    } else {
+      countEl.textContent = `${n} exam${n > 1 ? 's' : ''} selected`
+      listEl.innerHTML = [...selected].sort().map(id =>
+        `<li>${EXAMS[id].label} <span style="color:var(--gold);margin-left:.3rem">· ${EXAMS[id].date}</span></li>`
+      ).join('')
+      totalEl.textContent = `$${cost.toLocaleString()}`
+      if (save > 0) {
+        savingEl.textContent = `You save $${save}`
+        savingEl.classList.remove('hidden')
+      } else {
+        savingEl.classList.add('hidden')
+      }
+      enrollBtn.disabled    = false
+      enrollBtn.textContent = `Enroll — $${cost.toLocaleString()} →`
+    }
+
+    // Sync sticky CTA price
+    const stickyPrice = document.querySelector('.sticky-price')
+    if (stickyPrice) stickyPrice.textContent = n === 0 ? 'From $400' : `$${cost.toLocaleString()} CAD`
+  }
+
+  // ── TOGGLE ────────────────────────────────────────────────────────────────
+  function toggle(id) {
+    selected.has(id) ? selected.delete(id) : selected.add(id)
+    render()
+  }
+
+  // ── CARD EVENTS ───────────────────────────────────────────────────────────
+  cards.forEach(card => {
+    card.addEventListener('click', () => toggle(parseInt(card.dataset.mock)))
+    card.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(parseInt(card.dataset.mock)) }
+    })
+  })
+
+  // ── PRESET EVENTS ─────────────────────────────────────────────────────────
+  presets.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ids = JSON.parse(btn.dataset.preset)
+      selected = new Set(ids)
+      render()
+    })
+  })
+
+  // ── ENROLL ────────────────────────────────────────────────────────────────
+  function enrollBundle() {
+    if (selected.size === 0) return
+    const params = new URLSearchParams({ mocks: [...selected].sort().join(',') })
+    window.location.href = `https://www.confidentist.ca/product/afk-mock-exam-august-2026/?${params}`
+  }
+
+  // Initial render
+  render()
+</script>
 </body>
 </html>
