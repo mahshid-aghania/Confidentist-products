@@ -190,16 +190,20 @@
       background: linear-gradient(135deg, #f0f4fa 0%, #fff 100%);
       box-shadow: 0 0 0 3px rgba(7,44,94,.12), var(--shadow-md);
     }
+    /* Checkmark is drawn as an inline SVG so it never depends on a font glyph */
     .mock-check {
       position: absolute; top: 1rem; right: 1rem;
       width: 26px; height: 26px; border-radius: 50%;
       border: 2px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .75rem; font-weight: 700; color: transparent;
+      font-size: 0; color: transparent;
       background: #fff;
-      transition: all .2s;
+      transition: background-color .2s, border-color .2s;
     }
-    .mock-card.selected .mock-check { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .mock-card.selected .mock-check {
+      border-color: var(--navy); background-color: var(--navy);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5.5 5.5L20 6.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center; background-size: 13px 13px;
+    }
     .mock-num {
       font-size: .65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
       color: var(--teal); margin-bottom: .5rem; display: block;
@@ -216,6 +220,24 @@
     .mock-price { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--navy); }
     .mock-card.selected .mock-price { color: var(--gold-dark); }
     .mock-price-note { font-size: .7rem; color: var(--muted); margin-top: .15rem; }
+
+    /* Mini mock pack card — gold accent to read as an add-on, not a 5th full mock */
+    .mock-card.mini { border-style: dashed; border-color: rgba(212,160,23,.55); }
+    .mock-card.mini:hover { border-color: var(--gold-dark); }
+    .mock-card.mini.selected {
+      border-style: solid; border-color: var(--gold-dark);
+      background: linear-gradient(135deg, var(--gold-bg) 0%, #fff 100%);
+      box-shadow: 0 0 0 3px rgba(212,160,23,.15), var(--shadow-md);
+    }
+    .mock-card.mini.selected .mock-check { background-color: var(--gold-dark); border-color: var(--gold-dark); }
+    .mock-price .was { font-size: .95rem; font-weight: 400; color: var(--muted); text-decoration: line-through; margin-right: .3rem; }
+    .mini-hint {
+      margin-top: .6rem; font-size: .68rem; font-weight: 600; line-height: 1.45;
+      color: var(--gold-dark); background: var(--gold-bg);
+      border: 1px solid rgba(212,160,23,.3); border-radius: .3rem;
+      padding: .35rem .55rem;
+    }
+    .mini-hint.unlocked { color: #2d7a35; background: #edf7ee; border-color: rgba(45,122,53,.25); }
 
     /* Summary panel */
     .bundle-summary {
@@ -283,7 +305,10 @@
     .pkg-price-note { font-size: .72rem; color: var(--muted); margin-bottom: 1.5rem; }
     .pkg-features { list-style: none; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: .55rem; }
     .pkg-features li { display: flex; align-items: flex-start; gap: .55rem; font-size: .82rem; color: var(--muted); line-height: 1.5; }
-    .pkg-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+    .pkg-features li::before {
+      content: ''; flex-shrink: 0; width: 14px; height: 14px; margin-top: .2rem;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233BAFBF' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5.5 5.5L20 6.5'/%3E%3C/svg%3E") center/14px 14px no-repeat;
+    }
     .pkg-btn {
       display: block; width: 100%; text-align: center;
       padding: .72rem 1rem; border-radius: .4rem;
@@ -384,7 +409,7 @@
     .sticky-price { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--gold); white-space: nowrap; }
     .sticky-right { display: flex; align-items: center; gap: 1.25rem; }
 
-    /* ──────────────────────────────────────────
+    /* ─────���────────────────────────────────────
        FOOTER
     ────────────────────────────────────────── */
     footer {
@@ -442,18 +467,18 @@
     <div class="hero-price-row">
       <div class="hero-price-chip">
         <span class="chip-label">Single Exam</span>
-        <span class="chip-val">$400</span>
+        <span class="chip-val">$500</span>
         <span class="chip-note">CAD per mock</span>
       </div>
       <div class="hero-price-chip">
         <span class="chip-label">Full Package</span>
-        <span class="chip-val">$1,400</span>
+        <span class="chip-val">$1,500</span>
         <span class="chip-note">all 4 full mocks</span>
       </div>
       <div class="hero-price-chip">
         <span class="chip-label">Complete Bundle</span>
         <span class="chip-val">$1,700</span>
-        <span class="chip-note">all 8 exams</span>
+        <span class="chip-note">4 full + mini pack</span>
       </div>
     </div>
     <div class="hero-actions">
@@ -498,57 +523,68 @@
   <div class="section-inner">
     <div class="section-kicker">Build Your Bundle</div>
     <h2 class="section-title">Pick Your Mock Exams</h2>
-    <p class="section-desc">Select any combination — price updates instantly. Bundle 2 or more exams to unlock savings.</p>
+    <p class="section-desc">Select any combination — price updates instantly. Bundle more full mocks to unlock savings, and add all 4 to get the mini mock pack for just $200.</p>
 
     <!-- Presets -->
     <div class="preset-row">
-      <button class="preset-btn" data-preset="[]">Clear</button>
-      <button class="preset-btn" data-preset="[1]">Mock 1 Only</button>
-      <button class="preset-btn" data-preset="[1,2]">Mock 1 + 2</button>
-      <button class="preset-btn" data-preset="[1,2,3]">Mock 1 + 2 + 3</button>
-      <button class="preset-btn" data-preset="[2,3]">Mock 2 + 3</button>
-      <button class="preset-btn" data-preset="[3,4]">Mock 3 + 4</button>
-      <button class="preset-btn" data-preset="[2,3,4]">Mock 2 + 3 + 4</button>
-      <button class="preset-btn" data-preset="[1,2,3,4]">★ All 4 Exams</button>
+      <button class="preset-btn" data-preset="[]" data-mini="0">Clear</button>
+      <button class="preset-btn" data-preset="[1]" data-mini="0">Mock 1 Only</button>
+      <button class="preset-btn" data-preset="[1,2]" data-mini="0">Mock 1 + 2</button>
+      <button class="preset-btn" data-preset="[1,2,3]" data-mini="0">Mock 1 + 2 + 3</button>
+      <button class="preset-btn" data-preset="[2,3]" data-mini="0">Mock 2 + 3</button>
+      <button class="preset-btn" data-preset="[3,4]" data-mini="0">Mock 3 + 4</button>
+      <button class="preset-btn" data-preset="[1,2,3,4]" data-mini="0">All 4 Full Mocks</button>
+      <button class="preset-btn" data-preset="[]" data-mini="1">Mini Pack Only</button>
+      <button class="preset-btn" data-preset="[1,2,3,4]" data-mini="1">Complete Bundle · Best Value</button>
     </div>
 
     <!-- Toggle cards -->
     <div class="mock-grid">
       <div class="mock-card" data-mock="1" role="checkbox" aria-checked="false" tabindex="0">
-        <div class="mock-check">✓</div>
+        <div class="mock-check" aria-hidden="true"></div>
         <span class="mock-num">Full Mock · 01</span>
         <div class="mock-name">Full Mock Exam 1</div>
         <div class="mock-date">📅 December 11, 2026 · Friday</div>
         <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag">Live Review</span></div>
-        <div class="mock-price">$400 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+        <div class="mock-price">$500 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
         <div class="mock-price-note">includes 2-day discussion</div>
       </div>
       <div class="mock-card" data-mock="2" role="checkbox" aria-checked="false" tabindex="0">
-        <div class="mock-check">✓</div>
+        <div class="mock-check" aria-hidden="true"></div>
         <span class="mock-num">Full Mock · 02</span>
         <div class="mock-name">Full Mock Exam 2</div>
         <div class="mock-date">📅 December 18, 2026 · Friday</div>
         <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag">Live Review</span></div>
-        <div class="mock-price">$400 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+        <div class="mock-price">$500 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
         <div class="mock-price-note">includes 2-day discussion</div>
       </div>
       <div class="mock-card" data-mock="3" role="checkbox" aria-checked="false" tabindex="0">
-        <div class="mock-check">✓</div>
+        <div class="mock-check" aria-hidden="true"></div>
         <span class="mock-num">Full Mock · 03</span>
         <div class="mock-name">Full Mock Exam 3</div>
         <div class="mock-date">📅 January 8, 2027 · Friday</div>
         <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag inperson">In-Person Available</span></div>
-        <div class="mock-price">$400 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+        <div class="mock-price">$500 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
         <div class="mock-price-note">live or pre-recorded review</div>
       </div>
       <div class="mock-card" data-mock="4" role="checkbox" aria-checked="false" tabindex="0">
-        <div class="mock-check">✓</div>
+        <div class="mock-check" aria-hidden="true"></div>
         <span class="mock-num">Full Mock · 04</span>
         <div class="mock-name">Full Mock Exam 4</div>
         <div class="mock-date">📅 January 15, 2027 · Friday</div>
         <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag">Live Review</span></div>
-        <div class="mock-price">$400 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+        <div class="mock-price">$500 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
         <div class="mock-price-note">includes 2-day discussion</div>
+      </div>
+      <div class="mock-card mini" data-mini="1" role="checkbox" aria-checked="false" tabindex="0">
+        <div class="mock-check" aria-hidden="true"></div>
+        <span class="mock-num" style="color:var(--gold-dark)">Mini Mock Pack</span>
+        <div class="mock-name">All 4 Mini Mocks</div>
+        <div class="mock-date">📅 Scheduled between full mocks</div>
+        <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag">Sold as a set</span></div>
+        <div class="mock-price" id="miniPrice">$400 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+        <div class="mock-price-note" id="miniPriceNote">all 4 mini mocks · not sold separately</div>
+        <div class="mini-hint" id="miniHint">Add all 4 full mocks → mini pack drops to $200</div>
       </div>
     </div>
 
@@ -583,11 +619,11 @@
     <div class="packages-grid">
       <div class="pkg-card">
         <div class="pkg-name">Individual Exam</div>
-        <div class="pkg-desc">Select any single mock exam to target a specific area.</div>
-        <div class="pkg-price">$400</div>
-        <div class="pkg-price-note">per exam · CAD</div>
+        <div class="pkg-desc">Select any single full mock exam to target a specific area.</div>
+        <div class="pkg-price">$500</div>
+        <div class="pkg-price-note">per full mock · CAD</div>
         <ul class="pkg-features">
-          <li>One full or mini mock exam</li>
+          <li>One full-length mock exam</li>
           <li>Instructor review session</li>
           <li>Online delivery</li>
           <li>Written performance notes</li>
@@ -597,8 +633,8 @@
       <div class="pkg-card featured">
         <div class="pkg-name">Full Mock Package</div>
         <div class="pkg-desc">All 4 full mock exams — the complete preparation pathway.</div>
-        <div class="pkg-price">$1,400</div>
-        <div class="pkg-price-note">all 4 exams · save $200 · CAD</div>
+        <div class="pkg-price">$1,500</div>
+        <div class="pkg-price-note">all 4 full mocks · save $500 · CAD</div>
         <ul class="pkg-features">
           <li>4 full-length mock exams</li>
           <li>Live instructor review each session</li>
@@ -610,14 +646,14 @@
       </div>
       <div class="pkg-card">
         <div class="pkg-name">Mini Mock Package</div>
-        <div class="pkg-desc">All 4 mini exams — focused, concise practice sessions.</div>
-        <div class="pkg-price">$1,200</div>
+        <div class="pkg-desc">All 4 mini exams — focused, concise practice sessions. Sold as a set.</div>
+        <div class="pkg-price">$400</div>
         <div class="pkg-price-note">all 4 mini exams · CAD</div>
         <ul class="pkg-features">
           <li>4 mini mock exams</li>
           <li>Instructor review per session</li>
           <li>Online delivery</li>
-          <li>Flexible scheduling</li>
+          <li>Only $200 when added to all 4 full mocks</li>
         </ul>
         <a href="https://www.confidentist.ca/product/afk-mock-exam-august-2026/" class="pkg-btn pkg-btn-ghost">Enroll Now →</a>
       </div>
@@ -625,9 +661,10 @@
         <div class="pkg-name">Complete Package</div>
         <div class="pkg-desc">All 8 exams — the ultimate preparation for serious candidates.</div>
         <div class="pkg-price">$1,700</div>
-        <div class="pkg-price-note">all 8 exams · best value · CAD</div>
+        <div class="pkg-price-note">all 8 exams · save $700 · CAD</div>
         <ul class="pkg-features">
           <li>4 full + 4 mini mock exams</li>
+          <li>Mini mock pack discounted to $200</li>
           <li>All discussion sessions</li>
           <li>In-person option available</li>
           <li>Full performance reports</li>
@@ -723,7 +760,8 @@
     <h2 class="section-title">Frequently Asked Questions</h2>
     <div class="faq">
       <details><summary>Who is this mock exam designed for?</summary><div class="faq-body">The AFK Mock Exam series is designed for internationally trained dentists preparing for the Assessment of Fundamental Knowledge (AFK) examination — a key step toward obtaining a dental license in Canada.</div></details>
-      <details><summary>Can I purchase a single exam instead of a package?</summary><div class="faq-body">Yes. Use the Bundle Builder above to select any individual exam at $400 CAD per session. Packages offer savings when purchasing 2 or more exams together.</div></details>
+      <details><summary>Can I purchase a single exam instead of a package?</summary><div class="faq-body">Yes. Use the Bundle Builder above to select any individual full mock exam at $500 CAD per session. Bundle pricing drops the per-exam cost as you add more: 2 mocks for $900, 3 for $1,200, and all 4 for $1,500. The mini mocks are the one exception — they are sold only as a complete set of 4 and cannot be purchased individually.</div></details>
+      <details><summary>How much are the mini mock exams?</summary><div class="faq-body">The 4 mini mocks are sold together as a single package for $400 CAD. If you enroll in all 4 full mock exams, the mini mock package is discounted to $200 CAD — bringing the complete 8-exam bundle to $1,700 CAD.</div></details>
       <details><summary>What happens if I miss a discussion session?</summary><div class="faq-body">No recordings are provided for missed live discussion sessions. It is essential to attend all scheduled sessions in real time. Please contact us in advance if you have a conflict.</div></details>
       <details><summary>Is the in-person option available for all exams?</summary><div class="faq-body">The in-person option with live discussions is only available for Mock Exam 3 (January 8, 2027). All other exams are conducted online.</div></details>
       <details><summary>How do I enroll and pay?</summary><div class="faq-body">Click any enroll button or use the Bundle Builder to select your exams. Payment is processed securely through the ConfiDentist website. You will receive a confirmation email with all session details.</div></details>
@@ -751,7 +789,7 @@
     <span>4 full + 4 mini exams · Enrollment open</span>
   </div>
   <div class="sticky-right">
-    <span class="sticky-price" id="stickyPrice">From $400</span>
+    <span class="sticky-price" id="stickyPrice">From $500</span>
     <a href="#build" class="btn-gold">Enroll Now →</a>
   </div>
 </div>
@@ -763,12 +801,23 @@
     3: { label: 'Full Mock Exam 3', date: 'Jan 8, 2027'  },
     4: { label: 'Full Mock Exam 4', date: 'Jan 15, 2027' },
   }
-  const PRICE = { 0:0, 1:400, 2:750, 3:1050, 4:1400 }
-  const FULL  = { 0:0, 1:400, 2:800, 3:1200, 4:1600 }
+  // Full-mock bundle pricing (tiered)
+  const PRICE = { 0:0, 1:500, 2:900, 3:1200, 4:1500 }
+  const UNIT  = 500            // à-la-carte price of one full mock
+  const MINI_REGULAR = 400     // all 4 mini mocks, purchased on their own
+  const MINI_BUNDLED = 200     // special discount when all 4 full mocks are selected
+
+  // Mini mocks are sold only as a set of 4 — never individually.
+  const miniPriceFor = fullCount => fullCount === 4 ? MINI_BUNDLED : MINI_REGULAR
 
   let selected = new Set()
+  let miniSelected = false
 
-  const cards      = document.querySelectorAll('.mock-card')
+  const cards      = document.querySelectorAll('.mock-card[data-mock]')
+  const miniCard   = document.querySelector('.mock-card[data-mini]')
+  const miniPriceEl= document.getElementById('miniPrice')
+  const miniNoteEl = document.getElementById('miniPriceNote')
+  const miniHintEl = document.getElementById('miniHint')
   const summaryEl  = document.getElementById('bundleSummary')
   const countEl    = document.getElementById('summaryCount')
   const listEl     = document.getElementById('summaryList')
@@ -779,38 +828,69 @@
   const presets    = document.querySelectorAll('.preset-btn')
 
   function render() {
-    const n    = selected.size
-    const cost = PRICE[n] ?? n * 400
-    const save = (FULL[n] ?? n * 400) - cost
+    const n         = selected.size
+    const fullCost  = PRICE[n] ?? n * UNIT
+    const miniCost  = miniSelected ? miniPriceFor(n) : 0
+    const cost      = fullCost + miniCost
+    const miniUnlocked = n === 4
+
+    // Savings vs. buying each piece at its regular price
+    const regular = n * UNIT + (miniSelected ? MINI_REGULAR : 0)
+    const save    = regular - cost
 
     cards.forEach(c => {
       const id = +c.dataset.mock
       c.classList.toggle('selected', selected.has(id))
       c.setAttribute('aria-checked', selected.has(id))
     })
+    miniCard.classList.toggle('selected', miniSelected)
+    miniCard.setAttribute('aria-checked', miniSelected)
+
+    // Mini pack price reflects the all-4 discount whether or not it's selected yet
+    miniPriceEl.innerHTML = miniUnlocked
+      ? `<span class="was">$${MINI_REGULAR}</span>$${MINI_BUNDLED} <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span>`
+      : `$${MINI_REGULAR} <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span>`
+    miniNoteEl.textContent = miniUnlocked
+      ? 'special bundle price · all 4 mini mocks'
+      : 'all 4 mini mocks · not sold separately'
+    miniHintEl.textContent = miniUnlocked
+      ? 'Discount applied — all 4 full mocks selected'
+      : 'Add all 4 full mocks → mini pack drops to $200'
+    miniHintEl.classList.toggle('unlocked', miniUnlocked)
+
     presets.forEach(b => {
-      const ids = JSON.parse(b.dataset.preset)
-      b.classList.toggle('active', ids.length === n && ids.every(i => selected.has(i)))
+      const ids  = JSON.parse(b.dataset.preset)
+      const mini = b.dataset.mini === '1'
+      b.classList.toggle('active',
+        ids.length === n && ids.every(i => selected.has(i)) && mini === miniSelected)
     })
 
-    summaryEl.classList.toggle('empty', n === 0)
+    const empty = n === 0 && !miniSelected
+    summaryEl.classList.toggle('empty', empty)
 
-    if (n === 0) {
+    if (empty) {
       countEl.textContent = 'No exams selected'
       listEl.innerHTML = '<li>Click any exam card above to build your bundle.</li>'
       totalEl.textContent = '$0'
       savingEl.classList.add('hidden')
       enrollBtn.disabled = true
       enrollBtn.textContent = 'Select Exams to Enroll →'
-      stickyPrice.textContent = 'From $400'
+      stickyPrice.textContent = 'From $500'
     } else {
-      countEl.textContent = `${n} exam${n>1?'s':''} selected`
-      listEl.innerHTML = [...selected].sort().map(id =>
+      const items = n + (miniSelected ? 4 : 0)
+      countEl.textContent = `${items} exam${items>1?'s':''} selected`
+
+      const rows = [...selected].sort().map(id =>
         `<li>${EXAMS[id].label} <span style="color:var(--gold);font-weight:600">· ${EXAMS[id].date}</span></li>`
-      ).join('')
+      )
+      if (miniSelected) {
+        rows.push(`<li>All 4 Mini Mocks <span style="color:var(--gold);font-weight:600">· $${miniCost}${miniUnlocked ? ' bundle price' : ''}</span></li>`)
+      }
+      listEl.innerHTML = rows.join('')
+
       totalEl.textContent = `$${cost.toLocaleString()}`
       save > 0
-        ? (savingEl.textContent = `You save $${save}`, savingEl.classList.remove('hidden'))
+        ? (savingEl.textContent = `You save $${save.toLocaleString()}`, savingEl.classList.remove('hidden'))
         : savingEl.classList.add('hidden')
       enrollBtn.disabled = false
       enrollBtn.textContent = `Enroll — $${cost.toLocaleString()} CAD →`
@@ -819,17 +899,28 @@
   }
 
   function toggle(id) { selected.has(id) ? selected.delete(id) : selected.add(id); render() }
+  function toggleMini() { miniSelected = !miniSelected; render() }
 
   cards.forEach(c => {
     c.addEventListener('click', () => toggle(+c.dataset.mock))
     c.addEventListener('keydown', e => { if (e.key===' '||e.key==='Enter'){e.preventDefault();toggle(+c.dataset.mock)} })
   })
 
-  presets.forEach(b => b.addEventListener('click', () => { selected = new Set(JSON.parse(b.dataset.preset)); render() }))
+  miniCard.addEventListener('click', toggleMini)
+  miniCard.addEventListener('keydown', e => { if (e.key===' '||e.key==='Enter'){e.preventDefault();toggleMini()} })
+
+  presets.forEach(b => b.addEventListener('click', () => {
+    selected = new Set(JSON.parse(b.dataset.preset))
+    miniSelected = b.dataset.mini === '1'
+    render()
+  }))
 
   function enrollBundle() {
-    if (!selected.size) return
-    const params = new URLSearchParams({ mocks: [...selected].sort().join(',') })
+    if (!selected.size && !miniSelected) return
+    const params = new URLSearchParams({
+      mocks: [...selected].sort().join(','),
+      mini: miniSelected ? 'pack-of-4' : '',
+    })
     window.location.href = `https://www.confidentist.ca/product/afk-mock-exam-august-2026/?${params}`
   }
 
