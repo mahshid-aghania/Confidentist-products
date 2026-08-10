@@ -70,17 +70,16 @@
       font-weight: 700; line-height: 1.15; color: var(--navy);
       margin-bottom: 1.1rem;
     }
-    /* Sans kicker under the serif headline — editorial contrast, no third font */
+    /* Second line: identical typeface to the headline, set smaller and in gold
+       so it reads as a subordinate line rather than a competing title. */
     .hero h1 em {
       display: block;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-style: normal;
-      font-size: .3em; font-weight: 500;
-      letter-spacing: .26em; text-transform: uppercase;
-      /* offsets the trailing letter-space so the line stays optically centered */
-      text-indent: .26em;
+      font-size: .62em; font-weight: 700;
+      line-height: 1.1; letter-spacing: -.01em;
       color: var(--gold-dark);
-      margin-top: .85rem;
+      margin-top: .3rem;
     }
     .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 400; }
     .hero-price-row { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
@@ -262,7 +261,7 @@
 
     /* ──────────────────────────────────────────
        PACKAGES (full packages section)
-    ────────────────────────────────────────── */
+    ─────────────────────────────────────────��� */
     .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1rem; margin-top: 2.5rem; }
     .pkg-card {
       background: #fff; border: 1.5px solid var(--border);
