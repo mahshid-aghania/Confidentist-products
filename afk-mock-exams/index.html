@@ -70,7 +70,18 @@
       font-weight: 700; line-height: 1.15; color: var(--navy);
       margin-bottom: 1.1rem;
     }
-    .hero h1 em { font-style: italic; color: var(--gold-dark); }
+    /* Sans kicker under the serif headline — editorial contrast, no third font */
+    .hero h1 em {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-size: .3em; font-weight: 500;
+      letter-spacing: .26em; text-transform: uppercase;
+      /* offsets the trailing letter-space so the line stays optically centered */
+      text-indent: .26em;
+      color: var(--gold-dark);
+      margin-top: .85rem;
+    }
     .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 400; }
     .hero-price-row { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .hero-price-chip {
@@ -419,7 +430,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">2026 – 2027 Cohort · Enrollment Open</div>
-    <h1>AFK Mock Exams<br><em>Full Preparation Series</em></h1>
+      <h1>AFK Mock Exams<em>Full Preparation Series</em></h1>
     <p class="hero-sub">Maximize your chances with Canada's most trusted dental licensing exam prep. In-depth mock exams with instructor-led review sessions — built for success.</p>
     <div class="hero-price-row">
       <div class="hero-price-chip">
