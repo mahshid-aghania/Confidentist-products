@@ -16,10 +16,10 @@
       --navy:        #072C5E;
       --navy-mid:    #1C3165;
       --navy-light:  #213669;
-      --gold:        #d4a017;
-      --gold-dark:   #b8880f;
-      --gold-light:  #f0c040;
-      --gold-bg:     #fdf6e3;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
       --teal:        #3BAFBF;
       --teal-light:  #e8f7f8;
 
@@ -57,7 +57,7 @@
     .hero-inner { max-width: 860px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--gold-bg); border: 1px solid rgba(212,160,23,.45);
+      background: var(--gold-bg); border: 1px solid rgba(15,122,229,.45);
       color: var(--gold-dark); border-radius: .35rem;
       font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
       padding: .35rem 1rem; margin-bottom: 1.75rem;
@@ -93,13 +93,13 @@
     .hero-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
     .btn-gold {
       display: inline-flex; align-items: center; gap: .45rem;
-      background: var(--gold); color: var(--navy);
+      background: var(--gold); color: #fff;
       font-weight: 700; font-size: .88rem; letter-spacing: .03em;
       padding: .8rem 2rem; border-radius: .4rem; text-decoration: none;
-      box-shadow: 0 4px 18px rgba(212,160,23,.35);
+      box-shadow: 0 4px 18px rgba(15,122,229,.35);
       transition: background .2s, transform .15s, box-shadow .2s;
     }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(212,160,23,.45); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(15,122,229,.45); }
     .btn-outline-white {
       display: inline-flex; align-items: center; gap: .45rem;
       border: 1.5px solid var(--navy); color: var(--navy);
@@ -116,7 +116,7 @@
       background: var(--gold); padding: .7rem 1.5rem;
       display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
     }
-    .trust-item { display: flex; align-items: center; gap: .5rem; font-size: .78rem; font-weight: 600; color: var(--navy); }
+    .trust-item { display: flex; align-items: center; gap: .5rem; font-size: .78rem; font-weight: 600; color: #fff; }
     .trust-item svg { width: 15px; height: 15px; }
 
     /* ──────────────────────────────────────────
@@ -202,19 +202,19 @@
     .mock-price-note { font-size: .7rem; color: var(--muted); margin-top: .15rem; }
 
     /* Mini mock pack card — gold accent to read as an add-on, not a 5th full mock */
-    .mock-card.mini { border-style: dashed; border-color: rgba(212,160,23,.55); }
+    .mock-card.mini { border-style: dashed; border-color: rgba(15,122,229,.55); }
     .mock-card.mini:hover { border-color: var(--gold-dark); }
     .mock-card.mini.selected {
       border-style: solid; border-color: var(--gold-dark);
       background: linear-gradient(135deg, var(--gold-bg) 0%, #fff 100%);
-      box-shadow: 0 0 0 3px rgba(212,160,23,.15), var(--shadow-md);
+      box-shadow: 0 0 0 3px rgba(15,122,229,.15), var(--shadow-md);
     }
     .mock-card.mini.selected .mock-check { background-color: var(--gold-dark); border-color: var(--gold-dark); }
     .mock-price .was { font-size: .95rem; font-weight: 400; color: var(--muted); text-decoration: line-through; margin-right: .3rem; }
     .mini-hint {
       margin-top: .6rem; font-size: .68rem; font-weight: 600; line-height: 1.45;
       color: var(--gold-dark); background: var(--gold-bg);
-      border: 1px solid rgba(212,160,23,.3); border-radius: .3rem;
+      border: 1px solid rgba(15,122,229,.3); border-radius: .3rem;
       padding: .35rem .55rem;
     }
     .mini-hint.unlocked { color: #2d7a35; background: #edf7ee; border-color: rgba(45,122,53,.25); }
@@ -249,11 +249,11 @@
     .summary-saving.hidden { visibility: hidden; }
     .bundle-enroll-btn {
       display: inline-flex; align-items: center; gap: .45rem;
-      background: var(--gold); color: var(--navy);
+      background: var(--gold); color: #fff;
       font-weight: 700; font-size: .85rem; letter-spacing: .03em;
       padding: .8rem 1.75rem; border-radius: .4rem;
       border: none; cursor: pointer; white-space: nowrap;
-      box-shadow: 0 4px 16px rgba(212,160,23,.25);
+      box-shadow: 0 4px 16px rgba(15,122,229,.25);
       transition: background .2s, transform .15s;
     }
     .bundle-enroll-btn:hover:not(:disabled) { background: var(--gold-light); transform: translateY(-1px); }
@@ -334,10 +334,10 @@
       display: flex; gap: 1rem; align-items: flex-start;
       transition: background .2s, border-color .2s;
     }
-    .inc-card:hover { background: rgba(255,255,255,.11); border-color: rgba(212,160,23,.25); }
+    .inc-card:hover { background: rgba(255,255,255,.11); border-color: rgba(15,122,229,.25); }
     .inc-icon {
       width: 40px; height: 40px; border-radius: .5rem; flex-shrink: 0;
-      background: rgba(212,160,23,.15); border: 1px solid rgba(212,160,23,.25);
+      background: rgba(15,122,229,.15); border: 1px solid rgba(15,122,229,.25);
       display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
     }
     .inc-title { font-size: .88rem; font-weight: 600; color: #fff; margin-bottom: .3rem; }
