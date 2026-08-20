@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADAT Preparation Programs | Comprehensive &amp; Crash Courses | ConfiDentist</title>
+  <meta name="description" content="Compare ConfiDentist's ADAT Comprehensive and Crash programs, featuring live and pre-recorded learning, exam-oriented booklets, Q&A sessions and mock examinations." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/adat-programs/" />
+  <meta property="og:title" content="ADAT Preparation Programs | ConfiDentist" />
+  <meta property="og:description" content="Compare ConfiDentist's ADAT Comprehensive and Crash preparation programs and choose the pathway that fits your goals." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:#072C5E; --navy-mid:#1C3165; --navy-light:#213669;
+      --gold:#0f7ae5; --gold-dark:#0a5cb8; --gold-light:#5cb2f7; --gold-bg:#e9f3fd;
+      --teal:#3BAFBF; --teal-light:#e8f7f8;
+      --bg:#ffffff; --bg-soft:#f6f8fb; --bg-section:#f0f3f8;
+      --text:#1a1f2e; --muted:#586175; --border:#dde3ee; --radius:.75rem;
+      --shadow-sm:0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:0 8px 40px rgba(7,44,94,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid var(--teal); outline-offset:3px; border-radius:.3rem; }
+    .skip-link { position:absolute; left:-999px; top:0; z-index:500; background:var(--gold); color:#fff; font-weight:700; padding:.6rem 1rem; border-radius:0 0 .4rem 0; text-decoration:none; }
+    .skip-link:focus { left:0; }
+
+    /* NAV */
+    nav.top { position:sticky; top:0; z-index:200; background:var(--navy); border-bottom:2px solid var(--gold); }
+    .nav-inner { max-width:1160px; margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:66px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:#fff; text-decoration:none; letter-spacing:.02em; display:flex; align-items:center; gap:.5rem; }
+    .nav-logo span { color:var(--gold-light); }
+    .nav-right { display:flex; align-items:center; gap:1rem; }
+    .nav-link { color:rgba(255,255,255,.75); font-size:.82rem; text-decoration:none; transition:color .2s; }
+    .nav-link:hover { color:#fff; }
+    .nav-cta { background:var(--gold); color:#fff; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.5rem 1.25rem; border-radius:.35rem; text-decoration:none; transition:background .2s; }
+    .nav-cta:hover { background:var(--gold-light); }
+
+    /* BREADCRUMBS */
+    .crumbs { background:var(--bg-soft); border-bottom:1px solid var(--border); }
+    .crumbs-inner { max-width:1160px; margin:0 auto; padding:.85rem 1.5rem; font-size:.78rem; color:var(--muted); }
+    .crumbs-inner a { color:var(--gold-dark); text-decoration:none; }
+    .crumbs-inner a:hover { text-decoration:underline; }
+    .crumbs-inner span[aria-current] { color:var(--navy); font-weight:600; }
+    .crumbs-sep { margin:0 .5rem; color:var(--border); }
+
+    /* BUTTONS */
+    .btn-gold { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; background:var(--gold); color:#fff; font-weight:700; font-size:.88rem; letter-spacing:.03em; padding:.8rem 2rem; border-radius:.4rem; text-decoration:none; box-shadow:0 4px 18px rgba(15,122,229,.35); transition:background .2s, transform .15s, box-shadow .2s; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); box-shadow:0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border:1.5px solid rgba(255,255,255,.3); color:#fff; font-size:.88rem; font-weight:500; padding:.8rem 2rem; border-radius:.4rem; text-decoration:none; transition:background .2s, border-color .2s; }
+    .btn-outline-white:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5); }
+    .btn-navy { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; background:var(--navy); color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.03em; padding:.8rem 1.75rem; border-radius:.4rem; text-decoration:none; transition:background .2s, transform .15s; }
+    .btn-navy:hover { background:var(--navy-mid); transform:translateY(-1px); }
+    .btn-ghost { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border:1.5px solid var(--navy); color:var(--navy); font-weight:700; font-size:.85rem; letter-spacing:.03em; padding:.8rem 1.75rem; border-radius:.4rem; text-decoration:none; transition:background .2s, color .2s, transform .15s; }
+    .btn-ghost:hover { background:var(--navy); color:#fff; transform:translateY(-1px); }
+
+    /* HERO */
+    .hero { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 55%,#0f3d72 100%); padding:4rem 1.5rem; position:relative; overflow:hidden; }
+    .hero::after { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
+    .hero-inner { max-width:820px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:.5rem; background:rgba(15,122,229,.18); border:1px solid rgba(15,122,229,.45); color:var(--gold-light); border-radius:.35rem; font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.35rem 1rem; margin-bottom:1.5rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.6vw,3.2rem); font-weight:700; line-height:1.18; color:#fff; margin-bottom:1.1rem; }
+    .hero h1 em { font-style:italic; color:var(--gold-light); }
+    .hero-sub { font-size:1.03rem; color:rgba(255,255,255,.72); max-width:620px; margin:0 auto 2.25rem; line-height:1.7; font-weight:300; }
+    .hero-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
+
+    /* SECTION SHELL */
+    .section { padding:4rem 1.5rem; }
+    .section.alt { background:var(--bg-soft); }
+    .section.navy-bg { background:var(--navy); }
+    .section-inner { max-width:1160px; margin:0 auto; }
+    .section-head { max-width:680px; margin:0 auto 2.5rem; text-align:center; }
+    .section-kicker { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:.6rem; display:inline-flex; align-items:center; gap:.5rem; }
+    .section-kicker::before { content:''; display:block; width:20px; height:2px; background:var(--gold); }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.85rem; }
+    .section.navy-bg .section-title { color:#fff; }
+    .section-desc { font-size:.95rem; color:var(--muted); line-height:1.8; }
+    .section.navy-bg .section-desc { color:rgba(255,255,255,.68); }
+
+    /* WHAT IS — prose + list */
+    .whatis { max-width:820px; margin:0 auto; }
+    .whatis p { font-size:.96rem; color:var(--muted); line-height:1.85; margin-bottom:1.25rem; }
+    .whatis .lead { color:var(--text); }
+    .whatis-subhead { font-size:.9rem; font-weight:700; color:var(--navy); margin-bottom:.85rem; }
+    .whatis-list { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.6rem 1.5rem; margin-bottom:1.5rem; }
+    .whatis-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.88rem; color:var(--muted); line-height:1.5; }
+    .whatis-list li svg { width:15px; height:15px; color:var(--teal); flex-shrink:0; margin-top:.18rem; }
+    .whatis-note { font-size:.85rem; color:var(--muted); line-height:1.7; background:var(--gold-bg); border:1px solid rgba(15,122,229,.2); border-left:4px solid var(--gold); border-radius:.5rem; padding:1rem 1.25rem; }
+
+    /* CORE AREAS */
+    .core-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; }
+    .core-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.75rem; box-shadow:var(--shadow-sm); }
+    .core-icon { width:44px; height:44px; border-radius:.6rem; background:var(--gold-bg); border:1px solid rgba(15,122,229,.25); display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+    .core-icon svg { width:22px; height:22px; color:var(--gold-dark); }
+    .core-card h3 { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:.5rem; }
+    .core-card p { font-size:.88rem; color:var(--muted); line-height:1.65; }
+    .core-note { text-align:center; margin-top:1.75rem; font-size:.85rem; color:var(--muted); }
+
+    /* PROGRAM CARDS */
+    .program-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.75rem; align-items:stretch; }
+    .program-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:2rem; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); text-decoration:none; color:inherit; transition:box-shadow .2s, transform .2s, border-color .2s; position:relative; overflow:hidden; }
+    .program-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--navy),var(--teal)); }
+    .program-card.featured::before { background:linear-gradient(90deg,var(--gold-dark),var(--gold-light)); }
+    .program-card.featured { border-color:var(--gold); border-width:2px; }
+    .program-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-4px); border-color:rgba(7,44,94,.25); }
+    .prog-badge { align-self:flex-start; font-size:.64rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:.3rem; margin-bottom:1rem; background:var(--teal-light); color:var(--teal); border:1px solid rgba(59,175,191,.25); }
+    .program-card.featured .prog-badge { background:var(--gold); color:#fff; border-color:var(--gold); }
+    .prog-tag { display:inline-block; font-size:.6rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-left:.5rem; }
+    .prog-title { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.65rem; }
+    .prog-price { display:flex; align-items:baseline; gap:.55rem; flex-wrap:wrap; margin-bottom:.15rem; }
+    .prog-reg { font-size:.95rem; color:var(--muted); text-decoration:line-through; }
+    .prog-now { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--navy); }
+    .prog-hst { font-size:.78rem; color:var(--muted); margin-bottom:1.1rem; }
+    .prog-hst strong { color:var(--navy); font-weight:600; }
+    .prog-desc { font-size:.88rem; color:var(--muted); line-height:1.65; margin-bottom:1.35rem; }
+    .prog-subhead { font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); margin-bottom:.6rem; }
+    .prog-list { list-style:none; display:flex; flex-direction:column; gap:.45rem; margin-bottom:1.35rem; }
+    .prog-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.85rem; color:var(--muted); line-height:1.45; }
+    .prog-list li svg { width:15px; height:15px; color:var(--teal); flex-shrink:0; margin-top:.15rem; }
+    .program-card.featured .prog-list li svg { color:var(--gold); }
+    .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--navy); color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.03em; padding:.8rem 1.5rem; border-radius:.4rem; transition:background .2s, gap .18s; }
+    .program-card.featured .prog-cta { background:var(--gold); }
+    .program-card:hover .prog-cta { gap:.8rem; }
+    .program-card:hover .prog-cta { background:var(--navy-mid); }
+    .program-card.featured:hover .prog-cta { background:var(--gold-light); }
+    .prog-cta svg { width:16px; height:16px; }
+
+    /* COMPARISON */
+    .compare-wrap { overflow-x:auto; border-radius:var(--radius); box-shadow:var(--shadow-sm); border:1px solid var(--border); }
+    table.compare { width:100%; border-collapse:collapse; background:#fff; min-width:640px; }
+    table.compare caption { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+    table.compare th, table.compare td { padding:.9rem 1.25rem; text-align:left; border-bottom:1px solid var(--border); font-size:.86rem; vertical-align:top; }
+    table.compare thead th { background:var(--navy); color:#fff; font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
+    table.compare thead th:first-child { background:var(--navy-mid); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; font-family:'Inter',sans-serif; color:rgba(255,255,255,.7); }
+    table.compare tbody th { font-weight:700; color:var(--navy); background:var(--bg-soft); white-space:nowrap; }
+    table.compare td { color:var(--muted); }
+    table.compare tbody tr:last-child td, table.compare tbody tr:last-child th { border-bottom:none; }
+    .compare-cta-row a { display:inline-flex; align-items:center; gap:.4rem; font-weight:700; font-size:.83rem; text-decoration:none; }
+    .compare-cta-row a.full { color:var(--gold-dark); }
+    .compare-cta-row a.sub { color:var(--navy); }
+    .compare-cta-row a:hover { text-decoration:underline; }
+
+    .compare-cards { display:none; flex-direction:column; gap:1rem; }
+    .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; }
+    .cmp-card.full .cmp-card-head { background:linear-gradient(135deg,var(--gold-dark),var(--gold)); }
+    .cmp-card.sub .cmp-card-head { background:var(--navy); }
+    .cmp-card-head { padding:1rem 1.25rem; font-family:'Playfair Display',serif; font-weight:700; color:#fff; font-size:1.1rem; }
+    .cmp-row { padding:.85rem 1.25rem; border-bottom:1px solid var(--border); }
+    .cmp-row:last-of-type { border-bottom:none; }
+    .cmp-key { font-size:.66rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+    .cmp-val { font-size:.9rem; color:var(--text); }
+    .cmp-card .btn-navy, .cmp-card .btn-gold { width:calc(100% - 2.5rem); margin:1rem 1.25rem; }
+
+    /* DECISION */
+    .decision-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-bottom:2rem; }
+    .decision-card { background:#fff; border:1.5px solid var(--border); border-left:4px solid var(--gold); border-radius:var(--radius); padding:1.75rem; box-shadow:var(--shadow-sm); }
+    .decision-card.navy { border-left-color:var(--navy); }
+    .decision-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--navy); margin-bottom:.6rem; }
+    .decision-card p { font-size:.9rem; color:var(--muted); line-height:1.7; }
+    .decision-tailored { background:var(--gold-bg); border:1px solid rgba(15,122,229,.2); border-radius:var(--radius); padding:1.5rem 1.75rem; text-align:center; }
+    .decision-tailored p { font-size:.9rem; color:var(--navy); line-height:1.7; margin-bottom:1.1rem; max-width:640px; margin-left:auto; margin-right:auto; }
+
+    /* INSTRUCTORS */
+    .inst-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-top:2.5rem; }
+    .inst-card { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:1.5rem; text-align:center; transition:background .2s, border-color .2s; }
+    .inst-card:hover { background:rgba(255,255,255,.11); border-color:rgba(15,122,229,.3); }
+    .inst-monogram { width:56px; height:56px; border-radius:50%; margin:0 auto .85rem; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:1.2rem; color:#fff; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); border:1px solid rgba(255,255,255,.2); }
+    .inst-name { font-size:.92rem; font-weight:600; color:#fff; line-height:1.3; }
+    .inst-role { font-size:.72rem; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; margin-top:.3rem; }
+
+    /* FAQ */
+    .faq { max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:.6rem; }
+    details { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    details[open] { border-color:var(--navy); }
+    summary { padding:1.1rem 1.4rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:.9rem; color:var(--navy); list-style:none; user-select:none; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:'+'; font-size:1.3rem; color:var(--gold-dark); transition:transform .2s; flex-shrink:0; margin-left:1rem; }
+    details[open] summary::after { transform:rotate(45deg); }
+    .faq-body { padding:0 1.4rem 1.1rem; font-size:.86rem; color:var(--muted); line-height:1.75; border-top:1px solid var(--border); padding-top:.9rem; }
+    .faq-body a { color:var(--gold-dark); text-decoration:none; font-weight:600; }
+    .faq-body a:hover { text-decoration:underline; }
+
+    /* FINAL CTA */
+    .final-cta { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#0f3d72 100%); }
+    .final-inner { max-width:760px; margin:0 auto; padding:4rem 1.5rem; text-align:center; }
+    .final-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3.2vw,2.3rem); font-weight:700; color:#fff; margin-bottom:.85rem; }
+    .final-inner p { font-size:1rem; color:rgba(255,255,255,.7); line-height:1.7; margin-bottom:2rem; }
+    .final-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; align-items:center; }
+    .final-textlink { color:var(--gold-light); font-weight:600; font-size:.88rem; text-decoration:none; }
+    .final-textlink:hover { text-decoration:underline; }
+
+    /* FOOTER */
+    footer { background:var(--navy); color:rgba(255,255,255,.5); padding:2.5rem 1.5rem; text-align:center; font-size:.78rem; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:.35rem; }
+    .footer-logo span { color:var(--gold-light); }
+    footer a { color:var(--gold-light); text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+    .footer-disclaimer { margin-top:1.25rem; font-size:.68rem; opacity:.5; max-width:620px; margin-left:auto; margin-right:auto; }
+
+    hr.rule { border:none; border-top:1px solid var(--border); margin:0; }
+
+    @media (max-width:720px) {
+      .compare-wrap { display:none; }
+      .compare-cards { display:flex; }
+    }
+    @media (max-width:520px) {
+      .nav-link { display:none; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-white { width:100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
+      .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform:none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#adat-programs" class="skip-link">Skip to program selection</a>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="nav-inner">
+    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
+    <div class="nav-right">
+      <a href="/" class="nav-link">Courses</a>
+      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Speak With an Advisor</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">ADAT Programs</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Advanced Dental Admission Test Preparation</p>
+    <h1>Prepare for the ADAT with a Program <em>Built Around Your Goals</em></h1>
+    <p class="hero-sub">Build the biomedical, clinical and evidence-based dentistry knowledge required for the ADAT through structured lectures, exam-oriented resources, guided practice and realistic mock examinations.</p>
+    <div class="hero-actions">
+      <a href="#adat-programs" class="btn-gold">Explore ADAT Programs →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Speak With an Advisor</a>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT IS THE ADAT -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Overview</span>
+      <h2 class="section-title">What Is the Advanced Dental Admission Test?</h2>
+    </div>
+    <div class="whatis">
+      <p class="lead">The Advanced Dental Admission Test, or ADAT, is a standardized examination developed by the American Dental Association to help advanced dental education programs evaluate applicants for postgraduate training. It measures biomedical knowledge, clinical understanding, research interpretation and evidence-based decision-making.</p>
+      <p class="whatis-subhead">ADAT scores may be considered alongside:</p>
+      <ul class="whatis-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Academic performance</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical experience</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Research experience</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Letters of recommendation</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personal statements</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Other program-specific admission requirements</li>
+      </ul>
+      <p class="whatis-note">ADAT requirements vary between institutions, and not every postgraduate dental program requires it. Please confirm the requirements of each university or specialty program directly before you apply.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- CORE AREAS -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Exam Coverage</span>
+      <h2 class="section-title">Core Areas of the ADAT</h2>
+      <p class="section-desc">The ADAT consists of 200 multiple-choice questions divided across three main areas.</p>
+    </div>
+    <div class="core-grid">
+      <div class="core-card">
+        <div class="core-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0M5.52 16h12.96"/></svg></div>
+        <h3>Biomedical Sciences</h3>
+        <p>Foundational biomedical knowledge relevant to advanced dental education and clinical practice.</p>
+      </div>
+      <div class="core-card">
+        <div class="core-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M9 16l2 2 4-4"/></svg></div>
+        <h3>Clinical Sciences</h3>
+        <p>Application of clinical concepts across major areas of dentistry.</p>
+      </div>
+      <div class="core-card">
+        <div class="core-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></div>
+        <h3>Research &amp; Evidence-Based Dentistry</h3>
+        <p>Research interpretation, critical thinking and evidence-based clinical decision-making.</p>
+      </div>
+    </div>
+    <p class="core-note">Exam structure is set by the American Dental Association. Confirm current details on the official ADAT website.</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- PROGRAM SELECTION -->
+<section class="section" id="adat-programs">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Programs</span>
+      <h2 class="section-title">Choose Your ADAT Preparation Program</h2>
+      <p class="section-desc">Select a complete preparation pathway covering all three ADAT areas, or choose a focused program for Evidence-Based Dentistry and Biomedical Sciences.</p>
+    </div>
+
+    <div class="program-grid">
+
+      <!-- COMPREHENSIVE -->
+      <a class="program-card featured" href="/adat-programs/comprehensive/" aria-label="Explore the ADAT Comprehensive 2026 program">
+        <span class="prog-badge">Most Popular</span>
+        <h3 class="prog-title">ADAT Comprehensive – 2026</h3>
+        <div class="prog-price"><span class="prog-reg">$4,200</span><span class="prog-now">$3,999</span></div>
+        <p class="prog-hst"><strong>CAD</strong> + HST</p>
+        <p class="prog-desc">A complete ADAT preparation program covering Evidence-Based Dentistry, Biomedical Sciences and Clinical Sciences through structured online learning, comprehensive resources, Q&amp;A sessions and mock examinations.</p>
+        <p class="prog-subhead">Course coverage</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Evidence-Based Dentistry</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Biomedical Sciences</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical Sciences</li>
+        </ul>
+        <p class="prog-subhead">Highlights</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>56 online sessions · 7 booklets</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1,500+ self-study questions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 mini-mocks · 3 full mock exams</li>
+        </ul>
+        <span class="prog-cta">Explore Comprehensive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <!-- CRASH -->
+      <a class="program-card" href="/adat-programs/crash/" aria-label="Explore the ADAT Crash 2026 program">
+        <span class="prog-badge">Focused Preparation</span><span class="prog-tag">Modular Hybrid</span>
+        <h3 class="prog-title">ADAT Crash – 2026</h3>
+        <div class="prog-price"><span class="prog-now">$2,200</span></div>
+        <p class="prog-hst"><strong>CAD</strong> + HST</p>
+        <p class="prog-desc">A focused ADAT preparation option covering Evidence-Based Dentistry and Biomedical Sciences in a shorter, concentrated learning format.</p>
+        <p class="prog-subhead">Course coverage</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Evidence-Based Dentistry</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Biomedical Sciences</li>
+        </ul>
+        <p class="prog-subhead">Highlights</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>24 online sessions · 4 booklets</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 live Q&amp;A sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 mini-mocks · 1 full mock exam</li>
+        </ul>
+        <span class="prog-cta">Explore Crash Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- QUICK COMPARISON -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Side by Side</span>
+      <h2 class="section-title">Compare the ADAT Programs</h2>
+    </div>
+
+    <div class="compare-wrap">
+      <table class="compare">
+        <caption>Comparison of the ADAT Comprehensive and Crash programs</caption>
+        <thead>
+          <tr><th scope="col">Category</th><th scope="col">Comprehensive</th><th scope="col">Crash</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Course coverage</th><td>EBD, BMS and Clinical Sciences</td><td>EBD and BMS</td></tr>
+          <tr><th scope="row">Learning format</th><td>Live and pre-recorded</td><td>Live and pre-recorded</td></tr>
+          <tr><th scope="row">Online sessions</th><td>56</td><td>24</td></tr>
+          <tr><th scope="row">Live Q&amp;A sessions</th><td>6</td><td>3</td></tr>
+          <tr><th scope="row">Booklets</th><td>7</td><td>4</td></tr>
+          <tr><th scope="row">Mini-mock exams</th><td>5 total</td><td>3 total</td></tr>
+          <tr><th scope="row">Full mock exams</th><td>3</td><td>1</td></tr>
+          <tr><th scope="row">Completion date</th><td>February 15, 2027</td><td>November 21, 2026</td></tr>
+          <tr><th scope="row">Material access</th><td>Until end of August 2027</td><td>Until end of August 2027</td></tr>
+          <tr><th scope="row">Best suited for</th><td>Complete ADAT preparation</td><td>Focused EBD and BMS preparation</td></tr>
+          <tr class="compare-cta-row">
+            <th scope="row">Next step</th>
+            <td><a class="full" href="/adat-programs/comprehensive/">View Comprehensive <span aria-hidden="true">→</span></a></td>
+            <td><a class="sub" href="/adat-programs/crash/">View Crash Program <span aria-hidden="true">→</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="compare-cards">
+      <div class="cmp-card full">
+        <div class="cmp-card-head">ADAT Comprehensive</div>
+        <div class="cmp-row"><div class="cmp-key">Course coverage</div><div class="cmp-val">EBD, BMS and Clinical Sciences</div></div>
+        <div class="cmp-row"><div class="cmp-key">Learning format</div><div class="cmp-val">Live and pre-recorded</div></div>
+        <div class="cmp-row"><div class="cmp-key">Online sessions</div><div class="cmp-val">56</div></div>
+        <div class="cmp-row"><div class="cmp-key">Live Q&amp;A sessions</div><div class="cmp-val">6</div></div>
+        <div class="cmp-row"><div class="cmp-key">Booklets</div><div class="cmp-val">7</div></div>
+        <div class="cmp-row"><div class="cmp-key">Mini-mock exams</div><div class="cmp-val">5 total</div></div>
+        <div class="cmp-row"><div class="cmp-key">Full mock exams</div><div class="cmp-val">3</div></div>
+        <div class="cmp-row"><div class="cmp-key">Completion date</div><div class="cmp-val">February 15, 2027</div></div>
+        <div class="cmp-row"><div class="cmp-key">Material access</div><div class="cmp-val">Until end of August 2027</div></div>
+        <div class="cmp-row"><div class="cmp-key">Best suited for</div><div class="cmp-val">Complete ADAT preparation</div></div>
+        <a class="btn-gold" href="/adat-programs/comprehensive/">View Comprehensive →</a>
+      </div>
+      <div class="cmp-card sub">
+        <div class="cmp-card-head">ADAT Crash</div>
+        <div class="cmp-row"><div class="cmp-key">Course coverage</div><div class="cmp-val">EBD and BMS</div></div>
+        <div class="cmp-row"><div class="cmp-key">Learning format</div><div class="cmp-val">Live and pre-recorded</div></div>
+        <div class="cmp-row"><div class="cmp-key">Online sessions</div><div class="cmp-val">24</div></div>
+        <div class="cmp-row"><div class="cmp-key">Live Q&amp;A sessions</div><div class="cmp-val">3</div></div>
+        <div class="cmp-row"><div class="cmp-key">Booklets</div><div class="cmp-val">4</div></div>
+        <div class="cmp-row"><div class="cmp-key">Mini-mock exams</div><div class="cmp-val">3 total</div></div>
+        <div class="cmp-row"><div class="cmp-key">Full mock exams</div><div class="cmp-val">1</div></div>
+        <div class="cmp-row"><div class="cmp-key">Completion date</div><div class="cmp-val">November 21, 2026</div></div>
+        <div class="cmp-row"><div class="cmp-key">Material access</div><div class="cmp-val">Until end of August 2027</div></div>
+        <div class="cmp-row"><div class="cmp-key">Best suited for</div><div class="cmp-val">Focused EBD and BMS preparation</div></div>
+        <a class="btn-navy" href="/adat-programs/crash/">View Crash Program →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- DECISION SUPPORT -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Decision Support</span>
+      <h2 class="section-title">Which ADAT Program Is Right for You?</h2>
+    </div>
+    <div class="decision-grid">
+      <div class="decision-card">
+        <h3>Choose Comprehensive if…</h3>
+        <p>You want preparation across all three major ADAT areas, a longer study timeline, broader course resources and more extensive mock-exam practice.</p>
+      </div>
+      <div class="decision-card navy">
+        <h3>Choose Crash if…</h3>
+        <p>You want a shorter and more focused preparation pathway concentrating on Evidence-Based Dentistry and Biomedical Sciences.</p>
+      </div>
+    </div>
+    <div class="decision-tailored">
+      <p>If you require a specialized course plan, ConfiDentist can assess your goals, schedule and preferred learning approach to discuss a tailored option.</p>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-navy">Ask About a Tailored Plan →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- INSTRUCTORS -->
+<section class="section navy-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker" style="color:var(--gold-light)">Your Instructors</span>
+      <h2 class="section-title">Learn From Experienced Instructors</h2>
+      <p class="section-desc">The ADAT programs are taught by ConfiDentist's team of dental educators.</p>
+    </div>
+    <div class="inst-grid">
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">HS</div><div class="inst-name">Dr. Hannah Safiaghdam</div><div class="inst-role">ADAT Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">NM</div><div class="inst-name">Dr. Negar Madihi</div><div class="inst-role">ADAT Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">ZS</div><div class="inst-name">Dr. Zeeshan Sheikh</div><div class="inst-role">ADAT Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">TS</div><div class="inst-name">Dr. Tanvi Sharma</div><div class="inst-role">ADAT Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">LD</div><div class="inst-name">Dr. Lohrasb (Larry) Dehghani</div><div class="inst-role">ADAT Instructor</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Are the ADAT courses online?</summary><div class="faq-body">Yes. Both ADAT programs use a hybrid learning format delivered online, so you can prepare from anywhere.</div></details>
+      <details><summary>Are sessions live or pre-recorded?</summary><div class="faq-body">The programs combine live sessions with pre-recorded lectures. Live sessions are scheduled, while pre-recorded content can be watched on demand through your ConfiPortal account.</div></details>
+      <details><summary>When will I receive access after registering?</summary><div class="faq-body">Course access is provided after registration and confirmation. If you have not received your access details, contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a>.</div></details>
+      <details><summary>How long will course materials remain available?</summary><div class="faq-body">For both the Comprehensive and Crash 2026 programs, course-material access is available until the end of August 2027.</div></details>
+      <details><summary>Are installment plans available?</summary><div class="faq-body">For information about payment and installment options, please contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> before registering.</div></details>
+      <details><summary>Are booklets shipped outside Canada?</summary><div class="faq-body">The programs include comprehensive booklets. For questions about delivery to your location, contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> so we can confirm the available options.</div></details>
+      <details><summary>Is attendance at live sessions mandatory?</summary><div class="faq-body">The programs blend live sessions with pre-recorded lectures you can access on demand. If you cannot attend a live session, please contact us so we can advise on the best approach.</div></details>
+      <details><summary>Can I request a tailored ADAT course?</summary><div class="faq-body">Yes. If you need a specialized plan, ConfiDentist can assess your goals, schedule and preferred learning approach to discuss a tailored option. Reach out via our <a href="https://www.confidentist.ca/contact-us/">contact page</a>.</div></details>
+      <details><summary>Who should I contact for technical support?</summary><div class="faq-body">For technical support, contact <a href="mailto:admin@confidentist.ca">admin@confidentist.ca</a>, <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or <a href="mailto:confiportal@confidentist.ca">confiportal@confidentist.ca</a>. You can also call <a href="tel:+14373700122">+1 437 370 0122</a>.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Start Your ADAT Preparation with ConfiDentist</h2>
+    <p>Compare the complete and focused preparation options, then choose the program that best supports your academic goals and study schedule.</p>
+    <div class="final-actions">
+      <a href="/adat-programs/comprehensive/" class="btn-gold">Explore Comprehensive →</a>
+      <a href="/adat-programs/crash/" class="btn-outline-white">Explore Crash Program →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="final-textlink">Speak With an Advisor</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Courses</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/resources/">Resources</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada. The ADAT is administered by the American Dental Association.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
