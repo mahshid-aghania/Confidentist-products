@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACJ Comprehensive | Complete ACJ Preparation | ConfiDentist</title>
+  <meta name="description" content="The ACJ Comprehensive program: a 6-month pathway with 111 sessions, quizzes, an X-ray practice library, 10 mini-mocks, 4 full mock exams and private mentorship." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/acj-programs/comprehensive/" />
+  <meta property="og:title" content="ACJ Comprehensive | ConfiDentist" />
+  <meta property="og:description" content="Complete ACJ preparation with structured sessions, mock exams and mentorship, offered in cohorts aligned to NDEB exam dates." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --navy:#072C5E; --navy-mid:#1C3165; --navy-light:#213669;
+      --gold:#0f7ae5; --gold-dark:#0a5cb8; --gold-light:#5cb2f7; --gold-bg:#e9f3fd;
+      --teal:#3BAFBF; --teal-light:#e8f7f8;
+      --bg:#ffffff; --bg-soft:#f6f8fb; --text:#1a1f2e; --muted:#586175; --border:#dde3ee; --radius:.75rem;
+      --shadow-sm:0 1px 4px rgba(7,44,94,.06),0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:0 4px 24px rgba(7,44,94,.10),0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:0 8px 40px rgba(7,44,94,.14);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
+    a { color:inherit; }
+    a:focus-visible, button:focus-visible { outline:3px solid var(--teal); outline-offset:3px; border-radius:.3rem; }
+    .skip-link { position:absolute; left:-999px; top:0; z-index:500; background:var(--gold); color:#fff; font-weight:700; padding:.6rem 1rem; border-radius:0 0 .4rem 0; text-decoration:none; }
+    .skip-link:focus { left:0; }
+
+    nav.top { position:sticky; top:0; z-index:200; background:var(--navy); border-bottom:2px solid var(--gold); }
+    .nav-inner { max-width:1160px; margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:66px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:#fff; text-decoration:none; display:flex; align-items:center; gap:.5rem; }
+    .nav-logo span { color:var(--gold-light); }
+    .nav-right { display:flex; align-items:center; gap:1rem; }
+    .nav-link { color:rgba(255,255,255,.75); font-size:.82rem; text-decoration:none; transition:color .2s; }
+    .nav-link:hover { color:#fff; }
+    .nav-cta { background:var(--gold); color:#fff; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.5rem 1.25rem; border-radius:.35rem; text-decoration:none; transition:background .2s; }
+    .nav-cta:hover { background:var(--gold-light); }
+
+    .crumbs { background:var(--bg-soft); border-bottom:1px solid var(--border); }
+    .crumbs-inner { max-width:1160px; margin:0 auto; padding:.85rem 1.5rem; font-size:.78rem; color:var(--muted); }
+    .crumbs-inner a { color:var(--gold-dark); text-decoration:none; }
+    .crumbs-inner a:hover { text-decoration:underline; }
+    .crumbs-inner span[aria-current] { color:var(--navy); font-weight:600; }
+    .crumbs-sep { margin:0 .5rem; color:var(--border); }
+
+    .btn-gold { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; background:var(--gold); color:#fff; font-weight:700; font-size:.88rem; padding:.8rem 2rem; border-radius:.4rem; text-decoration:none; box-shadow:0 4px 18px rgba(15,122,229,.35); transition:background .2s, transform .15s, box-shadow .2s; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); box-shadow:0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border:1.5px solid rgba(255,255,255,.3); color:#fff; font-size:.88rem; font-weight:500; padding:.8rem 2rem; border-radius:.4rem; text-decoration:none; transition:background .2s, border-color .2s; }
+    .btn-outline-white:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5); }
+    .btn-navy { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; background:var(--navy); color:#fff; font-weight:700; font-size:.85rem; padding:.8rem 1.75rem; border-radius:.4rem; text-decoration:none; transition:background .2s, transform .15s; }
+    .btn-navy:hover { background:var(--navy-mid); transform:translateY(-1px); }
+    .btn-ghost { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border:1.5px solid var(--navy); color:var(--navy); font-weight:700; font-size:.85rem; padding:.8rem 1.75rem; border-radius:.4rem; text-decoration:none; transition:background .2s, color .2s, transform .15s; }
+    .btn-ghost:hover { background:var(--navy); color:#fff; transform:translateY(-1px); }
+
+    .hero { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 55%,#0f3d72 100%); padding:4rem 1.5rem; position:relative; overflow:hidden; }
+    .hero::after { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
+    .hero-inner { max-width:820px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:.5rem; background:rgba(15,122,229,.18); border:1px solid rgba(15,122,229,.45); color:var(--gold-light); border-radius:.35rem; font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.35rem 1rem; margin-bottom:1.5rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.6vw,3rem); font-weight:700; line-height:1.18; color:#fff; margin-bottom:1rem; }
+    .hero h1 em { font-style:italic; color:var(--gold-light); }
+    .hero-sub { font-size:1.02rem; color:rgba(255,255,255,.72); max-width:600px; margin:0 auto 1.5rem; line-height:1.7; font-weight:300; }
+    .hero-price { display:inline-flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-bottom:2rem; }
+    .hero-reg { font-size:1.05rem; color:rgba(255,255,255,.5); text-decoration:line-through; }
+    .hero-now { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--gold-light); }
+    .hero-hst { font-size:.8rem; color:rgba(255,255,255,.6); align-self:center; }
+    .hero-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
+
+    .section { padding:4rem 1.5rem; }
+    .section.alt { background:var(--bg-soft); }
+    .section-inner { max-width:1160px; margin:0 auto; }
+    .section-head { max-width:660px; margin:0 auto 2.5rem; text-align:center; }
+    .section-kicker { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:.6rem; display:inline-flex; align-items:center; gap:.5rem; }
+    .section-kicker::before { content:''; display:block; width:20px; height:2px; background:var(--gold); }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.85rem; }
+    .section-desc { font-size:.95rem; color:var(--muted); line-height:1.8; }
+
+    .overview-row { display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; }
+    .ov-chip { display:inline-flex; align-items:center; gap:.5rem; background:#fff; border:1.5px solid var(--border); border-radius:2rem; padding:.55rem 1.1rem; font-size:.84rem; font-weight:500; color:var(--navy); box-shadow:var(--shadow-sm); }
+    .ov-chip svg { width:16px; height:16px; color:var(--teal); flex-shrink:0; }
+
+    .detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; }
+    .detail-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); }
+    .detail-card h3 { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:1rem; }
+    .detail-list { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+    .detail-list li { display:flex; align-items:flex-start; gap:.55rem; font-size:.88rem; color:var(--muted); line-height:1.5; }
+    .detail-list li svg { width:15px; height:15px; color:var(--teal); flex-shrink:0; margin-top:.15rem; }
+    .detail-list li strong { color:var(--navy); font-weight:600; }
+
+    .includes { max-width:820px; margin:0 auto; }
+    .includes-list { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:.7rem 1.5rem; }
+    .includes-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.9rem; color:var(--muted); line-height:1.55; }
+    .includes-list li svg { width:16px; height:16px; color:var(--gold); flex-shrink:0; margin-top:.15rem; }
+
+    /* COHORT CARDS */
+    .cohort-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:820px; margin:0 auto; }
+    .cohort-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.75rem; box-shadow:var(--shadow-sm); text-align:center; }
+    .cohort-card.featured { border-color:var(--gold); border-width:2px; }
+    .cohort-name { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:.4rem; }
+    .cohort-meta { font-size:.84rem; color:var(--muted); margin-bottom:.75rem; }
+    .cohort-price { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--navy); }
+    .cohort-hst { font-size:.76rem; color:var(--muted); margin-bottom:1.25rem; }
+    .cohort-card .btn-gold, .cohort-card .btn-ghost { width:100%; }
+
+    .final-cta { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#0f3d72 100%); }
+    .final-inner { max-width:760px; margin:0 auto; padding:4rem 1.5rem; text-align:center; }
+    .final-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3.2vw,2.2rem); font-weight:700; color:#fff; margin-bottom:.85rem; }
+    .final-inner p { font-size:1rem; color:rgba(255,255,255,.7); line-height:1.7; margin-bottom:2rem; }
+    .final-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
+
+    footer { background:var(--navy); color:rgba(255,255,255,.5); padding:2.5rem 1.5rem; text-align:center; font-size:.78rem; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:.35rem; }
+    .footer-logo span { color:var(--gold-light); }
+    footer a { color:var(--gold-light); text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+    .footer-disclaimer { margin-top:1.25rem; font-size:.68rem; opacity:.5; max-width:640px; margin-left:auto; margin-right:auto; }
+
+    hr.rule { border:none; border-top:1px solid var(--border); margin:0; }
+
+    @media (max-width:520px) {
+      .nav-link { display:none; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-white { width:100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
+      .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform:none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#includes" class="skip-link">Skip to what's included</a>
+
+<nav class="top">
+  <div class="nav-inner">
+    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
+    <div class="nav-right">
+      <a href="/acj-programs/" class="nav-link">ACJ Programs</a>
+      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Speak With an Advisor</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <a href="/acj-programs/">ACJ Programs</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">ACJ Comprehensive</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">ACJ Comprehensive · Most Popular</p>
+    <h1>Complete ACJ Preparation, <em>Built Around the Exam</em></h1>
+    <p class="hero-sub">A complete, 6-month ACJ preparation program with structured sessions, quizzes, a radiology and case-based practice series, an extensive mock-exam sequence and private mentorship.</p>
+    <div class="hero-price">
+      <span class="hero-reg">$3,199</span>
+      <span class="hero-now">$3,039</span>
+      <span class="hero-hst">CAD + HST · early-bird</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#cohorts" class="btn-gold">Choose Your Cohort →</a>
+      <a href="/acj-programs/" class="btn-outline-white">← Back to ACJ Programs</a>
+    </div>
+  </div>
+</header>
+
+<!-- QUICK OVERVIEW -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">At a Glance</span>
+      <h2 class="section-title">Program Overview</h2>
+    </div>
+    <div class="overview-row">
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-month program</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>111 total sessions</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>10 mini-mocks · 4 full mocks</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>X-ray practice library</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- COVERAGE / FORMAT / TIMELINE -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Details</span>
+      <h2 class="section-title">Coverage, Format &amp; Timeline</h2>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Program coverage</h3>
+        <ul class="detail-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Radiology</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical cases</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Operative dentistry</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pathology</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3>Learning format</h3>
+        <ul class="detail-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live and pre-recorded sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In-office X-ray practice library</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship &amp; VIP WhatsApp group</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3>Timeline</h3>
+        <ul class="detail-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><strong>Duration:</strong> 6 months</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><strong>Cohorts:</strong> Nov 2026 &amp; May 2027 exams</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><strong>Access:</strong> Within 2–3 business days after registration</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- WHAT'S INCLUDED -->
+<section class="section" id="includes">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">What's Included</span>
+      <h2 class="section-title">Everything in the ACJ Comprehensive Program</h2>
+    </div>
+    <div class="includes">
+      <ul class="includes-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>111 total sessions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>20 quizzes with live discussions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>X-ray practice library (in-person office access)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>10 mini-mock exams (radiology, cases, operative dentistry, pathology)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams with 8 discussion sessions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Access within 2–3 business days after registration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- COHORTS -->
+<section class="section alt" id="cohorts">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Register</span>
+      <h2 class="section-title">Choose Your Exam Cohort</h2>
+      <p class="section-desc">Select the cohort aligned to the NDEB exam date you plan to sit.</p>
+    </div>
+    <div class="cohort-grid">
+      <div class="cohort-card">
+        <div class="cohort-name">November 2026 Exam</div>
+        <div class="cohort-meta">Course starts April 2026 · 6 months</div>
+        <div class="cohort-price">$3,199</div>
+        <div class="cohort-hst">CAD + HST</div>
+        <a class="btn-ghost" href="https://www.confidentist.ca/product/acj-comprehensive-november-2026/">Register for November 2026 Exam →</a>
+      </div>
+      <div class="cohort-card featured">
+        <div class="cohort-name">May 2027 Exam</div>
+        <div class="cohort-meta">Course starts October 2026 · 6 months</div>
+        <div class="cohort-price">$3,039</div>
+        <div class="cohort-hst">CAD + HST · early-bird</div>
+        <a class="btn-gold" href="https://www.confidentist.ca/product/acj-comprehensive-may-2026-copy/">Register for May 2027 Exam →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Register for the ACJ Comprehensive Program</h2>
+    <p>Secure your place in the complete ACJ preparation program and choose the exam cohort that fits your timeline.</p>
+    <div class="final-actions">
+      <a href="https://www.confidentist.ca/product/acj-comprehensive-november-2026/" class="btn-gold">November 2026 Exam →</a>
+      <a href="https://www.confidentist.ca/product/acj-comprehensive-may-2026-copy/" class="btn-outline-white">May 2027 Exam →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Speak With an Advisor</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Courses</a> &nbsp;·&nbsp;
+    <a href="/acj-programs/">ACJ Programs</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada. The ACJ is administered by the NDEB.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
