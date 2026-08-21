@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NDECC Situational Judgement | Core &amp; Comprehensive Courses | ConfiDentist</title>
+  <meta name="description" content="Prepare for the NDECC Situational Judgement exam with ConfiDentist's interactive, small-group in-person courses — 200+ scenarios, role-play and written exercises, personalized feedback, and an optional 8-mock program." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/ndecc-programs/situational-judgement/" />
+  <meta property="og:title" content="NDECC Situational Judgement | ConfiDentist" />
+  <meta property="og:description" content="Interactive, small-group NDECC Situational Judgement preparation with 200+ scenarios, role-play and written practice, and mock exams." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem;
+    }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    nav { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 2px solid var(--gold); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .02em; display: flex; align-items: center; gap: .5rem; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-link { color: rgba(255,255,255,.75); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .5rem 1.25rem; border-radius: .35rem; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .crumbs { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .crumbs-inner { max-width: 1160px; margin: 0 auto; padding: .85rem 1.5rem; font-size: .78rem; color: var(--muted); }
+    .crumbs-inner a { color: var(--gold-dark); text-decoration: none; }
+    .crumbs-inner a:hover { text-decoration: underline; }
+    .crumbs-inner span[aria-current] { color: var(--navy); font-weight: 600; }
+    .crumbs-sep { margin: 0 .5rem; color: var(--border); }
+
+    .btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .88rem; letter-spacing: .03em; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; box-shadow: 0 4px 18px rgba(15,122,229,.35); transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid rgba(255,255,255,.3); color: #fff; font-size: .88rem; font-weight: 500; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; transition: background .2s, border-color .2s; }
+    .btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+    .btn-navy { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--navy); color: #fff; font-weight: 700; font-size: .85rem; letter-spacing: .03em; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid var(--navy); color: var(--navy); font-weight: 700; font-size: .85rem; letter-spacing: .03em; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: background .2s, color .2s, transform .15s; }
+    .btn-ghost:hover { background: var(--navy); color: #fff; transform: translateY(-1px); }
+
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); padding: 4rem 1.5rem; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(15,122,229,.18); border: 1px solid rgba(15,122,229,.45); color: var(--gold-light); border-radius: .35rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 700; line-height: 1.18; color: #fff; margin-bottom: 1.1rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.03rem; color: rgba(255,255,255,.72); max-width: 620px; margin: 0 auto 2.25rem; line-height: 1.7; font-weight: 300; }
+    .hero-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    .section { padding: 4rem 1.5rem; }
+    .section.alt { background: var(--bg-soft); }
+    .section.navy-bg { background: var(--navy); }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-head { max-width: 660px; margin: 0 auto 2.5rem; text-align: center; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.2rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
+    .section.navy-bg .section-title { color: #fff; }
+    .section-desc { font-size: .95rem; color: var(--muted); line-height: 1.8; }
+    .section.navy-bg .section-desc { color: rgba(255,255,255,.68); }
+
+    .overview-row { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+    .ov-chip { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1.5px solid var(--border); border-radius: 2rem; padding: .55rem 1.1rem; font-size: .84rem; font-weight: 500; color: var(--navy); box-shadow: var(--shadow-sm); }
+    .ov-chip svg { width: 16px; height: 16px; color: var(--teal); flex-shrink: 0; }
+
+    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; align-items: stretch; }
+    .price-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); position: relative; }
+    .price-card.featured { border-color: var(--gold); border-width: 2px; box-shadow: var(--shadow-md); }
+    .price-badge { align-self: flex-start; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .32rem .8rem; border-radius: .3rem; margin-bottom: 1rem; }
+    .price-badge.core { background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.3); }
+    .price-badge.popular { background: var(--gold); color: #fff; }
+    .price-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .price-start { font-size: .82rem; font-weight: 600; color: var(--gold-dark); margin-bottom: 1.1rem; }
+    .price-amount { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+    .price-now { font-family: 'Playfair Display', serif; font-size: 1.95rem; font-weight: 700; color: var(--navy); }
+    .price-hst { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+    .price-hst strong { color: var(--navy); font-weight: 600; }
+    .price-earlybird { font-size: .78rem; color: var(--muted); line-height: 1.55; margin-top: .5rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .55rem .75rem; }
+    .price-divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+    .price-subhead { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: .75rem; }
+    .price-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; }
+    .price-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .86rem; color: var(--muted); line-height: 1.5; }
+    .price-list li svg { width: 15px; height: 15px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .price-card.featured .price-list li svg { color: var(--gold); }
+    .price-cta { margin-top: auto; width: 100%; }
+
+    .decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .decision-card { background: #fff; border: 1.5px solid var(--border); border-left: 4px solid var(--teal); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-sm); }
+    .decision-card.blue { border-left-color: var(--gold); }
+    .decision-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: .6rem; }
+    .decision-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+    .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .format-card { display: flex; gap: .85rem; align-items: flex-start; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.35rem; box-shadow: var(--shadow-sm); }
+    .format-card svg { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; margin-top: .1rem; }
+    .format-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+    .inst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+    .inst-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 1.5rem; text-align: center; transition: background .2s, border-color .2s; }
+    .inst-card:hover { background: rgba(255,255,255,.11); border-color: rgba(15,122,229,.3); }
+    .inst-monogram { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto .85rem; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; color: #fff; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); border: 1px solid rgba(255,255,255,.2); }
+    .inst-name { font-size: .95rem; font-weight: 600; color: #fff; line-height: 1.3; }
+    .inst-role { font-size: .72rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .08em; margin-top: .3rem; }
+
+    .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+    details { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details[open] { border-color: var(--navy); }
+    summary { padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: .9rem; color: var(--navy); list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--gold-dark); transition: transform .2s; flex-shrink: 0; margin-left: 1rem; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body { padding: 0 1.4rem 1.1rem; font-size: .86rem; color: var(--muted); line-height: 1.75; border-top: 1px solid var(--border); padding-top: .9rem; }
+    .faq-body a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+    .faq-body a:hover { text-decoration: underline; }
+
+    .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); }
+    .final-inner { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+    .final-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.3rem); font-weight: 700; color: #fff; margin-bottom: .85rem; }
+    .final-inner p { font-size: 1rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 2rem; }
+    .final-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold-light); }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    @media (max-width: 520px) {
+      .nav-link { display: none; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-white { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#packages" class="skip-link">Skip to package options</a>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
+    <div class="nav-right">
+      <a href="/ndecc-programs/" class="nav-link">NDECC Programs</a>
+      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Contact an Advisor</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <a href="/ndecc-programs/">NDECC Programs</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">NDECC Situational Judgement</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">NDECC Situational Judgement</p>
+    <h1>Practice, Evaluate and <em>Succeed</em></h1>
+    <p class="hero-sub">A highly interactive, small-group program built around real exam scenarios, role-play and written exercises — with personalized coaching to sharpen the professional judgement the NDECC assesses.</p>
+    <div class="hero-actions">
+      <a href="#packages" class="btn-gold">Compare Packages →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">At a Glance</span>
+      <h2 class="section-title">What the Situational Judgement Program Delivers</h2>
+    </div>
+    <div class="overview-row">
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Role-play &amp; written</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Small groups (up to 7)</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>64 hours of sessions</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section alt" id="packages">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Two Package Options</span>
+      <h2 class="section-title">Compare the Situational Judgement Packages</h2>
+      <p class="section-desc">Both are private, in-person courses for up to 7 people. The Core package delivers the full course; the Comprehensive package adds an intensive 8-mock exam program.</p>
+    </div>
+
+    <div class="price-grid">
+
+      <!-- CORE -->
+      <article class="price-card">
+        <span class="price-badge core">Core Package</span>
+        <h3 class="price-name">Core</h3>
+        <p class="price-start">Private in-person course · up to 7 people</p>
+        <div class="price-amount">
+          <span class="price-now">$4,499</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST</p>
+        <p class="price-earlybird">Interest-free installment option available (2 + 1 payments).</p>
+
+        <hr class="price-divider" />
+        <p class="price-subhead">Best suited for</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Candidates who want an interactive, focused course without the added mock program</li>
+        </ul>
+        <p class="price-subhead">What's included</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>16 sessions of 4 hours (64 hours total)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 month of recorded videos, then in-person classes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios (written and role-play)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Comprehensive resources — notes and recorded explanations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Small class — maximum 7 people</li>
+        </ul>
+        <a class="btn-ghost price-cta" href="https://www.confidentist.ca/product/situational-judgement-in-person-2026/">Register Now →</a>
+      </article>
+
+      <!-- COMPREHENSIVE -->
+      <article class="price-card featured">
+        <span class="price-badge popular">All-Inclusive</span>
+        <h3 class="price-name">Comprehensive</h3>
+        <p class="price-start">Course + intensive 8-mock program</p>
+        <div class="price-amount">
+          <span class="price-now">$7,599</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST</p>
+        <p class="price-earlybird">Interest-free installment option available (2 + 1 payments).</p>
+
+        <hr class="price-divider" />
+        <p class="price-subhead">Best suited for</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Candidates who want the full course plus intensive, individually-reviewed mock practice</li>
+        </ul>
+        <p class="price-subhead">Everything in Core, plus</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mock exams (written + role-play stations)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-on-1 personalized feedback after every mock</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>On-site format at the ConfiDentist centre</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mock program structured for completion in 4 weeks</li>
+        </ul>
+        <a class="btn-gold price-cta" href="https://www.confidentist.ca/product/situational-judgement-comprehensive-in-person-2026/">Register Now →</a>
+      </article>
+
+    </div>
+
+    <p class="section-desc" style="text-align:center; max-width:660px; margin:2rem auto 0;">Prefer mock practice on its own? The <a href="https://www.confidentist.ca/product/situational-judgement-mock-exam-new-design/" style="color:var(--gold-dark);font-weight:600;text-decoration:none;">Situational Judgement Mock Exam program</a> is available separately from $1,200 CAD + HST (2–8 mocks).</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Decision Support</span>
+      <h2 class="section-title">Which Package Is Right for You?</h2>
+    </div>
+    <div class="decision-grid">
+      <div class="decision-card">
+        <h3>Choose Core if…</h3>
+        <p>You want the full interactive course — 64 hours of sessions, 200+ scenarios and personalized feedback — and plan to handle mock practice separately or not at all.</p>
+      </div>
+      <div class="decision-card blue">
+        <h3>Choose Comprehensive if…</h3>
+        <p>You want the complete package: the full course plus an intensive 8-mock program with one-on-one feedback and private discussions, completed in a focused 4-week stretch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">How It Works</span>
+      <h2 class="section-title">Course Format</h2>
+      <p class="section-desc">A blended, small-group program: you start with recorded videos, then move into interactive in-person sessions.</p>
+    </div>
+    <div class="format-grid">
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m23 7-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><p>Month one is delivered as recorded videos to build your foundation.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><p>Months two and three are in-person classes in small groups of up to 7.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><p>16 sessions of 4 hours (64 hours total), scheduled twice weekly.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><p>Recorded content and resources are accessed through ConfiPortal.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><p>Access is generally provided within 2–3 business days after registration.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section navy-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker" style="color:var(--gold-light)">Your Instructors</span>
+      <h2 class="section-title">Learn From Experienced NDECC Instructors</h2>
+      <p class="section-desc">The Situational Judgement program is led by ConfiDentist's team of experienced dental educators.</p>
+    </div>
+    <div class="inst-grid">
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">MA</div><div class="inst-name">Dr. Mehdi Adibrad</div><div class="inst-role">SJ Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">AA</div><div class="inst-name">Dr. Amin Asadollahi</div><div class="inst-role">SJ Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">MI</div><div class="inst-name">Dr. Mark Ibrahim</div><div class="inst-role">SJ Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">FK</div><div class="inst-name">Dr. Fardad Kamalian</div><div class="inst-role">SJ Instructor</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is the course online or in person?</summary>
+        <div class="faq-body">It's a blended, private in-person course. The first month is delivered as recorded videos through ConfiPortal, and the following two months are in-person classes in small groups of up to 7 people.</div>
+      </details>
+      <details>
+        <summary>What's the difference between Core and Comprehensive?</summary>
+        <div class="faq-body">Both include the full course — 64 hours of sessions, 200+ scenarios, personalized feedback and resources. The Comprehensive package additionally includes an intensive program of 8 full mock exams with one-on-one feedback and private post-mock discussions, structured for completion in 4 weeks.</div>
+      </details>
+      <details>
+        <summary>Can I take the mock exams without the course?</summary>
+        <div class="faq-body">Yes. The <a href="https://www.confidentist.ca/product/situational-judgement-mock-exam-new-design/">Situational Judgement Mock Exam program</a> is available separately (2–8 mocks) from $1,200 CAD + HST.</div>
+      </details>
+      <details>
+        <summary>Are installment plans available?</summary>
+        <div class="faq-body">Yes. Both packages offer an interest-free installment option (2 + 1 payments). For details, contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a>.</div>
+      </details>
+      <details>
+        <summary>Is live attendance mandatory?</summary>
+        <div class="faq-body">Live attendance is highly recommended for the in-person sessions, given the interactive, role-play nature of the course. If you have scheduling concerns, contact us to discuss your cohort.</div>
+      </details>
+      <details>
+        <summary>Who can I contact with questions?</summary>
+        <div class="faq-body">Reach out to <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or call <a href="tel:+14373700122">+1 437 370 0122</a>. For technical support, contact <a href="mailto:admin@confidentist.ca">admin@confidentist.ca</a> or <a href="mailto:confiportal@confidentist.ca">confiportal@confidentist.ca</a>.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Register for NDECC Situational Judgement</h2>
+    <p>Choose the Core course, or the Comprehensive package with an intensive 8-mock program — and practise the real exam scenarios that matter.</p>
+    <div class="final-actions">
+      <a href="https://www.confidentist.ca/product/situational-judgement-in-person-2026/" class="btn-gold">Register — Core →</a>
+      <a href="https://www.confidentist.ca/product/situational-judgement-comprehensive-in-person-2026/" class="btn-outline-white">Register — Comprehensive →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Courses</a> &nbsp;·&nbsp;
+    <a href="/ndecc-programs/">NDECC Programs</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

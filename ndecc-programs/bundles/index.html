@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NDECC Brilliant Bundle | Complete Clinical Skills &amp; Situational Judgement | ConfiDentist</title>
+  <meta name="description" content="The Brilliant Bundle is ConfiDentist's complete NDECC pathway — the Clinical Skills course and mocks plus the Situational Judgement course and mocks, with basic tools and interest-free installments." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/ndecc-programs/bundles/" />
+  <meta property="og:title" content="NDECC Brilliant Bundle | ConfiDentist" />
+  <meta property="og:description" content="The complete NDECC pathway covering both components — Clinical Skills and Situational Judgement courses plus mock exams." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem;
+    }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    nav { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 2px solid var(--gold); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .02em; display: flex; align-items: center; gap: .5rem; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-link { color: rgba(255,255,255,.75); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .5rem 1.25rem; border-radius: .35rem; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .crumbs { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .crumbs-inner { max-width: 1160px; margin: 0 auto; padding: .85rem 1.5rem; font-size: .78rem; color: var(--muted); }
+    .crumbs-inner a { color: var(--gold-dark); text-decoration: none; }
+    .crumbs-inner a:hover { text-decoration: underline; }
+    .crumbs-inner span[aria-current] { color: var(--navy); font-weight: 600; }
+    .crumbs-sep { margin: 0 .5rem; color: var(--border); }
+
+    .btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .88rem; letter-spacing: .03em; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; box-shadow: 0 4px 18px rgba(15,122,229,.35); transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid rgba(255,255,255,.3); color: #fff; font-size: .88rem; font-weight: 500; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; transition: background .2s, border-color .2s; }
+    .btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+    .btn-navy { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--navy); color: #fff; font-weight: 700; font-size: .85rem; letter-spacing: .03em; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid var(--navy); color: var(--navy); font-weight: 700; font-size: .85rem; letter-spacing: .03em; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: background .2s, color .2s, transform .15s; }
+    .btn-ghost:hover { background: var(--navy); color: #fff; transform: translateY(-1px); }
+
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); padding: 4rem 1.5rem; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(15,122,229,.18); border: 1px solid rgba(15,122,229,.45); color: var(--gold-light); border-radius: .35rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 700; line-height: 1.18; color: #fff; margin-bottom: 1.1rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.03rem; color: rgba(255,255,255,.72); max-width: 620px; margin: 0 auto 2.25rem; line-height: 1.7; font-weight: 300; }
+    .hero-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    .section { padding: 4rem 1.5rem; }
+    .section.alt { background: var(--bg-soft); }
+    .section.navy-bg { background: var(--navy); }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-head { max-width: 660px; margin: 0 auto 2.5rem; text-align: center; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.2rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
+    .section.navy-bg .section-title { color: #fff; }
+    .section-desc { font-size: .95rem; color: var(--muted); line-height: 1.8; }
+    .section.navy-bg .section-desc { color: rgba(255,255,255,.68); }
+
+    .overview-row { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+    .ov-chip { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1.5px solid var(--border); border-radius: 2rem; padding: .55rem 1.1rem; font-size: .84rem; font-weight: 500; color: var(--navy); box-shadow: var(--shadow-sm); }
+    .ov-chip svg { width: 16px; height: 16px; color: var(--teal); flex-shrink: 0; }
+
+    /* Single prominent bundle price card */
+    .bundle-price { max-width: 560px; margin: 0 auto; }
+    .price-card { background: #fff; border: 2px solid var(--gold); border-radius: var(--radius); padding: 2.25rem; display: flex; flex-direction: column; box-shadow: var(--shadow-md); position: relative; text-align: center; }
+    .price-badge { align-self: center; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .32rem .8rem; border-radius: .3rem; margin-bottom: 1rem; background: var(--gold); color: #fff; }
+    .price-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .price-start { font-size: .86rem; color: var(--muted); margin-bottom: 1.1rem; }
+    .price-amount { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; justify-content: center; }
+    .price-now { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--navy); }
+    .price-hst { font-size: .82rem; color: var(--muted); margin-top: .3rem; }
+    .price-hst strong { color: var(--navy); font-weight: 600; }
+    .price-earlybird { font-size: .82rem; color: var(--muted); line-height: 1.55; margin-top: .85rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .6rem .85rem; }
+    .price-cta { margin-top: 1.5rem; width: 100%; }
+
+    /* Bundle component cards */
+    .bundle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .bundle-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.85rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--teal); }
+    .bundle-card.sj { border-top-color: var(--gold); }
+    .bundle-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .bundle-card .tag { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 1rem; display: block; }
+    .inc-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .inc-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .86rem; color: var(--muted); line-height: 1.5; }
+    .inc-list li svg { width: 15px; height: 15px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .bundle-card.sj .inc-list li svg { color: var(--gold); }
+
+    .tools-note { max-width: 760px; margin: 2rem auto 0; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.35rem; font-size: .88rem; color: var(--muted); line-height: 1.6; text-align: center; }
+    .tools-note strong { color: var(--navy); }
+
+    .decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .decision-card { background: #fff; border: 1.5px solid var(--border); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-sm); }
+    .decision-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: .6rem; }
+    .decision-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+    .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+    details { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details[open] { border-color: var(--navy); }
+    summary { padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: .9rem; color: var(--navy); list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--gold-dark); transition: transform .2s; flex-shrink: 0; margin-left: 1rem; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body { padding: 0 1.4rem 1.1rem; font-size: .86rem; color: var(--muted); line-height: 1.75; border-top: 1px solid var(--border); padding-top: .9rem; }
+    .faq-body a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+    .faq-body a:hover { text-decoration: underline; }
+
+    .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); }
+    .final-inner { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+    .final-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.3rem); font-weight: 700; color: #fff; margin-bottom: .85rem; }
+    .final-inner p { font-size: 1rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 2rem; }
+    .final-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold-light); }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    @media (max-width: 520px) {
+      .nav-link { display: none; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-white { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#bundle" class="skip-link">Skip to the bundle</a>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
+    <div class="nav-right">
+      <a href="/ndecc-programs/" class="nav-link">NDECC Programs</a>
+      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Contact an Advisor</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <a href="/ndecc-programs/">NDECC Programs</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">NDECC Bundles</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">NDECC Bundles</p>
+    <h1>The Brilliant Bundle — Your Complete <em>Path to Success</em></h1>
+    <p class="hero-sub">One pathway through the entire NDECC: the Clinical Skills course and mocks together with the Situational Judgement course and mocks, plus the basic tools to get started — with interest-free installments.</p>
+    <div class="hero-actions">
+      <a href="#bundle" class="btn-gold">See the Bundle →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">At a Glance</span>
+      <h2 class="section-title">Both NDECC Components, One Complete Package</h2>
+    </div>
+    <div class="overview-row">
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical Skills course</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical Skills mocks</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Situational Judgement course</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Situational Judgement mocks</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Basic tools included</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- BUNDLE PRICE -->
+<section class="section alt" id="bundle">
+  <div class="section-inner">
+    <div class="bundle-price">
+      <article class="price-card">
+        <span class="price-badge">Complete NDECC Path</span>
+        <h2 class="price-name">The Brilliant Bundle</h2>
+        <p class="price-start">Clinical Skills + Situational Judgement — courses and mock exams</p>
+        <div class="price-amount">
+          <span class="price-now">$24,999</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST</p>
+        <p class="price-earlybird">Pay in installments with zero interest.</p>
+        <a class="btn-gold price-cta" href="https://www.confidentist.ca/product/the-brilliant-bundle-2026-2/">Register Now →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- WHAT'S INSIDE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">What's Inside</span>
+      <h2 class="section-title">Everything the Bundle Includes</h2>
+      <p class="section-desc">Four complete programs across both NDECC components, plus the basic tools to begin.</p>
+    </div>
+    <div class="bundle-grid">
+
+      <div class="bundle-card">
+        <span class="tag">Clinical Skills</span>
+        <h3>Clinical Skills Course</h3>
+        <ul class="inc-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded technique demonstrations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-day in-person lab access</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5-day onsite coaching</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mentorship and feedback</li>
+        </ul>
+      </div>
+
+      <div class="bundle-card">
+        <span class="tag">Clinical Skills</span>
+        <h3>Clinical Skills Mock Exams</h3>
+        <ul class="inc-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 full mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Complete set of instruments</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-hour supervision &amp; infection control</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-hour post-exam discussion</li>
+        </ul>
+      </div>
+
+      <div class="bundle-card sj">
+        <span class="tag">Situational Judgement</span>
+        <h3>Situational Judgement Course</h3>
+        <ul class="inc-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>16 sessions of 4 hours each</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Month 1 recorded, months 2–3 in-person</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios covered</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
+        </ul>
+      </div>
+
+      <div class="bundle-card sj">
+        <span class="tag">Situational Judgement</span>
+        <h3>Situational Judgement Mock Exams</h3>
+        <ul class="inc-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mocks (written + role-play)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-on-1 feedback after each mock</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Structured for completion in 4 weeks</li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="tools-note"><strong>Plus basic tools</strong> — the essential tools you need to begin your course are included in the bundle.</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- WHY THE BUNDLE -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Why the Bundle</span>
+      <h2 class="section-title">Is the Brilliant Bundle Right for You?</h2>
+    </div>
+    <div class="decision-grid">
+      <div class="decision-card">
+        <h3>One complete pathway</h3>
+        <p>Prepare for both NDECC components — Clinical Skills and Situational Judgement — through a single, coordinated program instead of piecing courses together.</p>
+      </div>
+      <div class="decision-card">
+        <h3>Course and mocks together</h3>
+        <p>Each component pairs its course with a dedicated mock exam program, so you learn and then rehearse under exam-realistic conditions.</p>
+      </div>
+      <div class="decision-card">
+        <h3>Interest-free installments</h3>
+        <p>Spread the cost with a zero-interest installment plan. Contact an advisor to set up a schedule that works for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>What does the Brilliant Bundle include?</summary>
+        <div class="faq-body">The bundle combines the Clinical Skills course and its mock exams with the Situational Judgement course and its mock exams, plus the basic tools you need to begin. It's designed as a complete pathway through both NDECC components.</div>
+      </details>
+      <details>
+        <summary>Can I buy the components separately instead?</summary>
+        <div class="faq-body">Yes. You can register for <a href="/ndecc-programs/clinical-skills/">Clinical Skills</a> or <a href="/ndecc-programs/situational-judgement/">Situational Judgement</a> individually, with mock exams available as add-ons. The bundle brings everything together in one package.</div>
+      </details>
+      <details>
+        <summary>Are payment plans available?</summary>
+        <div class="faq-body">Yes — the bundle can be paid in installments with zero interest. For details, contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or call <a href="tel:+14373700122">+1 437 370 0122</a>.</div>
+      </details>
+      <details>
+        <summary>Are the programs in person?</summary>
+        <div class="faq-body">Both components include significant in-person work at the ConfiDentist centre — supervised lab access for Clinical Skills and small-group classes for Situational Judgement — alongside recorded content accessed through ConfiPortal.</div>
+      </details>
+      <details>
+        <summary>Who can I contact with questions?</summary>
+        <div class="faq-body">Reach out to <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or call <a href="tel:+14373700122">+1 437 370 0122</a>. For technical support, contact <a href="mailto:admin@confidentist.ca">admin@confidentist.ca</a> or <a href="mailto:confiportal@confidentist.ca">confiportal@confidentist.ca</a>.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Take the Complete NDECC Path</h2>
+    <p>Register for the Brilliant Bundle to prepare for both components together — or explore each program on its own.</p>
+    <div class="final-actions">
+      <a href="https://www.confidentist.ca/product/the-brilliant-bundle-2026-2/" class="btn-gold">Register for the Bundle →</a>
+      <a href="/ndecc-programs/clinical-skills/" class="btn-outline-white">Clinical Skills →</a>
+      <a href="/ndecc-programs/situational-judgement/" class="btn-outline-white">Situational Judgement →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Courses</a> &nbsp;·&nbsp;
+    <a href="/ndecc-programs/">NDECC Programs</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
