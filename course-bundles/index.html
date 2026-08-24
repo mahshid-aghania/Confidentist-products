@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Bundles | Comprehensive Dental Exam Prep Packages | ConfiDentist</title>
+  <meta name="description" content="Explore value-packed course and mock-exam bundles designed to provide comprehensive preparation, coordinated learning resources, and greater savings throughout your dental equivalency journey." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/course-bundles/" />
+  <meta property="og:title" content="Course Bundles | ConfiDentist" />
+  <meta property="og:description" content="Value-packed course and mock-exam bundles for comprehensive, coordinated dental equivalency preparation and greater savings." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem;
+    }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    nav { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 2px solid var(--gold); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .02em; display: flex; align-items: center; gap: .5rem; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-link { color: rgba(255,255,255,.75); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .5rem 1.25rem; border-radius: .35rem; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .crumbs { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .crumbs-inner { max-width: 1160px; margin: 0 auto; padding: .85rem 1.5rem; font-size: .78rem; color: var(--muted); }
+    .crumbs-inner a { color: var(--gold-dark); text-decoration: none; }
+    .crumbs-inner a:hover { text-decoration: underline; }
+    .crumbs-inner span[aria-current] { color: var(--navy); font-weight: 600; }
+    .crumbs-sep { margin: 0 .5rem; color: var(--border); }
+
+    .btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .88rem; letter-spacing: .03em; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; box-shadow: 0 4px 18px rgba(15,122,229,.35); transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid rgba(255,255,255,.3); color: #fff; font-size: .88rem; font-weight: 500; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; transition: background .2s, border-color .2s; }
+    .btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+    .btn-navy { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--navy); color: #fff; font-weight: 700; font-size: .85rem; letter-spacing: .03em; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); padding: 4rem 1.5rem; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(15,122,229,.18); border: 1px solid rgba(15,122,229,.45); color: var(--gold-light); border-radius: .35rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 700; line-height: 1.18; color: #fff; margin-bottom: 1.1rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.03rem; color: rgba(255,255,255,.72); max-width: 640px; margin: 0 auto 2.25rem; line-height: 1.7; font-weight: 300; }
+    .hero-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    .section { padding: 4rem 1.5rem; }
+    .section.alt { background: var(--bg-soft); }
+    .section.navy-bg { background: var(--navy); }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-head { max-width: 660px; margin: 0 auto 2.5rem; text-align: center; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.2rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
+    .section.navy-bg .section-title { color: #fff; }
+    .section-desc { font-size: .95rem; color: var(--muted); line-height: 1.8; }
+    .section.navy-bg .section-desc { color: rgba(255,255,255,.68); }
+
+    .overview-row { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+    .ov-chip { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1.5px solid var(--border); border-radius: 2rem; padding: .55rem 1.1rem; font-size: .84rem; font-weight: 500; color: var(--navy); box-shadow: var(--shadow-sm); }
+    .ov-chip svg { width: 16px; height: 16px; color: var(--teal); flex-shrink: 0; }
+
+    /* Bundle cards */
+    .bundle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 820px; margin: 0 auto; }
+    .bundle-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.85rem; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .2s, border-color .2s; }
+    .bundle-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(7,44,94,.2); }
+    .bundle-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: .4rem; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .32rem .8rem; border-radius: .3rem; margin-bottom: 1rem; background: var(--gold-bg); color: var(--gold-dark); }
+    .bundle-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: .5rem; }
+    .bundle-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+    .bundle-tag { font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); background: var(--teal-light); border-radius: .3rem; padding: .25rem .55rem; }
+    .bundle-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.35rem; flex: 1; }
+    .bundle-card .btn-navy { width: 100%; margin-top: auto; }
+    .bundle-note { max-width: 820px; margin: 1.5rem auto 0; text-align: center; font-size: .82rem; color: var(--muted); line-height: 1.6; background: var(--bg-soft); border: 1px solid var(--border); border-radius: .5rem; padding: .85rem 1rem; }
+
+    .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .format-card { display: flex; gap: .85rem; align-items: flex-start; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.35rem; box-shadow: var(--shadow-sm); }
+    .format-card svg { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; margin-top: .1rem; }
+    .format-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+    .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+    details { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details[open] { border-color: var(--navy); }
+    summary { padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: .9rem; color: var(--navy); list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--gold-dark); transition: transform .2s; flex-shrink: 0; margin-left: 1rem; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body { padding: 0 1.4rem 1.1rem; font-size: .86rem; color: var(--muted); line-height: 1.75; border-top: 1px solid var(--border); padding-top: .9rem; }
+    .faq-body a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+    .faq-body a:hover { text-decoration: underline; }
+
+    .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); }
+    .final-inner { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+    .final-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.3rem); font-weight: 700; color: #fff; margin-bottom: .85rem; }
+    .final-inner p { font-size: 1rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 2rem; }
+    .final-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold-light); }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    @media (max-width: 520px) {
+      .nav-link { display: none; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-white { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .btn-gold:hover, .btn-navy:hover, .bundle-card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#bundles" class="skip-link">Skip to the bundles</a>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
+    <div class="nav-right">
+      <a href="/" class="nav-link">Courses</a>
+      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Contact an Advisor</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">Course Bundles</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Course Bundles</p>
+    <h1>Bundle Your Prep and <em>Save More</em></h1>
+    <p class="hero-sub">Explore value-packed course and mock-exam bundles designed to provide comprehensive preparation, coordinated learning resources, and greater savings throughout your dental equivalency journey.</p>
+    <div class="hero-actions">
+      <a href="#bundles" class="btn-gold">View the Bundles →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">At a Glance</span>
+      <h2 class="section-title">Why Choose a Bundle</h2>
+    </div>
+    <div class="overview-row">
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Comprehensive preparation</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Coordinated learning resources</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Greater savings</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Multiple exam tracks in one package</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- BUNDLES -->
+<section class="section alt" id="bundles">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Available Bundles</span>
+      <h2 class="section-title">Course &amp; Mock-Exam Bundles</h2>
+      <p class="section-desc">Combine multiple programs into a single, coordinated package. Choose the bundle that matches your exam pathway and register on the Course Bundles page.</p>
+    </div>
+    <div class="bundle-grid">
+      <article class="bundle-card">
+        <span class="bundle-badge">Bundle Package</span>
+        <h3 class="bundle-name">AFK + ACJ Bundle</h3>
+        <div class="bundle-tags"><span class="bundle-tag">AFK</span><span class="bundle-tag">ACJ</span></div>
+        <p class="bundle-desc">Pairs Assessment of Fundamental Knowledge (AFK) and Assessment of Clinical Judgement (ACJ) preparation in one coordinated package for candidates preparing for both exams.</p>
+        <a class="btn-navy" href="https://www.confidentist.ca/course-bundles/">Register Now →</a>
+      </article>
+      <article class="bundle-card">
+        <span class="bundle-badge">All-Inclusive Package</span>
+        <h3 class="bundle-name">NDECC All-Inclusive Bundle</h3>
+        <div class="bundle-tags"><span class="bundle-tag">Clinical Skills</span><span class="bundle-tag">Situational Judgement</span><span class="bundle-tag">Mock</span></div>
+        <p class="bundle-desc">Brings together NDECC Clinical Skills, Situational Judgement, and mock-exam preparation in a single all-inclusive package for complete NDECC readiness.</p>
+        <a class="btn-navy" href="https://www.confidentist.ca/course-bundles/">Register Now →</a>
+      </article>
+    </div>
+    <p class="bundle-note">Bundle line-ups, pricing, availability, and registration are confirmed on the <a href="https://www.confidentist.ca/course-bundles/" style="color:var(--gold-dark);font-weight:600;text-decoration:none;">Course Bundles page</a>. Please review the current details there before enrolling.</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- WHY BUNDLE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">The Advantage</span>
+      <h2 class="section-title">What Bundling Gives You</h2>
+      <p class="section-desc">Bundles are built so your preparation across multiple exams stays organized, consistent, and cost-effective.</p>
+    </div>
+    <div class="format-grid">
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><p>Comprehensive preparation that covers multiple exams in one coordinated plan.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg><p>Coordinated learning resources so your materials work together, not in isolation.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><p>Greater savings compared with enrolling in each program separately.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><p>A single enrollment for a complete, streamlined path through your equivalency journey.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- FAQ -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Which bundles are available?</summary>
+        <div class="faq-body">ConfiDentist offers course and mock-exam bundles that combine multiple programs, including an AFK + ACJ bundle and an all-inclusive NDECC package. Current bundle line-ups and availability are listed on the <a href="https://www.confidentist.ca/course-bundles/">Course Bundles page</a>.</div>
+      </details>
+      <details>
+        <summary>How do I register for a bundle?</summary>
+        <div class="faq-body">Choose your bundle on the <a href="https://www.confidentist.ca/course-bundles/">Course Bundles page</a> and use its Register button to complete enrollment.</div>
+      </details>
+      <details>
+        <summary>What are the benefits of bundling?</summary>
+        <div class="faq-body">Bundles are designed to provide comprehensive preparation, coordinated learning resources, and greater savings compared with enrolling in each program on its own.</div>
+      </details>
+      <details>
+        <summary>Are payment plans available?</summary>
+        <div class="faq-body">Yes. ConfiDentist offers various interest-free payment plans. For details, contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a>.</div>
+      </details>
+      <details>
+        <summary>What should I do if I experience technical issues?</summary>
+        <div class="faq-body">For technical support, contact <a href="mailto:confiportal@confidentist.ca">confiportal@confidentist.ca</a> or <a href="mailto:admin@confidentist.ca">admin@confidentist.ca</a>. You can also call <a href="tel:+14373700122">+1 437 370 0122</a>.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Ready to Bundle Your Preparation?</h2>
+    <p>Choose a course or mock-exam bundle for comprehensive, coordinated preparation — and greater savings — on your path to Canadian dental licensure.</p>
+    <div class="final-actions">
+      <a href="https://www.confidentist.ca/course-bundles/" class="btn-gold">View &amp; Register on the Bundles Page →</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Courses</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/resources/">Resources</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
