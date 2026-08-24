@@ -129,6 +129,7 @@
       position: relative;
     }
     .course-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(7,44,94,.2); }
+    .course-card:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
     .course-card.featured { border-color: var(--gold); border-width: 2px; }
     .card-banner {
       height: 128px; position: relative;
@@ -354,16 +355,16 @@
         </div>
       </a>
 
-      <!-- Bundles -->
-      <a href="https://www.confidentist.ca/courses/" class="course-card" data-cat="bundle">
+      <!-- Course Bundles — links to the dedicated Course Bundles page -->
+      <a href="https://www.confidentist.ca/course-bundles/" class="course-card" data-cat="bundle" aria-label="Course Bundles — ConfiDentist dental education and exam-preparation course bundles">
         <div class="card-banner"><span class="card-abbr">Bundles<small>Best Value</small></span></div>
         <div class="card-body">
-          <div class="card-cat">Bundles</div>
+          <div class="card-cat">Program Bundles</div>
           <div class="card-title">Course Bundles</div>
-          <div class="card-desc">Combine multiple programs into a single package for the best value on your complete preparation journey.</div>
+          <div class="card-desc">Explore value-packed course and mock-exam bundles designed to provide comprehensive preparation, coordinated learning resources, and greater savings throughout your dental equivalency journey.</div>
           <div class="card-foot">
             <div class="card-price">Save More</div>
-            <span class="card-link">View course →</span>
+            <span class="card-link">View bundles →</span>
           </div>
         </div>
       </a>
