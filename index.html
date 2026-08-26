@@ -221,7 +221,7 @@
     .mobile-open .backdrop { opacity: 1; visibility: visible; }
 
     /* ─────────────  HERO  ───────────── */
-    .hero { position: relative; height: 100svh; min-height: 620px; display: flex; align-items: center; overflow: hidden; color: #fff; }
+    .hero { position: relative; height: 100svh; min-height: min(860px, 100svh); overflow: hidden; color: #fff; }
     /* Always-present gradient so there is never a broken/empty state */
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
@@ -248,63 +248,62 @@
       position: absolute; inset: 0; z-index: 2;
       background:
         linear-gradient(90deg,
-          rgba(3,16,29,0.46) 0%,
-          rgba(3,16,29,0.32) 32%,
-          rgba(3,16,29,0.14) 62%,
-          rgba(3,16,29,0.02) 100%),
+          rgba(3,16,29,0.32) 0%,
+          rgba(3,16,29,0.16) 42%,
+          rgba(3,16,29,0.03) 72%,
+          transparent 100%),
         linear-gradient(180deg,
-          rgba(0,0,0,0.08) 0%,
-          transparent 45%,
-          rgba(0,0,0,0.10) 100%);
+          rgba(0,0,0,0.18) 0%,
+          transparent 35%,
+          rgba(0,0,0,0.26) 100%);
     }
-    .hero-inner { position: relative; z-index: 3; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
-    /* Translucent navy brand card — sits between a solid navy panel and a glass card.
-       Deep navy dominant, light-blue accent, video still sensed behind it. */
+    /* Editorial split-panel composition anchored lower-left; the video stays dominant. */
     .hero-content {
-      position: relative;
-      max-width: 720px;
-      padding: clamp(1.5rem, 3vw, 2.75rem);
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg,
-          rgba(25, 42, 91, 0.80) 0%,
-          rgba(20, 37, 80, 0.66) 55%,
-          rgba(30, 65, 112, 0.54) 100%);
-      border: 1px solid rgba(139, 196, 245, 0.34);
-      box-shadow:
-        0 24px 60px rgba(5, 15, 42, 0.32),
-        0 8px 24px rgba(5, 15, 42, 0.20),
-        inset 0 1px 0 rgba(194, 225, 255, 0.14);
-      backdrop-filter: blur(9px) saturate(110%);
-      -webkit-backdrop-filter: blur(9px) saturate(110%);
+      position: absolute; z-index: 3;
+      left: clamp(1.5rem, 6vw, 7.5rem);
+      bottom: clamp(3rem, 9vh, 7rem);
+      width: min(44vw, 720px);
+      display: flex; flex-direction: column; align-items: flex-start;
     }
-    /* Soft blue illumination in the upper-right, kept behind the text */
-    .hero-content::after {
-      content: ''; position: absolute; top: 0; right: 0;
-      width: 45%; height: 55%; border-radius: inherit; pointer-events: none;
-      background: radial-gradient(circle at top right, rgba(139, 196, 245, 0.13), transparent 68%);
+    /* Compact navy heading panel — hugs the heading, narrower than the description */
+    .hero-heading-panel {
+      width: fit-content; max-width: 100%;
+      padding: clamp(1.15rem, 2vw, 1.75rem) clamp(1.25rem, 2.4vw, 2rem);
+      background: rgba(25, 42, 91, 0.90);
+      border: 1px solid rgba(139, 196, 245, 0.18);
+      border-radius: 4px 4px 0 0;
+      box-shadow: 0 14px 34px rgba(4, 13, 35, 0.18);
     }
-    .hero-content > * { position: relative; z-index: 1; }
+    /* Separate, slightly wider description panel directly beneath */
+    .hero-description-panel {
+      width: 100%; max-width: 720px;
+      padding: clamp(1.1rem, 1.8vw, 1.6rem) clamp(1.25rem, 2.4vw, 2rem);
+      background: rgba(15, 37, 57, 0.88);
+      border: 1px solid rgba(139, 196, 245, 0.12);
+      border-top: 0;
+      border-radius: 0 4px 4px 4px;
+      box-shadow: 0 16px 36px rgba(4, 13, 35, 0.16);
+    }
     .hero-eyebrow {
       display: block;
-      font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #9fcdf4;
-      margin-bottom: 1.5rem;
+      font-size: clamp(0.68rem, 0.75vw, 0.8rem); font-weight: 600; letter-spacing: 0.12em; line-height: 1.2;
+      text-transform: uppercase; color: #9fcdf4; margin-bottom: 0.65rem;
     }
     .hero-eyebrow::before {
       content: ''; display: block;
-      width: 52px; height: 3px; margin-bottom: 14px; border-radius: 999px;
+      width: 46px; height: 3px; margin-bottom: 11px; border-radius: 999px;
       background: linear-gradient(90deg, #8bc4f5 0%, #b8dcfa 100%);
       box-shadow: 0 0 18px rgba(139, 196, 245, 0.28);
     }
     .hero h1 {
       font-family: 'Playfair Display', serif; font-weight: 700;
-      font-size: clamp(2.3rem, 6vw, 4.4rem); line-height: 1.06; letter-spacing: -.01em;
-      margin-bottom: 1.4rem; text-wrap: balance;
+      font-size: clamp(2rem, 3.2vw, 3.75rem); line-height: 1.02; letter-spacing: -0.025em;
+      margin: 0; color: #fff;
       text-shadow: 0 2px 18px rgba(0,0,0,0.22);
     }
     .hero h1 em { font-style: italic; color: #9fcdf4; }
-    .hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.88); max-width: 560px; margin-bottom: 2.25rem; text-shadow: 0 1px 12px rgba(0,0,0,0.20); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
+    .hero-sub { font-size: clamp(0.95rem, 1.1vw, 1.15rem); font-weight: 300; line-height: 1.55; color: rgba(255,255,255,.90); max-width: 62ch; margin: 0; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(1rem, 2vw, 2.5rem); margin-top: clamp(1.25rem, 2.5vh, 2rem); }
 
     .btn-primary {
       display: inline-flex; align-items: center; gap: .5rem;
@@ -326,20 +325,24 @@
 
     /* Hero-only button treatment — light blue to tie into the brand card.
        Scoped to .hero-content so shared buttons elsewhere are unaffected. */
+    /* Compact filled primary */
     .hero-content .btn-primary {
-      background: #8bc4f5; color: #142550; border: 1px solid #8bc4f5;
-      box-shadow: 0 6px 20px rgba(105, 174, 232, 0.30);
+      min-height: 50px; padding: 0.8rem 1.6rem; border-radius: 4px;
+      background: #8bc4f5; color: #142550; border: 1px solid #8bc4f5; font-size: .9rem;
+      box-shadow: 0 6px 18px rgba(105, 174, 232, 0.28);
     }
     .hero-content .btn-primary:hover {
       background: #add7f8; border-color: #add7f8;
       transform: translateY(-2px); box-shadow: 0 10px 26px rgba(105, 174, 232, 0.26);
     }
+    /* Clean text-style secondary CTA (no heavy box) */
     .hero-content .btn-outline {
-      background: rgba(255, 255, 255, 0.06); color: #ffffff; border: 1px solid rgba(174, 215, 248, 0.58);
+      min-height: 50px; padding: 0.8rem 0.5rem; border: 0; border-radius: 4px;
+      background: transparent; color: #ffffff; font-size: .9rem;
     }
-    .hero-content .btn-outline:hover {
-      background: rgba(139, 196, 245, 0.14); border-color: #9fcdf4; transform: translateY(-2px);
-    }
+    .hero-content .btn-outline:hover { background: transparent; color: #cfe6fb; transform: translateY(-2px); }
+    .hero-content .btn-outline svg { transition: transform .18s; }
+    .hero-content .btn-outline:hover svg { transform: translateX(3px); }
 
     /* Hero video control + scroll cue */
     .hero-video-btn {
@@ -538,18 +541,16 @@
     .reveal[data-delay="3"] { transition-delay: .24s; }
 
     /* ─────────────  RESPONSIVE  ───────────── */
-    /* Mobile hero card: slightly more opaque to protect readability over video.
-       Width is left at 100% of the already side-padded hero-inner (no double inset). */
+    /* Mobile: keep the split-panel concept full-width in the lower area,
+       leaving video visible above; header and content never overlap. */
     @media (max-width: 767px) {
       .hero-content {
-        padding: 1.4rem; border-radius: 14px;
-        background:
-          linear-gradient(145deg,
-            rgba(25, 42, 91, 0.88) 0%,
-            rgba(23, 48, 91, 0.76) 100%);
-        backdrop-filter: blur(7px) saturate(108%);
-        -webkit-backdrop-filter: blur(7px) saturate(108%);
+        left: 16px; right: 16px; bottom: 2rem; width: auto;
       }
+      .hero-heading-panel, .hero-description-panel { width: 100%; max-width: none; }
+      .hero-heading-panel { padding: 1rem 1.1rem; }
+      .hero-description-panel { padding: 0.95rem 1.1rem; }
+      .hero-actions { gap: 0.75rem; flex-wrap: wrap; margin-top: 1.1rem; }
     }
     @media (max-width: 960px) {
       .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; }
@@ -566,23 +567,8 @@
       .hero-video { object-position: 54% 32%; }
     }
     @media (max-width: 620px) {
-      .hero { min-height: 560px; }
-      /* Mobile: crop intentionally around the subject; keep faces high in frame */
+      /* Crop intentionally around the subject; keep faces high in frame */
       .hero-video { object-position: 56% 30%; }
-      /* Slightly stronger behind stacked mobile text, but the video stays bright overall */
-      .hero-overlay {
-        background:
-          linear-gradient(90deg,
-            rgba(3,16,29,0.58) 0%,
-            rgba(3,16,29,0.34) 65%,
-            rgba(3,16,29,0.14) 100%),
-          linear-gradient(180deg,
-            rgba(0,0,0,0.14) 0%,
-            transparent 50%,
-            rgba(0,0,0,0.16) 100%);
-      }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions .btn-primary, .hero-actions .btn-outline { justify-content: center; }
       .journey-links { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -686,18 +672,22 @@
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
 
-  <div class="hero-inner">
-    <div class="hero-content">
-      <p class="hero-eyebrow">ConfiDentist Dental Education</p>
-      <h1>Advance Your Dental<br />Career in <em>Canada</em></h1>
-      <p class="hero-sub">Expert-led preparation, practical training and personalized mentorship for internationally trained dentists pursuing Canadian dental examinations and professional success.</p>
+  <div class="hero-content">
+      <div class="hero-heading-panel">
+        <p class="hero-eyebrow">ConfiDentist Dental Education</p>
+        <h1>Advance Your Dental Career<br />in <em>Canada</em></h1>
+      </div>
+      <div class="hero-description-panel">
+        <p class="hero-sub">Expert-led preparation, practical training and personalized mentorship for internationally trained dentists pursuing Canadian dental examinations and professional success.</p>
+      </div>
       <div class="hero-actions">
         <a href="#programs" class="btn-primary">Explore Our Courses
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#journey" class="btn-outline">Find the Right Program</a>
+        <a href="#journey" class="btn-outline">Find the Right Program
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
-    </div>
   </div>
 
   <button type="button" class="hero-video-btn" id="heroToggle" aria-label="Pause background video" hidden>
