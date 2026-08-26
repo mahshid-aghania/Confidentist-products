@@ -377,13 +377,11 @@
     .announce .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0; align-items: stretch; }
     .announce-media {
       position: relative; min-height: 340px;
-      background: radial-gradient(120% 120% at 30% 20%, #0f3d72 0%, transparent 60%), linear-gradient(150deg, var(--navy) 0%, var(--navy-mid) 100%);
-      display: grid; place-items: center; overflow: hidden;
+      background: linear-gradient(150deg, var(--navy) 0%, var(--navy-mid) 100%);
+      overflow: hidden;
     }
-    .announce-media::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E"); }
-    .announce-monogram { position: relative; z-index: 1; text-align: center; }
-    .announce-monogram b { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); color: #fff; display: block; line-height: 1; }
-    .announce-monogram span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); }
+    .announce-media picture, .announce-img { display: block; width: 100%; height: 100%; }
+    .announce-img { position: absolute; inset: 0; object-fit: cover; object-position: center; }
     .announce-body { padding: clamp(2.5rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
     .announce-cat { display: inline-flex; align-items: center; gap: .5rem; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
     .announce-cat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(15,122,229,.25); }
@@ -704,8 +702,12 @@
 <!-- ═══════════ FEATURED ANNOUNCEMENT ═══════════ -->
 <section class="announce" id="announcement" aria-labelledby="announce-title">
   <div class="wrap">
-    <div class="announce-media reveal" aria-hidden="true">
-      <div class="announce-monogram"><b>Mock</b><span>AFK Mock Exams · 2026–2027</span></div>
+    <div class="announce-media reveal">
+      <picture>
+        <source srcset="/images/afk-mock-exams-announcement.webp" type="image/webp" />
+        <img class="announce-img" src="/images/afk-mock-exams-announcement.jpg"
+             alt="ConfiDentist AFK Mock Exams 2026–2027" width="1400" height="788" loading="lazy" decoding="async" />
+      </picture>
     </div>
     <div class="announce-body reveal" data-delay="1">
       <span class="announce-cat"><span class="dot"></span> Enrolling Now · Featured Program</span>
