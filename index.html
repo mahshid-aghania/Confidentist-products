@@ -233,12 +233,29 @@
       content: ''; position: absolute; inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; z-index: 1; opacity: 0; transition: opacity 1s ease; }
+    .hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: 50% 35%;
+      z-index: 1; opacity: 0; transition: opacity 1s ease;
+      /* Restrained cinematic grade — adds clarity/pop without over-processing */
+      filter: brightness(1.03) contrast(1.08) saturate(1.04);
+      transform: translateZ(0); /* crisp GPU compositing on Retina/large displays */
+    }
     .hero-video.ready { opacity: 1; }
+    /* Asymmetric grade: elegant on the left behind the copy, clear/bright on the right.
+       Single overlay element — nothing else stacks shade on the loaded video. */
     .hero-overlay {
       position: absolute; inset: 0; z-index: 2;
-      background: linear-gradient(90deg, rgba(4,27,61,.86) 0%, rgba(4,27,61,.62) 45%, rgba(7,44,94,.30) 100%),
-                  linear-gradient(0deg, rgba(4,27,61,.75) 0%, transparent 40%);
+      background:
+        linear-gradient(90deg,
+          rgba(3,16,29,0.60) 0%,
+          rgba(3,16,29,0.42) 32%,
+          rgba(3,16,29,0.16) 62%,
+          rgba(3,16,29,0.03) 100%),
+        linear-gradient(180deg,
+          rgba(0,0,0,0.10) 0%,
+          transparent 45%,
+          rgba(0,0,0,0.12) 100%);
     }
     .hero-inner { position: relative; z-index: 3; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
     .hero-content { max-width: 720px; }
@@ -252,9 +269,10 @@
       font-family: 'Playfair Display', serif; font-weight: 700;
       font-size: clamp(2.3rem, 6vw, 4.4rem); line-height: 1.06; letter-spacing: -.01em;
       margin-bottom: 1.4rem; text-wrap: balance;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.22);
     }
     .hero h1 em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.82); max-width: 560px; margin-bottom: 2.25rem; }
+    .hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.82); max-width: 560px; margin-bottom: 2.25rem; text-shadow: 0 1px 12px rgba(0,0,0,0.20); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
 
     .btn-primary {
@@ -483,9 +501,25 @@
       .exp-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .footer-brand { grid-column: 1 / -1; }
+      /* Tablet: keep the human subject in frame without covering the copy */
+      .hero-video { object-position: 54% 32%; }
     }
     @media (max-width: 620px) {
       .hero { min-height: 560px; }
+      /* Mobile: crop intentionally around the subject; keep faces high in frame */
+      .hero-video { object-position: 56% 30%; }
+      /* Slightly stronger behind stacked mobile text, but the video stays bright overall */
+      .hero-overlay {
+        background:
+          linear-gradient(90deg,
+            rgba(3,16,29,0.58) 0%,
+            rgba(3,16,29,0.34) 65%,
+            rgba(3,16,29,0.14) 100%),
+          linear-gradient(180deg,
+            rgba(0,0,0,0.14) 0%,
+            transparent 50%,
+            rgba(0,0,0,0.16) 100%);
+      }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-actions .btn-primary, .hero-actions .btn-outline { justify-content: center; }
       .journey-links { grid-template-columns: 1fr; }
