@@ -3,20 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Courses · ConfiDentist</title>
-  <meta name="description" content="Explore ConfiDentist's exam prep courses for internationally trained dentists — AFK, ADAT, ACJ, NDECC, Virtual OSCE, mock exams, and more." />
+
+  <!-- ─── SEO ─── -->
+  <title>Dental Exam Preparation Courses in Canada | ConfiDentist</title>
+  <meta name="description" content="Explore ConfiDentist courses, mock exams, clinical training and mentorship programs for internationally trained dentists preparing for Canadian dental examinations." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ConfiDentist" />
+  <meta property="og:title" content="Dental Exam Preparation Courses in Canada | ConfiDentist" />
+  <meta property="og:description" content="Expert-led preparation, mock exams, clinical training and personalized mentorship for internationally trained dentists pursuing Canadian dental examinations." />
+  <meta property="og:url" content="https://confidentist-products.vercel.app/" />
+  <meta property="og:image" content="https://confidentist-products.vercel.app/images/confidentist-hero-poster.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dental Exam Preparation Courses in Canada | ConfiDentist" />
+  <meta name="twitter:description" content="Expert-led preparation, mock exams, clinical training and mentorship for internationally trained dentists pursuing Canadian dental examinations." />
+  <meta name="twitter:image" content="https://confidentist-products.vercel.app/images/confidentist-hero-poster.webp" />
+  <meta name="theme-color" content="#072C5E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ─── Structured data ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://confidentist-products.vercel.app/#organization",
+        "name": "ConfiDentist",
+        "url": "https://www.confidentist.ca",
+        "email": "info@confidentist.ca",
+        "telephone": "+1-437-370-0122",
+        "description": "Exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists pursuing Canadian dental examinations.",
+        "areaServed": "CA",
+        "address": { "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://confidentist-products.vercel.app/#website",
+        "url": "https://confidentist-products.vercel.app/",
+        "name": "ConfiDentist Programs",
+        "publisher": { "@id": "https://confidentist-products.vercel.app/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://confidentist-products.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Programs", "item": "https://confidentist-products.vercel.app/#programs" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "ConfiDentist Programs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "AFK Mock Exams", "url": "https://confidentist-products.vercel.app/afk-mock-exams/" },
+          { "@type": "ListItem", "position": 2, "name": "AFK — Assessment of Fundamental Knowledge", "url": "https://confidentist-products.vercel.app/afk-programs/" },
+          { "@type": "ListItem", "position": 3, "name": "ACJ — Assessment of Clinical Judgement", "url": "https://confidentist-products.vercel.app/acj-programs/" },
+          { "@type": "ListItem", "position": 4, "name": "NDECC", "url": "https://confidentist-products.vercel.app/ndecc-programs/" },
+          { "@type": "ListItem", "position": 5, "name": "Virtual OSCE", "url": "https://confidentist-products.vercel.app/virtual-osce/" },
+          { "@type": "ListItem", "position": 6, "name": "ADAT — Advanced Dental Admission Test", "url": "https://confidentist-products.vercel.app/adat-programs/" },
+          { "@type": "ListItem", "position": 7, "name": "University Interview Preparation", "url": "https://confidentist-products.vercel.app/university-interview-preparation/" },
+          { "@type": "ListItem", "position": 8, "name": "Course Bundles", "url": "https://confidentist-products.vercel.app/course-bundles/" },
+          { "@type": "ListItem", "position": 9, "name": "Private Sessions", "url": "https://confidentist-products.vercel.app/private-sessions/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* ── Confidentist brand palette ── */
+      /* ── ConfiDentist brand palette (shared design tokens) ── */
       --navy:        #072C5E;
       --navy-mid:    #1C3165;
       --navy-light:  #213669;
-      --gold:        #0f7ae5;
+      --navy-deep:   #041b3d;
+      --gold:        #0f7ae5;   /* ConfiDentist primary blue accent */
       --gold-dark:   #0a5cb8;
       --gold-light:  #5cb2f7;
       --gold-bg:     #e9f3fd;
@@ -26,6 +94,7 @@
       /* ── Neutrals ── */
       --bg:          #ffffff;
       --bg-soft:     #f6f8fb;
+      --bg-warm:     #f7f5f1;   /* warm off-white editorial band */
       --bg-section:  #f0f3f8;
       --text:        #1a1f2e;
       --muted:       #586175;
@@ -34,395 +103,1021 @@
       --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
       --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
       --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+      --nav-h:       74px;
+      --maxw:        1200px;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    body.no-scroll { overflow: hidden; }
 
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 200;
-      background: var(--navy);
-      border-bottom: 2px solid var(--gold);
-    }
-    .nav-inner {
-      max-width: 1160px; margin: 0 auto; padding: 0 1.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 66px;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; font-weight: 700; color: #fff;
-      text-decoration: none; letter-spacing: .02em;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 1rem; }
-    .nav-link { color: rgba(255,255,255,.75); font-size: .82rem; text-decoration: none; transition: color .2s; }
-    .nav-link:hover { color: #fff; }
-    .nav-cta {
-      background: var(--gold); color: #fff;
-      font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-      padding: .5rem 1.25rem; border-radius: .35rem; text-decoration: none;
-      transition: background .2s;
-    }
-    .nav-cta:hover { background: var(--gold-light); }
+    a { color: inherit; text-decoration: none; }
+    img, video { max-width: 100%; display: block; }
 
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%);
-      padding: 4.5rem 1.5rem 3.5rem;
-      position: relative; overflow: hidden;
+    :focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .25rem; }
+
+    .skip-link {
+      position: absolute; left: -999px; top: 0; z-index: 900;
+      background: var(--gold); color: #fff; font-weight: 700;
+      padding: .7rem 1.1rem; border-radius: 0 0 .4rem 0;
     }
-    .hero::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
+    .skip-link:focus { left: 0; }
+
+    /* ─────────────  HEADER / NAV  ───────────── */
+    .site-header {
+      position: fixed; inset: 0 0 auto 0; z-index: 500;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease, height .35s ease;
+      border-bottom: 1px solid transparent;
     }
-    .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .site-header.solid {
+      background: rgba(7,44,94,.97);
+      backdrop-filter: saturate(140%) blur(8px);
+      box-shadow: 0 6px 30px rgba(7,44,94,.28);
+      border-bottom-color: var(--gold);
+      height: 64px;
+    }
+    .header-inner {
+      width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    }
+    .brand {
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff;
+      letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
+    }
+    .brand span { color: var(--gold-light); }
+    .brand small { display:block; font-family:'Inter',sans-serif; font-size:.52rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:2px; }
+
+    /* Desktop primary nav */
+    .primary-nav { display: flex; align-items: center; gap: .25rem; }
+    .nav-item { position: relative; }
+    .nav-item > a, .nav-item > button {
+      font-family: inherit; background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,.82); font-size: .82rem; font-weight: 500; letter-spacing: .02em;
+      padding: .6rem .85rem; border-radius: .35rem; display: inline-flex; align-items: center; gap: .35rem;
+      transition: color .18s, background .18s;
+    }
+    .nav-item > a:hover, .nav-item > button:hover, .nav-item > a:focus-visible, .nav-item > button:focus-visible { color: #fff; background: rgba(255,255,255,.08); }
+    .nav-item .chev { width: 12px; height: 12px; transition: transform .2s; }
+    .nav-item.open .chev { transform: rotate(180deg); }
+
+    /* Mega menu */
+    .mega {
+      position: absolute; top: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(-6px);
+      width: min(680px, 92vw); background: #fff; color: var(--text);
+      border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+      padding: 1.25rem; opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease; z-index: 600;
+    }
+    .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+    .mega a {
+      display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem;
+      transition: background .15s;
+    }
+    .mega a:hover, .mega a:focus-visible { background: var(--bg-soft); }
+    .mega .m-abbr {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem;
+    }
+    .mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+    .mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; }
+
+    /* Utility / actions */
+    .nav-actions { display: flex; align-items: center; gap: .5rem; }
+    .util-link { color: rgba(255,255,255,.72); font-size: .78rem; font-weight: 500; padding: .5rem .55rem; border-radius: .35rem; transition: color .18s, background .18s; }
+    .util-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+    .btn-cta {
+      background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+      padding: .6rem 1.15rem; border-radius: .35rem; transition: background .2s, transform .15s; white-space: nowrap;
+    }
+    .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* Hamburger */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 620; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; border-radius: 2px; transition: transform .3s, opacity .2s; }
+    .mobile-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-open .hamburger span:nth-child(2) { opacity: 0; }
+    .mobile-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile slide-in panel */
+    .mobile-panel {
+      position: fixed; inset: 0 0 0 auto; width: min(400px, 88vw); z-index: 610;
+      background: var(--navy-deep); padding: calc(var(--nav-h) + .5rem) 1.5rem 2rem;
+      transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1);
+      overflow-y: auto; display: flex; flex-direction: column; gap: .25rem;
+      border-left: 2px solid var(--gold);
+    }
+    .mobile-open .mobile-panel { transform: translateX(0); }
+    .mobile-panel a { color: #fff; font-size: 1.05rem; font-weight: 500; padding: .85rem .25rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; }
+    .mobile-panel a.sub { font-size: .92rem; font-weight: 400; color: rgba(255,255,255,.72); padding-left: 1rem; }
+    .mobile-panel .mp-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 1.25rem 0 .35rem; }
+    .mobile-panel .btn-cta { text-align: center; justify-content: center; display: flex; margin-top: 1.25rem; padding: .9rem; font-size: .85rem; }
+    .backdrop { position: fixed; inset: 0; background: rgba(4,27,61,.55); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity .3s; z-index: 590; }
+    .mobile-open .backdrop { opacity: 1; visibility: visible; }
+
+    /* ─────────────  HERO  ───────────── */
+    .hero { position: relative; height: 100svh; min-height: 620px; display: flex; align-items: center; overflow: hidden; color: #fff; }
+    /* Always-present gradient so there is never a broken/empty state */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(120% 90% at 80% 10%, #0f3d72 0%, transparent 55%),
+        linear-gradient(140deg, var(--navy-deep) 0%, var(--navy) 45%, var(--navy-mid) 100%);
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; z-index: 1; opacity: 0; transition: opacity 1s ease; }
+    .hero-video.ready { opacity: 1; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(90deg, rgba(4,27,61,.86) 0%, rgba(4,27,61,.62) 45%, rgba(7,44,94,.30) 100%),
+                  linear-gradient(0deg, rgba(4,27,61,.75) 0%, transparent 40%);
+    }
+    .hero-inner { position: relative; z-index: 3; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+    .hero-content { max-width: 720px; }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(15,122,229,.15); border: 1px solid rgba(15,122,229,.4);
-      color: var(--gold-light); border-radius: .35rem;
-      font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-      padding: .35rem 1rem; margin-bottom: 1.5rem;
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-light);
+      margin-bottom: 1.5rem;
     }
+    .hero-eyebrow::before { content: ''; width: 34px; height: 2px; background: var(--gold); display: block; }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.1rem, 5vw, 3.4rem);
-      font-weight: 700; line-height: 1.15; color: #fff;
-      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(2.3rem, 6vw, 4.4rem); line-height: 1.06; letter-spacing: -.01em;
+      margin-bottom: 1.4rem; text-wrap: balance;
     }
     .hero h1 em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-size: 1.02rem; color: rgba(255,255,255,.72); max-width: 560px; margin: 0 auto; line-height: 1.7; font-weight: 300; }
+    .hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.82); max-width: 560px; margin-bottom: 2.25rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
 
-    /* ── SECTION SHELL ── */
-    .section { padding: 4rem 1.5rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--gold); color: #fff; font-weight: 700; font-size: .92rem; letter-spacing: .02em;
+      padding: .95rem 2rem; border-radius: .45rem; border: none; cursor: pointer; font-family: inherit;
+      box-shadow: 0 6px 22px rgba(15,122,229,.4); transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(15,122,229,.5); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.4); color: #fff;
+      font-weight: 600; font-size: .92rem; padding: .95rem 2rem; border-radius: .45rem; cursor: pointer; font-family: inherit;
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.14); border-color: #fff; transform: translateY(-2px); }
+    .btn-primary svg, .btn-outline svg { width: 18px; height: 18px; flex-shrink: 0; }
+    /* In flex-column contexts, keep buttons hugging their content instead of stretching */
+    .announce-body .btn-primary, .journey-copy .btn-primary { align-self: flex-start; }
+
+    /* Hero video control + scroll cue */
+    .hero-video-btn {
+      position: absolute; z-index: 4; right: 1.5rem; bottom: 1.75rem;
+      width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+      background: rgba(4,27,61,.5); border: 1.5px solid rgba(255,255,255,.45); color: #fff;
+      display: grid; place-items: center; backdrop-filter: blur(4px); transition: background .2s, transform .15s;
+    }
+    .hero-video-btn:hover { background: rgba(4,27,61,.8); transform: scale(1.06); }
+    .hero-video-btn svg { width: 18px; height: 18px; }
+    .scroll-cue {
+      position: absolute; z-index: 4; left: 50%; bottom: 1.4rem; transform: translateX(-50%);
+      display: inline-flex; flex-direction: column; align-items: center; gap: .4rem;
+      color: rgba(255,255,255,.7); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+    }
+    .scroll-cue .mouse { width: 22px; height: 34px; border: 2px solid rgba(255,255,255,.55); border-radius: 12px; position: relative; }
+    .scroll-cue .mouse::after { content: ''; position: absolute; top: 6px; left: 50%; width: 3px; height: 6px; background: #fff; border-radius: 2px; transform: translateX(-50%); animation: scrollDot 1.6s infinite; }
+    @keyframes scrollDot { 0% { opacity: 0; transform: translate(-50%, 0); } 40% { opacity: 1; } 80% { opacity: 0; transform: translate(-50%, 10px); } 100% { opacity: 0; } }
+
+    /* ─────────────  SECTION SHELL  ───────────── */
+    .section { padding: clamp(3.5rem, 7vw, 6rem) 1.5rem; }
     .section.alt { background: var(--bg-soft); }
-    .section-inner { max-width: 1160px; margin: 0 auto; }
-    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; display: flex; align-items: center; gap: .5rem; }
-    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.4rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .75rem; }
-    .section-desc { font-size: .93rem; color: var(--muted); max-width: 560px; line-height: 1.75; }
+    .section.warm { background: var(--bg-warm); }
+    .wrap { max-width: var(--maxw); margin: 0 auto; }
+    .kicker { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dark); display: inline-flex; align-items: center; gap: .55rem; margin-bottom: .9rem; }
+    .kicker::before { content: ''; width: 26px; height: 2px; background: var(--gold); display: block; }
+    .h-title { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); line-height: 1.12; font-size: clamp(1.8rem, 3.6vw, 2.9rem); letter-spacing: -.01em; text-wrap: balance; }
+    .lead { font-size: 1.02rem; color: var(--muted); line-height: 1.8; max-width: 620px; }
 
-    /* ── CATEGORY FILTER ── */
-    .filter-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2rem 0 2.25rem; }
+    /* ─────────────  ANNOUNCEMENT  ───────────── */
+    .announce { background: var(--navy-deep); color: #fff; position: relative; overflow: hidden; }
+    .announce .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0; align-items: stretch; }
+    .announce-media {
+      position: relative; min-height: 340px;
+      background: radial-gradient(120% 120% at 30% 20%, #0f3d72 0%, transparent 60%), linear-gradient(150deg, var(--navy) 0%, var(--navy-mid) 100%);
+      display: grid; place-items: center; overflow: hidden;
+    }
+    .announce-media::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E"); }
+    .announce-monogram { position: relative; z-index: 1; text-align: center; }
+    .announce-monogram b { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); color: #fff; display: block; line-height: 1; }
+    .announce-monogram span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); }
+    .announce-body { padding: clamp(2.5rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
+    .announce-cat { display: inline-flex; align-items: center; gap: .5rem; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+    .announce-cat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(15,122,229,.25); }
+    .announce h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
+    .announce p { color: rgba(255,255,255,.78); line-height: 1.75; font-size: 1rem; margin-bottom: 1.5rem; max-width: 480px; }
+    .announce-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+    .announce-meta div { border-left: 2px solid var(--gold); padding-left: .8rem; }
+    .announce-meta .k { font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    .announce-meta .v { font-size: .95rem; font-weight: 600; }
+
+    /* ─────────────  JOURNEY INTRO  ───────────── */
+    .journey .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    .journey-copy h2 { margin: 0 0 1.25rem; }
+    .journey-copy .lead { margin-bottom: 1.75rem; }
+    .journey-links { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .journey-links a {
+      display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+      padding: .95rem 1.1rem; border: 1px solid var(--border); border-radius: .5rem; background: #fff;
+      font-weight: 600; font-size: .88rem; color: var(--navy); transition: border-color .2s, transform .15s, box-shadow .2s;
+    }
+    .journey-links a:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .journey-links a .arr { color: var(--gold-dark); transition: transform .18s; }
+    .journey-links a:hover .arr { transform: translateX(3px); }
+    /* Layered/offset composition built from brand gradient panels */
+    .journey-art { position: relative; min-height: 420px; }
+    .art-panel { position: absolute; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .art-panel .lbl { position: absolute; left: 1rem; bottom: 1rem; color: #fff; font-size: .72rem; font-weight: 600; letter-spacing: .04em; z-index: 2; }
+    .art-panel::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E"); }
+    .art-a { top: 0; left: 0; width: 66%; height: 74%; background: linear-gradient(150deg, var(--navy) 0%, #0f3d72 100%); }
+    .art-b { bottom: 0; right: 0; width: 54%; height: 56%; background: linear-gradient(150deg, var(--gold-dark) 0%, var(--teal) 100%); border: 5px solid #fff; }
+    .art-badge { position: absolute; top: 8%; right: 4%; z-index: 3; background: #fff; border-radius: .6rem; box-shadow: var(--shadow-md); padding: .9rem 1.1rem; text-align: center; }
+    .art-badge b { display: block; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); line-height: 1; }
+    .art-badge span { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* ─────────────  PROGRAM EXPLORER  ───────────── */
+    .explorer-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .explorer-head .lead { margin-top: 1rem; }
+    .filter-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
     .filter-btn {
-      background: #fff; border: 1.5px solid var(--border);
-      color: var(--muted); font-size: .74rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
-      padding: .45rem 1rem; border-radius: .35rem; cursor: pointer;
-      transition: all .18s;
+      background: #fff; border: 1.5px solid var(--border); color: var(--muted);
+      font-family: inherit; font-size: .76rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+      padding: .55rem 1.1rem; border-radius: 2rem; cursor: pointer; transition: all .18s;
     }
     .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
-    .filter-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .filter-btn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
 
-    /* ── COURSE GRID ── */
-    .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-    .course-card {
-      background: #fff; border: 1.5px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-      display: flex; flex-direction: column;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow .2s, transform .2s, border-color .2s;
-      text-decoration: none; color: inherit;
-      position: relative;
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 1.5rem; }
+    .p-card {
+      background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column; box-shadow: var(--shadow-sm); color: inherit; position: relative;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
     }
-    .course-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(7,44,94,.2); }
-    .course-card:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
-    .course-card.featured { border-color: var(--gold); border-width: 2px; }
-    .card-banner {
-      height: 128px; position: relative;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
-    .card-banner::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .card-abbr { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: #fff; letter-spacing: .04em; position: relative; z-index: 1; text-align: center; padding: 0 1rem; }
-    .card-abbr small { display: block; font-family: 'Inter', sans-serif; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin-top: .35rem; }
-    .card-ribbon {
-      position: absolute; top: .8rem; right: .8rem; z-index: 2;
-      background: var(--gold); color: #fff;
-      font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-      padding: .28rem .7rem; border-radius: .3rem;
-    }
-    .card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
-    .card-cat { font-size: .64rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--teal); margin-bottom: .5rem; }
-    .card-title { font-family: 'Playfair Display', serif; font-size: 1.22rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: .55rem; }
-    .card-desc { font-size: .84rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.1rem; flex: 1; }
-    .card-foot { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: auto; }
-    .card-price { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); }
-    .card-price small { font-family: 'Inter', sans-serif; font-size: .68rem; font-weight: 400; color: var(--muted); }
-    .card-link {
-      display: inline-flex; align-items: center; gap: .35rem;
-      font-size: .78rem; font-weight: 700; letter-spacing: .03em; color: var(--gold-dark);
-      transition: gap .18s;
-    }
-    .course-card:hover .card-link { gap: .6rem; }
+    .p-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); border-color: rgba(7,44,94,.22); }
+    .p-card.featured { border-color: var(--gold); border-width: 2px; }
+    .p-banner { height: 132px; position: relative; display: grid; place-items: center; overflow: hidden; background: linear-gradient(140deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); }
+    .p-banner.g1 { background: linear-gradient(140deg, var(--navy) 0%, #0f3d72 100%); }
+    .p-banner.g2 { background: linear-gradient(140deg, var(--gold-dark) 0%, var(--teal) 100%); }
+    .p-banner.g3 { background: linear-gradient(140deg, var(--navy-mid) 0%, var(--teal) 120%); }
+    .p-banner::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/svg%3E"); }
+    .p-abbr { position: relative; z-index: 1; text-align: center; padding: 0 1rem; }
+    .p-abbr b { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: #fff; letter-spacing: .03em; }
+    .p-abbr span { display: block; font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.8); margin-top: .3rem; }
+    .p-ribbon { position: absolute; top: .8rem; right: .8rem; z-index: 2; background: var(--gold); color: #fff; font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .7rem; border-radius: .3rem; }
+    .p-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    .p-cat { font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: .5rem; }
+    .p-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: .55rem; }
+    .p-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+    .p-meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-bottom: 1.1rem; }
+    .p-meta span { font-size: .72rem; color: var(--muted); display: inline-flex; align-items: center; gap: .35rem; }
+    .p-meta span svg { width: 13px; height: 13px; color: var(--gold-dark); flex-shrink: 0; }
+    .p-foot { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .p-price { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .p-price small { font-family: 'Inter', sans-serif; font-size: .66rem; font-weight: 400; color: var(--muted); }
+    .p-link { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700; color: var(--gold-dark); transition: gap .18s; }
+    .p-card:hover .p-link { gap: .6rem; }
 
-    /* ── CTA STRIP ── */
-    .cta-strip { background: var(--navy); }
-    .cta-inner { max-width: 1160px; margin: 0 auto; padding: 3rem 1.5rem; text-align: center; }
-    .cta-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 700; color: #fff; margin-bottom: .75rem; }
-    .cta-inner p { font-size: .95rem; color: rgba(255,255,255,.65); max-width: 480px; margin: 0 auto 1.75rem; line-height: 1.7; }
-    .btn-gold {
-      display: inline-flex; align-items: center; gap: .45rem;
-      background: var(--gold); color: #fff;
-      font-weight: 700; font-size: .88rem; letter-spacing: .03em;
-      padding: .8rem 2rem; border-radius: .4rem; text-decoration: none;
-      box-shadow: 0 4px 18px rgba(15,122,229,.35);
-      transition: background .2s, transform .15s, box-shadow .2s;
+    /* ─────────────  STATS  ───────────── */
+    .stats { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
+    .stats::before { content:''; position:absolute; inset:0; background: radial-gradient(90% 120% at 85% 0%, rgba(15,122,229,.28) 0%, transparent 55%); }
+    .stats .wrap { position: relative; }
+    .stats-head { max-width: 620px; margin-bottom: 3rem; }
+    .stats-head .kicker { color: var(--gold-light); }
+    .stats-head .kicker::before { background: var(--gold-light); }
+    .stats-head h2 { color: #fff; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .stat { border-top: 2px solid rgba(255,255,255,.18); padding-top: 1.25rem; }
+    .stat b { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 700; color: #fff; line-height: 1; display: block; }
+    .stat b em { font-style: normal; color: var(--gold-light); }
+    .stat p { margin-top: .6rem; font-size: .86rem; color: rgba(255,255,255,.72); line-height: 1.5; }
+
+    /* ─────────────  LEARNING EXPERIENCE  ───────────── */
+    .exp-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.75rem; }
+    .exp-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.9rem 1.6rem;
+      box-shadow: var(--shadow-sm); transition: transform .25s, box-shadow .25s, border-color .25s; position: relative; overflow: hidden;
     }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(15,122,229,.45); }
+    .exp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, var(--navy), var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+    .exp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(7,44,94,.18); }
+    .exp-card:hover::before { transform: scaleX(1); }
+    .exp-num { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--gold-dark); margin-bottom: .9rem; letter-spacing: .05em; }
+    .exp-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: .55rem; line-height: 1.25; }
+    .exp-card p { font-size: .88rem; color: var(--muted); line-height: 1.7; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy); color: rgba(255,255,255,.5);
-      padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9;
-      border-top: 1px solid rgba(255,255,255,.08);
+    /* ─────────────  INSTRUCTORS / EXPERIENCE BAND  ───────────── */
+    .mentor .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .mentor-art { position: relative; min-height: 360px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); background: linear-gradient(150deg, var(--navy) 0%, #0f3d72 60%, var(--teal) 130%); display: grid; place-items: center; }
+    .mentor-art::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E"); }
+    .mentor-art .quote { position: relative; z-index: 1; color: #fff; text-align: center; padding: 2rem; max-width: 340px; }
+    .mentor-art .quote b { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; line-height: 1.4; display: block; }
+    .mentor-art .quote span { display: block; margin-top: 1rem; font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); }
+    .mentor-list { list-style: none; margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1.1rem; }
+    .mentor-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .mentor-list .ic { flex-shrink: 0; width: 42px; height: 42px; border-radius: .55rem; background: var(--gold-bg); color: var(--gold-dark); display: grid; place-items: center; }
+    .mentor-list .ic svg { width: 20px; height: 20px; }
+    .mentor-list h3 { font-size: .98rem; color: var(--navy); margin-bottom: .2rem; }
+    .mentor-list p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─────────────  FINAL CTA  ───────────── */
+    .final { position: relative; overflow: hidden; color: #fff; text-align: center; padding: clamp(4rem, 9vw, 7rem) 1.5rem; }
+    .final-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(120% 120% at 50% 0%, #0f3d72 0%, transparent 60%), linear-gradient(150deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-mid) 100%); }
+    .final-bg::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/svg%3E"); }
+    .final .wrap { position: relative; z-index: 1; max-width: 760px; }
+    .final h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; line-height: 1.12; margin-bottom: 1.1rem; text-wrap: balance; }
+    .final p { font-size: 1.08rem; color: rgba(255,255,255,.78); line-height: 1.7; max-width: 540px; margin: 0 auto 2.25rem; }
+    .final-actions { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ─────────────  FOOTER  ───────────── */
+    .footer { background: var(--navy-deep); color: rgba(255,255,255,.62); padding: clamp(3rem, 6vw, 4.5rem) 1.5rem 2rem; }
+    .footer-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2.5rem; }
+    .footer-brand .brand { font-size: 1.35rem; margin-bottom: 1rem; }
+    .footer-brand p { font-size: .88rem; line-height: 1.7; max-width: 300px; margin-bottom: 1.25rem; }
+    .footer-contact { display: flex; flex-direction: column; gap: .5rem; font-size: .86rem; }
+    .footer-contact a { display: inline-flex; align-items: center; gap: .55rem; color: rgba(255,255,255,.72); transition: color .18s; }
+    .footer-contact a:hover { color: #fff; }
+    .footer-contact svg { width: 15px; height: 15px; color: var(--gold-light); flex-shrink: 0; }
+    .footer-col h4 { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; margin-bottom: 1.1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-col a { font-size: .86rem; color: rgba(255,255,255,.62); transition: color .18s; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-social { display: flex; gap: .6rem; margin-top: .25rem; }
+    .footer-social a { width: 36px; height: 36px; border-radius: .5rem; border: 1px solid rgba(255,255,255,.15); display: grid; place-items: center; color: rgba(255,255,255,.7); transition: background .18s, color .18s, border-color .18s; }
+    .footer-social a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+    .footer-social svg { width: 17px; height: 17px; }
+    .footer-bottom { max-width: var(--maxw); margin: 2.5rem auto 0; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .78rem; }
+    .footer-bottom .links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .footer-bottom a { color: rgba(255,255,255,.6); }
+    .footer-bottom a:hover { color: #fff; }
+    .footer-disclaimer { max-width: var(--maxw); margin: 1.25rem auto 0; font-size: .72rem; color: rgba(255,255,255,.4); line-height: 1.6; }
+
+    /* ─────────────  REVEAL ANIMATION  ───────────── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal[data-delay="1"] { transition-delay: .08s; }
+    .reveal[data-delay="2"] { transition-delay: .16s; }
+    .reveal[data-delay="3"] { transition-delay: .24s; }
+
+    /* ─────────────  RESPONSIVE  ───────────── */
+    @media (max-width: 960px) {
+      .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; }
+      .hamburger { display: block; }
+      .announce .wrap { grid-template-columns: 1fr; }
+      .announce-media { min-height: 220px; }
+      .journey .wrap, .mentor .wrap { grid-template-columns: 1fr; }
+      .journey-art, .mentor-art { min-height: 320px; order: -1; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+      .exp-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: 1 / -1; }
     }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
-    .footer-logo span { color: var(--gold); }
-    footer a { color: var(--gold); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 620px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 620px) {
+      .hero { min-height: 560px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn-primary, .hero-actions .btn-outline { justify-content: center; }
+      .journey-links { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .scroll-cue { display: none; }
+    }
+    @media (max-width: 360px) {
+      .header-inner { padding: 0 1rem; }
+      .brand { font-size: 1.15rem; }
+    }
 
-    hr { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-    @media (max-width: 520px) {
-      .nav-link { display: none; }
+    /* ─────────────  REDUCED MOTION  ───────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      .scroll-cue .mouse::after { animation: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
-    <div class="nav-right">
-      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="nav-link">Contact</a>
-      <a href="#courses" class="nav-cta">Browse Courses</a>
+<a href="#programs" class="skip-link">Skip to programs</a>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home">Confi<span>Dentist</span></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <a href="/">Home</a>
+      </div>
+      <div class="nav-item" id="coursesItem">
+        <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="coursesMega" id="coursesTrigger">
+          Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mega" id="coursesMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/afk-mock-exams/" role="menuitem" class="all">Mock Exams <span aria-hidden="true">→</span></a>
+            <a href="#programs" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/course-bundles/">Course Bundles</a></div>
+      <div class="nav-item"><a href="/afk-mock-exams/">Mock Exams</a></div>
+      <div class="nav-item"><a href="#experience">Learning</a></div>
+      <div class="nav-item"><a href="https://www.confidentist.ca/our-team/">Instructors</a></div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
+      <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
+      <a href="#programs" class="btn-cta">Explore Courses</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+</header>
+
+<!-- Mobile navigation -->
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Programs</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/afk-mock-exams/" class="sub">AFK Mock Exams</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">More</div>
+  <a href="#experience">Learning Experience</a>
+  <a href="https://www.confidentist.ca/our-team/">Instructors</a>
+  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
+  <a href="https://www.confidentist.ca/my-account/">Student Login</a>
+  <a href="#programs" class="btn-cta">Explore Courses</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<main id="main">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="top" aria-label="Introduction">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <video class="hero-video" id="heroVideo" muted loop playsinline preload="metadata"
+         poster="/images/confidentist-hero-poster.webp" aria-hidden="true" tabindex="-1">
+    <source src="/videos/confidentist-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
   <div class="hero-inner">
-    <div class="hero-eyebrow">Canadian Dental Licensing Prep</div>
-    <h1>Explore Our <em>Courses</em></h1>
-    <p class="hero-sub">Everything internationally trained dentists need to succeed on the path to Canadian licensure — expert-led prep for every exam, plus mock exams, interviews, and bundles.</p>
+    <div class="hero-content">
+      <p class="hero-eyebrow">ConfiDentist Dental Education</p>
+      <h1>Advance Your Dental<br />Career in <em>Canada</em></h1>
+      <p class="hero-sub">Expert-led preparation, practical training and personalized mentorship for internationally trained dentists pursuing Canadian dental examinations and professional success.</p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn-primary">Explore Our Courses
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#journey" class="btn-outline">Find the Right Program</a>
+      </div>
+    </div>
   </div>
+
+  <button type="button" class="hero-video-btn" id="heroToggle" aria-label="Pause background video" hidden>
+    <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+    <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 5v14l11-7z"/></svg>
+  </button>
+
+  <a href="#announcement" class="scroll-cue" aria-label="Scroll to content">
+    <span class="mouse" aria-hidden="true"></span>
+    Scroll
+  </a>
 </section>
 
-<!-- COURSES -->
-<section class="section" id="courses">
-  <div class="section-inner">
-    <div class="section-kicker">All Programs</div>
-    <h2 class="section-title">Courses &amp; Products</h2>
-    <p class="section-desc">Choose the exam or program you're preparing for. Each course opens its own dedicated page with schedules, pricing, and enrollment.</p>
-
-    <!-- Category filter -->
-    <div class="filter-row" id="filterRow">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="exam">Exam Prep</button>
-      <button class="filter-btn" data-filter="mock">Mock Exams</button>
-      <button class="filter-btn" data-filter="interview">Interview</button>
-      <button class="filter-btn" data-filter="bundle">Bundles &amp; Private</button>
+<!-- ═══════════ FEATURED ANNOUNCEMENT ═══════════ -->
+<section class="announce" id="announcement" aria-labelledby="announce-title">
+  <div class="wrap">
+    <div class="announce-media reveal" aria-hidden="true">
+      <div class="announce-monogram"><b>Mock</b><span>AFK Mock Exams · 2026–2027</span></div>
     </div>
-
-    <!-- Course grid -->
-    <div class="course-grid" id="courseGrid">
-
-      <!-- ★ AFK MOCK EXAMS — links to the page already in this repo -->
-      <a href="/afk-mock-exams/" class="course-card featured" data-cat="mock">
-        <div class="card-banner">
-          <span class="card-ribbon">Enrolling Now</span>
-          <span class="card-abbr">Mock<small>AFK Mock Exams</small></span>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">Mock Exam · 2026–2027</div>
-          <div class="card-title">AFK Mock Exams</div>
-          <div class="card-desc">Full &amp; mini mock exams with live instructor-led review sessions. Build your own bundle across 4 full mocks — realistic timing, detailed performance reports.</div>
-          <div class="card-foot">
-            <div class="card-price">From $400 <small>CAD</small></div>
-            <span class="card-link">View course →</span>
-          </div>
-        </div>
+    <div class="announce-body reveal" data-delay="1">
+      <span class="announce-cat"><span class="dot"></span> Enrolling Now · Featured Program</span>
+      <h2 id="announce-title">AFK Mock Exams for the 2026–2027 Cycle</h2>
+      <p>Full and mini mock examinations with live, instructor-led review sessions. Build your own bundle across up to four full mocks — realistic timing, exam-style questions, and detailed performance reports to sharpen your readiness.</p>
+      <div class="announce-meta">
+        <div><div class="k">Format</div><div class="v">Full &amp; Mini Mocks</div></div>
+        <div><div class="k">Review</div><div class="v">Live Instructor-Led</div></div>
+        <div><div class="k">Starting from</div><div class="v">$400 CAD</div></div>
+      </div>
+      <a href="/afk-mock-exams/" class="btn-primary">View Program
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-
-      <!-- AFK exam prep — links to the AFK programs parent page in this repo -->
-      <a href="/afk-programs/" class="course-card" data-cat="exam">
-        <div class="card-banner"><span class="card-abbr">AFK<small>Fundamental Knowledge</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Exam Prep</div>
-          <div class="card-title">AFK — Assessment of Fundamental Knowledge</div>
-          <div class="card-desc">Full package and subject-based modular preparation covering the complete AFK syllabus for internationally trained dentists.</div>
-          <div class="card-foot">
-            <div class="card-price">Full &amp; Modular</div>
-            <span class="card-link">View course →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- ADAT — links to the ADAT programs parent page in this repo -->
-      <a href="/adat-programs/" class="course-card" data-cat="exam">
-        <div class="card-banner"><span class="card-abbr">ADAT<small>Advanced Dental Admission</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Exam Prep</div>
-          <div class="card-title">ADAT — Advanced Dental Admission Test</div>
-          <div class="card-desc">Structured, high-yield preparation for the ADAT, built to strengthen the exact knowledge areas the test measures.</div>
-          <div class="card-foot">
-            <div class="card-price">Comprehensive &amp; Crash</div>
-            <span class="card-link">View course →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- ACJ — links to the ACJ programs parent page in this repo -->
-      <a href="/acj-programs/" class="course-card" data-cat="exam">
-        <div class="card-banner"><span class="card-abbr">ACJ<small>Clinical Judgement</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Exam Prep</div>
-          <div class="card-title">ACJ — Assessment of Clinical Judgement</div>
-          <div class="card-desc">Scenario-driven preparation that sharpens the clinical reasoning and decision-making skills the ACJ evaluates.</div>
-          <div class="card-foot">
-            <div class="card-price">Comprehensive</div>
-            <span class="card-link">View course →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- NDECC — links to the NDECC programs parent page in this repo -->
-      <a href="/ndecc-programs/" class="course-card" data-cat="exam">
-        <div class="card-banner"><span class="card-abbr">NDECC<small>Clinical &amp; Situational</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Exam Prep · Multiple Tracks</div>
-          <div class="card-title">NDECC</div>
-          <div class="card-desc">Clinical Skills and Situational Judgement tracks, dedicated mock programs, and bundled packages for full NDECC readiness.</div>
-          <div class="card-foot">
-            <div class="card-price">Tracks &amp; Bundles</div>
-            <span class="card-link">View course →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Virtual OSCE — links to the Virtual OSCE detail page in this repo -->
-      <a href="/virtual-osce/" class="course-card" data-cat="exam">
-        <div class="card-banner"><span class="card-abbr">OSCE<small>Virtual OSCE®</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Exam Prep</div>
-          <div class="card-title">Virtual OSCE®</div>
-          <div class="card-desc">Simulated OSCE stations delivered virtually, so you can practise under realistic conditions from anywhere.</div>
-          <div class="card-foot">
-            <div class="card-price">Program</div>
-            <span class="card-link">View course →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Mock Exam (general) -->
-      <a href="/afk-mock-exams/" class="course-card" data-cat="mock">
-        <div class="card-banner"><span class="card-abbr">Mock<small>Mock Exam Programs</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Mock Exam</div>
-          <div class="card-title">Mock Exam</div>
-          <div class="card-desc">Timed, exam-realistic mock sessions with expert review. Currently featuring the AFK Mock Exam series for 2026–2027.</div>
-          <div class="card-foot">
-            <div class="card-price">From $400 <small>CAD</small></div>
-            <span class="card-link">View course →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- University Interview Preparation — links to the dedicated program page -->
-      <a href="/university-interview-preparation/" class="course-card" data-cat="interview">
-        <div class="card-banner"><span class="card-abbr">Interview<small>University Prep</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Interview</div>
-          <div class="card-title">University Interview Preparation</div>
-          <div class="card-desc">Personalized coaching, structured preparation, and realistic mock interviews designed to help dental candidates communicate confidently, answer challenging questions effectively, and stand out during Canadian university admissions interviews.</div>
-          <div class="card-foot">
-            <div class="card-price">Program</div>
-            <span class="card-link">View program →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Course Bundles — links to the dedicated Course Bundles page -->
-      <a href="/course-bundles/" class="course-card" data-cat="bundle" aria-label="Course Bundles — ConfiDentist dental education and exam-preparation course bundles">
-        <div class="card-banner"><span class="card-abbr">Bundles<small>Best Value</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Program Bundles</div>
-          <div class="card-title">Course Bundles</div>
-          <div class="card-desc">Explore value-packed course and mock-exam bundles designed to provide comprehensive preparation, coordinated learning resources, and greater savings throughout your dental equivalency journey.</div>
-          <div class="card-foot">
-            <div class="card-price">Save More</div>
-            <span class="card-link">View bundles →</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Private Sessions — links to the dedicated Private Sessions page -->
-      <a href="/private-sessions/" class="course-card" data-cat="bundle" aria-label="Private Sessions — one-on-one and semi-private dental exam tutoring">
-        <div class="card-banner"><span class="card-abbr">1:1<small>Private Sessions</small></span></div>
-        <div class="card-body">
-          <div class="card-cat">Private</div>
-          <div class="card-title">Private Sessions</div>
-          <div class="card-desc">One-on-one tutoring tailored to your goals, timeline, and the specific areas where you need the most support.</div>
-          <div class="card-foot">
-            <div class="card-price">Tailored</div>
-            <span class="card-link">View sessions →</span>
-          </div>
-        </div>
-      </a>
-
     </div>
   </div>
 </section>
 
-<hr />
-
-<!-- CTA -->
-<section class="cta-strip">
-  <div class="cta-inner">
-    <h2>Not sure where to start?</h2>
-    <p>Tell us which exam you're preparing for and we'll help you build the right study plan.</p>
-    <a href="https://www.confidentist.ca/contact-us/" class="btn-gold">Talk to an Advisor →</a>
+<!-- ═══════════ JOURNEY INTRODUCTION ═══════════ -->
+<section class="section journey" id="journey" aria-labelledby="journey-title">
+  <div class="wrap">
+    <div class="journey-copy reveal">
+      <span class="kicker">Your Pathway to Canadian Dentistry</span>
+      <h2 class="h-title" id="journey-title">Your Canadian Dentistry Journey Starts Here</h2>
+      <p class="lead">ConfiDentist supports internationally trained dentists at every stage — from exam preparation and structured instruction to realistic mock examinations, practical training, one-on-one mentorship and professional development. Choose a clear, guided path toward Canadian equivalency and professional success.</p>
+      <div class="journey-links">
+        <a href="#programs">Explore Programs <span class="arr" aria-hidden="true">→</span></a>
+        <a href="/course-bundles/">Compare Bundles <span class="arr" aria-hidden="true">→</span></a>
+        <a href="#experience">The Learning Experience <span class="arr" aria-hidden="true">→</span></a>
+        <a href="/afk-mock-exams/">Try a Mock Exam <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="journey-art reveal" data-delay="1" aria-hidden="true">
+      <div class="art-panel art-a"><span class="lbl">Structured, exam-focused instruction</span></div>
+      <div class="art-panel art-b"><span class="lbl">Mentorship &amp; mock exams</span></div>
+      <div class="art-badge"><b>9</b><span>Program areas</span></div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Confi<span>Dentist</span></div>
-  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
-  <p style="margin-top:.75rem;">
-    <a href="https://www.confidentist.ca">confidentist.ca</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/resources/">Resources</a>
-  </p>
+<!-- ═══════════ PROGRAM EXPLORER ═══════════ -->
+<section class="section alt" id="programs" aria-labelledby="programs-title">
+  <div class="wrap">
+    <div class="explorer-head">
+      <div class="reveal">
+        <span class="kicker">Explore ConfiDentist Programs</span>
+        <h2 class="h-title" id="programs-title">Preparation for Every Stage<br />of Your Journey</h2>
+      </div>
+      <p class="lead reveal" data-delay="1">Choose structured preparation designed for each stage of your Canadian dental equivalency and professional development journey. Every program opens its own dedicated page with schedules, pricing and enrollment.</p>
+    </div>
+
+    <div class="filter-row reveal" role="group" aria-label="Filter programs by category" id="filterRow">
+      <button class="filter-btn" data-filter="all" aria-pressed="true">All Programs</button>
+      <button class="filter-btn" data-filter="equivalency" aria-pressed="false">Equivalency Exams</button>
+      <button class="filter-btn" data-filter="clinical" aria-pressed="false">Clinical Training</button>
+      <button class="filter-btn" data-filter="mock" aria-pressed="false">Mock Exams</button>
+      <button class="filter-btn" data-filter="admissions" aria-pressed="false">Admissions Prep</button>
+      <button class="filter-btn" data-filter="bundle" aria-pressed="false">Bundles &amp; Private</button>
+    </div>
+
+    <div class="card-grid" id="cardGrid">
+      <!-- Cards injected from the COURSES data structure below -->
+    </div>
+    <p id="noResults" role="status" aria-live="polite" style="display:none;color:var(--muted);font-size:.9rem;margin-top:1.5rem;">No programs match this filter.</p>
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<section class="section stats" aria-labelledby="stats-title">
+  <div class="wrap">
+    <div class="stats-head reveal">
+      <span class="kicker">ConfiDentist at a Glance</span>
+      <h2 class="h-title" id="stats-title">Built Around the Canadian Licensing Pathway</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat reveal"><b>9</b><p>Distinct program areas across the licensing journey</p></div>
+      <div class="stat reveal" data-delay="1"><b>5<em>+</em></b><p>Exam pathways covered — AFK, ACJ, NDECC, OSCE &amp; ADAT</p></div>
+      <div class="stat reveal" data-delay="2"><b>Live<em> + </em>Rec</b><p>Live and pre-recorded learning you can revisit anytime</p></div>
+      <div class="stat reveal" data-delay="3"><b>1:1</b><p>Personalized mentorship and private session options</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LEARNING EXPERIENCE ═══════════ -->
+<section class="section" id="experience" aria-labelledby="exp-title">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px;">
+      <span class="kicker">The Learning Experience</span>
+      <h2 class="h-title" id="exp-title">An Education Designed for the Exam — and Beyond</h2>
+    </div>
+    <div class="exp-row">
+      <article class="exp-card reveal">
+        <div class="exp-num">01</div>
+        <h3>Expert-Led Instruction</h3>
+        <p>Learn from experienced instructors who understand the Canadian equivalency process and teach with a clear, exam-oriented focus.</p>
+      </article>
+      <article class="exp-card reveal" data-delay="1">
+        <div class="exp-num">02</div>
+        <h3>Exam-Focused Curriculum</h3>
+        <p>Structured coverage built around what each examination actually measures, with quizzes, booklets and targeted review.</p>
+      </article>
+      <article class="exp-card reveal" data-delay="2">
+        <div class="exp-num">03</div>
+        <h3>Realistic Mock Examinations</h3>
+        <p>Timed, exam-style mock sessions with detailed feedback so you can practise under authentic conditions before test day.</p>
+      </article>
+      <article class="exp-card reveal">
+        <div class="exp-num">04</div>
+        <h3>Personalized Mentorship</h3>
+        <p>One-on-one and semi-private sessions matched to your goals, timeline and the areas where you need the most support.</p>
+      </article>
+      <article class="exp-card reveal" data-delay="1">
+        <div class="exp-num">05</div>
+        <h3>Clinical &amp; Situational Training</h3>
+        <p>Scenario-driven preparation for clinical judgement, situational judgement and OSCE-style stations.</p>
+      </article>
+      <article class="exp-card reveal" data-delay="2">
+        <div class="exp-num">06</div>
+        <h3>Flexible Online &amp; In-Person</h3>
+        <p>Live lectures over Zoom, on-demand recordings in your ConfiPortal, with occasional in-person sessions in Toronto.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MENTORSHIP / EXPERIENCE BAND ═══════════ -->
+<section class="section warm mentor" aria-labelledby="mentor-title">
+  <div class="wrap">
+    <div class="mentor-art reveal" aria-hidden="true">
+      <div class="quote">
+        <b>“Preparation built around you.”</b>
+        <span>The ConfiDentist Approach</span>
+      </div>
+    </div>
+    <div class="reveal" data-delay="1">
+      <span class="kicker">Why Internationally Trained Dentists Choose Us</span>
+      <h2 class="h-title" id="mentor-title">Guidance at Every Step Toward Licensure</h2>
+      <ul class="mentor-list">
+        <li>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+          <div><h3>Experienced instructors</h3><p>Guidance from educators focused on Canadian dental examinations.</p></div>
+        </li>
+        <li>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <div><h3>Structured, exam-oriented education</h3><p>Comprehensive materials and updated booklets that map to the syllabus.</p></div>
+        </li>
+        <li>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><h3>Learn at your own pace</h3><p>Live sessions plus on-demand recordings you can revisit anytime.</p></div>
+        </li>
+        <li>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <div><h3>Guidance for internationally trained dentists</h3><p>A journey designed for candidates preparing for Canadian licensure.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section class="final" aria-labelledby="final-title">
+  <div class="final-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 id="final-title">Ready to Take the Next Step?</h2>
+    <p>Explore ConfiDentist programs and find the preparation that matches your goals.</p>
+    <div class="final-actions">
+      <a href="#programs" class="btn-primary">Explore Courses
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline">Contact ConfiDentist</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">Confi<span>Dentist</span></div>
+      <p>Your trusted partner on the journey to Canadian dental licensure — exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists.</p>
+      <div class="footer-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.confidentist.ca/contact-us/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Toronto, Ontario, Canada</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="#journey">About</a></li>
+        <li><a href="https://www.confidentist.ca/our-team/">Our Instructors</a></li>
+        <li><a href="#experience">Learning Experience</a></li>
+        <li><a href="https://www.confidentist.ca/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="footer-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="links">
+      <a href="https://www.confidentist.ca/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="https://www.confidentist.ca/our-team/">Our Team</a>
+      <a href="https://www.confidentist.ca/contact-us/">Contact</a>
+    </div>
+  </div>
   <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
-  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
 </footer>
 
 <script>
-  const filterBtns = document.querySelectorAll('.filter-btn')
-  const cards      = document.querySelectorAll('.course-card')
+/* ─────────────  COURSE DATA (single source of truth)  ─────────────
+   Every card links directly to an existing page in this repository or
+   on confidentist.ca. Update routes/content here — the grid renders below. */
+const COURSES = [
+  {
+    abbr: 'Mock', sub: 'AFK Mock Exams', banner: 'g2',
+    cat: 'Mock Exam · 2026–2027', title: 'AFK Mock Exams',
+    desc: 'Full and mini mock exams with live instructor-led review. Build your own bundle across up to four full mocks — realistic timing and detailed performance reports.',
+    meta: [['calendar', '2026–2027 cycle'], ['clock', 'Timed, exam-style']],
+    price: 'From $400', priceNote: 'CAD', cta: 'View course',
+    href: '/afk-mock-exams/', filters: ['mock'], featured: true, ribbon: 'Enrolling Now'
+  },
+  {
+    abbr: 'AFK', sub: 'Fundamental Knowledge', banner: 'g1',
+    cat: 'Equivalency Exam', title: 'AFK — Assessment of Fundamental Knowledge',
+    desc: 'Full-package and subject-based modular preparation covering the complete AFK syllabus for internationally trained dentists.',
+    meta: [['grid', 'Full & Modular'], ['video', 'Live + Recorded']],
+    price: 'Full & Modular', priceNote: '', cta: 'View course',
+    href: '/afk-programs/', filters: ['equivalency']
+  },
+  {
+    abbr: 'ACJ', sub: 'Clinical Judgement', banner: 'g1',
+    cat: 'Equivalency Exam', title: 'ACJ — Assessment of Clinical Judgement',
+    desc: 'Scenario-driven preparation that sharpens the clinical reasoning and decision-making skills the ACJ evaluates.',
+    meta: [['grid', 'Comprehensive'], ['video', 'Live + Recorded']],
+    price: 'Comprehensive', priceNote: '', cta: 'View course',
+    href: '/acj-programs/', filters: ['equivalency']
+  },
+  {
+    abbr: 'NDECC', sub: 'Clinical & Situational', banner: 'g3',
+    cat: 'Clinical Training · Multiple Tracks', title: 'NDECC',
+    desc: 'Clinical Skills and Situational Judgement tracks, dedicated mock programs and bundled packages for full NDECC readiness.',
+    meta: [['grid', 'Tracks & Bundles'], ['clock', 'Clinical + Situational']],
+    price: 'Tracks & Bundles', priceNote: '', cta: 'View course',
+    href: '/ndecc-programs/', filters: ['clinical']
+  },
+  {
+    abbr: 'OSCE', sub: 'Virtual OSCE®', banner: 'g3',
+    cat: 'Clinical Training', title: 'Virtual OSCE®',
+    desc: 'Simulated OSCE stations delivered virtually, so you can practise under realistic conditions from anywhere.',
+    meta: [['video', 'Delivered online'], ['clock', 'Live + Recorded']],
+    price: 'Program', priceNote: '', cta: 'View course',
+    href: '/virtual-osce/', filters: ['clinical']
+  },
+  {
+    abbr: 'ADAT', sub: 'Advanced Dental Admission', banner: 'g1',
+    cat: 'Admissions Prep', title: 'ADAT — Advanced Dental Admission Test',
+    desc: 'Structured, high-yield preparation for the ADAT, built to strengthen the exact knowledge areas the test measures.',
+    meta: [['grid', 'Comprehensive & Crash'], ['video', 'Live + Recorded']],
+    price: 'Comprehensive & Crash', priceNote: '', cta: 'View course',
+    href: '/adat-programs/', filters: ['admissions']
+  },
+  {
+    abbr: 'Interview', sub: 'University Prep', banner: 'g3',
+    cat: 'Admissions Prep', title: 'University Interview Preparation',
+    desc: 'Personalized coaching, structured preparation and realistic mock interviews to help dental candidates communicate confidently during Canadian university admissions interviews.',
+    meta: [['users', '1:1 Coaching'], ['clock', 'Mock interviews']],
+    price: 'Program', priceNote: '', cta: 'View program',
+    href: '/university-interview-preparation/', filters: ['admissions']
+  },
+  {
+    abbr: 'Bundles', sub: 'Best Value', banner: 'g2',
+    cat: 'Program Bundles', title: 'Course Bundles',
+    desc: 'Value-packed course and mock-exam bundles designed for comprehensive preparation, coordinated resources and greater savings across your equivalency journey.',
+    meta: [['grid', 'Multi-course value'], ['tag', 'Save more']],
+    price: 'Save More', priceNote: '', cta: 'View bundles',
+    href: '/course-bundles/', filters: ['bundle']
+  },
+  {
+    abbr: '1:1', sub: 'Private Sessions', banner: 'g1',
+    cat: 'Private Tutoring', title: 'Private Sessions',
+    desc: 'One-on-one tutoring tailored to your goals, timeline and the specific areas where you need the most support.',
+    meta: [['users', 'One-on-one'], ['clock', 'Flexible scheduling']],
+    price: 'Tailored', priceNote: '', cta: 'View sessions',
+    href: '/private-sessions/', filters: ['bundle']
+  }
+];
 
-  filterBtns.forEach(btn => btn.addEventListener('click', () => {
-    const filter = btn.dataset.filter
-    filterBtns.forEach(b => b.classList.toggle('active', b === btn))
-    cards.forEach(card => {
-      const show = filter === 'all' || card.dataset.cat === filter
-      card.style.display = show ? 'flex' : 'none'
-    })
-  }))
+const META_ICONS = {
+  calendar: '<path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  video: '<rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/>',
+  grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>',
+  tag: '<path d="M20.59 13.41 12 22l-9-9V3h10l7.59 7.59a2 2 0 0 1 0 2.82z"/><circle cx="7.5" cy="7.5" r="1.5"/>'
+};
+
+function metaIcon(name, label) {
+  return '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    (META_ICONS[name] || META_ICONS.grid) + '</svg>' + label + '</span>';
+}
+
+function renderCards() {
+  const grid = document.getElementById('cardGrid');
+  grid.innerHTML = COURSES.map(c => {
+    const ribbon = c.ribbon ? '<span class="p-ribbon">' + c.ribbon + '</span>' : '';
+    const meta = (c.meta || []).map(m => metaIcon(m[0], m[1])).join('');
+    const priceNote = c.priceNote ? ' <small>' + c.priceNote + '</small>' : '';
+    return (
+      '<a class="p-card reveal' + (c.featured ? ' featured' : '') + '" href="' + c.href + '"' +
+         ' data-filters="' + c.filters.join(' ') + '" aria-label="' + c.title + ' — ' + c.cta + '">' +
+        '<span class="p-banner ' + c.banner + '" aria-hidden="true">' + ribbon +
+          '<span class="p-abbr"><b>' + c.abbr + '</b><span>' + c.sub + '</span></span>' +
+        '</span>' +
+        '<span class="p-body">' +
+          '<span class="p-cat">' + c.cat + '</span>' +
+          '<h3 class="p-title">' + c.title + '</h3>' +
+          '<span class="p-desc">' + c.desc + '</span>' +
+          (meta ? '<span class="p-meta">' + meta + '</span>' : '') +
+          '<span class="p-foot"><span class="p-price">' + c.price + priceNote + '</span>' +
+          '<span class="p-link">' + c.cta + ' <span aria-hidden="true">→</span></span></span>' +
+        '</span>' +
+      '</a>'
+    );
+  }).join('');
+  observeReveals();
+}
+
+/* ─────────────  FILTERING  ───────────── */
+function initFilters() {
+  const btns = Array.from(document.querySelectorAll('.filter-btn'));
+  const noResults = document.getElementById('noResults');
+  btns.forEach(btn => btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    btns.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    let shown = 0;
+    document.querySelectorAll('.p-card').forEach(card => {
+      const match = f === 'all' || card.dataset.filters.split(' ').includes(f);
+      card.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    noResults.style.display = shown ? 'none' : 'block';
+  }));
+}
+
+/* ─────────────  HEADER: transparent → solid  ───────────── */
+function initHeader() {
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('solid', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+/* ─────────────  DESKTOP MEGA MENU  ───────────── */
+function initMega() {
+  const item = document.getElementById('coursesItem');
+  const trigger = document.getElementById('coursesTrigger');
+  if (!item || !trigger) return;
+  const open = (state) => { item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); };
+  trigger.addEventListener('click', (e) => { e.stopPropagation(); open(!item.classList.contains('open')); });
+  item.addEventListener('mouseenter', () => open(true));
+  item.addEventListener('mouseleave', () => open(false));
+  document.addEventListener('click', (e) => { if (!item.contains(e.target)) open(false); });
+  item.addEventListener('keyup', (e) => { if (e.key === 'Escape') { open(false); trigger.focus(); } });
+}
+
+/* ─────────────  MOBILE MENU  ───────────── */
+function initMobile() {
+  const body = document.body;
+  const btn = document.getElementById('hamburger');
+  const panel = document.getElementById('mobilePanel');
+  const backdrop = document.getElementById('backdrop');
+  let lastFocus = null;
+
+  const close = () => {
+    body.classList.remove('mobile-open', 'no-scroll');
+    btn.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+    if (lastFocus) lastFocus.focus();
+  };
+  const open = () => {
+    lastFocus = document.activeElement;
+    body.classList.add('mobile-open', 'no-scroll');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    const first = panel.querySelector('a');
+    if (first) first.focus();
+  };
+  btn.addEventListener('click', () => body.classList.contains('mobile-open') ? close() : open());
+  backdrop.addEventListener('click', close);
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && body.classList.contains('mobile-open')) close();
+    // simple focus trap
+    if (e.key === 'Tab' && body.classList.contains('mobile-open')) {
+      const f = panel.querySelectorAll('a, button');
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+}
+
+/* ─────────────  HERO VIDEO  ───────────── */
+function initHeroVideo() {
+  const video = document.getElementById('heroVideo');
+  const toggle = document.getElementById('heroToggle');
+  const iconPause = document.getElementById('iconPause');
+  const iconPlay = document.getElementById('iconPlay');
+  if (!video) return;
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const source = video.querySelector('source');
+
+  // Only reveal the control + attempt autoplay if a real video actually loads.
+  video.addEventListener('loadeddata', () => {
+    video.classList.add('ready');
+    toggle.hidden = false;
+    if (!reduce) { video.play().catch(() => {}); }
+    else { setPaused(true); }
+  });
+  // If the video file is missing, the gradient hero stays — no broken state, no control shown.
+  video.addEventListener('error', () => { toggle.hidden = true; });
+  if (source) source.addEventListener('error', () => { toggle.hidden = true; });
+
+  function setPaused(paused) {
+    iconPause.style.display = paused ? 'none' : '';
+    iconPlay.style.display = paused ? '' : 'none';
+    toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+  }
+  toggle.addEventListener('click', () => {
+    if (video.paused) { video.play().catch(() => {}); setPaused(false); }
+    else { video.pause(); setPaused(true); }
+  });
+
+  // Nudge the browser to load metadata/first frame.
+  try { video.load(); } catch (e) {}
+}
+
+/* ─────────────  SCROLL REVEALS  ───────────── */
+let revealObserver;
+function observeReveals() {
+  const els = document.querySelectorAll('.reveal:not(.in)');
+  if (!revealObserver) {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(el => el.classList.add('in'));
+      return;
+    }
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); revealObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  }
+  els.forEach(el => revealObserver.observe(el));
+}
+
+/* ─────────────  INIT  ───────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+  renderCards();
+  initFilters();
+  initHeader();
+  initMega();
+  initMobile();
+  initHeroVideo();
+  observeReveals();
+});
 </script>
 </body>
 </html>
