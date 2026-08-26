@@ -248,31 +248,62 @@
       position: absolute; inset: 0; z-index: 2;
       background:
         linear-gradient(90deg,
-          rgba(3,16,29,0.60) 0%,
-          rgba(3,16,29,0.42) 32%,
-          rgba(3,16,29,0.16) 62%,
-          rgba(3,16,29,0.03) 100%),
+          rgba(3,16,29,0.46) 0%,
+          rgba(3,16,29,0.32) 32%,
+          rgba(3,16,29,0.14) 62%,
+          rgba(3,16,29,0.02) 100%),
         linear-gradient(180deg,
-          rgba(0,0,0,0.10) 0%,
+          rgba(0,0,0,0.08) 0%,
           transparent 45%,
-          rgba(0,0,0,0.12) 100%);
+          rgba(0,0,0,0.10) 100%);
     }
     .hero-inner { position: relative; z-index: 3; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
-    .hero-content { max-width: 720px; }
+    /* Translucent navy brand card — sits between a solid navy panel and a glass card.
+       Deep navy dominant, light-blue accent, video still sensed behind it. */
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+      padding: clamp(1.5rem, 3vw, 2.75rem);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg,
+          rgba(25, 42, 91, 0.80) 0%,
+          rgba(20, 37, 80, 0.66) 55%,
+          rgba(30, 65, 112, 0.54) 100%);
+      border: 1px solid rgba(139, 196, 245, 0.34);
+      box-shadow:
+        0 24px 60px rgba(5, 15, 42, 0.32),
+        0 8px 24px rgba(5, 15, 42, 0.20),
+        inset 0 1px 0 rgba(194, 225, 255, 0.14);
+      backdrop-filter: blur(9px) saturate(110%);
+      -webkit-backdrop-filter: blur(9px) saturate(110%);
+    }
+    /* Soft blue illumination in the upper-right, kept behind the text */
+    .hero-content::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 45%; height: 55%; border-radius: inherit; pointer-events: none;
+      background: radial-gradient(circle at top right, rgba(139, 196, 245, 0.13), transparent 68%);
+    }
+    .hero-content > * { position: relative; z-index: 1; }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: .6rem;
-      font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-light);
+      display: block;
+      font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #9fcdf4;
       margin-bottom: 1.5rem;
     }
-    .hero-eyebrow::before { content: ''; width: 34px; height: 2px; background: var(--gold); display: block; }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 52px; height: 3px; margin-bottom: 14px; border-radius: 999px;
+      background: linear-gradient(90deg, #8bc4f5 0%, #b8dcfa 100%);
+      box-shadow: 0 0 18px rgba(139, 196, 245, 0.28);
+    }
     .hero h1 {
       font-family: 'Playfair Display', serif; font-weight: 700;
       font-size: clamp(2.3rem, 6vw, 4.4rem); line-height: 1.06; letter-spacing: -.01em;
       margin-bottom: 1.4rem; text-wrap: balance;
       text-shadow: 0 2px 18px rgba(0,0,0,0.22);
     }
-    .hero h1 em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.82); max-width: 560px; margin-bottom: 2.25rem; text-shadow: 0 1px 12px rgba(0,0,0,0.20); }
+    .hero h1 em { font-style: italic; color: #9fcdf4; }
+    .hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.88); max-width: 560px; margin-bottom: 2.25rem; text-shadow: 0 1px 12px rgba(0,0,0,0.20); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
 
     .btn-primary {
@@ -292,6 +323,23 @@
     .btn-primary svg, .btn-outline svg { width: 18px; height: 18px; flex-shrink: 0; }
     /* In flex-column contexts, keep buttons hugging their content instead of stretching */
     .announce-body .btn-primary, .journey-copy .btn-primary { align-self: flex-start; }
+
+    /* Hero-only button treatment — light blue to tie into the brand card.
+       Scoped to .hero-content so shared buttons elsewhere are unaffected. */
+    .hero-content .btn-primary {
+      background: #8bc4f5; color: #142550; border: 1px solid #8bc4f5;
+      box-shadow: 0 6px 20px rgba(105, 174, 232, 0.30);
+    }
+    .hero-content .btn-primary:hover {
+      background: #add7f8; border-color: #add7f8;
+      transform: translateY(-2px); box-shadow: 0 10px 26px rgba(105, 174, 232, 0.26);
+    }
+    .hero-content .btn-outline {
+      background: rgba(255, 255, 255, 0.06); color: #ffffff; border: 1px solid rgba(174, 215, 248, 0.58);
+    }
+    .hero-content .btn-outline:hover {
+      background: rgba(139, 196, 245, 0.14); border-color: #9fcdf4; transform: translateY(-2px);
+    }
 
     /* Hero video control + scroll cue */
     .hero-video-btn {
@@ -490,6 +538,19 @@
     .reveal[data-delay="3"] { transition-delay: .24s; }
 
     /* ─────────────  RESPONSIVE  ───────────── */
+    /* Mobile hero card: slightly more opaque to protect readability over video.
+       Width is left at 100% of the already side-padded hero-inner (no double inset). */
+    @media (max-width: 767px) {
+      .hero-content {
+        padding: 1.4rem; border-radius: 14px;
+        background:
+          linear-gradient(145deg,
+            rgba(25, 42, 91, 0.88) 0%,
+            rgba(23, 48, 91, 0.76) 100%);
+        backdrop-filter: blur(7px) saturate(108%);
+        -webkit-backdrop-filter: blur(7px) saturate(108%);
+      }
+    }
     @media (max-width: 960px) {
       .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; }
       .hamburger { display: block; }
