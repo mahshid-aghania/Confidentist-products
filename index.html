@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ─── SEO ─── -->
-  <title>Dental Exam Preparation Courses in Canada | ConfiDentist</title>
-  <meta name="description" content="Explore ConfiDentist courses, mock exams, clinical training and mentorship programs for internationally trained dentists preparing for Canadian dental examinations." />
+  <title>Dental Exam Preparation and Continuing Education | ConfiDentist</title>
+  <meta name="description" content="Explore ConfiDentist dental equivalency preparation, mock exams, clinical training, university admission support and continuing education programs." />
   <link rel="canonical" href="https://confidentist-products.vercel.app/" />
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="ConfiDentist" />
-  <meta property="og:title" content="Dental Exam Preparation Courses in Canada | ConfiDentist" />
-  <meta property="og:description" content="Expert-led preparation, mock exams, clinical training and personalized mentorship for internationally trained dentists pursuing Canadian dental examinations." />
+  <meta property="og:title" content="Dental Exam Preparation and Continuing Education | ConfiDentist" />
+  <meta property="og:description" content="Explore ConfiDentist dental equivalency preparation, mock exams, clinical training, university admission support and continuing education programs." />
   <meta property="og:url" content="https://confidentist-products.vercel.app/" />
   <meta property="og:image" content="https://confidentist-products.vercel.app/images/confidentist-hero-poster.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dental Exam Preparation Courses in Canada | ConfiDentist" />
-  <meta name="twitter:description" content="Expert-led preparation, mock exams, clinical training and mentorship for internationally trained dentists pursuing Canadian dental examinations." />
+  <meta name="twitter:title" content="Dental Exam Preparation and Continuing Education | ConfiDentist" />
+  <meta name="twitter:description" content="Explore ConfiDentist dental equivalency preparation, mock exams, clinical training, university admission support and continuing education programs." />
   <meta name="twitter:image" content="https://confidentist-products.vercel.app/images/confidentist-hero-poster.jpg" />
   <meta name="theme-color" content="#072C5E" />
 
@@ -116,6 +116,8 @@
 
     :focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .25rem; }
 
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .journey-finder { background: var(--bg-soft); }
     .skip-link {
       position: absolute; left: -999px; top: 0; z-index: 900;
       background: var(--gold); color: #fff; font-weight: 700;
@@ -501,6 +503,134 @@
     .mentor-list h3 { font-size: .98rem; color: var(--navy); margin-bottom: .2rem; }
     .mentor-list p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
 
+    /* ─────────────  PROGRAM FINDER  ───────────── */
+    .finder-panel { max-width: var(--maxw); margin: 0 auto; }
+    .finder-note { font-size: .82rem; color: var(--muted); line-height: 1.6; margin-top: 1.5rem; padding: .85rem 1.1rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.16); border-radius: 10px; max-width: 760px; }
+    .finder-note strong { color: var(--navy); }
+
+    /* Journey map / progress */
+    .jmap-wrap { background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-sm); padding: 1rem 1.15rem; margin-bottom: 1.75rem; }
+    .jmap-count { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .7rem; }
+    .jmap { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
+    .jmap-node { display: flex; align-items: center; gap: .5rem; padding: .4rem .8rem; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); font-size: .78rem; font-weight: 600; color: var(--muted); }
+    .jmap-node .dot { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: #c3ccdd; color: #fff; font-size: .6rem; font-weight: 700; flex-shrink: 0; }
+    .jmap-node.done { border-color: var(--gold); color: var(--navy); background: var(--gold-bg); }
+    .jmap-node.done .dot { background: var(--gold-dark); }
+    .jmap-node.active { border-color: var(--navy); color: var(--navy); background: #fff; box-shadow: 0 0 0 3px rgba(15,122,229,.14); }
+    .jmap-node.active .dot { background: var(--navy); }
+    .jmap-node .dot svg { width: 12px; height: 12px; }
+    .jmap-arrow { color: #c3ccdd; flex-shrink: 0; display: flex; }
+    .jmap-arrow svg { width: 16px; height: 16px; }
+
+    /* Pathway selector cards */
+    .path-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .path-card {
+      position: relative; text-align: left; display: flex; flex-direction: column; gap: 1rem;
+      padding: clamp(1.5rem, 3vw, 2.25rem); border-radius: 16px; cursor: pointer; font-family: inherit;
+      border: 1px solid rgba(139,196,245,.22); overflow: hidden; color: #fff;
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 70%, #0f3d72 130%);
+      transition: transform .16s, box-shadow .2s, border-color .2s;
+    }
+    .path-card::after { content:''; position:absolute; top:-30px; right:-30px; width:150px; height:150px; opacity:.10; pointer-events:none;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bcdcff' stroke-width='1.2'%3E%3Cpath d='M12 3c-2 0-3 1-4.5 1S5 3 4 4c-1.5 1.5-1 5 0 8s1.5 6 3 6 1.5-3 2.5-3 1.5 3 2.5 3c1.5 0 2-3 3-6s1.5-6.5 0-8c-1-1-2-1-3.5-1S14 3 12 3z'/%3E%3C/svg%3E") center/contain no-repeat; }
+    .path-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold-light); }
+    .path-card.selected { border-color: var(--gold-light); box-shadow: 0 0 0 3px rgba(92,178,247,.45); }
+    .pc-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(139,196,245,.16); border: 1px solid rgba(139,196,245,.32); display: grid; place-items: center; color: var(--gold-light); position: relative; z-index: 1; }
+    .pc-icon svg { width: 26px; height: 26px; }
+    .pc-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; position: relative; z-index: 1; }
+    .pc-desc { color: rgba(255,255,255,.82); font-size: .92rem; line-height: 1.62; flex: 1; position: relative; z-index: 1; }
+    .pc-cta { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; font-size: .9rem; color: var(--gold-light); position: relative; z-index: 1; }
+    .pc-cta svg { width: 16px; height: 16px; transition: transform .18s; }
+    .path-card:hover .pc-cta svg { transform: translateX(3px); }
+    .pc-check { position: absolute; top: 1rem; right: 1rem; z-index: 2; display: inline-flex; align-items: center; gap: .3rem; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); background: var(--gold-light); padding: .25rem .6rem; border-radius: 999px; opacity: 0; transform: scale(.9); transition: opacity .15s, transform .15s; }
+    .path-card.selected .pc-check { opacity: 1; transform: scale(1); }
+    .pc-check svg { width: 12px; height: 12px; }
+    .finder-browse { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.5rem; font-weight: 600; color: var(--gold-dark); font-size: .9rem; }
+    .finder-browse:hover { text-decoration: underline; }
+
+    /* Question card */
+    .q-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-md); padding: clamp(1.5rem, 3vw, 2.5rem); }
+    .q-title { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 2.4vw, 1.9rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .4rem; }
+    .q-sub { color: var(--muted); font-size: .92rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .q-options { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .q-option { display: flex; align-items: center; gap: .8rem; text-align: left; padding: 1rem 1.15rem; border: 1.5px solid var(--border); border-radius: 12px; background: #fff; color: var(--navy); font-family: inherit; font-size: .94rem; font-weight: 600; cursor: pointer; min-height: 44px; transition: border-color .15s, box-shadow .15s, transform .12s; }
+    .q-option:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+    .q-option[aria-pressed="true"] { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(15,122,229,.16); }
+    .q-option .qo-ic { width: 34px; height: 34px; flex-shrink: 0; border-radius: 9px; background: var(--gold-bg); color: var(--gold-dark); display: grid; place-items: center; }
+    .q-option .qo-ic svg { width: 18px; height: 18px; }
+    .q-option .qo-arrow { margin-left: auto; color: var(--gold-dark); flex-shrink: 0; display: flex; }
+    .q-option .qo-arrow svg { width: 18px; height: 18px; }
+
+    /* Finder controls */
+    .finder-controls { display: flex; align-items: center; gap: .75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .finder-btn { display: inline-flex; align-items: center; gap: .4rem; background: none; border: 1.5px solid var(--border); border-radius: 8px; padding: .65rem 1.1rem; font-family: inherit; font-weight: 600; font-size: .85rem; color: var(--navy); cursor: pointer; min-height: 44px; transition: border-color .15s, background .15s; }
+    .finder-btn:hover { border-color: var(--navy); background: var(--bg-soft); }
+    .finder-btn svg { width: 15px; height: 15px; }
+
+    /* Results */
+    .res-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; align-items: stretch; }
+    .res-card { display: flex; flex-direction: column; background: #fff; border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .res-card.best { border-color: var(--gold); border-width: 2px; }
+    .res-card.advisor { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); border-color: rgba(139,196,245,.25); color: #fff; }
+    .res-badge { align-self: flex-start; margin: 1.25rem 1.25rem 0; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .7rem; border-radius: 999px; background: var(--gold-bg); color: var(--gold-dark); }
+    .res-card.best .res-badge { background: var(--gold); color: #fff; }
+    .res-card.advisor .res-badge { background: rgba(139,196,245,.2); color: var(--gold-light); }
+    .res-body { padding: 1rem 1.25rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .res-cat { font-size: .64rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: .4rem; }
+    .res-card.advisor .res-cat { color: var(--gold-light); }
+    .res-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: .5rem; }
+    .res-card.advisor .res-title { color: #fff; }
+    .res-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+    .res-card.advisor .res-desc { color: rgba(255,255,255,.8); }
+    .res-meta { display: flex; flex-wrap: wrap; gap: .35rem .85rem; margin-bottom: 1.1rem; }
+    .res-meta span { font-size: .72rem; color: var(--muted); display: inline-flex; align-items: center; gap: .3rem; }
+    .res-meta span svg { width: 13px; height: 13px; color: var(--gold-dark); }
+    .res-actions { display: flex; gap: .5rem; margin-top: auto; flex-wrap: wrap; }
+    .res-view { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; background: var(--navy); color: #fff; font-weight: 700; font-size: .82rem; padding: .7rem 1rem; border-radius: 8px; min-height: 44px; transition: background .18s; }
+    .res-view:hover { background: var(--navy-mid); }
+    .res-card.best .res-view { background: var(--gold); }
+    .res-card.best .res-view:hover { background: var(--gold-light); }
+    .res-card.advisor .res-view { background: var(--gold-light); color: var(--navy); }
+    .res-compare { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; border: 1.5px solid var(--border); background: #fff; color: var(--navy); font-family: inherit; font-weight: 600; font-size: .8rem; padding: .7rem .9rem; border-radius: 8px; cursor: pointer; min-height: 44px; }
+    .res-compare[aria-pressed="true"] { border-color: var(--navy); background: var(--navy); color: #fff; }
+    .res-compare svg { width: 14px; height: 14px; }
+
+    /* Compare tray */
+    .compare-tray { margin-top: 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 1rem 1.25rem; }
+    .compare-tray h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); margin-bottom: .75rem; }
+    .compare-table-wrap { overflow-x: auto; }
+    table.cmp { width: 100%; border-collapse: collapse; min-width: 420px; }
+    table.cmp th, table.cmp td { text-align: left; padding: .6rem .75rem; border-bottom: 1px solid var(--border); font-size: .82rem; vertical-align: top; }
+    table.cmp thead th { color: var(--navy); font-weight: 700; }
+    table.cmp tbody th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+    table.cmp td { color: var(--text); }
+
+    /* Roadmap */
+    .roadmap-track { margin-bottom: 2.5rem; }
+    .roadmap-track h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 1.25rem; display: flex; align-items: center; gap: .6rem; }
+    .roadmap-track h3 .rt-tag { font-family: 'Inter', sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); background: var(--gold-bg); padding: .25rem .6rem; border-radius: 999px; }
+    .roadmap-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 1rem; }
+    .rm-stage { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 1.35rem; transition: transform .15s, box-shadow .18s, border-color .18s; }
+    .rm-stage:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(7,44,94,.2); }
+    .rm-step-n { font-family: 'Playfair Display', serif; font-size: .85rem; font-weight: 700; color: var(--gold-dark); margin-bottom: .5rem; }
+    .rm-stage h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: .5rem; }
+    .rm-stage p { font-size: .84rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+    .rm-link { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700; color: var(--gold-dark); }
+    .rm-link svg { width: 14px; height: 14px; transition: transform .18s; }
+    .rm-stage:hover .rm-link svg { transform: translateX(3px); }
+
+    /* Continuing Education band */
+    .ce-band { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1.5rem,4vw,3rem); align-items: center; }
+    .ce-options { display: flex; flex-direction: column; gap: .7rem; }
+    .ce-opt { display: flex; align-items: center; gap: .8rem; padding: 1rem 1.15rem; border: 1.5px solid var(--border); border-radius: 12px; background: #fff; color: var(--navy); font-weight: 600; font-size: .92rem; transition: border-color .15s, box-shadow .15s, transform .12s; }
+    .ce-opt:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+    .ce-opt .qo-ic { width: 36px; height: 36px; flex-shrink: 0; border-radius: 9px; background: var(--gold-bg); color: var(--gold-dark); display: grid; place-items: center; }
+    .ce-opt .qo-ic svg { width: 18px; height: 18px; }
+    .ce-opt .qo-arrow { margin-left: auto; color: var(--gold-dark); display: flex; }
+    .ce-opt .qo-arrow svg { width: 18px; height: 18px; }
+    .ce-opt small { display: block; font-weight: 400; font-size: .74rem; color: var(--muted); margin-top: .15rem; }
+
     /* ─────────────  FINAL CTA  ───────────── */
     .final { position: relative; overflow: hidden; color: #fff; text-align: center; padding: clamp(4rem, 9vw, 7rem) 1.5rem; }
     .final-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(120% 120% at 50% 0%, #0f3d72 0%, transparent 60%), linear-gradient(150deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-mid) 100%); }
@@ -552,9 +682,12 @@
       .hero-description-panel { padding: 0.95rem 1.1rem; }
       .hero-actions { gap: 0.75rem; flex-wrap: wrap; margin-top: 1.1rem; }
     }
-    @media (max-width: 960px) {
+    /* Collapse the (now richer) primary nav to the mobile menu before it crowds */
+    @media (max-width: 1160px) {
       .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; }
       .hamburger { display: block; }
+    }
+    @media (max-width: 960px) {
       .announce .wrap { grid-template-columns: 1fr; }
       .announce-media { min-height: 220px; }
       .journey .wrap, .mentor .wrap { grid-template-columns: 1fr; }
@@ -565,12 +698,18 @@
       .footer-brand { grid-column: 1 / -1; }
       /* Tablet: keep the human subject in frame without covering the copy */
       .hero-video { object-position: 54% 32%; }
+      .ce-band { grid-template-columns: 1fr; }
     }
     @media (max-width: 620px) {
       /* Crop intentionally around the subject; keep faces high in frame */
       .hero-video { object-position: 56% 30%; }
       .journey-links { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr; }
+      .path-cards { grid-template-columns: 1fr; }
+      /* Mobile journey map becomes a vertical stepper */
+      .jmap { flex-direction: column; align-items: stretch; gap: .3rem; }
+      .jmap-node { width: 100%; }
+      .jmap-arrow { transform: rotate(90deg); align-self: center; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .scroll-cue { display: none; }
@@ -622,16 +761,17 @@
           </div>
         </div>
       </div>
-      <div class="nav-item"><a href="/course-bundles/">Course Bundles</a></div>
+      <div class="nav-item"><a href="#journey">Dental Equivalency</a></div>
+      <div class="nav-item"><a href="#continuing">Continuing Education</a></div>
       <div class="nav-item"><a href="/afk-mock-exams/">Mock Exams</a></div>
-      <div class="nav-item"><a href="#experience">Learning</a></div>
-      <div class="nav-item"><a href="https://www.confidentist.ca/our-team/">Instructors</a></div>
+      <div class="nav-item"><a href="https://www.confidentist.ca/blog/">Resources</a></div>
+      <div class="nav-item"><a href="#overview">About</a></div>
     </nav>
 
     <div class="nav-actions">
       <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
       <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
-      <a href="#programs" class="btn-cta">Explore Courses</a>
+      <a href="#journey" class="btn-cta">Find My Program</a>
       <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
         <span></span><span></span><span></span>
       </button>
@@ -643,6 +783,10 @@
 <div class="backdrop" id="backdrop" tabindex="-1"></div>
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
   <a href="/">Home <span aria-hidden="true">→</span></a>
+  <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="#journey" class="sub">Dental Equivalency</a>
+  <a href="#continuing" class="sub">Continuing Education</a>
   <div class="mp-label">Programs</div>
   <a href="/afk-programs/" class="sub">AFK Preparation</a>
   <a href="/acj-programs/" class="sub">ACJ Preparation</a>
@@ -681,10 +825,10 @@
         <p class="hero-sub">Expert-led preparation, practical training and personalized mentorship for internationally trained dentists pursuing Canadian dental examinations and professional success.</p>
       </div>
       <div class="hero-actions">
-        <a href="#programs" class="btn-primary">Explore Our Courses
+        <a href="#journey" class="btn-primary">Find My Program
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#journey" class="btn-outline">Find the Right Program
+        <a href="#programs" class="btn-outline">Explore All Courses
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -695,10 +839,37 @@
     <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 5v14l11-7z"/></svg>
   </button>
 
-  <a href="#announcement" class="scroll-cue" aria-label="Scroll to content">
+  <a href="#journey" class="scroll-cue" aria-label="Scroll to content">
     <span class="mouse" aria-hidden="true"></span>
     Scroll
   </a>
+</section>
+
+<!-- ═══════════ PROGRAM FINDER (guided pathway selector) ═══════════ -->
+<section class="section journey-finder" id="journey" aria-labelledby="finder-title">
+  <div class="finder-panel">
+    <div class="reveal" style="max-width:680px;">
+      <span class="kicker">Find the Right Path for You</span>
+      <h2 class="h-title" id="finder-title">A Guided Program Finder</h2>
+      <p class="lead">Tell us what you are working toward, and we will guide you to the most relevant ConfiDentist programs. Most visitors reach a useful result in three steps — no email required.</p>
+    </div>
+
+    <!-- Journey map / progress (updates as questions are answered) -->
+    <div class="jmap-wrap reveal" id="jmapWrap" hidden>
+      <div class="jmap-count" id="jmapCount">Step 1 of 3</div>
+      <div class="jmap" id="jmap" aria-hidden="true"></div>
+    </div>
+
+    <!-- Live region for screen-reader announcements -->
+    <p class="sr-only" role="status" aria-live="polite" id="finderLive"></p>
+
+    <!-- Dynamic finder stage renders here -->
+    <div id="finderStage" class="reveal" style="margin-top:.5rem;"></div>
+
+    <p class="finder-note reveal">
+      <strong>Educational guidance only.</strong> This tool helps you find ConfiDentist preparation programs. It does not replace the official requirements of the NDEB, universities, or the relevant examination or licensing authority.
+    </p>
+  </div>
 </section>
 
 <!-- ═══════════ FEATURED ANNOUNCEMENT ═══════════ -->
@@ -728,7 +899,7 @@
 </section>
 
 <!-- ═══════════ JOURNEY INTRODUCTION ═══════════ -->
-<section class="section journey" id="journey" aria-labelledby="journey-title">
+<section class="section journey" id="overview" aria-labelledby="journey-title">
   <div class="wrap">
     <div class="journey-copy reveal">
       <span class="kicker">Your Pathway to Canadian Dentistry</span>
@@ -773,6 +944,101 @@
       <!-- Cards injected from the COURSES data structure below -->
     </div>
     <p id="noResults" role="status" aria-live="polite" style="display:none;color:var(--muted);font-size:.9rem;margin-top:1.5rem;">No programs match this filter.</p>
+  </div>
+</section>
+
+<!-- ═══════════ EQUIVALENCY ROADMAP (static, SEO-readable) ═══════════ -->
+<section class="section" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="wrap">
+    <div class="reveal" style="max-width:680px;">
+      <span class="kicker">A General Educational Overview</span>
+      <h2 class="h-title" id="roadmap-title">The ConfiDentist Preparation Roadmap</h2>
+      <p class="lead">Two distinct pathways ConfiDentist supports. This is a general overview for orientation — not every candidate follows exactly the same route, and steps may overlap.</p>
+    </div>
+
+    <div class="roadmap-track reveal" style="margin-top:2.5rem;">
+      <h3>Equivalency Examination Pathway <span class="rt-tag">Overview</span></h3>
+      <div class="roadmap-row">
+        <article class="rm-stage">
+          <div class="rm-step-n">Step 01</div>
+          <h4>AFK</h4>
+          <p>Assessment of Fundamental Knowledge — a written exam of the biomedical and dental sciences. ConfiDentist offers full-package and subject-based preparation.</p>
+          <a class="rm-link" href="/afk-programs/">AFK Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="rm-stage">
+          <div class="rm-step-n">Step 02</div>
+          <h4>ACJ</h4>
+          <p>Assessment of Clinical Judgement — a scenario-based written exam of clinical reasoning and decision-making, prepared for with the Comprehensive program.</p>
+          <a class="rm-link" href="/acj-programs/">ACJ Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="rm-stage">
+          <div class="rm-step-n">Step 03</div>
+          <h4>NDECC</h4>
+          <p>A performance assessment with Clinical Skills and Situational Judgement components. ConfiDentist offers focused tracks, mock programs and a complete bundle.</p>
+          <a class="rm-link" href="/ndecc-programs/">NDECC Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="rm-stage">
+          <div class="rm-step-n">Practice</div>
+          <h4>Virtual OSCE®</h4>
+          <p>Simulated OSCE stations delivered online so you can rehearse under realistic, exam-like conditions from anywhere in your preparation.</p>
+          <a class="rm-link" href="/virtual-osce/">Virtual OSCE® <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </div>
+
+    <div class="roadmap-track reveal">
+      <h3>University Admission Pathway <span class="rt-tag">Separate Route</span></h3>
+      <div class="roadmap-row">
+        <article class="rm-stage">
+          <div class="rm-step-n">Admission</div>
+          <h4>ADAT</h4>
+          <p>The Advanced Dental Admission Test supports applications to advanced standing university programs. Comprehensive and crash preparation are available.</p>
+          <a class="rm-link" href="/adat-programs/">ADAT Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="rm-stage">
+          <div class="rm-step-n">Admission</div>
+          <h4>University Interviews</h4>
+          <p>Personalized coaching and realistic mock interviews to help candidates communicate confidently during Canadian university admissions interviews.</p>
+          <a class="rm-link" href="/university-interview-preparation/">Interview Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="rm-stage">
+          <div class="rm-step-n">Support</div>
+          <h4>Private Sessions</h4>
+          <p>One-on-one tutoring tailored to your goals and timeline — useful at any stage of equivalency or admission preparation where you need focused support.</p>
+          <a class="rm-link" href="/private-sessions/">Private Sessions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </div>
+
+    <p class="finder-note reveal">Pathway requirements may vary by applicant and may change. Consult the appropriate official examination, university, or licensing authority for current requirements.</p>
+  </div>
+</section>
+
+<!-- ═══════════ CONTINUING EDUCATION ═══════════ -->
+<section class="section alt" id="continuing" aria-labelledby="ce-title">
+  <div class="wrap ce-band">
+    <div class="reveal">
+      <span class="kicker">Continuing Education</span>
+      <h2 class="h-title" id="ce-title">Developing Your Clinical Skills</h2>
+      <p class="lead" style="margin-bottom:1.25rem;">Beyond equivalency examinations, ConfiDentist supports hands-on clinical development. Our dedicated continuing-education catalogue is growing — choose an option below and we will point you to the most relevant current program or help you register your interest.</p>
+    </div>
+    <div class="ce-options reveal" data-delay="1">
+      <a class="ce-opt" href="/ndecc-programs/clinical-skills/">
+        <span class="qo-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4z"/><path d="M8 12H4M20 12h-4"/></svg></span>
+        <span>Hands-on clinical skills practice<small>Currently offered through NDECC Clinical Skills — supervised, hands-on training in a clinic setting.</small></span>
+        <span class="qo-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="ce-opt" href="#programs">
+        <span class="qo-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+        <span>Browse all ConfiDentist programs<small>See every current program and choose what fits your goals.</small></span>
+        <span class="qo-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="ce-opt" href="https://www.confidentist.ca/contact-us/">
+        <span class="qo-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span>Ask about upcoming continuing education<small>Register your interest and our team will follow up with current options.</small></span>
+        <span class="qo-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -923,7 +1189,7 @@
     <div class="footer-col">
       <h4>ConfiDentist</h4>
       <ul>
-        <li><a href="#journey">About</a></li>
+        <li><a href="#overview">About</a></li>
         <li><a href="https://www.confidentist.ca/our-team/">Our Instructors</a></li>
         <li><a href="#experience">Learning Experience</a></li>
         <li><a href="https://www.confidentist.ca/contact-us/">Contact Us</a></li>
@@ -1197,6 +1463,392 @@ function observeReveals() {
 }
 
 /* ─────────────  INIT  ───────────── */
+/* ═════════════════  PROGRAM FINDER ENGINE  ═════════════════
+   Verified programs only. Every route below resolves to an existing
+   ConfiDentist page (local) or a verified confidentist.ca destination. */
+const PROGRAMS = {
+  'afk-hub':     { name: 'AFK Preparation', route: '/afk-programs/', cat: 'Dental Equivalency', delivery: 'Online · Live + Recorded', format: 'Full & Modular', desc: 'Complete AFK preparation with full-package and subject-based pathways covering the AFK syllabus.' },
+  'afk-full':    { name: 'AFK Full Package', route: '/afk-programs/full-package/', cat: 'Dental Equivalency', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'A complete, structured AFK pathway with lectures, quizzes, mock exams, booklets and mentorship.' },
+  'afk-subject': { name: 'AFK Subject-Based Program', route: 'https://www.confidentist.ca/afk-modular-program/', cat: 'Dental Equivalency', delivery: 'Online', format: 'Flexible modules', desc: 'Select individual AFK subjects and focus your time on the areas where you need the most support.' },
+  'afk-mock':    { name: 'AFK Mock Exams', route: '/afk-mock-exams/', cat: 'Mock Exams', delivery: 'Online · Live review', format: 'Full & Mini Mocks', desc: 'Full and mini mock exams with live instructor-led review and detailed performance reports.' },
+  'acj-hub':     { name: 'ACJ Preparation', route: '/acj-programs/', cat: 'Dental Equivalency', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Scenario-driven preparation that sharpens the clinical reasoning the ACJ evaluates.' },
+  'acj-comp':    { name: 'ACJ Comprehensive', route: '/acj-programs/comprehensive/', cat: 'Dental Equivalency', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Complete ACJ preparation including practice scenarios and a mock component.' },
+  'ndecc-hub':   { name: 'NDECC Preparation', route: '/ndecc-programs/', cat: 'Clinical Training', delivery: 'Online + In-person', format: 'Multiple tracks', desc: 'Clinical Skills and Situational Judgement tracks, mock programs and bundled packages.' },
+  'ndecc-cs':    { name: 'NDECC Clinical Skills', route: '/ndecc-programs/clinical-skills/', cat: 'Clinical Training', delivery: 'In-person · Hands-on', format: 'Core Package', desc: 'Recorded demonstrations with supervised, hands-on practice in a fully equipped clinic setting.' },
+  'ndecc-sj':    { name: 'NDECC Situational Judgement', route: '/ndecc-programs/situational-judgement/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Focused preparation for the NDECC Situational Judgement component.' },
+  'ndecc-bundle':{ name: 'Complete NDECC Bundle', route: '/ndecc-programs/bundles/', cat: 'Bundles', delivery: 'Online + In-person', format: 'Both components', desc: 'Both NDECC components combined into one complete preparation package.' },
+  'osce':        { name: 'Virtual OSCE®', route: '/virtual-osce/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Program', desc: 'Simulated OSCE stations delivered virtually so you can practise under realistic conditions.' },
+  'adat-hub':    { name: 'ADAT Preparation', route: '/adat-programs/', cat: 'University Preparation', delivery: 'Online · Live + Recorded', format: 'Comprehensive & Crash', desc: 'Structured, high-yield preparation for the Advanced Dental Admission Test.' },
+  'adat-comp':   { name: 'ADAT Comprehensive', route: '/adat-programs/comprehensive/', cat: 'University Preparation', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Complete ADAT preparation across the knowledge areas the test measures.' },
+  'adat-crash':  { name: 'ADAT Crash Course', route: '/adat-programs/crash/', cat: 'University Preparation', delivery: 'Online', format: 'Crash', desc: 'A focused, high-yield ADAT review for candidates who need efficient preparation.' },
+  'interview':   { name: 'University Interview Preparation', route: '/university-interview-preparation/', cat: 'University Preparation', delivery: 'Online · 1:1 Coaching', format: 'Coaching & mocks', desc: 'Personalized coaching and realistic mock interviews for Canadian university admissions.' },
+  'private':     { name: 'Private Sessions', route: '/private-sessions/', cat: 'Private Support', delivery: 'Online · One-on-one', format: 'Tailored', desc: 'One-on-one tutoring tailored to your goals, timeline and specific support needs.' },
+  'bundles':     { name: 'Course Bundles', route: '/course-bundles/', cat: 'Bundles', delivery: 'Varies by bundle', format: 'Multi-course value', desc: 'Value-packed course and mock-exam bundles for coordinated, comprehensive preparation.' },
+  'roadmap':     { name: 'Equivalency Roadmap', route: '#roadmap', cat: 'Overview', delivery: 'Self-guided overview', format: 'Educational overview', desc: 'A general overview of the AFK, ACJ, NDECC and Virtual OSCE preparation pathway.' },
+  'advisor':     { name: 'Speak With an Advisor', route: 'https://www.confidentist.ca/contact-us/', cat: 'Guidance', delivery: 'Email · Personal reply', format: 'Free guidance', desc: 'Tell us your goals and we will help you build the right ConfiDentist study plan.' }
+};
+
+/* Decision tree. Each question: { title, sub?, options:[{ id, label, to? , result? }] }
+   result: { best, alt } — an advisor card is always appended as the third option. */
+const QUESTIONS = {
+  'eq-stage': {
+    title: 'Where are you in your dental journey?',
+    sub: 'Choose the option that best matches where you are today.',
+    options: [
+      { id: 'begin',   label: 'I am beginning the Canadian equivalency process', result: { best: 'roadmap', alt: 'bundles' } },
+      { id: 'afk',     label: 'I am preparing for AFK', to: 'afk-need' },
+      { id: 'acj',     label: 'I am preparing for ACJ', to: 'acj-need' },
+      { id: 'ndecc',   label: 'I am preparing for NDECC', to: 'ndecc-need' },
+      { id: 'osce',    label: 'I am preparing for Virtual OSCE', result: { best: 'osce', alt: 'bundles' } },
+      { id: 'adat',    label: 'I am preparing for ADAT', result: { best: 'adat-hub', alt: 'adat-crash' } },
+      { id: 'admission', label: 'I am applying to a university dental program', to: 'admission-need' },
+      { id: 'mock',    label: 'I need mock-exam practice', result: { best: 'afk-mock', alt: 'ndecc-hub' } },
+      { id: 'unsure',  label: 'I am not sure where to begin', result: { best: 'roadmap', alt: 'bundles' } }
+    ]
+  },
+  'afk-need': {
+    title: 'What type of AFK preparation do you need?',
+    options: [
+      { id: 'complete', label: 'Complete AFK preparation', result: { best: 'afk-full', alt: 'afk-mock' } },
+      { id: 'subject',  label: 'Subject-based preparation', result: { best: 'afk-subject', alt: 'afk-full' } },
+      { id: 'afkmock',  label: 'AFK mock exams', result: { best: 'afk-mock', alt: 'afk-full' } },
+      { id: 'compare',  label: 'Help me compare the options', result: { best: 'afk-hub', alt: 'bundles' } }
+    ]
+  },
+  'acj-need': {
+    title: 'What kind of ACJ support are you looking for?',
+    options: [
+      { id: 'comp',    label: 'Comprehensive preparation', result: { best: 'acj-comp', alt: 'acj-hub' } },
+      { id: 'bundle',  label: 'Bundled preparation', result: { best: 'bundles', alt: 'acj-comp' } },
+      { id: 'choose',  label: 'Help me choose', result: { best: 'acj-hub', alt: 'bundles' } }
+    ]
+  },
+  'ndecc-need': {
+    title: 'Which NDECC component are you preparing for?',
+    options: [
+      { id: 'cs',      label: 'Clinical Skills', result: { best: 'ndecc-cs', alt: 'ndecc-bundle' } },
+      { id: 'sj',      label: 'Situational Judgement', result: { best: 'ndecc-sj', alt: 'ndecc-bundle' } },
+      { id: 'bundle',  label: 'The complete NDECC bundle', result: { best: 'ndecc-bundle', alt: 'ndecc-hub' } },
+      { id: 'compare', label: 'Help me compare', result: { best: 'ndecc-hub', alt: 'ndecc-bundle' } }
+    ]
+  },
+  'admission-need': {
+    title: 'What kind of admission support do you need?',
+    options: [
+      { id: 'interview', label: 'University interview preparation', result: { best: 'interview', alt: 'private' } },
+      { id: 'adat',      label: 'ADAT preparation', result: { best: 'adat-hub', alt: 'adat-crash' } },
+      { id: 'private',   label: 'Private sessions', result: { best: 'private', alt: 'interview' } },
+      { id: 'choose',    label: 'Help me choose', result: { best: 'interview', alt: 'adat-hub' } }
+    ]
+  }
+};
+
+const PATHS = {
+  equivalency: { label: 'Dental Equivalency', start: 'eq-stage' }
+};
+
+/* Lightweight, privacy-safe analytics hook: pushes to an existing dataLayer if
+   present and dispatches a DOM CustomEvent. Adds no new service or dependency. */
+function track(event, detail) {
+  try {
+    if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event }, detail || {}));
+    window.dispatchEvent(new CustomEvent('confidentist:' + event, { detail: detail || {} }));
+  } catch (e) {}
+}
+
+const finder = (() => {
+  let path = null;            // 'equivalency'
+  let steps = [];             // array of { q, optId, label }
+  let compare = [];           // selected program keys for comparison
+  let stageEl, liveEl, jmapWrap, jmapEl, jmapCount;
+
+  const svgArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const svgCheck = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+
+  function currentQuestionId() {
+    if (!path) return null;
+    if (steps.length === 0) return PATHS[path].start;
+    const last = steps[steps.length - 1];
+    const opt = QUESTIONS[last.q].options.find(o => o.id === last.optId);
+    return opt && opt.to ? opt.to : null; // null => results
+  }
+
+  function announce(msg) { if (liveEl) liveEl.textContent = msg; }
+
+  /* ---- Journey map ---- */
+  function renderMap() {
+    if (!path) { jmapWrap.hidden = true; return; }
+    jmapWrap.hidden = false;
+    const nodes = [{ label: PATHS[path].label, done: true }];
+    steps.forEach(s => nodes.push({ label: s.label.length > 22 ? s.label.slice(0, 20) + '…' : s.label, done: true }));
+    const atResults = currentQuestionId() === null && steps.length > 0;
+    if (!atResults) nodes.push({ label: currentQuestionId() ? 'Your goal' : 'Recommendation', active: true });
+    else nodes.push({ label: 'Recommendation', active: true });
+
+    const total = Math.max(nodes.length, 2);
+    const activeIdx = nodes.findIndex(n => n.active);
+    jmapCount.textContent = atResults ? 'Recommendation ready' : ('Step ' + (activeIdx === -1 ? total : activeIdx + 1) + ' of ' + total);
+    jmapEl.innerHTML = nodes.map((n, i) => {
+      const cls = n.active ? 'active' : (n.done ? 'done' : '');
+      const dot = n.done ? svgCheck : (i + 1);
+      const arrow = i < nodes.length - 1 ? '<span class="jmap-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' : '';
+      return '<span class="jmap-node ' + cls + '"><span class="dot">' + dot + '</span>' + esc(n.label) + '</span>' + arrow;
+    }).join('');
+  }
+
+  /* ---- Pathway selector ---- */
+  function renderSelector() {
+    stageEl.innerHTML =
+      '<h3 class="q-title" style="margin-bottom:.4rem">What would you like to accomplish?</h3>' +
+      '<p class="q-sub">Select a path to begin. You can restart at any time.</p>' +
+      '<div class="path-cards">' +
+        pathCard('equivalency',
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 0-3 1-4.5 1S5 3 4 4c-1.5 1.5-1 5 0 8s1.5 6 3 6 1.5-3 2.5-3 1.5 3 2.5 3c1.5 0 2-3 3-6s1.5-6.5 0-8c-1-1-2-1-3.5-1S14 3 12 3z"/></svg>',
+          'Dental Equivalency',
+          'Preparation for internationally trained dentists pursuing Canadian dental examinations, university admission, or related assessment pathways.',
+          'Explore My Equivalency Path') +
+        ceCard() +
+      '</div>' +
+      '<a class="finder-browse" href="#programs">Prefer to browse? View All Programs ' + svgArrow + '</a>';
+
+    stageEl.querySelectorAll('.path-card').forEach(btn => btn.addEventListener('click', () => {
+      const p = btn.dataset.path;
+      if (p === 'continuing') {
+        track('pathway_selected', { pathway: 'continuing' });
+        document.getElementById('continuing').scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth' });
+        return;
+      }
+      selectPath(p);
+    }));
+    renderMap();
+  }
+
+  function pathCard(id, icon, title, desc, cta) {
+    return '<button type="button" class="path-card" data-path="' + id + '" aria-label="' + esc(title) + ' — ' + esc(cta) + '">' +
+      '<span class="pc-check">' + svgCheck + ' Selected</span>' +
+      '<span class="pc-icon" aria-hidden="true">' + icon + '</span>' +
+      '<span class="pc-title">' + esc(title) + '</span>' +
+      '<span class="pc-desc">' + esc(desc) + '</span>' +
+      '<span class="pc-cta">' + esc(cta) + ' ' + svgArrow + '</span>' +
+    '</button>';
+  }
+  function ceCard() {
+    return '<button type="button" class="path-card" data-path="continuing" aria-label="Continuing Education — Explore Continuing Education">' +
+      '<span class="pc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4z"/><path d="M8 12H4M20 12h-4M12 20v2"/></svg></span>' +
+      '<span class="pc-title">Continuing Education</span>' +
+      '<span class="pc-desc">Advanced education and practical training for dental professionals developing their knowledge and clinical skills.</span>' +
+      '<span class="pc-cta">Explore Continuing Education ' + svgArrow + '</span>' +
+    '</button>';
+  }
+
+  /* ---- Question ---- */
+  function renderQuestion(qid) {
+    const q = QUESTIONS[qid];
+    stageEl.innerHTML =
+      '<div class="q-card">' +
+        '<h3 class="q-title">' + esc(q.title) + '</h3>' +
+        (q.sub ? '<p class="q-sub">' + esc(q.sub) + '</p>' : '') +
+        '<div class="q-options" role="group" aria-label="' + esc(q.title) + '">' +
+          q.options.map(o =>
+            '<button type="button" class="q-option" data-opt="' + o.id + '" aria-pressed="false">' +
+              '<span class="qo-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>' +
+              esc(o.label) +
+              '<span class="qo-arrow" aria-hidden="true">' + svgArrow + '</span>' +
+            '</button>').join('') +
+        '</div>' +
+        controls() +
+      '</div>';
+
+    stageEl.querySelectorAll('.q-option').forEach(btn => btn.addEventListener('click', () => {
+      const opt = q.options.find(o => o.id === btn.dataset.opt);
+      stageEl.querySelectorAll('.q-option').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      answer(qid, opt);
+    }));
+    wireControls();
+    focusHeading();
+    announce(q.title);
+    track('journey_stage_selected', { pathway: path, question: qid });
+  }
+
+  function controls() {
+    return '<div class="finder-controls">' +
+      '<button type="button" class="finder-btn" data-act="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> Back</button>' +
+      '<button type="button" class="finder-btn" data-act="restart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v6h6M21 12A9 9 0 1 1 6 5.3L3 8"/></svg> Start Again</button>' +
+    '</div>';
+  }
+  function wireControls() {
+    const back = stageEl.querySelector('[data-act="back"]');
+    const restart = stageEl.querySelector('[data-act="restart"]');
+    if (back) back.addEventListener('click', goBack);
+    if (restart) restart.addEventListener('click', () => restartFinder(true));
+  }
+
+  /* ---- Results ---- */
+  function renderResults() {
+    const last = steps[steps.length - 1];
+    const opt = QUESTIONS[last.q].options.find(o => o.id === last.optId);
+    const r = opt.result;
+    const keys = [r.best, r.alt, 'advisor'];
+    compare = [];
+    const labels = ['Best Match', 'Alternative Option', 'Speak With an Advisor'];
+
+    stageEl.innerHTML =
+      '<div class="res-head"><div>' +
+        '<span class="kicker">Your Recommended ConfiDentist Pathway</span>' +
+        '<h3 class="q-title" style="margin-bottom:.3rem">Based on your selections</h3>' +
+        '<p class="q-sub" style="margin-bottom:0">These programs match what you told us. They are suggestions to explore — not a guarantee of outcome.</p>' +
+      '</div></div>' +
+      '<div class="result-grid">' + keys.map((k, i) => resultCard(k, labels[i], i === 0)).join('') + '</div>' +
+      '<div id="compareTray"></div>' +
+      controls();
+
+    stageEl.querySelectorAll('.res-compare').forEach(btn => btn.addEventListener('click', () => toggleCompare(btn.dataset.key, btn)));
+    stageEl.querySelectorAll('.res-view').forEach(a => a.addEventListener('click', () => track('program_result_opened', { pathway: path, program: a.dataset.key })));
+    stageEl.querySelector('[data-advisor]') && stageEl.querySelector('[data-advisor]').addEventListener('click', () => track('advisor_cta_selected', { pathway: path }));
+    wireControls();
+    focusHeading();
+    renderMap();
+    const best = PROGRAMS[r.best];
+    announce('Recommendation ready. Best match: ' + best.name + '.');
+    track('program_recommended', { pathway: path, best: r.best, alt: r.alt });
+  }
+
+  function resultCard(key, badge, isBest) {
+    const p = PROGRAMS[key];
+    const advisor = key === 'advisor';
+    const meta = advisor ? '' :
+      '<div class="res-meta">' +
+        metaItem('grid', p.format) +
+        metaItem('video', p.delivery) +
+      '</div>';
+    const compareBtn = advisor ? '' :
+      '<button type="button" class="res-compare" data-key="' + key + '" aria-pressed="false" aria-label="Add ' + esc(p.name) + ' to comparison">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg> Compare</button>';
+    return '<article class="res-card ' + (isBest ? 'best' : '') + (advisor ? ' advisor' : '') + '">' +
+      '<span class="res-badge">' + esc(badge) + '</span>' +
+      '<div class="res-body">' +
+        '<div class="res-cat">' + esc(p.cat) + '</div>' +
+        '<h4 class="res-title">' + esc(p.name) + '</h4>' +
+        '<p class="res-desc">' + esc(p.desc) + '</p>' +
+        meta +
+        '<div class="res-actions">' +
+          '<a class="res-view" href="' + p.route + '" data-key="' + key + '"' + (advisor ? ' data-advisor' : '') + '>' + (advisor ? 'Ask an Advisor' : 'View Program') + ' ' + svgArrow + '</a>' +
+          compareBtn +
+        '</div>' +
+      '</div>' +
+    '</article>';
+  }
+  function metaItem(icon, label) {
+    const paths = {
+      grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+      video: '<rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/>'
+    };
+    return '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (paths[icon] || paths.grid) + '</svg>' + esc(label) + '</span>';
+  }
+
+  function toggleCompare(key, btn) {
+    const i = compare.indexOf(key);
+    if (i >= 0) { compare.splice(i, 1); btn.setAttribute('aria-pressed', 'false'); }
+    else { compare.push(key); btn.setAttribute('aria-pressed', 'true'); track('compare_selected', { program: key }); }
+    renderCompareTray();
+  }
+  function renderCompareTray() {
+    const tray = document.getElementById('compareTray');
+    if (!tray) return;
+    if (compare.length < 2) { tray.innerHTML = compare.length === 1 ? '<p class="q-sub" style="margin:1rem 0 0">Select one more program to compare.</p>' : ''; return; }
+    const rows = [['Category', 'cat'], ['Format', 'format'], ['Delivery', 'delivery']];
+    tray.innerHTML =
+      '<div class="compare-tray"><h3>Compare programs</h3><div class="compare-table-wrap"><table class="cmp">' +
+      '<thead><tr><th scope="col">Detail</th>' + compare.map(k => '<th scope="col">' + esc(PROGRAMS[k].name) + '</th>').join('') + '</tr></thead>' +
+      '<tbody>' + rows.map(([label, f]) => '<tr><th scope="row">' + label + '</th>' + compare.map(k => '<td>' + esc(PROGRAMS[k][f]) + '</td>').join('') + '</tr>').join('') +
+      '<tr><th scope="row">View</th>' + compare.map(k => '<td><a class="rm-link" href="' + PROGRAMS[k].route + '">Open ' + svgArrow + '</a></td>').join('') + '</tr>' +
+      '</tbody></table></div></div>';
+  }
+
+  /* ---- State transitions ---- */
+  function selectPath(p) {
+    path = p; steps = [];
+    track('pathway_selected', { pathway: p });
+    render(); syncURL();
+  }
+  function answer(qid, opt) {
+    steps.push({ q: qid, optId: opt.id, label: opt.label });
+    render(); syncURL();
+  }
+  function goBack() {
+    if (steps.length > 0) steps.pop();
+    else path = null;
+    render(); syncURL();
+  }
+  function restartFinder(user) {
+    path = null; steps = []; compare = [];
+    if (user) track('program_finder_restarted', {});
+    render(); syncURL();
+  }
+
+  function render() {
+    if (!path) { renderSelector(); return; }
+    const qid = currentQuestionId();
+    if (qid) renderQuestion(qid);
+    else renderResults();
+  }
+
+  function focusHeading() {
+    const h = stageEl.querySelector('.q-title');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  }
+  function prefersReduced() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  /* ---- URL sync + restore (shareable, fail-safe) ---- */
+  function syncURL(replace) {
+    const params = new URLSearchParams(window.location.search);
+    if (!path) { params.delete('path'); params.delete('steps'); }
+    else {
+      params.set('path', path);
+      if (steps.length) params.set('steps', steps.map(s => s.q + ':' + s.optId).join('.'));
+      else params.delete('steps');
+    }
+    const qs = params.toString();
+    const url = window.location.pathname + (qs ? '?' + qs : '') + (path ? '#journey' : window.location.hash);
+    history[replace ? 'replaceState' : 'pushState']({ path, steps }, '', url);
+  }
+  function restoreFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('path');
+    path = null; steps = [];
+    if (p === 'equivalency') {
+      path = 'equivalency';
+      const raw = params.get('steps');
+      if (raw) {
+        for (const token of raw.split('.')) {
+          const [qid, optId] = token.split(':');
+          const q = QUESTIONS[qid];
+          const expected = currentQuestionId();
+          if (!q || qid !== expected) { restartFinder(false); return; } // invalid → fail safe
+          const opt = q.options.find(o => o.id === optId);
+          if (!opt) { restartFinder(false); return; }
+          steps.push({ q: qid, optId: opt.id, label: opt.label });
+        }
+      }
+    }
+    render();
+  }
+
+  function init() {
+    stageEl = document.getElementById('finderStage');
+    liveEl = document.getElementById('finderLive');
+    jmapWrap = document.getElementById('jmapWrap');
+    jmapEl = document.getElementById('jmap');
+    jmapCount = document.getElementById('jmapCount');
+    if (!stageEl) return;
+    window.addEventListener('popstate', () => restoreFromURL());
+    track('program_finder_started', {});
+    restoreFromURL();
+  }
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
   renderCards();
@@ -1205,6 +1857,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMega();
   initMobile();
   initHeroVideo();
+  finder.init();
   observeReveals();
 });
 </script>
