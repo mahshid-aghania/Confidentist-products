@@ -420,6 +420,71 @@
     .art-badge b { display: block; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); line-height: 1; }
     .art-badge span { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 
+    /* ─────────────  PATHWAY NAVIGATOR (#overview)  ───────────── */
+    .pathway { background: var(--bg); }
+    .pathway-wrap { max-width: 980px; }
+    .pathway-intro { margin-bottom: clamp(1.75rem, 4vw, 2.5rem); }
+    .pathway-intro .lead { margin-top: 1rem; max-width: 760px; }
+
+    .pathway-nav { background: var(--gold-bg); border: 1.5px solid var(--border); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); }
+    .pathway-q { font-family: 'Playfair Display', serif; font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 700; color: var(--navy); margin-bottom: 1.1rem; }
+
+    .pw-roadmap { display: flex; flex-direction: column; gap: .9rem; }
+    .pw-entry { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .pw-branch { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: .85rem 1rem; }
+    .pw-branch-label { font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .65rem; }
+    .pw-track { list-style: none; display: flex; flex-wrap: wrap; align-items: stretch; gap: .5rem; }
+
+    .pw-node { display: inline-flex; flex-direction: column; justify-content: center; gap: .12rem; min-height: 46px; padding: .5rem .85rem; border: 1.5px solid var(--border); border-radius: 10px; background: #fff; color: var(--navy); font-weight: 700; font-size: .9rem; line-height: 1.2; transition: border-color .15s, background .15s, box-shadow .15s, transform .12s; }
+    .pw-node-wide { flex: 1 1 240px; }
+    .pw-node small { display: block; font-weight: 500; font-size: .72rem; color: var(--muted); margin-top: .1rem; }
+    .pw-node-main { display: inline-flex; align-items: center; gap: .4rem; }
+    .pw-node:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+    .pw-check { display: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; color: var(--gold-dark); flex-shrink: 0; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; line-height: 1; }
+    .pw-check::before { content: '\2713'; }
+    .pw-node[aria-current="true"] { border-color: var(--gold-dark); background: var(--gold); color: #fff; box-shadow: 0 6px 18px rgba(15,122,229,.28); }
+    .pw-node[aria-current="true"] small { color: rgba(255,255,255,.9); }
+    .pw-node[aria-current="true"] .pw-check { display: inline-flex; }
+
+    .pw-arrow { display: flex; align-items: center; color: var(--muted); flex: 0 0 auto; }
+    .pw-arrow svg { width: 18px; height: 18px; }
+    .pw-disclaimer { font-size: .76rem; color: var(--muted); line-height: 1.6; margin-top: 1rem; }
+
+    .pathway-result { margin-top: clamp(1.5rem, 3vw, 2rem); background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 1.75rem); box-shadow: var(--shadow-sm); }
+    .pw-result-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+    .pw-result-head h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.4vw, 1.55rem); color: var(--navy); line-height: 1.2; }
+    .pw-restart { display: inline-flex; align-items: center; gap: .35rem; font-weight: 700; font-size: .78rem; color: var(--gold-dark); border: 1.5px solid var(--border); background: #fff; border-radius: 999px; padding: .4rem .8rem; cursor: pointer; transition: border-color .15s, color .15s; }
+    .pw-restart:hover { border-color: var(--gold); }
+    .pw-result-intro { color: var(--muted); line-height: 1.7; font-size: .96rem; margin: .55rem 0 1.25rem; max-width: 660px; }
+
+    .pw-links { margin: .25rem 0 0; padding-left: 1.1rem; color: var(--muted); line-height: 1.9; font-size: .92rem; max-width: 660px; }
+    .pw-links a { color: var(--gold-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .pw-links a:hover { color: var(--navy); }
+
+    .pw-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .pw-card { display: flex; flex-direction: column; border: 1.5px solid var(--border); border-radius: 12px; padding: 1.1rem; background: var(--bg-soft); transition: border-color .15s, box-shadow .15s, transform .12s; }
+    .pw-card:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+    .pw-tag { align-self: flex-start; font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); background: var(--gold-bg); padding: .28rem .55rem; border-radius: 999px; margin-bottom: .65rem; }
+    .pw-cat { font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .pw-card h4 { font-size: 1rem; color: var(--navy); margin: .2rem 0 .4rem; line-height: 1.25; }
+    .pw-card p { font-size: .84rem; color: var(--muted); line-height: 1.6; margin-bottom: .7rem; }
+    .pw-meta { font-size: .72rem; color: var(--muted); margin-bottom: .9rem; display: flex; flex-wrap: wrap; gap: .3rem .7rem; }
+    .pw-view { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; font-size: .82rem; color: var(--gold-dark); }
+    .pw-view svg { width: 16px; height: 16px; transition: transform .15s; }
+    .pw-view:hover { color: var(--navy); }
+    .pw-view:hover svg { transform: translateX(3px); }
+
+    .pw-actions { display: grid; gap: .6rem; max-width: 660px; }
+
+    .pathway-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: clamp(1.5rem, 3vw, 2rem); }
+    .pathway-cta .btn-primary { align-self: auto; }
+    .pw-btn2 { display: inline-flex; align-items: center; gap: .4rem; border: 1.5px solid var(--border); background: #fff; color: var(--navy); padding: .8rem 1.15rem; border-radius: .55rem; font-weight: 700; font-size: .85rem; transition: border-color .15s, color .15s, box-shadow .15s, transform .12s; }
+    .pw-btn2:hover { border-color: var(--gold); color: var(--gold-dark); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+    .pw-btn3 { display: inline-flex; align-items: center; gap: .4rem; color: var(--navy); padding: .8rem .6rem; border-radius: .55rem; font-weight: 600; font-size: .85rem; transition: color .15s; }
+    .pw-btn3:hover { color: var(--gold-dark); }
+    .pw-textlink { color: var(--gold-dark); font-weight: 600; font-size: .85rem; text-decoration: underline; text-underline-offset: 3px; margin-left: auto; }
+    .pw-textlink:hover { color: var(--navy); }
+
     /* ─────────────  PROGRAM EXPLORER  ───────────── */
     .explorer-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
     .explorer-head .lead { margin-top: 1rem; }
@@ -699,8 +764,17 @@
       /* Tablet: keep the human subject in frame without covering the copy */
       .hero-video { object-position: 54% 32%; }
       .ce-band { grid-template-columns: 1fr; }
+      .pw-cards { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 620px) {
+      .pw-cards { grid-template-columns: 1fr; }
+      .pw-track { flex-direction: column; align-items: stretch; }
+      .pw-arrow { transform: rotate(90deg); align-self: center; }
+      .pw-node { width: 100%; }
+      .pw-entry .pw-node { flex: 1 1 100%; }
+      .pathway-cta { gap: .6rem; }
+      .pathway-cta .btn-primary, .pathway-cta .pw-btn2, .pathway-cta .pw-btn3 { width: 100%; justify-content: center; }
+      .pw-textlink { margin-left: 0; width: 100%; text-align: center; }
       /* Crop intentionally around the subject; keep faces high in frame */
       .hero-video { object-position: 56% 30%; }
       .journey-links { grid-template-columns: 1fr; }
@@ -896,24 +970,86 @@
   </div>
 </section>
 
-<!-- ═══════════ JOURNEY INTRODUCTION ═══════════ -->
-<section class="section journey" id="overview" aria-labelledby="journey-title">
-  <div class="wrap">
-    <div class="journey-copy reveal">
-      <span class="kicker">Your Pathway to Canadian Dentistry</span>
-      <h2 class="h-title" id="journey-title">Your Canadian Dentistry Journey Starts Here</h2>
-      <p class="lead">ConfiDentist supports internationally trained dentists at every stage — from exam preparation and structured instruction to realistic mock examinations, practical training, one-on-one mentorship and professional development. Choose a clear, guided path toward Canadian equivalency and professional success.</p>
-      <div class="journey-links">
-        <a href="#programs">Explore Programs <span class="arr" aria-hidden="true">→</span></a>
-        <a href="/course-bundles/">Compare Bundles <span class="arr" aria-hidden="true">→</span></a>
-        <a href="#experience">The Learning Experience <span class="arr" aria-hidden="true">→</span></a>
-        <a href="/afk-mock-exams/">Try a Mock Exam <span class="arr" aria-hidden="true">→</span></a>
-      </div>
+<!-- ═══════════ PATHWAY NAVIGATOR (Your Pathway to Canadian Dentistry) ═══════════ -->
+<section class="section pathway" id="overview" aria-labelledby="pathway-title">
+  <div class="wrap pathway-wrap">
+    <div class="pathway-intro reveal">
+      <span class="kicker">Canadian Dental Equivalency Pathway</span>
+      <h2 class="h-title" id="pathway-title">Find the Right Preparation for Your Canadian Dentistry Journey</h2>
+      <p class="lead">Whether you are beginning the Canadian dental equivalency process or preparing for AFK, ACJ, NDECC, Virtual OSCE, ADAT or university admission, ConfiDentist helps you identify the preparation that matches your current stage. Explore structured courses, realistic mock exams, practical training, course bundles and personalized mentorship for internationally trained dentists.</p>
     </div>
-    <div class="journey-art reveal" data-delay="1" aria-hidden="true">
-      <div class="art-panel art-a"><span class="lbl">Structured, exam-focused instruction</span></div>
-      <div class="art-panel art-b"><span class="lbl">Mentorship &amp; mock exams</span></div>
-      <div class="art-badge"><b>9</b><span>Program areas</span></div>
+
+    <!-- Interactive pathway selector -->
+    <div class="pathway-nav reveal" data-delay="1">
+      <p class="pathway-q" id="pathway-q">Where are you in your journey?</p>
+      <p class="sr-only" id="pathway-live" role="status" aria-live="polite"></p>
+
+      <nav class="pw-roadmap" aria-labelledby="pathway-q" id="pwRoadmap">
+        <div class="pw-entry">
+          <a class="pw-node pw-node-wide" href="#roadmap" data-stage="begin" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>Beginning My Journey</span><small>See how the Canadian equivalency exams fit together</small></a>
+          <a class="pw-node pw-node-wide" href="#programs" data-stage="unsure" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>I'm Not Sure</span><small>Get help identifying your next step</small></a>
+        </div>
+
+        <div class="pw-branch">
+          <p class="pw-branch-label">Dental Equivalency</p>
+          <ol class="pw-track">
+            <li><a class="pw-node" href="/afk-programs/" data-stage="afk" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>AFK</span><small>Fundamental Knowledge</small></a></li>
+            <li class="pw-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+            <li><a class="pw-node" href="/acj-programs/" data-stage="acj" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>ACJ</span><small>Clinical Judgement</small></a></li>
+            <li class="pw-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+            <li><a class="pw-node" href="/ndecc-programs/" data-stage="ndecc" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>NDECC</span><small>Clinical &amp; Situational</small></a></li>
+            <li class="pw-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+            <li><a class="pw-node" href="/virtual-osce/" data-stage="osce" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>Virtual OSCE</span><small>Simulated stations</small></a></li>
+          </ol>
+        </div>
+
+        <div class="pw-branch">
+          <p class="pw-branch-label">University Admission</p>
+          <ol class="pw-track">
+            <li><a class="pw-node" href="/adat-programs/" data-stage="adat" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>ADAT</span><small>Advanced Dental Admission Test</small></a></li>
+            <li class="pw-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+            <li><a class="pw-node" href="/university-interview-preparation/" data-stage="university" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>University Admission</span><small>Interview preparation</small></a></li>
+          </ol>
+        </div>
+
+        <div class="pw-branch">
+          <p class="pw-branch-label">Professional Development</p>
+          <ol class="pw-track">
+            <li><a class="pw-node" href="#continuing" data-stage="ce" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>Continuing Education</span><small>Beyond the equivalency exams</small></a></li>
+          </ol>
+        </div>
+      </nav>
+
+      <p class="pw-disclaimer">Pathway requirements vary and may change. Refer to the appropriate official examination, university or licensing authority for current requirements.</p>
+    </div>
+
+    <!-- Recommendation panel (meaningful default content; enhanced on selection).
+         Updates are announced via the concise #pathway-live status region and by
+         moving focus to the new result heading — so no aria-live here (avoids
+         re-reading the whole panel). -->
+    <div class="pathway-result" id="pathwayResult">
+      <div class="pw-result-head">
+        <h3 id="pw-result-title">Start with the big picture</h3>
+      </div>
+      <p class="pw-result-intro">The Canadian dental equivalency journey usually moves through the AFK, ACJ and NDECC examinations, followed by Virtual OSCE practice. Select your current stage above, or explore these starting points:</p>
+      <ul class="pw-links">
+        <li><a href="/afk-programs/">AFK preparation course</a> — the usual first equivalency exam for internationally trained dentists.</li>
+        <li><a href="/acj-programs/">ACJ preparation course</a> — build the clinical judgement the assessment evaluates.</li>
+        <li><a href="/ndecc-programs/">NDECC Clinical Skills and Situational Judgement preparation</a> — practical clinical training.</li>
+        <li><a href="/virtual-osce/">Virtual OSCE preparation</a> — rehearse simulated OSCE stations online.</li>
+        <li><a href="/adat-programs/">ADAT preparation</a> and <a href="/university-interview-preparation/">university dental interview preparation</a> for admissions.</li>
+        <li><a href="/course-bundles/">Compare course bundles</a> or <a href="/afk-mock-exams/">try a dental mock exam</a>.</li>
+      </ul>
+    </div>
+
+    <!-- Standing CTA hierarchy -->
+    <div class="pathway-cta reveal">
+      <a class="btn-primary" id="pwPrimaryCta" href="#programs"><span class="pw-cta-label">View Recommended Programs</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="pw-btn2" id="pwBundleCta" href="/course-bundles/">Compare Course Bundles</a>
+      <a class="pw-btn3" id="pwMockCta" href="/afk-mock-exams/">Try an AFK Mock Exam</a>
+      <a class="pw-textlink" id="pwExpCta" href="#experience">See How ConfiDentist Learning Works</a>
     </div>
   </div>
 </section>
@@ -1873,6 +2009,226 @@ const finder = (() => {
   return { init };
 })();
 
+/* ═════════════════  PATHWAY NAVIGATOR (#overview)  ═════════════════
+   Centralized pathway → verified-program mapping. Every route below is
+   drawn from the PROGRAMS single source of truth above, so it always
+   resolves to an existing ConfiDentist page. Progressive enhancement:
+   the roadmap nodes are real anchor links that work without JS; when JS
+   is present they render tailored, in-page recommendations instead. */
+const pathwayNav = (() => {
+  let resultEl, live, primaryCta, defaultHTML = '', active = null;
+  let nodes = [];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+  const svgArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const svgReset = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>';
+
+  /* stage id → { label, heading, intro, primary:{label,href}, cards?[[key,tag]], actions?[{label,desc,href}] }.
+     cards reference verified keys in PROGRAMS; unverified options are intentionally omitted. */
+  const STAGES = {
+    begin: {
+      label: 'Beginning My Journey',
+      heading: 'Start with the big picture',
+      intro: 'The Canadian equivalency journey usually moves through the AFK, ACJ and NDECC examinations, then Virtual OSCE practice. Begin with the overview, then choose structured preparation for your first exam.',
+      primary: { label: 'View the Complete Pathway', href: '#roadmap' },
+      cards: [ ['afk-hub', 'Recommended'], ['bundles', 'Bundle'], ['afk-mock', 'Mock practice'] ]
+    },
+    afk: {
+      label: 'Preparing for AFK',
+      heading: 'Choose the AFK preparation that fits your needs',
+      intro: 'The AFK (Assessment of Fundamental Knowledge) tests the core knowledge base for Canadian dental equivalency. Choose full structured coverage, focus on selected subjects, or check your readiness with mock exams.',
+      primary: { label: 'Explore AFK Programs', href: '/afk-programs/' },
+      cards: [ ['afk-full', 'Recommended'], ['afk-subject', 'Alternative'], ['afk-mock', 'Mock practice'] ]
+    },
+    acj: {
+      label: 'Preparing for ACJ',
+      heading: 'Build the clinical reasoning the ACJ assesses',
+      intro: 'The ACJ (Assessment of Clinical Judgement) evaluates clinical reasoning and decision-making. Prepare with scenario-driven coverage, bundled value, or one-on-one support.',
+      primary: { label: 'Explore ACJ Preparation', href: '/acj-programs/' },
+      cards: [ ['acj-comp', 'Recommended'], ['bundles', 'Bundle'], ['private', 'Personalized'] ]
+    },
+    ndecc: {
+      label: 'Preparing for NDECC',
+      heading: 'Prepare for both NDECC components',
+      intro: 'The NDECC assesses clinical skills and situational judgement. Train each component on its own, or combine them in one complete bundle.',
+      primary: { label: 'Explore NDECC Programs', href: '/ndecc-programs/' },
+      cards: [ ['ndecc-cs', 'Recommended'], ['ndecc-sj', 'Alternative'], ['ndecc-bundle', 'Bundle'] ]
+    },
+    osce: {
+      label: 'Preparing for Virtual OSCE',
+      heading: 'Practise realistic OSCE stations online',
+      intro: 'Virtual OSCE preparation simulates OSCE stations online so you can rehearse under realistic conditions from anywhere. Related clinical training and bundles are also available.',
+      primary: { label: 'View Virtual OSCE Preparation', href: '/virtual-osce/' },
+      cards: [ ['osce', 'Recommended'], ['ndecc-hub', 'Alternative'], ['bundles', 'Bundle'] ]
+    },
+    adat: {
+      label: 'Preparing for ADAT',
+      heading: 'Prepare for the ADAT',
+      intro: 'The ADAT (Advanced Dental Admission Test) supports applications to advanced dental programs. Choose comprehensive coverage, an efficient crash review, or tailored one-on-one support.',
+      primary: { label: 'Explore ADAT Preparation', href: '/adat-programs/' },
+      cards: [ ['adat-comp', 'Recommended'], ['adat-crash', 'Alternative'], ['private', 'Personalized'] ]
+    },
+    university: {
+      label: 'University Admission',
+      heading: 'Prepare for university admission',
+      intro: 'University admission preparation supports Canadian dental program applications. Combine interview coaching, ADAT preparation and personalized sessions.',
+      primary: { label: 'Explore University Interview Preparation', href: '/university-interview-preparation/' },
+      cards: [ ['interview', 'Recommended'], ['adat-hub', 'Alternative'], ['private', 'Personalized'] ]
+    },
+    ce: {
+      label: 'Continuing Education',
+      heading: 'Continue developing your clinical skills',
+      intro: 'Beyond the equivalency examinations, ConfiDentist supports hands-on clinical development. The continuing-education catalogue is growing — explore a current option or ask our team what is coming next.',
+      primary: { label: 'View Continuing Education', href: '#continuing' },
+      actions: [
+        { label: 'Hands-on clinical skills practice', desc: 'Currently offered through NDECC Clinical Skills — supervised, hands-on training in a clinic setting.', href: '/ndecc-programs/clinical-skills/' },
+        { label: 'Browse all ConfiDentist programs', desc: 'See every current program and choose what fits your goals.', href: '#programs' },
+        { label: 'Ask about upcoming continuing education', desc: 'Register your interest and our team will follow up with current options.', href: 'https://www.confidentist.ca/contact-us/' }
+      ]
+    },
+    unsure: {
+      label: "I'm Not Sure",
+      heading: 'Let us help you identify your next step',
+      intro: 'Review the complete Canadian dentistry pathway, compare available programs, or contact ConfiDentist for personalized guidance.',
+      primary: { label: 'View the Complete Pathway', href: '#roadmap' },
+      actions: [
+        { label: 'View the complete pathway', desc: 'A general overview of the AFK, ACJ, NDECC and Virtual OSCE preparation sequence.', href: '#roadmap' },
+        { label: 'Compare programs', desc: 'Browse every ConfiDentist program side by side.', href: '#programs' },
+        { label: 'Ask for guidance', desc: 'Tell us your goals and our team will help you plan your next step.', href: 'https://www.confidentist.ca/contact-us/' }
+      ]
+    }
+  };
+
+  function cardHTML(key, tag) {
+    const p = PROGRAMS[key];
+    if (!p) return '';
+    const meta = [p.delivery, p.format].filter(Boolean).map(m => '<span>' + esc(m) + '</span>').join('');
+    return '<article class="pw-card">'
+      + '<span class="pw-tag">' + esc(tag) + '</span>'
+      + '<span class="pw-cat">' + esc(p.cat) + '</span>'
+      + '<h4>' + esc(p.name) + '</h4>'
+      + '<p>' + esc(p.desc) + '</p>'
+      + (meta ? '<div class="pw-meta">' + meta + '</div>' : '')
+      + '<a class="pw-view" href="' + esc(p.route) + '" data-key="' + esc(key) + '">View course ' + svgArrow + '</a>'
+      + '</article>';
+  }
+
+  function actionHTML(a) {
+    return '<a class="ce-opt" href="' + esc(a.href) + '">'
+      + '<span>' + esc(a.label) + '<small>' + esc(a.desc) + '</small></span>'
+      + '<span class="qo-arrow" aria-hidden="true">' + svgArrow + '</span>'
+      + '</a>';
+  }
+
+  function setPrimary(label, href) {
+    if (!primaryCta) return;
+    const lbl = primaryCta.querySelector('.pw-cta-label');
+    if (lbl) lbl.textContent = label;
+    primaryCta.setAttribute('href', href);
+  }
+
+  function render(id, opts) {
+    opts = opts || {};
+    const s = STAGES[id];
+    if (!s) return;
+    active = id;
+    let body = '';
+    if (s.cards) body = '<div class="pw-cards">' + s.cards.map(c => cardHTML(c[0], c[1])).join('') + '</div>';
+    else if (s.actions) body = '<div class="pw-actions">' + s.actions.map(actionHTML).join('') + '</div>';
+
+    resultEl.innerHTML =
+      '<div class="pw-result-head"><h3 id="pw-result-title" tabindex="-1">' + esc(s.heading) + '</h3>'
+      + '<button type="button" class="pw-restart" id="pwRestart">' + svgReset + 'Start again</button></div>'
+      + '<p class="pw-result-intro">' + esc(s.intro) + '</p>'
+      + body;
+
+    nodes.forEach(n => n.setAttribute('aria-current', n.dataset.stage === id ? 'true' : 'false'));
+    if (s.primary) setPrimary(s.primary.label, s.primary.href);
+
+    if (live) live.textContent = s.label + ' selected. ' + s.heading + '. Recommended preparation is shown below.';
+    track('pathway_stage_selected', { stage: id });
+    track('pathway_recommendation_shown', { stage: id });
+
+    const rb = document.getElementById('pwRestart');
+    if (rb) rb.addEventListener('click', () => restart(true, true));
+    resultEl.querySelectorAll('.pw-view').forEach(a =>
+      a.addEventListener('click', () => track('pathway_course_opened', { stage: id, program: a.dataset.key, route: a.getAttribute('href') })));
+
+    if (opts.focus) {
+      const h = document.getElementById('pw-result-title');
+      if (h) h.focus({ preventScroll: true });
+    }
+    if (opts.push !== false) syncURL(id, opts.replace);
+  }
+
+  function restart(push, focusIt) {
+    active = null;
+    resultEl.innerHTML = defaultHTML;
+    nodes.forEach(n => n.setAttribute('aria-current', 'false'));
+    setPrimary('View Recommended Programs', '#programs');
+    if (live) live.textContent = 'Selection cleared. Showing the overview of ConfiDentist pathways.';
+    if (push) syncURL(null);
+    if (focusIt) {
+      const q = document.getElementById('pathway-q');
+      if (q) { q.setAttribute('tabindex', '-1'); q.focus({ preventScroll: true }); }
+    }
+  }
+
+  function syncURL(id, replace) {
+    const params = new URLSearchParams(window.location.search);
+    if (id) params.set('stage', id); else params.delete('stage');
+    const qs = params.toString();
+    const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+    try { history[replace ? 'replaceState' : 'pushState']({ pwStage: id || null }, '', url); } catch (e) {}
+  }
+
+  function onNodeClick(e) {
+    const id = e.currentTarget.dataset.stage;
+    if (!STAGES[id]) return;          // fail safe: let the anchor navigate normally
+    e.preventDefault();               // progressive enhancement: stay on page
+    render(id, { push: true, focus: true });
+  }
+
+  function onPop() {
+    const id = new URLSearchParams(window.location.search).get('stage');
+    if (id && STAGES[id]) render(id, { push: false, focus: false });
+    else restart(false, false);
+  }
+
+  function init() {
+    resultEl = document.getElementById('pathwayResult');
+    if (!resultEl) return;
+    defaultHTML = resultEl.innerHTML;
+    live = document.getElementById('pathway-live');
+    primaryCta = document.getElementById('pwPrimaryCta');
+    nodes = Array.prototype.slice.call(document.querySelectorAll('#pwRoadmap .pw-node'));
+    nodes.forEach(n => n.addEventListener('click', onNodeClick));
+
+    const bundle = document.getElementById('pwBundleCta');
+    if (bundle) bundle.addEventListener('click', () => track('pathway_bundle_selected', { stage: active || null }));
+    const mock = document.getElementById('pwMockCta');
+    if (mock) mock.addEventListener('click', () => track('pathway_mock_selected', { stage: active || null }));
+    const exp = document.getElementById('pwExpCta');
+    if (exp) exp.addEventListener('click', () => track('pathway_learning_experience', { stage: active || null }));
+    if (primaryCta) primaryCta.addEventListener('click', () => track('pathway_primary_cta', { stage: active || null }));
+
+    const sect = document.getElementById('overview');
+    if (sect && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((ents) => {
+        ents.forEach(en => { if (en.isIntersecting) { track('pathway_viewed', {}); io.disconnect(); } });
+      }, { threshold: 0.25 });
+      io.observe(sect);
+    }
+
+    // Restore a shared/bookmarked stage. Invalid values fail safe to the default overview.
+    const id = new URLSearchParams(window.location.search).get('stage');
+    if (id && STAGES[id]) render(id, { push: false, focus: false });
+
+    window.addEventListener('popstate', onPop);
+  }
+
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
   renderCards();
@@ -1882,6 +2238,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobile();
   initHeroVideo();
   finder.init();
+  pathwayNav.init();
   observeReveals();
 });
 </script>
