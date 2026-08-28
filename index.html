@@ -462,7 +462,7 @@
     .pw-links a:hover { color: var(--navy); }
 
     .pw-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .pw-card { display: flex; flex-direction: column; border: 1.5px solid var(--border); border-radius: 12px; padding: 1.1rem; background: var(--bg-soft); transition: border-color .15s, box-shadow .15s, transform .12s; }
+    .pw-card { display: flex; flex-direction: column; border: 1.5px solid var(--border); border-radius: 12px; padding: 1.1rem; background: var(--bg-soft); cursor: pointer; color: inherit; transition: border-color .15s, box-shadow .15s, transform .12s; }
     .pw-card:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
     .pw-tag { align-self: flex-start; font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); background: var(--gold-bg); padding: .28rem .55rem; border-radius: 999px; margin-bottom: .65rem; }
     .pw-cat { font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -471,8 +471,8 @@
     .pw-meta { font-size: .72rem; color: var(--muted); margin-bottom: .9rem; display: flex; flex-wrap: wrap; gap: .3rem .7rem; }
     .pw-view { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; font-size: .82rem; color: var(--gold-dark); }
     .pw-view svg { width: 16px; height: 16px; transition: transform .15s; }
-    .pw-view:hover { color: var(--navy); }
-    .pw-view:hover svg { transform: translateX(3px); }
+    .pw-card:hover .pw-view { color: var(--navy); }
+    .pw-card:hover .pw-view svg { transform: translateX(3px); }
 
     .pw-actions { display: grid; gap: .6rem; max-width: 660px; }
 
@@ -830,7 +830,7 @@
             <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
           </div>
           <div class="mega-foot">
-            <a href="#journey" role="menuitem" class="all">Equivalency journey <span aria-hidden="true">→</span></a>
+            <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
             <a href="/afk-mock-exams/" role="menuitem" class="all">Mock Exams <span aria-hidden="true">→</span></a>
             <a href="#programs" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
           </div>
@@ -859,7 +859,7 @@
   <a href="/">Home <span aria-hidden="true">→</span></a>
   <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
   <div class="mp-label">Choose a Path</div>
-  <a href="#journey" class="sub">Dental Equivalency</a>
+  <a href="/dental-equivalency/" class="sub">Dental Equivalency</a>
   <a href="#continuing" class="sub">Continuing Education</a>
   <div class="mp-label">Programs</div>
   <a href="/afk-programs/" class="sub">AFK Preparation</a>
@@ -986,7 +986,7 @@
 
       <nav class="pw-roadmap" aria-labelledby="pathway-q" id="pwRoadmap">
         <div class="pw-entry">
-          <a class="pw-node pw-node-wide" href="#roadmap" data-stage="begin" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>Beginning My Journey</span><small>See how the Canadian equivalency exams fit together</small></a>
+          <a class="pw-node pw-node-wide" href="/dental-equivalency/" data-stage="begin" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>Beginning My Journey</span><small>See how the Canadian equivalency exams fit together</small></a>
           <a class="pw-node pw-node-wide" href="#programs" data-stage="unsure" aria-current="false"><span class="pw-node-main"><span class="pw-check" aria-hidden="true"></span>I'm Not Sure</span><small>Get help identifying your next step</small></a>
         </div>
 
@@ -1081,72 +1081,7 @@
   </div>
 </section>
 
-<!-- ═══════════ EQUIVALENCY ROADMAP (static, SEO-readable) ═══════════ -->
-<section class="section" id="roadmap" aria-labelledby="roadmap-title">
-  <div class="wrap">
-    <div class="reveal" style="max-width:680px;">
-      <span class="kicker">A General Educational Overview</span>
-      <h2 class="h-title" id="roadmap-title">The ConfiDentist Preparation Roadmap</h2>
-      <p class="lead">Two distinct pathways ConfiDentist supports. This is a general overview for orientation — not every candidate follows exactly the same route, and steps may overlap.</p>
-    </div>
-
-    <div class="roadmap-track reveal" style="margin-top:2.5rem;">
-      <h3>Equivalency Examination Pathway <span class="rt-tag">Overview</span></h3>
-      <div class="roadmap-row">
-        <article class="rm-stage">
-          <div class="rm-step-n">Step 01</div>
-          <h4>AFK</h4>
-          <p>Assessment of Fundamental Knowledge — a written exam of the biomedical and dental sciences. ConfiDentist offers full-package and subject-based preparation.</p>
-          <a class="rm-link" href="/afk-programs/">AFK Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-        <article class="rm-stage">
-          <div class="rm-step-n">Step 02</div>
-          <h4>ACJ</h4>
-          <p>Assessment of Clinical Judgement — a scenario-based written exam of clinical reasoning and decision-making, prepared for with the Comprehensive program.</p>
-          <a class="rm-link" href="/acj-programs/">ACJ Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-        <article class="rm-stage">
-          <div class="rm-step-n">Step 03</div>
-          <h4>NDECC</h4>
-          <p>A performance assessment with Clinical Skills and Situational Judgement components. ConfiDentist offers focused tracks, mock programs and a complete bundle.</p>
-          <a class="rm-link" href="/ndecc-programs/">NDECC Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-        <article class="rm-stage">
-          <div class="rm-step-n">Practice</div>
-          <h4>Virtual OSCE®</h4>
-          <p>Simulated OSCE stations delivered online so you can rehearse under realistic, exam-like conditions from anywhere in your preparation.</p>
-          <a class="rm-link" href="/virtual-osce/">Virtual OSCE® <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-      </div>
-    </div>
-
-    <div class="roadmap-track reveal">
-      <h3>University Admission Pathway <span class="rt-tag">Separate Route</span></h3>
-      <div class="roadmap-row">
-        <article class="rm-stage">
-          <div class="rm-step-n">Admission</div>
-          <h4>ADAT</h4>
-          <p>The Advanced Dental Admission Test supports applications to advanced standing university programs. Comprehensive and crash preparation are available.</p>
-          <a class="rm-link" href="/adat-programs/">ADAT Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-        <article class="rm-stage">
-          <div class="rm-step-n">Admission</div>
-          <h4>University Interviews</h4>
-          <p>Personalized coaching and realistic mock interviews to help candidates communicate confidently during Canadian university admissions interviews.</p>
-          <a class="rm-link" href="/university-interview-preparation/">Interview Preparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-        <article class="rm-stage">
-          <div class="rm-step-n">Support</div>
-          <h4>Private Sessions</h4>
-          <p>One-on-one tutoring tailored to your goals and timeline — useful at any stage of equivalency or admission preparation where you need focused support.</p>
-          <a class="rm-link" href="/private-sessions/">Private Sessions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-      </div>
-    </div>
-
-    <p class="finder-note reveal">Pathway requirements may vary by applicant and may change. Consult the appropriate official examination, university, or licensing authority for current requirements.</p>
-  </div>
-</section>
+<!-- The ConfiDentist Preparation Roadmap now lives on its own page: /dental-equivalency/ -->
 
 <!-- ═══════════ FEATURED ANNOUNCEMENT ═══════════ -->
 <section class="announce" id="announcement" aria-labelledby="announce-title">
@@ -1644,7 +1579,7 @@ const PROGRAMS = {
   'interview':   { name: 'University Interview Preparation', route: '/university-interview-preparation/', cat: 'University Preparation', delivery: 'Online · 1:1 Coaching', format: 'Coaching & mocks', desc: 'Personalized coaching and realistic mock interviews for Canadian university admissions.' },
   'private':     { name: 'Private Sessions', route: '/private-sessions/', cat: 'Private Support', delivery: 'Online · One-on-one', format: 'Tailored', desc: 'One-on-one tutoring tailored to your goals, timeline and specific support needs.' },
   'bundles':     { name: 'Course Bundles', route: '/course-bundles/', cat: 'Bundles', delivery: 'Varies by bundle', format: 'Multi-course value', desc: 'Value-packed course and mock-exam bundles for coordinated, comprehensive preparation.' },
-  'roadmap':     { name: 'Equivalency Roadmap', route: '#roadmap', cat: 'Overview', delivery: 'Self-guided overview', format: 'Educational overview', desc: 'A general overview of the AFK, ACJ, NDECC and Virtual OSCE preparation pathway.' },
+  'roadmap':     { name: 'Equivalency Roadmap', route: '/dental-equivalency/', cat: 'Overview', delivery: 'Self-guided overview', format: 'Educational overview', desc: 'A general overview of the AFK, ACJ, NDECC and Virtual OSCE preparation pathway.' },
   'advisor':     { name: 'Speak With an Advisor', route: 'https://www.confidentist.ca/contact-us/', cat: 'Guidance', delivery: 'Email · Personal reply', format: 'Free guidance', desc: 'Tell us your goals and we will help you build the right ConfiDentist study plan.' }
 };
 
@@ -2021,6 +1956,7 @@ const pathwayNav = (() => {
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
   const svgArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   const svgReset = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>';
+  function prefersReduced() { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } }
 
   /* stage id → { label, heading, intro, primary:{label,href}, cards?[[key,tag]], actions?[{label,desc,href}] }.
      cards reference verified keys in PROGRAMS; unverified options are intentionally omitted. */
@@ -2029,7 +1965,7 @@ const pathwayNav = (() => {
       label: 'Beginning My Journey',
       heading: 'Start with the big picture',
       intro: 'The Canadian equivalency journey usually moves through the AFK, ACJ and NDECC examinations, then Virtual OSCE practice. Begin with the overview, then choose structured preparation for your first exam.',
-      primary: { label: 'View the Complete Pathway', href: '#roadmap' },
+      primary: { label: 'View the Complete Pathway', href: '/dental-equivalency/' },
       cards: [ ['afk-hub', 'Recommended'], ['bundles', 'Bundle'], ['afk-mock', 'Mock practice'] ]
     },
     afk: {
@@ -2089,9 +2025,9 @@ const pathwayNav = (() => {
       label: "I'm Not Sure",
       heading: 'Let us help you identify your next step',
       intro: 'Review the complete Canadian dentistry pathway, compare available programs, or contact ConfiDentist for personalized guidance.',
-      primary: { label: 'View the Complete Pathway', href: '#roadmap' },
+      primary: { label: 'View the Complete Pathway', href: '/dental-equivalency/' },
       actions: [
-        { label: 'View the complete pathway', desc: 'A general overview of the AFK, ACJ, NDECC and Virtual OSCE preparation sequence.', href: '#roadmap' },
+        { label: 'View the complete pathway', desc: 'A general overview of the AFK, ACJ, NDECC and Virtual OSCE preparation sequence.', href: '/dental-equivalency/' },
         { label: 'Compare programs', desc: 'Browse every ConfiDentist program side by side.', href: '#programs' },
         { label: 'Ask for guidance', desc: 'Tell us your goals and our team will help you plan your next step.', href: 'https://www.confidentist.ca/contact-us/' }
       ]
@@ -2102,14 +2038,15 @@ const pathwayNav = (() => {
     const p = PROGRAMS[key];
     if (!p) return '';
     const meta = [p.delivery, p.format].filter(Boolean).map(m => '<span>' + esc(m) + '</span>').join('');
-    return '<article class="pw-card">'
+    // Whole card is a single anchor so the entire card is clickable (no nested links).
+    return '<a class="pw-card" href="' + esc(p.route) + '" data-key="' + esc(key) + '">'
       + '<span class="pw-tag">' + esc(tag) + '</span>'
       + '<span class="pw-cat">' + esc(p.cat) + '</span>'
       + '<h4>' + esc(p.name) + '</h4>'
       + '<p>' + esc(p.desc) + '</p>'
-      + (meta ? '<div class="pw-meta">' + meta + '</div>' : '')
-      + '<a class="pw-view" href="' + esc(p.route) + '" data-key="' + esc(key) + '">View course ' + svgArrow + '</a>'
-      + '</article>';
+      + (meta ? '<span class="pw-meta">' + meta + '</span>' : '')
+      + '<span class="pw-view">View course ' + svgArrow + '</span>'
+      + '</a>';
   }
 
   function actionHTML(a) {
@@ -2150,10 +2087,13 @@ const pathwayNav = (() => {
 
     const rb = document.getElementById('pwRestart');
     if (rb) rb.addEventListener('click', () => restart(true, true));
-    resultEl.querySelectorAll('.pw-view').forEach(a =>
+    resultEl.querySelectorAll('.pw-card').forEach(a =>
       a.addEventListener('click', () => track('pathway_course_opened', { stage: id, program: a.dataset.key, route: a.getAttribute('href') })));
 
     if (opts.focus) {
+      // Bring the freshly rendered recommendation into view so the change is
+      // obvious even when the panel sits below the fold, then focus the heading.
+      try { resultEl.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'nearest' }); } catch (e) {}
       const h = document.getElementById('pw-result-title');
       if (h) h.focus({ preventScroll: true });
     }
