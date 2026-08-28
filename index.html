@@ -741,12 +741,12 @@
       <div class="nav-item">
         <a href="/">Home</a>
       </div>
-      <div class="nav-item" id="coursesItem">
-        <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="coursesMega" id="coursesTrigger">
-          Courses
+      <div class="nav-item" id="equivItem">
+        <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">
+          Dental Equivalency
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="mega" id="coursesMega" role="menu" aria-label="Courses">
+        <div class="mega" id="equivMega" role="menu" aria-label="Dental Equivalency">
           <div class="mega-grid">
             <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
             <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
@@ -756,12 +756,12 @@
             <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
           </div>
           <div class="mega-foot">
+            <a href="#journey" role="menuitem" class="all">Equivalency journey <span aria-hidden="true">→</span></a>
             <a href="/afk-mock-exams/" role="menuitem" class="all">Mock Exams <span aria-hidden="true">→</span></a>
             <a href="#programs" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
-      <div class="nav-item"><a href="#journey">Dental Equivalency</a></div>
       <div class="nav-item"><a href="#continuing">Continuing Education</a></div>
       <div class="nav-item"><a href="/afk-mock-exams/">Mock Exams</a></div>
       <div class="nav-item"><a href="https://www.confidentist.ca/blog/">Resources</a></div>
@@ -1359,8 +1359,8 @@ function initHeader() {
 
 /* ─────────────  DESKTOP MEGA MENU  ───────────── */
 function initMega() {
-  const item = document.getElementById('coursesItem');
-  const trigger = document.getElementById('coursesTrigger');
+  const item = document.getElementById('equivItem');
+  const trigger = document.getElementById('equivTrigger');
   if (!item || !trigger) return;
   const open = (state) => { item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); };
   trigger.addEventListener('click', (e) => { e.stopPropagation(); open(!item.classList.contains('open')); });
