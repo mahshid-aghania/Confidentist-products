@@ -462,7 +462,7 @@
     .pw-links a:hover { color: var(--navy); }
 
     .pw-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .pw-card { display: flex; flex-direction: column; border: 1.5px solid var(--border); border-radius: 12px; padding: 1.1rem; background: var(--bg-soft); transition: border-color .15s, box-shadow .15s, transform .12s; }
+    .pw-card { display: flex; flex-direction: column; border: 1.5px solid var(--border); border-radius: 12px; padding: 1.1rem; background: var(--bg-soft); cursor: pointer; color: inherit; transition: border-color .15s, box-shadow .15s, transform .12s; }
     .pw-card:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
     .pw-tag { align-self: flex-start; font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); background: var(--gold-bg); padding: .28rem .55rem; border-radius: 999px; margin-bottom: .65rem; }
     .pw-cat { font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -471,8 +471,8 @@
     .pw-meta { font-size: .72rem; color: var(--muted); margin-bottom: .9rem; display: flex; flex-wrap: wrap; gap: .3rem .7rem; }
     .pw-view { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; font-size: .82rem; color: var(--gold-dark); }
     .pw-view svg { width: 16px; height: 16px; transition: transform .15s; }
-    .pw-view:hover { color: var(--navy); }
-    .pw-view:hover svg { transform: translateX(3px); }
+    .pw-card:hover .pw-view { color: var(--navy); }
+    .pw-card:hover .pw-view svg { transform: translateX(3px); }
 
     .pw-actions { display: grid; gap: .6rem; max-width: 660px; }
 
@@ -2021,6 +2021,7 @@ const pathwayNav = (() => {
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
   const svgArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   const svgReset = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>';
+  function prefersReduced() { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } }
 
   /* stage id → { label, heading, intro, primary:{label,href}, cards?[[key,tag]], actions?[{label,desc,href}] }.
      cards reference verified keys in PROGRAMS; unverified options are intentionally omitted. */
@@ -2102,14 +2103,15 @@ const pathwayNav = (() => {
     const p = PROGRAMS[key];
     if (!p) return '';
     const meta = [p.delivery, p.format].filter(Boolean).map(m => '<span>' + esc(m) + '</span>').join('');
-    return '<article class="pw-card">'
+    // Whole card is a single anchor so the entire card is clickable (no nested links).
+    return '<a class="pw-card" href="' + esc(p.route) + '" data-key="' + esc(key) + '">'
       + '<span class="pw-tag">' + esc(tag) + '</span>'
       + '<span class="pw-cat">' + esc(p.cat) + '</span>'
       + '<h4>' + esc(p.name) + '</h4>'
       + '<p>' + esc(p.desc) + '</p>'
-      + (meta ? '<div class="pw-meta">' + meta + '</div>' : '')
-      + '<a class="pw-view" href="' + esc(p.route) + '" data-key="' + esc(key) + '">View course ' + svgArrow + '</a>'
-      + '</article>';
+      + (meta ? '<span class="pw-meta">' + meta + '</span>' : '')
+      + '<span class="pw-view">View course ' + svgArrow + '</span>'
+      + '</a>';
   }
 
   function actionHTML(a) {
@@ -2150,10 +2152,13 @@ const pathwayNav = (() => {
 
     const rb = document.getElementById('pwRestart');
     if (rb) rb.addEventListener('click', () => restart(true, true));
-    resultEl.querySelectorAll('.pw-view').forEach(a =>
+    resultEl.querySelectorAll('.pw-card').forEach(a =>
       a.addEventListener('click', () => track('pathway_course_opened', { stage: id, program: a.dataset.key, route: a.getAttribute('href') })));
 
     if (opts.focus) {
+      // Bring the freshly rendered recommendation into view so the change is
+      // obvious even when the panel sits below the fold, then focus the heading.
+      try { resultEl.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'nearest' }); } catch (e) {}
       const h = document.getElementById('pw-result-title');
       if (h) h.focus({ preventScroll: true });
     }
