@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seminars &amp; Webinars | ConfiDentist</title>
+  <meta name="description" content="Free live ConfiDentist seminars and webinars for internationally trained dentists. See current sessions, including 'A Proven Roadmap to ADAT Success' with Larry Dehghani." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/seminars/" />
+  <meta property="og:title" content="Seminars & Webinars | ConfiDentist" />
+  <meta property="og:description" content="Free live sessions and webinars for internationally trained dentists — practical, high-yield guidance you can join from anywhere." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://confidentist-products.vercel.app/seminars/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://confidentist-products.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Seminars", "item": "https://confidentist-products.vercel.app/seminars/" }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── ConfiDentist brand palette (shared design tokens) ── */
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --navy-deep:   #041b3d;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem; }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; }
+    .skip-link:focus { left: 0; }
+
+    /* ── NAV ── */
+    nav.site { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 2px solid var(--gold); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; letter-spacing: .02em; display: flex; align-items: center; gap: .5rem; }
+    .nav-logo span { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-link { color: rgba(255,255,255,.75); font-size: .82rem; transition: color .2s; }
+    .nav-link:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .5rem 1.25rem; border-radius: .35rem; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── SECTION / TYPO ── */
+    .section { padding: clamp(3.25rem, 6vw, 5rem) 1.5rem; }
+    .wrap { max-width: 1160px; margin: 0 auto; }
+    .intro-inner { max-width: 720px; }
+    .kicker { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dark); display: inline-flex; align-items: center; gap: .55rem; margin-bottom: .9rem; }
+    .kicker::before { content: ''; width: 26px; height: 2px; background: var(--gold); display: block; }
+    .h-title { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); line-height: 1.12; font-size: clamp(1.9rem, 3.8vw, 2.8rem); letter-spacing: -.01em; }
+    .lead { font-size: 1.02rem; color: var(--muted); line-height: 1.8; max-width: 640px; margin-top: 1rem; }
+
+    /* ── BUTTON ── */
+    .btn-primary { display: inline-flex; align-items: center; gap: .5rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .92rem; letter-spacing: .02em; padding: .95rem 2rem; border-radius: .45rem; border: none; cursor: pointer; font-family: inherit; box-shadow: 0 6px 22px rgba(15,122,229,.4); transition: background .2s, transform .15s, box-shadow .2s; align-self: flex-start; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(15,122,229,.5); }
+    .btn-primary svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── SEMINAR CARD (announcement layout) ── */
+    .announce { background: var(--navy-deep); color: #fff; position: relative; overflow: hidden; }
+    .announce .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0; align-items: stretch; }
+    .announce-media { position: relative; min-height: 340px; background: #041237; overflow: hidden; }
+    .announce-img { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; object-position: center; }
+    .announce-body { padding: clamp(2.5rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
+    .announce-cat { display: inline-flex; align-items: center; gap: .5rem; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+    .announce-cat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(15,122,229,.25); }
+    .announce h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
+    .announce p { color: rgba(255,255,255,.78); line-height: 1.75; font-size: 1rem; margin-bottom: 1.5rem; max-width: 480px; }
+    .announce-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+    .announce-meta div { border-left: 2px solid var(--gold); padding-left: .8rem; }
+    .announce-meta .k { font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    .announce-meta .v { font-size: .95rem; font-weight: 600; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold); }
+    footer a { color: var(--gold); }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .announce .wrap { grid-template-columns: 1fr; }
+      .announce-media { min-height: 220px; }
+    }
+    @media (max-width: 520px) {
+      .nav-link { display: none; }
+      .btn-primary { width: 100%; justify-content: center; }
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .btn-primary:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#seminar-adat" class="skip-link">Skip to current seminars</a>
+
+<!-- NAV -->
+<nav class="site" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Confi<span>Dentist</span></a>
+    <div class="nav-right">
+      <a href="/" class="nav-link">Courses</a>
+      <a href="/#programs" class="nav-link">Programs</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Contact an Advisor</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <!-- INTRO -->
+  <section class="section">
+    <div class="wrap intro-inner">
+      <span class="kicker">Seminars &amp; Webinars</span>
+      <h1 class="h-title">ConfiDentist Seminars</h1>
+      <p class="lead">Free live sessions and webinars for internationally trained dentists — practical, high-yield guidance you can join from anywhere. Current sessions are listed below.</p>
+    </div>
+  </section>
+
+  <!-- CURRENT SEMINAR -->
+  <section class="announce" id="seminar-adat" aria-labelledby="seminar-title">
+    <div class="wrap">
+      <div class="announce-media">
+        <img class="announce-img" src="/images/adat-roadmap-seminar.png"
+             alt="A Proven Roadmap to ADAT Success — free live seminar with Larry Dehghani, Friday 28 August 2026, 11:00am–12:30pm via Zoom" width="1058" height="1334" loading="lazy" decoding="async" />
+      </div>
+      <div class="announce-body">
+        <span class="announce-cat"><span class="dot"></span> Current Seminars · Free Live Webinar</span>
+        <h2 id="seminar-title">A Proven Roadmap to ADAT Success</h2>
+        <p>Learn from an 800-score biostatistics achiever, Larry Dehghani, in a focused live session that lays out a clear, proven path to ADAT success — at no cost.</p>
+        <div class="announce-meta">
+          <div><div class="k">Date</div><div class="v">Fri 28 Aug 2026</div></div>
+          <div><div class="k">Time</div><div class="v">11:00am – 12:30pm</div></div>
+          <div><div class="k">Where</div><div class="v">Live via Zoom</div></div>
+          <div><div class="k">Cost</div><div class="v">Free</div></div>
+        </div>
+        <a href="https://www.confidentist.ca/contact-us/" class="btn-primary">Reserve Your Spot
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Courses</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/resources/">Resources</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

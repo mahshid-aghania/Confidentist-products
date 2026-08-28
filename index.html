@@ -374,28 +374,6 @@
     .h-title { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); line-height: 1.12; font-size: clamp(1.8rem, 3.6vw, 2.9rem); letter-spacing: -.01em; text-wrap: balance; }
     .lead { font-size: 1.02rem; color: var(--muted); line-height: 1.8; max-width: 620px; }
 
-    /* ─────────────  ANNOUNCEMENT  ───────────── */
-    .announce { background: var(--navy-deep); color: #fff; position: relative; overflow: hidden; }
-    .announce .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0; align-items: stretch; }
-    .announce-media {
-      position: relative; min-height: 340px;
-      /* Matches the graphic's own deep-navy edges so any letterbox is invisible */
-      background: #041237;
-      overflow: hidden;
-    }
-    .announce-media picture, .announce-img { display: block; width: 100%; height: 100%; }
-    /* contain = whole AFK Mock Exams graphic always visible, never cropped */
-    .announce-img { position: absolute; inset: 0; object-fit: contain; object-position: center; }
-    .announce-body { padding: clamp(2.5rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
-    .announce-cat { display: inline-flex; align-items: center; gap: .5rem; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
-    .announce-cat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(15,122,229,.25); }
-    .announce h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
-    .announce p { color: rgba(255,255,255,.78); line-height: 1.75; font-size: 1rem; margin-bottom: 1.5rem; max-width: 480px; }
-    .announce-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
-    .announce-meta div { border-left: 2px solid var(--gold); padding-left: .8rem; }
-    .announce-meta .k { font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); }
-    .announce-meta .v { font-size: .95rem; font-weight: 600; }
-
     /* ─────────────  JOURNEY INTRO  ───────────── */
     .journey .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
     .journey-copy h2 { margin: 0 0 1.25rem; }
@@ -688,8 +666,6 @@
       .hamburger { display: block; }
     }
     @media (max-width: 960px) {
-      .announce .wrap { grid-template-columns: 1fr; }
-      .announce-media { min-height: 220px; }
       .journey .wrap, .mentor .wrap { grid-template-columns: 1fr; }
       .journey-art, .mentor-art { min-height: 320px; order: -1; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
@@ -764,6 +740,7 @@
       </div>
       <div class="nav-item"><a href="#continuing">Continuing Education</a></div>
       <div class="nav-item"><a href="/afk-mock-exams/">Mock Exams</a></div>
+      <div class="nav-item"><a href="/seminars/">Seminars</a></div>
       <div class="nav-item"><a href="https://www.confidentist.ca/blog/">Resources</a></div>
       <div class="nav-item"><a href="#experience">About</a></div>
     </nav>
@@ -784,6 +761,7 @@
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
   <a href="/">Home <span aria-hidden="true">→</span></a>
   <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <a href="/seminars/">Seminars <span aria-hidden="true">→</span></a>
   <div class="mp-label">Choose a Path</div>
   <a href="/dental-equivalency-in-canada/" class="sub">Dental Equivalency</a>
   <a href="#continuing" class="sub">Continuing Education</a>
@@ -872,29 +850,7 @@
   </div>
 </section>
 
-<!-- ═══════════ CURRENT SEMINARS ═══════════ -->
-<section class="announce" id="seminars" aria-labelledby="seminar-title">
-  <div class="wrap">
-    <div class="announce-media reveal">
-      <img class="announce-img" src="/images/adat-roadmap-seminar.png"
-           alt="A Proven Roadmap to ADAT Success — free live seminar with Larry Dehghani, Friday 28 August 2026, 11:00am–12:30pm via Zoom" width="1058" height="1334" loading="lazy" decoding="async" />
-    </div>
-    <div class="announce-body reveal" data-delay="1">
-      <span class="announce-cat"><span class="dot"></span> Current Seminars · Free Live Webinar</span>
-      <h2 id="seminar-title">A Proven Roadmap to ADAT Success</h2>
-      <p>Learn from an 800-score biostatistics achiever, Larry Dehghani, in a focused live session that lays out a clear, proven path to ADAT success — at no cost.</p>
-      <div class="announce-meta">
-        <div><div class="k">Date</div><div class="v">Fri 28 Aug 2026</div></div>
-        <div><div class="k">Time</div><div class="v">11:00am – 12:30pm</div></div>
-        <div><div class="k">Where</div><div class="v">Live via Zoom</div></div>
-        <div><div class="k">Cost</div><div class="v">Free</div></div>
-      </div>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-primary">Reserve Your Spot
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
+<!-- Current seminars now live on their own page: /seminars/ -->
 
 <!-- Pathway navigator now lives on its own page: /dental-equivalency-in-canada/ -->
 
