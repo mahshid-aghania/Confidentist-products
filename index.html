@@ -727,11 +727,10 @@
     /* Card */
     .pw-card { position: relative; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: .5rem; text-align: left;
       background: #fff; border: 1.5px solid #c9d2f0; border-radius: 14px; padding: .95rem 1rem 1.05rem; cursor: pointer;
-      font: inherit; color: var(--navy); box-shadow: var(--shadow-sm); min-height: 44px;
+      font: inherit; color: var(--navy); text-decoration: none; box-shadow: var(--shadow-sm); min-height: 44px;
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
     .pw-card:hover, .pw-card:focus-visible { transform: translateY(-4px); border-color: var(--gold);
       box-shadow: 0 10px 30px rgba(15,122,229,.22); }
-    .pw-card[aria-expanded="true"] { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(15,122,229,.20), var(--shadow-md); }
     .pw-card-top { display: flex; align-items: center; gap: .6rem; }
     .pw-ic { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; flex: none;
       background: var(--gold-bg); color: var(--gold-dark); }
@@ -752,11 +751,10 @@
     .pw-osce-wrap { position: relative; z-index: 2; flex: 0 0 auto; display: flex; justify-content: center; }
     .pw-osce { position: relative; width: clamp(150px, 17vw, 190px); aspect-ratio: 1 / 1; border-radius: 50%;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .2rem; text-align: center;
-      padding: 1rem; font: inherit; color: #1f6d78; cursor: pointer; border: 2.5px solid var(--teal);
+      padding: 1rem; font: inherit; color: #1f6d78; text-decoration: none; cursor: pointer; border: 2.5px solid var(--teal);
       background: radial-gradient(circle at 50% 34%, #eafafb 0%, #d6f1f4 100%); box-shadow: 0 10px 34px rgba(59,175,191,.28);
       transition: transform .2s ease, box-shadow .2s ease; }
     .pw-osce:hover, .pw-osce:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 42px rgba(59,175,191,.42); }
-    .pw-osce[aria-expanded="true"] { box-shadow: 0 0 0 4px rgba(59,175,191,.28), 0 10px 34px rgba(59,175,191,.30); }
     .pw-osce .pw-kind { color: #2a8f9c; }
     .pw-osce .pw-abbr { font-size: 1.2rem; }
     .pw-osce .pw-name { color: #2f7a84; }
@@ -781,38 +779,6 @@
     /* Orientation emphasis */
     .pw-focus-eq .pw-row[data-path="adat"], .pw-focus-adat .pw-row[data-path="eq"] { opacity: .3; }
     .pw-focus-eq .pw-line.pw-path-adat, .pw-focus-adat .pw-line.pw-path-eq { opacity: .28; }
-
-    /* Info panel */
-    .pw-panel { margin-top: clamp(1.75rem, 4vw, 2.75rem); background: #fff; border: 1.5px solid #c9d2f0; border-radius: 16px;
-      padding: clamp(1.25rem, 3vw, 2rem); box-shadow: var(--shadow-md); position: relative; }
-    .pw-panel:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
-    .pw-panel[hidden] { display: none; }
-    .pw-panel-close { position: absolute; top: .85rem; right: .85rem; width: 40px; height: 40px; border-radius: 10px;
-      border: 1px solid var(--border); background: #fff; color: var(--muted); cursor: pointer; display: grid; place-items: center;
-      transition: background .16s ease, color .16s ease; }
-    .pw-panel-close:hover, .pw-panel-close:focus-visible { background: var(--gold-bg); color: var(--navy); }
-    .pw-panel-close svg { width: 18px; height: 18px; }
-    .pw-panel-kind { display: inline-flex; align-items: center; gap: .5rem; font-size: .66rem; font-weight: 700;
-      letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .5rem; }
-    .pw-panel-title { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy);
-      font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.2; margin-bottom: .6rem; padding-right: 3rem; }
-    .pw-panel-desc { color: var(--text); font-size: .96rem; line-height: 1.7; max-width: 60ch; }
-    .pw-panel-format { display: flex; align-items: flex-start; gap: .55rem; margin-top: 1rem; font-size: .85rem; color: var(--muted); }
-    .pw-panel-format svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: var(--gold-dark); }
-    .pw-panel-note { margin-top: 1rem; padding: .8rem 1rem; background: var(--teal-light); border-left: 3px solid var(--teal);
-      border-radius: 8px; font-size: .8rem; line-height: 1.6; color: #2f7a84; }
-    .pw-panel-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
-    .pw-btn { display: inline-flex; align-items: center; gap: .5rem; font: inherit; font-size: .85rem; font-weight: 600;
-      padding: .75rem 1.35rem; border-radius: 999px; cursor: pointer; text-decoration: none; min-height: 44px;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
-    .pw-btn svg { width: 17px; height: 17px; flex: none; }
-    .pw-btn-primary { background: var(--gold); color: #fff; border: 1.5px solid var(--gold); }
-    .pw-btn-primary:hover, .pw-btn-primary:focus-visible { background: var(--gold-light); transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(15,122,229,.4); }
-    .pw-btn-secondary { background: #fff; color: var(--navy); border: 1.5px solid #c9d2f0; }
-    .pw-btn-secondary:hover, .pw-btn-secondary:focus-visible { border-color: var(--gold); background: var(--gold-bg); transform: translateY(-2px); }
-    .pw-btn[aria-disabled="true"], .pw-btn:disabled { background: #eef1f6; color: var(--muted); border-color: var(--border);
-      cursor: not-allowed; transform: none; box-shadow: none; pointer-events: none; }
 
     /* Entrance animation (only added by JS when motion is allowed).
        Cards/OSCE fade with NO transform so connector anchors stay geometrically stable. */
@@ -1034,9 +1000,6 @@
         <!-- Shared OSCE destination (injected) -->
         <div class="pw-osce-wrap" id="pwOsce"></div>
       </div>
-
-      <!-- Selected-step information panel -->
-      <div class="pw-panel" id="pwPanel" role="region" aria-labelledby="pwPanelTitle" tabindex="-1" hidden></div>
     </div>
   </div>
 </section>
@@ -1923,10 +1886,7 @@ const pathway = (() => {
     users:    '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>',
     layers:   '<path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
     clock:    '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-    target:   '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/>',
-    format:   '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>',
-    arrow:    '<path d="M5 12h14M13 6l6 6-6 6"/>',
-    close:    '<path d="M18 6 6 18M6 6l12 12"/>'
+    target:   '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/>'
   };
 
   const KIND = { stage: 'Learning stage', bundle: 'Bundle', mock: 'Mock exam', osce: 'Shared destination' };
@@ -1986,31 +1946,31 @@ const pathway = (() => {
   ];
   const MERGES = [ { from: 'mockE', path: 'eq' }, { from: 'mockA', path: 'adat' } ];
 
-  let chartEl, rowsEl, osceEl, panelEl, liveEl, orientEl, currentId = null, lastTrigger = null, raf = 0;
+  let chartEl, rowsEl, osceEl, liveEl, orientEl, raf = 0;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c])); }
   function svg(name, cls) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"' + (cls ? ' class="' + cls + '"' : '') + '>' + (ICONS[name] || '') + '</svg>'; }
-  function ariaLabel(s) { return s.title + '. ' + KIND[s.type] + '. ' + s.desc + ' Select to view details.'; }
+  function ariaLabel(s) { return s.title + '. ' + KIND[s.type] + '. ' + s.desc + ' Opens the ConfiDentist program page.'; }
 
   function cardHTML(id, pathId, col) {
     const s = STEPS[id];
-    return '<button type="button" class="pw-card" data-step="' + id + '" data-path="' + pathId + '" data-type="' + s.type +
-      '" aria-controls="pwPanel" aria-expanded="false" aria-label="' + esc(ariaLabel(s)) + '" style="--pwd:' + (350 + col * 90) + '">' +
+    return '<a class="pw-card" href="' + s.route + '" data-step="' + id + '" data-path="' + pathId + '" data-type="' + s.type +
+      '" aria-label="' + esc(ariaLabel(s)) + '" style="--pwd:' + (350 + col * 90) + '">' +
       '<span class="pw-tip" role="tooltip">' + esc(s.desc) + '</span>' +
       '<span class="pw-card-top"><span class="pw-ic">' + svg(s.icon) + '</span><span class="pw-kind">' + KIND[s.type] + '</span></span>' +
       '<span class="pw-abbr">' + esc(s.abbr) + '</span>' +
       '<span class="pw-name">' + esc(s.name) + '</span>' +
-    '</button>';
+    '</a>';
   }
 
   function osceHTML() {
     const s = STEPS.osce;
-    return '<button type="button" class="pw-osce" data-step="osce" data-type="osce" aria-controls="pwPanel" aria-expanded="false" aria-label="' + esc(ariaLabel(s)) + '">' +
+    return '<a class="pw-osce" href="' + s.route + '" data-step="osce" data-type="osce" aria-label="' + esc(ariaLabel(s)) + '">' +
       '<span class="pw-tip" role="tooltip">' + esc(s.desc) + '</span>' +
       '<span class="pw-ic">' + svg(s.icon) + '</span>' +
       '<span class="pw-kind">Shared destination</span>' +
       '<span class="pw-abbr">OSCE</span>' +
-    '</button>';
+    '</a>';
   }
 
   function render() {
@@ -2023,48 +1983,6 @@ const pathway = (() => {
     osceEl.innerHTML = osceHTML();
   }
 
-  /* ── Panel ── */
-  function panelHTML(s) {
-    const explore = s.route
-      ? '<a class="pw-btn pw-btn-primary" href="' + s.route + '">Explore Program ' + svg('arrow') + '</a>'
-      : '<button type="button" class="pw-btn pw-btn-primary" aria-disabled="true" disabled>Coming Soon</button>';
-    const next = s.next ? STEPS[s.next] : null;
-    const cont = next
-      ? '<button type="button" class="pw-btn pw-btn-secondary" data-next="' + s.next + '">Continue to ' + esc(next.abbr) + ' ' + svg('arrow') + '</button>'
-      : '';
-    const note = s.note ? '<p class="pw-panel-note">' + esc(s.note) + '</p>' : '';
-    return '<button type="button" class="pw-panel-close" data-close aria-label="Close details">' + svg('close') + '</button>' +
-      '<span class="pw-panel-kind">' + svg(s.icon) + KIND[s.type] + '</span>' +
-      '<h3 class="pw-panel-title" id="pwPanelTitle">' + esc(s.title) + '</h3>' +
-      '<p class="pw-panel-desc">' + esc(s.desc) + '</p>' +
-      '<p class="pw-panel-format">' + svg('format') + '<span><strong>Recommended preparation:</strong> ' + esc(s.format) + '</span></p>' +
-      note +
-      '<div class="pw-panel-actions">' + explore + cont + '</div>';
-  }
-
-  function select(id, trigger) {
-    if (currentId === id) { closePanel(true); return; }
-    const s = STEPS[id];
-    if (!s) return;
-    currentId = id;
-    lastTrigger = trigger || chartEl.querySelector('[data-step="' + id + '"]');
-    chartEl.querySelectorAll('[data-step]').forEach(el => el.setAttribute('aria-expanded', el.dataset.step === id ? 'true' : 'false'));
-    panelEl.innerHTML = panelHTML(s);
-    panelEl.hidden = false;
-    panelEl.querySelector('[data-close]').addEventListener('click', () => { const t = lastTrigger; closePanel(); if (t) t.focus(); });
-    const c = panelEl.querySelector('[data-next]');
-    if (c) c.addEventListener('click', () => select(c.dataset.next));
-    if (liveEl) liveEl.textContent = s.title + ' selected.';
-    panelEl.focus();
-  }
-
-  function closePanel(returnFocus) {
-    currentId = null;
-    if (chartEl) chartEl.querySelectorAll('[data-step]').forEach(el => el.setAttribute('aria-expanded', 'false'));
-    panelEl.hidden = true;
-    panelEl.innerHTML = '';
-    if (returnFocus && lastTrigger) lastTrigger.focus();
-  }
 
   /* ── SVG connector geometry (recomputed on resize) ── */
   function rectOf(box, id) {
@@ -2149,9 +2067,8 @@ const pathway = (() => {
       : (mode === 'eq' ? 'Emphasising the Dental Equivalency pathway.' : 'Emphasising the Advanced Dental Admission pathway.');
   }
 
-  /* ── Keyboard: roving focus + Escape ── */
+  /* ── Keyboard: roving focus between blocks (Enter/Space follows the link) ── */
   function onKey(e) {
-    if (e.key === 'Escape' && currentId) { const t = lastTrigger; closePanel(); if (t) t.focus(); return; }
     const cur = e.target.closest('[data-step]');
     if (!cur) return;
     const nav = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
@@ -2166,12 +2083,10 @@ const pathway = (() => {
     chartEl = document.querySelector('.pw-chart');
     rowsEl = document.getElementById('pwRows');
     osceEl = document.getElementById('pwOsce');
-    panelEl = document.getElementById('pwPanel');
     liveEl = document.getElementById('pwLive');
     orientEl = document.getElementById('pwOrient');
     if (!chartEl || !rowsEl) return;
     render();
-    chartEl.addEventListener('click', e => { const c = e.target.closest('[data-step]'); if (c) select(c.dataset.step, c); });
     chartEl.addEventListener('keydown', onKey);
     orientEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) setOrient(b.dataset.orient); });
     layout();
