@@ -695,6 +695,154 @@
       .brand { font-size: 1.15rem; }
     }
 
+    /* ═════════════  PATHWAY / CLINICAL-READINESS JOURNEY MAP  ═════════════ */
+    .pathway { background: linear-gradient(180deg, #fbfdff 0%, var(--gold-bg) 100%); }
+    .pathway .wrap { max-width: var(--maxw); margin: 0 auto; }
+    .pw-head { max-width: 680px; }
+    .pw-head .lead { margin-top: 1rem; }
+
+    /* Orientation control */
+    .pw-orient { display: inline-flex; flex-wrap: wrap; gap: .3rem; padding: .3rem; margin: 1.75rem 0 2.25rem;
+      background: #fff; border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--shadow-sm); }
+    .pw-orient button { font: inherit; font-size: .8rem; font-weight: 600; color: var(--muted); background: none; border: none;
+      cursor: pointer; padding: .55rem 1.05rem; border-radius: 999px; min-height: 44px;
+      transition: background .18s ease, color .18s ease; }
+    .pw-orient button[aria-pressed="true"] { background: var(--gold); color: #fff; box-shadow: 0 4px 14px rgba(15,122,229,.30); }
+    .pw-orient button[aria-pressed="false"]:hover, .pw-orient button:focus-visible { color: var(--navy); background: var(--gold-bg); }
+
+    /* Chart shell */
+    .pw-chart { position: relative; }
+    .pw-viewport { position: relative; display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 2.75rem); }
+    .pw-connectors { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 1; }
+    .pw-rows { position: relative; z-index: 2; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: clamp(1.75rem, 4vw, 3rem); }
+
+    .pw-row { transition: opacity .3s ease; }
+    .pw-row-label { display: inline-flex; align-items: center; gap: .55rem; font-size: .74rem; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 1rem; }
+    .pw-row-label .pw-ldot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); flex: none; }
+    .pw-row[data-path="adat"] .pw-row-label { color: #2a8f9c; }
+    .pw-row[data-path="adat"] .pw-row-label .pw-ldot { background: var(--teal); }
+    .pw-track { display: flex; align-items: stretch; gap: clamp(2rem, 4.4vw, 3.2rem); }
+
+    /* Card */
+    .pw-card { position: relative; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: .5rem; text-align: left;
+      background: #fff; border: 1.5px solid #c9d2f0; border-radius: 14px; padding: .95rem 1rem 1.05rem; cursor: pointer;
+      font: inherit; color: var(--navy); box-shadow: var(--shadow-sm); min-height: 44px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .pw-card:hover, .pw-card:focus-visible { transform: translateY(-4px); border-color: var(--gold);
+      box-shadow: 0 10px 30px rgba(15,122,229,.22); }
+    .pw-card[aria-expanded="true"] { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(15,122,229,.20), var(--shadow-md); }
+    .pw-card-top { display: flex; align-items: center; gap: .6rem; }
+    .pw-ic { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; flex: none;
+      background: var(--gold-bg); color: var(--gold-dark); }
+    .pw-ic svg { width: 17px; height: 17px; }
+    .pw-kind { font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); }
+    .pw-abbr { font-weight: 700; font-size: .98rem; color: var(--navy); line-height: 1.2; }
+    .pw-name { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+
+    /* Card type variants (colour + text label both convey type) */
+    .pw-card[data-type="bundle"] { background: #f1f1fc; border-color: #c4c4ee; }
+    .pw-card[data-type="bundle"] .pw-ic { background: #e6e6fb; color: #5b5bd6; }
+    .pw-card[data-type="bundle"] .pw-kind { color: #5b5bd6; }
+    .pw-card[data-type="mock"] { background: var(--teal-light); border-color: #a9dde2; }
+    .pw-card[data-type="mock"] .pw-ic { background: #d3f0f3; color: #2a8f9c; }
+    .pw-card[data-type="mock"] .pw-kind { color: #2a8f9c; }
+
+    /* OSCE shared destination (right column on desktop, stacked below on mobile) */
+    .pw-osce-wrap { position: relative; z-index: 2; flex: 0 0 auto; display: flex; justify-content: center; }
+    .pw-osce { position: relative; width: clamp(150px, 17vw, 190px); aspect-ratio: 1 / 1; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .2rem; text-align: center;
+      padding: 1rem; font: inherit; color: #1f6d78; cursor: pointer; border: 2.5px solid var(--teal);
+      background: radial-gradient(circle at 50% 34%, #eafafb 0%, #d6f1f4 100%); box-shadow: 0 10px 34px rgba(59,175,191,.28);
+      transition: transform .2s ease, box-shadow .2s ease; }
+    .pw-osce:hover, .pw-osce:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 42px rgba(59,175,191,.42); }
+    .pw-osce[aria-expanded="true"] { box-shadow: 0 0 0 4px rgba(59,175,191,.28), 0 10px 34px rgba(59,175,191,.30); }
+    .pw-osce .pw-kind { color: #2a8f9c; }
+    .pw-osce .pw-abbr { font-size: 1.2rem; }
+    .pw-osce .pw-name { color: #2f7a84; }
+    .pw-osce .pw-ic { background: #d3f0f3; color: #2a8f9c; margin-bottom: 2px; }
+
+    /* Tooltip (accessible via hover AND focus) */
+    .pw-tip { position: absolute; bottom: calc(100% + 10px); left: 50%; width: max-content; max-width: 220px;
+      transform: translateX(-50%) translateY(4px); background: var(--navy); color: #fff; font-size: .72rem; line-height: 1.45;
+      font-weight: 500; text-transform: none; letter-spacing: normal; padding: .5rem .65rem; border-radius: 8px;
+      box-shadow: var(--shadow-md); opacity: 0; visibility: hidden; transition: opacity .16s ease, transform .16s ease;
+      z-index: 6; pointer-events: none; }
+    .pw-tip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      border: 6px solid transparent; border-top-color: var(--navy); }
+    .pw-card:hover .pw-tip, .pw-card:focus-visible .pw-tip,
+    .pw-osce:hover .pw-tip, .pw-osce:focus-visible .pw-tip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+    /* SVG connectors */
+    .pw-line { fill: none; stroke: var(--gold-light); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .pw-line.pw-merge { stroke: var(--teal); }
+    #pwLines { transition: opacity .3s ease; }
+
+    /* Orientation emphasis */
+    .pw-focus-eq .pw-row[data-path="adat"], .pw-focus-adat .pw-row[data-path="eq"] { opacity: .3; }
+    .pw-focus-eq .pw-line.pw-path-adat, .pw-focus-adat .pw-line.pw-path-eq { opacity: .28; }
+
+    /* Info panel */
+    .pw-panel { margin-top: clamp(1.75rem, 4vw, 2.75rem); background: #fff; border: 1.5px solid #c9d2f0; border-radius: 16px;
+      padding: clamp(1.25rem, 3vw, 2rem); box-shadow: var(--shadow-md); position: relative; }
+    .pw-panel:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+    .pw-panel[hidden] { display: none; }
+    .pw-panel-close { position: absolute; top: .85rem; right: .85rem; width: 40px; height: 40px; border-radius: 10px;
+      border: 1px solid var(--border); background: #fff; color: var(--muted); cursor: pointer; display: grid; place-items: center;
+      transition: background .16s ease, color .16s ease; }
+    .pw-panel-close:hover, .pw-panel-close:focus-visible { background: var(--gold-bg); color: var(--navy); }
+    .pw-panel-close svg { width: 18px; height: 18px; }
+    .pw-panel-kind { display: inline-flex; align-items: center; gap: .5rem; font-size: .66rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .5rem; }
+    .pw-panel-title { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy);
+      font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.2; margin-bottom: .6rem; padding-right: 3rem; }
+    .pw-panel-desc { color: var(--text); font-size: .96rem; line-height: 1.7; max-width: 60ch; }
+    .pw-panel-format { display: flex; align-items: flex-start; gap: .55rem; margin-top: 1rem; font-size: .85rem; color: var(--muted); }
+    .pw-panel-format svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: var(--gold-dark); }
+    .pw-panel-note { margin-top: 1rem; padding: .8rem 1rem; background: var(--teal-light); border-left: 3px solid var(--teal);
+      border-radius: 8px; font-size: .8rem; line-height: 1.6; color: #2f7a84; }
+    .pw-panel-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .pw-btn { display: inline-flex; align-items: center; gap: .5rem; font: inherit; font-size: .85rem; font-weight: 600;
+      padding: .75rem 1.35rem; border-radius: 999px; cursor: pointer; text-decoration: none; min-height: 44px;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .pw-btn svg { width: 17px; height: 17px; flex: none; }
+    .pw-btn-primary { background: var(--gold); color: #fff; border: 1.5px solid var(--gold); }
+    .pw-btn-primary:hover, .pw-btn-primary:focus-visible { background: var(--gold-light); transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(15,122,229,.4); }
+    .pw-btn-secondary { background: #fff; color: var(--navy); border: 1.5px solid #c9d2f0; }
+    .pw-btn-secondary:hover, .pw-btn-secondary:focus-visible { border-color: var(--gold); background: var(--gold-bg); transform: translateY(-2px); }
+    .pw-btn[aria-disabled="true"], .pw-btn:disabled { background: #eef1f6; color: var(--muted); border-color: var(--border);
+      cursor: not-allowed; transform: none; box-shadow: none; pointer-events: none; }
+
+    /* Entrance animation (only added by JS when motion is allowed).
+       Cards/OSCE fade with NO transform so connector anchors stay geometrically stable. */
+    .pw-anim .pw-row-label { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+    .pw-anim .pw-card { opacity: 0; transition: opacity .5s ease calc(var(--pwd, 0) * 1ms); }
+    .pw-anim .pw-osce-wrap { opacity: 0; transition: opacity .5s ease 1s; }
+    .pw-anim #pwLines { opacity: 0; transition: opacity .35s ease .8s; }
+    .pw-anim .pw-line { stroke-dashoffset: var(--pwlen, 0); transition: stroke-dashoffset .6s ease var(--pwld, .8s); }
+    .pw-anim.pw-in .pw-row-label { opacity: 1; transform: none; }
+    .pw-anim.pw-in .pw-card { opacity: 1; }
+    .pw-anim.pw-in .pw-osce-wrap { opacity: 1; }
+    .pw-anim.pw-in #pwLines { opacity: 1; }
+    .pw-anim.pw-in .pw-line { stroke-dashoffset: 0; }
+    .pw-anim.pw-in .pw-osce { animation: pwPulse 1.1s ease 1.4s 1; }
+    @keyframes pwPulse {
+      0% { box-shadow: 0 0 0 0 rgba(59,175,191,.5), 0 10px 34px rgba(59,175,191,.28); }
+      60% { box-shadow: 0 0 0 16px rgba(59,175,191,0), 0 10px 34px rgba(59,175,191,.28); }
+      100% { box-shadow: 0 0 0 0 rgba(59,175,191,0), 0 10px 34px rgba(59,175,191,.28); }
+    }
+
+    /* Tablet / mobile: vertical steppers, OSCE stacked below both paths */
+    @media (max-width: 880px) {
+      .pw-viewport { flex-direction: column; align-items: stretch; gap: 2.4rem; padding-left: 30px; }
+      .pw-track { flex-direction: column; gap: 2.1rem; }
+      .pw-card { width: 100%; flex: none; }
+      .pw-osce-wrap { align-self: center; }
+      .pw-tip { display: none; }
+      .pw-rows { gap: 2.4rem; }
+    }
+
     /* ─────────────  REDUCED MOTION  ───────────── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -847,6 +995,52 @@
     <p class="finder-note reveal">
       <strong>Educational guidance only.</strong> This tool helps you find ConfiDentist preparation programs. It does not replace the official requirements of the NDEB, universities, or the relevant examination or licensing authority.
     </p>
+  </div>
+</section>
+
+<!-- ═══════════ CLINICAL-READINESS PATHWAY (interactive journey map) ═══════════ -->
+<section class="section pathway" id="pathway" aria-labelledby="pathway-title">
+  <div class="wrap">
+    <div class="pw-head reveal">
+      <span class="kicker">Your Journey</span>
+      <h2 class="h-title" id="pathway-title">A Clear Path Toward Clinical Readiness</h2>
+      <p class="lead">Explore the preparation pathway that best matches your current stage. Select any step to learn more about the relevant ConfiDentist program, preparation format and next recommended action.</p>
+    </div>
+
+    <!-- Orientation control -->
+    <div class="pw-orient reveal" role="group" aria-label="Emphasise a pathway" id="pwOrient">
+      <button type="button" data-orient="eq" aria-pressed="false">Dental Equivalency</button>
+      <button type="button" data-orient="adat" aria-pressed="false">Advanced Dental Admission</button>
+      <button type="button" data-orient="both" aria-pressed="true">View Both Paths</button>
+    </div>
+
+    <!-- Screen-reader status for orientation / selection changes -->
+    <p class="sr-only" role="status" aria-live="polite" id="pwLive"></p>
+
+    <div class="pw-chart reveal" data-delay="1">
+      <div class="pw-viewport">
+        <svg class="pw-connectors" id="pwConnectors" aria-hidden="true" focusable="false" preserveAspectRatio="none">
+          <defs>
+            <marker id="pwArrowBlue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#5cb2f7"></path>
+            </marker>
+            <marker id="pwArrowTeal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#3BAFBF"></path>
+            </marker>
+          </defs>
+          <g id="pwLines"></g>
+        </svg>
+
+        <!-- Pathway rows (cards injected from the PW_PATHS data structure) -->
+        <div class="pw-rows" id="pwRows"></div>
+
+        <!-- Shared OSCE destination (injected) -->
+        <div class="pw-osce-wrap" id="pwOsce"></div>
+      </div>
+
+      <!-- Selected-step information panel -->
+      <div class="pw-panel" id="pwPanel" role="region" aria-labelledby="pwPanelTitle" tabindex="-1" hidden></div>
+    </div>
   </div>
 </section>
 
@@ -1718,6 +1912,287 @@ const finder = (() => {
   return { init };
 })();
 
+/* ═════════════════  CLINICAL-READINESS PATHWAY  ═════════════════
+   Interactive journey map. Data-driven (one structured array → rendered
+   cards + JS-computed SVG connectors). Every route resolves to an existing
+   ConfiDentist page; no program details, prices, dates or URLs are invented. */
+const pathway = (() => {
+  const ICONS = {
+    book:     '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    check:    '<circle cx="12" cy="12" r="9"/><path d="m8.3 12.2 2.5 2.5 5-5.6"/>',
+    activity: '<path d="M22 12h-4l-3 8L9 4l-3 8H2"/>',
+    plan:     '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>',
+    mic:      '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 19v3M8 22h8"/>',
+    users:    '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>',
+    layers:   '<path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
+    clock:    '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    target:   '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/>',
+    format:   '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>',
+    arrow:    '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    close:    '<path d="M18 6 6 18M6 6l12 12"/>'
+  };
+
+  const KIND = { stage: 'Learning stage', bundle: 'Bundle', mock: 'Mock exam', osce: 'Shared destination' };
+
+  /* One structured source of truth. `route` values are existing internal pages. */
+  const STEPS = {
+    afk:      { abbr: 'AFK', name: 'Assessment of Fundamental Knowledge', type: 'stage', icon: 'book',
+                title: 'AFK — Assessment of Fundamental Knowledge',
+                desc: 'Build the foundational knowledge required for the Assessment of Fundamental Knowledge.',
+                format: 'Full-package or subject-based · Online, live + recorded', route: '/afk-programs/', next: 'acj' },
+    acj:      { abbr: 'ACJ', name: 'Assessment of Clinical Judgement', type: 'stage', icon: 'check',
+                title: 'ACJ — Assessment of Clinical Judgement',
+                desc: 'Strengthen clinical judgment and decision-making for the Assessment of Clinical Judgement.',
+                format: 'Comprehensive · Online, live + recorded', route: '/acj-programs/', next: 'ndecc' },
+    ndecc:    { abbr: 'NDECC', name: 'Clinical skills & situational judgement', type: 'stage', icon: 'activity',
+                title: 'NDECC — Clinical Skills & Situational Judgement',
+                desc: 'Prepare for the clinical skills and situational judgement components of the NDECC process.',
+                format: 'Multiple tracks & bundles · Online + in-person', route: '/ndecc-programs/', next: 'bundleE' },
+    bundleE:  { abbr: 'Bundle', name: 'Course Bundles', type: 'bundle', icon: 'layers',
+                title: 'Course Bundles',
+                desc: 'Combine complementary preparation programs into one coordinated learning path.',
+                format: 'Multi-course value · Varies by bundle', route: '/course-bundles/', next: 'mockE' },
+    mockE:    { abbr: 'Mock Exams', name: 'Realistic exam-style practice', type: 'mock', icon: 'clock',
+                title: 'Mock Exams',
+                desc: 'Practise under realistic exam-style conditions and identify areas requiring further preparation.',
+                format: 'Full & mini mocks · Online, live review', route: '/afk-mock-exams/', next: 'osce' },
+    adat:     { abbr: 'ADAT', name: 'Advanced Dental Admission Test', type: 'stage', icon: 'plan',
+                title: 'ADAT — Advanced Dental Admission Test',
+                desc: 'Develop a structured preparation plan for the Advanced Dental Admission Test.',
+                format: 'Comprehensive & crash · Online, live + recorded', route: '/adat-programs/', next: 'interview' },
+    interview:{ abbr: 'Interview Prep', name: 'University Interview Preparation', type: 'stage', icon: 'mic',
+                title: 'University Interview Preparation',
+                desc: 'Build confidence and communicate your experience effectively during university admission interviews.',
+                format: 'Coaching & mock interviews · Online, 1:1', route: '/university-interview-preparation/', next: 'oneToOne' },
+    oneToOne: { abbr: '1:1 Sessions', name: 'Private Sessions', type: 'stage', icon: 'users',
+                title: 'Private Sessions (1:1)',
+                desc: 'Receive personalized guidance based on your goals, strengths and areas for improvement.',
+                format: 'Tailored · Online, one-on-one', route: '/private-sessions/', next: 'bundleA' },
+    bundleA:  { abbr: 'Bundle', name: 'Course Bundles', type: 'bundle', icon: 'layers',
+                title: 'Course Bundles',
+                desc: 'Combine complementary preparation programs into one coordinated learning path.',
+                format: 'Multi-course value · Varies by bundle', route: '/course-bundles/', next: 'mockA' },
+    mockA:    { abbr: 'Mock Exams', name: 'Realistic exam-style practice', type: 'mock', icon: 'clock',
+                title: 'Mock Exams',
+                desc: 'Practise under realistic exam-style conditions and identify areas requiring further preparation.',
+                format: 'Full & mini mocks · Online, live review', route: '/afk-mock-exams/', next: 'osce' },
+    osce:     { abbr: 'OSCE', name: 'Objective Structured Clinical Examination', type: 'osce', icon: 'target',
+                title: 'OSCE — Objective Structured Clinical Examination',
+                desc: 'Apply your knowledge, communication and clinical reasoning in an objective structured clinical examination format.',
+                format: 'Virtual OSCE® · Online, live + recorded', route: '/virtual-osce/', next: null,
+                note: 'Exact examination and admission requirements vary by pathway and institution. Always confirm current requirements with the relevant official authority.' }
+  };
+
+  const PATHS = [
+    { id: 'eq',   label: 'Dental Equivalency Path',        steps: ['afk', 'acj', 'ndecc', 'bundleE', 'mockE'] },
+    { id: 'adat', label: 'Advanced Dental Admission Path', steps: ['adat', 'interview', 'oneToOne', 'bundleA', 'mockA'] }
+  ];
+  const MERGES = [ { from: 'mockE', path: 'eq' }, { from: 'mockA', path: 'adat' } ];
+
+  let chartEl, rowsEl, osceEl, panelEl, liveEl, orientEl, currentId = null, lastTrigger = null, raf = 0;
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c])); }
+  function svg(name, cls) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"' + (cls ? ' class="' + cls + '"' : '') + '>' + (ICONS[name] || '') + '</svg>'; }
+  function ariaLabel(s) { return s.title + '. ' + KIND[s.type] + '. ' + s.desc + ' Select to view details.'; }
+
+  function cardHTML(id, pathId, col) {
+    const s = STEPS[id];
+    return '<button type="button" class="pw-card" data-step="' + id + '" data-path="' + pathId + '" data-type="' + s.type +
+      '" aria-controls="pwPanel" aria-expanded="false" aria-label="' + esc(ariaLabel(s)) + '" style="--pwd:' + (350 + col * 90) + '">' +
+      '<span class="pw-tip" role="tooltip">' + esc(s.desc) + '</span>' +
+      '<span class="pw-card-top"><span class="pw-ic">' + svg(s.icon) + '</span><span class="pw-kind">' + KIND[s.type] + '</span></span>' +
+      '<span class="pw-abbr">' + esc(s.abbr) + '</span>' +
+      '<span class="pw-name">' + esc(s.name) + '</span>' +
+    '</button>';
+  }
+
+  function osceHTML() {
+    const s = STEPS.osce;
+    return '<button type="button" class="pw-osce" data-step="osce" data-type="osce" aria-controls="pwPanel" aria-expanded="false" aria-label="' + esc(ariaLabel(s)) + '">' +
+      '<span class="pw-tip" role="tooltip">' + esc(s.desc) + '</span>' +
+      '<span class="pw-ic">' + svg(s.icon) + '</span>' +
+      '<span class="pw-kind">Shared destination</span>' +
+      '<span class="pw-abbr">OSCE</span>' +
+    '</button>';
+  }
+
+  function render() {
+    rowsEl.innerHTML = PATHS.map(p =>
+      '<div class="pw-row" data-path="' + p.id + '">' +
+        '<div class="pw-row-label"><span class="pw-ldot" aria-hidden="true"></span>' + esc(p.label) + '</div>' +
+        '<div class="pw-track">' + p.steps.map((id, i) => cardHTML(id, p.id, i)).join('') + '</div>' +
+      '</div>'
+    ).join('');
+    osceEl.innerHTML = osceHTML();
+  }
+
+  /* ── Panel ── */
+  function panelHTML(s) {
+    const explore = s.route
+      ? '<a class="pw-btn pw-btn-primary" href="' + s.route + '">Explore Program ' + svg('arrow') + '</a>'
+      : '<button type="button" class="pw-btn pw-btn-primary" aria-disabled="true" disabled>Coming Soon</button>';
+    const next = s.next ? STEPS[s.next] : null;
+    const cont = next
+      ? '<button type="button" class="pw-btn pw-btn-secondary" data-next="' + s.next + '">Continue to ' + esc(next.abbr) + ' ' + svg('arrow') + '</button>'
+      : '';
+    const note = s.note ? '<p class="pw-panel-note">' + esc(s.note) + '</p>' : '';
+    return '<button type="button" class="pw-panel-close" data-close aria-label="Close details">' + svg('close') + '</button>' +
+      '<span class="pw-panel-kind">' + svg(s.icon) + KIND[s.type] + '</span>' +
+      '<h3 class="pw-panel-title" id="pwPanelTitle">' + esc(s.title) + '</h3>' +
+      '<p class="pw-panel-desc">' + esc(s.desc) + '</p>' +
+      '<p class="pw-panel-format">' + svg('format') + '<span><strong>Recommended preparation:</strong> ' + esc(s.format) + '</span></p>' +
+      note +
+      '<div class="pw-panel-actions">' + explore + cont + '</div>';
+  }
+
+  function select(id, trigger) {
+    if (currentId === id) { closePanel(true); return; }
+    const s = STEPS[id];
+    if (!s) return;
+    currentId = id;
+    lastTrigger = trigger || chartEl.querySelector('[data-step="' + id + '"]');
+    chartEl.querySelectorAll('[data-step]').forEach(el => el.setAttribute('aria-expanded', el.dataset.step === id ? 'true' : 'false'));
+    panelEl.innerHTML = panelHTML(s);
+    panelEl.hidden = false;
+    panelEl.querySelector('[data-close]').addEventListener('click', () => { const t = lastTrigger; closePanel(); if (t) t.focus(); });
+    const c = panelEl.querySelector('[data-next]');
+    if (c) c.addEventListener('click', () => select(c.dataset.next));
+    if (liveEl) liveEl.textContent = s.title + ' selected.';
+    panelEl.focus();
+  }
+
+  function closePanel(returnFocus) {
+    currentId = null;
+    if (chartEl) chartEl.querySelectorAll('[data-step]').forEach(el => el.setAttribute('aria-expanded', 'false'));
+    panelEl.hidden = true;
+    panelEl.innerHTML = '';
+    if (returnFocus && lastTrigger) lastTrigger.focus();
+  }
+
+  /* ── SVG connector geometry (recomputed on resize) ── */
+  function rectOf(box, id) {
+    const el = chartEl.querySelector('[data-step="' + id + '"]');
+    if (!el) return null;
+    const r = el.getBoundingClientRect();
+    return { l: r.left - box.left, t: r.top - box.top, r: r.right - box.left, b: r.bottom - box.top,
+             cx: (r.left + r.right) / 2 - box.left, cy: (r.top + r.bottom) / 2 - box.top, w: r.width, h: r.height };
+  }
+  function linkD(a, b, vertical) {
+    if (vertical) {
+      const sx = a.cx, sy = a.b, ex = b.cx, ey = b.t - 5, my = (sy + ey) / 2;
+      return 'M ' + sx + ' ' + sy + ' C ' + sx + ' ' + my + ', ' + ex + ' ' + my + ', ' + ex + ' ' + ey;
+    }
+    const sx = a.r, sy = a.cy, ex = b.l - 5, ey = b.cy, mx = (sx + ex) / 2;
+    return 'M ' + sx + ' ' + sy + ' C ' + mx + ' ' + sy + ', ' + mx + ' ' + ey + ', ' + ex + ' ' + ey;
+  }
+  function mergeD(m, o, vertical, straight) {
+    const r = o.w / 2;
+    if (!vertical) {
+      // Desktop: OSCE sits to the right, vertically centred; enter its left side.
+      const sx = m.r, sy = m.cy;
+      const ex = o.cx - r * 0.66, ey = o.cy + (m.cy < o.cy ? -1 : 1) * r * 0.22;
+      return 'M ' + sx + ' ' + sy + ' C ' + (sx + 60) + ' ' + sy + ', ' + (ex - 60) + ' ' + ey + ', ' + ex + ' ' + ey;
+    }
+    if (straight) {
+      const sx = m.cx, sy = m.b, ex = o.cx, ey = o.t - 5, my = (sy + ey) / 2;
+      return 'M ' + sx + ' ' + sy + ' C ' + sx + ' ' + my + ', ' + ex + ' ' + my + ', ' + ex + ' ' + ey;
+    }
+    // Route the far mock down the left gutter into the shared circle (mobile).
+    const gx = 16, entryX = o.cx - r + 4;
+    return 'M ' + m.l + ' ' + m.cy +
+      ' L ' + (gx + 12) + ' ' + m.cy +
+      ' Q ' + gx + ' ' + m.cy + ' ' + gx + ' ' + (m.cy + 14) +
+      ' L ' + gx + ' ' + (o.cy - 14) +
+      ' Q ' + gx + ' ' + o.cy + ' ' + (gx + 12) + ' ' + o.cy +
+      ' L ' + entryX + ' ' + o.cy;
+  }
+
+  function layout() {
+    const vp = chartEl.querySelector('.pw-viewport');
+    const svgEl = document.getElementById('pwConnectors');
+    const g = document.getElementById('pwLines');
+    if (!vp || !g) return;
+    const box = vp.getBoundingClientRect();
+    const w = vp.clientWidth, h = vp.clientHeight;
+    svgEl.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    const vertical = window.matchMedia('(max-width: 880px)').matches;
+    const segs = [];
+    PATHS.forEach(p => {
+      for (let i = 0; i < p.steps.length - 1; i++) {
+        const a = rectOf(box, p.steps[i]), b = rectOf(box, p.steps[i + 1]);
+        if (a && b) segs.push({ d: linkD(a, b, vertical), path: p.id, teal: false });
+      }
+    });
+    const o = rectOf(box, 'osce');
+    MERGES.forEach(mg => {
+      const m = rectOf(box, mg.from);
+      if (m && o) segs.push({ d: mergeD(m, o, vertical, mg.path === 'adat'), path: mg.path, teal: true });
+    });
+    g.innerHTML = segs.map(s =>
+      '<path class="pw-line pw-path-' + s.path + (s.teal ? ' pw-merge' : '') + '" d="' + s.d +
+      '" marker-end="url(#' + (s.teal ? 'pwArrowTeal' : 'pwArrowBlue') + ')"></path>'
+    ).join('');
+    g.querySelectorAll('path').forEach((p, i) => {
+      const len = p.getTotalLength();
+      p.style.setProperty('--pwlen', len);
+      p.style.strokeDasharray = len;
+      p.style.setProperty('--pwld', (0.8 + i * 0.05).toFixed(2) + 's');
+    });
+  }
+  function schedule() { cancelAnimationFrame(raf); raf = requestAnimationFrame(layout); }
+
+  /* ── Orientation control ── */
+  function setOrient(mode) {
+    chartEl.classList.remove('pw-focus-eq', 'pw-focus-adat');
+    if (mode === 'eq') chartEl.classList.add('pw-focus-eq');
+    else if (mode === 'adat') chartEl.classList.add('pw-focus-adat');
+    orientEl.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.orient === mode ? 'true' : 'false'));
+    if (liveEl) liveEl.textContent = mode === 'both'
+      ? 'Showing both pathways.'
+      : (mode === 'eq' ? 'Emphasising the Dental Equivalency pathway.' : 'Emphasising the Advanced Dental Admission pathway.');
+  }
+
+  /* ── Keyboard: roving focus + Escape ── */
+  function onKey(e) {
+    if (e.key === 'Escape' && currentId) { const t = lastTrigger; closePanel(); if (t) t.focus(); return; }
+    const cur = e.target.closest('[data-step]');
+    if (!cur) return;
+    const nav = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (!nav) return;
+    const all = Array.from(chartEl.querySelectorAll('[data-step]'));
+    const idx = all.indexOf(cur);
+    const nextEl = all[idx + nav];
+    if (nextEl) { e.preventDefault(); nextEl.focus(); }
+  }
+
+  function init() {
+    chartEl = document.querySelector('.pw-chart');
+    rowsEl = document.getElementById('pwRows');
+    osceEl = document.getElementById('pwOsce');
+    panelEl = document.getElementById('pwPanel');
+    liveEl = document.getElementById('pwLive');
+    orientEl = document.getElementById('pwOrient');
+    if (!chartEl || !rowsEl) return;
+    render();
+    chartEl.addEventListener('click', e => { const c = e.target.closest('[data-step]'); if (c) select(c.dataset.step, c); });
+    chartEl.addEventListener('keydown', onKey);
+    orientEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) setOrient(b.dataset.orient); });
+    layout();
+    if ('ResizeObserver' in window) { new ResizeObserver(schedule).observe(chartEl.querySelector('.pw-viewport')); }
+    window.addEventListener('resize', schedule);
+    window.addEventListener('load', schedule);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      chartEl.classList.add('pw-anim');
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => { if (en.isIntersecting) { chartEl.classList.add('pw-in'); io.disconnect(); } });
+      }, { threshold: 0.2 });
+      io.observe(chartEl);
+    }
+  }
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
   renderCards();
@@ -1727,6 +2202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobile();
   initHeroVideo();
   finder.init();
+  pathway.init();
   observeReveals();
 });
 </script>
