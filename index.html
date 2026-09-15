@@ -53,7 +53,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://confidentist-products.vercel.app/" },
-          { "@type": "ListItem", "position": 2, "name": "Programs", "item": "https://confidentist-products.vercel.app/#programs" }
+          { "@type": "ListItem", "position": 2, "name": "Programs", "item": "https://confidentist-products.vercel.app/#upcoming" }
         ]
       },
       {
@@ -444,6 +444,54 @@
     .p-link { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700; color: var(--gold-dark); transition: gap .18s; }
     .p-card:hover .p-link { gap: .6rem; }
 
+    /* ─────────────  UPCOMING COURSES  ───────────── */
+    .up-head { max-width: 640px; margin-bottom: 2.5rem; }
+    .up-head .lead { margin-top: 1rem; }
+    .up-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); gap: 1.5rem; }
+    .up-card {
+      position: relative; display: grid; grid-template-columns: auto 1fr; gap: 1.25rem;
+      background: #fff; border: 1.5px solid var(--border); border-radius: 1rem; padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+      box-shadow: var(--shadow-sm); overflow: hidden; color: inherit;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .up-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 100%); }
+    .up-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 140% at 100% 0%, rgba(15,122,229,.06) 0%, transparent 55%); opacity: 0; transition: opacity .25s; pointer-events: none; }
+    .up-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(15,122,229,.35); }
+    .up-card:hover::after { opacity: 1; }
+    .up-date {
+      align-self: start; text-align: center; min-width: 76px; padding: .8rem .55rem; border-radius: .75rem;
+      background: linear-gradient(155deg, var(--navy) 0%, var(--gold-dark) 100%); color: #fff; box-shadow: var(--shadow-sm);
+    }
+    .up-date .m { display: block; font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-light); }
+    .up-date .big { display: block; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; line-height: 1.05; margin-top: .25rem; letter-spacing: .02em; }
+    .up-date .y { display: block; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-top: .3rem; }
+    .up-body { display: flex; flex-direction: column; min-width: 0; }
+    .up-pill { align-self: flex-start; font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .65rem; border-radius: 2rem; margin-bottom: .6rem; }
+    .up-pill.open { background: var(--gold-bg); color: var(--gold-dark); }
+    .up-pill.hot { background: #fdecec; color: #d1443f; }
+    .up-pill.hot::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #d1443f; margin-right: .4rem; vertical-align: middle; animation: upPulse 1.6s ease-in-out infinite; }
+    .up-pill.new { background: var(--teal-light); color: #1f7c88; }
+    @keyframes upPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.7); } }
+    .up-title { font-family: 'Playfair Display', serif; font-size: 1.18rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: .45rem; }
+    .up-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; margin-bottom: .9rem; }
+    .up-meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-bottom: 1.1rem; }
+    .up-meta span { font-size: .72rem; color: var(--muted); display: inline-flex; align-items: center; gap: .35rem; }
+    .up-meta span svg { width: 13px; height: 13px; color: var(--gold-dark); flex-shrink: 0; }
+    .up-foot { display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; margin-top: auto; }
+    .up-seats { font-size: .72rem; font-weight: 600; color: var(--muted); }
+    .up-seats b { color: var(--navy); font-weight: 700; }
+    .up-btn {
+      display: inline-flex; align-items: center; gap: .4rem; background: var(--gold); color: #fff;
+      font-size: .76rem; font-weight: 700; letter-spacing: .03em; padding: .58rem 1.05rem; border-radius: 2rem;
+      transition: background .18s, gap .18s;
+    }
+    .up-card:hover .up-btn { gap: .65rem; }
+    .up-btn:hover { background: var(--gold-light); }
+    @media (max-width: 420px) {
+      .up-card { grid-template-columns: 1fr; }
+      .up-date { justify-self: start; }
+    }
+
     /* ─────────────  STATS  ───────────── */
     .stats { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
     .stats::before { content:''; position:absolute; inset:0; background: radial-gradient(90% 120% at 85% 0%, rgba(15,122,229,.28) 0%, transparent 55%); }
@@ -822,7 +870,7 @@
 </head>
 <body>
 
-<a href="#programs" class="skip-link">Skip to programs</a>
+<a href="#upcoming" class="skip-link">Skip to upcoming courses</a>
 
 <!-- ═══════════ HEADER ═══════════ -->
 <header class="site-header" id="siteHeader">
@@ -851,7 +899,7 @@
           </div>
           <div class="mega-foot">
             <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
-            <a href="#programs" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+            <a href="#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -891,7 +939,7 @@
   <a href="https://www.confidentist.ca/our-team/">Instructors</a>
   <a href="https://www.confidentist.ca/contact-us/">Contact</a>
   <a href="https://www.confidentist.ca/my-account/">Student Login</a>
-  <a href="#programs" class="btn-cta">Explore Courses</a>
+  <a href="#upcoming" class="btn-cta">Explore Courses</a>
 </nav>
 
 <main id="main">
@@ -917,7 +965,7 @@
         <a href="#journey" class="btn-primary">Find My Program
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#programs" class="btn-outline">Explore All Courses
+        <a href="#upcoming" class="btn-outline">Explore All Courses
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -1008,30 +1056,18 @@
 
 <!-- Pathway navigator now lives on its own page: /dental-equivalency-in-canada/ -->
 
-<!-- ═══════════ PROGRAM EXPLORER ═══════════ -->
-<section class="section alt" id="programs" aria-labelledby="programs-title">
+<!-- ═══════════ UPCOMING COURSES ═══════════ -->
+<section class="section alt upcoming" id="upcoming" aria-labelledby="upcoming-title">
   <div class="wrap">
-    <div class="explorer-head">
-      <div class="reveal">
-        <span class="kicker">Explore ConfiDentist Programs</span>
-        <h2 class="h-title" id="programs-title">Preparation for Every Stage<br />of Your Journey</h2>
-      </div>
-      <p class="lead reveal" data-delay="1">Choose structured preparation designed for each stage of your Canadian dental equivalency and professional development journey. Every program opens its own dedicated page with schedules, pricing and enrollment.</p>
+    <div class="up-head reveal">
+      <span class="kicker">Upcoming Courses</span>
+      <h2 class="h-title" id="upcoming-title">Reserve Your Seat<br />for the Next Intake</h2>
+      <p class="lead">Live, instructor-led cohorts opening soon. Secure your place early — seats are limited and fill quickly.</p>
     </div>
 
-    <div class="filter-row reveal" role="group" aria-label="Filter programs by category" id="filterRow">
-      <button class="filter-btn" data-filter="all" aria-pressed="true">All Programs</button>
-      <button class="filter-btn" data-filter="equivalency" aria-pressed="false">Equivalency Exams</button>
-      <button class="filter-btn" data-filter="clinical" aria-pressed="false">Clinical Training</button>
-      <button class="filter-btn" data-filter="mock" aria-pressed="false">Mock Exams</button>
-      <button class="filter-btn" data-filter="admissions" aria-pressed="false">Admissions Prep</button>
-      <button class="filter-btn" data-filter="bundle" aria-pressed="false">Bundles &amp; Private</button>
+    <div class="up-grid" id="upcomingGrid">
+      <!-- Cards injected from the UPCOMING data structure below -->
     </div>
-
-    <div class="card-grid" id="cardGrid">
-      <!-- Cards injected from the COURSES data structure below -->
-    </div>
-    <p id="noResults" role="status" aria-live="polite" style="display:none;color:var(--muted);font-size:.9rem;margin-top:1.5rem;">No programs match this filter.</p>
   </div>
 </section>
 
@@ -1044,7 +1080,7 @@
     <h2 id="final-title">Ready to Take the Next Step?</h2>
     <p>Explore ConfiDentist programs and find the preparation that matches your goals.</p>
     <div class="final-actions">
-      <a href="#programs" class="btn-primary">Explore Courses
+      <a href="#upcoming" class="btn-primary">Explore Courses
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a href="https://www.confidentist.ca/contact-us/" class="btn-outline">Contact ConfiDentist</a>
@@ -1115,81 +1151,47 @@
 </footer>
 
 <script>
-/* ─────────────  COURSE DATA (single source of truth)  ─────────────
-   Every card links directly to an existing page in this repository or
-   on confidentist.ca. Update routes/content here — the grid renders below. */
-const COURSES = [
+/* ─────────────  UPCOMING COURSES (single source of truth)  ─────────────
+   Each card links directly to an existing program page in this repository.
+   Update the intake month/year, status pill and seats note here — the grid
+   renders below. Statuses: 'open' (Enrolling now), 'hot' (Few seats left),
+   'new' (New cohort). */
+const UPCOMING = [
   {
-    abbr: 'Mock', sub: 'AFK Mock Exams', banner: 'g2',
-    cat: 'Mock Exam · 2026–2027', title: 'AFK Mock Exams',
-    desc: 'Full and mini mock exams with live instructor-led review. Build your own bundle across up to four full mocks — realistic timing and detailed performance reports.',
-    meta: [['calendar', '2026–2027 cycle'], ['clock', 'Timed, exam-style']],
-    price: 'From $400', priceNote: 'CAD', cta: 'View course',
-    href: '/afk-mock-exams/', filters: ['mock'], featured: true, ribbon: 'Enrolling Now'
+    month: 'Oct', big: 'Mock', year: '2026', status: 'hot', badge: 'Few seats left',
+    title: 'AFK Mock Exams', desc: 'Full and mini mock exams with live instructor-led review — realistic timing and detailed performance reports.',
+    meta: [['video', 'Online · Live review'], ['clock', 'Timed, exam-style']],
+    seats: 'From <b>$400 CAD</b>', cta: 'Reserve seat', href: '/afk-mock-exams/'
   },
   {
-    abbr: 'AFK', sub: 'Fundamental Knowledge', banner: 'g1',
-    cat: 'Equivalency Exam', title: 'AFK — Assessment of Fundamental Knowledge',
-    desc: 'Full-package and subject-based modular preparation covering the complete AFK syllabus for internationally trained dentists.',
+    month: 'Sep', big: 'AFK', year: '2026', status: 'open', badge: 'Enrolling now',
+    title: 'AFK — Fundamental Knowledge', desc: 'Full-package and subject-based modular preparation covering the complete AFK syllabus for internationally trained dentists.',
     meta: [['grid', 'Full & Modular'], ['video', 'Live + Recorded']],
-    price: 'Full & Modular', priceNote: '', cta: 'View course',
-    href: '/afk-programs/', filters: ['equivalency']
+    seats: '<b>Limited</b> cohort seats', cta: 'Reserve seat', href: '/afk-programs/'
   },
   {
-    abbr: 'ACJ', sub: 'Clinical Judgement', banner: 'g1',
-    cat: 'Equivalency Exam', title: 'ACJ — Assessment of Clinical Judgement',
-    desc: 'Scenario-driven preparation that sharpens the clinical reasoning and decision-making skills the ACJ evaluates.',
+    month: 'Nov', big: 'ACJ', year: '2026', status: 'open', badge: 'Enrolling now',
+    title: 'ACJ — Clinical Judgement', desc: 'Scenario-driven preparation that sharpens the clinical reasoning and decision-making skills the ACJ evaluates.',
     meta: [['grid', 'Comprehensive'], ['video', 'Live + Recorded']],
-    price: 'Comprehensive', priceNote: '', cta: 'View course',
-    href: '/acj-programs/', filters: ['equivalency']
+    seats: '<b>Limited</b> cohort seats', cta: 'Reserve seat', href: '/acj-programs/'
   },
   {
-    abbr: 'NDECC', sub: 'Clinical & Situational', banner: 'g3',
-    cat: 'Clinical Training · Multiple Tracks', title: 'NDECC',
-    desc: 'Clinical Skills and Situational Judgement tracks, dedicated mock programs and bundled packages for full NDECC readiness.',
-    meta: [['grid', 'Tracks & Bundles'], ['clock', 'Clinical + Situational']],
-    price: 'Tracks & Bundles', priceNote: '', cta: 'View course',
-    href: '/ndecc-programs/', filters: ['clinical']
-  },
-  {
-    abbr: 'OSCE', sub: 'Virtual OSCE®', banner: 'g3',
-    cat: 'Clinical Training', title: 'Virtual OSCE®',
-    desc: 'Simulated OSCE stations delivered virtually, so you can practise under realistic conditions from anywhere.',
+    month: 'Dec', big: 'OSCE', year: '2026', status: 'open', badge: 'Enrolling now',
+    title: 'Virtual OSCE®', desc: 'Simulated OSCE stations delivered virtually, so you can practise under realistic conditions from anywhere.',
     meta: [['video', 'Delivered online'], ['clock', 'Live + Recorded']],
-    price: 'Program', priceNote: '', cta: 'View course',
-    href: '/virtual-osce/', filters: ['clinical']
+    seats: '<b>Live</b> station practice', cta: 'Reserve seat', href: '/virtual-osce/'
   },
   {
-    abbr: 'ADAT', sub: 'Advanced Dental Admission', banner: 'g1',
-    cat: 'Admissions Prep', title: 'ADAT — Advanced Dental Admission Test',
-    desc: 'Structured, high-yield preparation for the ADAT, built to strengthen the exact knowledge areas the test measures.',
+    month: 'Jan', big: 'NDECC', year: '2027', status: 'new', badge: 'New cohort',
+    title: 'NDECC — Clinical & Situational', desc: 'Clinical Skills and Situational Judgement tracks, dedicated mock programs and bundled packages for full NDECC readiness.',
+    meta: [['grid', 'Tracks & Bundles'], ['clock', 'Clinical + Situational']],
+    seats: '<b>Early-bird</b> pricing', cta: 'Reserve seat', href: '/ndecc-programs/'
+  },
+  {
+    month: 'Feb', big: 'ADAT', year: '2027', status: 'new', badge: 'New cohort',
+    title: 'ADAT — Advanced Dental Admission', desc: 'Structured, high-yield preparation for the ADAT, built to strengthen the exact knowledge areas the test measures.',
     meta: [['grid', 'Comprehensive & Crash'], ['video', 'Live + Recorded']],
-    price: 'Comprehensive & Crash', priceNote: '', cta: 'View course',
-    href: '/adat-programs/', filters: ['admissions']
-  },
-  {
-    abbr: 'Interview', sub: 'University Prep', banner: 'g3',
-    cat: 'Admissions Prep', title: 'University Interview Preparation',
-    desc: 'Personalized coaching, structured preparation and realistic mock interviews to help dental candidates communicate confidently during Canadian university admissions interviews.',
-    meta: [['users', '1:1 Coaching'], ['clock', 'Mock interviews']],
-    price: 'Program', priceNote: '', cta: 'View program',
-    href: '/university-interview-preparation/', filters: ['admissions']
-  },
-  {
-    abbr: 'Bundles', sub: 'Best Value', banner: 'g2',
-    cat: 'Program Bundles', title: 'Course Bundles',
-    desc: 'Value-packed course and mock-exam bundles designed for comprehensive preparation, coordinated resources and greater savings across your equivalency journey.',
-    meta: [['grid', 'Multi-course value'], ['tag', 'Save more']],
-    price: 'Save More', priceNote: '', cta: 'View bundles',
-    href: '/course-bundles/', filters: ['bundle']
-  },
-  {
-    abbr: '1:1', sub: 'Private Sessions', banner: 'g1',
-    cat: 'Private Tutoring', title: 'Private Sessions',
-    desc: 'One-on-one tutoring tailored to your goals, timeline and the specific areas where you need the most support.',
-    meta: [['users', 'One-on-one'], ['clock', 'Flexible scheduling']],
-    price: 'Tailored', priceNote: '', cta: 'View sessions',
-    href: '/private-sessions/', filters: ['bundle']
+    seats: '<b>Early-bird</b> pricing', cta: 'Reserve seat', href: '/adat-programs/'
   }
 ];
 
@@ -1207,47 +1209,32 @@ function metaIcon(name, label) {
     (META_ICONS[name] || META_ICONS.grid) + '</svg>' + label + '</span>';
 }
 
-function renderCards() {
-  const grid = document.getElementById('cardGrid');
-  grid.innerHTML = COURSES.map(c => {
-    const ribbon = c.ribbon ? '<span class="p-ribbon">' + c.ribbon + '</span>' : '';
+function renderUpcoming() {
+  const grid = document.getElementById('upcomingGrid');
+  if (!grid) return;
+  grid.innerHTML = UPCOMING.map(c => {
     const meta = (c.meta || []).map(m => metaIcon(m[0], m[1])).join('');
-    const priceNote = c.priceNote ? ' <small>' + c.priceNote + '</small>' : '';
     return (
-      '<a class="p-card reveal' + (c.featured ? ' featured' : '') + '" href="' + c.href + '"' +
-         ' data-filters="' + c.filters.join(' ') + '" aria-label="' + c.title + ' — ' + c.cta + '">' +
-        '<span class="p-banner ' + c.banner + '" aria-hidden="true">' + ribbon +
-          '<span class="p-abbr"><b>' + c.abbr + '</b><span>' + c.sub + '</span></span>' +
+      '<a class="up-card reveal" href="' + c.href + '" aria-label="' + c.title + ' — ' + c.cta + '">' +
+        '<span class="up-date" aria-hidden="true">' +
+          '<span class="m">' + c.month + '</span>' +
+          '<span class="big">' + c.big + '</span>' +
+          '<span class="y">' + c.year + '</span>' +
         '</span>' +
-        '<span class="p-body">' +
-          '<span class="p-cat">' + c.cat + '</span>' +
-          '<h3 class="p-title">' + c.title + '</h3>' +
-          '<span class="p-desc">' + c.desc + '</span>' +
-          (meta ? '<span class="p-meta">' + meta + '</span>' : '') +
-          '<span class="p-foot"><span class="p-price">' + c.price + priceNote + '</span>' +
-          '<span class="p-link">' + c.cta + ' <span aria-hidden="true">→</span></span></span>' +
+        '<span class="up-body">' +
+          '<span class="up-pill ' + c.status + '">' + c.badge + '</span>' +
+          '<h3 class="up-title">' + c.title + '</h3>' +
+          '<span class="up-desc">' + c.desc + '</span>' +
+          (meta ? '<span class="up-meta">' + meta + '</span>' : '') +
+          '<span class="up-foot">' +
+            '<span class="up-seats">' + c.seats + '</span>' +
+            '<span class="up-btn">' + c.cta + ' <span aria-hidden="true">→</span></span>' +
+          '</span>' +
         '</span>' +
       '</a>'
     );
   }).join('');
   observeReveals();
-}
-
-/* ─────────────  FILTERING  ───────────── */
-function initFilters() {
-  const btns = Array.from(document.querySelectorAll('.filter-btn'));
-  const noResults = document.getElementById('noResults');
-  btns.forEach(btn => btn.addEventListener('click', () => {
-    const f = btn.dataset.filter;
-    btns.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-    let shown = 0;
-    document.querySelectorAll('.p-card').forEach(card => {
-      const match = f === 'all' || card.dataset.filters.split(' ').includes(f);
-      card.style.display = match ? '' : 'none';
-      if (match) shown++;
-    });
-    noResults.style.display = shown ? 'none' : 'block';
-  }));
 }
 
 /* ─────────────  HEADER: transparent → solid  ───────────── */
@@ -1986,8 +1973,7 @@ const pathway = (() => {
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
-  renderCards();
-  initFilters();
+  renderUpcoming();
   initHeader();
   initMega();
   initMobile();
