@@ -532,8 +532,8 @@
     .rv-marquee::after { right: 0; background: linear-gradient(270deg, var(--bg-soft), transparent); }
     .rv-track { display: flex; gap: 1.25rem; width: max-content; }
     .rv-track-a { animation: rvScroll 46s linear infinite; }
-    .rv-track-b { animation: rvScroll 46s linear infinite reverse; animation-delay: -23s; }
     .rv-marquee:hover .rv-track { animation-play-state: paused; }
+    /* translateX(0 → -50%) moves cards leftward = right-to-left scroll */
     @keyframes rvScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     .rv-card {
@@ -556,10 +556,9 @@
     .rv-foot a:hover { gap: .65rem; }
 
     @media (prefers-reduced-motion: reduce) {
-      .rv-track-a, .rv-track-b { animation: none; }
+      .rv-track-a { animation: none; }
       .rv-marquee { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .rv-marquee::-webkit-scrollbar { display: none; }
-      .rv-track-b { display: none; }
     }
     @media (max-width: 560px) {
       .rv-summary-score { border: none; }
@@ -1182,7 +1181,6 @@
     <!-- Auto-scrolling review marquee (two rows, opposite directions) -->
     <div class="rv-marquee reveal" data-delay="2" id="rvMarquee">
       <div class="rv-track rv-track-a" id="rvTrackA" aria-label="Student Google reviews"></div>
-      <div class="rv-track rv-track-b" id="rvTrackB" aria-hidden="true"></div>
     </div>
     <p class="rv-foot reveal">
       <a href="https://www.google.com/search?q=ConfiDentist+reviews" target="_blank" rel="noopener">
@@ -1419,7 +1417,6 @@ function animateCount(el, target) {
 
 function renderReviews() {
   const trackA = document.getElementById('rvTrackA');
-  const trackB = document.getElementById('rvTrackB');
   if (!trackA || !REVIEWS.length) return;
 
   // Aggregate rating + count
@@ -1431,13 +1428,9 @@ function renderReviews() {
   if (sumStars) sumStars.outerHTML = rvStars(Math.round(avg), 'rv-stars-lg');
   animateCount(document.getElementById('rvCount'), REVIEWS.length);
 
-  // Duplicate the set so the marquee loops seamlessly at translateX(-50%)
+  // Duplicate the set so the single row loops seamlessly at translateX(-50%)
   const cards = REVIEWS.map(rvCardHTML).join('');
   trackA.innerHTML = cards + cards;
-  if (trackB) {
-    const reversed = REVIEWS.slice().reverse().map(rvCardHTML).join('');
-    trackB.innerHTML = reversed + reversed;
-  }
 
   // Point every Google link at the configured profile URL
   document.querySelectorAll('#reviews a[href*="google.com"]').forEach(a => { a.href = GOOGLE_REVIEWS_URL; });
