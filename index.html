@@ -148,6 +148,7 @@
       font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff;
       letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
     }
+    .brand-logo { height: 2em; width: auto; display: block; flex: none; }
     .brand span { color: var(--gold-light); }
     .brand small { display:block; font-family:'Inter',sans-serif; font-size:.52rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:2px; }
 
@@ -526,8 +527,6 @@
     .pc-check { position: absolute; top: 1rem; right: 1rem; z-index: 2; display: inline-flex; align-items: center; gap: .3rem; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); background: var(--gold-light); padding: .25rem .6rem; border-radius: 999px; opacity: 0; transform: scale(.9); transition: opacity .15s, transform .15s; }
     .path-card.selected .pc-check { opacity: 1; transform: scale(1); }
     .pc-check svg { width: 12px; height: 12px; }
-    .finder-browse { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.5rem; font-weight: 600; color: var(--gold-dark); font-size: .9rem; }
-    .finder-browse:hover { text-decoration: underline; }
 
     /* Question card */
     .q-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-md); padding: clamp(1.5rem, 3vw, 2.5rem); }
@@ -828,7 +827,7 @@
 <!-- ═══════════ HEADER ═══════════ -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="/" class="brand" aria-label="ConfiDentist home">Confi<span>Dentist</span></a>
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo.png" alt="" class="brand-logo" width="214" height="256" />Confi<span>Dentist</span></a>
 
     <nav class="primary-nav" aria-label="Primary">
       <div class="nav-item">
@@ -1513,8 +1512,7 @@ const finder = (() => {
           'Preparation for internationally trained dentists pursuing Canadian dental examinations, university admission, or related assessment pathways.',
           'Explore My Equivalency Path') +
         ceCard() +
-      '</div>' +
-      '<a class="finder-browse" href="#programs">Prefer to browse? View All Programs ' + svgArrow + '</a>';
+      '</div>';
 
     stageEl.querySelectorAll('.path-card').forEach(btn => btn.addEventListener('click', () => {
       const p = btn.dataset.path;
