@@ -492,6 +492,80 @@
       .up-date { justify-self: start; }
     }
 
+    /* ─────────────  GOOGLE REVIEWS  ───────────── */
+    .reviews { position: relative; overflow: hidden; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); }
+    .rv-orb { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .5; pointer-events: none; z-index: 0; }
+    .rv-orb-a { width: 360px; height: 360px; top: -120px; right: -80px; background: radial-gradient(circle, rgba(66,133,244,.28), transparent 70%); }
+    .rv-orb-b { width: 300px; height: 300px; bottom: -100px; left: -70px; background: radial-gradient(circle, rgba(59,175,191,.22), transparent 70%); }
+    .reviews .wrap { position: relative; z-index: 1; }
+    .rv-head { text-align: center; max-width: 620px; margin: 0 auto 2.5rem; }
+
+    /* Aggregate summary card */
+    .rv-summary {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+      background: rgba(255,255,255,.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid var(--border); border-radius: 1.25rem; box-shadow: var(--shadow-md);
+      padding: 1.6rem 2rem; max-width: 760px; margin: 0 auto 3rem;
+    }
+    .rv-summary-brand { display: flex; align-items: center; gap: .85rem; }
+    .rv-glogo { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #fff; box-shadow: var(--shadow-sm); flex-shrink: 0; }
+    .rv-summary-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); line-height: 1.2; }
+    .rv-summary-sub { font-size: .72rem; color: var(--muted); margin-top: .15rem; }
+    .rv-summary-score { text-align: center; display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: 0 1rem; border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+    .rv-score-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--navy); line-height: 1; }
+    .rv-score-count { font-size: .74rem; color: var(--muted); }
+    .rv-score-count b { color: var(--navy); }
+    .rv-stars { display: inline-flex; gap: 2px; }
+    .rv-stars svg { width: 15px; height: 15px; }
+    .rv-stars-lg svg { width: 19px; height: 19px; }
+    .rv-summary-cta {
+      display: inline-flex; align-items: center; gap: .45rem; background: var(--navy); color: #fff;
+      font-size: .78rem; font-weight: 700; letter-spacing: .02em; padding: .65rem 1.2rem; border-radius: 2rem;
+      transition: background .18s, transform .18s;
+    }
+    .rv-summary-cta:hover { background: var(--gold); transform: translateY(-2px); }
+
+    /* Marquee */
+    .rv-marquee { position: relative; display: flex; flex-direction: column; gap: 1.25rem; }
+    .rv-marquee::before, .rv-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none; }
+    .rv-marquee::before { left: 0; background: linear-gradient(90deg, var(--bg-soft), transparent); }
+    .rv-marquee::after { right: 0; background: linear-gradient(270deg, var(--bg-soft), transparent); }
+    .rv-track { display: flex; gap: 1.25rem; width: max-content; }
+    .rv-track-a { animation: rvScroll 46s linear infinite; }
+    .rv-track-b { animation: rvScroll 46s linear infinite reverse; animation-delay: -23s; }
+    .rv-marquee:hover .rv-track { animation-play-state: paused; }
+    @keyframes rvScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .rv-card {
+      flex: 0 0 340px; width: 340px; background: #fff; border: 1.5px solid var(--border); border-radius: 1rem;
+      padding: 1.4rem; box-shadow: var(--shadow-sm); position: relative; transition: box-shadow .25s, transform .25s, border-color .25s;
+    }
+    .rv-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(66,133,244,.35); }
+    .rv-card-top { display: flex; align-items: center; gap: .8rem; margin-bottom: .85rem; }
+    .rv-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 1.05rem; font-family: 'Playfair Display', serif; flex-shrink: 0; box-shadow: var(--shadow-sm); }
+    .rv-who { min-width: 0; flex: 1; }
+    .rv-name { font-weight: 700; font-size: .9rem; color: var(--navy); display: flex; align-items: center; gap: .35rem; }
+    .rv-name svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .rv-when { font-size: .72rem; color: var(--muted); margin-top: .1rem; }
+    .rv-card-gg { position: absolute; top: 1.2rem; right: 1.2rem; opacity: .9; }
+    .rv-stars-row { margin-bottom: .6rem; }
+    .rv-text { font-size: .86rem; color: var(--text); line-height: 1.62; }
+    .rv-text.clamp { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+    .rv-foot { text-align: center; margin-top: 2.25rem; }
+    .rv-foot a { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 700; color: var(--gold-dark); transition: gap .18s; }
+    .rv-foot a:hover { gap: .65rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rv-track-a, .rv-track-b { animation: none; }
+      .rv-marquee { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .rv-marquee::-webkit-scrollbar { display: none; }
+      .rv-track-b { display: none; }
+    }
+    @media (max-width: 560px) {
+      .rv-summary-score { border: none; }
+      .rv-card { flex-basis: 290px; width: 290px; }
+    }
+
     /* ─────────────  STATS  ───────────── */
     .stats { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
     .stats::before { content:''; position:absolute; inset:0; background: radial-gradient(90% 120% at 85% 0%, rgba(15,122,229,.28) 0%, transparent 55%); }
@@ -1073,6 +1147,52 @@
 
 <!-- The ConfiDentist Preparation Roadmap now lives on its own page: /dental-equivalency/ -->
 
+<!-- ═══════════ GOOGLE REVIEWS ═══════════ -->
+<section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="rv-orb rv-orb-a" aria-hidden="true"></div>
+  <div class="rv-orb rv-orb-b" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="rv-head reveal">
+      <span class="kicker">Loved by Candidates</span>
+      <h2 class="h-title" id="reviews-title">What Our Students<br />Say on Google</h2>
+    </div>
+
+    <!-- Aggregate rating summary card -->
+    <div class="rv-summary reveal" data-delay="1">
+      <div class="rv-summary-brand">
+        <span class="rv-glogo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+        </span>
+        <div>
+          <p class="rv-summary-title">ConfiDentist Reviews</p>
+          <p class="rv-summary-sub">Google Business Profile</p>
+        </div>
+      </div>
+      <div class="rv-summary-score">
+        <span class="rv-score-num" id="rvScoreNum">5.0</span>
+        <span class="rv-stars rv-stars-lg" id="rvSummaryStars" role="img" aria-label="5 out of 5 stars"></span>
+        <span class="rv-score-count">Based on <b id="rvCount">0</b> Google reviews</span>
+      </div>
+      <a class="rv-summary-cta" id="rvWriteBtn" href="https://www.google.com/search?q=ConfiDentist+reviews" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Write a review
+      </a>
+    </div>
+
+    <!-- Auto-scrolling review marquee (two rows, opposite directions) -->
+    <div class="rv-marquee reveal" data-delay="2" id="rvMarquee">
+      <div class="rv-track rv-track-a" id="rvTrackA" aria-label="Student Google reviews"></div>
+      <div class="rv-track rv-track-b" id="rvTrackB" aria-hidden="true"></div>
+    </div>
+    <p class="rv-foot reveal">
+      <a href="https://www.google.com/search?q=ConfiDentist+reviews" target="_blank" rel="noopener">
+        Read all reviews on Google
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+    </p>
+  </div>
+</section>
+
 <!-- ═══════════ FINAL CTA ═══════════ -->
 <section class="final" aria-labelledby="final-title">
   <div class="final-bg" aria-hidden="true"></div>
@@ -1235,6 +1355,92 @@ function renderUpcoming() {
     );
   }).join('');
   observeReveals();
+}
+
+/* ─────────────  GOOGLE REVIEWS  ─────────────
+   ⚠️  PLACEHOLDER CONTENT — replace with your REAL Google reviews before
+   relying on this publicly. Publishing invented reviews (or aggregate
+   ratings) as if genuine violates Google's policies. Update REVIEWS below
+   with verbatim text/names from your Google Business Profile, and point
+   GOOGLE_REVIEWS_URL at your profile's review page. */
+const GOOGLE_REVIEWS_URL = 'https://www.google.com/search?q=ConfiDentist+reviews';
+const REVIEWS = [
+  { name: 'Sara M.',    rating: 5, when: '2 weeks ago',  text: 'The AFK program was incredibly well structured. The live sessions and mock exams mirrored the real exam so closely that I walked in feeling genuinely prepared. Passed on my first attempt!' },
+  { name: 'Amir H.',    rating: 5, when: '1 month ago',  text: 'Dr. Adibrad and the team explain complex clinical topics in the clearest way I have seen. The NDECC clinical skills track was a game-changer for my confidence.' },
+  { name: 'Priya K.',   rating: 5, when: '1 month ago',  text: 'Highly organised, responsive and supportive. The mock exams gave me realistic timing and detailed feedback on exactly where to improve before the ACJ.' },
+  { name: 'Mohammed R.',rating: 5, when: '2 months ago', text: 'Best decision I made for my Canadian equivalency journey. The bundle saved me money and every module was high quality. Instructors truly care about your success.' },
+  { name: 'Elena V.',   rating: 5, when: '2 months ago', text: 'The Virtual OSCE stations felt exactly like the real thing. Practising under realistic conditions from home removed so much of my exam-day anxiety.' },
+  { name: 'Daniyar S.', rating: 5, when: '3 months ago', text: 'One-on-one private sessions were tailored perfectly to my weak areas. Flexible scheduling around my work made a huge difference. Thank you ConfiDentist!' },
+  { name: 'Fatima A.',  rating: 5, when: '3 months ago', text: 'Clear roadmap from day one. I always knew what to study next. The AFK modular option let me focus exactly on the subjects I needed. Strongly recommend.' },
+  { name: 'James T.',   rating: 5, when: '4 months ago', text: 'Professional, knowledgeable and genuinely encouraging. The ADAT crash course was intense but exactly what I needed to sharpen up before test day.' }
+];
+
+const RV_AVATAR_COLORS = [
+  'linear-gradient(140deg,#4285F4,#0a5cb8)', 'linear-gradient(140deg,#34A853,#1f7c88)',
+  'linear-gradient(140deg,#EA4335,#b8322a)', 'linear-gradient(140deg,#FBBC05,#e08b00)',
+  'linear-gradient(140deg,#0f7ae5,#3BAFBF)', 'linear-gradient(140deg,#072C5E,#0f3d72)'
+];
+const RV_STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="{f}" d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.9l-5.81 3.07L7.3 14.5 2.6 9.92l6.5-.95z"/></svg>';
+
+function rvStars(n, cls) {
+  let s = '';
+  for (let i = 1; i <= 5; i++) s += RV_STAR.replace('{f}', i <= n ? '#FBBC05' : '#dbe1ea');
+  return '<span class="rv-stars ' + (cls || '') + '" role="img" aria-label="' + n + ' out of 5 stars">' + s + '</span>';
+}
+function rvInitials(name) { return name.trim().split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase(); }
+function rvColor(name) { let h = 0; for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0; return RV_AVATAR_COLORS[h % RV_AVATAR_COLORS.length]; }
+const RV_VERIFIED = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M12 2l2.4 1.8 3-.2 1 2.8 2.5 1.6-.9 2.9.9 2.9-2.5 1.6-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3.1 16l.9-2.9-.9-2.9 2.5-1.6 1-2.8 3 .2z"/><path fill="#fff" d="M10.6 14.6l-2.2-2.2-1.1 1.1 3.3 3.3 5.6-5.6-1.1-1.1z"/></svg>';
+
+function rvCardHTML(r) {
+  return (
+    '<article class="rv-card">' +
+      '<span class="rv-card-gg" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>' +
+      '<div class="rv-card-top">' +
+        '<span class="rv-avatar" style="background:' + rvColor(r.name) + '" aria-hidden="true">' + rvInitials(r.name) + '</span>' +
+        '<div class="rv-who">' +
+          '<div class="rv-name">' + r.name + RV_VERIFIED + '</div>' +
+          '<div class="rv-when">' + r.when + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="rv-stars-row">' + rvStars(r.rating) + '</div>' +
+      '<p class="rv-text clamp">' + r.text + '</p>' +
+    '</article>'
+  );
+}
+
+function animateCount(el, target) {
+  if (!el) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { el.textContent = String(target); return; }
+  let cur = 0; const step = Math.max(1, Math.round(target / 40));
+  const tick = () => { cur = Math.min(target, cur + step); el.textContent = String(cur); if (cur < target) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+
+function renderReviews() {
+  const trackA = document.getElementById('rvTrackA');
+  const trackB = document.getElementById('rvTrackB');
+  if (!trackA || !REVIEWS.length) return;
+
+  // Aggregate rating + count
+  const avg = REVIEWS.reduce((s, r) => s + r.rating, 0) / REVIEWS.length;
+  const avgTxt = (Math.round(avg * 10) / 10).toFixed(1);
+  const scoreNum = document.getElementById('rvScoreNum');
+  if (scoreNum) scoreNum.textContent = avgTxt;
+  const sumStars = document.getElementById('rvSummaryStars');
+  if (sumStars) sumStars.outerHTML = rvStars(Math.round(avg), 'rv-stars-lg');
+  animateCount(document.getElementById('rvCount'), REVIEWS.length);
+
+  // Duplicate the set so the marquee loops seamlessly at translateX(-50%)
+  const cards = REVIEWS.map(rvCardHTML).join('');
+  trackA.innerHTML = cards + cards;
+  if (trackB) {
+    const reversed = REVIEWS.slice().reverse().map(rvCardHTML).join('');
+    trackB.innerHTML = reversed + reversed;
+  }
+
+  // Point every Google link at the configured profile URL
+  document.querySelectorAll('#reviews a[href*="google.com"]').forEach(a => { a.href = GOOGLE_REVIEWS_URL; });
 }
 
 /* ─────────────  HEADER: transparent → solid  ───────────── */
@@ -1974,6 +2180,7 @@ const pathway = (() => {
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
   renderUpcoming();
+  renderReviews();
   initHeader();
   initMega();
   initMobile();
