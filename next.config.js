@@ -10,7 +10,10 @@ const nextConfig = {
       // For any clean marketing URL with no Next route and no exact file,
       // fall back to the matching static index.html in /public.
       // e.g. /afk-programs/ -> /afk-programs/index.html
-      fallback: [{ source: '/:path*', destination: '/:path*/index.html' }],
+      // Exclude /api and /_next so real Next.js routes aren't shadowed.
+      fallback: [
+        { source: '/:path((?!api/|_next/).*)', destination: '/:path/index.html' },
+      ],
     }
   },
 }
