@@ -6,6 +6,13 @@ import 'server-only'
 const RESEND_ENDPOINT = 'https://api.resend.com/emails'
 const DEFAULT_FROM = 'Confidentist <noreply@confidentist.ca>'
 
+// Internal recipients for admin/ops notifications.
+export const ADMIN_EMAILS = [
+  'admin@confidentist.ca',
+  'shirin@confidentist.ca',
+  'mahshid@confidentist.ca',
+]
+
 export type SendEmailInput = {
   to: string | string[]
   subject: string

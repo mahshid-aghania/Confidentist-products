@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
 import { EVENT, resolvePromo } from '@/app/events/from-associate-to-owner/event'
+import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
+import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 
 // POST /api/events/register/  — capture a registrant (name/email/phone + optional
 // promotion code). Promotions are applied HERE, before Stripe:
@@ -72,6 +74,21 @@ export async function POST(req: Request) {
 
   // 100% off → skip Stripe entirely, confirm for free.
   if (dueCents === 0) {
+    // Notify the team immediately (free registrations never hit the webhook).
+    try {
+      const note = renderEventRegistrationNotification({
+        eventName: EVENT.name,
+        fullName,
+        email,
+        phone,
+        amountLabel: `$0.00 ${EVENT.currency} (100% off · ${promoApplied})`,
+        status: 'paid (free · promo)',
+        when: new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' }),
+      })
+      await sendEmail({ to: ADMIN_EMAILS, ...note })
+    } catch (e) {
+      console.error('admin notification (free) failed', e)
+    }
     return NextResponse.json({ url: `${EVENT.baseUrl}?status=confirmed`, free: true })
   }
 

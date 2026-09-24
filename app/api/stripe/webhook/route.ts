@@ -2,16 +2,15 @@ import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
 import { verifyStripeSignature } from '@/lib/stripe/webhook'
 import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
-import { sendEmail } from '@/lib/email/send'
+import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
+import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
 
 // Stripe webhook: POST /api/stripe/webhook
-// On `checkout.session.completed`, matches the paid Payment Link to its
-// installment row (by stripe_payment_link_id), marks it paid, and emails the
-// customer a receipt (BCC admins) with their next-payment countdown.
+// On `checkout.session.completed`:
+//  • Payment Link → installment payment: mark paid + email customer receipt.
+//  • Checkout Session for an event: mark the registration paid + notify admins.
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
-
-const ADMIN_BCC = ['admin@confidentist.ca', 'shirin@confidentist.ca', 'mahshid@confidentist.ca']
 
 function money(amount: number | string, currency = 'CAD'): string {
   return `$${Number(amount).toFixed(2)} ${currency}`
@@ -40,6 +39,17 @@ type PlanRow = {
   currency: string
   due_date: string | null
   stripe_payment_link_url: string | null
+}
+
+type EventRegRow = {
+  id: string
+  event_name: string | null
+  full_name: string
+  email: string
+  phone: string | null
+  deposit_amount: number | string
+  currency: string
+  status: string
 }
 
 export async function POST(req: Request) {
@@ -71,11 +81,53 @@ export async function POST(req: Request) {
     return NextResponse.json({ received: true, note: 'session not paid' })
   }
   const plink = typeof session['payment_link'] === 'string' ? (session['payment_link'] as string) : null
-  if (!plink) {
-    return NextResponse.json({ received: true, note: 'no payment_link on session' })
-  }
-
   const supabase = createServerClient()
+
+  // ── Event registration (Checkout Session, not a Payment Link) ──
+  if (!plink) {
+    const meta = (session['metadata'] as Record<string, string> | undefined) ?? {}
+    const regId =
+      meta.registration_id ||
+      (typeof session['client_reference_id'] === 'string'
+        ? (session['client_reference_id'] as string)
+        : '')
+    if (!regId) {
+      return NextResponse.json({ received: true, note: 'no payment_link / registration on session' })
+    }
+
+    const { data: regData } = await supabase
+      .from('event_registrations')
+      .select('id, event_name, full_name, email, phone, deposit_amount, currency, status')
+      .eq('id', regId)
+      .single()
+    const reg = regData as EventRegRow | null
+    if (!reg) return NextResponse.json({ received: true, note: 'no matching registration', regId })
+    if (reg.status === 'paid')
+      return NextResponse.json({ received: true, note: 'registration already processed' })
+
+    await supabase
+      .from('event_registrations')
+      .update({ status: 'paid', paid_at: new Date().toISOString() })
+      .eq('id', reg.id)
+
+    let notified = false
+    try {
+      const note = renderEventRegistrationNotification({
+        eventName: reg.event_name ?? 'Event',
+        fullName: reg.full_name,
+        email: reg.email,
+        phone: reg.phone ?? '',
+        amountLabel: money(reg.deposit_amount, reg.currency),
+        status: 'paid',
+        when: new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' }),
+      })
+      await sendEmail({ to: ADMIN_EMAILS, ...note })
+      notified = true
+    } catch (e) {
+      console.error('event admin notification failed', e)
+    }
+    return NextResponse.json({ received: true, registration: reg.id, notified })
+  }
 
   // 1) Find the installment this Payment Link belongs to.
   const { data: instData, error: instErr } = await supabase
@@ -145,7 +197,7 @@ export async function POST(req: Request) {
   let emailed = false
   if (email) {
     try {
-      await sendEmail({ to: email, bcc: ADMIN_BCC, ...rendered })
+      await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...rendered })
       emailed = true
     } catch (e) {
       // Payment is already recorded; don't force a Stripe retry over an email hiccup.
