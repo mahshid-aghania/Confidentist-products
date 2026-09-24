@@ -6,11 +6,12 @@ export default function RegistrationForm() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [promoCode, setPromoCode] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [confirmed, setConfirmed] = useState(false)
 
-  // After Stripe redirects back with ?status=confirmed, show a thank-you state.
+  // After Stripe (or a free registration) redirects back with ?status=confirmed.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     if (params.get('status') === 'confirmed') setConfirmed(true)
@@ -22,7 +23,7 @@ export default function RegistrationForm() {
         <div className="fa2o-thanks-check">✓</div>
         <h3>You&rsquo;re registered!</h3>
         <p>
-          Thank you &mdash; your seat deposit is confirmed. We&rsquo;ll email you the event details for
+          Thank you &mdash; your spot is confirmed. We&rsquo;ll email you the event details for
           <strong> Sunday, September 27, 2026</strong>. See you there!
         </p>
       </div>
@@ -37,7 +38,7 @@ export default function RegistrationForm() {
       const res = await fetch('/api/events/register/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName, email, phone }),
+        body: JSON.stringify({ fullName, email, phone, promoCode }),
       })
       const data = (await res.json()) as { url?: string; error?: string }
       if (!res.ok || !data.url) {
@@ -96,12 +97,23 @@ export default function RegistrationForm() {
         />
       </label>
 
+      <label>
+        Promotion code <span className="fa2o-optional">(optional)</span>
+        <input
+          type="text"
+          value={promoCode}
+          onChange={(e) => setPromoCode(e.target.value)}
+          placeholder="Enter code"
+          autoComplete="off"
+          autoCapitalize="none"
+        />
+      </label>
+
       {error && <div className="fa2o-error">{error}</div>}
 
       <button type="submit" disabled={loading}>
-        {loading ? 'Redirecting to checkout…' : 'Continue to $50 deposit →'}
+        {loading ? 'Processing…' : 'Continue →'}
       </button>
-      <p className="fa2o-promo-note">🎟️ Have a promotion code? You can apply it on the next step.</p>
       <p className="fa2o-secure">🔒 Secure payment by Stripe</p>
     </form>
   )

@@ -157,6 +157,7 @@ const CSS = `
 .fa2o-form h3{margin:0 0 6px;font-size:20px;}
 .fa2o-form-sub{margin:0 0 18px;font-size:14px;color:#5b6b7c;}
 .fa2o-form label{display:block;font-size:13px;font-weight:bold;color:#33465a;margin-bottom:14px;}
+.fa2o-optional{font-weight:normal;color:#8a97a6;}
 .fa2o-form input{width:100%;margin-top:6px;padding:12px 13px;border:1px solid #cfd8e3;border-radius:8px;
   font-size:15px;font-weight:normal;color:#0a1a3c;}
 .fa2o-form input:focus{outline:none;border-color:var(--gold2);box-shadow:0 0 0 3px rgba(199,154,63,.18);}
