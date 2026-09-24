@@ -4,7 +4,8 @@ export const EVENT = {
   name: 'From Associate to Owner: Building Your Successful Dental Clinic',
   depositAmount: 50,
   currency: 'CAD',
-  // Stripe Payment Link for the $50 seat deposit (see /api/events/register).
-  paymentLink: 'https://buy.stripe.com/bJe4gA6y66oPc9cafg8bS0r',
-  paymentLinkId: 'plink_1UJGiMJeZKIZa8CDd8vzO7ZM',
+  // Stripe Price for the $50 seat deposit. The registration API creates a
+  // Checkout Session from this (with promotion codes enabled).
+  priceId: 'price_1UJGiLJeZKIZa8CDbYA9ZYrH',
+  baseUrl: 'https://product.confidentist.ca/events/from-associate-to-owner/',
 } as const

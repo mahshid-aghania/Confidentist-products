@@ -165,7 +165,8 @@ const CSS = `
 .fa2o-form button:hover:not(:disabled){background:#12305f;}
 .fa2o-form button:disabled{opacity:.6;cursor:default;}
 .fa2o-error{background:#fdeaea;color:#a11;border:1px solid #f3c4c4;border-radius:8px;padding:10px 12px;font-size:14px;margin-bottom:14px;}
-.fa2o-secure{text-align:center;font-size:12px;color:#8a97a6;margin:12px 0 0;}
+.fa2o-promo-note{text-align:center;font-size:13px;color:#33465a;background:#f4f7fb;border:1px dashed #cfd8e3;border-radius:8px;padding:9px 12px;margin:14px 0 0;}
+.fa2o-secure{text-align:center;font-size:12px;color:#8a97a6;margin:10px 0 0;}
 .fa2o-thanks{text-align:center;}
 .fa2o-thanks-check{width:56px;height:56px;border-radius:50%;background:#0b8a3b;color:#fff;font-size:30px;
   line-height:56px;margin:0 auto 14px;}

@@ -101,6 +101,7 @@ export default function RegistrationForm() {
       <button type="submit" disabled={loading}>
         {loading ? 'Redirecting to checkout…' : 'Continue to $50 deposit →'}
       </button>
+      <p className="fa2o-promo-note">🎟️ Have a promotion code? You can apply it on the next step.</p>
       <p className="fa2o-secure">🔒 Secure payment by Stripe</p>
     </form>
   )
