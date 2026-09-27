@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
-import { EVENT, resolvePromo } from '@/app/events/from-associate-to-owner/event'
+import { getEvent, resolvePromo } from '@/app/events/registry'
 import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 
 // POST /api/events/register/  — capture a registrant (name/email/phone + optional
-// promotion code). Promotions are applied HERE, before Stripe:
-//   • 100% off  -> deposit waived, no Stripe, registration confirmed for free.
+// promotion code) for a given event. Promotions are applied HERE, before Stripe:
+//   • 100% off  -> fee waived, no Stripe, registration confirmed for free.
 //   • partial   -> Stripe Checkout Session with the discounted amount.
-//   • none      -> Stripe Checkout Session at the full $50 deposit.
+//   • none      -> Stripe Checkout Session at the full fee.
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
@@ -20,12 +20,22 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Payment is not configured.' }, { status: 500 })
   }
 
-  let body: { fullName?: string; email?: string; phone?: string; promoCode?: string }
+  let body: {
+    eventSlug?: string
+    fullName?: string
+    email?: string
+    phone?: string
+    promoCode?: string
+  }
   try {
     body = await req.json()
   } catch {
     return NextResponse.json({ error: 'Invalid request.' }, { status: 400 })
   }
+
+  // Default keeps older clients working; new forms send the slug explicitly.
+  const ev = getEvent(body.eventSlug ?? 'from-associate-to-owner')
+  if (!ev) return NextResponse.json({ error: 'Unknown event.' }, { status: 400 })
 
   const fullName = (body.fullName ?? '').trim()
   const email = (body.email ?? '').trim()
@@ -38,12 +48,11 @@ export async function POST(req: Request) {
   if (!phone) return NextResponse.json({ error: 'Please enter your phone number.' }, { status: 400 })
 
   // Resolve promo BEFORE Stripe.
-  const percentOff = resolvePromo(promoRaw)
+  const percentOff = resolvePromo(ev, promoRaw)
   if (percentOff === null) {
     return NextResponse.json({ error: `Promotion code “${promoRaw}” isn’t valid.` }, { status: 400 })
   }
-  const fullCents = Math.round(EVENT.depositAmount * 100)
-  const dueCents = Math.round((fullCents * (100 - percentOff)) / 100)
+  const dueCents = Math.round((ev.priceCents * (100 - percentOff)) / 100)
   const promoApplied = percentOff > 0 ? promoRaw : null
 
   // Store the lead first (best-effort).
@@ -54,13 +63,13 @@ export async function POST(req: Request) {
     const { data } = await supabase
       .from('event_registrations')
       .insert({
-        event_slug: EVENT.slug,
-        event_name: EVENT.name,
+        event_slug: ev.slug,
+        event_name: ev.name,
         full_name: fullName,
         email,
         phone,
         deposit_amount: dueCents / 100,
-        currency: EVENT.currency,
+        currency: ev.currency,
         status: free ? 'paid' : 'pending',
         paid_at: free ? new Date().toISOString() : null,
         raw: { source: 'event-page', promo_code: promoApplied, percent_off: percentOff, comped: free },
@@ -72,16 +81,15 @@ export async function POST(req: Request) {
     console.error('event registration insert failed', e)
   }
 
-  // 100% off → skip Stripe entirely, confirm for free.
+  // 100% off → skip Stripe entirely, confirm for free + notify the team now.
   if (dueCents === 0) {
-    // Notify the team immediately (free registrations never hit the webhook).
     try {
       const note = renderEventRegistrationNotification({
-        eventName: EVENT.name,
+        eventName: ev.name,
         fullName,
         email,
         phone,
-        amountLabel: `$0.00 ${EVENT.currency} (100% off · ${promoApplied})`,
+        amountLabel: `$0.00 ${ev.currency} (100% off · ${promoApplied})`,
         status: 'paid (free · promo)',
         when: new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' }),
       })
@@ -89,7 +97,7 @@ export async function POST(req: Request) {
     } catch (e) {
       console.error('admin notification (free) failed', e)
     }
-    return NextResponse.json({ url: `${EVENT.baseUrl}?status=confirmed`, free: true })
+    return NextResponse.json({ url: `${ev.baseUrl}?status=confirmed`, free: true })
   }
 
   // Otherwise create a Checkout Session for the (possibly discounted) amount.
@@ -97,19 +105,18 @@ export async function POST(req: Request) {
   params.set('mode', 'payment')
   params.set('line_items[0][quantity]', '1')
   if (percentOff > 0) {
-    // Discounted amount via inline price_data.
-    params.set('line_items[0][price_data][currency]', EVENT.currency.toLowerCase())
+    params.set('line_items[0][price_data][currency]', ev.currency.toLowerCase())
     params.set('line_items[0][price_data][unit_amount]', String(dueCents))
-    params.set('line_items[0][price_data][product_data][name]', 'From Associate to Owner — Seat Deposit')
+    params.set('line_items[0][price_data][product_data][name]', ev.name)
   } else {
-    params.set('line_items[0][price]', EVENT.priceId)
+    params.set('line_items[0][price]', ev.priceId)
   }
   params.set('customer_email', email)
   params.set('phone_number_collection[enabled]', 'true')
   params.set('allow_promotion_codes', 'true')
-  params.set('success_url', `${EVENT.baseUrl}?status=confirmed`)
-  params.set('cancel_url', EVENT.baseUrl)
-  params.set('metadata[event]', EVENT.slug)
+  params.set('success_url', `${ev.baseUrl}?status=confirmed`)
+  params.set('cancel_url', ev.baseUrl)
+  params.set('metadata[event]', ev.slug)
   params.set('metadata[full_name]', fullName)
   params.set('metadata[phone]', phone)
   if (promoApplied) params.set('metadata[promo_code]', promoApplied)

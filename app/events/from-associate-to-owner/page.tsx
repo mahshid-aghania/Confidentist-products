@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import RegistrationForm from './RegistrationForm'
+import RegistrationForm from '../RegistrationForm'
 
 export const metadata: Metadata = {
   title: 'From Associate to Owner — Building Your Successful Dental Clinic | ConfiDentist',
@@ -106,7 +106,11 @@ export default function Page() {
               <li>✓ Certificate presentation</li>
             </ul>
           </div>
-          <RegistrationForm />
+          <RegistrationForm
+            eventSlug="from-associate-to-owner"
+            amountLabel="$50 deposit"
+            confirmLine="Sunday, September 27, 2026"
+          />
         </div>
       </section>
 
