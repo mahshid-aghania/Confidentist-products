@@ -25,8 +25,8 @@ export const EVENTS: Record<string, EventApiConfig> = {
   'orthodontics-clear-aligners': {
     slug: 'orthodontics-clear-aligners',
     name: 'Orthodontics & Clear Aligners: Supercharge Your Practice',
-    priceId: 'price_1UKIK6JeZKIZa8CD5YlgSWjF',
-    priceCents: 38420, // $340 + 13% HST (Ontario) = $384.20 course fee
+    priceId: 'price_1UKIRBJeZKIZa8CDwIQF1BwR',
+    priceCents: 39437, // $349 + 13% HST (Ontario) = $394.37 course fee
     currency: 'CAD',
     baseUrl: 'https://product.confidentist.ca/events/orthodontics-clear-aligners/',
     promoCodes: { 'confi-100': 100 },
