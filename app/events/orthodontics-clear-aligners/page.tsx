@@ -4,7 +4,7 @@ import RegistrationForm from '../RegistrationForm'
 export const metadata: Metadata = {
   title: 'Orthodontics & Clear Aligners — Supercharge Your Practice | ConfiDentist',
   description:
-    'A hands-on CE course with Dr. Hossein Arbabezadeh (MSc in Orthodontics). Sunday, October 18, 2026 · North York, ON · 5 CE Credits. Course fee $350 + HST.',
+    'A hands-on CE course with Dr. Hossein Arbabezadeh (MSc in Orthodontics). Sunday, October 18, 2026 · North York, ON · 5 CE Credits. Course fee $340 + HST.',
 }
 
 const TOPICS = [
@@ -19,7 +19,7 @@ const FACTS = [
   { icon: '📅', label: 'Date', value: 'Sunday, October 18, 2026' },
   { icon: '🕘', label: 'Time', value: '9:30 AM – 3:30 PM' },
   { icon: '📍', label: 'Location', value: '265 Rimrock Road, Unit 204, North York, ON M3J 3A6' },
-  { icon: '💳', label: 'Course fee', value: '$350 + HST ($395.50)' },
+  { icon: '💳', label: 'Course fee', value: '$340 + HST ($384.20)' },
 ]
 
 export default function Page() {
@@ -66,7 +66,7 @@ export default function Page() {
             ))}
           </ul>
           <a href="#register" className="orth-cta">
-            Register — $395.50 →
+            Register — $384.20 →
           </a>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function Page() {
           <div className="orth-register-copy">
             <h2>Reserve your seat</h2>
             <p>
-              Course fee is <strong>$350 + HST ($395.50)</strong>, paid securely through Stripe. Enter your
+              Course fee is <strong>$340 + HST ($384.20)</strong>, paid securely through Stripe. Enter your
               details to continue.
             </p>
             <ul className="orth-register-points">
@@ -105,7 +105,7 @@ export default function Page() {
           </div>
           <RegistrationForm
             eventSlug="orthodontics-clear-aligners"
-            amountLabel="$395.50 course fee ($350 + HST)"
+            amountLabel="$384.20 course fee ($340 + HST)"
             confirmLine="Sunday, October 18, 2026"
           />
         </div>
