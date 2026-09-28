@@ -18,6 +18,11 @@ export type InstallmentReceiptData = {
   paidSequence: number; // installment just paid, e.g. 3
   reference: string; // e.g. "Order #58428 · Payment 58428-3"
   amountPaidLabel: string; // pre-formatted, e.g. "$744.45 CAD"
+  // Confirmation details echoed back to every customer (details on file).
+  customerEmail: string; // e.g. "sainiiamit@gmail.com"
+  customerPhone: string; // pre-formatted, e.g. "+1 289-654-1418"
+  orderNumber: string; // already includes the leading '#', e.g. "#57202"
+  hashtag?: string; // tag shown after the payment section; defaults to "#Confidentist"
   next?: NextInstallment; // omitted when this was the final installment
   // "today" is injectable so the countdown is testable/deterministic; defaults to now.
   now?: Date;
@@ -55,6 +60,10 @@ export function renderInstallmentReceipt(data: InstallmentReceiptData): {
     paidSequence,
     reference,
     amountPaidLabel,
+    customerEmail,
+    customerPhone,
+    orderNumber,
+    hashtag = "#Confidentist",
     next,
     now = new Date(),
   } = data;
@@ -116,6 +125,18 @@ export function renderInstallmentReceipt(data: InstallmentReceiptData): {
               <tr><td style="padding:16px 18px;font-size:16px;font-weight:bold;">Amount paid</td><td style="padding:16px 18px;font-size:16px;font-weight:bold;text-align:right;color:${GREEN};">${amountPaidLabel}</td></tr>
             </table>
 ${nextBlockHtml}
+            <!-- Hashtag after payment -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:18px 0 0;"><tr><td align="center">
+              <span style="display:inline-block;font-size:15px;font-weight:bold;color:${BRAND};">${hashtag}</span>
+            </td></tr></table>
+
+            <!-- Confirmation: details on file -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:22px 0 0;border:1px solid #e6e9ee;border-radius:8px;">
+              <tr><td colspan="2" style="padding:12px 18px;border-bottom:1px solid #eef1f5;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#5b6b7c;">Confirmation — details on file</td></tr>
+              <tr><td style="padding:12px 18px;border-bottom:1px solid #eef1f5;font-size:14px;color:#5b6b7c;">Email</td><td style="padding:12px 18px;border-bottom:1px solid #eef1f5;font-size:14px;text-align:right;font-weight:bold;">${customerEmail}</td></tr>
+              <tr><td style="padding:12px 18px;border-bottom:1px solid #eef1f5;font-size:14px;color:#5b6b7c;">Telephone</td><td style="padding:12px 18px;border-bottom:1px solid #eef1f5;font-size:14px;text-align:right;font-weight:bold;">${customerPhone}</td></tr>
+              <tr><td style="padding:12px 18px;font-size:14px;color:#5b6b7c;">Order</td><td style="padding:12px 18px;font-size:14px;text-align:right;font-weight:bold;">${orderNumber}</td></tr>
+            </table>
             <p style="font-size:13px;line-height:1.55;color:#5b6b7c;margin:24px 0 0;">Questions about your payment plan? Just reply to this email.</p>
           </td>
         </tr>
@@ -151,6 +172,13 @@ Course:           ${course}
 Installment paid: ${paidSequence} of ${totalInstallments}
 Reference:        ${reference}
 Amount paid:      ${amountPaidLabel}${nextBlockText}
+
+${hashtag}
+
+Confirmation — details on file:
+Email:     ${customerEmail}
+Telephone: ${customerPhone}
+Order      ${orderNumber}
 
 Questions about your payment plan? Just reply to this email.
 

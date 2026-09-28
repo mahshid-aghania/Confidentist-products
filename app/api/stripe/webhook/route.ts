@@ -28,7 +28,12 @@ type InstallmentRow = {
 
 type OrderInfo = {
   order_number: string | null
-  customers: { first_name: string | null; last_name: string | null; email: string | null } | null
+  customers: {
+    first_name: string | null
+    last_name: string | null
+    email: string | null
+    phone: string | null
+  } | null
   order_line_items: { name: string }[] | null
 }
 
@@ -154,7 +159,7 @@ export async function POST(req: Request) {
   // 3) Order + customer + course.
   const { data: orderData } = await supabase
     .from('orders')
-    .select('order_number, customers(first_name, last_name, email), order_line_items(name)')
+    .select('order_number, customers(first_name, last_name, email, phone), order_line_items(name)')
     .eq('id', inst.order_id)
     .single()
   const order = orderData as OrderInfo | null
@@ -171,6 +176,8 @@ export async function POST(req: Request) {
   const customerName =
     `${customer?.first_name ?? ''} ${customer?.last_name ?? ''}`.trim() || 'there'
   const email = customer?.email ?? null
+  const phone = customer?.phone ?? ''
+  const orderNumber = `#${order?.order_number ?? ''}`
   const course = order?.order_line_items?.[0]?.name ?? 'your Confidentist course'
 
   const next = plan.find(
@@ -182,8 +189,11 @@ export async function POST(req: Request) {
     course,
     totalInstallments: plan.length,
     paidSequence: inst.sequence,
-    reference: `Order #${order?.order_number ?? ''} · Payment ${inst.wc_payment_id ?? ''}`.trim(),
+    reference: `Order ${orderNumber} · Payment ${inst.wc_payment_id ?? ''}`.trim(),
     amountPaidLabel: money(inst.amount, inst.currency),
+    customerEmail: email ?? '',
+    customerPhone: phone,
+    orderNumber,
     next: next
       ? {
           sequence: next.sequence,
