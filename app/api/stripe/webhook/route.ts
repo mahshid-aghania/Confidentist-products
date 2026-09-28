@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
 import { verifyStripeSignature } from '@/lib/stripe/webhook'
 import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
+import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
 
@@ -143,6 +144,41 @@ export async function POST(req: Request) {
   const inst = instData as InstallmentRow | null
 
   if (instErr || !inst) {
+    // Not an installment link — check if it's a one-time AFK Mock Exams purchase
+    // (buttons on /afk-mock-exams/ append a client_reference_id like "mocks-134-mini-1").
+    const ref =
+      typeof session['client_reference_id'] === 'string'
+        ? (session['client_reference_id'] as string)
+        : ''
+    if (ref.startsWith('mocks-')) {
+      const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
+      const email =
+        (typeof details['email'] === 'string' && (details['email'] as string)) ||
+        (typeof session['customer_email'] === 'string' ? (session['customer_email'] as string) : '')
+      const phone = typeof details['phone'] === 'string' ? (details['phone'] as string) : undefined
+      const amountTotal =
+        typeof session['amount_total'] === 'number' ? (session['amount_total'] as number) : 0
+      const currency =
+        typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
+
+      let emailed = false
+      if (email) {
+        try {
+          const rendered = renderMockExamReceipt({
+            customerEmail: email,
+            customerPhone: phone,
+            amountLabel: `$${(amountTotal / 100).toFixed(2)} ${currency}`,
+            selectionLabel: selectionFromRef(ref),
+            reference: typeof session['id'] === 'string' ? (session['id'] as string) : ref,
+          })
+          await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...rendered })
+          emailed = true
+        } catch (e) {
+          console.error('mock exam receipt email failed', e)
+        }
+      }
+      return NextResponse.json({ received: true, mock_exam: ref, emailed })
+    }
     return NextResponse.json({ received: true, note: 'no matching installment', plink })
   }
   // Idempotency — Stripe retries webhooks; only process the first time.
