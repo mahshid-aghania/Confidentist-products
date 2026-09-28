@@ -105,7 +105,7 @@
     <div class="price-card">
       <div class="price-head">
         <span class="price-was">$4,999</span><span class="price-save">Save $2,200</span>
-        <div class="price-now">$2,799 <small>CAD · before tax</small></div>
+        <div class="price-now">$2,799 <small>CAD + Ontario HST</small></div>
       </div>
       <div class="price-body">
         <div class="ship-label">Shipping</div>
@@ -120,30 +120,30 @@
 
         <div class="rows">
           <div class="row"><span class="lbl">AFK Comprehensive – Feb 2027</span><span>$2,799.00</span></div>
+          <div class="row"><span class="lbl">Ontario HST (13%)</span><span>$363.87</span></div>
           <div class="row"><span class="lbl">Shipping</span><span id="shipAmt">$75.00</span></div>
-          <div class="row"><span class="lbl">Tax (HST/GST)</span><span style="color:var(--muted)">calculated at checkout</span></div>
-          <div class="row total"><span>Subtotal · before tax</span><span id="totalAmt">$2,874.00</span></div>
+          <div class="row total"><span>Total</span><span id="totalAmt">$3,237.87</span></div>
         </div>
 
         <div class="sched-title">Your Payment Schedule</div>
         <div class="inst now">
           <div class="badge">1</div>
-          <div class="meta"><div class="when">Today</div><div class="tag">First installment · due now · + tax at checkout</div></div>
+          <div class="meta"><div class="when">Today</div><div class="tag">First installment · due now</div></div>
           <div style="text-align:right"><div class="amt">$1,000.00</div><a class="pay" id="payNow" href="#" target="_blank" rel="noopener">Pay now →</a></div>
         </div>
         <div class="inst">
           <div class="badge">2</div>
-          <div class="meta"><div class="when">October 28, 2026</div><div class="tag">Second installment · + tax at checkout</div></div>
-          <div style="text-align:right"><div class="amt" id="octAmt">$937.00</div><a class="pay" id="payOct" href="#" target="_blank" rel="noopener">Payment link →</a></div>
+          <div class="meta"><div class="when">October 28, 2026</div><div class="tag">Second installment</div></div>
+          <div style="text-align:right"><div class="amt" id="octAmt">$1,118.94</div><a class="pay" id="payOct" href="#" target="_blank" rel="noopener">Payment link →</a></div>
         </div>
         <div class="inst">
           <div class="badge">3</div>
-          <div class="meta"><div class="when">November 28, 2026</div><div class="tag">Final installment · + tax at checkout</div></div>
-          <div style="text-align:right"><div class="amt" id="novAmt">$937.00</div><a class="pay" id="payNov" href="#" target="_blank" rel="noopener">Payment link →</a></div>
+          <div class="meta"><div class="when">November 28, 2026</div><div class="tag">Final installment</div></div>
+          <div style="text-align:right"><div class="amt" id="novAmt">$1,118.93</div><a class="pay" id="payNov" href="#" target="_blank" rel="noopener">Payment link →</a></div>
         </div>
 
-        <a class="cta" id="ctaNow" href="#" target="_blank" rel="noopener">Pay First Installment — $1,000 CAD + tax →</a>
-        <p class="fineprint">Prices shown are in CAD before tax. The applicable sales tax (HST/GST, based on your location) is calculated and added automatically at checkout. The October and November installments complete your balance; links for those are provided above and are also sent by email. We do not accept preauthorized or automatic payments — please use the link on or after each due date.</p>
+        <a class="cta" id="ctaNow" href="#" target="_blank" rel="noopener">Pay First Installment — $1,000 CAD →</a>
+        <p class="fineprint">Prices in CAD. Ontario HST (13%) applies to the course fee. The October and November installments complete your balance; links for those are provided above and are also sent by email. We do not accept preauthorized or automatic payments — please use the link on or after each due date.</p>
       </div>
     </div>
   </div>
@@ -161,14 +161,14 @@
 
 <script>
   // Stripe payment links (live). First installment is the same regardless of shipping.
-  const FIRST = 'https://buy.stripe.com/bJe28sg8GbJ93CGevw8bS0A'
+  const FIRST = 'https://buy.stripe.com/4gMfZibSq14vb58bjk8bS0u'
   const PLAN = {
-    canada: { ship:'$75.00',  total:'$2,874.00', oct:'$937.00', nov:'$937.00',
-              octLink:'https://buy.stripe.com/4gMbJ2cWu8wX6OSgDE8bS0B',
-              novLink:'https://buy.stripe.com/5kQfZi09I00r4GK3QS8bS0C' },
-    intl:   { ship:'$400.00', total:'$3,199.00', oct:'$1,099.50', nov:'$1,099.50',
-              octLink:'https://buy.stripe.com/cNi28saOm5kLgps2MO8bS0D',
-              novLink:'https://buy.stripe.com/eVqaEY5u23cDehk9bc8bS0E' },
+    canada: { ship:'$75.00',  total:'$3,237.87', oct:'$1,118.94', nov:'$1,118.93',
+              octLink:'https://buy.stripe.com/fZuaEYaOmdRh1uybjk8bS0v',
+              novLink:'https://buy.stripe.com/3cIeVe7Ca00rehkfzA8bS0w' },
+    intl:   { ship:'$400.00', total:'$3,562.87', oct:'$1,281.44', nov:'$1,281.43',
+              octLink:'https://buy.stripe.com/00w28scWu9B11uyfzA8bS0x',
+              novLink:'https://buy.stripe.com/8x25kEbSqbJ90quafg8bS0y' },
   }
 
   document.getElementById('payNow').href = FIRST
