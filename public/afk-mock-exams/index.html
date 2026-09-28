@@ -609,7 +609,7 @@
           <li>Detailed performance reports</li>
           <li>Priority student support</li>
         </ul>
-        <a href="https://www.confidentist.ca/product/afk-mock-exam-august-2026/" class="pkg-btn pkg-btn-solid">Enroll Now →</a>
+        <a href="https://buy.stripe.com/3cI00kg8G5kLddggDE8bS0N?client_reference_id=mocks-1234-mini-0" class="pkg-btn pkg-btn-solid">Enroll Now →</a>
       </div>
       <div class="pkg-card">
         <div class="pkg-name">Mini Mock Package</div>
@@ -622,7 +622,7 @@
           <li>Online delivery</li>
           <li>Only $100 when added to all 4 full mocks</li>
         </ul>
-        <a href="https://www.confidentist.ca/product/afk-mock-exam-august-2026/" class="pkg-btn pkg-btn-ghost">Enroll Now →</a>
+        <a href="https://buy.stripe.com/4gM7sM3lU3cD5KO7348bS0O?client_reference_id=mocks-0-mini-1" class="pkg-btn pkg-btn-ghost">Enroll Now →</a>
       </div>
       <div class="pkg-card">
         <div class="pkg-name">Complete Package</div>
@@ -637,10 +637,10 @@
           <li>Full performance reports</li>
           <li>Dedicated advisor access</li>
         </ul>
-        <a href="https://www.confidentist.ca/product/afk-mock-exam-august-2026/" class="pkg-btn pkg-btn-ghost">Enroll Now →</a>
+        <a href="https://buy.stripe.com/eVqcN66y65kLgpsfzA8bS0S?client_reference_id=mocks-1234-mini-1" class="pkg-btn pkg-btn-ghost">Enroll Now →</a>
       </div>
     </div>
-    <p class="section-desc" style="text-align:center; max-width:640px; margin:1.75rem auto 0;">Prices are shown in CAD and are subject to change — please confirm the current price on the <a href="https://www.confidentist.ca/product/afk-mock-exam-august-2026/" style="color:var(--gold-dark); font-weight:600; text-decoration:none;">registration page</a> before enrolling.</p>
+    <p class="section-desc" style="text-align:center; max-width:640px; margin:1.75rem auto 0;">Prices are shown in CAD. Select your exams in the <a href="#build" style="color:var(--gold-dark); font-weight:600; text-decoration:none;">Bundle Builder</a> above and check out securely — payment is processed through Stripe.</p>
   </div>
 </section>
 
@@ -883,13 +883,26 @@
     render()
   }))
 
+  // Stripe payment links, keyed by `${fullMockCount}|${mini?1:0}`.
+  const STRIPE_LINKS = {
+    '1|0': 'https://buy.stripe.com/8x2cN66y68wXflo9bc8bS0K',
+    '2|0': 'https://buy.stripe.com/4gM14of4CeVl1uy8788bS0L',
+    '3|0': 'https://buy.stripe.com/00w7sMbSq6oP4GK5Z08bS0M',
+    '4|0': 'https://buy.stripe.com/3cI00kg8G5kLddggDE8bS0N',
+    '0|1': 'https://buy.stripe.com/4gM7sM3lU3cD5KO7348bS0O',
+    '1|1': 'https://buy.stripe.com/3cI28sg8G6oP0quafg8bS0P',
+    '2|1': 'https://buy.stripe.com/28EaEYe0yaF5c9c8788bS0Q',
+    '3|1': 'https://buy.stripe.com/28E3cw2hQ3cD5KO0EG8bS0R',
+    '4|1': 'https://buy.stripe.com/eVqcN66y65kLgpsfzA8bS0S',
+  }
+
   function enrollBundle() {
     if (!selected.size && !miniSelected) return
-    const params = new URLSearchParams({
-      mocks: [...selected].sort().join(','),
-      mini: miniSelected ? 'pack-of-4' : '',
-    })
-    window.location.href = `https://www.confidentist.ca/product/afk-mock-exam-august-2026/?${params}`
+    const link = STRIPE_LINKS[`${selected.size}|${miniSelected ? 1 : 0}`]
+    if (!link) return
+    // Carry the exact selection so fulfillment knows which mocks were chosen.
+    const ref = `mocks-${[...selected].sort().join('') || '0'}-mini-${miniSelected ? 1 : 0}`
+    window.location.href = `${link}?client_reference_id=${ref}`
   }
 
   render()
