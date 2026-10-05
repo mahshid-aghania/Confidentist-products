@@ -276,6 +276,33 @@
 
     hr { border: none; border-top: 1px solid var(--border); margin: 0; }
 
+    /* ── PRICING CARDS ── */
+    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; align-items: stretch; }
+    .price-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); position: relative; }
+    .price-card.featured { border-color: var(--gold); border-width: 2px; box-shadow: var(--shadow-md); }
+    .price-badge { align-self: flex-start; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .32rem .8rem; border-radius: .3rem; margin-bottom: 1rem; }
+    .price-badge.expanded { background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.3); }
+    .price-badge.popular { background: var(--gold); color: #fff; }
+    .price-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .price-start { font-size: .82rem; font-weight: 600; color: var(--gold-dark); margin-bottom: 1.1rem; }
+    .price-amount { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+    .price-reg { font-size: 1rem; color: var(--muted); text-decoration: line-through; }
+    .price-now { font-family: 'Playfair Display', serif; font-size: 1.95rem; font-weight: 700; color: var(--navy); }
+    .price-hst { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+    .price-hst strong { color: var(--navy); font-weight: 600; }
+    .price-earlybird { font-size: .78rem; color: var(--muted); line-height: 1.55; margin-top: .5rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .55rem .75rem; }
+    .price-divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+    .price-subhead { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: .75rem; }
+    .price-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; }
+    .price-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .86rem; color: var(--muted); line-height: 1.5; }
+    .price-list li svg { width: 15px; height: 15px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .price-card.featured .price-list li svg { color: var(--gold); }
+    .price-cta { margin-top: auto; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; padding: .8rem 1.75rem; border-radius: .4rem; font-weight: 700; font-size: .85rem; letter-spacing: .03em; text-decoration: none; transition: background .2s, transform .15s; }
+    .price-cta.navy { background: var(--navy); color: #fff; }
+    .price-cta.navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .price-cta.gold { background: var(--gold); color: #fff; box-shadow: 0 4px 18px rgba(15,122,229,.35); }
+    .price-cta.gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
     /* ── LICENSURE PATHWAY ── */
     .journey-lead { max-width: 760px; margin: 0 auto; text-align: center; }
     .journey-lead p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
@@ -533,6 +560,84 @@
         </span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<hr />
+
+<!-- 3b · AFK PACKAGES & PRICING -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">AFK Packages</span>
+      <h2 class="section-title">AFK Full Package Pricing</h2>
+      <p class="section-desc">Both packages cover the complete AFK syllabus. The Extended package offers a longer, more personalized preparation period; the Comprehensive package is a focused, shorter pathway. Prices are in CAD and exclude HST.</p>
+    </div>
+
+    <div class="price-grid">
+
+      <!-- EXTENDED -->
+      <article class="price-card">
+        <span class="price-badge expanded">Most Expanded</span>
+        <h3 class="price-name">Extended</h3>
+        <p class="price-start">Starts from December 2026</p>
+        <div class="price-amount">
+          <span class="price-reg">$6,999</span>
+          <span class="price-now">$6,499</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST</p>
+
+        <hr class="price-divider" />
+        <p class="price-subhead">What's included</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-month online training program</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>76 total live and pre-recorded lectures</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14 quizzes with discussion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mini mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mock exams + 8 discussion sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 final review sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized study plan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mid-course progress evaluation session</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
+        </ul>
+        <a class="price-cta navy" href="/afk-programs/full-package/">View Extended Details →</a>
+      </article>
+
+      <!-- COMPREHENSIVE -->
+      <article class="price-card featured">
+        <span class="price-badge popular">Most Popular</span>
+        <h3 class="price-name">Comprehensive</h3>
+        <p class="price-start">Starts from February 2027</p>
+        <div class="price-amount">
+          <span class="price-reg">$4,999</span>
+          <span class="price-now">$4,749</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST · early-bird price</p>
+        <p class="price-earlybird">The early-bird discount is valid until 10 days before the course start date. A February 2027 exam cohort (started July 2026) is also available at $4,999 + HST.</p>
+
+        <hr class="price-divider" />
+        <p class="price-subhead">What's included</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-month online training program</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>65 total live and pre-recorded lectures</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 quizzes with discussion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mini mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mock exams + 8 discussion sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 final review sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
+        </ul>
+        <a class="price-cta gold" href="/afk-programs/full-package/#cohorts">Choose Your Exam Cohort →</a>
+      </article>
+
+    </div>
+
+    <div style="text-align:center;margin-top:1.75rem;">
+      <a href="/afk-schedule-feb-2027/" style="font-size:.85rem;font-weight:700;color:var(--gold-dark);text-decoration:none;">View the February 2027 schedule →</a>
     </div>
   </div>
 </section>
