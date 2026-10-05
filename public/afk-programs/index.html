@@ -276,10 +276,71 @@
 
     hr { border: none; border-top: 1px solid var(--border); margin: 0; }
 
+    /* ── LICENSURE PATHWAY ── */
+    .journey-lead { max-width: 760px; margin: 0 auto; text-align: center; }
+    .journey-lead p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+    .journey-lead p:last-child { margin-bottom: 0; }
+    .journey-lead strong { color: var(--navy); font-weight: 700; }
+
+    .pathway {
+      display: flex; align-items: flex-start; justify-content: center;
+      gap: .25rem; flex-wrap: wrap; margin-top: 3rem;
+    }
+    .path-step { display: flex; flex-direction: column; align-items: center; flex: 1 1 180px; max-width: 220px; min-width: 148px; }
+    .path-btn {
+      appearance: none; border: none; background: none; cursor: pointer;
+      width: 100%; padding: 0; font: inherit; color: inherit; display: block;
+    }
+    .path-chevron {
+      position: relative;
+      background: var(--navy); color: #fff;
+      padding: 1rem 1.4rem 1rem 1.15rem;
+      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+      display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+      transition: transform .18s, filter .18s, background .18s;
+    }
+    .path-step:first-child .path-chevron {
+      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+    }
+    .path-abbr { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.35rem; line-height: 1; letter-spacing: .01em; }
+    .path-abbr small { display: block; font-family: 'Inter', sans-serif; font-size: .52rem; font-weight: 700; letter-spacing: .14em; margin-top: .28rem; opacity: .85; }
+    .path-ico { width: 30px; height: 30px; flex-shrink: 0; opacity: .9; }
+    .path-step.active .path-chevron { background: var(--gold); }
+    .path-btn:hover .path-chevron, .path-btn:focus-visible .path-chevron { transform: translateY(-3px); filter: brightness(1.06); }
+    .path-btn:focus-visible { outline: none; }
+    .path-btn:focus-visible .path-chevron { box-shadow: 0 0 0 3px var(--teal); }
+    .path-label {
+      background: #fff; border: 1.5px solid var(--border); border-radius: .5rem;
+      padding: .65rem .7rem; margin-top: .65rem; width: calc(100% - 18px);
+      text-align: center; font-size: .64rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--navy); line-height: 1.5;
+    }
+    .path-step.active .path-label { border-color: var(--gold); box-shadow: 0 2px 10px rgba(15,122,229,.18); }
+    .path-here {
+      margin-top: .6rem; background: var(--gold); color: #fff;
+      font-size: .58rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase;
+      padding: .32rem .75rem; border-radius: .3rem;
+    }
+    .path-arrow { flex: 0 0 24px; align-self: flex-start; margin-top: 1.35rem; color: var(--border); display: flex; }
+    .path-arrow svg { width: 24px; height: 18px; }
+
+    .path-detail {
+      max-width: 720px; margin: 2.75rem auto 0;
+      background: #fff; border: 1.5px solid var(--border); border-left: 4px solid var(--gold);
+      border-radius: var(--radius); padding: 1.5rem 1.75rem; box-shadow: var(--shadow-sm);
+    }
+    .path-detail h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+    .path-detail p { font-size: .92rem; color: var(--muted); line-height: 1.75; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .compare-wrap { display: none; }
       .compare-cards { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .pathway { flex-direction: column; align-items: center; }
+      .path-step { max-width: 300px; width: 100%; }
+      .path-arrow { margin: .35rem 0; transform: rotate(90deg); align-self: center; }
     }
     @media (max-width: 520px) {
       .nav-link { display: none; }
@@ -291,6 +352,7 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
       .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
+      .path-btn:hover .path-chevron, .path-btn:focus-visible .path-chevron { transform: none; }
     }
   </style>
 </head>
@@ -320,6 +382,93 @@
     </div>
   </div>
 </header>
+
+<!-- 1.5 · WELCOME & LICENSURE JOURNEY -->
+<section class="section" id="journey">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Your Licensure Journey</span>
+      <h2 class="section-title">Welcome to Your AFK Journey</h2>
+    </div>
+
+    <div class="journey-lead">
+      <p>Congratulations on taking the first step toward your goal—the <strong>AFK exam</strong>! Welcome to this exciting journey. Remember, you can achieve this, just as countless students have done before. Trust in yourself and the process.</p>
+      <p>With years of experience behind us, we've designed a course with everything you need for success. Trust us, follow our guidance, and you'll find success waiting for you at the finish line. Welcome to our AFK course—let's start this journey to success together.</p>
+    </div>
+
+    <!-- Interactive pathway diagram -->
+    <div class="pathway" role="group" aria-label="Canadian dental licensure examination pathway. Select an exam to read more.">
+
+      <!-- STEP 1 · AFK (you are here) -->
+      <div class="path-step active">
+        <button type="button" class="path-btn" aria-pressed="true" aria-controls="path-detail"
+          data-title="AFK · Assessment of Fundamental Knowledge"
+          data-desc="A written examination testing the foundational biomedical, dental and clinical knowledge expected of a graduating dentist. This is where your ConfiDentist journey begins — and where all of our preparation is focused.">
+          <span class="path-chevron">
+            <span class="path-abbr">AFK</span>
+            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+          </span>
+        </button>
+        <div class="path-label">Assessment of Fundamental Knowledge</div>
+        <span class="path-here">You are here</span>
+      </div>
+
+      <div class="path-arrow" aria-hidden="true"><svg viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="9" x2="16" y2="9" stroke-dasharray="3 3"/><path d="M13 4l5 5-5 5"/></svg></div>
+
+      <!-- STEP 2 · ACJ -->
+      <div class="path-step">
+        <button type="button" class="path-btn" aria-pressed="false" aria-controls="path-detail"
+          data-title="ACJ · Assessment of Clinical Judgement"
+          data-desc="A written examination that evaluates your clinical reasoning and decision-making across a range of patient-care scenarios.">
+          <span class="path-chevron">
+            <span class="path-abbr">ACJ</span>
+            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+        </button>
+        <div class="path-label">Assessment of Clinical Judgement</div>
+      </div>
+
+      <div class="path-arrow" aria-hidden="true"><svg viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="9" x2="16" y2="9" stroke-dasharray="3 3"/><path d="M13 4l5 5-5 5"/></svg></div>
+
+      <!-- STEP 3 · NDECC -->
+      <div class="path-step">
+        <button type="button" class="path-btn" aria-pressed="false" aria-controls="path-detail"
+          data-title="NDECC · National Dental Examination Clinical Competency"
+          data-desc="A performance-based examination assessing hands-on clinical skills together with situational judgement.">
+          <span class="path-chevron">
+            <span class="path-abbr">NDECC</span>
+            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+          </span>
+        </button>
+        <div class="path-label">Clinical Skills &amp; Situational Judgement</div>
+      </div>
+
+      <div class="path-arrow" aria-hidden="true"><svg viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="9" x2="16" y2="9" stroke-dasharray="3 3"/><path d="M13 4l5 5-5 5"/></svg></div>
+
+      <!-- STEP 4 · VIRTUAL OSCE -->
+      <div class="path-step">
+        <button type="button" class="path-btn" aria-pressed="false" aria-controls="path-detail"
+          data-title="Virtual OSCE · Objective Structured Clinical Examination"
+          data-desc="A station-based assessment of applied clinical competencies, delivered in a virtual format — the final examination on the pathway to licensure.">
+          <span class="path-chevron">
+            <span class="path-abbr">VIRTUAL<small>OSCE</small></span>
+            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </span>
+        </button>
+        <div class="path-label">Objective Structured Clinical Examination</div>
+      </div>
+
+    </div>
+
+    <!-- Detail panel (updates on selection) -->
+    <div class="path-detail" id="path-detail" aria-live="polite">
+      <h3>AFK · Assessment of Fundamental Knowledge</h3>
+      <p>A written examination testing the foundational biomedical, dental and clinical knowledge expected of a graduating dentist. This is where your ConfiDentist journey begins — and where all of our preparation is focused.</p>
+    </div>
+  </div>
+</section>
+
+<hr />
 
 <!-- 2 · INTRODUCTION -->
 <section class="section">
@@ -515,6 +664,32 @@
   <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
   <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
 </footer>
+
+<script>
+  (function () {
+    var steps = Array.prototype.slice.call(document.querySelectorAll('.pathway .path-step'));
+    var detail = document.getElementById('path-detail');
+    if (!steps.length || !detail) return;
+    var detailH = detail.querySelector('h3');
+    var detailP = detail.querySelector('p');
+
+    steps.forEach(function (step) {
+      var btn = step.querySelector('.path-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        steps.forEach(function (s) {
+          s.classList.remove('active');
+          var b = s.querySelector('.path-btn');
+          if (b) b.setAttribute('aria-pressed', 'false');
+        });
+        step.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        detailH.textContent = btn.getAttribute('data-title');
+        detailP.textContent = btn.getAttribute('data-desc');
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
