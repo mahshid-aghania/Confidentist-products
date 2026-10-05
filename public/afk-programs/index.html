@@ -238,6 +238,20 @@
     .pkg-middle { max-width: 640px; margin: 0 auto 2.75rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
     .pkg-middle-desc { font-size: .96rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.6rem; }
 
+    /* ── SUBJECT DROPDOWN (accordion) ── */
+    .subj-list { max-width: 680px; margin: 0 auto 1.75rem; display: flex; flex-direction: column; gap: .55rem; text-align: left; }
+    .subj { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+    .subj[open] { border-color: var(--gold); box-shadow: var(--shadow-sm); }
+    .subj summary { padding: .95rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; cursor: pointer; font-weight: 600; font-size: .92rem; color: var(--navy); list-style: none; user-select: none; }
+    .subj summary::-webkit-details-marker { display: none; }
+    .subj summary:hover { color: var(--gold-dark); }
+    .subj-tag { display: inline-flex; align-items: center; gap: .6rem; }
+    .subj-tag .n { font-size: .72rem; font-weight: 700; color: var(--gold-dark); background: var(--gold-bg); border: 1px solid rgba(15,122,229,.25); border-radius: .35rem; padding: .15rem .5rem; min-width: 1.7rem; text-align: center; }
+    .subj summary::after { content: '+'; font-size: 1.35rem; line-height: 1; color: var(--gold-dark); transition: transform .2s; flex-shrink: 0; }
+    .subj[open] summary::after { transform: rotate(45deg); }
+    .subj-body { padding: 0 1.25rem 1.1rem; font-size: .86rem; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); padding-top: .85rem; }
+    .subj-note { max-width: 680px; margin: 0 auto 1.75rem; text-align: center; font-size: .86rem; color: var(--muted); line-height: 1.65; }
+
     /* ── COMPARISON TABLE ── */
     .compare-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
     table.compare { width: 100%; border-collapse: collapse; background: #fff; min-width: 640px; }
@@ -648,20 +662,67 @@
     <div class="section-head">
       <span class="section-kicker">Subject-Based</span>
       <h2 class="section-title">AFK Subject-Based Program</h2>
-      <p class="section-desc">Prefer a focused, flexible option? Select individual AFK subjects and concentrate your time and budget on the areas where you need the most support.</p>
+      <p class="section-desc">Prefer a focused, flexible option? Select individual AFK subjects and concentrate your time and budget on the areas where you need the most support. Tap a subject below to see what it covers.</p>
     </div>
 
-    <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;">
-      <p class="pcol-subhead">Best suited for</p>
-      <ul class="pcol-list">
-        <li>Previous AFK students and retakers</li>
-        <li>Candidates with specific weak subjects</li>
-        <li>Dentists with limited study time</li>
-        <li>Students seeking focused revision</li>
-        <li>Candidates who want to combine selected subjects</li>
-      </ul>
-      <p class="pcol-choose"><span class="lbl">Choose this if</span>You already understand the AFK process and want to focus on one or more specific subjects.</p>
-      <p class="pcol-note">Choose one subject, combine several subjects, or create a customized AFK pathway built around exactly what you need.</p>
+    <div class="subj-list">
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">01</span>Oral &amp; Maxillofacial Surgery</span></summary>
+        <div class="subj-body">Principles of exodontia, surgical techniques, and the recognition and management of common surgical complications.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">02</span>Local Anesthesia</span></summary>
+        <div class="subj-body">Anesthetic agents, injection techniques and relevant anatomy, plus recognition and management of anesthetic complications.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">03</span>Oral Pathology</span></summary>
+        <div class="subj-body">Diseases and lesions of the oral and maxillofacial region and their clinical and histological features.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">04</span>Pharmacology</span></summary>
+        <div class="subj-body">Drug classes relevant to dentistry, their mechanisms, interactions and prescribing considerations.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">05</span>Periodontics</span></summary>
+        <div class="subj-body">Periodontal anatomy, disease classification, diagnosis, and non-surgical and surgical therapy.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">06</span>Oral Radiology</span></summary>
+        <div class="subj-body">Imaging principles, radiographic techniques and interpretation of common radiographic findings.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">07</span>Endodontics</span></summary>
+        <div class="subj-body">Pulpal and periapical diagnosis, root canal anatomy and the principles of endodontic treatment.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">08</span>Prosthodontics</span></summary>
+        <div class="subj-body">Fixed and removable prosthodontics, occlusion and treatment planning for tooth replacement.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">09</span>Restorative Dentistry &amp; Dental Materials</span></summary>
+        <div class="subj-body">Operative procedures and the properties of the dental materials used in restorative treatment.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">10</span>Orthodontics</span></summary>
+        <div class="subj-body">Growth and development, malocclusion, diagnosis and the principles of orthodontic treatment.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">11</span>Biomedical Sciences</span></summary>
+        <div class="subj-body">Foundational anatomy, physiology, microbiology and biochemistry underpinning clinical dentistry.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">12</span>Pediatric Dentistry</span></summary>
+        <div class="subj-body">Growth, behaviour management and treatment considerations for child and adolescent patients.</div>
+      </details>
+      <details class="subj">
+        <summary><span class="subj-tag"><span class="n">13</span>Oral Medicine &amp; Diagnosis</span></summary>
+        <div class="subj-body">Clinical diagnosis, oral manifestations of systemic disease and the management of medically complex patients.</div>
+      </details>
+    </div>
+
+    <p class="subj-note">Choose one subject, combine several, or build a customized AFK pathway around exactly what you need.</p>
+
+    <div style="text-align:center;">
       <a class="pcol-cta gold" href="https://www.confidentist.ca/afk-modular-program/">Select Your Subjects →</a>
     </div>
 
