@@ -294,12 +294,13 @@
     .path-chevron {
       position: relative;
       background: var(--navy); color: #fff;
-      padding: 1rem 1.4rem 1rem 1.15rem;
+      padding: 1rem 2.1rem 1rem 2.35rem;
       clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
-      display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: .6rem;
       transition: transform .18s, filter .18s, background .18s;
     }
     .path-step:first-child .path-chevron {
+      padding-left: 1.4rem;
       clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
     }
     .path-abbr { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.35rem; line-height: 1; letter-spacing: .01em; }
