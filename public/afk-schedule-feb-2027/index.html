@@ -90,6 +90,7 @@
     .section { padding: 3.75rem 1.5rem; }
     .section.alt { background: var(--bg-soft); }
     .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-inner.wide { max-width: 1400px; }
     .section-head { max-width: 760px; margin: 0 auto 2.25rem; text-align: center; }
     .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
     .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
@@ -126,10 +127,17 @@
 
     /* ── SCHEDULE TABLE ── */
     .table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
-    table.sched { width: 100%; border-collapse: collapse; background: #fff; min-width: 820px; }
+    table.sched { width: 100%; border-collapse: collapse; background: #fff; min-width: 820px; table-layout: fixed; }
     table.sched caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-    table.sched th, table.sched td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: .85rem; vertical-align: top; }
-    table.sched thead th { background: var(--navy); color: #fff; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; position: sticky; top: 66px; }
+    table.sched col.c-sess { width: 9%; }
+    table.sched col.c-date { width: 11%; }
+    table.sched col.c-day  { width: 6%; }
+    table.sched col.c-time { width: 20%; }
+    table.sched col.c-topic{ width: 30%; }
+    table.sched col.c-inst { width: 12%; }
+    table.sched col.c-fmt  { width: 12%; }
+    table.sched th, table.sched td { padding: 1rem 1.15rem; text-align: left; border-bottom: 1px solid var(--border); font-size: .95rem; vertical-align: top; }
+    table.sched thead th { background: var(--navy); color: #fff; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; position: sticky; top: 66px; }
     table.sched tbody th { font-weight: 700; color: var(--navy); background: var(--bg-soft); white-space: nowrap; text-align: center; }
     table.sched td { color: var(--muted); }
     table.sched td.topic { color: var(--text); font-weight: 500; }
@@ -244,7 +252,7 @@
 
 <!-- FULL SCHEDULE -->
 <section class="section alt" id="schedule">
-  <div class="section-inner">
+  <div class="section-inner wide">
 
     <div class="legend">
       <span class="lg"><span class="dot live"></span>Online / Live</span>
@@ -264,6 +272,7 @@
       <div class="table-wrap">
         <table class="sched">
           <caption>Extended sessions schedule, June – July 2026</caption>
+          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
           <thead>
             <tr>
               <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
@@ -304,6 +313,7 @@
       <div class="table-wrap">
         <table class="sched">
           <caption>Comprehensive Block 1 schedule</caption>
+          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
           <thead>
             <tr>
               <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
@@ -341,6 +351,7 @@
       <div class="table-wrap">
         <table class="sched">
           <caption>Comprehensive Block 2 schedule</caption>
+          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
           <thead>
             <tr>
               <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
@@ -373,6 +384,7 @@
       <div class="table-wrap">
         <table class="sched">
           <caption>Comprehensive Block 3 schedule</caption>
+          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
           <thead>
             <tr>
               <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
@@ -409,6 +421,7 @@
       <div class="table-wrap">
         <table class="sched">
           <caption>Comprehensive Block 4 schedule</caption>
+          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
           <thead>
             <tr>
               <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
@@ -441,6 +454,7 @@
       <div class="table-wrap">
         <table class="sched">
           <caption>Comprehensive Block 5 schedule</caption>
+          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
           <thead>
             <tr>
               <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
