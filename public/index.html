@@ -968,6 +968,7 @@
             <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
             <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
             <a href="/afk-mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">Full &amp; mini mocks, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
             <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
           </div>
           <div class="mega-foot">
@@ -976,7 +977,21 @@
           </div>
         </div>
       </div>
-      <div class="nav-item"><a href="https://www.confidentist.ca/blog/">Resources</a></div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">
+          Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="https://www.confidentist.ca/blog/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-actions">
@@ -1006,6 +1021,9 @@
   <a href="/university-interview-preparation/" class="sub">University Interviews</a>
   <a href="/course-bundles/" class="sub">Course Bundles</a>
   <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="https://www.confidentist.ca/blog/" class="sub">Blog</a>
   <div class="mp-label">More</div>
   <a href="https://www.confidentist.ca/our-team/">Instructors</a>
   <a href="https://www.confidentist.ca/contact-us/">Contact</a>
@@ -1445,9 +1463,9 @@ function initHeader() {
 }
 
 /* ─────────────  DESKTOP MEGA MENU  ───────────── */
-function initMega() {
-  const item = document.getElementById('equivItem');
-  const trigger = document.getElementById('equivTrigger');
+function initMega(itemId, triggerId) {
+  const item = document.getElementById(itemId);
+  const trigger = document.getElementById(triggerId);
   if (!item || !trigger) return;
   let closeTimer;
   const open = (state) => { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); };
@@ -2175,7 +2193,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderUpcoming();
   renderReviews();
   initHeader();
-  initMega();
+  initMega('equivItem', 'equivTrigger');
+  initMega('resItem', 'resTrigger');
   initMobile();
   initHeroVideo();
   finder.init();

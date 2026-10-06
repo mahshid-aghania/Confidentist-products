@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfiTalk · Free Dental Equivalency Video Series | ConfiDentist</title>
+  <meta name="description" content="ConfiTalk is ConfiDentist's free video series — bite-sized, exam-oriented sessions from our instructors on radiology, oral pathology, dental implants and more for the Canadian dental equivalency journey." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/confitalk/" />
+  <meta property="og:title" content="ConfiTalk · Free Dental Equivalency Video Series | ConfiDentist" />
+  <meta property="og:description" content="Free, exam-oriented video sessions from ConfiDentist instructors for your Canadian dental equivalency journey." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem; }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    /* ── NAV ── */
+    nav.site { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 2px solid var(--gold); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .02em; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-link { color: rgba(255,255,255,.75); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .5rem 1.25rem; border-radius: .35rem; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── BREADCRUMBS ── */
+    .crumbs { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .crumbs-inner { max-width: 1160px; margin: 0 auto; padding: .85rem 1.5rem; font-size: .78rem; color: var(--muted); }
+    .crumbs-inner a { color: var(--gold-dark); text-decoration: none; }
+    .crumbs-inner a:hover { text-decoration: underline; }
+    .crumbs-inner span[aria-current] { color: var(--navy); font-weight: 600; }
+    .crumbs-sep { margin: 0 .5rem; color: var(--border); }
+
+    /* ── HERO ── */
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); padding: 4rem 1.5rem; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-inner { max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(15,122,229,.18); border: 1px solid rgba(15,122,229,.45); color: var(--gold-light); border-radius: .35rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.6vw, 3.1rem); font-weight: 700; line-height: 1.18; color: #fff; margin-bottom: 1rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.03rem; color: rgba(255,255,255,.75); max-width: 620px; margin: 0 auto; line-height: 1.7; font-weight: 300; }
+
+    /* ── SECTION ── */
+    .section { padding: 3.5rem 1.5rem; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 2.5rem; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
+    .section-desc { font-size: .95rem; color: var(--muted); line-height: 1.8; }
+
+    /* ── VIDEO LIST ── */
+    .talks { display: flex; flex-direction: column; gap: 2.5rem; }
+    .talk { display: flex; flex-direction: column; gap: 1.1rem; }
+    .talk .embed { position: relative; width: 100%; padding-top: 56.25%; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); background: #000; border: 1px solid var(--border); }
+    .talk .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .talk .meta .ep { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .35rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .talk .meta h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: .2rem; }
+    .talk .meta .by { font-size: .86rem; font-weight: 600; color: var(--teal); margin-bottom: .55rem; }
+    .talk .meta p { font-size: .92rem; color: var(--muted); line-height: 1.7; }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ── CHANNEL CTA ── */
+    .channel { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: var(--radius); padding: 2.5rem 2rem; text-align: center; color: #fff; box-shadow: var(--shadow-md); margin-top: 2.5rem; }
+    .channel h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: .6rem; }
+    .channel p { font-size: .95rem; color: rgba(255,255,255,.72); line-height: 1.7; max-width: 520px; margin: 0 auto 1.5rem; }
+    .btn-yt { display: inline-flex; align-items: center; gap: .55rem; background: #fff; color: var(--navy); font-weight: 700; font-size: .9rem; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: transform .15s, box-shadow .2s; }
+    .btn-yt:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .btn-yt svg { width: 20px; height: 20px; color: #ff0000; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold-light); }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    @media (max-width: 520px) { .nav-link { display: none; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .001ms !important; } }
+  </style>
+</head>
+<body>
+
+<a href="#talks" class="skip-link">Skip to videos</a>
+
+<!-- NAV -->
+<nav class="site">
+  <div class="nav-inner">
+    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
+    <div class="nav-right">
+      <a href="/afk-programs/" class="nav-link">AFK Programs</a>
+      <a href="/dental-equivalency/" class="nav-link">Programs</a>
+      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Contact an Advisor</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <span style="color:var(--muted)">Resources</span><span class="crumbs-sep">/</span>
+    <span aria-current="page">ConfiTalk</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Free Video Series</p>
+    <h1>Welcome to <em>ConfiTalk</em></h1>
+    <p class="hero-sub">A free video series where our instructors share bite-sized, exam-oriented knowledge for everyone on the Canadian dental equivalency journey — key concepts, worked examples and practical tips you can apply right away.</p>
+  </div>
+</header>
+
+<!-- VIDEO LIST -->
+<section class="section" id="talks">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Watch the Series</span>
+      <h2 class="section-title">ConfiTalk Episodes</h2>
+      <p class="section-desc">New sessions are added over time. Watch below, or subscribe on YouTube to catch every episode.</p>
+    </div>
+
+    <div class="talks">
+
+      <!-- ConfiTalk 5 -->
+      <article class="talk">
+        <div class="embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/NgbQbAjbIV0" title="ConfiTalk 5 — Dental Implant Radiology" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="meta">
+          <span class="ep">ConfiTalk 5 · Clinical Judgement</span>
+          <h2>Dental Implant Radiology</h2>
+          <div class="by">Dr. Mehdi Adibrad</div>
+          <p>Head instructor Dr. Mehdi Adibrad breaks down the fundamentals of dental implants — implant fixtures, radiologic principles and the clinical considerations that come up in the ACJ exam.</p>
+        </div>
+      </article>
+
+      <hr class="divider" />
+
+      <!-- ConfiTalk 4 -->
+      <article class="talk">
+        <div class="embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/dAeM_BW6Bdw" title="ConfiTalk 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="meta">
+          <span class="ep">ConfiTalk 4</span>
+          <h2>Advanced Dental Admission Test (ADAT)</h2>
+          <div class="by">ConfiDentist Instructors</div>
+          <p>A short ConfiTalk session on the ADAT — what the test involves and how to approach your preparation as part of the equivalency pathway.</p>
+        </div>
+      </article>
+
+      <hr class="divider" />
+
+      <!-- ConfiTalk 3 - Part 1 -->
+      <article class="talk">
+        <div class="embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/G7EA_g83Z-g" title="ConfiTalk 3 — Oral Pathology & Pain Scenarios, Part 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="meta">
+          <span class="ep">ConfiTalk 3 · Part 1</span>
+          <h2>Oral Pathology &amp; Pain Scenarios</h2>
+          <div class="by">Dr. Neda Kadivar</div>
+          <p>Dr. Neda Kadivar works through oral pathology and clinical pain scenarios, with exam-relevant reasoning — Part 1 of a two-part session.</p>
+        </div>
+      </article>
+
+      <hr class="divider" />
+
+      <!-- ConfiTalk 3 - Part 2 -->
+      <article class="talk">
+        <div class="embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/fhz9CEqJ4ZA" title="ConfiTalk 3 — Oral Pathology & Pain Scenarios, Part 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="meta">
+          <span class="ep">ConfiTalk 3 · Part 2</span>
+          <h2>Oral Pathology &amp; Pain Scenarios</h2>
+          <div class="by">Dr. Neda Kadivar</div>
+          <p>The discussion continues with more advanced pain-related oral conditions and how to distinguish between them — Part 2.</p>
+        </div>
+      </article>
+
+      <hr class="divider" />
+
+      <!-- ConfiTalk 2 -->
+      <article class="talk">
+        <div class="embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/1_HJifM2SRY" title="ConfiTalk 2 — Radiology Practice Session" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="meta">
+          <span class="ep">ConfiTalk 2</span>
+          <h2>Radiology Practice Session</h2>
+          <div class="by">Dr. Amin Asadollahi</div>
+          <p>A guided radiology practice session — reading dental radiographs and reasoning through findings the way you'll need to on the exam.</p>
+        </div>
+      </article>
+
+      <hr class="divider" />
+
+      <!-- ConfiTalk 1 -->
+      <article class="talk">
+        <div class="embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/2fl6XQAIGXE" title="ConfiTalk 1 — Radiology Practice Session" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="meta">
+          <span class="ep">ConfiTalk 1</span>
+          <h2>Radiology Practice Session</h2>
+          <div class="by">Dr. Mehdi Adibrad</div>
+          <p>The one that started it all — head instructor Dr. Mehdi Adibrad works through radiographic interpretation, distinguishing normal findings from pathology and avoiding common mistakes.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CHANNEL CTA -->
+    <div class="channel">
+      <h2>More on YouTube</h2>
+      <p>That's the full ConfiTalk series so far. Subscribe for new episodes and more free dental equivalency content from our instructors.</p>
+      <a class="btn-yt" href="https://www.youtube.com/@confi-dentist" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+        Visit our YouTube channel
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Home</a> &nbsp;·&nbsp;
+    <a href="/afk-programs/">AFK Programs</a> &nbsp;·&nbsp;
+    <a href="/confitalk/">ConfiTalk</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiTalk is provided for educational purposes. ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
