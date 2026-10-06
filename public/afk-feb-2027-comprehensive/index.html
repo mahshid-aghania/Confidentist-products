@@ -79,6 +79,16 @@
     .cta:hover { background:var(--gold-dark); transform:translateY(-1px); }
     .fineprint { font-size:.76rem; color:var(--muted); text-align:center; line-height:1.6; margin-top:1rem; }
 
+    /* Schedule link */
+    .schedule-link { display:flex; align-items:center; gap:1rem; margin-top:1.5rem; padding:1.1rem 1.35rem; background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); text-decoration:none; transition:border-color .18s, box-shadow .18s, transform .15s; }
+    .schedule-link:hover { border-color:var(--gold); box-shadow:var(--shadow-md); transform:translateY(-1px); }
+    .schedule-link-ic { flex-shrink:0; width:42px; height:42px; border-radius:.55rem; background:var(--gold-bg); color:var(--gold-dark); display:flex; align-items:center; justify-content:center; }
+    .schedule-link-ic svg { width:21px; height:21px; }
+    .schedule-link-txt { flex:1; display:flex; flex-direction:column; gap:.2rem; }
+    .schedule-link-txt strong { font-size:.95rem; font-weight:700; color:var(--navy); }
+    .schedule-link-txt span { font-size:.8rem; color:var(--muted); line-height:1.5; }
+    .schedule-link-arrow { flex-shrink:0; font-size:1.15rem; font-weight:700; color:var(--gold-dark); }
+
     footer { background:var(--navy); color:rgba(255,255,255,.5); padding:2.5rem 1.5rem; text-align:center; font-size:.78rem; line-height:1.9; }
     .footer-logo { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:.35rem; }
     .footer-logo span { color:var(--gold); }
@@ -146,6 +156,17 @@
         <p class="fineprint">Prices in CAD. Ontario HST (13%) applies to the course fee. The October and November installments complete your balance; links for those are provided above and are also sent by email. We do not accept preauthorized or automatic payments — please use the link on or after each due date.</p>
       </div>
     </div>
+
+    <a class="schedule-link" href="/afk-schedule-feb-2027/">
+      <span class="schedule-link-ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      </span>
+      <span class="schedule-link-txt">
+        <strong>See the full session-by-session schedule</strong>
+        <span>Every session from the June Extended head-start through Blocks 1–5, mock exams and the Feb 5, 2027 exam.</span>
+      </span>
+      <span class="schedule-link-arrow" aria-hidden="true">→</span>
+    </a>
   </div>
 </section>
 

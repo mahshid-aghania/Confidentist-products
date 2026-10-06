@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AFK Comprehensive – February 2027 Schedule | ConfiDentist</title>
-  <meta name="description" content="Full session schedule for the ConfiDentist AFK Comprehensive – February 2027 program: Extended sessions, Blocks 1–5, mock exams and the NDEB AFK exam date." />
+  <meta name="description" content="The complete session-by-session schedule for the ConfiDentist AFK Comprehensive – February 2027 program: Extended sessions, Comprehensive Blocks 1–5, mini & full mock exams and the NDEB AFK exam date." />
   <link rel="canonical" href="https://confidentist-products.vercel.app/afk-schedule-feb-2027/" />
   <meta property="og:title" content="AFK Comprehensive – February 2027 Schedule | ConfiDentist" />
-  <meta property="og:description" content="Session-by-session schedule for the AFK Comprehensive – February 2027 preparation program." />
+  <meta property="og:description" content="Full session-by-session schedule for the AFK Comprehensive – February 2027 preparation program." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +25,8 @@
       --gold-bg:     #e9f3fd;
       --teal:        #3BAFBF;
       --teal-light:  #e8f7f8;
+      --amber:       #b4690e;
+      --amber-bg:    #fdf4e7;
       --green:       #0b8a3b;
       --green-bg:    #eefcf3;
 
@@ -88,7 +90,7 @@
     .section { padding: 3.75rem 1.5rem; }
     .section.alt { background: var(--bg-soft); }
     .section-inner { max-width: 1000px; margin: 0 auto; }
-    .section-head { max-width: 680px; margin: 0 auto 2.25rem; text-align: center; }
+    .section-head { max-width: 760px; margin: 0 auto 2.25rem; text-align: center; }
     .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
     .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
@@ -98,36 +100,46 @@
     .notice { max-width: 1000px; margin: 0 auto; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.25); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1rem 1.25rem; font-size: .86rem; color: var(--navy); line-height: 1.6; display: flex; gap: .7rem; align-items: flex-start; }
     .notice svg { width: 18px; height: 18px; color: var(--gold-dark); flex-shrink: 0; margin-top: .15rem; }
 
+    /* ── JUMP NAV ── */
+    .jump { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; max-width: 1000px; margin: 1.75rem auto 0; }
+    .jump a { font-size: .78rem; font-weight: 600; color: var(--navy); background: #fff; border: 1.5px solid var(--border); border-radius: 2rem; padding: .42rem .95rem; text-decoration: none; transition: border-color .18s, color .18s, background .18s; }
+    .jump a:hover { border-color: var(--gold); color: var(--gold-dark); background: var(--gold-bg); }
+
     /* ── LEGEND ── */
     .legend { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 2rem; }
     .lg { display: inline-flex; align-items: center; gap: .45rem; font-size: .78rem; font-weight: 600; color: var(--navy); background: #fff; border: 1.5px solid var(--border); border-radius: 2rem; padding: .4rem .9rem; }
     .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .dot.live { background: var(--gold); }
     .dot.rec { background: var(--teal); }
-    .dot.quiz { background: #b4690e; }
+    .dot.quiz { background: var(--amber); }
+    .dot.mock { background: var(--green); }
+
+    /* ── BLOCK TABLE GROUP ── */
+    .block-group { margin-top: 2.75rem; }
+    .block-group:first-of-type { margin-top: 0; }
+    .block-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem .9rem; margin-bottom: 1rem; padding-bottom: .85rem; border-bottom: 2px solid var(--border); scroll-margin-top: 80px; }
+    .block-head .bnum { font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: linear-gradient(90deg, var(--navy), var(--teal)); padding: .3rem .7rem; border-radius: .35rem; }
+    .block-head .btitle { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+    .block-head .bdates { font-size: .82rem; font-weight: 600; color: var(--teal); margin-left: auto; }
+    .block-subjects { font-size: .84rem; color: var(--muted); margin-bottom: 1.1rem; line-height: 1.6; }
+    .block-subjects strong { color: var(--navy); font-weight: 600; }
 
     /* ── SCHEDULE TABLE ── */
     .table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
-    table.sched { width: 100%; border-collapse: collapse; background: #fff; min-width: 760px; }
+    table.sched { width: 100%; border-collapse: collapse; background: #fff; min-width: 820px; }
     table.sched caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-    table.sched th, table.sched td { padding: .85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: .85rem; vertical-align: top; }
+    table.sched th, table.sched td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: .85rem; vertical-align: top; }
     table.sched thead th { background: var(--navy); color: #fff; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; position: sticky; top: 66px; }
-    table.sched tbody th { font-weight: 700; color: var(--navy); background: var(--bg-soft); white-space: nowrap; }
+    table.sched tbody th { font-weight: 700; color: var(--navy); background: var(--bg-soft); white-space: nowrap; text-align: center; }
     table.sched td { color: var(--muted); }
+    table.sched td.topic { color: var(--text); font-weight: 500; }
     table.sched tbody tr:last-child td, table.sched tbody tr:last-child th { border-bottom: none; }
+    table.sched tbody tr.mock-row th { background: var(--green-bg); color: var(--green); }
+    table.sched tbody tr.mock-row td { background: var(--green-bg); }
+    table.sched tbody tr.mock-row td.topic { color: var(--green); font-weight: 700; }
     .fmt { display: inline-flex; align-items: center; gap: .4rem; font-weight: 600; white-space: nowrap; }
     .fmt .dot { width: 8px; height: 8px; }
-
-    /* ── BLOCKS ── */
-    .blocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
-    .block-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
-    .block-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); }
-    .block-num { font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .4rem; }
-    .block-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
-    .block-dates { font-size: .8rem; font-weight: 600; color: var(--teal); margin-bottom: .9rem; }
-    .block-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
-    .block-list li { display: flex; align-items: flex-start; gap: .55rem; font-size: .86rem; color: var(--muted); line-height: 1.5; }
-    .block-list li svg { width: 15px; height: 15px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .tba { font-style: italic; opacity: .8; }
 
     /* ── EXAM HIGHLIGHT ── */
     .exam-card { max-width: 640px; margin: 0 auto; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); color: #fff; border-radius: var(--radius); padding: 2.25rem; text-align: center; box-shadow: var(--shadow-md); }
@@ -155,6 +167,7 @@
     @media (max-width: 520px) {
       .nav-link { display: none; }
       table.sched thead th { top: 0; }
+      .block-head .bdates { margin-left: 0; width: 100%; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -174,7 +187,7 @@
     <div class="nav-right">
       <a href="/afk-programs/" class="nav-link">AFK Programs</a>
       <a href="/afk-programs/full-package/" class="nav-link">Full Package</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Contact an Advisor</a>
+      <a href="/afk-feb-2027-comprehensive/" class="nav-cta">Reserve Your Seat</a>
     </div>
   </div>
 </nav>
@@ -184,8 +197,8 @@
   <div class="crumbs-inner">
     <a href="/">Home</a><span class="crumbs-sep">/</span>
     <a href="/afk-programs/">AFK Programs</a><span class="crumbs-sep">/</span>
-    <a href="/afk-programs/full-package/">Full Package</a><span class="crumbs-sep">/</span>
-    <span aria-current="page">Feb 2027 Schedule</span>
+    <a href="/afk-feb-2027-comprehensive/">AFK Comprehensive – Feb 2027</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">Full Schedule</span>
   </div>
 </nav>
 
@@ -194,7 +207,7 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">Now Open · AFK Comprehensive</p>
     <h1>AFK Comprehensive — <em>February 2027 Schedule</em></h1>
-    <p class="hero-sub">The complete session-by-session plan for the Comprehensive cohort — from the June Extended sessions through five study blocks, full mock exams and the NDEB AFK exam.</p>
+    <p class="hero-sub">Every session, mapped out in full — from the June Extended head-start through five Comprehensive study blocks, mini &amp; full mock exams, and the final reviews before your NDEB AFK exam.</p>
     <div class="hero-facts">
       <span class="hero-fact">Course start: <strong>July 12, 2026</strong></span>
       <span class="hero-fact">Program length: <strong>6 months</strong></span>
@@ -215,167 +228,253 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
       <span>Please be advised that the information below is subject to change. Session dates, times and formats may be adjusted; registered students are notified of any updates through ConfiPortal and the VIP WhatsApp group.</span>
     </div>
+    <nav class="jump" aria-label="Jump to a block">
+      <a href="#extended">Extended Sessions</a>
+      <a href="#block-1">Block 1</a>
+      <a href="#block-2">Block 2</a>
+      <a href="#block-3">Block 3</a>
+      <a href="#block-4">Block 4</a>
+      <a href="#block-5">Block 5</a>
+      <a href="#exam">NDEB Exam</a>
+    </nav>
   </div>
 </section>
 
 <hr class="rule" />
 
-<!-- EXTENDED SESSIONS -->
+<!-- FULL SCHEDULE -->
 <section class="section alt" id="schedule">
   <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">June 2026</span>
-      <h2 class="section-title">Extended Sessions</h2>
-      <p class="section-desc">An early head-start block for Extended students, covering Surgery, Local Anesthesia, Pathology and Pharmacology, with quizzes and discussion/Q&amp;A sessions.</p>
-    </div>
 
     <div class="legend">
       <span class="lg"><span class="dot live"></span>Online / Live</span>
       <span class="lg"><span class="dot rec"></span>Pre-recorded (ConfiPortal)</span>
       <span class="lg"><span class="dot quiz"></span>Quiz</span>
+      <span class="lg"><span class="dot mock"></span>In-Person / Mock</span>
     </div>
 
-    <div class="table-wrap">
-      <table class="sched">
-        <caption>Extended sessions schedule, June 2026</caption>
-        <thead>
-          <tr>
-            <th scope="col">Session</th>
-            <th scope="col">Date</th>
-            <th scope="col">Day</th>
-            <th scope="col">Time</th>
-            <th scope="col">Topic</th>
-            <th scope="col">Instructor</th>
-            <th scope="col">Format</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">E1</th><td>6 Jun 2026</td><td>Sat</td><td>10:00–11:00 AM</td>
-            <td>Orientation (Extended)</td><td>Dr. Delaram</td>
-            <td><span class="fmt"><span class="dot live"></span>Online / Live</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E2–E4</th><td>6–8 Jun 2026</td><td>—</td><td>ConfiPortal</td>
-            <td>Surgery 1–3</td><td>Dr. Mehdi</td>
-            <td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E5–E6</th><td>12–13 Jun 2026</td><td>—</td><td>ConfiPortal</td>
-            <td>Local Anesthesia 1–2</td><td>Dr. Mehdi</td>
-            <td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E7</th><td>14 Jun 2026</td><td>Sun</td><td>9:00 AM</td>
-            <td>Quiz 1 — Surgery &amp; Local Anesthesia</td><td>Platform</td>
-            <td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E8–E11</th><td>15–21 Jun 2026</td><td>—</td><td>ConfiPortal</td>
-            <td>Pathology 1–4</td><td>Dr. Najmeh</td>
-            <td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E12–E15</th><td>26–29 Jun 2026</td><td>—</td><td>ConfiPortal</td>
-            <td>Pharmacology 1–3</td><td>Dr. Mehdi</td>
-            <td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E13</th><td>27 Jun 2026</td><td>Sat</td><td>11:30 AM–2:30 PM</td>
-            <td>Discussion / Q&amp;A 1</td><td>Dr. Delaram</td>
-            <td><span class="fmt"><span class="dot live"></span>Online / Live</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E16–E17</th><td>3–4 Jul 2026</td><td>Fri–Sat</td><td>Varied</td>
-            <td>Quizzes 2–3</td><td>Platform</td>
-            <td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td>
-          </tr>
-          <tr>
-            <th scope="row">E18</th><td>5 Jul 2026</td><td>Sun</td><td>11:00 AM–2:30 PM</td>
-            <td>Discussion / Q&amp;A 2–3</td><td>Dr. Delaram</td>
-            <td><span class="fmt"><span class="dot live"></span>Online / Live</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<hr class="rule" />
-
-<!-- COMPREHENSIVE BLOCKS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">July 2026 – January 2027</span>
-      <h2 class="section-title">Comprehensive Program — Blocks 1–5</h2>
-      <p class="section-desc">The core six-month program is organized into five study blocks. Each block pairs live and pre-recorded lectures with quizzes and discussion sessions, building toward the full mock exams and final reviews.</p>
-    </div>
-
-    <div class="blocks">
-      <div class="block-card">
-        <div class="block-num">Block 1</div>
-        <div class="block-title">Foundations &amp; Core Subjects</div>
-        <div class="block-dates">July – August 2026</div>
-        <ul class="block-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pathology</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Periodontics</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Radiology</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Endodontics</li>
-        </ul>
+    <!-- EXTENDED -->
+    <div class="block-group">
+      <div class="block-head" id="extended">
+        <span class="bnum">Extended</span>
+        <span class="btitle">Extended Sessions</span>
+        <span class="bdates">June – July 2026</span>
       </div>
-
-      <div class="block-card">
-        <div class="block-num">Block 2</div>
-        <div class="block-title">Restorative &amp; Pharmacology</div>
-        <div class="block-dates">August – October 2026</div>
-        <ul class="block-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prosthodontics</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pharmacology</li>
-        </ul>
-      </div>
-
-      <div class="block-card">
-        <div class="block-num">Block 3</div>
-        <div class="block-title">Surgical &amp; Materials</div>
-        <div class="block-dates">October – November 2026</div>
-        <ul class="block-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Surgery</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Local Anesthesia</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Restorative / Dental Materials</li>
-        </ul>
-      </div>
-
-      <div class="block-card">
-        <div class="block-num">Block 4</div>
-        <div class="block-title">Specialty Subjects</div>
-        <div class="block-dates">November 2026</div>
-        <ul class="block-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Orthodontics</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Biomedical Science</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pediatric Dentistry</li>
-        </ul>
-      </div>
-
-      <div class="block-card">
-        <div class="block-num">Block 5</div>
-        <div class="block-title">Review &amp; Mock Exams</div>
-        <div class="block-dates">December 2026 – January 2027</div>
-        <ul class="block-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Comprehensive subject reviews</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mock-exam discussion sessions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Final reviews before the exam</li>
-        </ul>
+      <p class="block-subjects">A pre-Comprehensive head-start block covering <strong>Surgery</strong>, <strong>Local Anesthesia</strong>, <strong>Pathology</strong> and <strong>Pharmacology</strong>, with quizzes and discussion / Q&amp;A sessions.</p>
+      <div class="table-wrap">
+        <table class="sched">
+          <caption>Extended sessions schedule, June – July 2026</caption>
+          <thead>
+            <tr>
+              <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
+              <th scope="col">Time</th><th scope="col">Topic</th><th scope="col">Instructor</th><th scope="col">Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">E1</th><td>6 Jun 2026</td><td>Sat</td><td>10:00–11:00 AM</td><td class="topic">Orientation (Extended)</td><td>Dr. Delaram</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">E2</th><td>6 Jun 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Surgery 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E3</th><td>7 Jun 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Surgery 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E4</th><td>8 Jun 2026</td><td>Mon</td><td>ConfiPortal</td><td class="topic">Surgery 3</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E5</th><td>12 Jun 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Local Anesthesia 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E6</th><td>13 Jun 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Local Anesthesia 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E7</th><td>14 Jun 2026</td><td>Sun</td><td>Activate 9:00 AM</td><td class="topic">Quiz 1 — Surgery &amp; Local Anesthesia</td><td>Platform</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">E8</th><td>15 Jun 2026</td><td>Mon</td><td>ConfiPortal</td><td class="topic">Pathology 1</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E9</th><td>19 Jun 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Pathology 2</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E10</th><td>20 Jun 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Pathology 3</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E11</th><td>21 Jun 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Pathology 4</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E12</th><td>26 Jun 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Pharmacology 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E13</th><td>27 Jun 2026</td><td>Sat</td><td>11:30 AM–2:30 PM</td><td class="topic">Discussion / Q&amp;A 1 (Surgery &amp; LA)</td><td>Dr. Delaram</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">E14</th><td>28 Jun 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Pharmacology 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E15</th><td>29 Jun 2026</td><td>Mon</td><td>ConfiPortal</td><td class="topic">Pharmacology 3</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">E16</th><td>3 Jul 2026</td><td>Fri</td><td>11:30 AM–2:30 PM</td><td class="topic">Quiz 2 (Pathology)</td><td>Platform</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">E17</th><td>4 Jul 2026</td><td>Sat</td><td>Activate 9:00 AM</td><td class="topic">Quiz 3 (Pharmacology)</td><td>Platform</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">E18</th><td>5 Jul 2026</td><td>Sun</td><td>11:00 AM–2:30 PM</td><td class="topic">Discussion / Q&amp;A 2–3 (Pharma / Patho)</td><td>Dr. Delaram</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
+
+    <!-- BLOCK 1 -->
+    <div class="block-group">
+      <div class="block-head" id="block-1">
+        <span class="bnum">Block 1</span>
+        <span class="btitle">Pathology · Periodontics · Radiology · Endodontics</span>
+        <span class="bdates">July – August 2026</span>
+      </div>
+      <div class="table-wrap">
+        <table class="sched">
+          <caption>Comprehensive Block 1 schedule</caption>
+          <thead>
+            <tr>
+              <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
+              <th scope="col">Time</th><th scope="col">Topic</th><th scope="col">Instructor</th><th scope="col">Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1</th><td>12 Jul 2026</td><td>Sun</td><td>10:00–11:00 AM</td><td class="topic">Orientation</td><td>Dr. Delaram</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">2</th><td>12 Jul 2026</td><td>Sun</td><td>11:30 AM–4:30 PM</td><td class="topic">Pathology 1</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">3</th><td>18 Jul 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Pathology 2</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">4</th><td>19 Jul 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Pathology 3</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">5</th><td>24 Jul 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Pathology 4</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">6</th><td>25 Jul 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Periodontics 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">7</th><td>7 Aug 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Periodontics 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">8</th><td>8 Aug 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Periodontics 3</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">9</th><td>9 Aug 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Radiology 1</td><td>Dr. Delaram</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">10</th><td>15 Aug 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Endodontics 1</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">11</th><td>16 Aug 2026</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Endodontics 2</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">12</th><td>21 Aug 2026</td><td>Fri</td><td>Activate 9:00 AM · 11:00 AM–2:00 PM</td><td class="topic">Quiz 1 (Patho) + Discussion (Patho)</td><td>Dr. Najmeh</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">13</th><td>22 Aug 2026</td><td>Sat</td><td>Activate 9:00 AM · 11:00 AM–2:00 PM</td><td class="topic">Quiz 2 (Perio) + Discussion &amp; Q&amp;A</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">14</th><td>29 Aug 2026</td><td>Sat</td><td>Activate 9:00 AM · 12:00 PM–3:00 PM</td><td class="topic">Quiz 3–4 (Endo &amp; Radio) + Discussion &amp; Q&amp;A</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr class="mock-row"><th scope="row">Mini Mock 1</th><td class="tba">TBA</td><td>—</td><td class="tba">TBA</td><td class="topic">Mini Mock Exam</td><td class="tba">TBA</td><td><span class="fmt"><span class="dot mock"></span>In-Person</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 -->
+    <div class="block-group">
+      <div class="block-head" id="block-2">
+        <span class="bnum">Block 2</span>
+        <span class="btitle">Prosthodontics · Pharmacology</span>
+        <span class="bdates">August – October 2026</span>
+      </div>
+      <div class="table-wrap">
+        <table class="sched">
+          <caption>Comprehensive Block 2 schedule</caption>
+          <thead>
+            <tr>
+              <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
+              <th scope="col">Time</th><th scope="col">Topic</th><th scope="col">Instructor</th><th scope="col">Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">15</th><td>30 Aug 2026</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Prosthodontics 1</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">16</th><td>12 Sep 2026</td><td>Sat</td><td>10:00 AM–3:00 PM</td><td class="topic">Prosthodontics 2</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">17</th><td>13 Sep 2026</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Prosthodontics 3</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">18</th><td>19 Sep 2026</td><td>Sat</td><td>10:00 AM–3:00 PM</td><td class="topic">Prosthodontics 4</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">19</th><td>25 Sep 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Pharmacology 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">20</th><td>26 Sep 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Pharmacology 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">21</th><td>27 Sep 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Pharmacology 3</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">22</th><td>2 Oct 2026</td><td>Fri</td><td>Activate 9:00 AM · 11:00 AM–1:00 PM</td><td class="topic">Quiz 5 (Pharma) + Discussion (Pharma)</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">23</th><td>3 Oct 2026</td><td>Sat</td><td>Activate · 11:30 AM–1:30 PM</td><td class="topic">Quiz 6 (Prostho) + Discussion (Prostho)</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr class="mock-row"><th scope="row">Mini Mock 2</th><td class="tba">TBA</td><td>—</td><td class="tba">TBA</td><td class="topic">Mini Mock Exam</td><td class="tba">TBA</td><td><span class="fmt"><span class="dot mock"></span>In-Person</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BLOCK 3 -->
+    <div class="block-group">
+      <div class="block-head" id="block-3">
+        <span class="bnum">Block 3</span>
+        <span class="btitle">Surgery · Local Anesthesia · Restorative &amp; Dental Materials</span>
+        <span class="bdates">October – November 2026</span>
+      </div>
+      <div class="table-wrap">
+        <table class="sched">
+          <caption>Comprehensive Block 3 schedule</caption>
+          <thead>
+            <tr>
+              <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
+              <th scope="col">Time</th><th scope="col">Topic</th><th scope="col">Instructor</th><th scope="col">Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">24</th><td>4 Oct 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Surgery 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">25</th><td>5 Oct 2026</td><td>Mon</td><td>ConfiPortal</td><td class="topic">Surgery 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">26</th><td>6 Oct 2026</td><td>Tue</td><td>ConfiPortal</td><td class="topic">Surgery 3</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">27</th><td>10 Oct 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Local Anesthesia 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">28</th><td>11 Oct 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Local Anesthesia 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">29</th><td>16 Oct 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Quiz 7 (Surgery + LA)</td><td>Platform</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">30</th><td>16 Oct 2026</td><td>Fri</td><td>11:00 AM–2:00 PM</td><td class="topic">Discussion 8 + Q&amp;A (Surgery + LA)</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">31</th><td>18 Oct 2026</td><td>Sun</td><td>ConfiPortal</td><td class="topic">Restorative &amp; Dental Materials 1</td><td>Dr. Amin</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">32</th><td>19 Oct 2026</td><td>Mon</td><td>ConfiPortal</td><td class="topic">Restorative &amp; Dental Materials 2</td><td>Dr. Amin</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">33</th><td>23 Oct 2026</td><td>Fri</td><td>Activate 9:00 AM</td><td class="topic">Restorative &amp; Dental Materials 3</td><td>Dr. Amin</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">34</th><td>24 Oct 2026</td><td>Sat</td><td>11:00 AM–4:00 PM</td><td class="topic">Restorative &amp; Dental Materials 4</td><td>Dr. Amin</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">35</th><td>30 Oct 2026</td><td>Fri</td><td>Activate 9:00 AM</td><td class="topic">Quiz 8 (Restorative)</td><td>Platform</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">36</th><td>1 Nov 2026</td><td>Sun</td><td>11:00 AM–2:00 PM</td><td class="topic">Discussion 7 + Q&amp;A (Restorative)</td><td>Dr. Amin</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr class="mock-row"><th scope="row">Mini Mock 3</th><td class="tba">TBA</td><td>—</td><td class="tba">TBA</td><td class="topic">Mini Mock Exam</td><td class="tba">TBA</td><td><span class="fmt"><span class="dot mock"></span>In-Person</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BLOCK 4 -->
+    <div class="block-group">
+      <div class="block-head" id="block-4">
+        <span class="bnum">Block 4</span>
+        <span class="btitle">Orthodontics · Biomedical Science · Pediatric Dentistry</span>
+        <span class="bdates">November 2026</span>
+      </div>
+      <div class="table-wrap">
+        <table class="sched">
+          <caption>Comprehensive Block 4 schedule</caption>
+          <thead>
+            <tr>
+              <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
+              <th scope="col">Time</th><th scope="col">Topic</th><th scope="col">Instructor</th><th scope="col">Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">37</th><td>2 Nov 2026</td><td>Mon</td><td>ConfiPortal</td><td class="topic">Orthodontics 1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">38</th><td>3 Nov 2026</td><td>Tue</td><td>ConfiPortal</td><td class="topic">Orthodontics 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">39</th><td>9 Nov 2026</td><td>Mon</td><td>ConfiPortal</td><td class="topic">Biomedical Science 1</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">40</th><td>13 Nov 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Biomedical Science 2</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">41</th><td>14 Nov 2026</td><td>Sat</td><td>10:00 AM–4:00 PM</td><td class="topic">Biomedical Science 3 + Q&amp;A</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">42</th><td>20 Nov 2026</td><td>Fri</td><td>ConfiPortal</td><td class="topic">Pediatric Dentistry 1</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">43</th><td>21 Nov 2026</td><td>Sat</td><td>ConfiPortal</td><td class="topic">Pediatric Dentistry 2</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">44</th><td>28 Nov 2026</td><td>Sat</td><td>Activate 9:00 AM</td><td class="topic">Quiz 9, 10 &amp; 11 (Ortho + Pedo + Biomed)</td><td>Platform</td><td><span class="fmt"><span class="dot quiz"></span>Quiz · Live</span></td></tr>
+            <tr><th scope="row">45</th><td>29 Nov 2026</td><td>Sun</td><td>1:00 PM–4:00 PM</td><td class="topic">Discussion 9, 10 &amp; 11 + Ortho / Pedo Q&amp;A</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr class="mock-row"><th scope="row">Mini Mock 4</th><td class="tba">TBA</td><td>—</td><td class="tba">TBA</td><td class="topic">Mini Mock Exam</td><td class="tba">TBA</td><td><span class="fmt"><span class="dot mock"></span>In-Person</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BLOCK 5 -->
+    <div class="block-group">
+      <div class="block-head" id="block-5">
+        <span class="bnum">Block 5</span>
+        <span class="btitle">Reviews &amp; Full Mock Exams</span>
+        <span class="bdates">December 2026 – January 2027</span>
+      </div>
+      <div class="table-wrap">
+        <table class="sched">
+          <caption>Comprehensive Block 5 schedule</caption>
+          <thead>
+            <tr>
+              <th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th>
+              <th scope="col">Time</th><th scope="col">Topic</th><th scope="col">Instructor</th><th scope="col">Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">46</th><td>4 Dec 2026</td><td>Fri</td><td>10:00 AM–3:00 PM</td><td class="topic">Reviews 1 &amp; 2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">47</th><td>5 Dec 2026</td><td>Sat</td><td>10:00 AM–3:00 PM</td><td class="topic">Reviews 3 &amp; 4</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr><th scope="row">48</th><td>6 Dec 2026</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Reviews 5 &amp; 6</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
+            <tr class="mock-row"><th scope="row">49</th><td>11 Dec 2026</td><td>Fri</td><td>10:00 AM–3:00 PM</td><td class="topic">Full Mock Exam 1</td><td>Exam Admin</td><td><span class="fmt"><span class="dot mock"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">51</th><td>12 Dec 2026</td><td>Sat</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 1-1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">52</th><td>13 Dec 2026</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 1-2</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr class="mock-row"><th scope="row">53</th><td>18 Dec 2026</td><td>Fri</td><td>10:00 AM–3:00 PM</td><td class="topic">Full Mock Exam 2</td><td>Exam Admin</td><td><span class="fmt"><span class="dot mock"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">54</th><td>19 Dec 2026</td><td>Sat</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 2-1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">55</th><td>20 Dec 2026</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 2-2</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr class="mock-row"><th scope="row">56</th><td>8 Jan 2027</td><td>Fri</td><td>10:00 AM–3:00 PM</td><td class="topic">Full Mock Exam 3</td><td>Exam Admin</td><td><span class="fmt"><span class="dot mock"></span>In-Person or Online</span></td></tr>
+            <tr><th scope="row">57</th><td>9 Jan 2027</td><td>Sat</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 3-1</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot mock"></span>In-Person / Online</span></td></tr>
+            <tr><th scope="row">58</th><td>10 Jan 2027</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 3-2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot mock"></span>In-Person / Online</span></td></tr>
+            <tr class="mock-row"><th scope="row">59</th><td>15 Jan 2027</td><td>Fri</td><td>10:00 AM–3:00 PM</td><td class="topic">Full Mock Exam 4</td><td>Exam Admin</td><td><span class="fmt"><span class="dot mock"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">60</th><td>16 Jan 2027</td><td>Sat</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 4-1</td><td>Dr. Hanna</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr><th scope="row">61</th><td>17 Jan 2027</td><td>Sun</td><td>10:00 AM–3:00 PM</td><td class="topic">Discussion 4-2</td><td>Dr. Mehdi</td><td><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <hr class="rule" />
 
 <!-- EXAM HIGHLIGHT -->
-<section class="section alt">
+<section class="section" id="exam">
   <div class="section-inner">
     <div class="exam-card">
       <div class="lbl">Your Exam Date</div>
