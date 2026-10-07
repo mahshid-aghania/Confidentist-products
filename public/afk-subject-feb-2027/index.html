@@ -112,6 +112,39 @@
     .subj-card .pick { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; background: var(--gold-bg); color: var(--gold-dark); font-size: .82rem; font-weight: 700; padding: .65rem 1rem; border-radius: .4rem; text-decoration: none; transition: background .18s, color .18s; }
     .subj-card .pick:hover { background: var(--gold); color: #fff; }
 
+    /* ── SELECTABLE SUBJECT CARDS ── */
+    .subj-card.selectable { cursor: pointer; }
+    .subj-card .subj-check { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+    .subj-card .check-ind { position: absolute; top: 1.1rem; right: 1.1rem; width: 26px; height: 26px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; transition: background .18s, border-color .18s; }
+    .subj-card .check-ind svg { width: 15px; height: 15px; color: #fff; opacity: 0; transition: opacity .15s; }
+    .subj-card:has(.subj-check:checked) { border-color: var(--gold); box-shadow: var(--shadow-md); background: var(--gold-bg); }
+    .subj-card:has(.subj-check:checked) .check-ind { background: var(--gold); border-color: var(--gold); }
+    .subj-card:has(.subj-check:checked) .check-ind svg { opacity: 1; }
+    .subj-card:has(.subj-check:checked) .pick { background: var(--gold); color: #fff; }
+    .subj-card .subj-check:focus-visible ~ .check-ind { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+    /* ── PLAN BAR ── */
+    .plan-bar { position: sticky; bottom: 0; z-index: 150; background: #fff; border-top: 2px solid var(--gold); box-shadow: 0 -6px 24px rgba(7,44,94,.14); }
+    .plan-bar[hidden] { display: none; }
+    .plan-bar-inner { max-width: 1060px; margin: 0 auto; padding: .9rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .plan-summary { flex: 1 1 240px; min-width: 190px; }
+    .plan-count { display: block; font-weight: 700; color: var(--navy); font-size: .95rem; }
+    .plan-list { display: block; font-size: .76rem; color: var(--muted); line-height: 1.5; margin-top: .15rem; }
+    .plan-totals { display: flex; gap: 1.5rem; align-items: baseline; }
+    .plan-line { font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); text-align: right; }
+    .plan-line strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); font-weight: 700; margin-top: .15rem; text-transform: none; letter-spacing: 0; }
+    .plan-line.total strong { font-size: 1.45rem; color: var(--gold-dark); }
+    .plan-actions { display: flex; align-items: center; gap: .85rem; }
+    .plan-clear { background: none; border: none; color: var(--muted); font-size: .82rem; font-weight: 600; cursor: pointer; text-decoration: underline; padding: .5rem; }
+    .plan-clear:hover { color: var(--navy); }
+    @media (max-width: 760px) {
+      .plan-bar-inner { gap: .65rem; }
+      .plan-list { display: none; }
+      .plan-totals { width: 100%; justify-content: space-between; gap: .75rem; }
+      .plan-actions { width: 100%; }
+      .plan-actions .btn-gold { flex: 1; padding: .8rem 1rem; }
+    }
+
     /* ── INCLUDED ── */
     .incl { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
     .incl-item { display: flex; align-items: flex-start; gap: .7rem; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; box-shadow: var(--shadow-sm); }
@@ -206,49 +239,59 @@
     <div class="section-head">
       <span class="section-kicker">Available Subjects · Feb 2027</span>
       <h2 class="section-title">Pick the Subjects You Need</h2>
-      <p class="section-desc">These AFK subjects are open for individual enrollment in the February 2027 cohort. Take one, combine several, or build a customized pathway around exactly what you need most.</p>
+      <p class="section-desc">These AFK subjects are open for individual enrollment in the February 2027 cohort. Tick the subjects you want and your running total updates instantly — take one, combine several, or build a customized pathway around exactly what you need most.</p>
     </div>
 
     <div class="subjects">
-      <div class="subj-card">
+      <label class="subj-card selectable" data-subject="Oral &amp; Maxillofacial Surgery" data-price="800">
+        <input type="checkbox" class="subj-check" />
+        <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 01</div>
         <h3>Oral &amp; Maxillofacial Surgery</h3>
         <p>Principles of exodontia, surgical techniques, and the recognition and management of common surgical complications.</p>
         <div class="price"><span class="amt">$800</span><span class="cur">CAD + HST</span></div>
-        <a class="pick" href="https://www.confidentist.ca/contact-us/">Enroll in this subject →</a>
-      </div>
+        <span class="pick">Add to my plan</span>
+      </label>
 
-      <div class="subj-card">
+      <label class="subj-card selectable" data-subject="Local Anesthesia" data-price="600">
+        <input type="checkbox" class="subj-check" />
+        <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 02</div>
         <h3>Local Anesthesia</h3>
         <p>Anesthetic agents, injection techniques and relevant anatomy, plus recognition and management of anesthetic complications.</p>
         <div class="price"><span class="amt">$600</span><span class="cur">CAD + HST</span></div>
-        <a class="pick" href="https://www.confidentist.ca/contact-us/">Enroll in this subject →</a>
-      </div>
+        <span class="pick">Add to my plan</span>
+      </label>
 
-      <div class="subj-card">
+      <label class="subj-card selectable" data-subject="Periodontics" data-price="800">
+        <input type="checkbox" class="subj-check" />
+        <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 03</div>
         <h3>Periodontics</h3>
         <p>Periodontal anatomy, disease classification, diagnosis, and non-surgical and surgical therapy.</p>
         <div class="price"><span class="amt">$800</span><span class="cur">CAD + HST</span></div>
-        <a class="pick" href="https://www.confidentist.ca/contact-us/">Enroll in this subject →</a>
-      </div>
+        <span class="pick">Add to my plan</span>
+      </label>
 
-      <div class="subj-card">
+      <label class="subj-card selectable" data-subject="Pharmacology" data-price="800">
+        <input type="checkbox" class="subj-check" />
+        <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 04</div>
         <h3>Pharmacology</h3>
         <p>Drug classes relevant to dentistry, their mechanisms, interactions and prescribing considerations.</p>
         <div class="price"><span class="amt">$800</span><span class="cur">CAD + HST</span></div>
-        <a class="pick" href="https://www.confidentist.ca/contact-us/">Enroll in this subject →</a>
-      </div>
+        <span class="pick">Add to my plan</span>
+      </label>
 
-      <div class="subj-card">
+      <label class="subj-card selectable" data-subject="Restorative Dentistry &amp; Dental Materials" data-price="600">
+        <input type="checkbox" class="subj-check" />
+        <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 05</div>
         <h3>Restorative Dentistry &amp; Dental Materials</h3>
         <p>Operative procedures and the properties of the dental materials used in restorative treatment.</p>
         <div class="price"><span class="amt">$600</span><span class="cur">CAD + HST</span></div>
-        <a class="pick" href="https://www.confidentist.ca/contact-us/">Enroll in this subject →</a>
-      </div>
+        <span class="pick">Add to my plan</span>
+      </label>
 
       <div class="subj-card" style="justify-content:center;align-items:flex-start;background:var(--bg-soft);">
         <div class="num">More Subjects</div>
@@ -348,6 +391,97 @@
     </div>
   </div>
 </section>
+
+<!-- PLAN BAR (live price) -->
+<div class="plan-bar" id="planBar" hidden aria-live="polite">
+  <div class="plan-bar-inner">
+    <div class="plan-summary">
+      <span class="plan-count" id="planCount">0 subjects selected</span>
+      <span class="plan-list" id="planList"></span>
+    </div>
+    <div class="plan-totals">
+      <div class="plan-line"><span>Subtotal</span><strong id="planSubtotal">$0</strong></div>
+      <div class="plan-line"><span>HST 13%</span><strong id="planHst">$0</strong></div>
+      <div class="plan-line total"><span>Total</span><strong id="planTotal">$0</strong></div>
+    </div>
+    <div class="plan-actions">
+      <button type="button" class="plan-clear" id="planClear">Clear</button>
+      <a class="btn-gold" id="planEnroll" href="https://www.confidentist.ca/contact-us/">Enroll in selected &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var HST = 0.13;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.subj-card.selectable'));
+  var bar = document.getElementById('planBar');
+  var countEl = document.getElementById('planCount');
+  var listEl = document.getElementById('planList');
+  var subEl = document.getElementById('planSubtotal');
+  var hstEl = document.getElementById('planHst');
+  var totEl = document.getElementById('planTotal');
+  var enrollEl = document.getElementById('planEnroll');
+  var clearEl = document.getElementById('planClear');
+
+  function fmt(n) {
+    return '$' + Number(n).toLocaleString('en-CA', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+
+  function selected() {
+    return cards.filter(function (c) { return c.querySelector('.subj-check').checked; });
+  }
+
+  function update() {
+    var sel = selected();
+
+    cards.forEach(function (c) {
+      var pick = c.querySelector('.pick');
+      if (pick) pick.textContent = c.querySelector('.subj-check').checked ? 'Added to plan ✓' : 'Add to my plan';
+    });
+
+    if (sel.length === 0) {
+      bar.hidden = true;
+      enrollEl.href = 'https://www.confidentist.ca/contact-us/';
+      return;
+    }
+
+    var subtotal = sel.reduce(function (s, c) { return s + parseFloat(c.dataset.price); }, 0);
+    var hst = Math.round(subtotal * HST * 100) / 100;
+    var total = subtotal + hst;
+
+    bar.hidden = false;
+    countEl.textContent = sel.length + (sel.length === 1 ? ' subject selected' : ' subjects selected');
+    listEl.textContent = sel.map(function (c) { return c.dataset.subject.replace('&amp;', '&'); }).join('  ·  ');
+    subEl.textContent = fmt(subtotal);
+    hstEl.textContent = fmt(hst);
+    totEl.textContent = fmt(total);
+
+    var lines = sel.map(function (c) {
+      return '- ' + c.dataset.subject.replace('&amp;', '&') + ' (' + fmt(parseFloat(c.dataset.price)) + ' CAD)';
+    });
+    var body =
+      'Hello ConfiDentist team,\n\n' +
+      'I would like to enroll in the following AFK February 2027 subjects:\n\n' +
+      lines.join('\n') +
+      '\n\nSubtotal: ' + fmt(subtotal) + ' CAD' +
+      '\nHST (13%): ' + fmt(hst) + ' CAD' +
+      '\nEstimated total: ' + fmt(total) + ' CAD\n\n' +
+      'Please confirm availability, any bundle pricing, and the next steps to register.\n\nThank you.';
+    var subjectLine = 'AFK Feb 2027 — Subject enrollment (' + sel.length + (sel.length === 1 ? ' subject)' : ' subjects)');
+    enrollEl.href = 'mailto:info@confidentist.ca?subject=' + encodeURIComponent(subjectLine) + '&body=' + encodeURIComponent(body);
+  }
+
+  cards.forEach(function (c) {
+    c.querySelector('.subj-check').addEventListener('change', update);
+  });
+  clearEl.addEventListener('click', function () {
+    cards.forEach(function (c) { c.querySelector('.subj-check').checked = false; });
+    update();
+  });
+  update();
+})();
+</script>
 
 <!-- FOOTER -->
 <footer>
