@@ -252,6 +252,19 @@
     .subj-body { padding: 0 1.25rem 1.1rem; font-size: .86rem; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); padding-top: .85rem; }
     .subj-note { max-width: 680px; margin: 0 auto 1.75rem; text-align: center; font-size: .86rem; color: var(--muted); line-height: 1.65; }
 
+    /* ── SUBJECT CHIPS (small fancy boxes) ── */
+    .subj-chips { max-width: 860px; margin: 0 auto 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(205px, 1fr)); gap: .9rem; }
+    .subj-chip { position: relative; display: flex; flex-direction: column; gap: .3rem; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.15rem 1rem; text-decoration: none; box-shadow: var(--shadow-sm); overflow: hidden; transition: border-color .18s, box-shadow .18s, transform .15s; }
+    .subj-chip::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--navy), var(--teal)); }
+    .subj-chip:hover { border-color: var(--gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .subj-chip .n { align-self: flex-start; font-size: .63rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dark); background: var(--gold-bg); border: 1px solid rgba(15,122,229,.25); border-radius: .35rem; padding: .13rem .5rem; margin-bottom: .2rem; }
+    .subj-chip .nm { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.25; flex: 1; }
+    .subj-chip .pr { font-size: .78rem; color: var(--muted); margin-top: .35rem; }
+    .subj-chip .pr b { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-dark); font-weight: 700; margin-right: .2rem; }
+    .subj-chip.more { background: var(--bg-soft); border-style: dashed; }
+    .subj-chip.more::before { opacity: .4; }
+    .subj-chip.more .nm { color: var(--navy); font-size: .92rem; }
+
     /* ── COMPARISON TABLE ── */
     .compare-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
     table.compare { width: 100%; border-collapse: collapse; background: #fff; min-width: 640px; }
@@ -682,62 +695,40 @@
     <div class="section-head">
       <span class="section-kicker">Subject-Based</span>
       <h2 class="section-title">AFK Subject-Based Program</h2>
-      <p class="section-desc">Prefer a focused, flexible option? Select individual AFK subjects and concentrate your time and budget on the areas where you need the most support. Tap a subject below to see what it covers.</p>
+      <p class="section-desc">Prefer a focused, flexible option? Select individual AFK subjects and concentrate your time and budget on the areas where you need the most support. Here are the subjects open for the February 2027 cohort — pick one, combine several, or build a customized pathway.</p>
     </div>
 
-    <div class="subj-list">
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">01</span>Oral &amp; Maxillofacial Surgery</span></summary>
-        <div class="subj-body">Principles of exodontia, surgical techniques, and the recognition and management of common surgical complications.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">02</span>Local Anesthesia</span></summary>
-        <div class="subj-body">Anesthetic agents, injection techniques and relevant anatomy, plus recognition and management of anesthetic complications.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">03</span>Oral Pathology</span></summary>
-        <div class="subj-body">Diseases and lesions of the oral and maxillofacial region and their clinical and histological features.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">04</span>Pharmacology</span></summary>
-        <div class="subj-body">Drug classes relevant to dentistry, their mechanisms, interactions and prescribing considerations.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">05</span>Periodontics</span></summary>
-        <div class="subj-body">Periodontal anatomy, disease classification, diagnosis, and non-surgical and surgical therapy.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">06</span>Oral Radiology</span></summary>
-        <div class="subj-body">Imaging principles, radiographic techniques and interpretation of common radiographic findings.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">07</span>Endodontics</span></summary>
-        <div class="subj-body">Pulpal and periapical diagnosis, root canal anatomy and the principles of endodontic treatment.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">08</span>Prosthodontics</span></summary>
-        <div class="subj-body">Fixed and removable prosthodontics, occlusion and treatment planning for tooth replacement.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">09</span>Restorative Dentistry &amp; Dental Materials</span></summary>
-        <div class="subj-body">Operative procedures and the properties of the dental materials used in restorative treatment.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">10</span>Orthodontics</span></summary>
-        <div class="subj-body">Growth and development, malocclusion, diagnosis and the principles of orthodontic treatment.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">11</span>Biomedical Sciences</span></summary>
-        <div class="subj-body">Foundational anatomy, physiology, microbiology and biochemistry underpinning clinical dentistry.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">12</span>Pediatric Dentistry</span></summary>
-        <div class="subj-body">Growth, behaviour management and treatment considerations for child and adolescent patients.</div>
-      </details>
-      <details class="subj">
-        <summary><span class="subj-tag"><span class="n">13</span>Oral Medicine &amp; Diagnosis</span></summary>
-        <div class="subj-body">Clinical diagnosis, oral manifestations of systemic disease and the management of medically complex patients.</div>
-      </details>
+    <div class="subj-chips">
+      <a class="subj-chip" href="/afk-subject-feb-2027/">
+        <span class="n">Subject 01</span>
+        <span class="nm">Oral &amp; Maxillofacial Surgery</span>
+        <span class="pr"><b>$800</b>CAD + HST</span>
+      </a>
+      <a class="subj-chip" href="/afk-subject-feb-2027/">
+        <span class="n">Subject 02</span>
+        <span class="nm">Local Anesthesia</span>
+        <span class="pr"><b>$600</b>CAD + HST</span>
+      </a>
+      <a class="subj-chip" href="/afk-subject-feb-2027/">
+        <span class="n">Subject 03</span>
+        <span class="nm">Periodontics</span>
+        <span class="pr"><b>$800</b>CAD + HST</span>
+      </a>
+      <a class="subj-chip" href="/afk-subject-feb-2027/">
+        <span class="n">Subject 04</span>
+        <span class="nm">Pharmacology</span>
+        <span class="pr"><b>$800</b>CAD + HST</span>
+      </a>
+      <a class="subj-chip" href="/afk-subject-feb-2027/">
+        <span class="n">Subject 05</span>
+        <span class="nm">Restorative Dentistry &amp; Dental Materials</span>
+        <span class="pr"><b>$600</b>CAD + HST</span>
+      </a>
+      <a class="subj-chip more" href="/afk-subject-feb-2027/">
+        <span class="n">More</span>
+        <span class="nm">Other subjects available</span>
+        <span class="pr">Ask about availability &amp; pricing</span>
+      </a>
     </div>
 
     <p class="subj-note">Choose one subject, combine several, or build a customized AFK pathway around exactly what you need.</p>
