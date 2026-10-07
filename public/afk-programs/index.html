@@ -343,6 +343,18 @@
     .price-cta.gold { background: var(--gold); color: #fff; box-shadow: 0 4px 18px rgba(15,122,229,.35); }
     .price-cta.gold:hover { background: var(--gold-light); transform: translateY(-1px); }
 
+    /* ── INLINE EXAM COHORTS (Comprehensive card) ── */
+    .price-cohorts { margin-top: auto; display: flex; flex-direction: column; gap: 1rem; }
+    .price-cohorts .price-cohorts-head { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: 0; }
+    .price-cohort { border: 1.5px solid var(--border); border-radius: .5rem; padding: 1rem 1.1rem; background: var(--bg-soft); }
+    .price-cohort.featured { border-color: var(--gold); border-width: 2px; }
+    .price-cohort-head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; margin-bottom: .2rem; }
+    .price-cohort-name { font-weight: 700; font-size: .92rem; color: var(--navy); }
+    .price-cohort-amt { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); white-space: nowrap; }
+    .price-cohort-amt small { font-weight: 600; font-size: .62rem; color: var(--muted); }
+    .price-cohort-meta { font-size: .76rem; color: var(--muted); margin-bottom: .85rem; }
+    .price-cohort .price-cta { margin-top: 0; padding: .65rem 1rem; font-size: .8rem; }
+
     /* ── LICENSURE PATHWAY ── */
     .journey-lead { max-width: 760px; margin: 0 auto; text-align: center; }
     .journey-lead p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
@@ -623,7 +635,25 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
         </ul>
-        <a class="price-cta gold" href="/afk-programs/full-package/#cohorts">Choose Your Exam Cohort →</a>
+        <div class="price-cohorts">
+          <p class="price-cohorts-head">Choose your exam cohort</p>
+          <div class="price-cohort">
+            <div class="price-cohort-head">
+              <span class="price-cohort-name">February 2027 Exam</span>
+              <span class="price-cohort-amt">$4,999 <small>CAD + HST</small></span>
+            </div>
+            <p class="price-cohort-meta">Course started July 2026 · 6-month program</p>
+            <a class="price-cta navy" href="https://www.confidentist.ca/product/afk-comprehensive-aug-feb-2027/">Register for February 2027 Exam →</a>
+          </div>
+          <div class="price-cohort featured">
+            <div class="price-cohort-head">
+              <span class="price-cohort-name">August 2027 Exam</span>
+              <span class="price-cohort-amt">$4,749 <small>CAD + HST · early-bird</small></span>
+            </div>
+            <p class="price-cohort-meta">Starts February 2027 · 6-month program</p>
+            <a class="price-cta gold" href="https://www.confidentist.ca/product/afk-comprehensive-feb-2027-6p/">Register for August 2027 Exam →</a>
+          </div>
+        </div>
       </article>
 
     </div>
