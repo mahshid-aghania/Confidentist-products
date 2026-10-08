@@ -12,6 +12,16 @@ export type EventApiConfig = {
   promoCodes: Record<string, number>
 }
 
+// Site-wide promotion codes valid for ANY course. Keys MUST be lowercase —
+// resolvePromo lowercases user input before matching. value = percent off.
+export const SITE_PROMO_CODES: Record<string, number> = {
+  'confi-10': 10,
+  'confi-20': 20,
+  'confi-30': 30,
+  'confi-50': 50,
+  'confi-100': 100,
+}
+
 export const EVENTS: Record<string, EventApiConfig> = {
   'from-associate-to-owner': {
     slug: 'from-associate-to-owner',
@@ -20,7 +30,7 @@ export const EVENTS: Record<string, EventApiConfig> = {
     priceCents: 5000, // $50 seat deposit
     currency: 'CAD',
     baseUrl: 'https://product.confidentist.ca/events/from-associate-to-owner/',
-    promoCodes: { 'confi-100': 100 },
+    promoCodes: SITE_PROMO_CODES,
   },
   'orthodontics-clear-aligners': {
     slug: 'orthodontics-clear-aligners',
@@ -29,7 +39,7 @@ export const EVENTS: Record<string, EventApiConfig> = {
     priceCents: 39437, // $349 + 13% HST (Ontario) = $394.37 course fee
     currency: 'CAD',
     baseUrl: 'https://product.confidentist.ca/events/orthodontics-clear-aligners/',
-    promoCodes: { 'confi-100': 100 },
+    promoCodes: SITE_PROMO_CODES,
   },
 }
 
