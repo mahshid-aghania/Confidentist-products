@@ -3,6 +3,7 @@ import { createServerClient } from '@/lib/supabase/server'
 import { verifyStripeSignature } from '@/lib/stripe/webhook'
 import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
 import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
+import { renderCourseReceipt } from '@/lib/email/course-receipt'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
 
@@ -89,14 +90,49 @@ export async function POST(req: Request) {
   const plink = typeof session['payment_link'] === 'string' ? (session['payment_link'] as string) : null
   const supabase = createServerClient()
 
-  // ── Event registration (Checkout Session, not a Payment Link) ──
+  // ── Course "Buy Now" (API Checkout Session, not a Payment Link) ──
+  // The /acj-programs/ page sends buyers straight to Stripe Checkout with a
+  // client_reference_id starting "acj-". Email the receipt + bcc the team.
   if (!plink) {
     const meta = (session['metadata'] as Record<string, string> | undefined) ?? {}
-    const regId =
-      meta.registration_id ||
-      (typeof session['client_reference_id'] === 'string'
+    const ref =
+      typeof session['client_reference_id'] === 'string'
         ? (session['client_reference_id'] as string)
-        : '')
+        : ''
+
+    if (ref.startsWith('acj-')) {
+      const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
+      const email =
+        (typeof details['email'] === 'string' && (details['email'] as string)) ||
+        (typeof session['customer_email'] === 'string' ? (session['customer_email'] as string) : '')
+      const phone = typeof details['phone'] === 'string' ? (details['phone'] as string) : undefined
+      const amountTotal =
+        typeof session['amount_total'] === 'number' ? (session['amount_total'] as number) : 0
+      const currency =
+        typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
+      const courseName = meta.course || 'ACJ Comprehensive Program'
+      const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
+
+      let emailed = false
+      if (email) {
+        try {
+          const rendered = renderCourseReceipt({
+            courseName,
+            customerEmail: email,
+            customerPhone: phone,
+            amountLabel: `$${(amountTotal / 100).toFixed(2)} ${currency}`,
+            reference,
+          })
+          await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...rendered })
+          emailed = true
+        } catch (e) {
+          console.error('acj course receipt email failed', e)
+        }
+      }
+      return NextResponse.json({ received: true, course: ref, emailed })
+    }
+
+    const regId = meta.registration_id || ref
     if (!regId) {
       return NextResponse.json({ received: true, note: 'no payment_link / registration on session' })
     }
