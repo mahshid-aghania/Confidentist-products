@@ -307,6 +307,12 @@
     .trust-card:hover { background: rgba(255,255,255,.11); border-color: rgba(15,122,229,.25); }
     .trust-icon { width: 40px; height: 40px; border-radius: .5rem; flex-shrink: 0; background: rgba(15,122,229,.15); border: 1px solid rgba(15,122,229,.25); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
     .trust-card p { font-size: .86rem; font-weight: 500; color: #fff; line-height: 1.5; }
+    .inst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.6rem 1.25rem; margin-top: 2.5rem; }
+    .inst-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .9rem; }
+    .inst-photo { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid rgba(255,255,255,.14); box-shadow: 0 6px 20px rgba(0,0,0,.28); background: rgba(255,255,255,.07); transition: border-color .2s, transform .2s; }
+    .inst-card:hover .inst-photo { border-color: var(--gold); transform: translateY(-3px); }
+    .inst-name { font-size: .95rem; font-weight: 700; color: #fff; line-height: 1.3; }
+    .inst-role { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-light); margin-top: .25rem; }
 
     /* ── FINAL CTA ── */
     .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); }
@@ -747,16 +753,16 @@
 <section class="section navy-bg">
   <div class="section-inner">
     <div class="section-head">
-      <span class="section-kicker" style="color:var(--gold-light)">Why ConfiDentist</span>
-      <h2 class="section-title">Preparation Built Around You</h2>
-      <p class="section-desc">Both pathways are supported by the same trusted ConfiDentist approach to AFK preparation.</p>
+      <span class="section-kicker" style="color:var(--gold-light)">Your Instructors</span>
+      <h2 class="section-title">Learn From Experienced AFK Instructors</h2>
+      <p class="section-desc">Both pathways are taught by ConfiDentist's team of experienced dental educators.</p>
     </div>
-    <div class="trust-grid">
-      <div class="trust-card"><div class="trust-icon" aria-hidden="true">🎓</div><p>Experienced AFK instructors</p></div>
-      <div class="trust-card"><div class="trust-icon" aria-hidden="true">📚</div><p>Structured, exam-oriented education</p></div>
-      <div class="trust-card"><div class="trust-icon" aria-hidden="true">🖥️</div><p>Live and pre-recorded learning</p></div>
-      <div class="trust-card"><div class="trust-icon" aria-hidden="true">🔄</div><p>Updated learning resources</p></div>
-      <div class="trust-card"><div class="trust-icon" aria-hidden="true">🌍</div><p>Guidance for internationally trained dentists</p></div>
+    <div class="inst-grid">
+      <div class="inst-card"><img class="inst-photo" src="/images/instructors/mehdi-adibrad.png" alt="Dr. Mehdi Adibrad" width="128" height="128" loading="lazy" /><div><div class="inst-name">Dr. Mehdi Adibrad</div><div class="inst-role">AFK Instructor</div></div></div>
+      <div class="inst-card"><img class="inst-photo" src="/images/instructors/amin-asadollahi.png" alt="Dr. Amin Asadollahi" width="128" height="128" loading="lazy" /><div><div class="inst-name">Dr. Amin Asadollahi</div><div class="inst-role">AFK Instructor</div></div></div>
+      <div class="inst-card"><img class="inst-photo" src="/images/instructors/delaram-bakhshaei.jpg" alt="Dr. Delaram Bakhshaei" width="128" height="128" loading="lazy" /><div><div class="inst-name">Dr. Delaram Bakhshaei</div><div class="inst-role">AFK Instructor</div></div></div>
+      <div class="inst-card"><img class="inst-photo" src="/images/instructors/hannah-safiaghdam.jpg" alt="Dr. Hannah Safiaghdam" width="128" height="128" loading="lazy" /><div><div class="inst-name">Dr. Hannah Safiaghdam</div><div class="inst-role">AFK Instructor</div></div></div>
+      <div class="inst-card"><img class="inst-photo" src="/images/instructors/najmeh-showraki.jpg" alt="Dr. Najmeh Showraki" width="128" height="128" loading="lazy" /><div><div class="inst-name">Dr. Najmeh Showraki</div><div class="inst-role">AFK Instructor</div></div></div>
     </div>
   </div>
 </section>
