@@ -355,6 +355,16 @@
     .notice-title { font-size: .83rem; font-weight: 700; color: #8a6200; margin-bottom: .25rem; }
     .notice-text { font-size: .8rem; color: #7a5800; line-height: 1.65; }
 
+    /* Red Recording-Policy banner pinned to the top of the page */
+    .top-notice {
+      background: #fdecec; border: 1px solid #f0b4b4; border-left: 5px solid #dc2626;
+      border-radius: .5rem; padding: 1.3rem 1.75rem; margin: 1.5rem auto 0; max-width: 1100px;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .top-notice .tn-ic { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
+    .top-notice .tn-title { font-size: 1.2rem; font-weight: 700; color: #b91c1c; margin-bottom: .4rem; }
+    .top-notice .tn-text { font-size: 1.02rem; color: #7f1d1d; line-height: 1.7; }
+
     /* ──────────────────────────────────────────
        FAQ
     ────────────────────────────────────────── */
@@ -424,6 +434,15 @@
   </style>
 </head>
 <body>
+
+<!-- RECORDING POLICY — top red notice -->
+<div class="top-notice" role="alert">
+  <div class="tn-ic">⚠️</div>
+  <div>
+    <div class="tn-title">Recording Policy</div>
+    <div class="tn-text">No recordings are provided for missed live discussion sessions. All sessions must be attended in real time (EST — Toronto time zone). If you miss a session, you must book an appointment to take the exam in person at our office. If you select the in-person option for Mock Exam 3, live instruction is provided on-site.</div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -688,13 +707,6 @@
           <div class="tl-sub">Final mock under timed exam conditions with a detailed post-exam debrief and strategy session.</div>
           <div class="tl-tags"><span class="tl-tag">Online</span><span class="tl-tag">Live Discussion</span></div>
         </div>
-      </div>
-    </div>
-    <div class="notice">
-      <div class="notice-icon">⚠️</div>
-      <div>
-        <div class="notice-title">Recording Policy</div>
-        <div class="notice-text">No recordings are provided for missed live discussion sessions. All sessions must be attended in real time. If you select the in-person option for Mock Exam 3, live instruction is provided on-site.</div>
       </div>
     </div>
   </div>
