@@ -325,6 +325,15 @@
     .tl-tag { font-size: .62rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; padding: .2rem .6rem; border-radius: .25rem; background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.2); }
     .tl-tag.ip { background: #edf7ee; color: #2d7a35; border-color: rgba(45,122,53,.2); }
 
+    /* Block-by-block schedule grouping */
+    .sched-block { margin-top: 2.75rem; }
+    .sched-block:first-of-type { margin-top: 2.5rem; }
+    .sched-block-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem .9rem; padding-bottom: .8rem; border-bottom: 2px solid var(--border); }
+    .sched-block-num { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: linear-gradient(90deg, var(--navy), var(--gold)); padding: .3rem .75rem; border-radius: .35rem; }
+    .sched-block-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); }
+    .sched-block-dates { font-size: .82rem; font-weight: 600; color: var(--gold-dark); margin-left: auto; }
+    .sched-block .timeline { margin-top: 1.1rem; }
+
     /* ──────────────────────────────────────────
        INCLUDES
     ────────────────────────────────────────── */
@@ -672,7 +681,9 @@
     <div class="section-kicker">Exam Dates</div>
     <h2 class="section-title">2026 – 2027 Schedule</h2>
     <p class="section-desc">Plan ahead. Session details are sent upon enrollment, at least one week before your exam date.</p>
-    <div class="timeline">
+    <div class="sched-block">
+      <div class="sched-block-head"><span class="sched-block-num">Block 1</span><span class="sched-block-title">Full Mock Exam 1</span><span class="sched-block-dates">Dec 11 – 13, 2026</span></div>
+      <div class="timeline">
       <div class="tl-item">
         <div class="tl-date"><span class="tl-month">Dec</span><div class="tl-day">11</div><span class="tl-year">2026 · Friday</span></div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div>
@@ -700,6 +711,11 @@
           <div class="tl-tags"><span class="tl-tag">Online</span><span class="tl-tag">Live</span></div>
         </div>
       </div>
+      </div>
+    </div>
+    <div class="sched-block">
+      <div class="sched-block-head"><span class="sched-block-num">Block 2</span><span class="sched-block-title">Full Mock Exam 2</span><span class="sched-block-dates">Dec 18 – 20, 2026</span></div>
+      <div class="timeline">
       <div class="tl-item">
         <div class="tl-date"><span class="tl-month">Dec</span><div class="tl-day">18</div><span class="tl-year">2026 · Friday</span></div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div>
@@ -727,6 +743,11 @@
           <div class="tl-tags"><span class="tl-tag">Online</span><span class="tl-tag">Live</span></div>
         </div>
       </div>
+      </div>
+    </div>
+    <div class="sched-block">
+      <div class="sched-block-head"><span class="sched-block-num">Block 3</span><span class="sched-block-title">Full Mock Exam 3</span><span class="sched-block-dates">Jan 8 – 10, 2027</span></div>
+      <div class="timeline">
       <div class="tl-item">
         <div class="tl-date"><span class="tl-month">Jan</span><div class="tl-day">8</div><span class="tl-year">2027 · Friday</span></div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div>
@@ -754,6 +775,11 @@
           <div class="tl-tags"><span class="tl-tag ip">In-Person · Live</span><span class="tl-tag">Online · Recorded</span></div>
         </div>
       </div>
+      </div>
+    </div>
+    <div class="sched-block">
+      <div class="sched-block-head"><span class="sched-block-num">Block 4</span><span class="sched-block-title">Full Mock Exam 4</span><span class="sched-block-dates">Jan 15 – 17, 2027</span></div>
+      <div class="timeline">
       <div class="tl-item">
         <div class="tl-date"><span class="tl-month">Jan</span><div class="tl-day">15</div><span class="tl-year">2027 · Friday</span></div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div>
@@ -780,6 +806,7 @@
           <div class="tl-sub">10:00 AM – 3:00 PM · Continued review of Full Mock Exam 4 with Dr. Mehdi.</div>
           <div class="tl-tags"><span class="tl-tag">Online</span><span class="tl-tag">Live</span></div>
         </div>
+      </div>
       </div>
     </div>
   </div>
