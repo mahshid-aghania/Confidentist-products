@@ -167,14 +167,15 @@
     .mock-list li::before { content:''; position:absolute; left:0; top:.5rem; width:6px; height:6px; border-radius:50%; background:var(--gold); }
     .mock-sub { font-size:.82rem; color:var(--muted); line-height:1.6; }
 
-    .inst-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.6rem 1.25rem; margin-top:2.5rem; }
-    .inst-card { display:flex; flex-direction:column; align-items:center; text-align:center; gap:.9rem; }
+    .inst-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.75rem 1.25rem; margin-top:2.5rem; max-width:1000px; margin-left:auto; margin-right:auto; }
+    .inst-card { display:flex; flex-direction:column; align-items:center; text-align:center; gap:.85rem; }
     .inst-photo { width:128px; height:128px; border-radius:50%; object-fit:cover; object-position:top center; border:3px solid rgba(255,255,255,.14); box-shadow:0 6px 20px rgba(0,0,0,.28); background:rgba(255,255,255,.07); transition:border-color .2s, transform .2s; }
     .inst-card:hover .inst-photo { border-color:var(--gold); transform:translateY(-3px); }
     .inst-monogram { width:128px; height:128px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:2.4rem; color:#fff; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); border:3px solid rgba(255,255,255,.14); box-shadow:0 6px 20px rgba(0,0,0,.28); transition:border-color .2s, transform .2s; }
     .inst-card:hover .inst-monogram { border-color:var(--gold); transform:translateY(-3px); }
     .inst-name { font-size:.95rem; font-weight:700; color:#fff; line-height:1.3; }
     .inst-role { font-size:.72rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-light); margin-top:.25rem; }
+    .inst-bio { font-size:.8rem; color:rgba(255,255,255,.64); line-height:1.6; margin-top:.55rem; max-width:240px; margin-left:auto; margin-right:auto; }
 
     .faq { max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:.6rem; }
     details { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; }
@@ -447,19 +448,19 @@
     <div class="inst-grid">
       <div class="inst-card">
         <img class="inst-photo" src="/images/instructors/mehdi-adibrad.png" alt="Dr. Mehdi Adibrad" width="128" height="128" loading="lazy" />
-        <div><div class="inst-name">Dr. Mehdi Adibrad</div><div class="inst-role">Founder &amp; Head Instructor</div></div>
+        <div><div class="inst-name">Dr. Mehdi Adibrad</div><div class="inst-role">Founder &amp; Head Instructor</div><p class="inst-bio">ConfiDentist’s founder — leads the ACJ foundations, core lectures and full mock-exam reviews.</p></div>
       </div>
       <div class="inst-card">
         <img class="inst-photo" src="/images/instructors/neda-kadivar.jpg" alt="Dr. Neda Kadivar" width="128" height="128" loading="lazy" />
-        <div><div class="inst-name">Dr. Neda Kadivar</div><div class="inst-role">Clinical Instructor</div></div>
+        <div><div class="inst-name">Dr. Neda Kadivar</div><div class="inst-role">Clinical Instructor</div><p class="inst-bio">Delivers core clinical lectures through the Live Learning phase of the ACJ program.</p></div>
       </div>
       <div class="inst-card">
         <img class="inst-photo" src="/images/instructors/amin-asadollahi.png" alt="Dr. Amin Asadollahi" width="128" height="128" loading="lazy" />
-        <div><div class="inst-name">Dr. Amin Asadollahi</div><div class="inst-role">Clinical Instructor</div></div>
+        <div><div class="inst-name">Dr. Amin Asadollahi</div><div class="inst-role">Clinical Instructor</div><p class="inst-bio">Teaches clinical lectures and leads the full mock-exam discussion sessions.</p></div>
       </div>
       <div class="inst-card">
         <img class="inst-photo" src="/images/instructors/juyoung-jung.jpg" alt="Dr. Juyoung Jung" width="128" height="128" loading="lazy" />
-        <div><div class="inst-name">Dr. Juyoung Jung</div><div class="inst-role">Radiology &amp; Mock Exams</div></div>
+        <div><div class="inst-name">Dr. Juyoung Jung</div><div class="inst-role">Radiology &amp; Mock Exams</div><p class="inst-bio">Leads the radiology sessions and the mini-mock exam series.</p></div>
       </div>
     </div>
   </div>
