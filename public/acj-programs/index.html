@@ -79,22 +79,47 @@
     .section-desc { font-size:.95rem; color:var(--muted); line-height:1.8; }
     .section.navy-bg .section-desc { color:rgba(255,255,255,.68); }
 
-    /* STATS BAND */
-    .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; max-width:860px; margin:0 auto; }
-    .stat { text-align:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:1.75rem 1rem; }
-    .stat-num { font-family:'Playfair Display',serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:700; color:var(--gold-light); line-height:1; }
-    .stat-label { margin-top:.5rem; font-size:.8rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.72); }
-    .stats-note { text-align:center; margin-top:1.5rem; font-size:.78rem; color:rgba(255,255,255,.5); }
+    /* STATS (compact, light background) */
+    .stats-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; max-width:600px; margin:0 auto; }
+    .stat { flex:1 1 150px; min-width:134px; text-align:center; background:#fff; border:1.5px solid var(--border); border-radius:.6rem; padding:.85rem .75rem; box-shadow:var(--shadow-sm); }
+    .stat-num { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--navy); line-height:1; }
+    .stat-label { margin-top:.3rem; font-size:.68rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+    .stats-note { text-align:center; margin-top:1rem; font-size:.74rem; color:var(--muted); }
 
-    /* EXAM PATHWAY */
-    .pathway { display:flex; align-items:stretch; justify-content:center; gap:.4rem; flex-wrap:wrap; max-width:960px; margin:0 auto; }
-    .path-step { flex:1 1 180px; min-width:170px; }
-    .path-chev { position:relative; background:var(--navy); color:#fff; padding:.85rem 1.1rem; font-family:'Playfair Display',serif; font-weight:700; font-size:1.15rem; letter-spacing:.02em; clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%); display:flex; align-items:center; justify-content:center; gap:.5rem; }
+    /* EXAM PATHWAY (interactive) */
+    .pathway { max-width:980px; margin:0 auto; }
+    .path-steps { display:flex; align-items:flex-start; justify-content:center; gap:.5rem; flex-wrap:wrap; }
+    .path-step { flex:1 1 180px; min-width:166px; display:flex; flex-direction:column; align-items:center; background:none; border:none; padding:.4rem 0 0; cursor:pointer; font-family:inherit; }
+    .path-chev { position:relative; width:100%; background:var(--navy); color:#fff; padding:.9rem 1.1rem; font-family:'Playfair Display',serif; font-weight:700; font-size:1.15rem; letter-spacing:.02em; clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%); display:flex; align-items:center; justify-content:center; gap:.4rem; transition:transform .18s, background .2s, box-shadow .2s; }
     .path-step:first-child .path-chev { clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); }
-    .path-step.here .path-chev { background:var(--amber); color:var(--navy); }
-    .path-label { text-align:center; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-top:.6rem; line-height:1.4; padding:0 .25rem; }
-    .path-here-tag { display:block; margin-top:.5rem; text-align:center; }
-    .path-here-tag span { display:inline-block; background:var(--amber); color:var(--navy); font-size:.62rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:.25rem .7rem; border-radius:.3rem; }
+    .path-step:hover .path-chev, .path-step:focus-visible .path-chev { transform:translateY(-3px); box-shadow:0 8px 22px rgba(7,44,94,.22); }
+    .path-step:focus-visible { outline:none; }
+    .path-step.completed .path-chev { background:var(--teal); color:#fff; }
+    .path-step.current .path-chev { background:var(--amber); color:var(--navy); }
+    .path-step.selected .path-chev { box-shadow:0 0 0 3px var(--gold), 0 8px 22px rgba(7,44,94,.22); }
+    .path-num { position:absolute; top:-10px; left:-6px; width:22px; height:22px; border-radius:50%; background:#fff; color:var(--navy); box-shadow:0 1px 4px rgba(7,44,94,.25); font-family:'Inter',sans-serif; font-size:.66rem; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .path-label { text-align:center; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-top:.7rem; line-height:1.4; padding:0 .25rem; }
+    .path-tag { margin-top:.55rem; font-size:.6rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:.24rem .6rem; border-radius:.3rem; white-space:nowrap; }
+    .path-tag.done { background:var(--teal-light); color:var(--teal); }
+    .path-tag.here { background:var(--amber); color:var(--navy); animation:pathpulse 2.2s infinite; }
+    .path-tag.soon { background:#fff; color:var(--muted); border:1px solid var(--border); }
+    @keyframes pathpulse { 0%,100%{ box-shadow:0 0 0 0 rgba(244,180,0,.55);} 50%{ box-shadow:0 0 0 8px rgba(244,180,0,0);} }
+
+    .path-track { position:relative; height:5px; background:var(--border); border-radius:3px; max-width:820px; margin:2rem auto .25rem; }
+    .path-track-fill { position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:3px; transition:width 1s cubic-bezier(.4,0,.2,1); }
+    .path-track-label { text-align:center; font-size:.76rem; color:var(--muted); margin-top:.6rem; }
+    .path-track-label strong { color:var(--navy); }
+
+    .path-detail { max-width:720px; margin:1.75rem auto 0; background:#fff; border:1.5px solid var(--border); border-left:4px solid var(--gold); border-radius:var(--radius); padding:1.5rem 1.75rem; box-shadow:var(--shadow-sm); }
+    .path-detail .pd-status { display:inline-block; font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:.24rem .6rem; border-radius:.3rem; margin-bottom:.7rem; }
+    .path-detail .pd-status.done { background:var(--teal-light); color:var(--teal); }
+    .path-detail .pd-status.here { background:var(--amber); color:var(--navy); }
+    .path-detail .pd-status.soon { background:var(--bg-soft); color:var(--muted); border:1px solid var(--border); }
+    .path-detail h3 { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--navy); margin-bottom:.6rem; }
+    .path-detail p { font-size:.9rem; color:var(--muted); line-height:1.75; margin-bottom:1rem; }
+    .path-detail .pd-link { display:inline-flex; align-items:center; gap:.4rem; font-weight:700; font-size:.84rem; color:var(--gold-dark); text-decoration:none; }
+    .path-detail .pd-link:hover { text-decoration:underline; }
+    .path-hint { text-align:center; font-size:.74rem; color:var(--muted); margin-top:1rem; }
 
     .whatis { max-width:820px; margin:0 auto; }
     .whatis p { font-size:.96rem; color:var(--muted); line-height:1.85; margin-bottom:1.25rem; }
@@ -229,8 +254,8 @@
   </div>
 </header>
 
-<!-- ACHIEVEMENTS STATS -->
-<section class="section navy-bg">
+<!-- ACHIEVEMENTS + EQUIVALENCY PATHWAY -->
+<section class="section alt">
   <div class="section-inner">
     <div class="section-head">
       <span class="section-kicker">Our Achievements</span>
@@ -252,35 +277,41 @@
       </div>
     </div>
     <p class="stats-note">Figures reflect ConfiDentist student outcomes over the past 10 years.</p>
-  </div>
-</section>
 
-<!-- EXAM PATHWAY -->
-<section class="section alt">
-  <div class="section-inner">
-    <div class="section-head">
+    <div class="section-head" style="margin-top:3.75rem;">
       <span class="section-kicker">The Equivalency Pathway</span>
       <h2 class="section-title">Where the ACJ Fits</h2>
       <p class="section-desc">The ACJ is the second step of the NDEB equivalency process for internationally trained dentists.</p>
     </div>
-    <div class="pathway">
-      <div class="path-step">
-        <div class="path-chev">AFK</div>
-        <div class="path-label">Assessment of Fundamental Knowledge</div>
+    <div class="pathway" id="pathway">
+      <div class="path-steps" role="tablist" aria-label="NDEB equivalency pathway — select a stage to learn more">
+        <button type="button" class="path-step completed" role="tab" aria-selected="false" aria-controls="path-detail" data-step="afk" tabindex="-1">
+          <span class="path-chev"><span class="path-num" aria-hidden="true">1</span>AFK</span>
+          <span class="path-label">Assessment of Fundamental Knowledge</span>
+          <span class="path-tag done">&#10003; Completed</span>
+        </button>
+        <button type="button" class="path-step current selected" role="tab" aria-selected="true" aria-controls="path-detail" data-step="acj" tabindex="0">
+          <span class="path-chev"><span class="path-num" aria-hidden="true">2</span>ACJ</span>
+          <span class="path-label">Assessment of Clinical Judgement</span>
+          <span class="path-tag here">You are here</span>
+        </button>
+        <button type="button" class="path-step upcoming" role="tab" aria-selected="false" aria-controls="path-detail" data-step="ndecc" tabindex="-1">
+          <span class="path-chev"><span class="path-num" aria-hidden="true">3</span>NDECC</span>
+          <span class="path-label">Clinical Skills &amp; Situational Judgement</span>
+          <span class="path-tag soon">Upcoming</span>
+        </button>
+        <button type="button" class="path-step upcoming" role="tab" aria-selected="false" aria-controls="path-detail" data-step="osce" tabindex="-1">
+          <span class="path-chev"><span class="path-num" aria-hidden="true">4</span>Virtual OSCE</span>
+          <span class="path-label">Objective Structured Clinical Examination</span>
+          <span class="path-tag soon">Upcoming</span>
+        </button>
       </div>
-      <div class="path-step here">
-        <div class="path-chev">ACJ</div>
-        <div class="path-label">Assessment of Clinical Judgement</div>
-        <div class="path-here-tag"><span>You are here</span></div>
-      </div>
-      <div class="path-step">
-        <div class="path-chev">NDECC</div>
-        <div class="path-label">Clinical Skills &amp; Situational Judgement</div>
-      </div>
-      <div class="path-step">
-        <div class="path-chev">Virtual OSCE</div>
-        <div class="path-label">Objective Structured Clinical Examination</div>
-      </div>
+
+      <div class="path-track" aria-hidden="true"><div class="path-track-fill" id="pathFill"></div></div>
+      <p class="path-track-label" id="pathTrackLabel">Stage <strong>2</strong> of <strong>4</strong> in the NDEB equivalency process</p>
+
+      <div class="path-detail" id="path-detail" role="tabpanel" aria-live="polite"></div>
+      <p class="path-hint">Tap a stage above to explore each exam — or use the arrow keys.</p>
     </div>
   </div>
 </section>
@@ -521,6 +552,70 @@
     }
   }
 }
+</script>
+
+<script>
+(function () {
+  var DATA = {
+    afk: { n: 1, status: 'Completed', sclass: 'done',
+      title: 'AFK — Assessment of Fundamental Knowledge',
+      desc: 'A computer-based written exam covering the foundational biomedical and dental sciences. It is the first step of the NDEB equivalency process for internationally trained dentists.',
+      href: '/afk-programs/', cta: 'Explore the AFK program' },
+    acj: { n: 2, status: 'You are here', sclass: 'here',
+      title: 'ACJ — Assessment of Clinical Judgement',
+      desc: 'Evaluates your clinical reasoning and decision-making across a range of dental disciplines through case-based questions. This is the second step — and exactly what ConfiDentist’s Comprehensive program prepares you for.',
+      href: '#package', cta: 'View the ACJ Comprehensive package' },
+    ndecc: { n: 3, status: 'Upcoming', sclass: 'soon',
+      title: 'NDECC — Clinical Skills & Situational Judgement',
+      desc: 'Assesses clinical skills and situational judgement in simulated clinical settings. The third step of the equivalency process.',
+      href: '/ndecc-programs/', cta: 'Explore the NDECC program' },
+    osce: { n: 4, status: 'Upcoming', sclass: 'soon',
+      title: 'Virtual OSCE — Objective Structured Clinical Examination',
+      desc: 'A station-based examination presenting structured clinical scenarios to assess your applied clinical competencies.',
+      href: '/virtual-osce/', cta: 'Explore the Virtual OSCE program' }
+  };
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.path-step'));
+  var panel = document.getElementById('path-detail');
+  var fill = document.getElementById('pathFill');
+  var trackLabel = document.getElementById('pathTrackLabel');
+  if (!steps.length || !panel) return;
+
+  function select(key, focusEl) {
+    var d = DATA[key];
+    if (!d) return;
+    steps.forEach(function (s) {
+      var on = s.getAttribute('data-step') === key;
+      s.classList.toggle('selected', on);
+      s.setAttribute('aria-selected', on ? 'true' : 'false');
+      s.tabIndex = on ? 0 : -1;
+      if (on && focusEl) s.focus();
+    });
+    panel.innerHTML =
+      '<span class="pd-status ' + d.sclass + '">' + d.status + '</span>' +
+      '<h3>' + d.title + '</h3>' +
+      '<p>' + d.desc + '</p>' +
+      '<a class="pd-link" href="' + d.href + '">' + d.cta +
+      ' <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>';
+    if (fill) fill.style.width = (d.n * 25) + '%';
+    if (trackLabel) trackLabel.innerHTML = 'Stage <strong>' + d.n + '</strong> of <strong>4</strong> in the NDEB equivalency process';
+  }
+
+  steps.forEach(function (s, i) {
+    s.addEventListener('click', function () { select(s.getAttribute('data-step')); });
+    s.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        select(steps[(i + 1) % steps.length].getAttribute('data-step'), true);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        select(steps[(i - 1 + steps.length) % steps.length].getAttribute('data-step'), true);
+      }
+    });
+  });
+
+  // Initial render (defaults to the current stage, animating the track from 0).
+  select('acj');
+})();
 </script>
 
 </body>
