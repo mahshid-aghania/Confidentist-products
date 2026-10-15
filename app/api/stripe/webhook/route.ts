@@ -3,6 +3,7 @@ import { createServerClient } from '@/lib/supabase/server'
 import { verifyStripeSignature } from '@/lib/stripe/webhook'
 import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
 import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
+import { renderMockAdminNotification } from '@/lib/email/mock-admin-notification'
 import { renderCourseReceipt } from '@/lib/email/course-receipt'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 import { renderEventConfirmation } from '@/lib/email/event-confirmation'
@@ -218,20 +219,44 @@ export async function POST(req: Request) {
         (typeof details['email'] === 'string' && (details['email'] as string)) ||
         (typeof session['customer_email'] === 'string' ? (session['customer_email'] as string) : '')
       const phone = typeof details['phone'] === 'string' ? (details['phone'] as string) : undefined
+      const name = typeof details['name'] === 'string' ? (details['name'] as string) : ''
       const amountTotal =
         typeof session['amount_total'] === 'number' ? (session['amount_total'] as number) : 0
       const currency =
         typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
+      const amountLabel = `$${(amountTotal / 100).toFixed(2)} ${currency}`
+      const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
+      const selectionLabel = selectionFromRef(ref)
+
+      // Billing address (collected via billing_address_collection=required).
+      const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
+      const str = (v: unknown) => (typeof v === 'string' ? v : '')
+      const cityLine = [str(a['city']), str(a['state']), str(a['postal_code'])].filter(Boolean).join(', ')
+      const addressLines = [str(a['line1']), str(a['line2']), cityLine, str(a['country'])]
+
+      // SIN — collected as a Stripe custom field (key "sin").
+      const customFields = Array.isArray(session['custom_fields'])
+        ? (session['custom_fields'] as Array<Record<string, unknown>>)
+        : []
+      const sinField = customFields.find((f) => f['key'] === 'sin')
+      const sin =
+        sinField && typeof (sinField['text'] as Record<string, unknown>)?.['value'] === 'string'
+          ? ((sinField['text'] as Record<string, unknown>)['value'] as string)
+          : ''
+
+      const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
 
       let emailed = false
+      let notified = false
       if (email) {
+        // Customer confirmation (BCC the team so they also get a copy).
         try {
           const rendered = renderMockExamReceipt({
             customerEmail: email,
             customerPhone: phone,
-            amountLabel: `$${(amountTotal / 100).toFixed(2)} ${currency}`,
-            selectionLabel: selectionFromRef(ref),
-            reference: typeof session['id'] === 'string' ? (session['id'] as string) : ref,
+            amountLabel,
+            selectionLabel,
+            reference,
           })
           await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...rendered })
           emailed = true
@@ -239,7 +264,25 @@ export async function POST(req: Request) {
           console.error('mock exam receipt email failed', e)
         }
       }
-      return NextResponse.json({ received: true, mock_exam: ref, emailed })
+      // Full-info admin notification (name, phone, address, postal code, SIN).
+      try {
+        const note = renderMockAdminNotification({
+          name,
+          email,
+          phone: phone ?? '',
+          sin,
+          addressLines,
+          selectionLabel,
+          amountLabel,
+          reference,
+          when,
+        })
+        await sendEmail({ to: ADMIN_EMAILS, ...note })
+        notified = true
+      } catch (e) {
+        console.error('mock exam admin notification failed', e)
+      }
+      return NextResponse.json({ received: true, mock_exam: ref, emailed, notified })
     }
     return NextResponse.json({ received: true, note: 'no matching installment', plink })
   }
