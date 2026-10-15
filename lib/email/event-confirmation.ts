@@ -61,7 +61,7 @@ export function renderEventConfirmation(data: EventConfirmationData): {
       <tr><td style="padding:20px 40px 8px;">
         <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Dear ${escapeHtml(firstName)},</p>
         <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Thank you for registering for <strong>${escapeHtml(eventName)}</strong>. We're delighted to confirm that <strong>your seat is secured</strong>.</p>
-        <p style="margin:0 0 24px;font-size:16px;line-height:1.6;">You'll <strong>soon receive a separate introduction email</strong> with everything you need to prepare &mdash; course materials, the agenda, and your access details. Keep an eye on your inbox.</p>
+        <p style="margin:0 0 24px;font-size:16px;line-height:1.6;">Your event details are below. We'll be in touch with any further information ahead of the event &mdash; in the meantime, feel free to reply to this email with any questions.</p>
       </td></tr>
       ${detailsBlock}
       <tr><td style="padding:0 40px 36px;">
@@ -81,7 +81,7 @@ export function renderEventConfirmation(data: EventConfirmationData): {
 
 Thank you for registering for ${eventName}. We're delighted to confirm that your seat is secured.
 
-You'll soon receive a separate introduction email with everything you need to prepare — course materials, the agenda, and your access details. Keep an eye on your inbox.
+Your event details are below. We'll be in touch with any further information ahead of the event — in the meantime, feel free to reply to this email with any questions.
 ${detailRows.length ? `\nEVENT DETAILS\n${textDetails}\n` : ''}
 We look forward to welcoming you.
 
