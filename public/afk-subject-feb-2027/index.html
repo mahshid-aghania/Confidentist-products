@@ -243,7 +243,7 @@
     </div>
 
     <div class="subjects">
-      <label class="subj-card selectable" data-subject="Oral &amp; Maxillofacial Surgery" data-price="800">
+      <label class="subj-card selectable" data-key="oral-maxillofacial-surgery" data-subject="Oral &amp; Maxillofacial Surgery" data-price="800">
         <input type="checkbox" class="subj-check" />
         <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 01</div>
@@ -253,7 +253,7 @@
         <span class="pick">Add to my plan</span>
       </label>
 
-      <label class="subj-card selectable" data-subject="Local Anesthesia" data-price="600">
+      <label class="subj-card selectable" data-key="local-anesthesia" data-subject="Local Anesthesia" data-price="600">
         <input type="checkbox" class="subj-check" />
         <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 02</div>
@@ -263,7 +263,7 @@
         <span class="pick">Add to my plan</span>
       </label>
 
-      <label class="subj-card selectable" data-subject="Periodontics" data-price="800">
+      <label class="subj-card selectable" data-key="periodontics" data-subject="Periodontics" data-price="800">
         <input type="checkbox" class="subj-check" />
         <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 03</div>
@@ -273,7 +273,7 @@
         <span class="pick">Add to my plan</span>
       </label>
 
-      <label class="subj-card selectable" data-subject="Pharmacology" data-price="800">
+      <label class="subj-card selectable" data-key="pharmacology" data-subject="Pharmacology" data-price="800">
         <input type="checkbox" class="subj-check" />
         <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 04</div>
@@ -283,7 +283,7 @@
         <span class="pick">Add to my plan</span>
       </label>
 
-      <label class="subj-card selectable" data-subject="Restorative Dentistry &amp; Dental Materials" data-price="600">
+      <label class="subj-card selectable" data-key="restorative-dentistry" data-subject="Restorative Dentistry &amp; Dental Materials" data-price="600">
         <input type="checkbox" class="subj-check" />
         <span class="check-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div class="num">Subject 05</div>
@@ -354,7 +354,7 @@
     </div>
     <div class="plan-actions">
       <button type="button" class="plan-clear" id="planClear">Clear</button>
-      <a class="btn-gold" id="planEnroll" href="https://www.confidentist.ca/contact-us/">Enroll in selected &rarr;</a>
+      <a class="btn-gold" id="planEnroll" href="/afk-subject-feb-2027/">Pay &amp; enroll &rarr;</a>
     </div>
   </div>
 </div>
@@ -405,19 +405,10 @@
     hstEl.textContent = fmt(hst);
     totEl.textContent = fmt(total);
 
-    var lines = sel.map(function (c) {
-      return '- ' + c.dataset.subject.replace('&amp;', '&') + ' (' + fmt(parseFloat(c.dataset.price)) + ' CAD)';
-    });
-    var body =
-      'Hello ConfiDentist team,\n\n' +
-      'I would like to enroll in the following AFK February 2027 subjects:\n\n' +
-      lines.join('\n') +
-      '\n\nSubtotal: ' + fmt(subtotal) + ' CAD' +
-      '\nHST (13%): ' + fmt(hst) + ' CAD' +
-      '\nEstimated total: ' + fmt(total) + ' CAD\n\n' +
-      'Please confirm availability, any bundle pricing, and the next steps to register.\n\nThank you.';
-    var subjectLine = 'AFK Feb 2027 — Subject enrollment (' + sel.length + (sel.length === 1 ? ' subject)' : ' subjects)');
-    enrollEl.href = 'mailto:info@confidentist.ca?subject=' + encodeURIComponent(subjectLine) + '&body=' + encodeURIComponent(body);
+    // Send the buyer to Stripe Checkout with the selected subject keys. Prices are
+    // looked up server-side in /api/afk-subjects/checkout, so they can't be tampered with.
+    var keys = sel.map(function (c) { return c.dataset.key; }).filter(Boolean);
+    enrollEl.href = '/api/afk-subjects/checkout/?s=' + encodeURIComponent(keys.join(','));
   }
 
   cards.forEach(function (c) {
