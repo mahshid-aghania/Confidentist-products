@@ -3,6 +3,7 @@ import { createServerClient } from '@/lib/supabase/server'
 import { getEvent, resolvePromo } from '@/app/events/registry'
 import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
+import { renderEventConfirmation } from '@/lib/email/event-confirmation'
 
 // POST /api/events/register/  — capture a registrant (name/email/phone + optional
 // promotion code) for a given event. Promotions are applied HERE, before Stripe:
@@ -83,6 +84,23 @@ export async function POST(req: Request) {
 
   // 100% off → skip Stripe entirely, confirm for free + notify the team now.
   if (dueCents === 0) {
+    // Registrant-facing confirmation (seat is secured).
+    try {
+      const confirmation = renderEventConfirmation({
+        firstName: fullName.split(/\s+/)[0] || fullName,
+        eventName: ev.name,
+        tagline: ev.tagline,
+        date: ev.date,
+        location: ev.location,
+        ceCredits: ev.ceCredits,
+        speaker: ev.speaker,
+        presenters: ev.presenters,
+      })
+      await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...confirmation })
+    } catch (e) {
+      console.error('registrant confirmation (free) failed', e)
+    }
+    // Team ops notification.
     try {
       const note = renderEventRegistrationNotification({
         eventName: ev.name,

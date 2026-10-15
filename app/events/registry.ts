@@ -10,6 +10,14 @@ export type EventApiConfig = {
   // Promotion codes handled on OUR side (before Stripe). key = lowercased code,
   // value = percent off. A 100% code fully waives the fee and skips Stripe.
   promoCodes: Record<string, number>
+  // Presentational details for the registrant confirmation email. All optional —
+  // rows render only when present.
+  tagline?: string
+  date?: string
+  location?: string
+  ceCredits?: string
+  speaker?: string
+  presenters?: string
 }
 
 // Site-wide promotion codes valid for ANY course. Keys MUST be lowercase —
@@ -40,6 +48,12 @@ export const EVENTS: Record<string, EventApiConfig> = {
     currency: 'CAD',
     baseUrl: 'https://product.confidentist.ca/events/orthodontics-clear-aligners/',
     promoCodes: SITE_PROMO_CODES,
+    tagline: 'Supercharge Your Practice',
+    date: 'Sunday, October 18, 2026',
+    location: 'North York, Toronto',
+    ceCredits: '5 CE Credits',
+    speaker: 'Dr. Hossein Arbabezadeh, MSc',
+    presenters: 'ConfiDentist · i-VISTA MED · EverSmiles',
   },
 }
 

@@ -5,6 +5,8 @@ import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
 import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
 import { renderCourseReceipt } from '@/lib/email/course-receipt'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
+import { renderEventConfirmation } from '@/lib/email/event-confirmation'
+import { getEvent } from '@/app/events/registry'
 import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
 
 // Stripe webhook: POST /api/stripe/webhook
@@ -50,6 +52,7 @@ type PlanRow = {
 
 type EventRegRow = {
   id: string
+  event_slug: string | null
   event_name: string | null
   full_name: string
   email: string
@@ -139,7 +142,7 @@ export async function POST(req: Request) {
 
     const { data: regData } = await supabase
       .from('event_registrations')
-      .select('id, event_name, full_name, email, phone, deposit_amount, currency, status')
+      .select('id, event_slug, event_name, full_name, email, phone, deposit_amount, currency, status')
       .eq('id', regId)
       .single()
     const reg = regData as EventRegRow | null
@@ -151,6 +154,28 @@ export async function POST(req: Request) {
       .from('event_registrations')
       .update({ status: 'paid', paid_at: new Date().toISOString() })
       .eq('id', reg.id)
+
+    // Registrant-facing confirmation (seat is secured). Details come from the
+    // event registry so it stays correct per event.
+    let confirmed = false
+    try {
+      const ev = reg.event_slug ? getEvent(reg.event_slug) : null
+      const confirmation = renderEventConfirmation({
+        firstName: reg.full_name.split(/\s+/)[0] || reg.full_name,
+        eventName: ev?.name ?? reg.event_name ?? 'Your Event',
+        tagline: ev?.tagline,
+        date: ev?.date,
+        location: ev?.location,
+        ceCredits: ev?.ceCredits,
+        speaker: ev?.speaker,
+        presenters: ev?.presenters,
+      })
+      await sendEmail({ to: reg.email, bcc: ADMIN_EMAILS, ...confirmation })
+      confirmed = true
+    } catch (e) {
+      // Payment is recorded; don't force a Stripe retry over an email hiccup.
+      console.error('registrant confirmation failed', e)
+    }
 
     let notified = false
     try {
@@ -168,7 +193,7 @@ export async function POST(req: Request) {
     } catch (e) {
       console.error('event admin notification failed', e)
     }
-    return NextResponse.json({ received: true, registration: reg.id, notified })
+    return NextResponse.json({ received: true, registration: reg.id, confirmed, notified })
   }
 
   // 1) Find the installment this Payment Link belongs to.
