@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACJ Preparation Program | Assessment of Clinical Judgement | ConfiDentist</title>
-  <meta name="description" content="Prepare for the NDEB Assessment of Clinical Judgement (ACJ) with ConfiDentist's Comprehensive program — live and pre-recorded sessions, quizzes, mock exams and mentorship." />
-  <link rel="canonical" href="https://confidentist-products.vercel.app/acj-programs/" />
+  <meta name="description" content="Prepare for the NDEB Assessment of Clinical Judgement (ACJ) with ConfiDentist's Comprehensive program — 7 months, 100+ live & pre-recorded sessions, 20 quizzes, 14 mock exams, X-ray library and private mentorship. Register for the May 2027 exam." />
+  <link rel="canonical" href="https://product.confidentist.ca/acj-programs/" />
   <meta property="og:title" content="ACJ Preparation Program | ConfiDentist" />
-  <meta property="og:description" content="Prepare for the Assessment of Clinical Judgement with ConfiDentist's Comprehensive ACJ program." />
+  <meta property="og:description" content="Prepare for the Assessment of Clinical Judgement with ConfiDentist's Comprehensive ACJ program — registration open for the May 2027 exam." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +18,7 @@
       --navy:#072C5E; --navy-mid:#1C3165; --navy-light:#213669;
       --gold:#0f7ae5; --gold-dark:#0a5cb8; --gold-light:#5cb2f7; --gold-bg:#e9f3fd;
       --teal:#3BAFBF; --teal-light:#e8f7f8;
+      --amber:#f4b400; --amber-dark:#d99e00;
       --bg:#ffffff; --bg-soft:#f6f8fb; --text:#1a1f2e; --muted:#586175; --border:#dde3ee; --radius:.75rem;
       --shadow-sm:0 1px 4px rgba(7,44,94,.06),0 4px 16px rgba(7,44,94,.06);
       --shadow-md:0 4px 24px rgba(7,44,94,.10),0 1px 4px rgba(7,44,94,.06);
@@ -72,77 +73,74 @@
     .section-head { max-width:680px; margin:0 auto 2.5rem; text-align:center; }
     .section-kicker { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:.6rem; display:inline-flex; align-items:center; gap:.5rem; }
     .section-kicker::before { content:''; display:block; width:20px; height:2px; background:var(--gold); }
+    .section.navy-bg .section-kicker { color:var(--gold-light); }
     .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.85rem; }
     .section.navy-bg .section-title { color:#fff; }
     .section-desc { font-size:.95rem; color:var(--muted); line-height:1.8; }
     .section.navy-bg .section-desc { color:rgba(255,255,255,.68); }
+
+    /* STATS BAND */
+    .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; max-width:860px; margin:0 auto; }
+    .stat { text-align:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:1.75rem 1rem; }
+    .stat-num { font-family:'Playfair Display',serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:700; color:var(--gold-light); line-height:1; }
+    .stat-label { margin-top:.5rem; font-size:.8rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.72); }
+    .stats-note { text-align:center; margin-top:1.5rem; font-size:.78rem; color:rgba(255,255,255,.5); }
+
+    /* EXAM PATHWAY */
+    .pathway { display:flex; align-items:stretch; justify-content:center; gap:.4rem; flex-wrap:wrap; max-width:960px; margin:0 auto; }
+    .path-step { flex:1 1 180px; min-width:170px; }
+    .path-chev { position:relative; background:var(--navy); color:#fff; padding:.85rem 1.1rem; font-family:'Playfair Display',serif; font-weight:700; font-size:1.15rem; letter-spacing:.02em; clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%); display:flex; align-items:center; justify-content:center; gap:.5rem; }
+    .path-step:first-child .path-chev { clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); }
+    .path-step.here .path-chev { background:var(--amber); color:var(--navy); }
+    .path-label { text-align:center; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-top:.6rem; line-height:1.4; padding:0 .25rem; }
+    .path-here-tag { display:block; margin-top:.5rem; text-align:center; }
+    .path-here-tag span { display:inline-block; background:var(--amber); color:var(--navy); font-size:.62rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:.25rem .7rem; border-radius:.3rem; }
 
     .whatis { max-width:820px; margin:0 auto; }
     .whatis p { font-size:.96rem; color:var(--muted); line-height:1.85; margin-bottom:1.25rem; }
     .whatis .lead { color:var(--text); }
     .whatis-note { font-size:.85rem; color:var(--muted); line-height:1.7; background:var(--gold-bg); border:1px solid rgba(15,122,229,.2); border-left:4px solid var(--gold); border-radius:.5rem; padding:1rem 1.25rem; }
 
-    .core-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.25rem; }
-    .core-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); }
-    .core-icon { width:44px; height:44px; border-radius:.6rem; background:var(--gold-bg); border:1px solid rgba(15,122,229,.25); display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
-    .core-icon svg { width:22px; height:22px; color:var(--gold-dark); }
-    .core-card h3 { font-family:'Playfair Display',serif; font-size:1.12rem; font-weight:700; color:var(--navy); margin-bottom:.5rem; }
-    .core-card p { font-size:.86rem; color:var(--muted); line-height:1.6; }
-    .core-note { text-align:center; margin-top:1.75rem; font-size:.85rem; color:var(--muted); }
+    /* WELCOME / CONGRATS */
+    .welcome { max-width:780px; margin:0 auto; background:linear-gradient(135deg,var(--gold-bg),#fff); border:1px solid rgba(15,122,229,.2); border-radius:var(--radius); padding:2rem 2.25rem; box-shadow:var(--shadow-sm); }
+    .welcome h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--navy); margin-bottom:.75rem; }
+    .welcome p { font-size:.95rem; color:var(--muted); line-height:1.85; }
 
-    .program-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.75rem; align-items:stretch; }
-    .program-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:2rem; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); text-decoration:none; color:inherit; transition:box-shadow .2s, transform .2s, border-color .2s; position:relative; overflow:hidden; }
-    .program-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--navy),var(--teal)); }
-    .program-card.featured::before { background:linear-gradient(90deg,var(--gold-dark),var(--gold-light)); }
+    /* COURSE FORMAT */
+    .format-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; max-width:820px; margin:0 auto 2.5rem; }
+    .format-item { text-align:center; background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.5rem 1rem; box-shadow:var(--shadow-sm); }
+    .format-num { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--navy); line-height:1; }
+    .format-label { margin-top:.45rem; font-size:.78rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+
+    .program-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:2rem; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); position:relative; overflow:hidden; }
+    .program-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--gold-dark),var(--gold-light)); }
     .program-card.featured { border-color:var(--gold); border-width:2px; }
-    .program-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-4px); border-color:rgba(7,44,94,.25); }
-    .prog-badge { align-self:flex-start; font-size:.64rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:.3rem; margin-bottom:1rem; background:var(--teal-light); color:var(--teal); border:1px solid rgba(59,175,191,.25); }
-    .program-card.featured .prog-badge { background:var(--gold); color:#fff; border-color:var(--gold); }
-    .prog-title { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.65rem; }
+    .prog-badge { align-self:flex-start; font-size:.64rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:.3rem; margin-bottom:1rem; background:var(--gold); color:#fff; border:1px solid var(--gold); }
+    .prog-title { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.35rem; }
+    .prog-starts { font-size:.82rem; color:var(--gold-dark); font-weight:600; margin-bottom:1rem; }
     .prog-price { display:flex; align-items:baseline; gap:.55rem; flex-wrap:wrap; margin-bottom:.15rem; }
-    .prog-reg { font-size:.95rem; color:var(--muted); text-decoration:line-through; }
-    .prog-now { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--navy); }
+    .prog-reg { font-size:1.05rem; color:var(--muted); text-decoration:line-through; }
+    .prog-now { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:700; color:var(--navy); }
     .prog-hst { font-size:.78rem; color:var(--muted); margin-bottom:1.1rem; }
     .prog-hst strong { color:var(--navy); font-weight:600; }
-    .prog-desc { font-size:.88rem; color:var(--muted); line-height:1.65; margin-bottom:1.35rem; }
     .prog-subhead { font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); margin-bottom:.6rem; }
     .prog-list { list-style:none; display:flex; flex-direction:column; gap:.45rem; margin-bottom:1.35rem; }
     .prog-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.85rem; color:var(--muted); line-height:1.45; }
-    .prog-list li svg { width:15px; height:15px; color:var(--teal); flex-shrink:0; margin-top:.15rem; }
-    .program-card.featured .prog-list li svg { color:var(--gold); }
-    .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--navy); color:#fff; font-weight:700; font-size:.85rem; padding:.8rem 1.5rem; border-radius:.4rem; transition:background .2s, gap .18s; }
-    .program-card.featured .prog-cta { background:var(--gold); }
-    .program-card:hover .prog-cta { gap:.8rem; background:var(--navy-mid); }
-    .program-card.featured:hover .prog-cta { background:var(--gold-light); }
+    .prog-list li svg { width:15px; height:15px; color:var(--gold); flex-shrink:0; margin-top:.15rem; }
+    .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--gold); color:#fff; font-weight:700; font-size:.9rem; padding:.9rem 1.5rem; border-radius:.4rem; text-decoration:none; transition:background .2s, gap .18s; }
+    .program-card:hover .prog-cta { gap:.8rem; background:var(--gold-light); }
     .prog-cta svg { width:16px; height:16px; }
+    .prog-reassure { text-align:center; font-size:.76rem; color:var(--muted); margin-top:.7rem; }
 
-    /* COHORT TABLE */
-    .compare-wrap { overflow-x:auto; border-radius:var(--radius); box-shadow:var(--shadow-sm); border:1px solid var(--border); }
-    table.compare { width:100%; border-collapse:collapse; background:#fff; min-width:600px; }
-    table.compare caption { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
-    table.compare th, table.compare td { padding:.9rem 1.25rem; text-align:left; border-bottom:1px solid var(--border); font-size:.86rem; vertical-align:top; }
-    table.compare thead th { background:var(--navy); color:#fff; font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
-    table.compare thead th:first-child { background:var(--navy-mid); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; font-family:'Inter',sans-serif; color:rgba(255,255,255,.7); }
-    table.compare tbody th { font-weight:700; color:var(--navy); background:var(--bg-soft); white-space:nowrap; }
-    table.compare td { color:var(--muted); }
-    table.compare tbody tr:last-child td, table.compare tbody tr:last-child th { border-bottom:none; }
-    .compare-cta-row a { display:inline-flex; align-items:center; gap:.4rem; font-weight:700; font-size:.83rem; text-decoration:none; color:var(--gold-dark); }
-    .compare-cta-row a:hover { text-decoration:underline; }
-
-    .compare-cards { display:none; flex-direction:column; gap:1rem; }
-    .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; }
-    .cmp-card.a .cmp-card-head { background:linear-gradient(135deg,var(--gold-dark),var(--gold)); }
-    .cmp-card.b .cmp-card-head { background:var(--navy); }
-    .cmp-card-head { padding:1rem 1.25rem; font-family:'Playfair Display',serif; font-weight:700; color:#fff; font-size:1.1rem; }
-    .cmp-row { padding:.85rem 1.25rem; border-bottom:1px solid var(--border); }
-    .cmp-row:last-of-type { border-bottom:none; }
-    .cmp-key { font-size:.66rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
-    .cmp-val { font-size:.9rem; color:var(--text); }
-    .cmp-card .btn-gold, .cmp-card .btn-navy { width:calc(100% - 2.5rem); margin:1rem 1.25rem; }
-
-    .decision-tailored { max-width:820px; margin:0 auto; background:var(--gold-bg); border:1px solid rgba(15,122,229,.2); border-radius:var(--radius); padding:1.75rem 2rem; text-align:center; }
-    .decision-tailored h3 { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:.6rem; }
-    .decision-tailored p { font-size:.9rem; color:var(--navy); line-height:1.7; margin-bottom:1.1rem; max-width:620px; margin-left:auto; margin-right:auto; }
+    /* MOCK BREAKDOWN */
+    .mock-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+    .mock-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); }
+    .mock-card h4 { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:.85rem; display:flex; align-items:center; gap:.5rem; }
+    .mock-card h4 .count { font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; background:var(--gold-bg); color:var(--gold-dark); padding:.25rem .6rem; border-radius:.3rem; }
+    .mock-list { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .mock-list li { font-size:.85rem; color:var(--muted); line-height:1.5; padding-left:1.1rem; position:relative; }
+    .mock-list li::before { content:''; position:absolute; left:0; top:.5rem; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+    .mock-sub { font-size:.82rem; color:var(--muted); line-height:1.6; }
 
     .inst-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-top:2.5rem; }
     .inst-card { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:1.5rem; text-align:center; transition:background .2s, border-color .2s; }
@@ -180,10 +178,10 @@
     hr.rule { border:none; border-top:1px solid var(--border); margin:0; }
 
     @media (max-width:720px) {
-      .compare-wrap { display:none; }
-      .compare-cards { display:flex; }
+      .mock-grid { grid-template-columns:1fr; }
     }
-    @media (max-width:520px) {
+    @media (max-width:560px) {
+      .stats-grid, .format-grid { grid-template-columns:1fr; }
       .nav-link { display:none; }
       .hero-actions .btn-gold, .hero-actions .btn-outline-white { width:100%; }
     }
@@ -220,14 +218,84 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">Assessment of Clinical Judgement Preparation</p>
     <h1>Prepare for the ACJ with <em>ConfiDentist</em></h1>
-    <p class="hero-sub">A structured, mentor-supported program that builds the clinical reasoning and decision-making skills the ACJ evaluates.</p>
+    <p class="hero-sub">A structured, mentor-supported program that builds the clinical reasoning and decision-making skills the ACJ evaluates. Registration is now open for the May 2027 exam.</p>
     <div class="hero-actions">
-      <a href="#package" class="btn-gold">View the Package →</a>
+      <a href="#package" class="btn-gold">Register for May 2027 →</a>
       <a href="/acj-schedule-may-2027/" class="btn-outline-white">View Full Schedule</a>
       <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Speak With an Advisor</a>
     </div>
   </div>
 </header>
+
+<!-- ACHIEVEMENTS STATS -->
+<section class="section navy-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Our Achievements</span>
+      <h2 class="section-title">Real Results, Real Success</h2>
+      <p class="section-desc">Over the past 10 years, thousands of internationally trained dentists have prepared with ConfiDentist.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">4,500+</div>
+        <div class="stat-label">Students</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">92.3%</div>
+        <div class="stat-label">Passing Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">96%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+    <p class="stats-note">Figures reflect ConfiDentist student outcomes over the past 10 years.</p>
+  </div>
+</section>
+
+<!-- EXAM PATHWAY -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">The Equivalency Pathway</span>
+      <h2 class="section-title">Where the ACJ Fits</h2>
+      <p class="section-desc">The ACJ is the second step of the NDEB equivalency process for internationally trained dentists.</p>
+    </div>
+    <div class="pathway">
+      <div class="path-step">
+        <div class="path-chev">AFK</div>
+        <div class="path-label">Assessment of Fundamental Knowledge</div>
+      </div>
+      <div class="path-step here">
+        <div class="path-chev">ACJ</div>
+        <div class="path-label">Assessment of Clinical Judgement</div>
+        <div class="path-here-tag"><span>You are here</span></div>
+      </div>
+      <div class="path-step">
+        <div class="path-chev">NDECC</div>
+        <div class="path-label">Clinical Skills &amp; Situational Judgement</div>
+      </div>
+      <div class="path-step">
+        <div class="path-chev">Virtual OSCE</div>
+        <div class="path-label">Objective Structured Clinical Examination</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- WELCOME / CONGRATS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="welcome">
+      <h3>Congratulations on passing the AFK!</h3>
+      <p>You've made it through a major milestone. Now, you're ready to tackle the ACJ. It's not as intense as the AFK, but it's full of challenges that require sharp insights and expert guidance. That's where ConfiDentist comes in. With our extensive experience, we're here to teach you, guide you, and ensure your success. We'll be with you every step of the way, celebrating your achievements as you move closer to your goal. Welcome to our ACJ course — let's conquer this together!</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
 
 <!-- WHAT IS THE ACJ -->
 <section class="section">
@@ -246,7 +314,7 @@
 
 <hr class="rule" />
 
-<!-- SECTION 02 — OUR COURSE PACKAGE -->
+<!-- OUR COURSE PACKAGE -->
 <section class="section alt" id="package">
   <div class="section-inner">
     <div class="section-head">
@@ -255,31 +323,168 @@
       <p class="section-desc">One complete program — live sessions, an extensive mock-exam series and personalized mentorship.</p>
     </div>
 
+    <!-- Course format -->
+    <div class="format-grid">
+      <div class="format-item">
+        <div class="format-num">7 Months</div>
+        <div class="format-label">Course Length</div>
+      </div>
+      <div class="format-item">
+        <div class="format-num">Online</div>
+        <div class="format-label">Delivery Format</div>
+      </div>
+      <div class="format-item">
+        <div class="format-num">100+</div>
+        <div class="format-label">Total Sessions</div>
+      </div>
+    </div>
+
     <div style="max-width:540px;margin:0 auto;">
       <div class="program-card featured">
-        <span class="prog-badge">Complete Program</span>
+        <span class="prog-badge">Early-Bird Offer</span>
         <h3 class="prog-title">ACJ Comprehensive</h3>
+        <p class="prog-starts">Starts October 2026 · Register for the May 2027 Exam — Now Open</p>
+
+        <div class="prog-price">
+          <span class="prog-reg">$3,199</span>
+          <span class="prog-now">$3,039</span>
+        </div>
+        <p class="prog-hst"><strong>CAD</strong> + HST</p>
 
         <p class="prog-subhead">What's included</p>
         <ul class="prog-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>111 live &amp; pre-recorded sessions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>20 quizzes with live discussion</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>10 mini-mock exams &amp; 4 full mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>100+ live &amp; pre-recorded sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>20 quizzes with live discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14 mock exams with discussions (10 mini + 4 full)</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>X-ray practice library</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship &amp; VIP WhatsApp group</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-month program</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Exclusive VIP WhatsApp group membership</li>
         </ul>
 
-        <div class="prog-price"><span class="prog-now">$3,039</span></div>
-        <p class="prog-hst"><strong>CAD</strong> + HST</p>
-
-        <a href="/api/acj-programs/checkout" class="prog-cta">Buy Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/api/acj-programs/checkout" class="prog-cta">Register for the May 2027 Exam <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="prog-reassure">Secure checkout · Interest-free installment plans available</p>
         <a href="/acj-schedule-may-2027/" class="btn-ghost" style="width:100%;margin-top:.7rem;">View the Full May 2027 Schedule →</a>
       </div>
     </div>
   </div>
 </section>
 
+<hr class="rule" />
+
+<!-- MOCK EXAM BREAKDOWN -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Mock Exam Breakdown</span>
+      <h2 class="section-title">14 Mock Exams, Fully Discussed</h2>
+      <p class="section-desc">Every mock is paired with a live discussion so you learn from each attempt.</p>
+    </div>
+    <div class="mock-grid">
+      <div class="mock-card">
+        <h4>Mini-Mock Exams <span class="count">10 total</span></h4>
+        <ul class="mock-list">
+          <li>Radiology Review Mock Exam — with discussion</li>
+          <li>Case Review Mock Exam — with discussion</li>
+          <li>Operative Dentistry &amp; Radiology Mock Exam — with discussion</li>
+          <li>Pathology Mock Exam — with discussion</li>
+        </ul>
+      </div>
+      <div class="mock-card">
+        <h4>Full Mock Exams <span class="count">4 total</span></h4>
+        <p class="mock-sub">Four complete, exam-length mock exams that mirror the real ACJ format, each supported by dedicated review sessions.</p>
+        <ul class="mock-list" style="margin-top:.85rem;">
+          <li>4 full mock exams</li>
+          <li>8 mock discussion sessions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- INSTRUCTORS -->
+<section class="section navy-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Meet Your Instructors</span>
+      <h2 class="section-title">Learn From Experienced Faculty</h2>
+      <p class="section-desc">Our instructors guide you through every phase — foundations, clinical lectures and the full mock-exam series. "We're excited to support you every step of the way and celebrate your achievements in our course."</p>
+    </div>
+    <div class="inst-grid">
+      <div class="inst-card">
+        <div class="inst-monogram">MA</div>
+        <div class="inst-name">Dr. Mehdi Adibrad</div>
+        <div class="inst-role">Lead Instructor</div>
+      </div>
+      <div class="inst-card">
+        <div class="inst-monogram">NK</div>
+        <div class="inst-name">Dr. Neda Kadivar</div>
+        <div class="inst-role">Clinical Instructor</div>
+      </div>
+      <div class="inst-card">
+        <div class="inst-monogram">AA</div>
+        <div class="inst-name">Dr. Amin Asadollahi</div>
+        <div class="inst-role">Clinical Instructor</div>
+      </div>
+      <div class="inst-card">
+        <div class="inst-monogram">JJ</div>
+        <div class="inst-name">Dr. Juyoung Jung</div>
+        <div class="inst-role">Radiology &amp; Mock Exams</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Questions</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is the course delivered entirely online?</summary>
+        <div class="faq-body">Yes. The ACJ Comprehensive program is delivered online through live Zoom lectures and pre-recorded content accessible via our portal. Occasional in-person sessions may be available at our North York office.</div>
+      </details>
+      <details>
+        <summary>Is mentorship included?</summary>
+        <div class="faq-body">Yes — a dedicated mentor supports you throughout the course, alongside membership in the exclusive VIP WhatsApp group.</div>
+      </details>
+      <details>
+        <summary>When do I get access after registering?</summary>
+        <div class="faq-body">Access is granted within 2–3 business days of registration.</div>
+      </details>
+      <details>
+        <summary>Are installment plans available?</summary>
+        <div class="faq-body">Yes — interest-free installment plans are available. Email <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or call <a href="tel:+14373700122">+1 437 370 0122</a> to set one up.</div>
+      </details>
+      <details>
+        <summary>Can I pause the course?</summary>
+        <div class="faq-body">Yes — the course can be paused and resumed with help from our team.</div>
+      </details>
+      <details>
+        <summary>Is live attendance mandatory?</summary>
+        <div class="faq-body">No, but live attendance is highly recommended for the best results, since sessions include live discussion.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Ready to conquer the ACJ?</h2>
+    <p>Join thousands of internationally trained dentists who prepared with ConfiDentist. Registration for the May 2027 exam is now open.</p>
+    <div class="final-actions">
+      <a href="/api/acj-programs/checkout" class="btn-gold">Register for May 2027 →</a>
+      <a href="/acj-schedule-may-2027/" class="final-textlink">or view the full schedule</a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-logo">Confi<span>Dentist</span></div>
@@ -292,6 +497,33 @@
   <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada. The ACJ is administered by the NDEB.</p>
   <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "ACJ Comprehensive — Assessment of Clinical Judgement Preparation",
+  "description": "A 7-month online preparation program for the NDEB Assessment of Clinical Judgement (ACJ), including 100+ live and pre-recorded sessions, 20 quizzes with live discussions, 14 mock exams (10 mini + 4 full) with discussions, an X-ray practice library, private mentorship and a VIP WhatsApp group.",
+  "provider": {
+    "@type": "Organization",
+    "name": "ConfiDentist",
+    "url": "https://www.confidentist.ca"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "startDate": "2026-10-16",
+    "name": "ACJ Comprehensive — May 2027 Exam Cohort",
+    "offers": {
+      "@type": "Offer",
+      "price": "3039",
+      "priceCurrency": "CAD",
+      "category": "Early-Bird",
+      "url": "https://product.confidentist.ca/acj-programs/"
+    }
+  }
+}
+</script>
 
 </body>
 </html>

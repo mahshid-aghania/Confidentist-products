@@ -8,7 +8,7 @@ import { NextResponse } from 'next/server'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-const COURSE_NAME = 'ACJ Comprehensive Program (6-month)'
+const COURSE_NAME = 'ACJ Comprehensive Program (7-month)'
 const CLIENT_REF = 'acj-comprehensive'
 
 // $3,039 CAD + 13% Ontario HST, baked into the charge (same convention as the
@@ -34,7 +34,7 @@ export async function GET(req: Request) {
   params.set('line_items[0][price_data][product_data][name]', COURSE_NAME)
   params.set(
     'line_items[0][price_data][product_data][description]',
-    '6-month comprehensive AFK preparation — incl. 13% HST',
+    '7-month comprehensive ACJ preparation — incl. 13% HST',
   )
   params.set('phone_number_collection[enabled]', 'true')
   params.set('allow_promotion_codes', 'true')
