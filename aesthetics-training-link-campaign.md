@@ -3,8 +3,8 @@
 **Source site:** https://product.confidentist.ca/aesthetics-library/
 **Destination:** https://www.aesthetictraining.ca/ (Ziba Aesthetics Training Institute — independent training provider, Markham, ON)
 **Link attribution:** dofollow (matches the existing ConfiDentist dental-library pattern)
-**Placements:** 50 contextual in-article hyperlinks across 10 substantive articles
-**Prepared:** 2026-10-17
+**Placements:** 50 contextual in-article hyperlinks across **50 substantive articles** (one contextual link per article)
+**Prepared:** 2026-10-17 (expanded to 50 articles 2026-10-18)
 
 ---
 
@@ -100,76 +100,74 @@ The 50 combinations (keyword × location), as implemented in anchor form, are li
 **Publication status:** all live on `product.confidentist.ca` (static pages under `/aesthetics-library/`). Links are dofollow (`rel="noopener"`, no `nofollow`).
 Destination paths are relative to `https://www.aesthetictraining.ca`.
 
-**Deep-linked to specific pages:** each anchor points to the most relevant *specific* destination — **33 links to targeted blog pages** (city/topic-specific, e.g. Thornhill laser guides, the GTA laser guide, Toronto course pages) and **17 to specific course pages** — across **24 distinct destination URLs**. Every destination was verified to return HTTP 200 before publishing.
+**One contextual link per article, deep-linked to specific pages.** The library is now **50 substantive articles**, each a distinct topic carrying exactly **one** contextual link — a natural, non-stuffed link profile. The 50 links still cover the same keyword×location set and the same **24 distinct verified destinations** (33 targeted blog pages + 17 course pages), every one verified HTTP 200. Rows below are sorted by cluster, then article.
 
 | # | Source article (…/aesthetics-library/) | Exact anchor text | Destination path | Status |
 |---|---|---|---|---|
-| 1 | how-to-become-a-laser-technician-in-ontario/ | laser technician course in Markham | /courses/laser-technician | Published |
-| 2 | how-to-become-a-laser-technician-in-ontario/ | laser technician training for North York residents | /blog/laser-technician-certification-ontario | Published |
-| 3 | how-to-become-a-laser-technician-in-ontario/ | laser technician certification near Richmond Hill | /blog/laser-technician-certification-ontario | Published |
-| 4 | how-to-become-a-laser-technician-in-ontario/ | laser technician courses serving Toronto | /blog/best-laser-training-center-thornhill-toronto | Published |
-| 5 | how-to-become-a-laser-technician-in-ontario/ | laser technician training for Thornhill residents | /blog/laser-training-thornhill-complete-guide | Published |
-| 6 | how-to-become-a-laser-technician-in-ontario/ | a laser technician course for Vaughan residents | /courses/laser-technician | Published |
-| 7 | laser-hair-removal-training-what-certification-covers/ | laser hair removal training in Markham | /courses/laser-technician | Published |
-| 8 | laser-hair-removal-training-what-certification-covers/ | laser hair removal course for Toronto residents | /blog/who-can-perform-laser-hair-removal-ontario | Published |
-| 9 | laser-hair-removal-training-what-certification-covers/ | laser training near Scarborough | /blog/laser-technician-certification-ontario | Published |
-| 10 | laser-hair-removal-training-what-certification-covers/ | laser hair removal training serving the GTA | /blog/laser-training-thornhill-gta-complete-guide | Published |
-| 11 | laser-hair-removal-training-what-certification-covers/ | laser training for Mississauga residents | /blog/laser-technician-certification-ontario | Published |
-| 12 | building-an-aesthetics-career-in-the-gta/ | laser technician courses serving the GTA | /blog/laser-training-thornhill-gta-complete-guide | Published |
-| 13 | building-an-aesthetics-career-in-the-gta/ | laser technician training across the Greater Toronto Area | /blog/laser-training-thornhill-gta-complete-guide | Published |
-| 14 | building-an-aesthetics-career-in-the-gta/ | laser technician certification for Scarborough residents | /blog/career-paths-after-laser-technician-certificate | Published |
-| 15 | building-an-aesthetics-career-in-the-gta/ | laser technician course near Mississauga | /courses/laser-technician | Published |
-| 16 | building-an-aesthetics-career-in-the-gta/ | medical aesthetics training serving the GTA | /blog/medical-aesthetics-career-guide-gta | Published |
-| 17 | training-in-markham-and-surrounding-communities/ | laser technician training at the Markham campus | /courses/laser-technician | Published |
-| 18 | training-in-markham-and-surrounding-communities/ | Laser technician training for Richmond Hill residents | /blog/laser-technician-certification-ontario | Published |
-| 19 | training-in-markham-and-surrounding-communities/ | laser technician courses near Thornhill | /blog/laser-technician-career-thornhill-job-opportunities | Published |
-| 20 | training-in-markham-and-surrounding-communities/ | laser technician training option for Vaughan residents | /courses/laser-technician | Published |
-| 21 | training-in-markham-and-surrounding-communities/ | laser technician course for North York residents | /blog/laser-technician-certification-ontario | Published |
-| 22 | laser-technician-vs-medical-aesthetician/ | laser technician certification in Markham | /courses/laser-technician | Published |
-| 23 | laser-technician-vs-medical-aesthetician/ | laser technician training near Toronto | /blog/advanced-laser-technician-course-toronto | Published |
-| 24 | laser-technician-vs-medical-aesthetician/ | medical aesthetician course for Toronto residents | /blog/how-to-become-medical-aesthetician-toronto | Published |
-| 25 | laser-technician-vs-medical-aesthetician/ | medical aesthetics course near North York | /courses/medical-aesthetician | Published |
-| 26 | laser-technician-vs-medical-aesthetician/ | medical aesthetician course serving the GTA | /blog/medical-aesthetics-career-guide-gta | Published |
-| 27 | choosing-a-medical-aesthetics-course/ | medical aesthetics training in Markham | /blog/aesthetic-training-markham-richmond-hill | Published |
-| 28 | choosing-a-medical-aesthetics-course/ | medical aesthetics course for Richmond Hill residents | /blog/aesthetic-training-markham-richmond-hill | Published |
-| 29 | choosing-a-medical-aesthetics-course/ | medical aesthetician course near Vaughan | /courses/medical-aesthetician | Published |
-| 30 | choosing-a-medical-aesthetics-course/ | medical aesthetics training for Scarborough residents | /courses/medical-aesthetician | Published |
-| 31 | choosing-a-medical-aesthetics-course/ | medical aesthetics course serving Mississauga | /courses/medical-aesthetician | Published |
-| 32 | is-a-medical-aesthetics-diploma-worth-it/ | medical aesthetics diploma in Markham | /blog/medical-aesthetic-specialist-diploma-guide | Published |
-| 33 | is-a-medical-aesthetics-diploma-worth-it/ | medical aesthetics diploma for Toronto residents | /blog/medical-aesthetic-specialist-diploma-guide | Published |
-| 34 | is-a-medical-aesthetics-diploma-worth-it/ | medical aesthetics diploma program near North York | /blog/medical-aesthetic-diploma-vs-certificates | Published |
-| 35 | is-a-medical-aesthetics-diploma-worth-it/ | medical aesthetics diploma serving the GTA | /blog/medical-aesthetic-specialist-diploma-guide | Published |
-| 36 | is-a-medical-aesthetics-diploma-worth-it/ | medical aesthetics diploma for Richmond Hill residents | /courses/aesthetic-diploma | Published |
-| 37 | botox-and-filler-training-for-medical-professionals/ | Botox training for medical professionals in Markham | /blog/botox-training-medical-professionals-ontario | Published |
-| 38 | botox-and-filler-training-for-medical-professionals/ | Botox and filler training for Toronto clinicians | /blog/botox-filler-training-toronto-complete-guide | Published |
-| 39 | botox-and-filler-training-for-medical-professionals/ | dermal filler course near Richmond Hill | /blog/filler-training-near-me-north-york-thornhill-markham | Published |
-| 40 | botox-and-filler-training-for-medical-professionals/ | Botox course for North York practitioners | /blog/who-can-take-botox-filler-training-ontario | Published |
-| 41 | botox-and-filler-training-for-medical-professionals/ | Botox and filler training serving the GTA | /blog/botox-filler-training-toronto-complete-guide | Published |
-| 42 | botox-and-filler-training-for-medical-professionals/ | dermal filler training for Vaughan medical professionals | /courses/botox-filler | Published |
-| 43 | microneedling-certification-explained/ | microneedling course in Markham | /blog/microneedling-training-certification-ontario | Published |
-| 44 | microneedling-certification-explained/ | microneedling course for Toronto residents | /blog/microneedling-certification-course-toronto | Published |
-| 45 | microneedling-certification-explained/ | microneedling certification near Scarborough | /blog/microneedling-training-certification-ontario | Published |
-| 46 | microneedling-certification-explained/ | microneedling training serving the GTA | /blog/microneedling-training-certification-ontario | Published |
-| 47 | from-esthetician-to-medical-aesthetics/ | laser technician training for licensed estheticians in Markham | /courses/laser-technician | Published |
-| 48 | from-esthetician-to-medical-aesthetics/ | microneedling certification for Mississauga residents | /courses/microneedling | Published |
-| 49 | from-esthetician-to-medical-aesthetics/ | medical aesthetics diploma near Thornhill | /courses/aesthetic-diploma | Published |
-| 50 | from-esthetician-to-medical-aesthetics/ | PRP training offered within the medical aesthetics diploma | /courses/aesthetic-diploma | Published |
+| 1 | adding-microneedling-to-your-service-menu/ | microneedling certification for Mississauga residents | /courses/microneedling | Published |
+| 2 | admission-to-an-aesthetics-diploma-program/ | medical aesthetics diploma for Richmond Hill residents | /courses/aesthetic-diploma | Published |
+| 3 | chemical-peels-explained/ | medical aesthetics training in Markham | /blog/aesthetic-training-markham-richmond-hill | Published |
+| 4 | combining-microneedling-with-other-treatments/ | microneedling training serving the GTA | /blog/microneedling-training-certification-ontario | Published |
+| 5 | dermaplaning-in-ontario/ | medical aesthetics course for Richmond Hill residents | /blog/aesthetic-training-markham-richmond-hill | Published |
+| 6 | diploma-career-outcomes/ | medical aesthetics diploma near Thornhill | /courses/aesthetic-diploma | Published |
+| 7 | diploma-vs-individual-certificates/ | medical aesthetics diploma program near North York | /blog/medical-aesthetic-diploma-vs-certificates | Published |
+| 8 | is-an-aesthetics-diploma-worth-the-investment/ | medical aesthetics diploma for Toronto residents | /blog/medical-aesthetic-specialist-diploma-guide | Published |
+| 9 | led-light-therapy-in-a-service-menu/ | medical aesthetician course near Vaughan | /courses/medical-aesthetician | Published |
+| 10 | medical-aesthetician-vs-esthetician/ | medical aesthetics course near North York | /courses/medical-aesthetician | Published |
+| 11 | medical-aesthetics-career-outlook/ | medical aesthetician course serving the GTA | /blog/medical-aesthetics-career-guide-gta | Published |
+| 12 | microneedling-aftercare-and-results/ | microneedling course for Toronto residents | /blog/microneedling-certification-course-toronto | Published |
+| 13 | microneedling-collagen-induction-explained/ | microneedling course in Markham | /blog/microneedling-training-certification-ontario | Published |
+| 14 | professional-facials-and-skin-treatments/ | medical aesthetics training for Scarborough residents | /courses/medical-aesthetician | Published |
+| 15 | prp-within-the-aesthetics-diploma/ | PRP training offered within the medical aesthetics diploma | /courses/aesthetic-diploma | Published |
+| 16 | stacking-certificates-vs-a-diploma/ | medical aesthetics diploma serving the GTA | /blog/medical-aesthetic-specialist-diploma-guide | Published |
+| 17 | the-medical-aesthetician-curriculum/ | medical aesthetics course serving Mississauga | /courses/medical-aesthetician | Published |
+| 18 | what-a-comprehensive-aesthetics-diploma-includes/ | medical aesthetics diploma in Markham | /blog/medical-aesthetic-specialist-diploma-guide | Published |
+| 19 | what-a-medical-aesthetician-does/ | medical aesthetician course for Toronto residents | /blog/how-to-become-medical-aesthetician-toronto | Published |
+| 20 | who-can-perform-microneedling-in-ontario/ | microneedling certification near Scarborough | /blog/microneedling-training-certification-ontario | Published |
+| 21 | working-in-a-med-spa/ | medical aesthetics training serving the GTA | /blog/medical-aesthetics-career-guide-gta | Published |
+| 22 | advanced-laser-training-after-experience/ | laser technician training near Toronto | /blog/advanced-laser-technician-course-toronto | Published |
+| 23 | building-a-laser-service-menu/ | laser technician training option for Vaughan residents | /courses/laser-technician | Published |
+| 24 | career-paths-after-a-laser-technician-certificate/ | laser technician certification for Scarborough residents | /blog/career-paths-after-laser-technician-certificate | Published |
+| 25 | choosing-a-laser-training-program/ | laser technician certification near Richmond Hill | /blog/laser-technician-certification-ontario | Published |
+| 26 | fitzpatrick-skin-typing-for-laser/ | laser training near Scarborough | /blog/laser-technician-certification-ontario | Published |
+| 27 | how-to-become-a-laser-technician-in-ontario/ | laser technician course in Markham | /courses/laser-technician | Published |
+| 28 | laser-hair-removal-training-explained/ | laser hair removal training in Markham | /courses/laser-technician | Published |
+| 29 | laser-physics-basics-for-trainees/ | laser technician training for North York residents | /blog/laser-technician-certification-ontario | Published |
+| 30 | laser-safety-fundamentals/ | Laser technician training for Richmond Hill residents | /blog/laser-technician-certification-ontario | Published |
+| 31 | laser-skin-rejuvenation-and-photofacials/ | laser hair removal training serving the GTA | /blog/laser-training-thornhill-gta-complete-guide | Published |
+| 32 | laser-tattoo-removal-an-overview/ | laser technician certification in Markham | /courses/laser-technician | Published |
+| 33 | laser-training-cost-what-to-expect/ | laser technician course near Mississauga | /courses/laser-technician | Published |
+| 34 | laser-training-for-licensed-estheticians/ | laser technician training for licensed estheticians in Markham | /courses/laser-technician | Published |
+| 35 | laser-training-for-nurses/ | laser technician course for North York residents | /blog/laser-technician-certification-ontario | Published |
+| 36 | laser-treatment-aftercare-and-client-care/ | laser technician training across the Greater Toronto Area | /blog/laser-training-thornhill-gta-complete-guide | Published |
+| 37 | laser-vs-ipl-what-is-the-difference/ | laser training for Mississauga residents | /blog/laser-technician-certification-ontario | Published |
+| 38 | prerequisites-for-laser-training/ | a laser technician course for Vaughan residents | /courses/laser-technician | Published |
+| 39 | the-laser-consultation-explained/ | laser technician courses serving Toronto | /blog/best-laser-training-center-thornhill-toronto | Published |
+| 40 | the-laser-technician-job-market-in-the-gta/ | laser technician courses serving the GTA | /blog/laser-training-thornhill-gta-complete-guide | Published |
+| 41 | transitioning-into-laser-from-esthetics/ | laser technician courses near Thornhill | /blog/laser-technician-career-thornhill-job-opportunities | Published |
+| 42 | what-a-laser-technician-does-day-to-day/ | laser technician training at the Markham campus | /courses/laser-technician | Published |
+| 43 | what-to-expect-in-hands-on-laser-practice/ | laser technician training for Thornhill residents | /blog/laser-training-thornhill-complete-guide | Published |
+| 44 | who-can-perform-laser-hair-removal-in-ontario/ | laser hair removal course for Toronto residents | /blog/who-can-perform-laser-hair-removal-ontario | Published |
+| 45 | botox-vs-dysport-vs-xeomin/ | Botox and filler training for Toronto clinicians | /blog/botox-filler-training-toronto-complete-guide | Published |
+| 46 | dermal-filler-types-and-brands/ | dermal filler course near Richmond Hill | /blog/filler-training-near-me-north-york-thornhill-markham | Published |
+| 47 | facial-anatomy-for-injectable-training/ | Botox training for medical professionals in Markham | /blog/botox-training-medical-professionals-ontario | Published |
+| 48 | filler-safety-and-vascular-awareness/ | Botox and filler training serving the GTA | /blog/botox-filler-training-toronto-complete-guide | Published |
+| 49 | what-to-expect-in-a-5-day-injectable-course/ | dermal filler training for Vaughan medical professionals | /courses/botox-filler | Published |
+| 50 | who-can-inject-botox-and-filler-in-ontario/ | Botox course for North York practitioners | /blog/who-can-take-botox-filler-training-ontario | Published |
 
 ---
 
 ## Article inventory
 
-| Article | Links | Primary program |
-|---|---|---|
-| How to Become a Laser Technician in Ontario | 6 | Laser technician |
-| Laser Hair Removal Training: What the Certification Covers | 5 | Laser technician |
-| Building an Aesthetics Career Across the GTA | 5 | Laser technician (+1 medical) |
-| Training in Markham and the Communities It Serves | 5 | Laser technician |
-| Laser Technician vs Medical Aesthetician | 5 | Laser + medical aesthetician |
-| Choosing a Medical Aesthetics Course in the GTA | 5 | Medical aesthetician |
-| Is a Medical Aesthetics Diploma Worth It? | 5 | Diploma |
-| Botox and Filler Training for Medical Professionals | 6 | Botox & filler |
-| Microneedling Certification Explained | 4 | Microneedling |
-| From Esthetician to Medical Aesthetics | 4 | Laser + microneedling + diploma |
+**50 articles across 5 clusters**, each carrying one contextual link:
 
-Each article is a distinct, substantive guide. No article is a city-swap duplicate, no visitor-facing keyword lists are used, and no single paragraph stacks the combinations — in line with the brief's quality and accuracy requirements.
+| Cluster | Articles | Links |
+|---|---|---|
+| Laser Technician Training | 23 | 23 |
+| Medical Aesthetician & Skin | 9 | 9 |
+| Diplomas & Credentials | 7 | 7 |
+| Injectables (Medical Professionals) | 6 | 6 |
+| Microneedling & Collagen Induction | 5 | 5 |
+| **Total** | **50** | **50** |
+
+Every article is a distinct, substantive topic (e.g. "Fitzpatrick Skin Typing for Laser," "Who Can Inject Botox and Filler in Ontario?," "Chemical Peels Explained"). No article is a city-swap duplicate, no visitor-facing keyword lists are used, and each page carries a single in-context link — in line with the brief's quality and accuracy requirements. Laser technician remains prioritized (23 of 50 articles/links, 46%).
