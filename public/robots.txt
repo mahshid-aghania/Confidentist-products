@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://product.confidentist.ca/sitemap.xml
