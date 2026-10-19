@@ -101,6 +101,41 @@
     .ce-opt { display: flex; align-items: center; gap: .8rem; padding: 1rem 1.15rem; border: 1.5px solid var(--border); border-radius: 12px; background: #fff; color: var(--navy); font-weight: 600; font-size: .92rem; transition: border-color .15s, box-shadow .15s, transform .12s; }
     .ce-opt:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
     .ce-opt .qo-arrow { margin-left: auto; color: var(--gold-dark); display: flex; }
+
+    /* OSCE custom stage panel */
+    .osce-panel { display: flex; flex-direction: column; gap: 2.25rem; }
+    .osce-block-head { text-align: center; margin-bottom: 1.25rem; }
+    .osce-note-sub { font-size: .82rem; color: var(--muted); margin-top: .45rem; }
+    .osce-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .osce-stat { text-align: center; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1rem; box-shadow: var(--shadow-sm); }
+    .osce-stat-num { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 700; color: var(--gold-dark); line-height: 1; }
+    .osce-stat-label { font-size: .8rem; color: var(--muted); margin-top: .5rem; font-weight: 500; }
+    .osce-welcome { background: var(--bg-soft); border: 1.5px solid var(--border); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1.75rem; }
+    .osce-welcome h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: .75rem; }
+    .osce-welcome p { font-size: .94rem; color: var(--muted); line-height: 1.8; margin-bottom: .9rem; }
+    .osce-welcome p:last-child { margin-bottom: 0; }
+    .osce-examdate { display: inline-flex; align-items: center; gap: .5rem; margin-top: .3rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .55rem .95rem; font-size: .88rem; font-weight: 600; color: var(--navy); }
+    .osce-examdate svg { width: 16px; height: 16px; color: var(--gold-dark); flex-shrink: 0; }
+    .osce-uni { background: var(--teal-light); border: 1px solid rgba(59,175,191,.35); border-radius: .5rem; padding: .85rem 1.1rem; font-size: .84rem; color: var(--navy); line-height: 1.6; text-align: center; margin-bottom: 1.5rem; }
+    .osce-pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; align-items: stretch; }
+    .osce-card { display: flex; flex-direction: column; background: #fff; border: 2px solid var(--gold); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-md); height: 100%; }
+    .osce-badge { align-self: flex-start; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .75rem; border-radius: .3rem; margin-bottom: .9rem; background: var(--gold); color: #fff; }
+    .osce-card h4 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+    .osce-start { font-size: .82rem; font-weight: 600; color: var(--gold-dark); margin-bottom: .9rem; }
+    .osce-price { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--navy); }
+    .osce-hst { font-size: .8rem; color: var(--muted); margin-bottom: 1rem; }
+    .osce-hst strong { color: var(--navy); }
+    .osce-sub { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin: .3rem 0 .7rem; }
+    .osce-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.35rem; }
+    .osce-list li { display: flex; align-items: flex-start; gap: .55rem; font-size: .86rem; color: var(--muted); line-height: 1.5; }
+    .osce-list li svg { width: 15px; height: 15px; color: var(--gold); flex-shrink: 0; margin-top: .18rem; }
+    .osce-reg { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .86rem; padding: .8rem 1.5rem; border-radius: .4rem; box-shadow: 0 4px 18px rgba(15,122,229,.35); transition: background .2s, transform .15s; }
+    .osce-reg:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .osce-sched { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+    .osce-sched a { display: inline-flex; align-items: center; gap: .45rem; background: var(--navy); color: #fff; font-weight: 700; font-size: .84rem; padding: .75rem 1.4rem; border-radius: .4rem; transition: background .2s, transform .15s; }
+    .osce-sched a:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .osce-closing { text-align: center; font-size: .9rem; color: var(--muted); line-height: 1.8; max-width: 700px; margin: 0 auto; }
+    @media (max-width: 560px) { .osce-stats { grid-template-columns: 1fr; } }
     .ce-opt .qo-arrow svg { width: 18px; height: 18px; }
     .ce-opt small { display: block; font-weight: 400; font-size: .74rem; color: var(--muted); margin-top: .15rem; }
 
@@ -285,7 +320,7 @@
         <li><a href="/afk-programs/">AFK preparation course</a> — the usual first equivalency exam for internationally trained dentists.</li>
         <li><a href="/acj-programs/">ACJ preparation course</a> — build the clinical judgement the assessment evaluates.</li>
         <li><a href="/ndecc-programs/">NDECC Clinical Skills and Situational Judgement preparation</a> — practical clinical training.</li>
-        <li><a href="/virtual-osce/">Virtual OSCE preparation</a> — rehearse simulated OSCE stations online.</li>
+        <li><a href="/virtual-osce/">Virtual OSCE preparation</a> — a 2.5-month online course for the final equivalency step, with mock exams and a 1,500+ MCQ booklet.</li>
         <li><a href="/adat-programs/">ADAT preparation</a> and <a href="/university-interview-preparation/">university dental interview preparation</a> for admissions.</li>
         <li><a href="/course-bundles/">Compare course bundles</a> or <a href="/afk-mock-exams/">try a dental mock exam</a>.</li>
       </ul>
@@ -331,7 +366,7 @@ const PROGRAMS = {
   'ndecc-cs':    { name: 'NDECC Clinical Skills', route: '/ndecc-programs/clinical-skills/', cat: 'Clinical Training', delivery: 'In-person · Hands-on', format: 'Core Package', desc: 'Recorded demonstrations with supervised, hands-on practice in a fully equipped clinic setting.' },
   'ndecc-sj':    { name: 'NDECC Situational Judgement', route: '/ndecc-programs/situational-judgement/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Focused preparation for the NDECC Situational Judgement component.' },
   'ndecc-bundle':{ name: 'Complete NDECC Bundle', route: '/ndecc-programs/bundles/', cat: 'Bundles', delivery: 'Online + In-person', format: 'Both components', desc: 'Both NDECC components combined into one complete preparation package.' },
-  'osce':        { name: 'Virtual OSCE®', route: '/virtual-osce/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Program', desc: 'Simulated OSCE stations delivered virtually so you can practise under realistic conditions.' },
+  'osce':        { name: 'Virtual OSCE®', route: '/virtual-osce/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'A 2.5-month online course for the final NDEB equivalency step — lectures, quizzes, 3 full mock exams and a 1,500+ MCQ booklet, with November 2026 and March 2027 cohorts at $2,799 + HST.' },
   'adat-hub':    { name: 'ADAT Preparation', route: '/adat-programs/', cat: 'University Preparation', delivery: 'Online · Live + Recorded', format: 'Comprehensive & Crash', desc: 'Structured, high-yield preparation for the Advanced Dental Admission Test.' },
   'adat-comp':   { name: 'ADAT Comprehensive', route: '/adat-programs/comprehensive/', cat: 'University Preparation', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Complete ADAT preparation across the knowledge areas the test measures.' },
   'adat-crash':  { name: 'ADAT Crash Course', route: '/adat-programs/crash/', cat: 'University Preparation', delivery: 'Online', format: 'Crash', desc: 'A focused, high-yield ADAT review for candidates who need efficient preparation.' },
@@ -393,10 +428,91 @@ const pathwayNav = (() => {
     },
     osce: {
       label: 'Preparing for Virtual OSCE',
-      heading: 'Practise realistic OSCE stations online',
-      intro: 'Virtual OSCE preparation simulates OSCE stations online so you can rehearse under realistic conditions from anywhere. Related clinical training and bundles are also available.',
-      primary: { label: 'View Virtual OSCE Preparation', href: '/virtual-osce/' },
-      cards: [ ['osce', 'Recommended'], ['ndecc-hub', 'Alternative'], ['bundles', 'Bundle'] ]
+      heading: 'Virtual OSCE',
+      html: `
+<div class="osce-panel">
+
+  <div>
+    <div class="osce-block-head">
+      <span class="kicker">Our Achievements</span>
+      <h2 class="h-title" id="pw-result-title" tabindex="-1" style="font-size:clamp(1.4rem,2.8vw,1.9rem)">Real Results, Real Success!</h2>
+      <p class="osce-note-sub">Over the past 10 years</p>
+    </div>
+    <div class="osce-stats">
+      <div class="osce-stat"><div class="osce-stat-num">1,000+</div><div class="osce-stat-label">Students</div></div>
+      <div class="osce-stat"><div class="osce-stat-num">99%</div><div class="osce-stat-label">Passing Rate</div></div>
+      <div class="osce-stat"><div class="osce-stat-num">100%</div><div class="osce-stat-label">Satisfaction Rate</div></div>
+    </div>
+  </div>
+
+  <div class="osce-welcome">
+    <h3>Congratulations</h3>
+    <p>On making it this far! You've successfully navigated through all the necessary steps, and now you're at the final hurdle in the equivalency process — the OSCE exam. Your efforts have been invaluable, and we are confident that you will pass this last step with strength and determination.</p>
+    <p>Based on our extensive experience, we've meticulously designed this course to meet all your needs for the OSCE exam. We're here to ensure you're fully prepared, confident, and ready to succeed.</p>
+    <p>Welcome to our OSCE course — let's take this final step together!</p>
+    <p class="osce-examdate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>The next NDEB exam date is November 23, 2026</p>
+  </div>
+
+  <div>
+    <div class="osce-block-head">
+      <span class="kicker">Virtual OSCE Packages</span>
+      <h2 class="h-title" style="font-size:clamp(1.4rem,2.8vw,1.9rem)">Choose Your Exam Cohort</h2>
+    </div>
+    <p class="osce-uni"><strong>University students:</strong> please email the office with your university email address to receive your special offer for the course or its mock exams.</p>
+    <div class="osce-pkgs">
+
+      <article class="osce-card">
+        <span class="osce-badge">Most Popular · Comprehensive</span>
+        <h4>Comprehensive</h4>
+        <p class="osce-start">Course starts September 12 · for the November 2026 exam</p>
+        <div class="osce-price">$2,799</div>
+        <p class="osce-hst"><strong>CAD</strong> + HST</p>
+        <p class="osce-sub">What's included</p>
+        <ul class="osce-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Course orientation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2.5 months course</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 pre-recorded lectures</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 online quizzes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 live quiz discussions &amp; 2 pre-recorded discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 full online mock exams (200 questions each)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 live mock discussion sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 handouts covering all important topics related to the Virtual OSCE exam</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 booklet including 1,500+ new multiple-choice questions for the written part</li>
+        </ul>
+        <a class="osce-reg" href="https://www.confidentist.ca/product/virtual-osce-course-november-2026/">Register Now for November 2026 →</a>
+      </article>
+
+      <article class="osce-card">
+        <span class="osce-badge">Most Popular · Comprehensive</span>
+        <h4>Comprehensive</h4>
+        <p class="osce-start">Course starts November 21 · for the March 2027 exam</p>
+        <div class="osce-price">$2,799</div>
+        <p class="osce-hst"><strong>CAD</strong> + HST</p>
+        <p class="osce-sub">What's included</p>
+        <ul class="osce-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Course orientation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2.5 months course</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>9 online lectures</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 online quizzes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 full online mock exams (200 questions each)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 online mock discussion sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 handouts covering all important topics related to the Virtual OSCE exam</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 booklet including 1,500+ new multiple-choice questions for the written part</li>
+        </ul>
+        <a class="osce-reg" href="https://www.confidentist.ca/contact-us/">Register Now for March 2027 →</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="osce-sched">
+    <a href="https://www.confidentist.ca/contact-us/">OSCE Schedule — Nov 2026</a>
+    <a href="https://www.confidentist.ca/contact-us/">OSCE Schedule — March 2027</a>
+  </div>
+
+  <p class="osce-closing">To meet the diverse needs of our audience, ConfiDentist has designed the OSCE course in the best format, leveraging our many years of experience. Contact an advisor to learn more about this course and its features.</p>
+
+</div>`
     },
     adat: {
       label: 'Preparing for ADAT',
@@ -469,18 +585,28 @@ const pathwayNav = (() => {
     const s = STAGES[id];
     if (!s) return;
     active = id;
-    let body = '';
-    if (s.cards) body = '<div class="pw-cards">' + s.cards.map(c => cardHTML(c[0], c[1])).join('') + '</div>';
-    else if (s.actions) body = '<div class="pw-actions">' + s.actions.map(actionHTML).join('') + '</div>';
+    const ctaBlock = document.querySelector('.pathway-cta');
 
-    resultEl.innerHTML =
-      '<div class="pw-result-head"><h2 id="pw-result-title" class="h-title" tabindex="-1" style="font-size:clamp(1.2rem,2.4vw,1.55rem)">' + esc(s.heading) + '</h2>'
-      + '<button type="button" class="pw-restart" id="pwRestart">' + svgReset + 'Start again</button></div>'
-      + '<p class="pw-result-intro">' + esc(s.intro) + '</p>'
-      + body;
+    if (s.html) {
+      // Custom full-content stage: render verbatim, no restart button or standing CTAs.
+      resultEl.innerHTML = s.html;
+      if (ctaBlock) ctaBlock.style.display = 'none';
+    } else {
+      if (ctaBlock) ctaBlock.style.display = '';
+      let body = '';
+      if (s.cards) body = '<div class="pw-cards">' + s.cards.map(c => cardHTML(c[0], c[1])).join('') + '</div>';
+      else if (s.actions) body = '<div class="pw-actions">' + s.actions.map(actionHTML).join('') + '</div>';
+
+      resultEl.innerHTML =
+        '<div class="pw-result-head"><h2 id="pw-result-title" class="h-title" tabindex="-1" style="font-size:clamp(1.2rem,2.4vw,1.55rem)">' + esc(s.heading) + '</h2>'
+        + '<button type="button" class="pw-restart" id="pwRestart">' + svgReset + 'Start again</button></div>'
+        + '<p class="pw-result-intro">' + esc(s.intro) + '</p>'
+        + body;
+
+      if (s.primary) setPrimary(s.primary.label, s.primary.href);
+    }
 
     nodes.forEach(n => n.setAttribute('aria-current', n.dataset.stage === id ? 'true' : 'false'));
-    if (s.primary) setPrimary(s.primary.label, s.primary.href);
 
     if (live) live.textContent = s.label + ' selected. ' + s.heading + '. Recommended preparation is shown below.';
     track('pathway_stage_selected', { stage: id });
@@ -502,6 +628,8 @@ const pathwayNav = (() => {
   function restart(push, focusIt) {
     active = null;
     resultEl.innerHTML = defaultHTML;
+    const ctaBlock = document.querySelector('.pathway-cta');
+    if (ctaBlock) ctaBlock.style.display = '';
     nodes.forEach(n => n.setAttribute('aria-current', 'false'));
     setPrimary('View Recommended Programs', '/#programs');
     if (live) live.textContent = 'Selection cleared. Showing the overview of ConfiDentist pathways.';
