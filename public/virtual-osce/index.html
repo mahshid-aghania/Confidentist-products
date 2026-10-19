@@ -117,6 +117,28 @@
     .price-cta { margin-top: auto; width: 100%; }
     .price-note { font-size: .82rem; color: var(--muted); line-height: 1.6; background: var(--bg-soft); border: 1px solid var(--border); border-radius: .5rem; padding: .85rem 1rem; margin-bottom: 1.25rem; }
 
+    /* Achievements */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 720px; margin: 0 auto; }
+    .stat { text-align: center; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.6rem 1rem; box-shadow: var(--shadow-sm); }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--gold-dark); line-height: 1; }
+    .stat-label { font-size: .82rem; color: var(--muted); margin-top: .5rem; font-weight: 500; }
+    .stats-note { text-align: center; font-size: .78rem; color: var(--muted); margin-top: 1.25rem; }
+
+    /* Welcome / Congratulations */
+    .welcome { max-width: 760px; margin: 0 auto; background: var(--bg-soft); border: 1.5px solid var(--border); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 2rem; }
+    .welcome h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: .85rem; }
+    .welcome p { font-size: .95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .welcome p:last-child { margin-bottom: 0; }
+    .exam-date { display: inline-flex; align-items: center; gap: .5rem; margin-top: .4rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .6rem 1rem; font-size: .9rem; font-weight: 600; color: var(--navy); }
+    .exam-date svg { width: 17px; height: 17px; color: var(--gold-dark); flex-shrink: 0; }
+
+    /* Packages */
+    .uni-note { max-width: 820px; margin: 0 auto 2rem; background: var(--teal-light); border: 1px solid rgba(59,175,191,.35); border-radius: .5rem; padding: .9rem 1.15rem; font-size: .84rem; color: var(--navy); line-height: 1.6; text-align: center; }
+    .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; align-items: stretch; }
+    .pkg-grid .price-card { height: 100%; }
+    .schedule-row { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+    .closing-note { max-width: 720px; margin: 2.25rem auto 0; text-align: center; font-size: .9rem; color: var(--muted); line-height: 1.8; }
+
     .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
     .format-card { display: flex; gap: .85rem; align-items: flex-start; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.35rem; box-shadow: var(--shadow-sm); }
     .format-card svg { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; margin-top: .1rem; }
@@ -200,6 +222,49 @@
   </div>
 </header>
 
+<!-- ACHIEVEMENTS -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Our Achievements</span>
+      <h2 class="section-title">Real Results, Real Success!</h2>
+      <p class="section-desc">Over the past 10 years, internationally trained dentists have prepared with ConfiDentist.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">1,000+</div>
+        <div class="stat-label">Students</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">99%</div>
+        <div class="stat-label">Passing Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+    <p class="stats-note">Figures reflect ConfiDentist student outcomes over the past 10 years.</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- CONGRATULATIONS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="welcome">
+      <h3>Congratulations</h3>
+      <p>On making it this far! You've successfully navigated through all the necessary steps, and now you're at the final hurdle in the equivalency process — the OSCE exam. Your efforts have been invaluable, and we are confident that you will pass this last step with strength and determination.</p>
+      <p>Based on our extensive experience, we've meticulously designed this course to meet all your needs for the OSCE exam. We're here to ensure you're fully prepared, confident, and ready to succeed.</p>
+      <p>Welcome to our OSCE course — let's take this final step together!</p>
+      <p class="exam-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>The next NDEB exam date is November 23, 2026</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
 <section class="section">
   <div class="section-inner">
     <div class="section-head">
@@ -218,43 +283,76 @@
 
 <hr class="rule" />
 
-<!-- COURSE / PRICING -->
+<!-- PACKAGES -->
 <section class="section alt" id="course">
   <div class="section-inner">
     <div class="section-head">
       <span class="section-kicker">The Course</span>
-      <h2 class="section-title">Virtual OSCE Course — November 2026 Exam</h2>
-      <p class="section-desc">A structured 2.5-month online program aligned to the NDEB Virtual OSCE on November 23, 2026.</p>
+      <h2 class="section-title">Virtual OSCE Packages</h2>
+      <p class="section-desc">Choose the exam cohort that matches your timeline — each package is a complete, structured 2.5-month online program.</p>
     </div>
-    <div class="course-price">
+
+    <p class="uni-note"><strong>University students:</strong> please email the office with your university email address to receive your special offer for the course or its mock exams.</p>
+
+    <div class="pkg-grid">
+      <!-- November 2026 -->
       <article class="price-card">
         <span class="price-badge">Most Popular · Comprehensive</span>
-        <h3 class="price-name">Virtual OSCE Course</h3>
-        <p class="price-start">Starts September 12 · for the November 2026 exam</p>
+        <h3 class="price-name">Comprehensive</h3>
+        <p class="price-start">Course starts September 12 · for the November 2026 exam</p>
         <div class="price-amount">
-          <span class="price-reg">$2,799</span>
-          <span class="price-now">$2,660</span>
+          <span class="price-now">$2,799</span>
         </div>
-        <p class="price-hst"><strong>CAD</strong> + HST · early-bird price</p>
-        <p class="price-earlybird">Early-bird pricing is subject to change — please confirm the current price on the registration page before enrolling.</p>
+        <p class="price-hst"><strong>CAD</strong> + HST</p>
 
         <hr class="price-divider" />
-        <p class="price-note">Designed for internationally trained dentists preparing for the final step of the NDEB equivalency process.</p>
         <p class="price-subhead">What's included</p>
         <ul class="price-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Course orientation</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2.5 months of instruction</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2.5 months course</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 pre-recorded lectures</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 online quizzes</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 live quiz discussions + 2 pre-recorded discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 live quiz discussions &amp; 2 pre-recorded discussions</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 full online mock exams (200 questions each)</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 live mock discussion sessions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 handouts covering key Virtual OSCE topics</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 booklet with 1,500+ multiple-choice questions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 handouts covering all important topics related to the Virtual OSCE exam</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 booklet including 1,500+ new multiple-choice questions for the written part</li>
         </ul>
         <a class="btn-gold price-cta" href="https://www.confidentist.ca/product/virtual-osce-course-november-2026/">Register Now for November 2026 →</a>
       </article>
+
+      <!-- March 2027 -->
+      <article class="price-card">
+        <span class="price-badge">Most Popular · Comprehensive</span>
+        <h3 class="price-name">Comprehensive</h3>
+        <p class="price-start">Course starts November 21 · for the March 2027 exam</p>
+        <div class="price-amount">
+          <span class="price-now">$2,799</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST</p>
+
+        <hr class="price-divider" />
+        <p class="price-subhead">What's included</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Course orientation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2.5 months course</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>9 online lectures</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 online quizzes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 full online mock exams (200 questions each)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 online mock discussion sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 handouts covering all important topics related to the Virtual OSCE exam</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 booklet including 1,500+ new multiple-choice questions for the written part</li>
+        </ul>
+        <a class="btn-gold price-cta" href="https://www.confidentist.ca/contact-us/">Register Now for March 2027 →</a>
+      </article>
     </div>
+
+    <div class="schedule-row">
+      <a class="btn-navy" href="https://www.confidentist.ca/contact-us/">OSCE Schedule — Nov 2026</a>
+      <a class="btn-navy" href="https://www.confidentist.ca/contact-us/">OSCE Schedule — March 2027</a>
+    </div>
+
+    <p class="closing-note">To meet the diverse needs of our audience, ConfiDentist has designed the OSCE course in the best format, leveraging our many years of experience. Contact an advisor to learn more about this course and its features.</p>
   </div>
 </section>
 
