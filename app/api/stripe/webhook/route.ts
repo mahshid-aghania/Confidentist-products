@@ -5,6 +5,7 @@ import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
 import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
 import { renderMockAdminNotification } from '@/lib/email/mock-admin-notification'
 import { renderCourseReceipt } from '@/lib/email/course-receipt'
+import { recordOsceOrder } from '@/lib/orders/record-osce-order'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 import { renderEventConfirmation } from '@/lib/email/event-confirmation'
 import { getEvent } from '@/app/events/registry'
@@ -125,9 +126,14 @@ export async function POST(req: Request) {
       // Billing address (collected via billing_address_collection=required).
       const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
       const str = (v: unknown) => (typeof v === 'string' ? v : '')
+      const line1 = str(a['line1'])
+      const line2 = str(a['line2'])
+      const city = str(a['city'])
+      const state = str(a['state'])
+      const country = str(a['country'])
       const postalCode = str(a['postal_code'])
-      const cityLine = [str(a['city']), str(a['state']), postalCode].filter(Boolean).join(', ')
-      const addressLines = [str(a['line1']), str(a['line2']), cityLine, str(a['country'])]
+      const cityLine = [city, state, postalCode].filter(Boolean).join(', ')
+      const addressLines = [line1, line2, cityLine, country]
 
       // Custom fields collected at checkout: first_name, last_name (required) and sin (optional).
       const customFields = Array.isArray(session['custom_fields'])
@@ -143,6 +149,37 @@ export async function POST(req: Request) {
       const sin = cf('sin')
 
       const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+      const paymentIntent =
+        typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
+
+      // Record the purchase in the orders tables so it appears in the dashboard
+      // (idempotent — Stripe retries this webhook).
+      let recorded = false
+      try {
+        const result = await recordOsceOrder(supabase, {
+          email,
+          firstName,
+          lastName,
+          phone: phone ?? '',
+          addressLine1: line1,
+          addressLine2: line2,
+          city,
+          state,
+          postalCode,
+          country,
+          productName: selectionLabel,
+          amountTotalCents: amountTotal,
+          currency,
+          sessionId: reference,
+          paymentIntent,
+          sin,
+          rawSession: session,
+        })
+        recorded = result.recorded
+        if (result.error) console.error('osce order record error', result.error)
+      } catch (e) {
+        console.error('osce order record failed', e)
+      }
 
       let emailed = false
       let notified = false
@@ -183,7 +220,7 @@ export async function POST(req: Request) {
       } catch (e) {
         console.error('osce mock admin notification failed', e)
       }
-      return NextResponse.json({ received: true, osce_mock: ref, emailed, notified })
+      return NextResponse.json({ received: true, osce_mock: ref, emailed, notified, recorded })
     }
 
     if (ref.startsWith('acj-') || ref.startsWith('afk-')) {
