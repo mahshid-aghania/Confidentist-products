@@ -13,6 +13,9 @@ export type MockAdminNotification = {
   reference: string
   when: string
   productName?: string // header/subject label, e.g. "OSCE Mock Exam" (defaults to "AFK Mock Exam")
+  firstName?: string // when set, shown as its own row (and splits the Name row)
+  lastName?: string // when set, shown as its own row
+  postalCode?: string // when set, shown as its own row (in addition to the full address block)
 }
 
 export function renderMockAdminNotification(d: MockAdminNotification): {
@@ -22,12 +25,21 @@ export function renderMockAdminNotification(d: MockAdminNotification): {
 } {
   const product = d.productName || 'AFK Mock Exam'
   const addr = d.addressLines.filter(Boolean).join('\n') || '—'
+  const hasSplitName = Boolean(d.firstName || d.lastName)
   const rows: [string, string][] = [
-    ['Name', d.name || '—'],
+    // Prefer explicit first/last name when provided; otherwise the single full name.
+    ...(hasSplitName
+      ? ([
+          ['First name', d.firstName || '—'],
+          ['Last name', d.lastName || '—'],
+        ] as [string, string][])
+      : ([['Name', d.name || '—']] as [string, string][])),
     ['Email', d.email || '—'],
     ['Phone', d.phone || '—'],
     ['SIN', d.sin || '—'],
     ['Billing address', addr],
+    // Call out the postal code on its own line so it's never buried in the block.
+    ...(d.postalCode ? ([['Postal code', d.postalCode]] as [string, string][]) : []),
     ['Purchase', d.selectionLabel],
     ['Amount', d.amountLabel],
     ['Reference', d.reference],
