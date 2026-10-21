@@ -5,7 +5,7 @@ import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
 import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
 import { renderMockAdminNotification } from '@/lib/email/mock-admin-notification'
 import { renderCourseReceipt } from '@/lib/email/course-receipt'
-import { recordOsceOrder } from '@/lib/orders/record-osce-order'
+import { recordMockOrder } from '@/lib/orders/record-mock-order'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 import { renderEventConfirmation } from '@/lib/email/event-confirmation'
 import { getEvent } from '@/app/events/registry'
@@ -156,7 +156,9 @@ export async function POST(req: Request) {
       // (idempotent — Stripe retries this webhook).
       let recorded = false
       try {
-        const result = await recordOsceOrder(supabase, {
+        // OSCE adds HST (13%) on top, so the tax portion = total − total/1.13.
+        const osceTaxCents = amountTotal - Math.round(amountTotal / 1.13)
+        const result = await recordMockOrder(supabase, {
           email,
           firstName,
           lastName,
@@ -169,10 +171,13 @@ export async function POST(req: Request) {
           country,
           productName: selectionLabel,
           amountTotalCents: amountTotal,
+          taxCents: osceTaxCents,
           currency,
           sessionId: reference,
           paymentIntent,
           sin,
+          createdVia: 'osce-mock-checkout',
+          orderNumberPrefix: 'OSCE',
           rawSession: session,
         })
         recorded = result.recorded
@@ -350,8 +355,14 @@ export async function POST(req: Request) {
       // Billing address (collected via billing_address_collection=required).
       const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
       const str = (v: unknown) => (typeof v === 'string' ? v : '')
-      const cityLine = [str(a['city']), str(a['state']), str(a['postal_code'])].filter(Boolean).join(', ')
-      const addressLines = [str(a['line1']), str(a['line2']), cityLine, str(a['country'])]
+      const line1 = str(a['line1'])
+      const line2 = str(a['line2'])
+      const city = str(a['city'])
+      const state = str(a['state'])
+      const country = str(a['country'])
+      const postalCode = str(a['postal_code'])
+      const cityLine = [city, state, postalCode].filter(Boolean).join(', ')
+      const addressLines = [line1, line2, cityLine, country]
 
       // SIN — collected as a Stripe custom field (key "sin").
       const customFields = Array.isArray(session['custom_fields'])
@@ -364,6 +375,43 @@ export async function POST(req: Request) {
           : ''
 
       const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+      const paymentIntent =
+        typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
+
+      // Record the purchase in the orders tables so it appears in the dashboard
+      // (idempotent). AFK mock payment links don't charge a separate tax line, so
+      // taxCents comes from Stripe's total_details.amount_tax (usually 0).
+      const totalDetails = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+      const afkTaxCents =
+        typeof totalDetails['amount_tax'] === 'number' ? (totalDetails['amount_tax'] as number) : 0
+      let recorded = false
+      try {
+        const result = await recordMockOrder(supabase, {
+          email,
+          name,
+          phone: phone ?? '',
+          addressLine1: line1,
+          addressLine2: line2,
+          city,
+          state,
+          postalCode,
+          country,
+          productName: `AFK Mock Exams — ${selectionLabel}`,
+          amountTotalCents: amountTotal,
+          taxCents: afkTaxCents,
+          currency,
+          sessionId: reference,
+          paymentIntent,
+          sin,
+          createdVia: 'afk-mock-checkout',
+          orderNumberPrefix: 'AFK',
+          rawSession: session,
+        })
+        recorded = result.recorded
+        if (result.error) console.error('afk mock order record error', result.error)
+      } catch (e) {
+        console.error('afk mock order record failed', e)
+      }
 
       let emailed = false
       let notified = false
@@ -401,7 +449,7 @@ export async function POST(req: Request) {
       } catch (e) {
         console.error('mock exam admin notification failed', e)
       }
-      return NextResponse.json({ received: true, mock_exam: ref, emailed, notified })
+      return NextResponse.json({ received: true, mock_exam: ref, emailed, notified, recorded })
     }
     return NextResponse.json({ received: true, note: 'no matching installment', plink })
   }
