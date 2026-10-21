@@ -104,7 +104,7 @@ export async function POST(req: Request) {
         ? (session['client_reference_id'] as string)
         : ''
 
-    if (ref.startsWith('acj-') || ref.startsWith('afk-')) {
+    if (ref.startsWith('acj-') || ref.startsWith('afk-') || ref.startsWith('osce-')) {
       const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
       const email =
         (typeof details['email'] === 'string' && (details['email'] as string)) ||
@@ -115,7 +115,12 @@ export async function POST(req: Request) {
       const currency =
         typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
       const courseName =
-        meta.course || (ref.startsWith('afk-') ? 'AFK Feb 2027 Subjects' : 'ACJ Comprehensive Program')
+        meta.course ||
+        (ref.startsWith('afk-')
+          ? 'AFK Feb 2027 Subjects'
+          : ref.startsWith('osce-')
+            ? 'OSCE Mock Exam — March 2026'
+            : 'ACJ Comprehensive Program')
       const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
 
       let emailed = false

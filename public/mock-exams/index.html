@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock Exams — AFK & OSCE · ConfiDentist</title>
+  <meta name="description" content="ConfiDentist mock exams for internationally trained dentists — choose the AFK Mock Exam series or the OSCE Mock Exam, each with a full simulated exam and live instructor-led review." />
+  <link rel="canonical" href="https://product.confidentist.ca/mock-exams/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Confidentist brand palette ── */
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+
+      /* ── Neutrals ── */
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+    /* ──────────────────────────────────────────
+       HERO
+    ────────────────────────────────────────── */
+    .hero {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 1.5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23072C5E' fill-opacity='0.022'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--gold-bg); border: 1px solid rgba(15,122,229,.45);
+      color: var(--gold-dark); border-radius: .35rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      padding: .35rem 1rem; margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-weight: 700; line-height: 1.15; color: var(--navy);
+      margin-bottom: 1.1rem;
+    }
+    /* Second line: identical typeface to the headline, set smaller and in gold
+       so it reads as a subordinate line rather than a competing title. */
+    .hero h1 em {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-style: normal;
+      font-size: .62em; font-weight: 700;
+      line-height: 1.1; letter-spacing: -.01em;
+      color: var(--gold-dark);
+      margin-top: .3rem;
+    }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 400; }
+    .hero-price-row { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .hero-price-chip {
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: .5rem; padding: .75rem 1.5rem; text-align: center;
+    }
+    .hero-price-chip .chip-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); display: block; margin-bottom: .2rem; }
+    .hero-price-chip .chip-val { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); }
+    .hero-price-chip .chip-note { font-size: .7rem; color: var(--muted); display: block; }
+    .hero-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--gold); color: #fff;
+      font-weight: 700; font-size: .88rem; letter-spacing: .03em;
+      padding: .8rem 2rem; border-radius: .4rem; text-decoration: none;
+      box-shadow: 0 4px 18px rgba(15,122,229,.35);
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: .45rem;
+      border: 1.5px solid var(--navy); color: var(--navy);
+      font-size: .88rem; font-weight: 600;
+      padding: .8rem 2rem; border-radius: .4rem; text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline-white:hover { background: var(--navy); color: #fff; }
+
+    /* ──────────────────────────────────────────
+       TRUST STRIP
+    ────────────────────────────────────────── */
+    .trust-strip {
+      background: var(--gold); padding: .7rem 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: .5rem; font-size: .78rem; font-weight: 600; color: #fff; }
+    .trust-item svg { width: 15px; height: 15px; }
+
+    /* ──────────────────────────────────────────
+       STATS BAR
+    ────────────────────────────────────────── */
+    .stats-bar { background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: 2rem 1.5rem; }
+    .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 1.5rem; text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--navy); display: block; }
+    .stat-lbl { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; margin-top: .2rem; }
+
+    /* ──────────────────────────────────────────
+       SECTION SHELL
+    ────────────────────────────────────────── */
+    .section { padding: 4.5rem 1.5rem; }
+    .section.alt { background: var(--bg-soft); }
+    .section.navy-bg { background: var(--navy); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; display: flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.4rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .75rem; }
+    .section.navy-bg .section-title { color: #fff; }
+    .section-desc { font-size: .93rem; color: var(--muted); max-width: 520px; line-height: 1.75; }
+    .section.navy-bg .section-desc { color: rgba(255,255,255,.65); }
+
+    /* ──────────────────────────────────────────
+       BUNDLE SELECTOR
+    ────────────────────────────────────────── */
+    .preset-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2rem 0 1.75rem; }
+    .preset-btn {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: #fff; border: 1.5px solid var(--border);
+      color: var(--muted); font-size: .74rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+      padding: .45rem 1rem; border-radius: .35rem; cursor: pointer;
+      transition: all .18s;
+    }
+    .preset-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .preset-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+    /* Mock cards grid */
+    .mock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .mock-card {
+      background: #fff; border: 2px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      cursor: pointer; user-select: none; position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: border-color .2s, box-shadow .2s, transform .18s;
+    }
+    .mock-card:hover { border-color: var(--navy-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .mock-card.selected {
+      border-color: var(--navy);
+      background: linear-gradient(135deg, #f0f4fa 0%, #fff 100%);
+      box-shadow: 0 0 0 3px rgba(7,44,94,.12), var(--shadow-md);
+    }
+    /* Checkmark is drawn as an inline SVG so it never depends on a font glyph */
+    .mock-check {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 2px solid var(--border);
+      font-size: 0; color: transparent;
+      background: #fff;
+      transition: background-color .2s, border-color .2s;
+    }
+    .mock-card.selected .mock-check {
+      border-color: var(--navy); background-color: var(--navy);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5.5 5.5L20 6.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center; background-size: 13px 13px;
+    }
+    .mock-num {
+      font-size: .65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: .5rem; display: block;
+    }
+    .mock-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: .75rem; }
+    .mock-date { font-size: .78rem; color: var(--muted); margin-bottom: .65rem; display: flex; align-items: center; gap: .35rem; }
+    .mock-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+    .mock-tag {
+      font-size: .62rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: .25rem;
+      background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.2);
+    }
+    .mock-tag.inperson { background: #edf7ee; color: #2d7a35; border-color: rgba(45,122,53,.2); }
+    .mock-price { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--navy); }
+    .mock-card.selected .mock-price { color: var(--gold-dark); }
+    .mock-price-note { font-size: .7rem; color: var(--muted); margin-top: .15rem; }
+
+    /* Mini mock pack card — gold accent to read as an add-on, not a 5th full mock */
+    .mock-card.mini { border-style: dashed; border-color: rgba(15,122,229,.55); }
+    .mock-card.mini:hover { border-color: var(--gold-dark); }
+    .mock-card.mini.selected {
+      border-style: solid; border-color: var(--gold-dark);
+      background: linear-gradient(135deg, var(--gold-bg) 0%, #fff 100%);
+      box-shadow: 0 0 0 3px rgba(15,122,229,.15), var(--shadow-md);
+    }
+    .mock-card.mini.selected .mock-check { background-color: var(--gold-dark); border-color: var(--gold-dark); }
+    .mock-price .was { font-size: .95rem; font-weight: 400; color: var(--muted); text-decoration: line-through; margin-right: .3rem; }
+    .mini-hint {
+      margin-top: .6rem; font-size: .68rem; font-weight: 600; line-height: 1.45;
+      color: var(--gold-dark); background: var(--gold-bg);
+      border: 1px solid rgba(15,122,229,.3); border-radius: .3rem;
+      padding: .35rem .55rem;
+    }
+    .mini-hint.unlocked { color: #2d7a35; background: #edf7ee; border-color: rgba(45,122,53,.25); }
+
+    /* Summary panel */
+    .bundle-summary {
+      background: var(--navy); border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 1.5rem; align-items: center;
+      box-shadow: var(--shadow-lg);
+      transition: opacity .2s;
+    }
+    .bundle-summary.empty { background: var(--bg-soft); border: 1.5px dashed var(--border); box-shadow: none; }
+    .summary-kicker { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+    .bundle-summary.empty .summary-kicker { color: var(--muted); }
+    .summary-list { list-style: none; display: flex; flex-direction: column; gap: .3rem; }
+    .summary-list li { font-size: .85rem; color: rgba(255,255,255,.75); display: flex; align-items: center; gap: .5rem; }
+    .summary-list li::before { content: '→'; font-size: .7rem; color: var(--gold); }
+    .bundle-summary.empty .summary-list li { color: var(--muted); }
+    .bundle-summary.empty .summary-list li::before { color: var(--muted); }
+    .summary-right { display: flex; flex-direction: column; align-items: flex-end; gap: .65rem; flex-shrink: 0; }
+    .summary-total-label { font-size: .65rem; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .12em; }
+    .bundle-summary.empty .summary-total-label { color: var(--muted); }
+    .summary-total { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .bundle-summary.empty .summary-total { color: var(--muted); }
+    .summary-saving {
+      font-size: .7rem; font-weight: 600; background: rgba(59,175,191,.15);
+      border: 1px solid rgba(59,175,191,.3); color: var(--teal);
+      padding: .2rem .65rem; border-radius: .25rem;
+    }
+    .summary-saving.hidden { visibility: hidden; }
+    .bundle-enroll-btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--gold); color: #fff;
+      font-weight: 700; font-size: .85rem; letter-spacing: .03em;
+      padding: .8rem 1.75rem; border-radius: .4rem;
+      border: none; cursor: pointer; white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(15,122,229,.25);
+      transition: background .2s, transform .15s;
+    }
+    .bundle-enroll-btn:hover:not(:disabled) { background: var(--gold-light); transform: translateY(-1px); }
+    .bundle-enroll-btn:disabled { background: #ccc; color: #888; cursor: not-allowed; box-shadow: none; }
+
+    /* ──────────────────────────────────────────
+       PACKAGES (full packages section)
+    ─────────────────────────────────────────��� */
+    .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1rem; margin-top: 2.5rem; }
+    .pkg-card {
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+      position: relative;
+    }
+    .pkg-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: rgba(7,44,94,.2); }
+    .pkg-card.featured { border-color: var(--navy); border-width: 2px; }
+    .pkg-card.featured::before {
+      content: 'Most Popular';
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--navy); color: #fff;
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 0 0 .4rem .4rem;
+    }
+    .pkg-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; margin-top: .5rem; }
+    .pkg-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.25rem; }
+    .pkg-price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--navy); }
+    .pkg-was { font-size: .55em; font-weight: 600; color: #94a3b8; text-decoration: line-through; margin-right: .45rem; }
+    .pkg-price-note { font-size: .72rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .pkg-features { list-style: none; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: .55rem; }
+    .pkg-features li { display: flex; align-items: flex-start; gap: .55rem; font-size: .82rem; color: var(--muted); line-height: 1.5; }
+    .pkg-features li::before {
+      content: ''; flex-shrink: 0; width: 14px; height: 14px; margin-top: .2rem;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233BAFBF' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5.5 5.5L20 6.5'/%3E%3C/svg%3E") center/14px 14px no-repeat;
+    }
+    .pkg-btn {
+      display: block; width: 100%; text-align: center;
+      padding: .72rem 1rem; border-radius: .4rem;
+      font-size: .83rem; font-weight: 700; letter-spacing: .03em;
+      text-decoration: none; transition: background .2s, transform .15s;
+    }
+    .pkg-btn-solid { background: var(--navy); color: #fff; }
+    .pkg-btn-solid:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .pkg-btn-ghost { border: 1.5px solid var(--navy); color: var(--navy); }
+    .pkg-btn-ghost:hover { background: var(--navy); color: #fff; }
+
+    /* ──────────────────────────────────────────
+       SCHEDULE TIMELINE
+    ────────────────────────────────────────── */
+    .timeline { margin-top: 2.5rem; }
+    .tl-item { display: grid; grid-template-columns: 100px 32px 1fr; gap: 0 1.25rem; align-items: start; }
+    .tl-date { text-align: right; padding: 1.25rem 0; }
+    .tl-month { font-size: .65rem; text-transform: uppercase; letter-spacing: .12em; color: var(--gold-dark); display: block; font-weight: 700; }
+    .tl-day { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--navy); line-height: 1; }
+    .tl-year { font-size: .65rem; color: var(--muted); display: block; }
+    .tl-line { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot {
+      width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 1.6rem;
+      background: var(--navy); border: 3px solid var(--bg-soft);
+      box-shadow: 0 0 0 3px var(--navy);
+    }
+    .tl-conn { flex: 1; width: 2px; background: var(--border); min-height: 2rem; }
+    .tl-item:last-child .tl-conn { display: none; }
+    .tl-content { padding: 1.25rem 0; }
+    .tl-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+    .tl-sub { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+    .tl-tag { font-size: .62rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; padding: .2rem .6rem; border-radius: .25rem; background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.2); }
+    .tl-tag.ip { background: #edf7ee; color: #2d7a35; border-color: rgba(45,122,53,.2); }
+
+    /* Block-by-block schedule grouping */
+    .sched-block { margin-top: 2.75rem; }
+    .sched-block:first-of-type { margin-top: 2.5rem; }
+    .sched-block-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem .9rem; padding-bottom: .8rem; border-bottom: 2px solid var(--border); }
+    .sched-block-num { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: linear-gradient(90deg, var(--navy), var(--gold)); padding: .3rem .75rem; border-radius: .35rem; }
+    .sched-block-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); }
+    .sched-block-dates { font-size: .82rem; font-weight: 600; color: var(--gold-dark); margin-left: auto; }
+    .sched-block .timeline { margin-top: 1.1rem; }
+
+    /* ──────────────────────────────────────────
+       INCLUDES
+    ────────────────────────────────────────── */
+    .includes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1rem; margin-top: 2.5rem; }
+    .inc-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius); padding: 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: background .2s, border-color .2s;
+    }
+    .inc-card:hover { background: rgba(255,255,255,.11); border-color: rgba(15,122,229,.25); }
+    .inc-icon {
+      width: 40px; height: 40px; border-radius: .5rem; flex-shrink: 0;
+      background: rgba(15,122,229,.15); border: 1px solid rgba(15,122,229,.25);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .inc-title { font-size: .88rem; font-weight: 600; color: #fff; margin-bottom: .3rem; }
+    .inc-desc { font-size: .78rem; color: rgba(255,255,255,.55); line-height: 1.6; }
+
+    /* ──────────────────────────────────────────
+       NOTICE
+    ────────────────────────────────────────── */
+    .notice {
+      background: #fffbeb; border: 1px solid #f0d060;
+      border-left: 4px solid var(--gold); border-radius: var(--radius);
+      padding: 1.25rem 1.5rem; display: flex; gap: .85rem; align-items: flex-start; margin-top: 2rem;
+    }
+    .notice-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+    .notice-title { font-size: .83rem; font-weight: 700; color: #8a6200; margin-bottom: .25rem; }
+    .notice-text { font-size: .8rem; color: #7a5800; line-height: 1.65; }
+
+    /* Red Recording-Policy banner pinned to the top of the page */
+    .top-notice {
+      background: #fdecec; border: 1px solid #f0b4b4; border-left: 5px solid #dc2626;
+      border-radius: .5rem; padding: 1.3rem 1.75rem; margin: 1.5rem auto 0; max-width: 1100px;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .top-notice .tn-ic { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
+    .top-notice .tn-title { font-size: 1.2rem; font-weight: 700; color: #b91c1c; margin-bottom: .4rem; }
+    .top-notice .tn-text { font-size: 1.02rem; color: #7f1d1d; line-height: 1.7; }
+
+    /* ──────────────────────────────────────────
+       FAQ
+    ────────────────────────────────────────── */
+    .faq { margin-top: 2.5rem; display: flex; flex-direction: column; gap: .6rem; }
+    details {
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    details[open] { border-color: var(--navy); }
+    summary {
+      padding: 1.1rem 1.4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; font-weight: 600; font-size: .88rem; color: var(--navy);
+      list-style: none; user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.2rem; color: var(--gold-dark); transition: transform .2s; flex-shrink: 0; margin-left: 1rem; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body { padding: 0 1.4rem 1.1rem; font-size: .83rem; color: var(--muted); line-height: 1.75; border-top: 1px solid var(--border); padding-top: .9rem; }
+
+    /* ──────────────────────────────────────────
+       STICKY CTA
+    ────────────────────────────────────────── */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: var(--navy); border-top: 2px solid var(--gold);
+      padding: .9rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .sticky-info strong { font-size: .9rem; display: block; color: #fff; }
+    .sticky-info span { font-size: .75rem; color: rgba(255,255,255,.5); }
+    .sticky-price { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--gold); white-space: nowrap; }
+    .sticky-right { display: flex; align-items: center; gap: 1.25rem; }
+
+    /* ─────���────────────────────────────────────
+       FOOTER
+    ────────────────────────────────────────── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.5);
+      padding: 2.5rem 1.5rem 7rem; text-align: center; font-size: .78rem; line-height: 1.9;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold); }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+    hr.navy { border-top-color: rgba(255,255,255,.08); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .bundle-summary { grid-template-columns: 1fr; }
+      .summary-right { align-items: flex-start; }
+      .bundle-enroll-btn { width: 100%; justify-content: center; }
+      .sticky-cta { gap: .6rem; }
+      .sticky-right { gap: .6rem; }
+    }
+    @media (max-width: 560px) {
+      .tl-item { grid-template-columns: 72px 28px 1fr; }
+      .tl-day { font-size: 1.4rem; }
+      .hero-price-row { flex-direction: column; gap: .75rem; }
+    }
+    @media (max-width: 400px) {
+      .trust-strip { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Mock Exams · Enrollment Open</div>
+    <h1>Mock Exams<em>Choose Your Exam</em></h1>
+    <p class="hero-sub">Realistic, exam-condition mock exams with live, instructor-led review — built to prepare internationally trained dentists for their Canadian dental licensing exams. Select the mock you're preparing for.</p>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    10+ Years of Results
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z"/></svg>
+    Instructor-Led Review
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    Canadian Dental Prep Experts
+  </div>
+</div>
+
+<!-- CHOICES -->
+<section class="section" id="choose">
+  <div class="section-inner">
+    <div class="section-kicker">Pick a Mock Exam</div>
+    <h2 class="section-title">Two Mock Exam Series</h2>
+    <p class="section-desc">Each mock mirrors the real exam format and includes a live instructor-led review. Choose the exam you're preparing for.</p>
+    <div class="packages-grid" style="max-width:780px; margin:2.5rem auto 0; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+      <div class="pkg-card featured">
+        <div class="pkg-name">AFK Mock Exams</div>
+        <div class="pkg-desc">Full &amp; mini mock exams for the Assessment of Fundamental Knowledge, with live review sessions.</div>
+        <div class="pkg-price">From $600</div>
+        <div class="pkg-price-note">per full mock · CAD · 2026–2027 cohort</div>
+        <ul class="pkg-features">
+          <li>4 full-length mock exams</li>
+          <li>4 mini mock exams</li>
+          <li>Instructor-led review each session</li>
+          <li>Build-your-own bundle &amp; save</li>
+        </ul>
+        <a href="/afk-mock-exams/" class="pkg-btn pkg-btn-solid">View AFK Mock Exams →</a>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-name">OSCE Mock Exam</div>
+        <div class="pkg-desc">A full simulated NDEB OSCE under exam conditions, with an instructor-led review of every station.</div>
+        <div class="pkg-price">$500</div>
+        <div class="pkg-price-note">per mock · CAD + HST · March 2026</div>
+        <ul class="pkg-features">
+          <li>One full simulated OSCE mock</li>
+          <li>Instructor-led review of every station</li>
+          <li>Live, interactive discussion session</li>
+          <li>Personalized performance feedback</li>
+        </ul>
+        <a href="/osce-mock-exams/" class="pkg-btn pkg-btn-solid">View OSCE Mock Exam →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="https://www.confidentist.ca">confidentist.ca</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/resources/">Resources</a>
+  </p>
+  <p style="margin-top:1.25rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
