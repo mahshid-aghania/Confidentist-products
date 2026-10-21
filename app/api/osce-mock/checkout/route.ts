@@ -38,7 +38,17 @@ export async function GET(req: Request) {
   params.set('line_items[1][price_data][unit_amount]', String(hstCents))
   params.set('line_items[1][price_data][product_data][name]', 'HST (13%)')
 
+  // Collect the buyer's full details at checkout so our record is complete:
+  //  • billing address (required) → name, address lines, city, postal code, country
+  //  • phone number
+  //  • SIN as an optional custom field
+  params.set('billing_address_collection', 'required')
   params.set('phone_number_collection[enabled]', 'true')
+  params.set('custom_fields[0][key]', 'sin')
+  params.set('custom_fields[0][label][type]', 'custom')
+  params.set('custom_fields[0][label][custom]', 'Social Insurance Number (SIN)')
+  params.set('custom_fields[0][type]', 'text')
+  params.set('custom_fields[0][optional]', 'true')
   params.set('allow_promotion_codes', 'true')
   params.set('client_reference_id', 'osce-mock-march-2026')
   params.set('metadata[product]', 'osce-mock-march-2026')

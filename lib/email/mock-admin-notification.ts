@@ -12,6 +12,7 @@ export type MockAdminNotification = {
   amountLabel: string
   reference: string
   when: string
+  productName?: string // header/subject label, e.g. "OSCE Mock Exam" (defaults to "AFK Mock Exam")
 }
 
 export function renderMockAdminNotification(d: MockAdminNotification): {
@@ -19,6 +20,7 @@ export function renderMockAdminNotification(d: MockAdminNotification): {
   html: string
   text: string
 } {
+  const product = d.productName || 'AFK Mock Exam'
   const addr = d.addressLines.filter(Boolean).join('\n') || '—'
   const rows: [string, string][] = [
     ['Name', d.name || '—'],
@@ -40,7 +42,7 @@ export function renderMockAdminNotification(d: MockAdminNotification): {
       <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e6e9ee;">
         <tr><td style="background:#0b2a5b;padding:22px 28px;color:#fff;">
           <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.8;">ConfiDentist · Ops</div>
-          <div style="font-size:20px;font-weight:bold;margin-top:4px;">New AFK Mock Exam purchase</div>
+          <div style="font-size:20px;font-weight:bold;margin-top:4px;">New ${escapeHtml(product)} purchase</div>
         </td></tr>
         <tr><td style="padding:22px 28px;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6e9ee;border-radius:8px;">
@@ -59,8 +61,8 @@ export function renderMockAdminNotification(d: MockAdminNotification): {
 </body>
 </html>`
 
-  const text = `New AFK Mock Exam purchase\n\n${rows.map(([k, v]) => `${k}: ${v}`).join('\n')}`
-  const subject = `New AFK Mock Exam purchase — ${d.name || d.email}`
+  const text = `New ${product} purchase\n\n${rows.map(([k, v]) => `${k}: ${v}`).join('\n')}`
+  const subject = `New ${product} purchase — ${d.name || d.email}`
   return { subject, html, text }
 }
 

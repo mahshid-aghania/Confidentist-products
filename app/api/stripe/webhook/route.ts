@@ -104,7 +104,82 @@ export async function POST(req: Request) {
         ? (session['client_reference_id'] as string)
         : ''
 
-    if (ref.startsWith('acj-') || ref.startsWith('afk-') || ref.startsWith('osce-')) {
+    // OSCE Mock Exam (/osce-mock-exams/ → /api/osce-mock/checkout): capture the
+    // buyer's full details (name, email, phone, billing address, postal code, SIN)
+    // and send a customer receipt + a full-info admin notification.
+    if (ref.startsWith('osce-')) {
+      const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
+      const email =
+        (typeof details['email'] === 'string' && (details['email'] as string)) ||
+        (typeof session['customer_email'] === 'string' ? (session['customer_email'] as string) : '')
+      const phone = typeof details['phone'] === 'string' ? (details['phone'] as string) : undefined
+      const name = typeof details['name'] === 'string' ? (details['name'] as string) : ''
+      const amountTotal =
+        typeof session['amount_total'] === 'number' ? (session['amount_total'] as number) : 0
+      const currency =
+        typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
+      const amountLabel = `$${(amountTotal / 100).toFixed(2)} ${currency}`
+      const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
+      const selectionLabel = meta.course || 'OSCE Mock Exam — March 2026'
+
+      // Billing address (collected via billing_address_collection=required).
+      const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
+      const str = (v: unknown) => (typeof v === 'string' ? v : '')
+      const cityLine = [str(a['city']), str(a['state']), str(a['postal_code'])].filter(Boolean).join(', ')
+      const addressLines = [str(a['line1']), str(a['line2']), cityLine, str(a['country'])]
+
+      // SIN — collected as an optional Stripe custom field (key "sin").
+      const customFields = Array.isArray(session['custom_fields'])
+        ? (session['custom_fields'] as Array<Record<string, unknown>>)
+        : []
+      const sinField = customFields.find((f) => f['key'] === 'sin')
+      const sin =
+        sinField && typeof (sinField['text'] as Record<string, unknown>)?.['value'] === 'string'
+          ? ((sinField['text'] as Record<string, unknown>)['value'] as string)
+          : ''
+
+      const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+
+      let emailed = false
+      let notified = false
+      if (email) {
+        try {
+          const rendered = renderCourseReceipt({
+            courseName: selectionLabel,
+            customerEmail: email,
+            customerPhone: phone,
+            amountLabel,
+            reference,
+          })
+          await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...rendered })
+          emailed = true
+        } catch (e) {
+          console.error('osce mock receipt email failed', e)
+        }
+      }
+      // Full-info admin notification (name, phone, billing address, postal code, SIN).
+      try {
+        const note = renderMockAdminNotification({
+          productName: 'OSCE Mock Exam',
+          name,
+          email,
+          phone: phone ?? '',
+          sin,
+          addressLines,
+          selectionLabel,
+          amountLabel,
+          reference,
+          when,
+        })
+        await sendEmail({ to: ADMIN_EMAILS, ...note })
+        notified = true
+      } catch (e) {
+        console.error('osce mock admin notification failed', e)
+      }
+      return NextResponse.json({ received: true, osce_mock: ref, emailed, notified })
+    }
+
+    if (ref.startsWith('acj-') || ref.startsWith('afk-')) {
       const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
       const email =
         (typeof details['email'] === 'string' && (details['email'] as string)) ||
@@ -115,12 +190,7 @@ export async function POST(req: Request) {
       const currency =
         typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
       const courseName =
-        meta.course ||
-        (ref.startsWith('afk-')
-          ? 'AFK Feb 2027 Subjects'
-          : ref.startsWith('osce-')
-            ? 'OSCE Mock Exam — March 2026'
-            : 'ACJ Comprehensive Program')
+        meta.course || (ref.startsWith('afk-') ? 'AFK Feb 2027 Subjects' : 'ACJ Comprehensive Program')
       const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
 
       let emailed = false
