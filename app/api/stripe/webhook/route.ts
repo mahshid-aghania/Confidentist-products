@@ -125,18 +125,22 @@ export async function POST(req: Request) {
       // Billing address (collected via billing_address_collection=required).
       const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
       const str = (v: unknown) => (typeof v === 'string' ? v : '')
-      const cityLine = [str(a['city']), str(a['state']), str(a['postal_code'])].filter(Boolean).join(', ')
+      const postalCode = str(a['postal_code'])
+      const cityLine = [str(a['city']), str(a['state']), postalCode].filter(Boolean).join(', ')
       const addressLines = [str(a['line1']), str(a['line2']), cityLine, str(a['country'])]
 
-      // SIN — collected as an optional Stripe custom field (key "sin").
+      // Custom fields collected at checkout: first_name, last_name (required) and sin (optional).
       const customFields = Array.isArray(session['custom_fields'])
         ? (session['custom_fields'] as Array<Record<string, unknown>>)
         : []
-      const sinField = customFields.find((f) => f['key'] === 'sin')
-      const sin =
-        sinField && typeof (sinField['text'] as Record<string, unknown>)?.['value'] === 'string'
-          ? ((sinField['text'] as Record<string, unknown>)['value'] as string)
-          : ''
+      const cf = (key: string) => {
+        const field = customFields.find((f) => f['key'] === key)
+        const text = field?.['text'] as Record<string, unknown> | undefined
+        return typeof text?.['value'] === 'string' ? (text['value'] as string) : ''
+      }
+      const firstName = cf('first_name')
+      const lastName = cf('last_name')
+      const sin = cf('sin')
 
       const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
 
@@ -161,11 +165,14 @@ export async function POST(req: Request) {
       try {
         const note = renderMockAdminNotification({
           productName: 'OSCE Mock Exam',
-          name,
+          name: [firstName, lastName].filter(Boolean).join(' ') || name,
+          firstName,
+          lastName,
           email,
           phone: phone ?? '',
           sin,
           addressLines,
+          postalCode,
           selectionLabel,
           amountLabel,
           reference,
