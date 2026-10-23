@@ -135,7 +135,62 @@
     .osce-sched a { display: inline-flex; align-items: center; gap: .45rem; background: var(--navy); color: #fff; font-weight: 700; font-size: .84rem; padding: .75rem 1.4rem; border-radius: .4rem; transition: background .2s, transform .15s; }
     .osce-sched a:hover { background: var(--navy-mid); transform: translateY(-1px); }
     .osce-closing { text-align: center; font-size: .9rem; color: var(--muted); line-height: 1.8; max-width: 700px; margin: 0 auto; }
+    .osce-amount { display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap; }
+    .osce-price-reg { font-size: 1.05rem; color: var(--muted); text-decoration: line-through; }
+    .osce-earlybird { font-size: .76rem; color: var(--muted); line-height: 1.5; margin: .1rem 0 1rem; }
+    .osce-bench { background: var(--bg-soft); border: 1px solid var(--border); border-radius: .5rem; padding: .85rem 1rem; margin-bottom: 1.1rem; }
+    .osce-bench-h { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: .5rem; }
+    .osce-bench ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+    .osce-bench li { font-size: .84rem; color: var(--muted); line-height: 1.45; padding-left: 1rem; position: relative; }
+    .osce-bench li::before { content: '•'; position: absolute; left: 0; color: var(--gold-dark); font-weight: 700; }
+    .osce-cohort2 { margin-top: .9rem; padding-top: .9rem; border-top: 1px dashed var(--border); }
+    .osce-cohort2-meta { font-size: .82rem; color: var(--muted); line-height: 1.5; margin-bottom: .55rem; }
+    .osce-cohort2-meta strong { color: var(--navy); }
+    .osce-reg2 { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; border: 1.5px solid var(--navy); color: var(--navy); font-weight: 700; font-size: .82rem; padding: .6rem 1.2rem; border-radius: .4rem; transition: background .2s, color .2s; }
+    .osce-reg2:hover { background: var(--navy); color: #fff; }
     @media (max-width: 560px) { .osce-stats { grid-template-columns: 1fr; } }
+
+    /* ── AFK ENROLLMENT EXPERIENCE ── */
+    .afk-restart-row { margin-bottom: .25rem; }
+    .afk-ach { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 2.25rem); box-shadow: var(--shadow-md); }
+    .afk-ach .kicker { color: var(--gold-light); }
+    .afk-ach .kicker::before { background: var(--gold-light); }
+    .afk-ach .h-title { color: #fff; }
+    .afk-ach .osce-note-sub { color: rgba(255,255,255,.72); }
+    .afk-ach .osce-stats { margin-top: 1.35rem; }
+    .afk-ach .osce-stat { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16); box-shadow: none; }
+    .afk-ach .osce-stat-num { color: var(--gold-light); }
+    .afk-ach .osce-stat-label { color: rgba(255,255,255,.82); }
+    .afk-welcome-btn { margin-top: 1.1rem; }
+
+    .afk-badge-exp { background: var(--teal); color: #fff; }
+    .afk-card-ext { border-color: var(--border); box-shadow: var(--shadow-sm); }
+    .afk-card-pop { border-color: var(--gold); box-shadow: 0 10px 34px rgba(15,122,229,.18); }
+    .osce-start strong { color: var(--navy); }
+
+    .afk-cohorts { border: 0; margin: 0 0 1rem; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .afk-cohorts legend { grid-column: 1 / -1; padding: 0; margin-bottom: .1rem; }
+    .afk-cohort { display: flex; flex-direction: column; gap: .12rem; border: 1.5px solid var(--border); border-radius: 10px; padding: .6rem .7rem; background: #fff; cursor: pointer; transition: border-color .15s, background .15s, box-shadow .15s; }
+    .afk-cohort:hover { border-color: var(--gold); }
+    .afk-cohort:focus-within { outline: 3px solid var(--teal); outline-offset: 2px; }
+    .afk-cohort:has(input:checked) { border-color: var(--gold-dark); background: var(--gold-bg); box-shadow: 0 4px 14px rgba(15,122,229,.18); }
+    .afk-cohort-t { font-weight: 700; font-size: .84rem; color: var(--navy); }
+    .afk-cohort-s { font-size: .72rem; color: var(--muted); }
+
+    .afk-diff-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .afk-diff { width: 100%; border-collapse: collapse; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; font-size: .88rem; }
+    .afk-diff th, .afk-diff td { padding: .72rem .9rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .afk-diff thead th { background: var(--bg-section); color: var(--navy); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+    .afk-diff thead th:not(:first-child) { text-align: center; }
+    .afk-diff tbody th { font-weight: 600; color: var(--navy); }
+    .afk-diff tbody td { color: var(--muted); text-align: center; }
+    .afk-diff tbody td.yes { color: var(--navy); font-weight: 700; }
+    .afk-diff tr:last-child th, .afk-diff tr:last-child td { border-bottom: 0; }
+
+    .afk-examnote { display: flex; align-items: flex-start; gap: .55rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .7rem 1rem; font-size: .86rem; font-weight: 500; color: var(--navy); line-height: 1.55; margin-bottom: 1.25rem; }
+    .afk-examnote svg { width: 16px; height: 16px; color: var(--gold-dark); flex-shrink: 0; margin-top: .18rem; }
+    .afk-examnote a { color: var(--gold-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    .afk-examnote a:hover { color: var(--navy); }
     .ce-opt .qo-arrow svg { width: 18px; height: 18px; }
     .ce-opt small { display: block; font-weight: 400; font-size: .74rem; color: var(--muted); margin-top: .15rem; }
 
@@ -224,6 +279,9 @@
       .pathway-cta { gap: .6rem; }
       .pathway-cta .btn-primary, .pathway-cta .pw-btn2, .pathway-cta .pw-btn3 { width: 100%; justify-content: center; }
       .pw-textlink { margin-left: 0; width: 100%; text-align: center; }
+      .afk-cohorts { grid-template-columns: 1fr; }
+      .osce-reg, .osce-reg2 { width: 100%; }
+      .afk-welcome-btn { width: 100%; justify-content: center; }
     }
 
     /* ── REDUCED MOTION ── */
@@ -407,10 +465,230 @@ const pathwayNav = (() => {
     },
     afk: {
       label: 'Preparing for AFK',
-      heading: 'Choose the AFK preparation that fits your needs',
-      intro: 'The AFK (Assessment of Fundamental Knowledge) tests the core knowledge base for Canadian dental equivalency. Choose full structured coverage, focus on selected subjects, or check your readiness with mock exams.',
-      primary: { label: 'Explore AFK Programs', href: '/afk-programs/' },
-      cards: [ ['afk-full', 'Recommended'], ['afk-subject', 'Alternative'], ['afk-mock', 'Mock practice'] ]
+      heading: 'AFK',
+      html: `
+<div class="osce-panel">
+
+  <div class="afk-restart-row">
+    <button type="button" class="pw-restart" id="pwRestart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Start again</button>
+  </div>
+
+  <!-- 1. Achievement strip -->
+  <div class="afk-ach">
+    <div class="osce-block-head" style="margin-bottom:0">
+      <span class="kicker">Our Achievements</span>
+      <h2 class="h-title" id="pw-result-title" tabindex="-1" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Our Achievements: Real Results, Real Success!</h2>
+      <p class="osce-note-sub">Over the Past 10 Years</p>
+    </div>
+    <div class="osce-stats">
+      <div class="osce-stat"><div class="osce-stat-num">4,000+</div><div class="osce-stat-label">Students</div></div>
+      <div class="osce-stat"><div class="osce-stat-num">93.4%</div><div class="osce-stat-label">Passing Rate</div></div>
+      <div class="osce-stat"><div class="osce-stat-num">97%</div><div class="osce-stat-label">Satisfaction Rate</div></div>
+    </div>
+  </div>
+
+  <!-- 2. Welcome -->
+  <div class="osce-welcome">
+    <h3>Your AFK Journey Starts Here</h3>
+    <p>Congratulations on taking the first step toward your AFK exam. With structured learning, focused practice, and personal guidance, ConfiDentist is here to support your preparation. Choose the package that fits your schedule, study needs, and target exam.</p>
+    <a class="btn-primary afk-welcome-btn" id="afkCompareBtn" href="#afkPackages">Compare AFK Packages
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 13l7 7 7-7"/></svg>
+    </a>
+  </div>
+
+  <!-- 5 + 6. Exam-date notice + package comparison -->
+  <div id="afkPackages">
+    <div class="osce-block-head">
+      <span class="kicker">AFK Packages</span>
+      <h2 class="h-title" data-pkgs-title tabindex="-1" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Choose Your AFK Preparation Package</h2>
+      <p class="osce-note-sub" style="margin-top:.6rem;max-width:620px;margin-left:auto;margin-right:auto">Compare the study timeline, practice opportunities, and support included in each package.</p>
+    </div>
+
+    <p class="afk-examnote">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span>Upcoming NDEB AFK exam dates: <strong>February 5, 2027</strong> and <strong>August 13, 2027</strong>. Course start dates are shown with each package below. <a href="https://ndeb-bned.ca/examination-dates-and-locations/" target="_blank" rel="noopener">View the official NDEB schedule</a>.</span>
+    </p>
+
+    <div class="osce-pkgs">
+
+      <!-- Package A: Extended -->
+      <article class="osce-card afk-card-ext">
+        <span class="osce-badge afk-badge-exp">Most Expanded</span>
+        <h4>Extended</h4>
+        <p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">A longer preparation timeline with additional lectures and personalized study support.</p>
+        <p class="osce-start">Course starts <strong>December 13, 2026</strong> · Target exam <strong>August 13, 2027</strong></p>
+        <div class="osce-amount"><span class="osce-price-reg">$6,999</span><span class="osce-price">$6,499</span></div>
+        <p class="osce-hst"><strong>CAD</strong> + HST</p>
+        <div class="osce-bench">
+          <p class="osce-bench-h">Best suited for</p>
+          <ul>
+            <li>Candidates returning after a long gap in studies</li>
+            <li>Busy or working professionals</li>
+            <li>Candidates preparing while completing NDEB paperwork</li>
+            <li>Candidates who need a more manageable study pace</li>
+          </ul>
+        </div>
+        <p class="osce-sub">What's included</p>
+        <ul class="osce-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-month online training program</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>78 total lectures: live and prerecorded</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14 quizzes with discussion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mini mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams and 8 discussion sessions — 1 attempt</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 final review sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized study plan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mid-course progress evaluation session</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>VIP WhatsApp group membership</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets covering 13 topics</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 free attempt for lectures within 2 years of the registration date</li>
+        </ul>
+        <a class="osce-reg" href="https://www.confidentist.ca/product/afk-extended-aug-2026/">Register for August 2027 →</a>
+      </article>
+
+      <!-- Package B: Comprehensive (two cohorts) -->
+      <article class="osce-card afk-card-pop" id="compCard">
+        <span class="osce-badge">Most Popular</span>
+        <h4>Comprehensive</h4>
+        <p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">A focused preparation pathway for candidates ready to commit to a more intensive study schedule.</p>
+
+        <fieldset class="afk-cohorts" aria-label="Choose your Comprehensive cohort">
+          <legend class="osce-sub" style="margin-top:0">Choose your exam cohort</legend>
+          <label class="afk-cohort">
+            <input type="radio" name="compCohort" value="aug" class="sr-only" checked>
+            <span class="afk-cohort-t">August 2027 exam</span>
+            <span class="afk-cohort-s">Starts February 2027</span>
+          </label>
+          <label class="afk-cohort">
+            <input type="radio" name="compCohort" value="feb" class="sr-only">
+            <span class="afk-cohort-t">February 2027 exam</span>
+            <span class="afk-cohort-s">In progress · started July 2026</span>
+          </label>
+        </fieldset>
+
+        <p class="osce-start">Course starts <strong data-c-start>February 2027</strong> · Target exam <strong data-c-exam>August 13, 2027</strong></p>
+        <div class="osce-amount" data-c-price><span class="osce-price">$4,999</span></div>
+        <p class="osce-hst" data-c-hst><strong>CAD</strong> + HST</p>
+        <p class="osce-earlybird" data-c-note>Early-bird discount valid until 10 days before the course start date. Current discounted pricing is confirmed at checkout.</p>
+        <div class="osce-bench">
+          <p class="osce-bench-h">Best suited for</p>
+          <ul>
+            <li>Candidates able to dedicate longer hours to studying</li>
+            <li>Retakers seeking more structure and guidance</li>
+            <li>Retakers who know which areas they need to improve</li>
+            <li>Candidates seeking a payment plan</li>
+          </ul>
+        </div>
+        <p class="osce-sub">What's included</p>
+        <ul class="osce-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-month online training program</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>65 total lectures: live and prerecorded</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 quizzes with discussion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mini mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams and 8 discussion sessions — 1 attempt</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 final review sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>VIP WhatsApp group membership</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets covering 13 topics</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 free attempt for lectures within 2 years of the registration date</li>
+        </ul>
+        <a class="osce-reg" data-c-reg href="https://www.confidentist.ca/product/afk-comprehensive-feb-2027-6p/">Register for August 2027 →</a>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- 7. Key differences -->
+  <div>
+    <div class="osce-block-head">
+      <span class="kicker">At a Glance</span>
+      <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Compare the Key Differences</h2>
+    </div>
+    <div class="afk-diff-wrap">
+      <table class="afk-diff">
+        <thead><tr><th scope="col">Feature</th><th scope="col">Extended</th><th scope="col">Comprehensive</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Training duration</th><td class="yes">8 months</td><td>6 months</td></tr>
+          <tr><th scope="row">Total lectures</th><td class="yes">78</td><td>65</td></tr>
+          <tr><th scope="row">Quizzes with discussion</th><td class="yes">14</td><td>11</td></tr>
+          <tr><th scope="row">Personalized study plan</th><td class="yes">Included</td><td>Not listed</td></tr>
+          <tr><th scope="row">Mid-course progress evaluation</th><td class="yes">Included</td><td>Not listed</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 8. Schedule -->
+  <div>
+    <div class="osce-block-head">
+      <span class="kicker">AFK Course Schedule</span>
+      <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Explore the AFK Course Schedule</h2>
+    </div>
+    <p class="osce-closing" style="margin-bottom:1.25rem">Explore the course format, session schedule, and learning experience to find the preparation pathway that fits your needs.</p>
+    <div class="osce-sched">
+      <a href="/afk-schedule-feb-2027/">View AFK Schedule — Comprehensive, February 5, 2027 exam cohort</a>
+    </div>
+  </div>
+
+  <p class="osce-closing">To meet the diverse needs of our audience, ConfiDentist has designed the AFK course in various formats, leveraging our many years of experience. <a href="https://www.confidentist.ca/contact-us/" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact an advisor</a> to learn more about these courses and their features.</p>
+
+</div>`,
+      onMount: function (root) {
+        // Welcome "Compare AFK Packages" → smooth scroll (respecting reduced motion)
+        var cmp = root.querySelector('#afkCompareBtn');
+        var pkgs = root.querySelector('#afkPackages');
+        if (cmp && pkgs) cmp.addEventListener('click', function (e) {
+          e.preventDefault();
+          try { pkgs.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' }); } catch (_) {}
+          var h = pkgs.querySelector('[data-pkgs-title]');
+          if (h) h.focus({ preventScroll: true });
+          track('afk_compare_packages', {});
+        });
+
+        // Comprehensive cohort selector — updates price, dates, note and registration together.
+        var card = root.querySelector('#compCard');
+        if (!card) return;
+        var COH = {
+          aug: {
+            start: 'February 2027', exam: 'August 13, 2027',
+            priceHTML: '<span class="osce-price">$4,999</span>',
+            hst: '<strong>CAD</strong> + HST',
+            note: 'Early-bird discount valid until 10 days before the course start date. Current discounted pricing is confirmed at checkout.',
+            cta: 'Register for August 2027',
+            href: 'https://www.confidentist.ca/product/afk-comprehensive-feb-2027-6p/'
+          },
+          feb: {
+            start: 'July 12, 2026', exam: 'February 5, 2027',
+            priceHTML: '<span class="osce-price-reg">$4,999</span><span class="osce-price">$2,799</span>',
+            hst: '<strong>CAD</strong> + HST',
+            note: 'Limited-time discount. A flexible 3-installment payment plan is available at checkout.',
+            cta: 'Register for February 2027',
+            href: '/afk-feb-2027-comprehensive/'
+          }
+        };
+        function apply(key) {
+          var c = COH[key];
+          if (!c) return;
+          var set = function (sel, val, html) {
+            var el = card.querySelector(sel);
+            if (!el) return;
+            if (html) el.innerHTML = val; else el.textContent = val;
+          };
+          set('[data-c-start]', c.start);
+          set('[data-c-exam]', c.exam);
+          set('[data-c-price]', c.priceHTML, true);
+          set('[data-c-hst]', c.hst, true);
+          set('[data-c-note]', c.note);
+          var reg = card.querySelector('[data-c-reg]');
+          if (reg) { reg.textContent = c.cta + ' →'; reg.setAttribute('href', c.href); }
+          track('afk_cohort_selected', { cohort: key });
+        }
+        var radios = card.querySelectorAll('input[name="compCohort"]');
+        Array.prototype.forEach.call(radios, function (r) {
+          r.addEventListener('change', function () { if (r.checked) apply(r.value); });
+        });
+        apply('aug');
+      }
     },
     acj: {
       label: 'Preparing for ACJ',
@@ -588,8 +866,10 @@ const pathwayNav = (() => {
     const ctaBlock = document.querySelector('.pathway-cta');
 
     if (s.html) {
-      // Custom full-content stage: render verbatim, no restart button or standing CTAs.
+      // Custom full-content stage: render markup, hide the standing CTAs, then run
+      // the stage's optional mount hook (the stage may include its own "Start again").
       resultEl.innerHTML = s.html;
+      if (typeof s.onMount === 'function') { try { s.onMount(resultEl); } catch (e) {} }
       if (ctaBlock) ctaBlock.style.display = 'none';
     } else {
       if (ctaBlock) ctaBlock.style.display = '';
