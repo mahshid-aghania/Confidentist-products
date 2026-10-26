@@ -269,6 +269,74 @@
       .acj-final-btns .osce-reg, .acj-final-sched { width: 100%; justify-content: center; }
     }
 
+    /* ── NDECC EXPERIENCE ── */
+    .ndecc-tabs { display: flex; flex-wrap: wrap; gap: .4rem; background: var(--bg-section); border: 1.5px solid var(--border); border-radius: 999px; padding: .4rem; }
+    .ndecc-tab { flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 44px; padding: .6rem 1rem; border: none; border-radius: 999px; background: transparent; color: var(--navy); font-family: inherit; font-weight: 700; font-size: .88rem; cursor: pointer; transition: background .18s, color .18s, box-shadow .18s; }
+    .ndecc-tab svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .ndecc-tab:hover { color: var(--gold-dark); }
+    .ndecc-tab[aria-selected="true"] { background: var(--gold); color: #fff; box-shadow: 0 4px 14px rgba(15,122,229,.3); }
+    .ndecc-panel { display: flex; flex-direction: column; gap: 2.25rem; }
+    .ndecc-panel[hidden] { display: none; }
+
+    .ndecc-two { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(1.25rem,3vw,2rem); align-items: start; }
+    .ndecc-bestfor { background: var(--bg-soft); border: 1px solid var(--border); border-left: 4px solid var(--teal); border-radius: .5rem; padding: .85rem 1rem; font-size: .86rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.1rem; }
+    .ndecc-bestfor strong { color: var(--navy); }
+    .ndecc-note { display: flex; align-items: flex-start; gap: .5rem; font-size: .8rem; color: var(--muted); line-height: 1.55; margin-top: .9rem; }
+    .ndecc-note svg { width: 15px; height: 15px; color: var(--gold-dark); flex-shrink: 0; margin-top: .15rem; }
+    .ndecc-diff { display: flex; align-items: flex-start; gap: .5rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .65rem .85rem; font-size: .8rem; font-weight: 600; color: var(--navy); line-height: 1.5; margin: .2rem 0 1rem; }
+    .ndecc-diff svg { width: 15px; height: 15px; color: var(--gold-dark); flex-shrink: 0; margin-top: .12rem; }
+
+    .ndecc-related { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .ndecc-rel-card { display: flex; flex-direction: column; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.35rem; box-shadow: var(--shadow-sm); }
+    .ndecc-rel-card h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); margin: .55rem 0 .2rem; }
+    .ndecc-rel-sub { font-size: .8rem; color: var(--muted); margin-bottom: .75rem; }
+    .ndecc-rel-price { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; }
+    .ndecc-rel-price small { font-size: .8rem; font-weight: 600; color: var(--muted); font-family: 'Inter', sans-serif; }
+    .ndecc-rel-card .osce-reg, .ndecc-rel-card .osce-reg2 { margin-top: auto; width: 100%; cursor: pointer; font-family: inherit; }
+    .ndecc-rel-card button.osce-reg { border: none; }
+    .ndecc-rel-card .osce-reg2 { border: 1.5px solid var(--navy); }
+
+    .ndecc-subprice { display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap; margin-bottom: .2rem; }
+
+    .ndecc-incl { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px,1fr)); gap: 1.1rem; }
+    .ndecc-incl-group { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.35rem; box-shadow: var(--shadow-sm); }
+    .ndecc-incl-group h4 { display: flex; align-items: center; gap: .5rem; font-size: .95rem; color: var(--navy); margin-bottom: .85rem; line-height: 1.3; }
+    .ndecc-incl-group h4 svg { width: 18px; height: 18px; color: var(--gold-dark); flex-shrink: 0; }
+
+    .ndecc-inst { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); border-radius: var(--radius); padding: clamp(1.5rem,4vw,2.25rem); box-shadow: var(--shadow-md); }
+    .ndecc-inst .kicker { color: var(--gold-light); }
+    .ndecc-inst .kicker::before { background: var(--gold-light); }
+    .ndecc-inst .h-title { color: #fff; }
+    .ndecc-inst .osce-note-sub { color: rgba(255,255,255,.72); }
+    .ndecc-inst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px,1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .ndecc-inst-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 1.4rem; text-align: center; }
+    .ndecc-inst-mono { width: 52px; height: 52px; border-radius: 50%; margin: 0 auto .75rem; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.15rem; color: #fff; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); border: 1px solid rgba(255,255,255,.2); }
+    .ndecc-inst-name { font-size: .92rem; font-weight: 600; color: #fff; }
+    .ndecc-inst-role { font-size: .7rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .08em; margin-top: .25rem; }
+
+    .ndecc-contact { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.1rem; background: var(--gold-bg); border: 1.5px solid rgba(15,122,229,.2); border-radius: var(--radius); padding: 1.5rem; }
+    .ndecc-contact-txt h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: .35rem; }
+    .ndecc-contact-txt p { font-size: .88rem; color: var(--muted); line-height: 1.6; max-width: 440px; }
+    .ndecc-contact-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .ndecc-contact-btn { display: inline-flex; align-items: center; gap: .45rem; background: #fff; border: 1.5px solid var(--border); color: var(--navy); font-weight: 700; font-size: .85rem; padding: .7rem 1.2rem; border-radius: .45rem; transition: border-color .15s, box-shadow .15s, transform .12s; }
+    .ndecc-contact-btn:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+    .ndecc-contact-btn svg { width: 16px; height: 16px; color: var(--gold-dark); flex-shrink: 0; }
+
+    .ndecc-actions { display: grid; grid-template-columns: repeat(3,1fr); gap: .75rem; }
+
+    @media (max-width: 860px) {
+      .ndecc-two { grid-template-columns: 1fr; }
+      .ndecc-two .acj-enroll { position: static; }
+      .ndecc-related { grid-template-columns: 1fr; }
+      .ndecc-actions { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .ndecc-tab { flex: 1 1 100%; }
+      .ndecc-contact { flex-direction: column; align-items: flex-start; }
+      .ndecc-contact-actions { width: 100%; }
+      .ndecc-contact-btn { width: 100%; justify-content: center; }
+    }
+
     /* ─────────────  PATHWAY NAVIGATOR  ───────────── */
     .pathway { background: var(--bg); }
     .pathway-wrap { max-width: 980px; }
@@ -941,10 +1009,431 @@ const pathwayNav = (() => {
     },
     ndecc: {
       label: 'Preparing for NDECC',
-      heading: 'Prepare for both NDECC components',
-      intro: 'The NDECC assesses clinical skills and situational judgement. Train each component on its own, or combine them in one complete bundle.',
-      primary: { label: 'Explore NDECC Programs', href: '/ndecc-programs/' },
-      cards: [ ['ndecc-cs', 'Recommended'], ['ndecc-sj', 'Alternative'], ['ndecc-bundle', 'Bundle'] ]
+      heading: 'Prepare for Your Next Step with NDECC',
+      html: `
+<div class="osce-panel">
+
+  <div class="afk-restart-row">
+    <button type="button" class="pw-restart" id="pwRestart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Start again</button>
+  </div>
+
+  <!-- Intro -->
+  <div class="osce-block-head">
+    <span class="kicker">NDECC Preparation</span>
+    <h2 class="h-title" id="pw-result-title" tabindex="-1" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Prepare for Your Next Step with NDECC</h2>
+    <p class="osce-note-sub" style="max-width:620px;margin-left:auto;margin-right:auto">Explore Clinical Skills and Situational Judgement preparation, or combine both through the Brilliant Bundle. Find the training, practice, and guidance that fit your preparation needs.</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="ndecc-tabs" role="tablist" aria-label="NDECC preparation options">
+    <button type="button" class="ndecc-tab" role="tab" id="ndtab-clinical" aria-controls="ndpanel-clinical" aria-selected="true" data-view="clinical"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8M9 2v3a6 6 0 0 0 .4 2.2L6 14a4 4 0 0 0 3.7 5.5h4.6A4 4 0 0 0 18 14l-3.4-6.8A6 6 0 0 0 15 5V2"/></svg>Clinical Skills</button>
+    <button type="button" class="ndecc-tab" role="tab" id="ndtab-sj" aria-controls="ndpanel-sj" aria-selected="false" tabindex="-1" data-view="sj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Situational Judgement</button>
+    <button type="button" class="ndecc-tab" role="tab" id="ndtab-bundle" aria-controls="ndpanel-bundle" aria-selected="false" tabindex="-1" data-view="bundle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8l9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg>Brilliant Bundle</button>
+  </div>
+
+  <!-- ══ CLINICAL SKILLS PANEL ══ -->
+  <div class="ndecc-panel" role="tabpanel" id="ndpanel-clinical" aria-labelledby="ndtab-clinical">
+
+    <div class="afk-ach">
+      <div class="osce-block-head" style="margin-bottom:0">
+        <span class="kicker">Our Achievements</span>
+        <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.8rem)">Our Achievements: Real Results, Real Success!</h2>
+        <p class="osce-note-sub">Over the Past 10 Years</p>
+      </div>
+      <div class="osce-stats">
+        <div class="osce-stat"><div class="osce-stat-num">1,500+</div><div class="osce-stat-label">Students</div></div>
+        <div class="osce-stat"><div class="osce-stat-num">75%</div><div class="osce-stat-label">Passing Rate</div></div>
+        <div class="osce-stat"><div class="osce-stat-num">93%</div><div class="osce-stat-label">Satisfaction Rate</div></div>
+      </div>
+    </div>
+
+    <div class="osce-welcome">
+      <h3>Build Your Clinical Skills with Guided, Hands-On Preparation</h3>
+      <p>Prepare for the Clinical Skills component with structured training, recorded demonstrations, coaching, and personalized feedback. ConfiDentist supports your progress through practical learning and mentorship.</p>
+    </div>
+
+    <div class="ndecc-two">
+      <div>
+        <div class="osce-block-head" style="text-align:left">
+          <span class="kicker">Clinical Skills Packages</span>
+          <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Core Package</h2>
+        </div>
+        <div class="ndecc-bestfor"><strong>Best suited for:</strong> Candidates seeking structured, focused preparation with hands-on support.</div>
+        <p class="osce-sub">What's included</p>
+        <ul class="osce-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3-month program</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded demonstrations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-day lab access</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Continuous coaching</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Morning shifts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mentorship and feedback</li>
+        </ul>
+        <p class="ndecc-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>As stated by ConfiDentist, the program's instructors passed the NDECC exam in the 700 series.</p>
+      </div>
+
+      <aside class="acj-enroll" aria-label="Clinical Skills Core Package enrollment">
+        <span class="osce-badge" style="margin-bottom:.9rem">Clinical Skills</span>
+        <h3 class="acj-pkgname">Core Package</h3>
+        <div class="acj-priceblock">
+          <div class="acj-price-row">
+            <span class="acj-price-now">$5,999</span>
+            <span class="acj-price-hst">+ HST</span>
+          </div>
+        </div>
+        <a class="osce-reg" href="https://www.confidentist.ca/product/ndecc-core-package-2026/">Register for Clinical Skills
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="acj-summary">3 months · In-person lab · Mentorship &amp; feedback</p>
+        <p class="ndecc-note" style="justify-content:center;text-align:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>Interest-free installment plan available at checkout.</p>
+      </aside>
+    </div>
+
+    <div>
+      <div class="osce-block-head" style="text-align:left">
+        <span class="kicker">Related Options</span>
+        <h2 class="h-title" style="font-size:clamp(1.2rem,2.4vw,1.5rem)">Compare or Add Focused Practice</h2>
+      </div>
+      <div class="ndecc-related">
+        <div class="ndecc-rel-card">
+          <span class="osce-badge afk-badge-exp" style="margin-bottom:0">All-Inclusive</span>
+          <h4>The Brilliant Bundle</h4>
+          <p class="ndecc-rel-sub">Clinical Skills + Situational Judgement</p>
+          <div class="ndecc-rel-price">$24,999 <small>CAD + HST</small></div>
+          <button type="button" class="osce-reg" data-goto="bundle">Explore the Brilliant Bundle
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="ndecc-rel-card">
+          <span class="osce-badge" style="margin-bottom:0;background:var(--teal)">Mock Only</span>
+          <h4>Clinical Skills Mock Exam</h4>
+          <p class="ndecc-rel-sub">Mock exam only — does not include the full course</p>
+          <div class="ndecc-rel-price">$1,250 <small>CAD + HST</small></div>
+          <a class="osce-reg2" href="https://www.confidentist.ca/product/professional-ndecc-skills-mock-exam-2025-01/">View Clinical Skills Mock Exam</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="osce-welcome">
+      <h3>Materials and Tools Support</h3>
+      <p>We aim to make commonly used training materials available to support your preparation. Availability may vary. <a href="https://www.confidentist.ca/contact-us/" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact our team</a> for current material options and pricing.</p>
+    </div>
+
+  </div>
+
+  <!-- ══ SITUATIONAL JUDGEMENT PANEL ══ -->
+  <div class="ndecc-panel" role="tabpanel" id="ndpanel-sj" aria-labelledby="ndtab-sj" hidden>
+
+    <div class="afk-ach">
+      <div class="osce-block-head" style="margin-bottom:0">
+        <span class="kicker">Our Achievements</span>
+        <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.8rem)">Our Achievements: Real Results, Real Success!</h2>
+        <p class="osce-note-sub">Over the Past 3 Years</p>
+      </div>
+      <div class="osce-stats">
+        <div class="osce-stat"><div class="osce-stat-num">200+</div><div class="osce-stat-label">Students</div></div>
+        <div class="osce-stat"><div class="osce-stat-num">81%</div><div class="osce-stat-label">Passing Rate</div></div>
+        <div class="osce-stat"><div class="osce-stat-num">93%</div><div class="osce-stat-label">Satisfaction Rate</div></div>
+      </div>
+    </div>
+
+    <div class="osce-welcome">
+      <h3>Practice Your Judgement. Strengthen Your Communication.</h3>
+      <p>Prepare through realistic scenarios, written exercises, role-play, and personalized feedback. Our private course combines recorded learning with small-group, in-person practice.</p>
+      <ul class="acj-highlights" style="margin-top:1.1rem;margin-bottom:0">
+        <li class="acj-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Private in-person classes</li>
+        <li class="acj-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Up to 7 participants per class</li>
+        <li class="acj-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Role-play and written exercises</li>
+        <li class="acj-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="osce-block-head">
+        <span class="kicker">Situational Judgement Packages</span>
+        <h2 class="h-title" style="font-size:clamp(1.4rem,2.8vw,1.9rem)">Choose Your Situational Judgement Package</h2>
+      </div>
+      <div class="osce-pkgs">
+
+        <article class="osce-card afk-card-pop">
+          <span class="osce-badge">Exclusive &amp; Interactive</span>
+          <h4>Comprehensive</h4>
+          <p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">Core Package + Mock Exam Package</p>
+          <div class="osce-amount"><span class="osce-price">$7,599</span></div>
+          <p class="osce-hst"><strong>CAD</strong> + HST</p>
+          <p class="osce-sub">Core course includes</p>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Participation in role-play and written exercises</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>64 hours of sessions (16 four-hour sessions)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios covered</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Comprehensive learning resources</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded video explanations and course notes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3-month structure: Month 1 recorded videos; Months 2–3 in-person classes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private class setting with up to 7 participants</li>
+          </ul>
+          <p class="osce-sub">Mock exam package includes</p>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mock exams covering written and role-play stations</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One-on-one personalized feedback after every mock</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>On-site delivery at the training centre</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mock package structured for completion in 4 weeks</li>
+          </ul>
+          <a class="osce-reg" href="https://www.confidentist.ca/product/situational-judgement-comprehensive-in-person-2026/">Register for Comprehensive →</a>
+        </article>
+
+        <article class="osce-card afk-card-ext">
+          <span class="osce-badge afk-badge-exp">Exclusive &amp; Interactive</span>
+          <h4>Core</h4>
+          <p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">The core in-person course, without the 8-mock exam package.</p>
+          <div class="osce-amount"><span class="osce-price">$4,499</span></div>
+          <p class="osce-hst"><strong>CAD</strong> + HST</p>
+          <p class="osce-sub">Core course includes</p>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Participation in role-play and written exercises</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>64 hours of sessions (16 four-hour sessions)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios covered</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Comprehensive learning resources</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded video explanations and course notes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3-month structure: Month 1 recorded videos; Months 2–3 in-person classes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private class setting with up to 7 participants</li>
+          </ul>
+          <p class="ndecc-diff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>The 8 full mock exams are included with Comprehensive, not Core.</p>
+          <a class="osce-reg" href="https://www.confidentist.ca/product/situational-judgement-in-person-2026/">Register for Core →</a>
+        </article>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="osce-block-head">
+        <span class="kicker">Situational Judgement Schedule</span>
+        <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Explore the Session Schedule</h2>
+      </div>
+      <div class="osce-sched">
+        <a href="/ndecc-programs/situational-judgement/">View Situational Judgement Schedule</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="osce-block-head" style="text-align:left">
+        <span class="kicker">Related Options</span>
+        <h2 class="h-title" style="font-size:clamp(1.2rem,2.4vw,1.5rem)">Bundle or Add Focused Practice</h2>
+      </div>
+      <div class="ndecc-related">
+        <div class="ndecc-rel-card">
+          <span class="osce-badge afk-badge-exp" style="margin-bottom:0">All-Inclusive</span>
+          <h4>The Brilliant Bundle</h4>
+          <p class="ndecc-rel-sub">Clinical Skills + Situational Judgement</p>
+          <div class="ndecc-rel-price">$24,999 <small>CAD + HST</small></div>
+          <button type="button" class="osce-reg" data-goto="bundle">Explore the Brilliant Bundle
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="ndecc-rel-card">
+          <span class="osce-badge" style="margin-bottom:0;background:var(--teal)">Mock Only</span>
+          <h4>Situational Judgement Mock Exam</h4>
+          <p class="ndecc-rel-sub">Mock exam only · available in multiple quantities</p>
+          <div class="ndecc-rel-price">$1,200–$3,100 <small>CAD + HST</small></div>
+          <p class="ndecc-rel-sub" style="margin-top:-.4rem">From $1,200 (2 mock exams) to $3,100 (8 mock exams).</p>
+          <a class="osce-reg2" href="https://www.confidentist.ca/product/situational-judgement-mock-exam-new-design/">Explore Mock Exam Options</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ndecc-inst">
+      <div class="osce-block-head" style="margin-bottom:0">
+        <span class="kicker">Your Instructors</span>
+        <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Learn From Experienced Clinicians</h2>
+      </div>
+      <div class="ndecc-inst-grid">
+        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">MA</div><div class="ndecc-inst-name">Dr. Mehdi Adibrad</div><div class="ndecc-inst-role">SJ Instructor</div></div>
+        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">AA</div><div class="ndecc-inst-name">Dr. Amin Asadollahi</div><div class="ndecc-inst-role">SJ Instructor</div></div>
+        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">MI</div><div class="ndecc-inst-name">Dr. Mark Ibrahim</div><div class="ndecc-inst-role">SJ Instructor</div></div>
+        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">FK</div><div class="ndecc-inst-name">Dr. Fardad Kamalian</div><div class="ndecc-inst-role">SJ Instructor</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ BRILLIANT BUNDLE PANEL ══ -->
+  <div class="ndecc-panel" role="tabpanel" id="ndpanel-bundle" aria-labelledby="ndtab-bundle" hidden>
+
+    <div class="ndecc-two">
+      <div>
+        <span class="acj-eyebrow">All-Inclusive</span>
+        <h2 class="h-title acj-intro-h">The Brilliant Bundle</h2>
+        <p class="osce-note-sub" style="font-weight:600;color:var(--gold-dark);margin:-.4rem 0 .9rem">Clinical Skills + Situational Judgement</p>
+        <p class="acj-intro-p">Bring both components of your NDECC preparation together in one coordinated program. Explore the Clinical Skills and Situational Judgement training, practice, and support included in the Brilliant Bundle.</p>
+        <p class="ndecc-diff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>The bundle is a coordinated program. Its Clinical Skills duration, coaching days, and mock quantities differ from the standalone Core packages — see the inclusions below.</p>
+      </div>
+
+      <aside class="acj-enroll" aria-label="Brilliant Bundle enrollment">
+        <span class="osce-badge afk-badge-exp" style="margin-bottom:.9rem">All-Inclusive</span>
+        <h3 class="acj-pkgname">The Brilliant Bundle</h3>
+        <div class="acj-priceblock">
+          <div class="acj-price-row">
+            <span class="acj-price-now">$24,999</span>
+            <span class="acj-price-hst">+ HST</span>
+          </div>
+        </div>
+        <a class="osce-reg" href="https://www.confidentist.ca/product/the-brilliant-bundle-2026-2/">Register for the Brilliant Bundle
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="acj-summary">Clinical Skills + Situational Judgement</p>
+        <p class="ndecc-note" style="justify-content:center;text-align:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>Interest-free installment plan available at checkout.</p>
+      </aside>
+    </div>
+
+    <div>
+      <div class="osce-block-head">
+        <span class="kicker">What's Included</span>
+        <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Everything in the Brilliant Bundle</h2>
+      </div>
+      <div class="ndecc-incl">
+        <div class="ndecc-incl-group">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8M9 2v3a6 6 0 0 0 .4 2.2L6 14a4 4 0 0 0 3.7 5.5h4.6A4 4 0 0 0 18 14l-3.4-6.8A6 6 0 0 0 15 5V2"/></svg>Clinical Skills Training</h4>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-month program</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded demonstrations</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-day lab access</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5-day onsite coaching</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mentorship and feedback</li>
+          </ul>
+        </div>
+        <div class="ndecc-incl-group">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Clinical Skills Mock Exams</h4>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 full mock exams</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Complete set of instruments</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-hour supervision</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Infection control</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-hour post-mock discussion</li>
+          </ul>
+        </div>
+        <div class="ndecc-incl-group">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Situational Judgement Training</h4>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Full role-play and written participation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>16 four-hour sessions (64 hours total)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Comprehensive resources (Month 1 recorded; Months 2–3 in-person)</li>
+          </ul>
+        </div>
+        <div class="ndecc-incl-group">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Situational Judgement Mock Exams</h4>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mock exams (written + role-play)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-on-1 personalized feedback after each</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Onsite at our centre</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Structured for completion in 4 weeks</li>
+          </ul>
+        </div>
+        <div class="ndecc-incl-group">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg>Included Tools &amp; Materials</h4>
+          <ul class="osce-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Basic tools to begin your course</li>
+          </ul>
+          <p class="ndecc-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Material availability may vary and cannot be guaranteed at all times. Contact the team for current options.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="osce-block-head" style="text-align:left">
+        <span class="kicker">Keep Exploring</span>
+        <h2 class="h-title" style="font-size:clamp(1.2rem,2.4vw,1.5rem)">Review Each Component or Ask a Question</h2>
+      </div>
+      <div class="ndecc-actions">
+        <button type="button" class="ce-opt" data-goto="clinical"><span>Explore Clinical Skills<small>Core Package training, lab access, and mentorship.</small></span><span class="qo-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button type="button" class="ce-opt" data-goto="sj"><span>Explore Situational Judgement<small>Core and Comprehensive packages with mock exams.</small></span><span class="qo-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <a class="ce-opt" href="mailto:info@confidentist.ca?subject=Brilliant%20Bundle%20enquiry"><span>Ask About the Brilliant Bundle<small>Email our admissions team with your questions.</small></span><span class="qo-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Shared admissions contact strip -->
+  <div class="ndecc-contact" id="ndeccContact">
+    <div class="ndecc-contact-txt">
+      <h3>Need Help Choosing Your NDECC Preparation?</h3>
+      <p>Contact Shirin for questions about programs, registration, and available options.</p>
+    </div>
+    <div class="ndecc-contact-actions">
+      <a class="ndecc-contact-btn" href="tel:+16479795696"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>647-979-5696</a>
+      <a class="ndecc-contact-btn" href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+    </div>
+  </div>
+
+</div>`,
+      onMount: function (root) {
+        var VIEWS = ['clinical', 'sj', 'bundle'];
+        var tabs = Array.prototype.slice.call(root.querySelectorAll('.ndecc-tab'));
+        var tablist = root.querySelector('.ndecc-tabs');
+        var panels = {
+          clinical: root.querySelector('#ndpanel-clinical'),
+          sj: root.querySelector('#ndpanel-sj'),
+          bundle: root.querySelector('#ndpanel-bundle')
+        };
+        function currentView() {
+          for (var i = 0; i < tabs.length; i++) {
+            if (tabs[i].getAttribute('aria-selected') === 'true') return tabs[i].dataset.view;
+          }
+          return 'clinical';
+        }
+        function show(view, opts) {
+          opts = opts || {};
+          if (VIEWS.indexOf(view) < 0) view = 'clinical';
+          tabs.forEach(function (t) {
+            var on = t.dataset.view === view;
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.setAttribute('tabindex', on ? '0' : '-1');
+          });
+          VIEWS.forEach(function (v) { if (panels[v]) panels[v].hidden = (v !== view); });
+          if (opts.sync !== false) {
+            try {
+              var params = new URLSearchParams(window.location.search);
+              params.set('stage', 'ndecc');
+              params.set('ndecc', view);
+              history.pushState({ pwStage: 'ndecc', ndecc: view }, '', window.location.pathname + '?' + params.toString());
+            } catch (_) {}
+          }
+          if (opts.focusTab) {
+            var at = tabs.filter(function (t) { return t.dataset.view === view; })[0];
+            if (at) try { at.focus(); } catch (_) {}
+          }
+          track('ndecc_view_selected', { view: view });
+        }
+        tabs.forEach(function (t) {
+          t.addEventListener('click', function () { show(t.dataset.view, { focusTab: false }); });
+        });
+        if (tablist) tablist.addEventListener('keydown', function (e) {
+          var idx = VIEWS.indexOf(currentView());
+          var ni = idx;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') ni = (idx + 1) % VIEWS.length;
+          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ni = (idx - 1 + VIEWS.length) % VIEWS.length;
+          else if (e.key === 'Home') ni = 0;
+          else if (e.key === 'End') ni = VIEWS.length - 1;
+          else return;
+          e.preventDefault();
+          show(VIEWS[ni], { focusTab: true });
+        });
+        // In-panel controls that switch views
+        root.querySelectorAll('[data-goto]').forEach(function (b) {
+          b.addEventListener('click', function (e) {
+            e.preventDefault();
+            show(b.dataset.goto, { focusTab: false });
+            if (tablist) try { tablist.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' }); } catch (_) {}
+          });
+        });
+        // Initial view from the URL (direct-link support), without pushing history.
+        var initView = null;
+        try { initView = new URLSearchParams(window.location.search).get('ndecc'); } catch (_) {}
+        show(initView || 'clinical', { sync: false });
+      }
     },
     osce: {
       label: 'Preparing for Virtual OSCE',
