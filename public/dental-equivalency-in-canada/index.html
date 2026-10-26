@@ -1009,10 +1009,100 @@ const pathwayNav = (() => {
     },
     adat: {
       label: 'Preparing for ADAT',
-      heading: 'Prepare for the ADAT',
-      intro: 'The ADAT (Advanced Dental Admission Test) supports applications to advanced dental programs. Choose comprehensive coverage, an efficient crash review, or tailored one-on-one support.',
-      primary: { label: 'Explore ADAT Preparation', href: '/adat-programs/' },
-      cards: [ ['adat-comp', 'Recommended'], ['adat-crash', 'Alternative'], ['private', 'Personalized'] ]
+      heading: 'What Is the Advanced Dental Admission Test (ADAT)?',
+      html: cPanel(
+        cRestart()
+        + cAchievements({ titleId: 'pw-result-title', title: 'Our Achievements: Real Results, Real Success!', timeframe: 'Over the Past 3 Years', stats: [['100+','Students'],['91.2%','Passing Rate'],['98%','Satisfaction Rate']] })
+        + cWelcome({
+            heading: 'What Is the Advanced Dental Admission Test (ADAT)?',
+            paras: ['The Advanced Dental Admission Test (ADAT) is a standardized examination developed by the American Dental Association (ADA) to help advanced dental education programs assess applicants’ readiness for postgraduate training. It evaluates biomedical knowledge, clinical understanding, and critical thinking skills.'],
+            cta: { label: 'Explore ADAT Packages', scrollTo: '#adatPackages', href: '#adatPackages' }
+          })
+        + `<div>
+    <div class="osce-block-head"><span class="kicker">About the ADAT</span><h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Understanding the Exam</h2></div>
+    <p class="osce-closing" style="margin-bottom:1rem">Programs may consider ADAT scores alongside academic performance, clinical experience, research background, letters of recommendation, and personal statements. Requirements vary by institution and program, so candidates should confirm whether the ADAT is required or accepted by their intended programs.</p>
+    <p class="osce-closing" style="margin-bottom:1.5rem">In the United States, the ADAT is used by participating advanced dental education programs. Certain Canadian postgraduate programs may also accept it. Internationally trained dentists should confirm each program’s requirements and how the ADAT relates to other examinations they may need.</p>
+    <div style="max-width:620px;margin:0 auto;background:var(--bg-soft);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm)">
+      <p class="osce-sub" style="margin-top:0">Exam overview</p>
+      <ul class="osce-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 multiple-choice questions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Biomedical Sciences</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical Sciences</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Research and Evidence-Based Dentistry</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A single testing session</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Scaled scoring</li>
+      </ul>
+    </div>
+  </div>`
+        + cPackages(
+            { id: 'adatPackages', kicker: 'ADAT Packages', heading: 'Choose Your ADAT Preparation Package', sub: 'Choose comprehensive preparation across all three subject areas or a focused course covering Evidence-Based Dentistry and Biomedical Science.' },
+            [
+              cCard({
+                variant: 'pop', badge: 'Most Popular', name: 'Comprehensive – 2026',
+                desc: 'Structured ADAT preparation covering Evidence-Based Dentistry, Biomedical Science, and Clinical Science.',
+                start: 'Started <strong>October 3, 2026</strong> · Completes <strong>February 15, 2027</strong>',
+                priceReg: '$4,200', price: '$3,999', hst: '+ HST',
+                note: 'Save CAD $201 · Course material access until the end of August 2027. Interest-free installment plan available at checkout.',
+                groups: [
+                  { title: 'Course coverage', items: ['Evidence-Based Dentistry (EBD)','Biomedical Science (BMS)','Clinical Science (CS)'] },
+                  { title: 'Course format', items: ['Hybrid learning format','Live and prerecorded sessions'] },
+                  { title: 'What\'s included', items: [
+                    '56 online sessions',
+                    '7 comprehensive booklets covering all subjects, with 1,500+ questions for self-study',
+                    '6 live Q&A sessions',
+                    '1 EBD mini mock exam with live discussion',
+                    '2 BMS mini mock exams with live discussions',
+                    '2 Clinical Science mini mock exams with live discussions',
+                    '3 full online mock exams with discussions' ] }
+                ],
+                reg: { label: 'Register for ADAT Comprehensive', href: 'https://www.confidentist.ca/product/adat-comprehensive-2026/' },
+                reg2: { label: 'View Comprehensive Schedule', href: '/adat-programs/comprehensive/' }
+              }),
+              cCard({
+                variant: 'ext', badge: 'Modular Hybrid', badgeClass: 'afk-badge-exp', name: 'Crash – 2026',
+                desc: 'Focused preparation covering Evidence-Based Dentistry and Biomedical Science.',
+                start: 'Started <strong>October 3, 2026</strong> · Completes <strong>November 21, 2026</strong>',
+                price: '$2,200', hst: '+ HST',
+                note: 'Course material access until the end of August 2027. Mini mock exam dates may be adjusted if required. Interest-free installment plan available at checkout.',
+                groups: [
+                  { title: 'Course coverage', items: ['Evidence-Based Dentistry (EBD)','Biomedical Science (BMS)'] },
+                  { title: 'Course format', items: ['Hybrid learning format','Live and prerecorded sessions'] },
+                  { title: 'What\'s included', items: [
+                    '24 online sessions',
+                    '3 live Q&A sessions',
+                    '1 EBD mini mock exam with live discussion',
+                    '2 BMS mini mock exams with live discussions',
+                    '4 booklets covering EBD and BMS subjects, with questions for self-study',
+                    '1 full online mock exam with live discussion' ] }
+                ],
+                footnote: 'Clinical Science coverage is included with Comprehensive, not this package.',
+                reg: { label: 'Register for ADAT Crash', href: 'https://www.confidentist.ca/product/adat-bms-ebd-module-hybrid-2026/' },
+                reg2: { label: 'View Modular Schedule', href: '/adat-programs/crash/' }
+              })
+            ])
+        + `<div>
+    <div class="osce-block-head"><span class="kicker">At a Glance</span><h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Compare the Key Differences</h2></div>
+    <div class="afk-diff-wrap">
+      <table class="afk-diff">
+        <thead><tr><th scope="col">Feature</th><th scope="col">Comprehensive</th><th scope="col">Crash</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Subject coverage</th><td class="yes">EBD, BMS, CS</td><td>EBD and BMS</td></tr>
+          <tr><th scope="row">Online sessions</th><td class="yes">56</td><td>24</td></tr>
+          <tr><th scope="row">Booklets</th><td class="yes">7</td><td>4</td></tr>
+          <tr><th scope="row">Live Q&amp;A sessions</th><td class="yes">6</td><td>3</td></tr>
+          <tr><th scope="row">Mini mock exams</th><td class="yes">5</td><td>3</td></tr>
+          <tr><th scope="row">Full mock exams</th><td class="yes">3</td><td>1</td></tr>
+          <tr><th scope="row">Completion date</th><td>February 15, 2027</td><td>November 21, 2026</td></tr>
+          <tr><th scope="row">Material access</th><td>Through August 2027</td><td>Through August 2027</td></tr>
+          <tr><th scope="row">Price before HST</th><td>CAD $3,999</td><td>CAD $2,200</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>`
+        + cSchedule({ kicker: 'ADAT Course Schedule', heading: 'Explore the ADAT Course Schedule', intro: 'Review the session schedule for each ADAT package.', links: [ { label: 'View Comprehensive Schedule', href: '/adat-programs/comprehensive/' }, { label: 'View Modular Schedule', href: '/adat-programs/crash/' } ] })
+        + cClosing(`The ADAT supports applications to advanced dental education programs; it does not replace the Canadian dental equivalency examinations. <a href="mailto:info@confidentist.ca" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact our team</a> to learn more about ADAT preparation and confirm your program’s requirements.`)
+        + cContact()
+      )
     },
     university: {
       label: 'University Admission',
