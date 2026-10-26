@@ -509,11 +509,12 @@ const pathwayNav = (() => {
   }
   function cWelcome(w) {
     if (!w) return '';
+    var eyebrow = w.eyebrow ? '<span class="kicker">' + esc(w.eyebrow) + '</span>' : '';
     var head = w.heading ? '<h3' + (w.headingId ? ' id="' + w.headingId + '" tabindex="-1"' : '') + '>' + esc(w.heading) + '</h3>' : '';
     var paras = (w.paras || []).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
     var note = w.note ? '<p class="osce-examdate">' + svgCal + esc(w.note) + '</p>' : '';
     var cta = w.cta ? '<a class="btn-primary afk-welcome-btn"' + (w.cta.scrollTo ? ' data-scrollto="' + esc(w.cta.scrollTo) + '"' : '') + ' href="' + esc(w.cta.href || '#') + '">' + esc(w.cta.label) + ' ' + svgDownC + '</a>' : '';
-    return '<div class="osce-welcome">' + head + paras + note + cta + '</div>';
+    return '<div class="osce-welcome">' + eyebrow + head + paras + note + cta + '</div>';
   }
   function cCard(p) {
     var cls = 'osce-card' + (p.variant === 'pop' ? ' afk-card-pop' : (p.variant === 'ext' ? ' afk-card-ext' : ''));
@@ -1106,10 +1107,71 @@ const pathwayNav = (() => {
     },
     university: {
       label: 'University Admission',
-      heading: 'Prepare for university admission',
-      intro: 'University admission preparation supports Canadian dental program applications. Combine interview coaching, ADAT preparation and personalized sessions.',
-      primary: { label: 'Explore University Interview Preparation', href: '/university-interview-preparation/' },
-      cards: [ ['interview', 'Recommended'], ['adat-hub', 'Alternative'], ['private', 'Personalized'] ]
+      heading: 'University Interview Preparation',
+      html: cPanel(
+        cRestart()
+        + cWelcome({
+            headingId: 'pw-result-title',
+            eyebrow: 'You passed the test, now let’s win the conversation',
+            heading: 'University Interview Preparation',
+            paras: [
+              'Congratulations on reaching the University Interview stage! You have reached an important milestone: your Canadian university interview. A strong application and exam score helped you get here—now it is time to demonstrate your professionalism, communication skills, and passion for dentistry.' ],
+            cta: { label: 'Explore the Preparation Package', scrollTo: '#uipPackages', href: '#uipPackages' }
+          })
+        + `<div>
+    <div class="osce-block-head"><span class="kicker">Complete Interview Preparation</span><h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Your Opportunity to Stand Out</h2></div>
+    <p class="osce-closing" style="margin-bottom:1rem">The interview allows you to showcase your personality, critical thinking, confidence, and professional presence. We are here to help you communicate these qualities clearly and effectively.</p>
+    <p class="osce-closing" style="margin-bottom:1.5rem">Drawing on years of experience supporting dental candidates, we have created an interview preparation course designed for this important stage.</p>
+    <div style="max-width:620px;margin:0 auto 1.5rem;background:var(--bg-soft);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm)">
+      <p class="osce-sub" style="margin-top:0">What we focus on</p>
+      <ul class="osce-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Technical and scientific questions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ethical and situational scenarios</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Professional communication strategies</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clear and structured responses</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Confidence and mindset development</li>
+      </ul>
+    </div>
+    <p class="osce-closing">You have already completed demanding academic work. Now, prepare to communicate your thinking, experience, and professional strengths with confidence—let us take this important step together.</p>
+  </div>`
+        + cPackages(
+            { id: 'uipPackages', gridClass: 'is-single', kicker: 'The Package', heading: 'University Interview Preparation Package', sub: 'Combine structured recorded learning with a personalized coaching session to prepare for your university interview.' },
+            [ cCard({
+                variant: 'pop', badge: 'Most Comprehensive', name: 'University Interview Preparation',
+                desc: 'Combine structured recorded learning with a personalized coaching session to prepare for your university interview.',
+                price: '$899', hst: '+ HST',
+                groups: [
+                  { title: 'At a glance', items: [
+                    '2 recorded preparation sessions',
+                    '1 private 50-minute coaching session',
+                    'Q&A booklet',
+                    'On-demand video access' ] },
+                  { title: 'A. Structured recorded preparation (2 sessions)', items: [
+                    'Understanding the interview: format, flow, and expectations',
+                    'Question types: technical, scientific, ethical, and situational',
+                    'Communication strategies: professional tone, clear structure, and confident delivery',
+                    'Common mistakes to avoid: what interviewers notice and how to avoid common pitfalls',
+                    'Mindset coaching: building presence, confidence, and the ability to handle pressure',
+                    'Q&A booklet: practice questions you may encounter in a university interview' ] },
+                  { title: 'B. Private coaching session (1 × 50-minute session)', items: [
+                    'Scheduled approximately one week before your real interview',
+                    'Customized feedback based on your strengths and areas for improvement',
+                    'Strategy refinement tailored to your school and profile',
+                    'Practice answering challenging questions in a mock interview setting',
+                    'Practical tools to improve your delivery and mindset' ] },
+                  { title: 'C. Course access', items: [
+                    'On-demand access to the recorded video sessions' ] }
+                ],
+                reg: { label: 'Register Now', href: 'https://www.confidentist.ca/product/university-interview-preparation-2025-recorded/' }
+              }) ]
+          )
+        + `<div>
+    <div class="osce-block-head"><span class="kicker">Get Started</span><h2 class="h-title" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Prepare to Make a Confident Impression</h2></div>
+    <p class="osce-closing" style="margin-bottom:1.25rem">Build a clear approach to interview questions, strengthen your communication, and refine your delivery with structured preparation and personalized feedback.</p>
+    <div class="osce-sched"><a href="https://www.confidentist.ca/product/university-interview-preparation-2025-recorded/">Register for University Interview Preparation</a></div>
+  </div>`
+        + cContact()
+      )
     },
     ce: {
       label: 'Continuing Education',
