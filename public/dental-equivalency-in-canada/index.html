@@ -194,6 +194,81 @@
     .ce-opt .qo-arrow svg { width: 18px; height: 18px; }
     .ce-opt small { display: block; font-weight: 400; font-size: .74rem; color: var(--muted); margin-top: .15rem; }
 
+    /* ── ACJ ENROLLMENT EXPERIENCE ── */
+    .acj-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(1.25rem, 3vw, 2rem); align-items: start; }
+    .acj-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.3); color: var(--gold-dark); border-radius: .35rem; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .35rem .85rem; margin-bottom: 1rem; }
+    .acj-intro-h { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); line-height: 1.14; font-size: clamp(1.5rem, 3.2vw, 2.2rem); letter-spacing: -.01em; margin-bottom: .85rem; }
+    .acj-intro-p { font-size: .98rem; color: var(--muted); line-height: 1.75; max-width: 560px; margin-bottom: 1.4rem; }
+    .acj-highlights { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1.6rem; }
+    .acj-hl { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1.5px solid var(--border); border-radius: 999px; padding: .5rem .95rem; font-size: .82rem; font-weight: 600; color: var(--navy); box-shadow: var(--shadow-sm); }
+    .acj-hl svg { width: 16px; height: 16px; color: var(--gold-dark); flex-shrink: 0; }
+
+    .acj-enroll { position: sticky; top: 84px; background: #fff; border: 2px solid var(--gold); border-radius: var(--radius); padding: 1.6rem; box-shadow: 0 10px 34px rgba(15,122,229,.18); }
+    .acj-enroll-top { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .75rem; }
+    .acj-offer { display: inline-flex; align-items: center; gap: .35rem; font-size: .64rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+    .acj-offer svg { width: 13px; height: 13px; }
+    .acj-pkgname { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
+    .acj-meta { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font-size: .82rem; color: var(--muted); margin-bottom: 1.1rem; }
+    .acj-meta span { display: inline-flex; align-items: center; gap: .35rem; }
+    .acj-meta strong { color: var(--navy); font-weight: 700; }
+    .acj-meta svg { width: 14px; height: 14px; color: var(--gold-dark); flex-shrink: 0; }
+    .acj-priceblock { background: var(--bg-soft); border: 1px solid var(--border); border-radius: .6rem; padding: 1.1rem 1.15rem; margin-bottom: 1.1rem; }
+    .acj-price-row { display: flex; align-items: baseline; gap: .65rem; flex-wrap: wrap; }
+    .acj-price-now { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 700; color: var(--navy); line-height: 1; }
+    .acj-price-was { font-size: 1.05rem; color: var(--muted); text-decoration: line-through; }
+    .acj-price-hst { font-size: .92rem; color: var(--muted); font-weight: 600; }
+    .acj-save { display: inline-block; margin-top: .65rem; background: var(--teal-light); color: #0b6b77; border: 1px solid rgba(59,175,191,.4); font-size: .76rem; font-weight: 700; padding: .25rem .65rem; border-radius: 999px; }
+    .acj-enroll .osce-reg { width: 100%; margin-top: 0; }
+    .acj-enroll .osce-reg2 { width: 100%; margin-top: .6rem; }
+    .acj-summary { display: flex; align-items: center; justify-content: center; gap: .4rem; margin-top: .95rem; font-size: .8rem; color: var(--muted); font-weight: 500; text-align: center; }
+
+    .acj-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .acj-tile { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.3rem 1.1rem; box-shadow: var(--shadow-sm); text-align: center; }
+    .acj-tile svg { width: 22px; height: 22px; color: var(--gold-dark); margin: 0 auto .6rem; }
+    .acj-tile-v { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+    .acj-tile-l { font-size: .78rem; color: var(--muted); margin-top: .3rem; font-weight: 500; }
+
+    .acj-feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .acj-feat { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow-sm); }
+    .acj-feat-ic { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: var(--gold-bg); color: var(--gold-dark); margin-bottom: .8rem; }
+    .acj-feat-ic svg { width: 20px; height: 20px; }
+    .acj-feat h4 { font-size: 1rem; color: var(--navy); margin-bottom: .35rem; line-height: 1.3; }
+    .acj-feat p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
+    .acj-feat-tag { display: inline-flex; align-items: center; gap: .35rem; margin-top: .65rem; background: var(--teal-light); color: #0b6b77; border: 1px solid rgba(59,175,191,.4); font-size: .72rem; font-weight: 700; padding: .25rem .6rem; border-radius: 999px; }
+    .acj-feat-tag svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    .acj-mocks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .acj-mock-panel { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow-sm); }
+    .acj-mock-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; color: var(--gold-dark); line-height: 1; }
+    .acj-mock-t { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: .2rem 0 .8rem; }
+    .acj-mock-panel > p { font-size: .86rem; color: var(--muted); line-height: 1.6; margin-bottom: .7rem; }
+    .acj-mock-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    .acj-mock-list li { display: flex; align-items: flex-start; gap: .5rem; font-size: .85rem; color: var(--muted); line-height: 1.5; }
+    .acj-mock-list li svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; margin-top: .2rem; }
+    .acj-mock-total { display: flex; align-items: center; justify-content: center; gap: .55rem; text-align: center; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .6rem; padding: .9rem 1.1rem; font-size: .92rem; font-weight: 600; color: var(--navy); margin-top: 1.1rem; }
+    .acj-mock-total svg { width: 18px; height: 18px; color: var(--gold-dark); flex-shrink: 0; }
+    .acj-mock-total strong { color: var(--gold-dark); }
+
+    .acj-final { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); border-radius: var(--radius); padding: clamp(1.75rem, 4vw, 2.5rem); text-align: center; box-shadow: var(--shadow-md); }
+    .acj-final h2 { color: #fff; }
+    .acj-final .kicker { color: var(--gold-light); }
+    .acj-final .kicker::before { background: var(--gold-light); }
+    .acj-final p { color: rgba(255,255,255,.78); font-size: .96rem; line-height: 1.7; max-width: 560px; margin: .6rem auto 1.4rem; }
+    .acj-final-btns { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+    .acj-final-btns .osce-reg { margin-top: 0; }
+    .acj-final-sched { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid rgba(255,255,255,.5); color: #fff; font-weight: 700; font-size: .86rem; padding: .8rem 1.5rem; border-radius: .4rem; transition: background .2s, border-color .2s, transform .15s; }
+    .acj-final-sched:hover { background: rgba(255,255,255,.1); border-color: #fff; transform: translateY(-1px); }
+
+    @media (max-width: 860px) {
+      .acj-grid { grid-template-columns: 1fr; }
+      .acj-enroll { position: static; }
+      .acj-tiles { grid-template-columns: 1fr; }
+      .acj-mocks { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .acj-final-btns .osce-reg, .acj-final-sched { width: 100%; justify-content: center; }
+    }
+
     /* ─────────────  PATHWAY NAVIGATOR  ───────────── */
     .pathway { background: var(--bg); }
     .pathway-wrap { max-width: 980px; }
@@ -692,10 +767,177 @@ const pathwayNav = (() => {
     },
     acj: {
       label: 'Preparing for ACJ',
-      heading: 'Build the clinical reasoning the ACJ assesses',
-      intro: 'The ACJ (Assessment of Clinical Judgement) evaluates clinical reasoning and decision-making. Prepare with scenario-driven coverage, bundled value, or one-on-one support.',
-      primary: { label: 'Explore ACJ Preparation', href: '/acj-programs/' },
-      cards: [ ['acj-comp', 'Recommended'], ['bundles', 'Bundle'], ['private', 'Personalized'] ]
+      heading: 'Take the Next Step in Your Dental Equivalency Journey',
+      html: `
+<div class="osce-panel">
+
+  <div class="afk-restart-row">
+    <button type="button" class="pw-restart" id="pwRestart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Start again</button>
+  </div>
+
+  <!-- 1. Introduction + enrollment card (two-column) -->
+  <div class="acj-grid">
+
+    <div class="acj-intro">
+      <span class="acj-eyebrow">ACJ Preparation · May 2027 Exam</span>
+      <h2 class="h-title acj-intro-h" id="pw-result-title" tabindex="-1">Take the Next Step in Your Dental Equivalency Journey</h2>
+      <p class="acj-intro-p">Prepare for the Assessment of Clinical Judgement with a structured seven-month course combining quizzes, mock exams, guided discussions, and private mentorship.</p>
+      <ul class="acj-highlights">
+        <li class="acj-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>7-month program</li>
+        <li class="acj-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Online course delivery</li>
+        <li class="acj-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>100+ sessions</li>
+      </ul>
+      <a class="btn-primary" id="acjExploreBtn" href="#acjEnroll">Explore the ACJ Package
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 13l7 7 7-7"/></svg>
+      </a>
+    </div>
+
+    <aside class="acj-enroll" id="acjEnroll" aria-label="ACJ Comprehensive enrollment">
+      <div class="acj-enroll-top">
+        <span class="osce-badge" style="margin-bottom:0">Most Popular</span>
+        <span class="acj-offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>Early Bird Offer</span>
+      </div>
+      <h3 class="acj-pkgname">Comprehensive</h3>
+      <div class="acj-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Target exam <strong>May 2027</strong></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Starts <strong>October 2026</strong></span>
+      </div>
+      <div class="acj-priceblock">
+        <div class="acj-price-row">
+          <span class="acj-price-was">CAD $3,199</span>
+          <span class="acj-price-now">$3,039</span>
+          <span class="acj-price-hst">+ HST</span>
+        </div>
+        <span class="acj-save">Save CAD $160</span>
+      </div>
+      <a class="osce-reg" href="https://www.confidentist.ca/product/acj-comprehensive-may-2027-copy/">Register for May 2027 Exam — Now Open
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="osce-reg2" href="/acj-schedule-may-2027/">View ACJ Schedule — May 2027</a>
+      <p class="acj-summary">7 months · Online course · Private mentorship</p>
+    </aside>
+
+  </div>
+
+  <!-- 2. Course format -->
+  <div>
+    <div class="osce-block-head">
+      <span class="kicker">Course Format</span>
+      <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">A Clear, Structured Preparation Path</h2>
+    </div>
+    <div class="acj-tiles">
+      <div class="acj-tile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div class="acj-tile-v">7 months</div>
+        <div class="acj-tile-l">Course length</div>
+      </div>
+      <div class="acj-tile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <div class="acj-tile-v">Online</div>
+        <div class="acj-tile-l">Delivery format</div>
+      </div>
+      <div class="acj-tile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="acj-tile-v">100+</div>
+        <div class="acj-tile-l">Total sessions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. What's included -->
+  <div>
+    <div class="osce-block-head">
+      <span class="kicker">What's Included</span>
+      <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Everything Included in Your ACJ Preparation</h2>
+    </div>
+    <div class="acj-feats">
+      <div class="acj-feat">
+        <span class="acj-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h6a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V3a1 1 0 0 1 1-1z"/><path d="m9 14 2 2 4-4"/></svg></span>
+        <h4>20 Quizzes with Live Discussions</h4>
+        <p>Practice your knowledge and review your reasoning through guided discussion.</p>
+      </div>
+      <div class="acj-feat">
+        <span class="acj-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/></svg></span>
+        <h4>X-Ray Practice Library</h4>
+        <p>Access radiographic practice resources to support your preparation.</p>
+        <span class="acj-feat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>In-person access at the office</span>
+      </div>
+      <div class="acj-feat">
+        <span class="acj-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+        <h4>14 Mock Exams with Discussions</h4>
+        <p>Prepare through 10 mini mock exams and 4 full mock exams.</p>
+      </div>
+      <div class="acj-feat">
+        <span class="acj-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+        <h4>VIP WhatsApp Group Membership</h4>
+        <p>Stay connected with the course community.</p>
+      </div>
+      <div class="acj-feat">
+        <span class="acj-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h4>Private Mentorship</h4>
+        <p>Receive guidance throughout your preparation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Mock exam breakdown -->
+  <div>
+    <div class="osce-block-head">
+      <span class="kicker">Mock Exams</span>
+      <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Focused Practice. Full Exam Preparation.</h2>
+    </div>
+    <div class="acj-mocks">
+      <div class="acj-mock-panel">
+        <div class="acj-mock-num">10</div>
+        <div class="acj-mock-t">Mini Mock Exams</div>
+        <p>Targeted practice across the following areas:</p>
+        <ul class="acj-mock-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Radiology review with discussion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Case review with discussion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Operative dentistry and radiology with discussion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pathology with discussion</li>
+        </ul>
+      </div>
+      <div class="acj-mock-panel">
+        <div class="acj-mock-num">4</div>
+        <div class="acj-mock-t">Full Mock Exams</div>
+        <ul class="acj-mock-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 mock discussion sessions</li>
+        </ul>
+      </div>
+    </div>
+    <p class="acj-mock-total"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span><strong>14 mock exams total</strong> = 10 mini mocks + 4 full mocks. The 8 full-mock discussion sessions are additional guided discussions.</span></p>
+  </div>
+
+  <!-- 5. Closing registration -->
+  <div class="acj-final">
+    <span class="kicker">Get Started</span>
+    <h2 class="h-title" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Ready to Begin Your ACJ Preparation?</h2>
+    <p>Explore the schedule and register for the Comprehensive course targeting the May 2027 ACJ exam.</p>
+    <div class="acj-final-btns">
+      <a class="osce-reg" href="https://www.confidentist.ca/product/acj-comprehensive-may-2027-copy/">Register for May 2027
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="acj-final-sched" href="/acj-schedule-may-2027/">View Course Schedule</a>
+    </div>
+  </div>
+
+  <p class="osce-closing">Interest-free installment plans are available at checkout. <a href="https://www.confidentist.ca/contact-us/" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact an advisor</a> to learn more about the ACJ course and how it fits your preparation timeline.</p>
+
+</div>`,
+      onMount: function (root) {
+        // "Explore the ACJ Package" → smooth scroll to the enrollment card (respecting reduced motion).
+        var btn = root.querySelector('#acjExploreBtn');
+        var card = root.querySelector('#acjEnroll');
+        if (btn && card) btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          try { card.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' }); } catch (_) {}
+          if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '-1');
+          try { card.focus({ preventScroll: true }); } catch (_) {}
+          track('acj_explore_package', {});
+        });
+      }
     },
     ndecc: {
       label: 'Preparing for NDECC',
