@@ -1197,8 +1197,8 @@ const pathwayNav = (() => {
                 { kicker: 'CE Courses', heading: 'Continuing Education Courses', sub: 'Explore focused learning opportunities designed to support your ongoing professional development in dentistry.' },
                 [ cCard({
                     variant: 'pop', badge: 'Open · 4 CE Credits', name: 'EXOCAD Essentials',
-                    desc: 'Comprehensive training on EXOCAD software for digital dentistry — from smile design to crown and bridge design.',
-                    start: 'Online course · <strong>Flexible dates</strong> · 3 hours',
+                    desc: 'Comprehensive training on EXOCAD software for digital dentistry with Dr. Fariborz Vafaee (DDS) — from smile design to crown and bridge design.',
+                    start: 'Online course · <strong>4 CE credits</strong>',
                     price: '$300', hst: '+ HST',
                     groups: [
                       { title: 'What you will learn', items: [
@@ -1209,16 +1209,16 @@ const pathwayNav = (() => {
                         'Crown design',
                         'Bridge design with pre-op scan' ] },
                       { title: 'What is included', items: [
-                        '3 hours of EXOCAD software training',
                         '4 CE credits',
-                        'Flexible scheduling — online delivery' ] }
+                        'Instruction by Dr. Fariborz Vafaee (DDS)',
+                        'PACE-approved · online delivery' ] }
                     ],
                     reg: { label: 'Register — $300 + HST', href: 'https://www.confidentist.ca/product/exocad-essentials/' }
                   }),
                   cCard({
-                    variant: 'ext', badge: 'Past session', name: 'Orthodontics & Clear Aligners',
-                    desc: 'Supercharge your practice with clear aligners — a hands-on, in-person CE course with Dr. Hossein Arbabezadeh (MSc, Orthodontics).',
-                    start: 'Most recent session: <strong>October 18, 2026</strong> · North York, ON',
+                    variant: 'ext', badge: 'Open · 5 CE Credits', name: 'Orthodontics & Clear Aligners',
+                    desc: 'Supercharge your practice with clear aligners — a CE course with Dr. Hossein Arbabezadeh (MSc, Orthodontics).',
+                    start: 'Online course · <strong>5 CE credits</strong>',
                     price: '$349', hst: '+ HST',
                     groups: [
                       { title: 'What you will learn', items: [
@@ -1226,14 +1226,12 @@ const pathwayNav = (() => {
                         'Treatment planning',
                         'Clinical implementation and case management',
                         'Latest innovations in aligner therapy' ] },
-                      { title: 'Course details', items: [
-                        '5 CE credits · PACE-approved (EverSmiles, Provider ID# 390645)',
-                        'In-person · North York, ON',
-                        'Full-day course · 9:30 AM – 3:30 PM' ] }
+                      { title: 'What is included', items: [
+                        '5 CE credits',
+                        'PACE-approved (EverSmiles · Provider ID# 390645)',
+                        'Instruction by Dr. Hossein Arbabezadeh, MSc (Orthodontics)' ] }
                     ],
-                    footnote: 'The most recent session (October 18, 2026) has passed. Contact our team for the next available cohort.',
-                    reg: { label: 'View course details', href: '/events/orthodontics-clear-aligners/' },
-                    reg2: { label: 'Ask about the next cohort', href: 'mailto:info@confidentist.ca?subject=Orthodontics%20%26%20Clear%20Aligners%20%E2%80%94%20next%20cohort' }
+                    reg: { label: 'Register — $349 + HST', href: '/events/orthodontics-clear-aligners/' }
                   }) ]
               )
           + `</div>`
@@ -1241,18 +1239,24 @@ const pathwayNav = (() => {
             + cPackages(
                 { gridClass: 'is-single', kicker: 'Learn & Travel', heading: 'Learn & Travel', sub: 'Explore opportunities to combine dental learning with a travel experience. Review each program’s educational content, destination, dates, and inclusions before registering.' },
                 [ cCard({
-                    variant: 'pop', badge: 'Enquire for dates', name: 'Confi Travel & Learn',
-                    desc: 'Combine dental continuing education with a guided travel experience to China.',
+                    variant: 'pop', badge: '15 CE Credits', name: 'Confi Travel & Learn',
+                    desc: 'Earn CE credits while traveling. Elevate your knowledge, explore iconic destinations across China, and attend DenTech China 2026 — the 29th International Dental Exhibition.',
+                    start: 'October 21 – November 1, 2026 · Shanghai · Suzhou · Hangzhou · Beijing',
+                    priceReg: '$8,000', price: '$4,999', hst: 'Tax included',
+                    note: 'Limited seats. Complete your registration and payment on time to secure your spot.',
                     groups: [
-                      { title: 'About this program', items: [
-                        'Destination: China',
-                        'Dental learning combined with a travel experience',
-                        'Accredited CE credits available' ] }
+                      { title: 'What is included', items: [
+                        '15 approved CE credits',
+                        '5-star hotels and spectacular land tour experiences',
+                        'Attendance at DenTech China 2026 (29th International Dental Exhibition)' ] },
+                      { title: 'Program experience', items: [
+                        'Network with global dental professionals',
+                        'Discover the latest dental innovations',
+                        'Grow your knowledge and practice' ] }
                     ],
-                    hst: false,
-                    footnote: 'Program dates, pricing, and inclusions are confirmed directly with our team. Please contact us for current details before registering.',
-                    reg: { label: 'Request Program Details', href: 'mailto:info@confidentist.ca?subject=Confi%20Travel%20%26%20Learn%20enquiry' },
-                    reg2: { label: 'View program page', href: 'https://www.confidentist.ca/confidentist-china-seminar/' }
+                    footnote: 'Price shown in CAD, tax included. Contact our team for the full itinerary and inclusions before booking.',
+                    reg: { label: 'Book Your Tour', href: 'https://www.confidentist.ca/confidentist-china-seminar/' },
+                    reg2: { label: 'Contact our team', href: 'mailto:info@confidentist.ca?subject=Confi%20Travel%20%26%20Learn%20enquiry' }
                   }) ]
               )
           + `</div>`
