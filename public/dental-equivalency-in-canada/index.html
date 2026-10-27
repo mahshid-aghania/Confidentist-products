@@ -121,6 +121,7 @@
     .osce-pkgs.is-single { grid-template-columns: minmax(0, 540px); justify-content: center; }
     .osce-card { display: flex; flex-direction: column; background: #fff; border: 2px solid var(--gold); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-md); height: 100%; }
     .osce-badge { align-self: flex-start; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .75rem; border-radius: .3rem; margin-bottom: .9rem; background: var(--gold); color: #fff; }
+    .osce-card-img { width: 100%; height: auto; display: block; border-radius: 10px; margin-bottom: 1.1rem; border: 1px solid var(--border); }
     .osce-card h4 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
     .osce-start { font-size: .82rem; font-weight: 600; color: var(--gold-dark); margin-bottom: .9rem; }
     .osce-price { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--navy); }
@@ -521,6 +522,7 @@ const pathwayNav = (() => {
   function cCard(p) {
     var cls = 'osce-card' + (p.variant === 'pop' ? ' afk-card-pop' : (p.variant === 'ext' ? ' afk-card-ext' : ''));
     var h = '<article class="' + cls + '">';
+    if (p.image) h += '<img class="osce-card-img" src="' + esc(p.image) + '" alt="' + esc(p.imageAlt || p.name) + '" loading="lazy">';
     if (p.badge) h += '<span class="osce-badge' + (p.badgeClass ? ' ' + p.badgeClass : '') + '">' + esc(p.badge) + '</span>';
     h += '<h4>' + esc(p.name) + '</h4>';
     if (p.desc) h += '<p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">' + esc(p.desc) + '</p>';
@@ -1194,9 +1196,11 @@ const pathwayNav = (() => {
   </div>`
           + `<div class="ndecc-panel" role="tabpanel" id="cepanel-courses" aria-labelledby="cetab-courses">`
             + cPackages(
-                { kicker: 'CE Courses', heading: 'Continuing Education Courses', sub: 'Explore focused learning opportunities designed to support your ongoing professional development in dentistry.' },
+                { gridClass: 'is-single', kicker: 'CE Courses', heading: 'Continuing Education Courses', sub: 'Explore focused learning opportunities designed to support your ongoing professional development in dentistry.' },
                 [ cCard({
                     variant: 'pop', badge: 'Open · 4 CE Credits', name: 'EXOCAD Essentials',
+                    image: '/images/events/exocad-essentials.jpeg',
+                    imageAlt: 'EXOCAD Essentials CE course flyer — instructor Dr. Fariborz Vafaee (DDS), 4 CE credits, tuition $300 + HST',
                     desc: 'Comprehensive training on EXOCAD software for digital dentistry with Dr. Fariborz Vafaee (DDS) — from smile design to crown and bridge design.',
                     start: 'Online course · <strong>4 CE credits</strong>',
                     price: '$300', hst: '+ HST',
@@ -1214,25 +1218,20 @@ const pathwayNav = (() => {
                         'PACE-approved · online delivery' ] }
                     ],
                     reg: { label: 'Register — $300 + HST', href: 'https://www.confidentist.ca/product/exocad-essentials/' }
-                  }),
-                  cCard({
-                    variant: 'ext', badge: 'Open · 5 CE Credits', name: 'Orthodontics & Clear Aligners',
+                  }) ]
+              )
+            + cPackages(
+                { gridClass: 'is-single', kicker: 'Previous Courses', heading: 'Previous Courses', sub: 'Courses we have run recently. Contact our team to ask about upcoming sessions.' },
+                [ cCard({
+                    variant: 'ext', badge: 'Past session', name: 'Orthodontics & Clear Aligners',
+                    image: '/images/events/orthodontics-clear-aligners.jpeg',
+                    imageAlt: 'Orthodontics & Clear Aligners CE course flyer — Dr. Hossein Arbabezadeh (MSc), 5 CE credits, held Sunday October 18, 2026, 265 Rimrock Road Unit 204 North York ON',
                     desc: 'Supercharge your practice with clear aligners — an in-person CE course with Dr. Hossein Arbabezadeh (MSc, Orthodontics).',
-                    start: 'In-person · North York, ON · <strong>5 CE credits</strong>',
-                    price: '$349', hst: '+ HST',
-                    groups: [
-                      { title: 'What you will learn', items: [
-                        'Case selection and patient assessment',
-                        'Treatment planning',
-                        'Clinical implementation and case management',
-                        'Latest innovations in aligner therapy' ] },
-                      { title: 'What is included', items: [
-                        '5 CE credits',
-                        'PACE-approved (EverSmiles · Provider ID# 390645)',
-                        'Instruction by Dr. Hossein Arbabezadeh, MSc (Orthodontics)',
-                        'In-person · 265 Rimrock Road, Unit 204, North York, ON M3J 3A6' ] }
-                    ],
-                    reg: { label: 'Register — $349 + HST', href: '/events/orthodontics-clear-aligners/' }
+                    start: 'Held <strong>October 18, 2026</strong> · In-person · North York, ON · 5 CE credits',
+                    hst: false,
+                    footnote: 'This session has concluded. Contact our team to ask about the next cohort.',
+                    reg: { label: 'View course details', href: '/events/orthodontics-clear-aligners/' },
+                    reg2: { label: 'Ask about the next cohort', href: 'mailto:info@confidentist.ca?subject=Orthodontics%20%26%20Clear%20Aligners%20%E2%80%94%20next%20cohort' }
                   }) ]
               )
           + `</div>`
