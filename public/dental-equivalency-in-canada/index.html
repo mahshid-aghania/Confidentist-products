@@ -196,7 +196,9 @@
     .ce-opt small { display: block; font-weight: 400; font-size: .74rem; color: var(--muted); margin-top: .15rem; }
 
     /* ── NDECC TABS (shared design system) ── */
-    .ndecc-tabs { display: flex; flex-wrap: wrap; gap: .4rem; background: var(--bg-section); border: 1.5px solid var(--border); border-radius: 999px; padding: .4rem; }
+    .ndecc-tabs, .ce-tabs { display: flex; flex-wrap: wrap; gap: .4rem; background: var(--bg-section); border: 1.5px solid var(--border); border-radius: 999px; padding: .4rem; }
+    #cePrograms .ce-tabs { margin-bottom: 2.25rem; }
+    #cePrograms > .ndecc-panel { scroll-margin-top: 1rem; }
     .ndecc-tab { flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 44px; padding: .6rem 1rem; border: none; border-radius: 999px; background: transparent; color: var(--navy); font-family: inherit; font-weight: 700; font-size: .88rem; cursor: pointer; transition: background .18s, color .18s, box-shadow .18s; }
     .ndecc-tab svg { width: 16px; height: 16px; flex-shrink: 0; }
     .ndecc-tab:hover { color: var(--gold-dark); }
@@ -1174,15 +1176,144 @@ const pathwayNav = (() => {
       )
     },
     ce: {
-      label: 'Continuing Education',
-      heading: 'Continue developing your clinical skills',
-      intro: 'Beyond the equivalency examinations, ConfiDentist supports hands-on clinical development. The continuing-education catalogue is growing — explore a current option or ask our team what is coming next.',
-      primary: { label: 'View Continuing Education', href: '/#continuing' },
-      actions: [
-        { label: 'Hands-on clinical skills practice', desc: 'Currently offered through NDECC Clinical Skills — supervised, hands-on training in a clinic setting.', href: '/ndecc-programs/clinical-skills/' },
-        { label: 'Browse all ConfiDentist programs', desc: 'See every current program and choose what fits your goals.', href: '/#programs' },
-        { label: 'Ask about upcoming continuing education', desc: 'Register your interest and our team will follow up with current options.', href: 'https://www.confidentist.ca/contact-us/' }
-      ]
+      label: 'Continuing Education & Learn & Travel',
+      heading: 'Keep Learning. Expand Your Perspective.',
+      html: cPanel(
+        cRestart()
+        + cWelcome({
+            eyebrow: 'Continuing Education & Learn & Travel',
+            heading: 'Keep Learning. Expand Your Perspective.',
+            headingId: 'pw-result-title',
+            paras: ['Explore dental continuing education courses and learning experiences that combine professional development with travel. Find an opportunity that fits your interests, schedule, and learning goals.'],
+            cta: { label: 'Explore Programs', scrollTo: '#cePrograms', href: '#cePrograms' }
+          })
+        + `<div id="cePrograms">`
+          + `<div class="ce-tabs" role="tablist" aria-label="Continuing Education categories">
+    <button type="button" class="ndecc-tab" role="tab" id="cetab-courses" aria-controls="cepanel-courses" aria-selected="true" data-view="courses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>CE Courses</button>
+    <button type="button" class="ndecc-tab" role="tab" id="cetab-travel" aria-controls="cepanel-travel" aria-selected="false" tabindex="-1" data-view="travel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9a1 1 0 0 0 .2 1.6L8 12l-2 2H4l-1 1 3 2 2 3 1-1v-2l2-2 2.9 4.8a1 1 0 0 0 1.6.2l.9-.9a1 1 0 0 0 .3-.9z"/></svg>Learn &amp; Travel</button>
+  </div>`
+          + `<div class="ndecc-panel" role="tabpanel" id="cepanel-courses" aria-labelledby="cetab-courses">`
+            + cPackages(
+                { kicker: 'CE Courses', heading: 'Continuing Education Courses', sub: 'Explore focused learning opportunities designed to support your ongoing professional development in dentistry.' },
+                [ cCard({
+                    variant: 'pop', badge: 'Open · 4 CE Credits', name: 'EXOCAD Essentials',
+                    desc: 'Comprehensive training on EXOCAD software for digital dentistry — from smile design to crown and bridge design.',
+                    start: 'Online course · <strong>Flexible dates</strong> · 3 hours',
+                    price: '$300', hst: '+ HST',
+                    groups: [
+                      { title: 'What you will learn', items: [
+                        'Virtual articulator',
+                        'Smile design',
+                        'Customized reduction',
+                        'Connector design and menu navigation',
+                        'Crown design',
+                        'Bridge design with pre-op scan' ] },
+                      { title: 'What is included', items: [
+                        '3 hours of EXOCAD software training',
+                        '4 CE credits',
+                        'Flexible scheduling — online delivery' ] }
+                    ],
+                    reg: { label: 'Register — $300 + HST', href: 'https://www.confidentist.ca/product/exocad-essentials/' }
+                  }),
+                  cCard({
+                    variant: 'ext', badge: 'Past session', name: 'Orthodontics & Clear Aligners',
+                    desc: 'Supercharge your practice with clear aligners — a hands-on, in-person CE course with Dr. Hossein Arbabezadeh (MSc, Orthodontics).',
+                    start: 'Most recent session: <strong>October 18, 2026</strong> · North York, ON',
+                    price: '$349', hst: '+ HST',
+                    groups: [
+                      { title: 'What you will learn', items: [
+                        'Case selection and patient assessment',
+                        'Treatment planning',
+                        'Clinical implementation and case management',
+                        'Latest innovations in aligner therapy' ] },
+                      { title: 'Course details', items: [
+                        '5 CE credits · PACE-approved (EverSmiles, Provider ID# 390645)',
+                        'In-person · North York, ON',
+                        'Full-day course · 9:30 AM – 3:30 PM' ] }
+                    ],
+                    footnote: 'The most recent session (October 18, 2026) has passed. Contact our team for the next available cohort.',
+                    reg: { label: 'View course details', href: '/events/orthodontics-clear-aligners/' },
+                    reg2: { label: 'Ask about the next cohort', href: 'mailto:info@confidentist.ca?subject=Orthodontics%20%26%20Clear%20Aligners%20%E2%80%94%20next%20cohort' }
+                  }) ]
+              )
+          + `</div>`
+          + `<div class="ndecc-panel" role="tabpanel" id="cepanel-travel" aria-labelledby="cetab-travel" hidden>`
+            + cPackages(
+                { gridClass: 'is-single', kicker: 'Learn & Travel', heading: 'Learn & Travel', sub: 'Explore opportunities to combine dental learning with a travel experience. Review each program’s educational content, destination, dates, and inclusions before registering.' },
+                [ cCard({
+                    variant: 'pop', badge: 'Enquire for dates', name: 'Confi Travel & Learn',
+                    desc: 'Combine dental continuing education with a guided travel experience to China.',
+                    groups: [
+                      { title: 'About this program', items: [
+                        'Destination: China',
+                        'Dental learning combined with a travel experience',
+                        'Accredited CE credits available' ] }
+                    ],
+                    hst: false,
+                    footnote: 'Program dates, pricing, and inclusions are confirmed directly with our team. Please contact us for current details before registering.',
+                    reg: { label: 'Request Program Details', href: 'mailto:info@confidentist.ca?subject=Confi%20Travel%20%26%20Learn%20enquiry' },
+                    reg2: { label: 'View program page', href: 'https://www.confidentist.ca/confidentist-china-seminar/' }
+                  }) ]
+              )
+          + `</div>`
+        + `</div>`
+        + cContact()
+      ),
+      onMount: function (root) {
+        var VIEWS = ['courses', 'travel'];
+        var tabs = Array.prototype.slice.call(root.querySelectorAll('.ce-tabs .ndecc-tab'));
+        var tablist = root.querySelector('.ce-tabs');
+        var panels = {
+          courses: root.querySelector('#cepanel-courses'),
+          travel: root.querySelector('#cepanel-travel')
+        };
+        function currentView() {
+          for (var i = 0; i < tabs.length; i++) {
+            if (tabs[i].getAttribute('aria-selected') === 'true') return tabs[i].dataset.view;
+          }
+          return 'courses';
+        }
+        function show(view, opts) {
+          opts = opts || {};
+          if (VIEWS.indexOf(view) < 0) view = 'courses';
+          tabs.forEach(function (t) {
+            var on = t.dataset.view === view;
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.setAttribute('tabindex', on ? '0' : '-1');
+          });
+          VIEWS.forEach(function (v) { if (panels[v]) panels[v].hidden = (v !== view); });
+          if (opts.sync !== false) {
+            try {
+              var params = new URLSearchParams(window.location.search);
+              params.set('stage', 'ce');
+              params.set('ce', view);
+              history.pushState({ pwStage: 'ce', ce: view }, '', window.location.pathname + '?' + params.toString());
+            } catch (_) {}
+          }
+          if (opts.focusTab) {
+            var at = tabs.filter(function (t) { return t.dataset.view === view; })[0];
+            if (at) try { at.focus(); } catch (_) {}
+          }
+          track('ce_view_selected', { view: view });
+        }
+        tabs.forEach(function (t) {
+          t.addEventListener('click', function () { show(t.dataset.view, { focusTab: false }); });
+        });
+        if (tablist) tablist.addEventListener('keydown', function (e) {
+          var idx = VIEWS.indexOf(currentView());
+          var ni = idx;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') ni = (idx + 1) % VIEWS.length;
+          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ni = (idx - 1 + VIEWS.length) % VIEWS.length;
+          else if (e.key === 'Home') ni = 0;
+          else if (e.key === 'End') ni = VIEWS.length - 1;
+          else return;
+          e.preventDefault();
+          show(VIEWS[ni], { focusTab: true });
+        });
+        var initView = null;
+        try { initView = new URLSearchParams(window.location.search).get('ce'); } catch (_) {}
+        show(initView || 'courses', { sync: false });
+      }
     },
     unsure: {
       label: "I'm Not Sure",
@@ -1233,6 +1364,8 @@ const pathwayNav = (() => {
     // Strip a stale internal-tab param when the active stage is not NDECC, so a
     // leftover ?ndecc=... cannot shadow another stage's deep link.
     if (id !== 'ndecc') { try { var _np = new URLSearchParams(window.location.search); if (_np.has('ndecc')) { _np.delete('ndecc'); history.replaceState(history.state, '', window.location.pathname + (_np.toString() ? '?' + _np.toString() : '') + window.location.hash); } } catch (e) {} }
+    // Same guard for the CE category param so a leftover ?ce=... cannot shadow another stage's deep link.
+    if (id !== 'ce') { try { var _cp = new URLSearchParams(window.location.search); if (_cp.has('ce')) { _cp.delete('ce'); history.replaceState(history.state, '', window.location.pathname + (_cp.toString() ? '?' + _cp.toString() : '') + window.location.hash); } } catch (e) {} }
     const ctaBlock = document.querySelector('.pathway-cta');
 
     if (s.html) {
@@ -1304,6 +1437,7 @@ const pathwayNav = (() => {
     const params = new URLSearchParams(window.location.search);
     if (id) params.set('stage', id); else params.delete('stage');
     if (id !== 'ndecc') params.delete('ndecc');
+    if (id !== 'ce') params.delete('ce');
     const qs = params.toString();
     const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
     try { history[replace ? 'replaceState' : 'pushState']({ pwStage: id || null }, '', url); } catch (e) {}
