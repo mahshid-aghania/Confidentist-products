@@ -12,3 +12,5 @@
 /out
 next-env.d.ts
 *.tsbuildinfo
+reports/
+INSTALLMENT-DB-AUDIT-*.md
