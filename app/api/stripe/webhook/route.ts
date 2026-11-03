@@ -83,6 +83,55 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Bad JSON' }, { status: 400 })
   }
 
+  // ── WooCommerce / Stripe gateway installment charge ──
+  // Renewal installments charged through the WooCommerce Stripe gateway arrive as
+  // `charge.succeeded` with a description like "ConfiDentist - Order <order>-<seq>",
+  // where <order>-<seq> equals order_installments.wc_payment_id. These never create
+  // a Checkout Session, so match on the description and mark the installment paid in
+  // real time (this is the rail that previously only synced via a lagging batch job).
+  // NOTE: enable the `charge.succeeded` event on this webhook endpoint in Stripe.
+  if (event.type === 'charge.succeeded') {
+    const charge = (event.data?.object ?? {}) as Record<string, unknown>
+    if (charge['status'] !== 'succeeded' || charge['refunded'] === true) {
+      return NextResponse.json({ received: true, note: 'charge not a clean success' })
+    }
+    const desc = typeof charge['description'] === 'string' ? (charge['description'] as string) : ''
+    const m = desc.match(/Order\s+([0-9]+-[0-9]+)/i)
+    if (!m) {
+      return NextResponse.json({ received: true, note: 'charge has no installment order ref' })
+    }
+    const wcPaymentId = m[1]
+    const supabase = createServerClient()
+    const { data: gInstData } = await supabase
+      .from('order_installments')
+      .select('id, status, wc_payment_id')
+      .eq('wc_payment_id', wcPaymentId)
+      .single()
+    const gInst = gInstData as { id: string; status: string; wc_payment_id: string } | null
+    if (!gInst) {
+      return NextResponse.json({ received: true, note: 'no matching installment', wcPaymentId })
+    }
+    if (gInst.status === 'paid') {
+      // Idempotent — Stripe retries, and the payment-link path may also have caught it.
+      return NextResponse.json({ received: true, note: 'already processed', wcPaymentId })
+    }
+    const paidAt =
+      typeof charge['created'] === 'number'
+        ? new Date((charge['created'] as number) * 1000).toISOString()
+        : new Date().toISOString()
+    const { error: updErr } = await supabase
+      .from('order_installments')
+      .update({ status: 'paid', paid_at: paidAt, source_status: 'paid (stripe gateway)' })
+      .eq('id', gInst.id)
+      .eq('status', 'pending')
+    if (updErr) {
+      // Return 500 so Stripe retries rather than silently dropping the payment.
+      console.error('gateway installment update failed', updErr)
+      return NextResponse.json({ error: 'installment update failed' }, { status: 500 })
+    }
+    return NextResponse.json({ received: true, installment: wcPaymentId, via: 'gateway' })
+  }
+
   if (event.type !== 'checkout.session.completed') {
     return NextResponse.json({ received: true, ignored: event.type })
   }
