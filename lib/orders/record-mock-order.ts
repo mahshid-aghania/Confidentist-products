@@ -31,6 +31,18 @@ export type MockOrderInput = {
   sin?: string // sensitive; stored only in orders.raw
   createdVia: string // e.g. "osce-mock-checkout" | "afk-mock-checkout"
   orderNumberPrefix: string // e.g. "OSCE" | "AFK"
+  orderNumber?: string // explicit order number (e.g. "AFK-20261110-4F7A"); overrides the generated one
+  shipping?: {
+    firstName?: string
+    lastName?: string
+    addressLine1?: string
+    addressLine2?: string
+    city?: string
+    state?: string
+    postalCode?: string
+    country?: string
+  } // residential / delivery address → recorded as a second 'shipping' address row
+  extraRaw?: Record<string, unknown> // merged into orders.raw (e.g. installment schedule)
   rawSession?: unknown // full Stripe session, stored in orders.raw for fidelity
 }
 
@@ -111,7 +123,7 @@ export async function recordMockOrder(
     .from('orders')
     .insert({
       wc_order_id: syntheticWcOrderId(d.sessionId),
-      order_number: `${d.orderNumberPrefix}-${d.sessionId.slice(-8)}`,
+      order_number: d.orderNumber || `${d.orderNumberPrefix}-${d.sessionId.slice(-8)}`,
       status: 'completed',
       currency,
       customer_id: customerId ?? null,
@@ -131,6 +143,7 @@ export async function recordMockOrder(
         stripe_payment_intent: d.paymentIntent ?? null,
         sin: d.sin || null, // sensitive — kept here, not in a dedicated column
         session: d.rawSession ?? null,
+        ...(d.extraRaw ?? {}),
       },
     })
     .select('id')
@@ -154,6 +167,22 @@ export async function recordMockOrder(
     email: d.email || null,
     phone: d.phone || null,
   })
+
+  // Residential / delivery address (when collected) → second 'shipping' row.
+  if (d.shipping && (d.shipping.addressLine1 || d.shipping.city || d.shipping.postalCode)) {
+    await supabase.from('order_addresses').insert({
+      order_id: orderId,
+      type: 'shipping',
+      first_name: d.shipping.firstName || firstName || null,
+      last_name: d.shipping.lastName || lastName || null,
+      address_1: d.shipping.addressLine1 || null,
+      address_2: d.shipping.addressLine2 || null,
+      city: d.shipping.city || null,
+      state: d.shipping.state || null,
+      postcode: d.shipping.postalCode || null,
+      country: d.shipping.country || null,
+    })
+  }
 
   await supabase.from('order_line_items').insert({
     order_id: orderId,

@@ -428,7 +428,80 @@ export async function POST(req: Request) {
         }
       }
 
-      return NextResponse.json({ received: true, course: ref, emailed, notified })
+      // AFK: record the order in Supabase so it shows in the dashboard alongside
+      // the WooCommerce-synced orders (idempotent on the Stripe session id).
+      let recorded = false
+      if (ref.startsWith('afk-')) {
+        try {
+          const str = (v: unknown) => (typeof v === 'string' ? v : '')
+          const addr = (details['address'] as Record<string, unknown> | undefined) ?? {}
+          const shippingDetails =
+            (session['shipping_details'] as Record<string, unknown> | undefined) ??
+            ((session['collected_information'] as Record<string, unknown> | undefined)?.[
+              'shipping_details'
+            ] as Record<string, unknown> | undefined) ??
+            {}
+          const sAddr = (shippingDetails['address'] as Record<string, unknown> | undefined) ?? {}
+          const customFields = Array.isArray(session['custom_fields'])
+            ? (session['custom_fields'] as Array<Record<string, unknown>>)
+            : []
+          const cf = (key: string) => {
+            const field = customFields.find((f) => f['key'] === key)
+            const t = field?.['text'] as Record<string, unknown> | undefined
+            return typeof t?.['value'] === 'string' ? (t['value'] as string) : ''
+          }
+          const paymentIntent =
+            typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
+          const paidTaxCents = Math.round(Number(meta['paid_tax'] || 0) * 100)
+          const result = await recordMockOrder(supabase, {
+            email,
+            firstName: cf('first_name'),
+            lastName: cf('last_name'),
+            phone: phone ?? '',
+            addressLine1: str(addr['line1']),
+            addressLine2: str(addr['line2']),
+            city: str(addr['city']),
+            state: str(addr['state']),
+            postalCode: str(addr['postal_code']),
+            country: str(addr['country']),
+            productName: (typeof meta['course_name'] === 'string' && meta['course_name']) || courseName,
+            amountTotalCents: amountTotal,
+            taxCents: paidTaxCents,
+            currency,
+            sessionId: reference,
+            paymentIntent,
+            sin: cf('sin'),
+            createdVia: 'afk-programs-checkout',
+            orderNumberPrefix: 'AFK',
+            orderNumber:
+              (typeof meta['order_number'] === 'string' && meta['order_number']) || undefined,
+            shipping: {
+              firstName: cf('first_name'),
+              lastName: cf('last_name'),
+              addressLine1: str(sAddr['line1']),
+              addressLine2: str(sAddr['line2']),
+              city: str(sAddr['city']),
+              state: str(sAddr['state']),
+              postalCode: str(sAddr['postal_code']),
+              country: str(sAddr['country']),
+            },
+            extraRaw: {
+              plan: meta['plan'] || 'full',
+              num_payments: meta['num_payments'] || '1',
+              installment_first_total: meta['first_total'] || '',
+              installment_monthly_total: meta['monthly_total'] || '',
+              installment_dates: meta['installment_dates'] || '',
+              order_number: meta['order_number'] || '',
+            },
+          })
+          recorded = result.recorded
+          if (result.error) console.error('afk order record error', result.error)
+        } catch (e) {
+          console.error('afk order record failed', e)
+        }
+      }
+
+      return NextResponse.json({ received: true, course: ref, emailed, notified, recorded })
     }
 
     const regId = meta.registration_id || ref
