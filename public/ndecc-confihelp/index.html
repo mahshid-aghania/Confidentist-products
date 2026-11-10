@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NDECC ConfiHelp — Free Clinical Skills Work Check | ConfiDentist</title>
-  <meta name="description" content="Stuck on your NDECC clinical skills? Book a free, 30-minute private work check with an experienced ConfiDentist instructor. One-on-one feedback on your clinical project, plus practical tips you can apply right away." />
+  <title>NDECC ConfiHelp | Free Clinical Skills Work Check | ConfiDentist</title>
+  <meta name="description" content="Stuck on your NDECC clinical skills? Book a free, 30-minute private work check with an experienced ConfiDentist instructor — one-on-one feedback on your clinical project and practical tips you can apply right away." />
   <link rel="canonical" href="https://product.confidentist.ca/ndecc-confihelp/" />
-  <meta property="og:title" content="NDECC ConfiHelp — Free Clinical Skills Work Check | ConfiDentist" />
-  <meta property="og:description" content="A free, 30-minute private work check with an experienced instructor. One-on-one feedback on your NDECC clinical skills preparation." />
+  <meta property="og:title" content="NDECC ConfiHelp | Free Clinical Skills Work Check | ConfiDentist" />
+  <meta property="og:description" content="A free, 30-minute private work check with an experienced instructor — personalized feedback on your NDECC clinical skills preparation." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,6 +47,7 @@
 
     a { color: inherit; }
 
+    /* Shared visible keyboard focus */
     a:focus-visible, button:focus-visible {
       outline: 3px solid var(--teal);
       outline-offset: 3px;
@@ -60,7 +61,8 @@
     }
     .skip-link:focus { left: 0; }
 
-    /* ─────────────  SITE HEADER / MEGA MENU  ───────────── */
+    /* ── NAV ── */
+    /* ─────────────  SITE HEADER / MEGA MENU (ported from homepage)  ───────────── */
     .site-header {
       position: sticky; top: 0; z-index: 500;
       min-height: var(--nav-h);
@@ -126,7 +128,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%);
+      background: linear-gradient(135deg, rgba(7,44,94,.22) 0%, rgba(28,49,101,.18) 55%, rgba(15,61,114,.24) 100%), url('/images/afk-classroom-lecture.jpeg') center/cover no-repeat;
       padding: 4.5rem 1.5rem 4rem;
       position: relative; overflow: hidden;
     }
@@ -136,7 +138,7 @@
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-inner { max-width: 860px; margin: 0 auto; text-align: center; position: relative; z-index: 1; text-shadow: 0 2px 12px rgba(7,44,94,.9), 0 0 28px rgba(7,44,94,.75); }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: .5rem;
       background: rgba(15,122,229,.15); border: 1px solid rgba(15,122,229,.4);
@@ -146,13 +148,13 @@
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
       font-weight: 700; line-height: 1.18; color: #fff;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.1rem; text-shadow: 0 2px 10px rgba(7,44,94,.95), 0 0 26px rgba(7,44,94,.85);
+      display: inline-block; background: rgba(7,44,94,.62); padding: .55rem 1.5rem; border-radius: .7rem;
     }
-    .hero h1 em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.78); max-width: 660px; margin: 0 auto 2.25rem; line-height: 1.7; font-weight: 300; }
-    .hero-sub strong { color: #fff; font-weight: 600; }
+    .hero h1 em { display: block; font-style: italic; color: #fff; }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.95); max-width: 600px; margin: 0 auto 2.25rem; line-height: 1.7; font-weight: 400; }
     .hero-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
 
     .btn-gold {
@@ -172,13 +174,21 @@
       transition: background .2s, border-color .2s;
     }
     .btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+    .btn-navy {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--navy); color: #fff;
+      font-weight: 700; font-size: .85rem; letter-spacing: .03em;
+      padding: .75rem 1.75rem; border-radius: .4rem; text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
 
     /* ── SECTION SHELL ── */
     .section { padding: 4rem 1.5rem; }
     .section.alt { background: var(--bg-soft); }
     .section.navy-bg { background: var(--navy); }
     .section-inner { max-width: 1160px; margin: 0 auto; }
-    .section-head { max-width: 680px; margin: 0 auto 2.5rem; text-align: center; }
+    .section-head { max-width: 640px; margin: 0 auto 2.5rem; text-align: center; }
     .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
     .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.4rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
@@ -186,22 +196,41 @@
     .section-desc { font-size: .96rem; color: var(--muted); line-height: 1.8; }
     .section.navy-bg .section-desc { color: rgba(255,255,255,.68); }
 
-    /* ── BENEFITS (What You'll Get) ── */
-    .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
-    .benefit-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.85rem; box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .2s, border-color .2s; }
-    .benefit-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: rgba(7,44,94,.22); }
-    .benefit-icon { width: 46px; height: 46px; border-radius: .6rem; display: grid; place-items: center; font-size: 1.3rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.25); margin-bottom: 1rem; }
-    .benefit-card h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
-    .benefit-card p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+    /* ── PROGRAM CARDS ── */
+    .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; align-items: stretch; }
+    .program-card {
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none; color: inherit;
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+      position: relative; overflow: hidden;
+    }
+    .program-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--teal));
+    }
+    .program-card.gold::before { background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); }
+    .program-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(7,44,94,.25); }
+    .prog-badge {
+      align-self: flex-start;
+      font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .8rem; border-radius: .3rem; margin-bottom: 1rem;
+      background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.25);
+    }
+    .program-card.gold .prog-badge { background: var(--gold-bg); color: var(--gold-dark); border-color: rgba(15,122,229,.3); }
+    .prog-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .75rem; }
+    .prog-desc { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 0; }
+    .step-num-badge { align-self: flex-start; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; color: #fff; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); margin-bottom: 1.1rem; }
 
-    /* ── STEPS (How It Works) ── */
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .step-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.85rem; box-shadow: var(--shadow-sm); position: relative; }
-    .step-num { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.15rem; color: #fff; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); margin-bottom: 1rem; }
-    .step-card h3 { font-family: 'Playfair Display', serif; font-size: 1.08rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
-    .step-card p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+    /* ── LICENSURE / INTRO LEAD ── */
+    .journey-lead { max-width: 760px; margin: 0 auto; text-align: center; }
+    .journey-lead p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+    .journey-lead p:last-child { margin-bottom: 0; }
+    .journey-lead strong { color: var(--navy); font-weight: 700; }
 
-    /* ── BOOKING FORM ── */
+    /* ── CONFIHELP BOOKING FORM ── */
     .limited-note { max-width: 720px; margin: 0 auto 1.75rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.25); border-radius: .6rem; padding: 1rem 1.25rem; font-size: .9rem; color: var(--navy); line-height: 1.6; display: flex; gap: .65rem; align-items: flex-start; }
     .limited-note strong { font-weight: 700; }
     .confihelp-form { max-width: 720px; margin: 0 auto; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 2.5rem; }
@@ -221,8 +250,8 @@
       display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
       width: 100%; background: var(--gold); color: #fff;
       font-family: inherit; font-weight: 700; font-size: .92rem; letter-spacing: .03em;
-      padding: .9rem 1.5rem; border: none; border-radius: .5rem; cursor: pointer;
-      box-shadow: 0 4px 18px rgba(15,122,229,.3);
+      padding: .9rem 1.5rem; border: none; border-radius: .4rem; cursor: pointer;
+      box-shadow: 0 4px 18px rgba(15,122,229,.35);
       transition: background .2s, transform .15s;
     }
     .form-submit:hover:not(:disabled) { background: var(--gold-light); transform: translateY(-1px); }
@@ -232,15 +261,22 @@
     .form-status.ok { display: block; background: var(--teal-light); border: 1px solid rgba(59,175,191,.35); color: #15646c; }
     .form-status.err { display: block; background: #fdecec; border: 1px solid #f5bcbc; color: #9b2c2c; }
 
-    /* ── INSTRUCTORS ── */
-    .instructor-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
-    .instructor-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.85rem; box-shadow: var(--shadow-sm); text-align: center; width: 270px; transition: box-shadow .2s, transform .2s; }
-    .instructor-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-    .instructor-photo { width: 124px; height: 124px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--gold-bg); display: block; background: var(--bg-soft); }
-    .instructor-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: .25rem; }
-    .instructor-card p { font-size: .82rem; color: var(--muted); }
-    .instructor-quote { max-width: 680px; margin: 2.75rem auto 0; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: var(--navy); padding: 0 1rem; }
-    .instructor-quote::before { content: '“'; color: var(--gold-light); font-size: 2.5rem; line-height: 0; vertical-align: -.35em; margin-right: .1em; }
+    /* ── INSTRUCTORS (navy section) ── */
+    .inst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.6rem 1.25rem; margin-top: 2.5rem; max-width: 620px; margin-left: auto; margin-right: auto; }
+    .inst-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .9rem; }
+    .inst-photo { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid rgba(255,255,255,.14); box-shadow: 0 6px 20px rgba(0,0,0,.28); background: rgba(255,255,255,.07); transition: border-color .2s, transform .2s; }
+    .inst-card:hover .inst-photo { border-color: var(--gold); transform: translateY(-3px); }
+    .inst-name { font-size: .95rem; font-weight: 700; color: #fff; line-height: 1.3; }
+    .inst-role { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-light); margin-top: .25rem; }
+    .inst-quote { max-width: 680px; margin: 2.75rem auto 0; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: #fff; padding: 0 1rem; }
+    .inst-quote::before { content: '“'; color: var(--gold-light); font-size: 2.5rem; line-height: 0; vertical-align: -.35em; margin-right: .1em; }
+
+    /* ── FINAL CTA ── */
+    .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); }
+    .final-inner { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+    .final-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.3rem); font-weight: 700; color: #fff; margin-bottom: .85rem; }
+    .final-inner p { font-size: 1rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 2rem; }
+    .final-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
 
     /* ── FOOTER ── */
     footer {
@@ -252,20 +288,24 @@
     .footer-logo span { color: var(--gold); }
     footer a { color: var(--gold); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 620px; margin-left: auto; margin-right: auto; }
 
     hr { border: none; border-top: 1px solid var(--border); margin: 0; }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 560px) {
       .form-row { grid-template-columns: 1fr; }
       .confihelp-form { padding: 1.5rem; }
+    }
+    @media (max-width: 520px) {
       .hero-actions .btn-gold, .hero-actions .btn-outline-white { width: 100%; justify-content: center; }
     }
 
+    /* ── REDUCED MOTION ── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
-      .benefit-card:hover, .step-card:hover, .instructor-card:hover, .btn-gold:hover { transform: none; }
+      .program-card:hover, .btn-gold:hover, .btn-navy:hover, .inst-card:hover .inst-photo { transform: none; }
     }
   </style>
 </head>
@@ -274,6 +314,7 @@
 <a href="#book" class="skip-link">Skip to the booking form</a>
 
 <!-- NAV -->
+<!-- NAV (homepage header / Courses mega-menu) -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
@@ -365,9 +406,7 @@
 <!-- 1 · HERO -->
 <header class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">🚀 Free NDECC ConfiHelp Session</p>
     <h1>Stuck on Your NDECC Clinical Skills? <em>We've Got You Covered!</em></h1>
-    <p class="hero-sub">Clinical skills are the most challenging aspect of the NDECC journey. Even the most prepared students run into doubts and roadblocks that slow them down. The truth is, sometimes all you need is the right guidance at the right time. That's why we created <strong>ConfiHelp</strong> — a free, 30-minute private work check with our experienced instructors.</p>
     <div class="hero-actions">
       <a href="#book" class="btn-gold">Book Your Free Session →</a>
       <a href="#how" class="btn-outline-white">How It Works</a>
@@ -375,29 +414,45 @@
   </div>
 </header>
 
-<!-- 2 · WHAT YOU'LL GET -->
-<section class="section">
+<!-- 2 · INTRO -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">🚀 Free NDECC ConfiHelp Session</span>
+      <h2 class="section-title">Sometimes All You Need Is the Right Guidance</h2>
+    </div>
+    <div class="journey-lead">
+      <p>Clinical skills are the most challenging aspect of the NDECC journey. Even the most prepared students run into doubts and roadblocks that slow them down. The truth is, sometimes all you need is the right guidance at the right time.</p>
+      <p>That's why we created <strong>ConfiHelp</strong> — a free, 30-minute private work check with our experienced instructors.</p>
+    </div>
+  </div>
+</section>
+
+<hr />
+
+<!-- 3 · WHAT YOU'LL GET -->
+<section class="section alt" id="whatyouget">
   <div class="section-inner">
     <div class="section-head">
       <span class="section-kicker">✨ What You'll Get</span>
       <h2 class="section-title">Half an Hour That Could Save You Weeks</h2>
-      <p class="section-desc">In just 30 minutes, you'll uncover solutions that could save you weeks of frustration — with guidance tailored to exactly where you are in your preparation.</p>
+      <p class="section-desc">In just 30 minutes, you'll uncover solutions that could save you weeks of frustration.</p>
     </div>
-    <div class="benefit-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon" aria-hidden="true">🎯</div>
-        <h3>One-on-One Session</h3>
-        <p>A private session tailored to your specific challenge — not a generic walkthrough. We focus on what's slowing <em>you</em> down.</p>
+    <div class="program-grid">
+      <div class="program-card">
+        <span class="prog-badge">One-on-One</span>
+        <h3 class="prog-title">Session Tailored to You</h3>
+        <p class="prog-desc">A private session built around your specific challenge — not a generic walkthrough. We focus on exactly what's slowing you down.</p>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon" aria-hidden="true">🔍</div>
-        <h3>Expert Feedback</h3>
-        <p>Detailed, experienced feedback on your clinical project from instructors who have passed the NDECC themselves.</p>
+      <div class="program-card">
+        <span class="prog-badge">Expert Feedback</span>
+        <h3 class="prog-title">Review of Your Project</h3>
+        <p class="prog-desc">Detailed, experienced feedback on your clinical project from instructors who have passed the NDECC themselves.</p>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon" aria-hidden="true">💡</div>
-        <h3>Practical Tips</h3>
-        <p>Actionable tips you can apply right away to strengthen your technique and move your preparation forward with confidence.</p>
+      <div class="program-card gold">
+        <span class="prog-badge">Practical Tips</span>
+        <h3 class="prog-title">Apply It Right Away</h3>
+        <p class="prog-desc">Actionable tips you can put to work immediately to strengthen your technique and move your preparation forward with confidence.</p>
       </div>
     </div>
   </div>
@@ -405,29 +460,29 @@
 
 <hr />
 
-<!-- 3 · HOW IT WORKS -->
-<section class="section alt" id="how">
+<!-- 4 · HOW IT WORKS -->
+<section class="section" id="how">
   <div class="section-inner">
     <div class="section-head">
       <span class="section-kicker">📝 How It Works</span>
       <h2 class="section-title">Three Simple Steps to Clarity</h2>
       <p class="section-desc">Booking your free ConfiHelp session takes just a minute. Here's what happens next.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>Tell Us Your Challenge</h3>
-        <p>Fill out the form below and briefly describe the challenge you're facing in your clinical skills preparation.</p>
+    <div class="program-grid">
+      <div class="program-card">
+        <span class="step-num-badge">1</span>
+        <h3 class="prog-title">Tell Us Your Challenge</h3>
+        <p class="prog-desc">Fill out the form and briefly describe the challenge you're facing in your clinical skills preparation.</p>
       </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>We Schedule Your Session</h3>
-        <p>We'll review your concerns and schedule your private, one-on-one session with the right instructor.</p>
+      <div class="program-card">
+        <span class="step-num-badge">2</span>
+        <h3 class="prog-title">We Schedule Your Session</h3>
+        <p class="prog-desc">We'll review your concerns and schedule your private, one-on-one session with the right instructor.</p>
       </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Meet &amp; Walk Away With Clarity</h3>
-        <p>Meet your instructor one-on-one and walk away with clear direction and practical next steps.</p>
+      <div class="program-card">
+        <span class="step-num-badge">3</span>
+        <h3 class="prog-title">Meet &amp; Gain Clarity</h3>
+        <p class="prog-desc">Meet your instructor one-on-one and walk away with clear direction and practical next steps.</p>
       </div>
     </div>
   </div>
@@ -435,8 +490,8 @@
 
 <hr />
 
-<!-- 4 · BOOKING FORM -->
-<section class="section" id="book">
+<!-- 5 · BOOKING FORM -->
+<section class="section alt" id="book">
   <div class="section-inner">
     <div class="section-head">
       <span class="section-kicker">👉 Book Your Session</span>
@@ -481,29 +536,31 @@
   </div>
 </section>
 
-<hr />
-
-<!-- 5 · INSTRUCTORS -->
-<section class="section alt">
+<!-- 6 · INSTRUCTORS -->
+<section class="section navy-bg">
   <div class="section-inner">
     <div class="section-head">
-      <span class="section-kicker">Meet Your Instructors</span>
+      <span class="section-kicker" style="color:var(--gold-light)">Your Instructors</span>
       <h2 class="section-title">Learn From Instructors Who Passed</h2>
       <p class="section-desc">Your ConfiHelp session is led by experienced ConfiDentist instructors who know exactly what the NDECC clinical skills component demands.</p>
     </div>
-    <div class="instructor-grid">
-      <div class="instructor-card">
-        <img class="instructor-photo" src="/images/instructors/amin-asadollahi.png" alt="Dr. Amin Asadollahi" width="124" height="124" loading="lazy" />
-        <h3>Dr. Amin Asadollahi</h3>
-        <p>ConfiDentist NDECC Instructor</p>
-      </div>
-      <div class="instructor-card">
-        <img class="instructor-photo" src="/images/instructors/aidin-soroudi.png" alt="Dr. Aidin Soroudi" width="124" height="124" loading="lazy" />
-        <h3>Dr. Aidin Soroudi</h3>
-        <p>ConfiDentist NDECC Instructor</p>
-      </div>
+    <div class="inst-grid">
+      <div class="inst-card"><img class="inst-photo" src="/images/instructors/amin-asadollahi.png" alt="Dr. Amin Asadollahi" width="128" height="128" loading="lazy" /><div><div class="inst-name">Dr. Amin Asadollahi</div><div class="inst-role">NDECC Instructor</div></div></div>
+      <div class="inst-card"><img class="inst-photo" src="/images/instructors/aidin-soroudi.png" alt="Dr. Aidin Soroudi" width="128" height="128" loading="lazy" /><div><div class="inst-name">Dr. Aidin Soroudi</div><div class="inst-role">NDECC Instructor</div></div></div>
     </div>
-    <p class="instructor-quote">We're excited to support you every step of the way and celebrate your achievements in our course.”</p>
+    <p class="inst-quote">We're excited to support you every step of the way and celebrate your achievements in our course.”</p>
+  </div>
+</section>
+
+<!-- 7 · FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Step Closer to Your NDECC Success</h2>
+    <p>Book your free ConfiHelp session today and gain the clarity and direction you need to move your clinical skills preparation forward.</p>
+    <div class="final-actions">
+      <a href="#book" class="btn-gold">Book Your Free Session →</a>
+      <a href="/ndecc-programs/" class="btn-outline-white">Explore NDECC Programs →</a>
+    </div>
   </div>
 </section>
 
@@ -520,7 +577,7 @@
   <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
 </footer>
 
-<!-- Header: mega-menu + mobile nav + form submission -->
+<!-- Header: mega-menu + mobile nav + booking form -->
 <script>
 (function () {
   function initMega(itemId, triggerId) {

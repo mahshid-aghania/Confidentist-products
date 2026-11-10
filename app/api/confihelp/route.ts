@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
-import { sendEmail, ADMIN_EMAILS } from '@/lib/email/send'
+import { sendEmail } from '@/lib/email/send'
+
+// ConfiHelp session requests are routed to the admin inbox.
+const CONFIHELP_INBOX = 'admin@confidentist.ca'
 
 // POST /api/confihelp/  — capture a free ConfiHelp session request (no payment)
 // and notify the team by email. The lead's details come from the booking form
@@ -70,7 +73,7 @@ ${details}
 
   try {
     await sendEmail({
-      to: ADMIN_EMAILS,
+      to: CONFIHELP_INBOX,
       replyTo: email,
       subject: `New ConfiHelp request — ${fullName}`,
       html,
