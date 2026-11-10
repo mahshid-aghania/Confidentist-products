@@ -34,6 +34,35 @@ const INSTALLMENTS: Record<string, { first: number; name: string }> = {
   'extended-aug-2027': { first: 1429.78, name: 'AFK Extended – Aug 2027 · Installment 1 of 7' },
 }
 
+// Flat shipping rates (CAD cents) for the printed booklets, by region. The buyer
+// selects the matching option in Stripe Checkout against their delivery address.
+const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
+  { name: 'Shipping — within Canada', amountCents: 7500 },
+  { name: 'Shipping — United States', amountCents: 15000 },
+  { name: 'Shipping — Australia', amountCents: 25000 },
+  { name: 'Shipping — Europe & Africa', amountCents: 35000 },
+  { name: 'Shipping — Asia', amountCents: 40000 },
+]
+
+// Countries the residential/shipping address may be in (ISO 3166-1 alpha-2).
+const SHIPPING_COUNTRIES = [
+  'CA', 'US',
+  // Europe
+  'GB', 'IE', 'FR', 'DE', 'IT', 'ES', 'PT', 'NL', 'BE', 'LU', 'CH', 'AT', 'SE', 'NO',
+  'DK', 'FI', 'IS', 'PL', 'CZ', 'SK', 'HU', 'RO', 'BG', 'GR', 'HR', 'SI', 'RS', 'UA',
+  'EE', 'LV', 'LT', 'CY', 'MT',
+  // Africa
+  'ZA', 'NG', 'EG', 'KE', 'GH', 'MA', 'TN', 'DZ', 'ET', 'TZ', 'UG', 'ZW', 'ZM', 'CM', 'SN', 'CI',
+  // Asia & Middle East
+  'IN', 'PK', 'BD', 'LK', 'NP', 'CN', 'HK', 'JP', 'KR', 'TW', 'SG', 'MY', 'TH', 'VN',
+  'PH', 'ID', 'AE', 'SA', 'QA', 'KW', 'BH', 'OM', 'JO', 'LB', 'IQ', 'IL', 'TR',
+  'KZ', 'UZ', 'AZ', 'GE', 'AM',
+  // Oceania
+  'AU', 'NZ',
+  // Latin America
+  'MX', 'BR', 'AR', 'CL', 'CO', 'PE',
+]
+
 export async function GET(req: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY
   if (!stripeKey) {
@@ -80,15 +109,27 @@ export async function GET(req: Request) {
   params.set('line_items[1][price_data][product_data][name]', 'HST (13%)')
 
   // Collect the buyer's full details at checkout.
+  // Billing address (required) + residential/delivery address (shipping) with
+  // regional shipping rates, plus the student's name, phone and SIN.
   params.set('billing_address_collection', 'required')
   params.set('phone_number_collection[enabled]', 'true')
+  // Residential / delivery address — booklets ship here; drives shipping options.
+  SHIPPING_COUNTRIES.forEach((c, i) => {
+    params.set(`shipping_address_collection[allowed_countries][${i}]`, c)
+  })
+  SHIPPING_OPTIONS.forEach((s, i) => {
+    params.set(`shipping_options[${i}][shipping_rate_data][type]`, 'fixed_amount')
+    params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][amount]`, String(s.amountCents))
+    params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][currency]`, 'cad')
+    params.set(`shipping_options[${i}][shipping_rate_data][display_name]`, s.name)
+  })
   params.set('custom_fields[0][key]', 'first_name')
   params.set('custom_fields[0][label][type]', 'custom')
-  params.set('custom_fields[0][label][custom]', 'First name')
+  params.set('custom_fields[0][label][custom]', 'Student first name')
   params.set('custom_fields[0][type]', 'text')
   params.set('custom_fields[1][key]', 'last_name')
   params.set('custom_fields[1][label][type]', 'custom')
-  params.set('custom_fields[1][label][custom]', 'Last name')
+  params.set('custom_fields[1][label][custom]', 'Student family name')
   params.set('custom_fields[1][type]', 'text')
   params.set('custom_fields[2][key]', 'sin')
   params.set('custom_fields[2][label][type]', 'custom')
