@@ -30,8 +30,31 @@ const PROGRAMS: Record<string, { name: string; price: number }> = {
 // charge only the FIRST payment now; the remaining payments are collected later via
 // manually-issued Stripe payment links. 13% HST is still added on top of each amount.
 // 6 + 1 plan: $1,429.78 today, then 6 × $844.87 monthly = $6,499 pre-HST total.
-const INSTALLMENTS: Record<string, { first: number; name: string }> = {
-  'extended-aug-2027': { first: 1429.78, name: 'AFK Extended – Aug 2027 · Installment 1 of 7' },
+const INSTALLMENTS: Record<
+  string,
+  { first: number; monthly: number; count: number; name: string; dates: string[] }
+> = {
+  'extended-aug-2027': {
+    first: 1429.78,
+    monthly: 844.87,
+    count: 6,
+    name: 'AFK Extended – Aug 2027 · Installment 1 of 7',
+    dates: [
+      'December 10, 2026',
+      'January 10, 2027',
+      'February 10, 2027',
+      'March 10, 2027',
+      'April 10, 2027',
+      'May 10, 2027',
+    ],
+  },
+}
+
+// Unique, human-readable order number assigned to every registrant.
+function genOrderNumber(): string {
+  const ymd = new Date().toISOString().slice(0, 10).replace(/-/g, '')
+  const rand = Math.random().toString(36).slice(2, 6).toUpperCase()
+  return `AFK-${ymd}-${rand}`
 }
 
 // Flat shipping rates (CAD cents) for the printed booklets, by region. The buyer
@@ -95,6 +118,10 @@ export async function GET(req: Request) {
   }
 
   const hstCents = Math.round(basePrice * HST_RATE * 100)
+  // Full-course HST + total (independent of installment first payment) and the
+  // order number assigned to this registrant — carried in metadata for the receipt.
+  const courseTaxCents = Math.round(program.price * HST_RATE * 100)
+  const orderNumber = genOrderNumber()
 
   const params = new URLSearchParams()
   params.set('mode', 'payment')
@@ -140,10 +167,23 @@ export async function GET(req: Request) {
   params.set('client_reference_id', `afk-programs-${key}${refSuffix}`)
   params.set('metadata[product]', `afk-programs-${key}${refSuffix}`)
   params.set('metadata[course]', lineName)
+  params.set('metadata[order_number]', orderNumber)
+  params.set('metadata[course_name]', program.name)
+  params.set('metadata[course_subtotal]', program.price.toFixed(2))
+  params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
   if (isInstallment) {
-    params.set('metadata[plan]', 'installment')
-    params.set('metadata[installment]', '1 of 7')
-    params.set('metadata[installment_schedule]', '6 x $844.87 + HST monthly after first payment')
+    const inst = INSTALLMENTS[key]
+    if (inst) {
+      params.set('metadata[plan]', 'installment')
+      params.set('metadata[num_payments]', String(inst.count + 1))
+      params.set('metadata[first_total]', (Math.round(inst.first * 1.13 * 100) / 100).toFixed(2))
+      params.set('metadata[monthly_total]', (Math.round(inst.monthly * 1.13 * 100) / 100).toFixed(2))
+      params.set('metadata[monthly_count]', String(inst.count))
+      params.set('metadata[installment_dates]', inst.dates.join('|'))
+    }
+  } else {
+    params.set('metadata[plan]', 'full')
+    params.set('metadata[num_payments]', '1')
   }
   params.set('success_url', `${pageUrl}?status=confirmed`)
   params.set('cancel_url', pageUrl)
