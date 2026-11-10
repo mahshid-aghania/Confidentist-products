@@ -171,6 +171,8 @@ export async function GET(req: Request) {
   params.set('metadata[course_name]', program.name)
   params.set('metadata[course_subtotal]', program.price.toFixed(2))
   params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
+  // HST actually charged on THIS payment (full course, or just the first installment).
+  params.set('metadata[paid_tax]', (hstCents / 100).toFixed(2))
   if (isInstallment) {
     const inst = INSTALLMENTS[key]
     if (inst) {
