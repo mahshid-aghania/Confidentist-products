@@ -470,6 +470,13 @@
     .path-detail h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
     .path-detail p { font-size: .92rem; color: var(--muted); line-height: 1.75; }
 
+    /* ── TAX REGION SELECTOR ── */
+    .tax-region { max-width: 540px; margin: 0 auto 2.5rem; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.15rem 1.4rem; text-align: center; }
+    .tax-region label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); margin-bottom: .6rem; }
+    .tax-region select { font-family: inherit; font-size: .95rem; padding: .7rem .9rem; border: 1.5px solid var(--border); border-radius: .5rem; background: var(--bg-soft); color: var(--text); width: 100%; max-width: 360px; cursor: pointer; transition: border-color .18s; }
+    .tax-region select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(15,122,229,.12); }
+    .tax-region .hint { font-size: .76rem; color: var(--muted); margin-top: .65rem; line-height: 1.5; }
+
     /* ── INSTALLMENT PLAN ── */
     .installment { margin-top: 1.25rem; border: 1.5px solid var(--border); border-radius: .6rem; overflow: hidden; }
     .installment-head { display: flex; align-items: center; gap: .6rem; padding: .85rem 1.1rem; background: var(--bg-soft); border-bottom: 1px solid var(--border); }
@@ -559,7 +566,7 @@
         <div class="mega" id="resMega" role="menu" aria-label="Resources">
           <div class="mega-grid">
             <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
-            <a href="https://www.confidentist.ca/blog/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
           </div>
           <div class="mega-foot">
             <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
@@ -596,7 +603,7 @@
   <a href="/private-sessions/" class="sub">Private Sessions</a>
   <div class="mp-label">Resources</div>
   <a href="/confitalk/" class="sub">ConfiTalk</a>
-  <a href="https://www.confidentist.ca/blog/" class="sub">Blog</a>
+  <a href="/blogs/" class="sub">Blog</a>
   <div class="mp-label">More</div>
   <a href="https://www.confidentist.ca/our-team/">Instructors</a>
   <a href="https://www.confidentist.ca/contact-us/">Contact</a>
@@ -716,6 +723,27 @@
       <p class="pkg-middle-desc" style="margin-bottom:0;">Choose between the Extended and Comprehensive pathways below based on your preparation needs and desired level of support.</p>
     </div>
 
+    <div class="tax-region">
+      <label for="taxRegion">Select your province / region (for tax)</label>
+      <select id="taxRegion" aria-label="Your province or region for tax calculation">
+        <option value="ON" selected>Ontario — HST 13%</option>
+        <option value="BC">British Columbia — 12%</option>
+        <option value="AB">Alberta — GST 5%</option>
+        <option value="SK">Saskatchewan — 11%</option>
+        <option value="MB">Manitoba — 12%</option>
+        <option value="QC">Quebec — 14.975%</option>
+        <option value="NB">New Brunswick — HST 15%</option>
+        <option value="NS">Nova Scotia — HST 14%</option>
+        <option value="PE">Prince Edward Island — HST 15%</option>
+        <option value="NL">Newfoundland &amp; Labrador — HST 15%</option>
+        <option value="YT">Yukon — GST 5%</option>
+        <option value="NT">Northwest Territories — GST 5%</option>
+        <option value="NU">Nunavut — GST 5%</option>
+        <option value="INTL">Outside Canada — no tax</option>
+      </select>
+      <p class="hint">Tax is applied at checkout based on your billing province. Installment amounts below update to match your selection.</p>
+    </div>
+
     <div class="price-grid">
 
       <!-- EXTENDED -->
@@ -774,7 +802,7 @@
               <svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
               <div>
                 <p class="installment-plan-name">6 + 1 Payments</p>
-                <p class="installment-plan-sub">Pay an installment of: <strong>$1,615.65</strong> today <span style="white-space:nowrap">($1,429.78 + HST)</span></p>
+                <p class="installment-plan-sub">Pay an installment of: <strong class="js-inst-first">$1,615.65</strong> today <span style="white-space:nowrap">($1,429.78 + <span class="js-inst-taxword">HST</span>)</span></p>
               </div>
             </div>
             <table class="installment-table">
@@ -782,16 +810,16 @@
                 <tr><th scope="col">Payment Date</th><th scope="col">Amount</th></tr>
               </thead>
               <tbody>
-                <tr><td>December 10, 2026</td><td>$954.70</td></tr>
-                <tr><td>January 10, 2027</td><td>$954.70</td></tr>
-                <tr><td>February 10, 2027</td><td>$954.70</td></tr>
-                <tr><td>March 10, 2027</td><td>$954.70</td></tr>
-                <tr><td>April 10, 2027</td><td>$954.70</td></tr>
-                <tr><td>May 10, 2027</td><td>$954.70</td></tr>
+                <tr><td>December 10, 2026</td><td class="js-inst-monthly">$954.70</td></tr>
+                <tr><td>January 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
+                <tr><td>February 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
+                <tr><td>March 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
+                <tr><td>April 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
+                <tr><td>May 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
               </tbody>
             </table>
-            <p class="installment-note">Each monthly payment is $844.87 + 13% HST = <strong>$954.70</strong>. Course fee <strong>$6,499 CAD + HST = $7,343.87</strong> total ($1,615.65 today, then 6 × $954.70).</p>
-            <a class="price-cta gold" style="margin-top:1.1rem;" href="/api/afk-programs/checkout/?p=extended-aug-2027&amp;plan=installment">Pay First Installment — $1,615.65 →</a>
+            <p class="installment-note">Each monthly payment is $844.87 + <span class="js-inst-taxpct">13% HST</span> = <strong class="js-inst-monthly">$954.70</strong>. Course fee <strong>$6,499 CAD + <span class="js-inst-taxword">HST</span> = <span class="js-inst-total">$7,343.87</span></strong> total (<span class="js-inst-first">$1,615.65</span> today, then 6 × <span class="js-inst-monthly">$954.70</span>).</p>
+            <a class="price-cta gold" style="margin-top:1.1rem;" href="/api/afk-programs/checkout/?p=extended-aug-2027&amp;plan=installment">Pay First Installment — <span class="js-inst-first">$1,615.65</span> →</a>
           </div>
         </div>
       </article>
@@ -1025,6 +1053,40 @@
         detailP.textContent = btn.getAttribute('data-desc');
       });
     });
+  })();
+</script>
+
+<script>
+  /* Province/region tax selector: appends ?region= to all AFK checkout links and
+     updates the displayed installment amounts to match the selected rate. */
+  (function () {
+    var RATES = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.14975, BC:0.12, MB:0.12, SK:0.11, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
+    var PCT   = { ON:'13% HST', NB:'15% HST', NL:'15% HST', PE:'15% HST', NS:'14% HST', QC:'14.975% (GST+QST)', BC:'12% (GST+PST)', MB:'12% (GST+PST)', SK:'11% (GST+PST)', AB:'5% GST', YT:'5% GST', NT:'5% GST', NU:'5% GST', INTL:'no tax' };
+    var WORD  = { ON:'HST', NB:'HST', NL:'HST', PE:'HST', NS:'HST', QC:'tax', BC:'tax', MB:'tax', SK:'tax', AB:'GST', YT:'GST', NT:'GST', NU:'GST', INTL:'tax' };
+    var BASE = { first: 1429.78, monthly: 844.87, course: 6499 };
+    var sel = document.getElementById('taxRegion');
+    if (!sel) return;
+    function money(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+    function r2(n) { return Math.round(n * 100) / 100; }
+    function setText(cls, val) { var els = document.querySelectorAll('.' + cls); for (var i = 0; i < els.length; i++) els[i].textContent = val; }
+    function apply() {
+      var region = sel.value;
+      var rate = RATES[region] != null ? RATES[region] : 0.13;
+      document.querySelectorAll('a[href*="/api/afk-programs/checkout/"]').forEach(function (a) {
+        try {
+          var u = new URL(a.getAttribute('href'), window.location.origin);
+          u.searchParams.set('region', region);
+          a.setAttribute('href', u.pathname + u.search);
+        } catch (e) {}
+      });
+      setText('js-inst-first', money(r2(BASE.first * (1 + rate))));
+      setText('js-inst-monthly', money(r2(BASE.monthly * (1 + rate))));
+      setText('js-inst-total', money(r2(BASE.course * (1 + rate))));
+      setText('js-inst-taxword', WORD[region] || 'tax');
+      setText('js-inst-taxpct', PCT[region] || 'tax');
+    }
+    sel.addEventListener('change', apply);
+    apply();
   })();
 </script>
 

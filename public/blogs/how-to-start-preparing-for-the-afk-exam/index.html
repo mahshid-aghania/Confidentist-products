@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Start Preparing for the AFK Exam | ConfiDentist Blog</title>
+  <meta name="description" content="A practical, step-by-step starting guide for the NDEB Assessment of Fundamental Knowledge (AFK) — how to plan your study, choose resources and build momentum from day one." />
+  <link rel="canonical" href="https://product.confidentist.ca/blogs/how-to-start-preparing-for-the-afk-exam/" />
+  <meta property="og:title" content="How to Start Preparing for the AFK Exam | ConfiDentist" />
+  <meta property="og:description" content="A practical, step-by-step starting guide for the AFK exam — planning your study, choosing resources and building momentum." />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+      --navy-deep:   #041b3d;
+      --nav-h:       74px;
+      --maxw:        1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem; }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    /* ── SITE HEADER / MEGA MENU ── */
+    .site-header { position: sticky; top: 0; z-index: 500; min-height: var(--nav-h); display: flex; align-items: center; background: #ffffff; border-bottom: 1px solid var(--gold); box-shadow: 0 4px 22px rgba(7,44,94,.08); }
+    .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
+    .brand span { color: var(--gold-dark); }
+    .primary-nav { display: flex; align-items: center; gap: .25rem; }
+    .nav-item { position: relative; }
+    .nav-item > a, .nav-item > button { font-family: inherit; background: none; border: none; cursor: pointer; color: #1a2b3c; font-size: .82rem; font-weight: 500; letter-spacing: .02em; padding: .6rem .85rem; border-radius: .35rem; display: inline-flex; align-items: center; gap: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .nav-item > a:hover, .nav-item > button:hover, .nav-item > a:focus-visible, .nav-item > button:focus-visible { color: #072c5e; background: rgba(7,44,94,.06); }
+    .nav-item .chev { width: 12px; height: 12px; transition: transform .2s; }
+    .nav-item.open .chev { transform: rotate(180deg); }
+    .mega { position: absolute; top: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(-6px); width: min(680px, 92vw); background: #fff; color: var(--text); border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 1.25rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 600; }
+    .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
+    .mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+    .mega a { display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem; transition: background .15s; text-decoration: none; }
+    .mega a:hover, .mega a:focus-visible { background: var(--bg-soft); }
+    .mega .m-abbr { flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem; }
+    .mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+    .mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; text-decoration: none; }
+    .nav-actions { display: flex; align-items: center; gap: .5rem; }
+    .util-link { color: #1a2b3c; font-size: .78rem; font-weight: 500; padding: .5rem .55rem; border-radius: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .util-link:hover { color: #072c5e; background: rgba(7,44,94,.06); }
+    .btn-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .6rem 1.15rem; border-radius: .35rem; transition: background .2s, transform .15s; white-space: nowrap; text-decoration: none; }
+    .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 620; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #072c5e; margin: 5px 0; border-radius: 2px; transition: transform .3s, opacity .2s; }
+    .mobile-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-open .hamburger span:nth-child(2) { opacity: 0; }
+    .mobile-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-panel { position: fixed; inset: 0 0 0 auto; width: min(400px, 88vw); z-index: 610; background: var(--navy-deep); padding: calc(var(--nav-h) + .5rem) 1.5rem 2rem; transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow-y: auto; display: flex; flex-direction: column; gap: .25rem; border-left: 2px solid var(--gold); }
+    .mobile-open .mobile-panel { transform: translateX(0); }
+    .mobile-panel a { color: #fff; font-size: 1.05rem; font-weight: 500; padding: .85rem .25rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+    .mobile-panel a.sub { font-size: .92rem; font-weight: 400; color: rgba(255,255,255,.72); padding-left: 1rem; }
+    .mobile-panel .mp-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 1.25rem 0 .35rem; }
+    .mobile-panel .btn-cta { text-align: center; justify-content: center; display: flex; margin-top: 1.25rem; padding: .9rem; font-size: .85rem; }
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(4,27,61,.55); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity .3s; z-index: 590; }
+    .mobile-open .nav-backdrop { opacity: 1; visibility: visible; }
+    body.no-scroll { overflow: hidden; }
+    @media (max-width: 1160px) { .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; } .hamburger { display: block; } }
+
+    /* ── ARTICLE ── */
+    .article-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); padding: 3.25rem 1.5rem 3rem; }
+    .article-hero-inner { max-width: 760px; margin: 0 auto; }
+    .breadcrumb { font-size: .78rem; color: rgba(255,255,255,.7); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--gold-light); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .article-cat { display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-light); background: rgba(15,122,229,.15); border: 1px solid rgba(15,122,229,.4); padding: .28rem .7rem; border-radius: .3rem; margin-bottom: 1rem; }
+    .article-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4.5vw, 2.8rem); font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 1rem; }
+    .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; font-size: .8rem; color: rgba(255,255,255,.72); }
+    .article-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.5); }
+
+    .article { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 3.5rem; }
+    .article p { font-size: 1.02rem; color: #2a3346; line-height: 1.85; margin-bottom: 1.35rem; }
+    .article h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); line-height: 1.3; margin: 2.25rem 0 .9rem; }
+    .article h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin: 1.75rem 0 .6rem; }
+    .article ul, .article ol { margin: 0 0 1.35rem 1.25rem; }
+    .article li { font-size: 1.02rem; color: #2a3346; line-height: 1.8; margin-bottom: .5rem; }
+    .article strong { color: var(--navy); font-weight: 700; }
+    .article a { color: var(--gold-dark); font-weight: 600; text-decoration: none; }
+    .article a:hover { text-decoration: underline; }
+    .article .lede { font-size: 1.12rem; color: var(--muted); line-height: 1.8; }
+    .callout { background: var(--gold-bg); border: 1px solid rgba(15,122,229,.25); border-left: 4px solid var(--gold); border-radius: .6rem; padding: 1.1rem 1.35rem; margin: 1.75rem 0; font-size: .96rem; color: var(--navy); line-height: 1.7; }
+    .article-cta { margin-top: 2.5rem; padding: 1.75rem; background: var(--bg-soft); border: 1.5px solid var(--border); border-radius: var(--radius); text-align: center; }
+    .article-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: .5rem; }
+    .article-cta p { font-size: .95rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.65; }
+    .btn-gold { display: inline-flex; align-items: center; gap: .45rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .88rem; letter-spacing: .03em; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; box-shadow: 0 4px 18px rgba(15,122,229,.35); transition: background .2s, transform .15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .back-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: 2rem; font-size: .86rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .back-link:hover { color: var(--gold-dark); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold); }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .001ms !important; } }
+  </style>
+</head>
+<body>
+
+<a href="#article" class="skip-link">Skip to article</a>
+
+<!-- NAV -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item"><a href="/">Home</a></div>
+      <div class="nav-item" id="equivItem">
+        <a href="/dental-equivalency-in-canada/" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="equivMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+            <a href="/mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">AFK &amp; OSCE mock exams, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
+            <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
+            <a href="/#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
+      <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
+      <a href="/#journey" class="btn-cta">Find My Program</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Courses</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <div class="mp-label">More</div>
+  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
+  <a href="https://www.confidentist.ca/my-account/">Student Login</a>
+  <a href="/#upcoming" class="btn-cta">Explore Courses</a>
+</nav>
+
+<!-- ARTICLE HERO -->
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blogs/">Blog</a> &nbsp;/&nbsp; AFK Preparation</nav>
+    <span class="article-cat">AFK Preparation</span>
+    <h1>How to Start Preparing for the AFK Exam</h1>
+    <div class="article-meta"><span>November 10, 2026</span><span class="dot"></span><span>ConfiDentist Team</span><span class="dot"></span><span>6 min read</span></div>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article" id="article">
+  <p class="lede">The Assessment of Fundamental Knowledge (AFK) is the first examination on the NDEB Equivalency Process, and for many internationally trained dentists it is the gateway to practising in Canada. Starting well matters — a clear plan in your first few weeks saves months of wasted effort later. Here is how to begin.</p>
+
+  <h2>1. Understand What the AFK Actually Tests</h2>
+  <p>The AFK is a written, multiple-choice examination covering the foundational biomedical and clinical sciences expected of a graduating dentist in Canada. Before you open a single textbook, read the official NDEB exam specifications so you know exactly which domains are weighted most heavily. Preparing <strong>to the blueprint</strong> — rather than to whatever resource you happen to have — is the single biggest efficiency gain available to you.</p>
+
+  <h2>2. Take an Honest Baseline</h2>
+  <p>Sit a timed set of practice questions in week one, before studying. It will feel uncomfortable, and that is the point: you need to know where you stand. A baseline tells you which subjects need deep work and which only need review, so you can spend your limited time where it changes your score the most.</p>
+
+  <div class="callout">A baseline is a diagnostic, not a verdict. Almost everyone scores low at the start — what matters is the trajectory from here, not the first number.</div>
+
+  <h2>3. Build a Realistic Weekly Schedule</h2>
+  <p>Consistency beats intensity. A sustainable plan built around your actual life will carry you further than an ambitious one you abandon in three weeks. When you map out your week:</p>
+  <ul>
+    <li>Block fixed study sessions in your calendar like appointments you cannot miss.</li>
+    <li>Rotate subjects rather than cramming one for days — spaced exposure improves retention.</li>
+    <li>End every session with active recall: close the book and write down what you remember.</li>
+    <li>Protect one lighter day a week to prevent burnout.</li>
+  </ul>
+
+  <h2>4. Choose a Small Set of Trusted Resources</h2>
+  <p>Resource overload is one of the most common early mistakes. Pick a core reference for each subject, a solid question bank, and a concise set of notes — and resist the temptation to collect more. Depth with a few trusted resources beats shallow coverage across many.</p>
+
+  <h2>5. Practise Under Exam Conditions Early</h2>
+  <p>The AFK is as much a test of pacing and stamina as of knowledge. Start doing timed blocks early so exam-day conditions feel familiar rather than threatening. Review every question you get wrong <strong>and</strong> every one you guessed correctly — both reveal gaps worth closing.</p>
+
+  <h2>6. Don't Study Alone the Whole Way</h2>
+  <p>Structured guidance keeps you accountable and corrects misunderstandings before they harden into habits. Whether that is a study group, a mentor, or a full preparation program, having someone to check your progress makes a measurable difference — especially in the final stretch.</p>
+
+  <div class="article-cta">
+    <h3>Ready for a structured AFK plan?</h3>
+    <p>ConfiDentist's AFK preparation programs give you a complete pathway — live and recorded lectures, quizzes, mock exams and mentorship — built by instructors who passed the exam.</p>
+    <a href="/afk-programs/" class="btn-gold">Explore AFK Programs →</a>
+  </div>
+
+  <a href="/blogs/" class="back-link"><span aria-hidden="true">←</span> Back to all articles</a>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Home</a> &nbsp;·&nbsp;
+    <a href="/blogs/">Blog</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+<script>
+(function () {
+  function initMega(itemId, triggerId) {
+    var item = document.getElementById(itemId);
+    var trigger = document.getElementById(triggerId);
+    if (!item || !trigger) return;
+    var closeTimer;
+    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
+    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
+    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
+    item.addEventListener('mouseenter', function () { open(true); });
+    item.addEventListener('mouseleave', scheduleClose);
+    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
+    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
+  }
+  function initMobile() {
+    var body = document.body;
+    var btn = document.getElementById('hamburger');
+    var panel = document.getElementById('mobilePanel');
+    var backdrop = document.getElementById('navBackdrop');
+    if (!btn || !panel || !backdrop) return;
+    var lastFocus = null;
+    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
+    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
+    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
+    backdrop.addEventListener('click', close);
+    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && body.classList.contains('mobile-open')) close(); });
+  }
+  document.addEventListener('DOMContentLoaded', function () { initMega('equivItem', 'equivTrigger'); initMega('resItem', 'resTrigger'); initMobile(); });
+})();
+</script>
+</body>
+</html>

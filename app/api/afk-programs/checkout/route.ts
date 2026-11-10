@@ -17,7 +17,26 @@ import { NextResponse } from 'next/server'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-const HST_RATE = 0.13
+// Sales tax by billing region. The buyer selects their province/country on the
+// AFK page and it's passed as ?region=; outside Canada is tax-free. These are the
+// common combined sales-tax rates — adjust any of them if your filings differ.
+const TAX_RATES: Record<string, { rate: number; label: string }> = {
+  ON: { rate: 0.13, label: 'HST (13%)' },
+  NB: { rate: 0.15, label: 'HST (15%)' },
+  NL: { rate: 0.15, label: 'HST (15%)' },
+  PE: { rate: 0.15, label: 'HST (15%)' },
+  NS: { rate: 0.14, label: 'HST (14%)' },
+  QC: { rate: 0.14975, label: 'GST + QST (14.975%)' },
+  BC: { rate: 0.12, label: 'GST + PST (12%)' },
+  MB: { rate: 0.12, label: 'GST + PST (12%)' },
+  SK: { rate: 0.11, label: 'GST + PST (11%)' },
+  AB: { rate: 0.05, label: 'GST (5%)' },
+  YT: { rate: 0.05, label: 'GST (5%)' },
+  NT: { rate: 0.05, label: 'GST (5%)' },
+  NU: { rate: 0.05, label: 'GST (5%)' },
+  INTL: { rate: 0, label: 'No tax (outside Canada)' },
+}
+const DEFAULT_REGION = 'ON'
 
 // Program prices in CAD (pre-HST). Keys MUST match the ?p= values on /afk-programs/.
 const PROGRAMS: Record<string, { name: string; price: number }> = {
@@ -103,6 +122,12 @@ export async function GET(req: Request) {
     return NextResponse.redirect(pageUrl, 303)
   }
 
+  // Tax by billing region (buyer-selected on the page). Falls back to Ontario.
+  const regionParam = (url.searchParams.get('region') || '').trim().toUpperCase()
+  const region = TAX_RATES[regionParam] ? regionParam : DEFAULT_REGION
+  const taxInfo = TAX_RATES[region]
+  const taxRate = taxInfo.rate
+
   // Optional installment plan: charge only the first payment now.
   const isInstallment = (url.searchParams.get('plan') || '').trim() === 'installment'
   let basePrice = program.price
@@ -117,10 +142,10 @@ export async function GET(req: Request) {
     refSuffix = '-installment'
   }
 
-  const hstCents = Math.round(basePrice * HST_RATE * 100)
-  // Full-course HST + total (independent of installment first payment) and the
+  const hstCents = Math.round(basePrice * taxRate * 100)
+  // Full-course tax + total (independent of installment first payment) and the
   // order number assigned to this registrant — carried in metadata for the receipt.
-  const courseTaxCents = Math.round(program.price * HST_RATE * 100)
+  const courseTaxCents = Math.round(program.price * taxRate * 100)
   const orderNumber = genOrderNumber()
 
   const params = new URLSearchParams()
@@ -129,11 +154,14 @@ export async function GET(req: Request) {
   params.set('line_items[0][price_data][currency]', 'cad')
   params.set('line_items[0][price_data][unit_amount]', String(Math.round(basePrice * 100)))
   params.set('line_items[0][price_data][product_data][name]', lineName)
-  // HST as its own line so the Stripe total matches the on-page breakdown.
-  params.set('line_items[1][quantity]', '1')
-  params.set('line_items[1][price_data][currency]', 'cad')
-  params.set('line_items[1][price_data][unit_amount]', String(hstCents))
-  params.set('line_items[1][price_data][product_data][name]', 'HST (13%)')
+  // Tax as its own line so the Stripe total matches the on-page breakdown. Skipped
+  // entirely when the buyer is outside Canada (no tax).
+  if (hstCents > 0) {
+    params.set('line_items[1][quantity]', '1')
+    params.set('line_items[1][price_data][currency]', 'cad')
+    params.set('line_items[1][price_data][unit_amount]', String(hstCents))
+    params.set('line_items[1][price_data][product_data][name]', taxInfo.label)
+  }
 
   // Collect the buyer's full details at checkout.
   // Billing address (required) + residential/delivery address (shipping) with
@@ -173,13 +201,15 @@ export async function GET(req: Request) {
   params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
   // HST actually charged on THIS payment (full course, or just the first installment).
   params.set('metadata[paid_tax]', (hstCents / 100).toFixed(2))
+  params.set('metadata[region]', region)
+  params.set('metadata[tax_label]', taxInfo.label)
   if (isInstallment) {
     const inst = INSTALLMENTS[key]
     if (inst) {
       params.set('metadata[plan]', 'installment')
       params.set('metadata[num_payments]', String(inst.count + 1))
-      params.set('metadata[first_total]', (Math.round(inst.first * 1.13 * 100) / 100).toFixed(2))
-      params.set('metadata[monthly_total]', (Math.round(inst.monthly * 1.13 * 100) / 100).toFixed(2))
+      params.set('metadata[first_total]', (Math.round(inst.first * (1 + taxRate) * 100) / 100).toFixed(2))
+      params.set('metadata[monthly_total]', (Math.round(inst.monthly * (1 + taxRate) * 100) / 100).toFixed(2))
       params.set('metadata[monthly_count]', String(inst.count))
       params.set('metadata[installment_dates]', inst.dates.join('|'))
     }

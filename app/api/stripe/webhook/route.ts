@@ -329,6 +329,7 @@ export async function POST(req: Request) {
           const paidNow = amountTotal / 100
           const isInstallment = meta['plan'] === 'installment'
           const numPayments = (typeof meta['num_payments'] === 'string' && meta['num_payments']) || (isInstallment ? '7' : '1')
+          const taxLabel = (typeof meta['tax_label'] === 'string' && meta['tax_label']) || 'HST'
 
           // Partial payment schedule (installment only): deposit (paid now) + monthly.
           let scheduleRows = ''
@@ -367,7 +368,7 @@ export async function POST(req: Request) {
                 ${sumRow(`${esc(cleanCourse)} × 1`, money(subtotal))}
                 ${sumRow('Subtotal', money(subtotal))}
                 ${sumRow(`Shipping: ${esc(shipRegion)}`, money(shipping))}
-                ${sumRow('HST (821980398RT0001)', money(tax))}
+                ${sumRow(`${esc(taxLabel)} · 821980398RT0001`, money(tax))}
                 ${sumRow('Total', `${money(grandTotal)} ${currency}`, true)}
                 ${isInstallment ? sumRow('Number of payments', String(numPayments)) : sumRow('Payment', 'Paid in full')}
                 ${isInstallment ? sumRow('Installment amount (paid now)', money(paidNow)) : ''}
@@ -409,7 +410,7 @@ export async function POST(req: Request) {
           const text =
             `New order: #${orderNo}\nRegistration from ${studentName || email} (${when} Toronto)\n\n` +
             `${cleanCourse}\nSubtotal: ${money(subtotal)}\nShipping (${shipRegion}): ${money(shipping)}\n` +
-            `HST (821980398RT0001): ${money(tax)}\nTotal: ${money(grandTotal)} ${currency}\n` +
+            `${taxLabel} · 821980398RT0001: ${money(tax)}\nTotal: ${money(grandTotal)} ${currency}\n` +
             (isInstallment
               ? `Number of payments: ${numPayments}\nInstallment amount (paid now): ${money(paidNow)}\nFuture payments: ${money(futureTotal)} (incl. HST)\n`
               : `Payment: Paid in full ${money(grandTotal)} ${currency}\n`) +
