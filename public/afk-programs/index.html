@@ -470,6 +470,26 @@
     .path-detail h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
     .path-detail p { font-size: .92rem; color: var(--muted); line-height: 1.75; }
 
+    /* ── INSTALLMENT PLAN ── */
+    .installment { margin-top: 1.25rem; border: 1.5px solid var(--border); border-radius: .6rem; overflow: hidden; }
+    .installment-head { display: flex; align-items: center; gap: .6rem; padding: .85rem 1.1rem; background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .installment-radio { width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--gold); flex-shrink: 0; }
+    .installment-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--navy); }
+    .installment-body { padding: 1.1rem 1.25rem 1.2rem; }
+    .installment-plan { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: 1.1rem; }
+    .installment-plan .chk { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .installment-plan-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--navy); line-height: 1.2; }
+    .installment-plan-sub { font-size: .86rem; color: var(--muted); margin-top: .2rem; }
+    .installment-plan-sub strong { color: var(--gold-dark); font-weight: 700; }
+    .installment-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .installment-table th { text-align: left; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .45rem 0; border-bottom: 1px solid var(--border); }
+    .installment-table th:last-child, .installment-table td:last-child { text-align: right; }
+    .installment-table td { padding: .6rem 0; border-bottom: 1px solid var(--border); color: var(--text); }
+    .installment-table td:last-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .installment-table tr:last-child td { border-bottom: none; }
+    .installment-note { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.55; }
+    .installment-note strong { color: var(--navy); font-weight: 600; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .compare-wrap { display: none; }
@@ -741,6 +761,36 @@
             </div>
             <p class="price-cohort-meta">Starts December 2026 · 8-month program</p>
             <a class="price-cta navy" href="/api/afk-programs/checkout/?p=extended-aug-2027">Register for August 2027 Exam →</a>
+          </div>
+        </div>
+
+        <div class="installment">
+          <div class="installment-head">
+            <span class="installment-radio" aria-hidden="true"></span>
+            <span class="installment-title">Pay by Installment</span>
+          </div>
+          <div class="installment-body">
+            <div class="installment-plan">
+              <svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div>
+                <p class="installment-plan-name">6 + 1 Payments</p>
+                <p class="installment-plan-sub">Pay an installment of: <strong>$1,429.78</strong> today</p>
+              </div>
+            </div>
+            <table class="installment-table">
+              <thead>
+                <tr><th scope="col">Payment Date</th><th scope="col">Amount</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>December 10, 2026</td><td>$844.87</td></tr>
+                <tr><td>January 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>February 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>March 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>April 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>May 10, 2027</td><td>$844.87</td></tr>
+              </tbody>
+            </table>
+            <p class="installment-note">Total <strong>$6,499 CAD</strong> + HST — one payment of $1,429.78 today, then 6 monthly payments of $844.87.</p>
           </div>
         </div>
       </article>
