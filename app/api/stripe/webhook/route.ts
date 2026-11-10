@@ -252,13 +252,183 @@ export async function POST(req: Request) {
             amountLabel: `$${(amountTotal / 100).toFixed(2)} ${currency}`,
             reference,
           })
-          await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...rendered })
+          await sendEmail({ to: email, bcc: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...rendered })
           emailed = true
         } catch (e) {
           console.error('acj course receipt email failed', e)
         }
       }
-      return NextResponse.json({ received: true, course: ref, emailed })
+
+      // AFK: send a full-info admin notification so the complete record lands in
+      // the team inbox — student name + family name, email, phone, SIN, billing
+      // address, residential (delivery) address and the chosen shipping option.
+      let notified = false
+      if (ref.startsWith('afk-')) {
+        try {
+          const str = (v: unknown) => (typeof v === 'string' ? v : '')
+          const esc = (s: string) =>
+            s.replace(/[&<>"']/g, (c) =>
+              ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string),
+            )
+          const fmtAddr = (a: Record<string, unknown> | undefined) => {
+            const ad = a ?? {}
+            const cityLine = [str(ad['city']), str(ad['state']), str(ad['postal_code'])]
+              .filter(Boolean)
+              .join(', ')
+            return [str(ad['line1']), str(ad['line2']), cityLine, str(ad['country'])]
+              .filter(Boolean)
+              .join('<br />')
+          }
+
+          // Custom fields (keys unchanged: first_name / last_name / sin).
+          const customFields = Array.isArray(session['custom_fields'])
+            ? (session['custom_fields'] as Array<Record<string, unknown>>)
+            : []
+          const cf = (key: string) => {
+            const field = customFields.find((f) => f['key'] === key)
+            const text = field?.['text'] as Record<string, unknown> | undefined
+            return typeof text?.['value'] === 'string' ? (text['value'] as string) : ''
+          }
+          const firstName = cf('first_name')
+          const lastName = cf('last_name')
+          const sin = cf('sin')
+          const studentName = [firstName, lastName].filter(Boolean).join(' ') || str(details['name'])
+
+          // Billing address (from customer_details) + residential/shipping address.
+          const billing = fmtAddr(details['address'] as Record<string, unknown> | undefined)
+          const shippingDetails =
+            (session['shipping_details'] as Record<string, unknown> | undefined) ??
+            ((session['collected_information'] as Record<string, unknown> | undefined)?.[
+              'shipping_details'
+            ] as Record<string, unknown> | undefined) ??
+            {}
+          const residential = fmtAddr(shippingDetails['address'] as Record<string, unknown> | undefined)
+
+          // Shipping amount charged + region label.
+          const totalDetails = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+          const shipCents =
+            typeof totalDetails['amount_shipping'] === 'number'
+              ? (totalDetails['amount_shipping'] as number)
+              : 0
+          const shipRegion =
+            ({ 7500: 'All over Canada', 15000: 'United States', 25000: 'Australia', 35000: 'Europe & Africa', 40000: 'Asia' } as Record<number, string>)[
+              shipCents
+            ] || (shipCents > 0 ? 'Shipping' : '—')
+
+          const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+          const money = (n: number) => `$${n.toFixed(2)}`
+          const num = (v: unknown) => Number((typeof v === 'string' ? v : '') || 0)
+
+          const orderNo = (typeof meta['order_number'] === 'string' && meta['order_number']) || reference
+          const cleanCourse =
+            (typeof meta['course_name'] === 'string' && meta['course_name']) || courseName
+          const subtotal = num(meta['course_subtotal']) || amountTotal / 100
+          const tax = num(meta['course_tax'])
+          const shipping = shipCents / 100
+          const grandTotal = subtotal + tax + shipping
+          const paidNow = amountTotal / 100
+          const isInstallment = meta['plan'] === 'installment'
+          const numPayments = (typeof meta['num_payments'] === 'string' && meta['num_payments']) || (isInstallment ? '7' : '1')
+
+          // Partial payment schedule (installment only): deposit (paid now) + monthly.
+          let scheduleRows = ''
+          let futureTotal = 0
+          if (isInstallment) {
+            const firstTotal = num(meta['first_total'])
+            const monthly = num(meta['monthly_total'])
+            const dates = String(meta['installment_dates'] || '')
+              .split('|')
+              .filter(Boolean)
+            futureTotal = Math.round((subtotal + tax - firstTotal) * 100) / 100
+            const srow = (id: string, when2: string, amt: number, status: string) =>
+              `<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(id)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(when2)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee;text-align:right">${money(amt)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(status)}</td></tr>`
+            scheduleRows += srow(`${orderNo}-1`, 'Deposit (paid now)', paidNow, 'Completed')
+            let acc = 0
+            dates.forEach((d, i) => {
+              const last = i === dates.length - 1
+              const amt = last ? Math.round((futureTotal - acc) * 100) / 100 : monthly
+              if (!last) acc += monthly
+              scheduleRows += srow(`${orderNo}-${i + 2}`, d, amt, 'Pending payment')
+            })
+          }
+
+          const row = (k: string, v: string) =>
+            `<tr><td style="padding:7px 0;color:#586175;width:180px;vertical-align:top">${k}</td><td style="padding:7px 0;font-weight:600;vertical-align:top">${v || '—'}</td></tr>`
+          const sumRow = (k: string, v: string, bold = false) =>
+            `<tr><td style="padding:6px 0;color:#586175">${k}</td><td style="padding:6px 0;text-align:right;${bold ? 'font-weight:700;color:#072C5E' : ''}">${v}</td></tr>`
+
+          const html = `
+            <div style="font-family:Arial,Helvetica,sans-serif;max-width:620px;margin:0 auto;color:#1a1f2e">
+              <h2 style="color:#072C5E;margin:0 0 .15rem">New order: #${esc(String(orderNo))}</h2>
+              <p style="color:#586175;margin:0 0 1.25rem">New registration from <strong>${esc(studentName || email)}</strong> · ${esc(when)} (Toronto)</p>
+
+              <h3 style="color:#072C5E;margin:1rem 0 .4rem;font-size:15px">Order summary</h3>
+              <table style="width:100%;border-collapse:collapse;font-size:14px">
+                ${sumRow(`${esc(cleanCourse)} × 1`, money(subtotal))}
+                ${sumRow('Subtotal', money(subtotal))}
+                ${sumRow(`Shipping: ${esc(shipRegion)}`, money(shipping))}
+                ${sumRow('HST (821980398RT0001)', money(tax))}
+                ${sumRow('Total', `${money(grandTotal)} ${currency}`, true)}
+                ${isInstallment ? sumRow('Number of payments', String(numPayments)) : sumRow('Payment', 'Paid in full')}
+                ${isInstallment ? sumRow('Installment amount (paid now)', money(paidNow)) : ''}
+                ${isInstallment ? sumRow('Future payments', `${money(futureTotal)} (incl. HST)`) : ''}
+              </table>
+
+              ${
+                isInstallment
+                  ? `<h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Partial payment details</h3>
+              <table style="width:100%;border-collapse:collapse;font-size:13px">
+                <thead><tr style="background:#f6f8fb">
+                  <th style="padding:6px 10px;text-align:left;color:#586175">ID</th>
+                  <th style="padding:6px 10px;text-align:left;color:#586175">Payment</th>
+                  <th style="padding:6px 10px;text-align:right;color:#586175">Amount</th>
+                  <th style="padding:6px 10px;text-align:left;color:#586175">Status</th>
+                </tr></thead>
+                <tbody>${scheduleRows}</tbody>
+              </table>`
+                  : ''
+              }
+
+              <h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Student &amp; contact</h3>
+              <table style="width:100%;border-collapse:collapse;font-size:14px">
+                ${row('Student first name', esc(firstName))}
+                ${row('Student family name', esc(lastName))}
+                ${row('Phone', esc(phone ?? ''))}
+                ${row('Email', esc(email))}
+                ${row('SIN', esc(sin))}
+                ${row('Order number', esc(String(orderNo)))}
+              </table>
+
+              <h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Billing address</h3>
+              <p style="font-size:14px;line-height:1.6;margin:0">${billing || '—'}<br />${esc(phone ?? '')}<br />${esc(email)}</p>
+
+              <h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Shipping address</h3>
+              <p style="font-size:14px;line-height:1.6;margin:0">${residential || billing || '—'}</p>
+            </div>`
+
+          const text =
+            `New order: #${orderNo}\nRegistration from ${studentName || email} (${when} Toronto)\n\n` +
+            `${cleanCourse}\nSubtotal: ${money(subtotal)}\nShipping (${shipRegion}): ${money(shipping)}\n` +
+            `HST (821980398RT0001): ${money(tax)}\nTotal: ${money(grandTotal)} ${currency}\n` +
+            (isInstallment
+              ? `Number of payments: ${numPayments}\nInstallment amount (paid now): ${money(paidNow)}\nFuture payments: ${money(futureTotal)} (incl. HST)\n`
+              : `Payment: Paid in full ${money(grandTotal)} ${currency}\n`) +
+            `\nStudent: ${studentName}\nPhone: ${phone ?? ''}\nEmail: ${email}\nSIN: ${sin}\nOrder number: ${orderNo}\n`
+
+          await sendEmail({
+            to: [...ADMIN_EMAILS, 'info@confidentist.ca'],
+            replyTo: email || undefined,
+            subject: `New order #${orderNo} — ${studentName || email} — ${cleanCourse}`,
+            html,
+            text,
+          })
+          notified = true
+        } catch (e) {
+          console.error('afk admin notification failed', e)
+        }
+      }
+
+      return NextResponse.json({ received: true, course: ref, emailed, notified })
     }
 
     const regId = meta.registration_id || ref
