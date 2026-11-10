@@ -26,6 +26,14 @@ const PROGRAMS: Record<string, { name: string; price: number }> = {
   'comprehensive-aug-2027': { name: 'AFK Comprehensive – Aug 2027 (Early Bird)', price: 4749 },
 }
 
+// Installment plans (first payment, pre-HST). When ?plan=installment is passed we
+// charge only the FIRST payment now; the remaining payments are collected later via
+// manually-issued Stripe payment links. 13% HST is still added on top of each amount.
+// 6 + 1 plan: $1,429.78 today, then 6 × $844.87 monthly = $6,499 pre-HST total.
+const INSTALLMENTS: Record<string, { first: number; name: string }> = {
+  'extended-aug-2027': { first: 1429.78, name: 'AFK Extended – Aug 2027 · Installment 1 of 7' },
+}
+
 export async function GET(req: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY
   if (!stripeKey) {
@@ -43,14 +51,28 @@ export async function GET(req: Request) {
     return NextResponse.redirect(pageUrl, 303)
   }
 
-  const hstCents = Math.round(program.price * HST_RATE * 100)
+  // Optional installment plan: charge only the first payment now.
+  const isInstallment = (url.searchParams.get('plan') || '').trim() === 'installment'
+  let basePrice = program.price
+  let lineName = program.name
+  let refSuffix = ''
+  if (isInstallment) {
+    const inst = INSTALLMENTS[key]
+    // Installments aren't offered for this program → fall back to the page.
+    if (!inst) return NextResponse.redirect(pageUrl, 303)
+    basePrice = inst.first
+    lineName = inst.name
+    refSuffix = '-installment'
+  }
+
+  const hstCents = Math.round(basePrice * HST_RATE * 100)
 
   const params = new URLSearchParams()
   params.set('mode', 'payment')
   params.set('line_items[0][quantity]', '1')
   params.set('line_items[0][price_data][currency]', 'cad')
-  params.set('line_items[0][price_data][unit_amount]', String(Math.round(program.price * 100)))
-  params.set('line_items[0][price_data][product_data][name]', program.name)
+  params.set('line_items[0][price_data][unit_amount]', String(Math.round(basePrice * 100)))
+  params.set('line_items[0][price_data][product_data][name]', lineName)
   // HST as its own line so the Stripe total matches the on-page breakdown.
   params.set('line_items[1][quantity]', '1')
   params.set('line_items[1][price_data][currency]', 'cad')
@@ -74,9 +96,14 @@ export async function GET(req: Request) {
   params.set('custom_fields[2][type]', 'text')
   params.set('custom_fields[2][optional]', 'true')
   params.set('allow_promotion_codes', 'true')
-  params.set('client_reference_id', `afk-programs-${key}`)
-  params.set('metadata[product]', `afk-programs-${key}`)
-  params.set('metadata[course]', program.name)
+  params.set('client_reference_id', `afk-programs-${key}${refSuffix}`)
+  params.set('metadata[product]', `afk-programs-${key}${refSuffix}`)
+  params.set('metadata[course]', lineName)
+  if (isInstallment) {
+    params.set('metadata[plan]', 'installment')
+    params.set('metadata[installment]', '1 of 7')
+    params.set('metadata[installment_schedule]', '6 x $844.87 + HST monthly after first payment')
+  }
   params.set('success_url', `${pageUrl}?status=confirmed`)
   params.set('cancel_url', pageUrl)
 
