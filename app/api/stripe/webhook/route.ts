@@ -322,34 +322,26 @@ export async function POST(req: Request) {
           const orderNo = (typeof meta['order_number'] === 'string' && meta['order_number']) || reference
           const cleanCourse =
             (typeof meta['course_name'] === 'string' && meta['course_name']) || courseName
-          const subtotal = num(meta['course_subtotal']) || amountTotal / 100
-          const tax = num(meta['course_tax'])
+          // Stripe Tax computed the tax — read the real amounts from the session.
+          const taxCents =
+            typeof totalDetails['amount_tax'] === 'number' ? (totalDetails['amount_tax'] as number) : 0
+          const tax = taxCents / 100
           const shipping = shipCents / 100
-          const grandTotal = subtotal + tax + shipping
           const paidNow = amountTotal / 100
+          const subtotal = (amountTotal - taxCents - shipCents) / 100
           const isInstallment = meta['plan'] === 'installment'
           const numPayments = (typeof meta['num_payments'] === 'string' && meta['num_payments']) || (isInstallment ? '7' : '1')
-          const taxLabel = (typeof meta['tax_label'] === 'string' && meta['tax_label']) || 'HST'
+          const monthlyBase = num(meta['monthly_base'])
 
-          // Partial payment schedule (installment only): deposit (paid now) + monthly.
+          // Partial payment schedule (installment only): deposit paid now + base monthly + tax.
           let scheduleRows = ''
-          let futureTotal = 0
           if (isInstallment) {
-            const firstTotal = num(meta['first_total'])
-            const monthly = num(meta['monthly_total'])
-            const dates = String(meta['installment_dates'] || '')
-              .split('|')
-              .filter(Boolean)
-            futureTotal = Math.round((subtotal + tax - firstTotal) * 100) / 100
-            const srow = (id: string, when2: string, amt: number, status: string) =>
-              `<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(id)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(when2)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee;text-align:right">${money(amt)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(status)}</td></tr>`
-            scheduleRows += srow(`${orderNo}-1`, 'Deposit (paid now)', paidNow, 'Completed')
-            let acc = 0
+            const dates = String(meta['installment_dates'] || '').split('|').filter(Boolean)
+            const srow = (id: string, when2: string, amt: string, status: string) =>
+              `<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(id)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(when2)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee;text-align:right">${esc(amt)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(status)}</td></tr>`
+            scheduleRows += srow(`${orderNo}-1`, 'Deposit (paid now, incl. tax)', money(paidNow), 'Completed')
             dates.forEach((d, i) => {
-              const last = i === dates.length - 1
-              const amt = last ? Math.round((futureTotal - acc) * 100) / 100 : monthly
-              if (!last) acc += monthly
-              scheduleRows += srow(`${orderNo}-${i + 2}`, d, amt, 'Pending payment')
+              scheduleRows += srow(`${orderNo}-${i + 2}`, d, `${money(monthlyBase)} + tax`, 'Pending payment')
             })
           }
 
@@ -368,11 +360,10 @@ export async function POST(req: Request) {
                 ${sumRow(`${esc(cleanCourse)} × 1`, money(subtotal))}
                 ${sumRow('Subtotal', money(subtotal))}
                 ${sumRow(`Shipping: ${esc(shipRegion)}`, money(shipping))}
-                ${sumRow(`${esc(taxLabel)} · 821980398RT0001`, money(tax))}
-                ${sumRow('Total', `${money(grandTotal)} ${currency}`, true)}
-                ${isInstallment ? sumRow('Number of payments', String(numPayments)) : sumRow('Payment', 'Paid in full')}
-                ${isInstallment ? sumRow('Installment amount (paid now)', money(paidNow)) : ''}
-                ${isInstallment ? sumRow('Future payments', `${money(futureTotal)} (incl. HST)`) : ''}
+                ${sumRow('Sales tax (Stripe Tax) · 821980398RT0001', money(tax))}
+                ${sumRow('Total paid now', `${money(paidNow)} ${currency}`, true)}
+                ${isInstallment ? sumRow('Payment plan', `${esc(String(numPayments))} payments (6 + 1)`) : sumRow('Payment', 'Paid in full')}
+                ${isInstallment ? sumRow('Future payments', `6 × ${money(monthlyBase)} + applicable tax (via links)`) : ''}
               </table>
 
               ${
@@ -410,10 +401,10 @@ export async function POST(req: Request) {
           const text =
             `New order: #${orderNo}\nRegistration from ${studentName || email} (${when} Toronto)\n\n` +
             `${cleanCourse}\nSubtotal: ${money(subtotal)}\nShipping (${shipRegion}): ${money(shipping)}\n` +
-            `${taxLabel} · 821980398RT0001: ${money(tax)}\nTotal: ${money(grandTotal)} ${currency}\n` +
+            `Sales tax (Stripe Tax) · 821980398RT0001: ${money(tax)}\nTotal paid now: ${money(paidNow)} ${currency}\n` +
             (isInstallment
-              ? `Number of payments: ${numPayments}\nInstallment amount (paid now): ${money(paidNow)}\nFuture payments: ${money(futureTotal)} (incl. HST)\n`
-              : `Payment: Paid in full ${money(grandTotal)} ${currency}\n`) +
+              ? `Payment plan: ${numPayments} payments (6 + 1)\nFuture payments: 6 × ${money(monthlyBase)} + applicable tax (via links)\n`
+              : `Payment: Paid in full ${money(paidNow)} ${currency}\n`) +
             `\nStudent: ${studentName}\nPhone: ${phone ?? ''}\nEmail: ${email}\nSIN: ${sin}\nOrder number: ${orderNo}\n`
 
           await sendEmail({
@@ -453,7 +444,9 @@ export async function POST(req: Request) {
           }
           const paymentIntent =
             typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
-          const paidTaxCents = Math.round(Number(meta['paid_tax'] || 0) * 100)
+          const recTotals = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+          const paidTaxCents =
+            typeof recTotals['amount_tax'] === 'number' ? (recTotals['amount_tax'] as number) : 0
           const result = await recordMockOrder(supabase, {
             email,
             firstName: cf('first_name'),
@@ -489,8 +482,8 @@ export async function POST(req: Request) {
             extraRaw: {
               plan: meta['plan'] || 'full',
               num_payments: meta['num_payments'] || '1',
-              installment_first_total: meta['first_total'] || '',
-              installment_monthly_total: meta['monthly_total'] || '',
+              installment_first_base: meta['first_base'] || '',
+              installment_monthly_base: meta['monthly_base'] || '',
               installment_dates: meta['installment_dates'] || '',
               order_number: meta['order_number'] || '',
             },

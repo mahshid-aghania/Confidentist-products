@@ -723,27 +723,6 @@
       <p class="pkg-middle-desc" style="margin-bottom:0;">Choose between the Extended and Comprehensive pathways below based on your preparation needs and desired level of support.</p>
     </div>
 
-    <div class="tax-region">
-      <label for="taxRegion">Select your province / region (for tax)</label>
-      <select id="taxRegion" aria-label="Your province or region for tax calculation">
-        <option value="ON" selected>Ontario — HST 13%</option>
-        <option value="BC">British Columbia — 12%</option>
-        <option value="AB">Alberta — GST 5%</option>
-        <option value="SK">Saskatchewan — 11%</option>
-        <option value="MB">Manitoba — 12%</option>
-        <option value="QC">Quebec — 14.975%</option>
-        <option value="NB">New Brunswick — HST 15%</option>
-        <option value="NS">Nova Scotia — HST 14%</option>
-        <option value="PE">Prince Edward Island — HST 15%</option>
-        <option value="NL">Newfoundland &amp; Labrador — HST 15%</option>
-        <option value="YT">Yukon — GST 5%</option>
-        <option value="NT">Northwest Territories — GST 5%</option>
-        <option value="NU">Nunavut — GST 5%</option>
-        <option value="INTL">Outside Canada — no tax</option>
-      </select>
-      <p class="hint">Tax is applied at checkout based on your billing province. Installment amounts below update to match your selection.</p>
-    </div>
-
     <div class="price-grid">
 
       <!-- EXTENDED -->
@@ -755,7 +734,7 @@
           <span class="price-reg">$6,999</span>
           <span class="price-now">$6,499</span>
         </div>
-        <p class="price-hst"><strong>CAD</strong> + HST</p>
+        <p class="price-hst"><strong>CAD</strong> + tax</p>
         <p class="price-earlybird">More time to prepare, with personalized support. This 8-month program includes a personalized study plan and a mid-course progress evaluation to help you stay on track.</p>
 
         <hr class="price-divider" />
@@ -785,7 +764,7 @@
           <div class="price-cohort featured">
             <div class="price-cohort-head">
               <span class="price-cohort-name">August 2027 Exam</span>
-              <span class="price-cohort-amt">$6,499 <small>CAD + HST</small></span>
+              <span class="price-cohort-amt">$6,499 <small>CAD + tax</small></span>
             </div>
             <p class="price-cohort-meta">Starts December 2026 · 8-month program</p>
             <a class="price-cta navy" href="/api/afk-programs/checkout/?p=extended-aug-2027">Register for August 2027 Exam →</a>
@@ -802,7 +781,7 @@
               <svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
               <div>
                 <p class="installment-plan-name">6 + 1 Payments</p>
-                <p class="installment-plan-sub">Pay an installment of: <strong class="js-inst-first">$1,615.65</strong> today <span style="white-space:nowrap">($1,429.78 + <span class="js-inst-taxword">HST</span>)</span></p>
+                <p class="installment-plan-sub">Pay an installment of: <strong>$1,429.78</strong> today <span style="white-space:nowrap">+ applicable tax</span></p>
               </div>
             </div>
             <table class="installment-table">
@@ -810,16 +789,16 @@
                 <tr><th scope="col">Payment Date</th><th scope="col">Amount</th></tr>
               </thead>
               <tbody>
-                <tr><td>December 10, 2026</td><td class="js-inst-monthly">$954.70</td></tr>
-                <tr><td>January 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
-                <tr><td>February 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
-                <tr><td>March 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
-                <tr><td>April 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
-                <tr><td>May 10, 2027</td><td class="js-inst-monthly">$954.70</td></tr>
+                <tr><td>December 10, 2026</td><td>$844.87</td></tr>
+                <tr><td>January 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>February 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>March 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>April 10, 2027</td><td>$844.87</td></tr>
+                <tr><td>May 10, 2027</td><td>$844.87</td></tr>
               </tbody>
             </table>
-            <p class="installment-note">Each monthly payment is $844.87 + <span class="js-inst-taxpct">13% HST</span> = <strong class="js-inst-monthly">$954.70</strong>. Course fee <strong>$6,499 CAD + <span class="js-inst-taxword">HST</span> = <span class="js-inst-total">$7,343.87</span></strong> total (<span class="js-inst-first">$1,615.65</span> today, then 6 × <span class="js-inst-monthly">$954.70</span>).</p>
-            <a class="price-cta gold" style="margin-top:1.1rem;" href="/api/afk-programs/checkout/?p=extended-aug-2027&amp;plan=installment">Pay First Installment — <span class="js-inst-first">$1,615.65</span> →</a>
+            <p class="installment-note">Course fee <strong>$6,499 CAD</strong> — $1,429.78 today, then 6 monthly payments of $844.87. <strong>Sales tax is added automatically at checkout based on your billing address</strong>, and applied to each future payment.</p>
+            <a class="price-cta gold" style="margin-top:1.1rem;" href="/api/afk-programs/checkout/?p=extended-aug-2027&amp;plan=installment">Pay First Installment — $1,429.78 + tax →</a>
           </div>
         </div>
       </article>
@@ -833,8 +812,8 @@
           <span class="price-reg">$4,999</span>
           <span class="price-now">$4,749</span>
         </div>
-        <p class="price-hst"><strong>CAD</strong> + HST · early-bird price</p>
-        <p class="price-earlybird">The early-bird discount is valid until 10 days before the course start date. A February 2027 exam cohort (started July 2026) is also available at $4,999 + HST.</p>
+        <p class="price-hst"><strong>CAD</strong> + tax · early-bird price</p>
+        <p class="price-earlybird">The early-bird discount is valid until 10 days before the course start date. A February 2027 exam cohort (started July 2026) is also available at $4,999 + tax.</p>
 
         <hr class="price-divider" />
         <p class="price-subhead">Best suited for</p>
@@ -861,7 +840,7 @@
           <div class="price-cohort">
             <div class="price-cohort-head">
               <span class="price-cohort-name">February 2027 Exam</span>
-              <span class="price-cohort-amt">$4,999 <small>CAD + HST</small></span>
+              <span class="price-cohort-amt">$4,999 <small>CAD + tax</small></span>
             </div>
             <p class="price-cohort-meta">Course started July 2026 · 6-month program</p>
             <a class="price-cta navy" href="/api/afk-programs/checkout/?p=comprehensive-feb-2027">Register for February 2027 Exam →</a>
@@ -869,7 +848,7 @@
           <div class="price-cohort featured">
             <div class="price-cohort-head">
               <span class="price-cohort-name">August 2027 Exam</span>
-              <span class="price-cohort-amt">$4,749 <small>CAD + HST · early-bird</small></span>
+              <span class="price-cohort-amt">$4,749 <small>CAD + tax · early-bird</small></span>
             </div>
             <p class="price-cohort-meta">Starts February 2027 · 6-month program</p>
             <a class="price-cta gold" href="/api/afk-programs/checkout/?p=comprehensive-aug-2027">Register for August 2027 Exam →</a>
@@ -1053,40 +1032,6 @@
         detailP.textContent = btn.getAttribute('data-desc');
       });
     });
-  })();
-</script>
-
-<script>
-  /* Province/region tax selector: appends ?region= to all AFK checkout links and
-     updates the displayed installment amounts to match the selected rate. */
-  (function () {
-    var RATES = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.14975, BC:0.12, MB:0.12, SK:0.11, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
-    var PCT   = { ON:'13% HST', NB:'15% HST', NL:'15% HST', PE:'15% HST', NS:'14% HST', QC:'14.975% (GST+QST)', BC:'12% (GST+PST)', MB:'12% (GST+PST)', SK:'11% (GST+PST)', AB:'5% GST', YT:'5% GST', NT:'5% GST', NU:'5% GST', INTL:'no tax' };
-    var WORD  = { ON:'HST', NB:'HST', NL:'HST', PE:'HST', NS:'HST', QC:'tax', BC:'tax', MB:'tax', SK:'tax', AB:'GST', YT:'GST', NT:'GST', NU:'GST', INTL:'tax' };
-    var BASE = { first: 1429.78, monthly: 844.87, course: 6499 };
-    var sel = document.getElementById('taxRegion');
-    if (!sel) return;
-    function money(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
-    function r2(n) { return Math.round(n * 100) / 100; }
-    function setText(cls, val) { var els = document.querySelectorAll('.' + cls); for (var i = 0; i < els.length; i++) els[i].textContent = val; }
-    function apply() {
-      var region = sel.value;
-      var rate = RATES[region] != null ? RATES[region] : 0.13;
-      document.querySelectorAll('a[href*="/api/afk-programs/checkout/"]').forEach(function (a) {
-        try {
-          var u = new URL(a.getAttribute('href'), window.location.origin);
-          u.searchParams.set('region', region);
-          a.setAttribute('href', u.pathname + u.search);
-        } catch (e) {}
-      });
-      setText('js-inst-first', money(r2(BASE.first * (1 + rate))));
-      setText('js-inst-monthly', money(r2(BASE.monthly * (1 + rate))));
-      setText('js-inst-total', money(r2(BASE.course * (1 + rate))));
-      setText('js-inst-taxword', WORD[region] || 'tax');
-      setText('js-inst-taxpct', PCT[region] || 'tax');
-    }
-    sel.addEventListener('change', apply);
-    apply();
   })();
 </script>
 

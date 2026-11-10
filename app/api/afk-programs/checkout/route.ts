@@ -17,26 +17,9 @@ import { NextResponse } from 'next/server'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-// Sales tax by billing region. The buyer selects their province/country on the
-// AFK page and it's passed as ?region=; outside Canada is tax-free. These are the
-// common combined sales-tax rates — adjust any of them if your filings differ.
-const TAX_RATES: Record<string, { rate: number; label: string }> = {
-  ON: { rate: 0.13, label: 'HST (13%)' },
-  NB: { rate: 0.15, label: 'HST (15%)' },
-  NL: { rate: 0.15, label: 'HST (15%)' },
-  PE: { rate: 0.15, label: 'HST (15%)' },
-  NS: { rate: 0.14, label: 'HST (14%)' },
-  QC: { rate: 0.14975, label: 'GST + QST (14.975%)' },
-  BC: { rate: 0.12, label: 'GST + PST (12%)' },
-  MB: { rate: 0.12, label: 'GST + PST (12%)' },
-  SK: { rate: 0.11, label: 'GST + PST (11%)' },
-  AB: { rate: 0.05, label: 'GST (5%)' },
-  YT: { rate: 0.05, label: 'GST (5%)' },
-  NT: { rate: 0.05, label: 'GST (5%)' },
-  NU: { rate: 0.05, label: 'GST (5%)' },
-  INTL: { rate: 0, label: 'No tax (outside Canada)' },
-}
-const DEFAULT_REGION = 'ON'
+// Sales tax is handled by Stripe Tax (automatic_tax): Stripe calculates the correct
+// GST/HST/PST/QST from the buyer's billing address at checkout, and 0% outside Canada.
+// No tax rates are hard-coded here.
 
 // Program prices in CAD (pre-HST). Keys MUST match the ?p= values on /afk-programs/.
 const PROGRAMS: Record<string, { name: string; price: number }> = {
@@ -122,12 +105,6 @@ export async function GET(req: Request) {
     return NextResponse.redirect(pageUrl, 303)
   }
 
-  // Tax by billing region (buyer-selected on the page). Falls back to Ontario.
-  const regionParam = (url.searchParams.get('region') || '').trim().toUpperCase()
-  const region = TAX_RATES[regionParam] ? regionParam : DEFAULT_REGION
-  const taxInfo = TAX_RATES[region]
-  const taxRate = taxInfo.rate
-
   // Optional installment plan: charge only the first payment now.
   const isInstallment = (url.searchParams.get('plan') || '').trim() === 'installment'
   let basePrice = program.price
@@ -142,26 +119,19 @@ export async function GET(req: Request) {
     refSuffix = '-installment'
   }
 
-  const hstCents = Math.round(basePrice * taxRate * 100)
-  // Full-course tax + total (independent of installment first payment) and the
-  // order number assigned to this registrant — carried in metadata for the receipt.
-  const courseTaxCents = Math.round(program.price * taxRate * 100)
+  // Order number assigned to this registrant — carried in metadata for the receipt.
   const orderNumber = genOrderNumber()
 
   const params = new URLSearchParams()
   params.set('mode', 'payment')
+  // Stripe Tax: calculate sales tax from the buyer's billing address automatically.
+  params.set('automatic_tax[enabled]', 'true')
   params.set('line_items[0][quantity]', '1')
   params.set('line_items[0][price_data][currency]', 'cad')
   params.set('line_items[0][price_data][unit_amount]', String(Math.round(basePrice * 100)))
   params.set('line_items[0][price_data][product_data][name]', lineName)
-  // Tax as its own line so the Stripe total matches the on-page breakdown. Skipped
-  // entirely when the buyer is outside Canada (no tax).
-  if (hstCents > 0) {
-    params.set('line_items[1][quantity]', '1')
-    params.set('line_items[1][price_data][currency]', 'cad')
-    params.set('line_items[1][price_data][unit_amount]', String(hstCents))
-    params.set('line_items[1][price_data][product_data][name]', taxInfo.label)
-  }
+  // Price is pre-tax; Stripe adds the calculated tax on top.
+  params.set('line_items[0][price_data][tax_behavior]', 'exclusive')
 
   // Collect the buyer's full details at checkout.
   // Billing address (required) + residential/delivery address (shipping) with
@@ -177,6 +147,7 @@ export async function GET(req: Request) {
     params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][amount]`, String(s.amountCents))
     params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][currency]`, 'cad')
     params.set(`shipping_options[${i}][shipping_rate_data][display_name]`, s.name)
+    params.set(`shipping_options[${i}][shipping_rate_data][tax_behavior]`, 'exclusive')
   })
   params.set('custom_fields[0][key]', 'first_name')
   params.set('custom_fields[0][label][type]', 'custom')
@@ -198,18 +169,16 @@ export async function GET(req: Request) {
   params.set('metadata[order_number]', orderNumber)
   params.set('metadata[course_name]', program.name)
   params.set('metadata[course_subtotal]', program.price.toFixed(2))
-  params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
-  // HST actually charged on THIS payment (full course, or just the first installment).
-  params.set('metadata[paid_tax]', (hstCents / 100).toFixed(2))
-  params.set('metadata[region]', region)
-  params.set('metadata[tax_label]', taxInfo.label)
+  // Tax is computed by Stripe Tax; the webhook reads the actual amount from the session.
+  params.set('metadata[tax_mode]', 'auto')
   if (isInstallment) {
     const inst = INSTALLMENTS[key]
     if (inst) {
       params.set('metadata[plan]', 'installment')
       params.set('metadata[num_payments]', String(inst.count + 1))
-      params.set('metadata[first_total]', (Math.round(inst.first * (1 + taxRate) * 100) / 100).toFixed(2))
-      params.set('metadata[monthly_total]', (Math.round(inst.monthly * (1 + taxRate) * 100) / 100).toFixed(2))
+      // Pre-tax base amounts; Stripe Tax adds the tax on each payment.
+      params.set('metadata[first_base]', inst.first.toFixed(2))
+      params.set('metadata[monthly_base]', inst.monthly.toFixed(2))
       params.set('metadata[monthly_count]', String(inst.count))
       params.set('metadata[installment_dates]', inst.dates.join('|'))
     }

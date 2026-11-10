@@ -2,8 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "redirects": [
-    { "source": "/pathway", "destination": "/dental-equivalency/", "permanent": false },
-    { "source": "/pathway/", "destination": "/dental-equivalency/", "permanent": false }
+    { "source": "/dental-equivalency", "destination": "/dental-equivalency-in-canada/", "permanent": false },
+    { "source": "/dental-equivalency/", "destination": "/dental-equivalency-in-canada/", "permanent": false },
+    { "source": "/pathway", "destination": "/dental-equivalency-in-canada/", "permanent": false },
+    { "source": "/pathway/", "destination": "/dental-equivalency-in-canada/", "permanent": false }
   ],
   "headers": [
     {
