@@ -1,6 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
+  "redirects": [
+    { "source": "/pathway", "destination": "/dental-equivalency/", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
