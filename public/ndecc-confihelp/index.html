@@ -93,6 +93,8 @@
       transition: opacity .2s ease, transform .2s ease; z-index: 600;
     }
     .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega.mega-xs { width: min(360px, 92vw); }
+    .mega.mega-xs .mega-grid { grid-template-columns: 1fr; }
     .mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
     .mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
     .mega a { display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem; transition: background .15s; text-decoration: none; }
@@ -371,11 +373,22 @@
           </div>
         </div>
       </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="https://www.confidentist.ca/our-team/" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="https://www.confidentist.ca/gallery/" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-actions">
       <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
-      <a href="https://www.confidentist.ca/our-history/" class="util-link">About Us</a>
       <a href="#book" class="btn-cta">Book ConfiHelp</a>
       <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
         <span></span><span></span><span></span>
@@ -411,7 +424,10 @@
   <div class="mp-label">More</div>
   <a href="https://www.confidentist.ca/our-team/">Instructors</a>
   <a href="https://www.confidentist.ca/contact-us/">Contact</a>
-  <a href="https://www.confidentist.ca/our-history/">About Us</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="https://www.confidentist.ca/our-team/" class="sub" target="_blank" rel="noopener">Our Team</a>
+  <a href="https://www.confidentist.ca/gallery/" class="sub" target="_blank" rel="noopener">Gallery</a>
   <a href="#book" class="btn-cta">Book a Free Session</a>
 </nav>
 
@@ -683,6 +699,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initMega('equivItem', 'equivTrigger');
     initMega('resItem', 'resTrigger');
+    initMega('aboutItem', 'aboutTrigger');
     initMobile();
     initForm();
   });
