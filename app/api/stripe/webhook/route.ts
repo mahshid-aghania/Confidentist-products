@@ -105,6 +105,131 @@ export async function POST(req: Request) {
         ? (session['client_reference_id'] as string)
         : ''
 
+    // Continuing Education online course (/continue-education/ → /api/ce-courses/checkout):
+    // online course, no shipping. Capture the buyer's details (name, email, phone,
+    // billing address) and send a customer receipt + a full-info admin notification.
+    // Sales tax is handled by Stripe Tax, so the tax portion is read from the session.
+    if (ref.startsWith('ce-')) {
+      const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
+      const email =
+        (typeof details['email'] === 'string' && (details['email'] as string)) ||
+        (typeof session['customer_email'] === 'string' ? (session['customer_email'] as string) : '')
+      const phone = typeof details['phone'] === 'string' ? (details['phone'] as string) : undefined
+      const name = typeof details['name'] === 'string' ? (details['name'] as string) : ''
+      const amountTotal =
+        typeof session['amount_total'] === 'number' ? (session['amount_total'] as number) : 0
+      const currency =
+        typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
+      const amountLabel = `$${(amountTotal / 100).toFixed(2)} ${currency}`
+      const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
+      const selectionLabel = meta.course || meta.course_name || 'ConfiDentist CE Course'
+
+      // Tax computed by Stripe Tax → read the actual tax amount from the session.
+      const totalDetails = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+      const taxCents =
+        typeof totalDetails['amount_tax'] === 'number' ? (totalDetails['amount_tax'] as number) : 0
+
+      // Billing address (collected via billing_address_collection=required).
+      const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
+      const str = (v: unknown) => (typeof v === 'string' ? v : '')
+      const line1 = str(a['line1'])
+      const line2 = str(a['line2'])
+      const city = str(a['city'])
+      const state = str(a['state'])
+      const country = str(a['country'])
+      const postalCode = str(a['postal_code'])
+      const cityLine = [city, state, postalCode].filter(Boolean).join(', ')
+      const addressLines = [line1, line2, cityLine, country]
+
+      // Custom fields collected at checkout: first_name, last_name (required).
+      const customFields = Array.isArray(session['custom_fields'])
+        ? (session['custom_fields'] as Array<Record<string, unknown>>)
+        : []
+      const cf = (key: string) => {
+        const field = customFields.find((f) => f['key'] === key)
+        const text = field?.['text'] as Record<string, unknown> | undefined
+        return typeof text?.['value'] === 'string' ? (text['value'] as string) : ''
+      }
+      const firstName = cf('first_name')
+      const lastName = cf('last_name')
+
+      const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+      const paymentIntent =
+        typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
+
+      // Record the purchase in the orders tables (idempotent — Stripe retries this webhook).
+      let recorded = false
+      try {
+        const result = await recordMockOrder(supabase, {
+          email,
+          firstName,
+          lastName,
+          phone: phone ?? '',
+          addressLine1: line1,
+          addressLine2: line2,
+          city,
+          state,
+          postalCode,
+          country,
+          productName: selectionLabel,
+          amountTotalCents: amountTotal,
+          taxCents,
+          currency,
+          sessionId: reference,
+          paymentIntent,
+          sin: '',
+          createdVia: 'ce-courses-checkout',
+          orderNumberPrefix: 'CE',
+          rawSession: session,
+        })
+        recorded = result.recorded
+        if (result.error) console.error('ce order record error', result.error)
+      } catch (e) {
+        console.error('ce order record failed', e)
+      }
+
+      let emailed = false
+      let notified = false
+      if (email) {
+        try {
+          const rendered = renderCourseReceipt({
+            courseName: selectionLabel,
+            customerEmail: email,
+            customerPhone: phone,
+            amountLabel,
+            reference,
+          })
+          await sendEmail({ to: email, bcc: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...rendered })
+          emailed = true
+        } catch (e) {
+          console.error('ce receipt email failed', e)
+        }
+      }
+      // Full-info admin notification (name, phone, billing address).
+      try {
+        const note = renderMockAdminNotification({
+          productName: 'Continuing Education Course',
+          name: [firstName, lastName].filter(Boolean).join(' ') || name,
+          firstName,
+          lastName,
+          email,
+          phone: phone ?? '',
+          sin: '',
+          addressLines,
+          postalCode,
+          selectionLabel,
+          amountLabel,
+          reference,
+          when,
+        })
+        await sendEmail({ to: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...note })
+        notified = true
+      } catch (e) {
+        console.error('ce admin notification failed', e)
+      }
+      return NextResponse.json({ received: true, ce_course: ref, emailed, notified, recorded })
+    }
+
     // OSCE Mock Exam (/osce-mock-exams/ → /api/osce-mock/checkout): capture the
     // buyer's full details (name, email, phone, billing address, postal code, SIN)
     // and send a customer receipt + a full-info admin notification.

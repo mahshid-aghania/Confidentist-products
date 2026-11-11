@@ -134,6 +134,22 @@
     .spotlight p { font-size: 1.02rem; line-height: 1.8; color: rgba(255,255,255,.88); max-width: 640px; margin: 0 auto 1.75rem; }
     .spotlight .hero-cta { box-shadow: 0 8px 28px rgba(0,0,0,.25); }
 
+    /* ── SOLD OUT ── */
+    .soldout-pill { display: inline-flex; align-items: center; gap: .45rem; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.4); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .4rem 1rem; border-radius: 2rem; }
+    .cta-disabled { display: inline-flex; align-items: center; gap: .55rem; background: rgba(255,255,255,.12); color: #fff; font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .95rem 2rem; border-radius: .4rem; border: 1px solid rgba(255,255,255,.35); cursor: not-allowed; }
+    .cta-ghost { display: inline-flex; align-items: center; gap: .5rem; color: #fff; font-size: .82rem; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; justify-content: center; }
+
+    /* ── MEDIA BAND ── */
+    .media-band { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    .media-band figure { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); border: 1.5px solid var(--border); background: #fff; }
+    .media-band img { display: block; width: 100%; height: auto; }
+    .media-band .ribbon { position: absolute; top: 1rem; right: -2.6rem; transform: rotate(45deg); background: var(--navy); color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .4rem 3rem; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    @media (max-width: 720px) { .media-band { grid-template-columns: 1fr; } }
+
+    .spotlight-media { max-width: 420px; margin: 0 auto 1.6rem; border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+    .spotlight-media img { display: block; width: 100%; height: auto; }
+
     /* ── CONTACT ── */
     .contact-grid { max-width: 820px; margin: 2.5rem auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .contact-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.5rem; text-align: center; text-decoration: none; color: inherit; transition: box-shadow .2s, transform .2s, border-color .2s; }
@@ -221,7 +237,7 @@
     <div class="nav-actions">
       <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
       <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
-      <a href="https://funtours.ca/tour/confidentist-dentech" class="btn-cta" target="_blank" rel="noopener">Book Your Tour</a>
+      <a href="mailto:info@confidentist.ca?subject=Travel%20%26%20Learn%20%E2%80%94%20future%20trips" class="btn-cta">Notify Me</a>
       <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -230,7 +246,7 @@
 <div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
   <a href="/">Home <span aria-hidden="true">→</span></a>
-  <a href="https://funtours.ca/tour/confidentist-dentech" target="_blank" rel="noopener">Book Your Tour <span aria-hidden="true">→</span></a>
+  <a href="mailto:info@confidentist.ca?subject=Travel%20%26%20Learn%20%E2%80%94%20future%20trips">Notify Me About Future Trips <span aria-hidden="true">→</span></a>
   <div class="mp-label">Courses</div>
   <a href="/afk-programs/" class="sub">AFK Preparation</a>
   <a href="/acj-programs/" class="sub">ACJ Preparation</a>
@@ -254,7 +270,7 @@
   <div class="mp-label">More</div>
   <a href="https://www.confidentist.ca/contact-us/">Contact</a>
   <a href="https://www.confidentist.ca/my-account/">Student Login</a>
-  <a href="https://funtours.ca/tour/confidentist-dentech" class="btn-cta" target="_blank" rel="noopener">Book Your Tour</a>
+  <a href="mailto:info@confidentist.ca?subject=Travel%20%26%20Learn%20%E2%80%94%20future%20trips" class="btn-cta">Notify Me</a>
 </nav>
 
 <!-- HERO -->
@@ -263,7 +279,10 @@
     <p class="hero-eyebrow">✈️ Confi Travel &amp; Learn</p>
     <h1>ConfiDentist <em>China Seminar</em></h1>
     <p class="hero-sub">Earn accredited CE credits while you explore world-class destinations — education, networking, and unforgettable experiences, all in one journey.</p>
-    <a href="https://funtours.ca/tour/confidentist-dentech" class="hero-cta" target="_blank" rel="noopener">✈️ Book Your Tour <span aria-hidden="true">→</span></a>
+    <div class="cta-row">
+      <span class="cta-disabled" aria-disabled="true">🔴 Sold Out</span>
+      <a href="mailto:info@confidentist.ca?subject=Travel%20%26%20Learn%20%E2%80%94%20future%20trips" class="cta-ghost">Notify me about the next trip <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </header>
 
@@ -272,6 +291,13 @@
   <div class="section-inner">
     <div class="lede-prose">
       <p><strong>Confi Travel &amp; Learn</strong> blends professional development with the adventure of a lifetime. Study alongside expert instructors, connect with fellow dental professionals, and discover a new part of the world — with your family and colleagues by your side.</p>
+    </div>
+    <div class="media-band" style="margin-top:3rem;">
+      <figure>
+        <img src="/images/travel-and-learn/china-seminar-1.png" alt="ConfiDentist China Seminar" width="1400" height="1400" loading="lazy" />
+        <span class="ribbon">Sold Out</span>
+      </figure>
+      <figure><img src="/images/travel-and-learn/china-seminar-2.jpeg" alt="ConfiDentist China Seminar" width="1200" height="900" loading="lazy" /></figure>
     </div>
   </div>
 </section>
@@ -315,9 +341,13 @@
     <div class="spotlight">
       <div class="spotlight-inner">
         <span class="spotlight-badge">🇨🇳 Featured Seminar</span>
-        <h2>Join the ConfiDentist China Seminar</h2>
-        <p>Reserve your place on our next Travel &amp; Learn journey. Booking and full itinerary details are handled by our travel partner — secure your spot today.</p>
-        <a href="https://funtours.ca/tour/confidentist-dentech" class="hero-cta" target="_blank" rel="noopener">✈️ Book Your Tour <span aria-hidden="true">→</span></a>
+        <figure class="spotlight-media"><img src="/images/travel-and-learn/china-seminar-1.png" alt="ConfiDentist China Seminar" width="1400" height="1400" loading="lazy" /></figure>
+        <p style="margin-bottom:1.1rem;"><span class="soldout-pill">🔴 Sold Out</span></p>
+        <h2>ConfiDentist China Seminar</h2>
+        <p>Thank you — this Travel &amp; Learn journey is now <strong>fully booked</strong>. Want first access to our next seminar? Leave us a note and we'll reach out the moment registration opens.</p>
+        <div class="cta-row">
+          <a href="mailto:info@confidentist.ca?subject=Travel%20%26%20Learn%20%E2%80%94%20future%20trips" class="hero-cta">✉️ Notify Me About Future Trips <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </div>
