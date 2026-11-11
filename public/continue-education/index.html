@@ -146,10 +146,10 @@
     @media (max-width: 480px) { .course-img { height: 300px; } }
     @media (max-width: 680px) { .course-grid { grid-template-columns: 1fr; } }
 
-    /* ── POSTER BANNER ── */
-    .poster-section { padding: 2.5rem 1.5rem 0; }
-    .poster { max-width: 940px; margin: -2.5rem auto 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); border: 1.5px solid var(--border); background: #fff; position: relative; z-index: 2; }
-    .poster img { display: block; width: 100%; height: auto; }
+    /* ── HERO BANNER ── */
+    .hero-banner { background: #fff; padding: 1.5rem 1.5rem 0; display: flex; justify-content: center; }
+    .hero-banner img { display: block; width: 100%; max-width: var(--maxw); height: auto; border-radius: var(--radius); box-shadow: var(--shadow-md); }
+    @media (max-width: 600px) { .hero-banner { padding: 1rem 1rem 0; } }
 
     /* ── FEATURED BANNERS ── */
     .media-band { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
@@ -301,18 +301,9 @@
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <p class="hero-eyebrow">🎓 Continuing Education</p>
-    <h1>Grow Your Skills. <em>Elevate Your Practice.</em></h1>
-    <p class="hero-sub">Discover unparalleled opportunities for professional growth at ConfiDentist through our Continuing Education (CE) program.</p>
-  </div>
+<header class="hero-banner">
+  <img src="/images/continue-education/hero-banner.png" alt="ConfiDentist Continuing Education" width="1400" height="500" />
 </header>
-
-<!-- POSTER -->
-<section class="poster-section">
-  <figure class="poster"><img src="/images/continue-education/hero-banner.png" alt="ConfiDentist Continuing Education" width="1400" height="788" /></figure>
-</section>
 
 <!-- INTRO -->
 <section class="section">
