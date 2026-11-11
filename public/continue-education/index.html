@@ -142,7 +142,8 @@
     .course-cta { margin-top: auto; padding-top: 1.1rem; }
     .course-cta a { display: block; text-align: center; background: var(--gold); color: #fff; font-weight: 700; font-size: .82rem; letter-spacing: .03em; text-transform: uppercase; padding: .8rem; border-radius: .4rem; text-decoration: none; transition: background .2s, transform .15s; }
     .course-cta a:hover { background: var(--gold-light); transform: translateY(-1px); }
-    .course-img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--bg-soft); }
+    .course-img { display: block; width: 100%; height: 360px; object-fit: contain; background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: .5rem; }
+    @media (max-width: 480px) { .course-img { height: 300px; } }
     @media (max-width: 680px) { .course-grid { grid-template-columns: 1fr; } }
 
     /* ── POSTER BANNER ── */
