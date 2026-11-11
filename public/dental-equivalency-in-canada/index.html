@@ -680,7 +680,7 @@ const pathwayNav = (() => {
     var eyebrow = w.eyebrow ? '<span class="kicker">' + esc(w.eyebrow) + '</span>' : '';
     var head = w.heading ? '<h3' + (w.headingId ? ' id="' + w.headingId + '" tabindex="-1"' : '') + '>' + esc(w.heading) + '</h3>' : '';
     var paras = (w.paras || []).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
-    var note = w.note ? '<p class="osce-examdate">' + svgCal + esc(w.note) + '</p>' : '';
+    var note = w.note ? '<p class="osce-examdate">' + svgCal + (w.noteHref ? '<a href="' + esc(w.noteHref) + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">' + esc(w.note) + '</a>' : esc(w.note)) + '</p>' : '';
     var cta = w.cta ? '<a class="btn-primary afk-welcome-btn"' + (w.cta.scrollTo ? ' data-scrollto="' + esc(w.cta.scrollTo) + '"' : '') + ' href="' + esc(w.cta.href || '#') + '">' + esc(w.cta.label) + ' ' + svgDownC + '</a>' : '';
     return '<div class="osce-welcome">' + eyebrow + head + paras + note + cta + '</div>';
   }
@@ -1232,6 +1232,7 @@ const pathwayNav = (() => {
             "Based on our extensive experience, we've meticulously designed this course to meet all your needs for the OSCE exam. We're here to ensure you're fully prepared, confident, and ready to succeed.",
             "Welcome to our OSCE course — let's take this final step together!" ],
             note: 'The next NDEB exam date is November 23, 2026',
+            noteHref: 'https://ndeb-bned.ca/',
             cta: { label: 'Compare OSCE Cohorts', scrollTo: '#oscePackages', href: '#oscePackages' } })
         + cPackages({ id: 'oscePackages', kicker: 'Virtual OSCE Packages', heading: 'Choose Your Exam Cohort', note: `<p class="osce-uni"><strong>University students:</strong> please email the office with your university email address to receive your special offer for the course or its mock exams.</p>` },
             [
