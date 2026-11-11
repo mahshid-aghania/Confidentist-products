@@ -175,6 +175,7 @@
       transition: opacity .2s ease, transform .2s ease; z-index: 600;
     }
     .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega.mega-sm { width: min(460px, 92vw); }
     /* Invisible hover bridge: covers the gap between the trigger and the panel
        so moving the mouse into the menu doesn't close it. */
     .mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
@@ -978,6 +979,18 @@
           </div>
         </div>
       </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE Programs
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
+          </div>
+        </div>
+      </div>
       <div class="nav-item" id="resItem">
         <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">
           Resources
@@ -1029,6 +1042,9 @@
   <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
   <a href="/course-bundles/" class="sub">Course Bundles</a>
   <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE Programs</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
   <div class="mp-label">Resources</div>
   <a href="/confitalk/" class="sub">ConfiTalk</a>
   <a href="/blogs/" class="sub">Blog</a>
@@ -2206,6 +2222,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderReviews();
   initHeader();
   initMega('equivItem', 'equivTrigger');
+  initMega('ceItem', 'ceTrigger');
   initMega('resItem', 'resTrigger');
   initMobile();
   initHeroVideo();
