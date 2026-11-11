@@ -145,8 +145,14 @@
     .course-img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--bg-soft); }
     @media (max-width: 680px) { .course-grid { grid-template-columns: 1fr; } }
 
+    /* ── POSTER BANNER ── */
+    .poster-section { padding: 2.5rem 1.5rem 0; }
+    .poster { max-width: 940px; margin: -2.5rem auto 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); border: 1.5px solid var(--border); background: #fff; position: relative; z-index: 2; }
+    .poster img { display: block; width: 100%; height: auto; }
+
     /* ── FEATURED BANNERS ── */
     .media-band { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    .media-band:has(> figure:only-child) { grid-template-columns: 1fr; max-width: 680px; }
     .media-band figure { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); border: 1.5px solid var(--border); background: #fff; }
     .media-band img { display: block; width: 100%; height: auto; }
     @media (max-width: 720px) { .media-band { grid-template-columns: 1fr; } }
@@ -302,6 +308,11 @@
   </div>
 </header>
 
+<!-- POSTER -->
+<section class="poster-section">
+  <figure class="poster"><img src="/images/continue-education/hero-banner.png" alt="ConfiDentist Continuing Education" width="1400" height="788" /></figure>
+</section>
+
 <!-- INTRO -->
 <section class="section">
   <div class="section-inner">
@@ -309,7 +320,6 @@
       <p>Discover unparalleled opportunities for professional growth at ConfiDentist through our Continuing Education (CE) program. Dive into a world of <strong>cutting-edge knowledge and practical skills</strong> designed to empower and elevate your dental practice.</p>
     </div>
     <div class="media-band" style="margin-top:3rem;">
-      <figure><img src="/images/continue-education/hero-banner.png" alt="ConfiDentist Continuing Education" width="1400" height="788" loading="lazy" /></figure>
       <figure><img src="/images/continue-education/feature-banner.jpeg" alt="ConfiDentist Continuing Education featured course" width="1200" height="900" loading="lazy" /></figure>
     </div>
   </div>
