@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our History | ConfiDentist</title>
+  <meta name="description" content="Over a decade ago, ConfiDentist was founded by Dr. Mehdi Adibrad with a mission to help internationally trained dentists pass their exams and become practicing Canadian dentists. This is our story." />
+  <link rel="canonical" href="https://product.confidentist.ca/our-history/" />
+  <meta property="og:title" content="Our History | ConfiDentist" />
+  <meta property="og:description" content="A decade of guiding internationally trained dentists to Canadian licensure — the ConfiDentist story." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://product.confidentist.ca/images/our-history/history-4.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#072C5E; --navy-mid:#1C3165; --navy-light:#213669;
+      --gold:#0f7ae5; --gold-dark:#0a5cb8; --gold-light:#5cb2f7; --gold-bg:#e9f3fd;
+      --teal:#3BAFBF; --teal-light:#e8f7f8;
+      --bg:#ffffff; --bg-soft:#f6f8fb; --bg-section:#f0f3f8;
+      --text:#1a1f2e; --muted:#586175; --border:#dde3ee;
+      --radius:.75rem;
+      --shadow-sm:0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:0 8px 40px rgba(7,44,94,.14);
+      --navy-deep:#041b3d; --nav-h:74px; --maxw:1200px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem; }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    .site-header { position: sticky; top: 0; z-index: 500; min-height: var(--nav-h); display: flex; align-items: center; background: #fff; border-bottom: 1px solid var(--gold); box-shadow: 0 4px 22px rgba(7,44,94,.08); }
+    .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
+    .primary-nav { display: flex; align-items: center; gap: .25rem; }
+    .nav-item { position: relative; }
+    .nav-item > a, .nav-item > button { font-family: inherit; background: none; border: none; cursor: pointer; color: #1a2b3c; font-size: .82rem; font-weight: 500; letter-spacing: .02em; padding: .6rem .85rem; border-radius: .35rem; display: inline-flex; align-items: center; gap: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .nav-item > a:hover, .nav-item > button:hover { color: #072c5e; background: rgba(7,44,94,.06); }
+    .nav-item .chev { width: 12px; height: 12px; transition: transform .2s; }
+    .nav-item.open .chev { transform: rotate(180deg); }
+    .mega { position: absolute; top: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(-6px); width: min(680px, 92vw); background: #fff; color: var(--text); border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 1.25rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 600; }
+    .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega.mega-sm { width: min(460px, 92vw); }
+    .mega.mega-xs { width: min(360px, 92vw); }
+    .mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
+    .mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+    .mega.mega-xs .mega-grid { grid-template-columns: 1fr; }
+    .mega a { display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem; transition: background .15s; text-decoration: none; }
+    .mega a:hover { background: var(--bg-soft); }
+    .mega .m-abbr { flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem; }
+    .mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+    .mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; text-decoration: none; }
+    .nav-actions { display: flex; align-items: center; gap: .5rem; }
+    .util-link { color: #1a2b3c; font-size: .78rem; font-weight: 500; padding: .5rem .55rem; border-radius: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .util-link:hover { color: #072c5e; background: rgba(7,44,94,.06); }
+    .btn-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .6rem 1.15rem; border-radius: .35rem; transition: background .2s, transform .15s; white-space: nowrap; text-decoration: none; }
+    .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 620; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #072c5e; margin: 5px 0; border-radius: 2px; transition: transform .3s, opacity .2s; }
+    .mobile-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-open .hamburger span:nth-child(2) { opacity: 0; }
+    .mobile-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-panel { position: fixed; inset: 0 0 0 auto; width: min(400px, 88vw); z-index: 610; background: var(--navy-deep); padding: calc(var(--nav-h) + .5rem) 1.5rem 2rem; transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow-y: auto; display: flex; flex-direction: column; gap: .25rem; border-left: 2px solid var(--gold); }
+    .mobile-open .mobile-panel { transform: translateX(0); }
+    .mobile-panel a { color: #fff; font-size: 1.05rem; font-weight: 500; padding: .85rem .25rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+    .mobile-panel a.sub { font-size: .92rem; font-weight: 400; color: rgba(255,255,255,.72); padding-left: 1rem; }
+    .mobile-panel .mp-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 1.25rem 0 .35rem; }
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(4,27,61,.55); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity .3s; z-index: 590; }
+    .mobile-open .nav-backdrop { opacity: 1; visibility: visible; }
+    body.no-scroll { overflow: hidden; }
+    @media (max-width: 1160px) { .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; } .hamburger { display: block; } }
+
+    /* ── HERO ── */
+    .hero { position: relative; overflow: hidden; background: var(--navy-deep); padding: 5rem 1.5rem 4.5rem; }
+    .hero-photo { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center 30%; filter: saturate(1.02); }
+    .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(4,27,61,.92) 0%, rgba(7,44,94,.82) 45%, rgba(7,44,94,.6) 100%); }
+    .hero-inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; text-align: center; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(15,122,229,.18); border: 1px solid rgba(15,122,229,.45); color: var(--gold-light); border-radius: .35rem; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: .4rem 1.1rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 700; line-height: 1.12; color: #fff; margin-bottom: 1rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,.85); max-width: 620px; margin: 0 auto; line-height: 1.7; font-weight: 300; }
+
+    /* ── STATS BAND ── */
+    .stats { max-width: 980px; margin: -3rem auto 0; position: relative; z-index: 5; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; }
+    .stat { padding: 1.6rem 1rem; text-align: center; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--navy); line-height: 1; }
+    .stat-num span { color: var(--gold-dark); }
+    .stat-label { font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-top: .5rem; }
+    @media (max-width: 680px) { .stats { grid-template-columns: 1fr 1fr; } .stat:nth-child(2) { border-right: none; } .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--border); } }
+
+    /* ── SECTION SHELL ── */
+    .section { padding: 4rem 1.5rem; }
+    .section.alt { background: var(--bg-soft); }
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+    .section-head { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.4rem); font-weight: 700; color: var(--navy); line-height: 1.2; }
+
+    /* ── FOUNDER QUOTE ── */
+    .founder { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 2.5rem; align-items: center; }
+    .founder-figure { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); border: 1.5px solid var(--border); }
+    .founder-figure img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .founder-quote { position: relative; }
+    .founder-quote .qmark { font-family: 'Playfair Display', serif; font-size: 4.5rem; line-height: .6; color: var(--gold-light); opacity: .5; }
+    .founder-quote blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.15rem, 2vw, 1.5rem); font-style: italic; font-weight: 400; line-height: 1.55; color: var(--navy); margin: .5rem 0 1.25rem; }
+    .founder-quote cite { font-style: normal; font-weight: 700; color: var(--gold-dark); font-size: .95rem; }
+    .founder-quote cite small { display: block; font-weight: 500; color: var(--muted); font-size: .8rem; margin-top: .15rem; }
+    @media (max-width: 760px) { .founder { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+    /* ── STORY (alternating) ── */
+    .story-row { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+    .story-row + .story-row { margin-top: 3.5rem; }
+    .story-row.reverse .story-media { order: 2; }
+    .story-media { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); border: 1.5px solid var(--border); }
+    .story-media img { display: block; width: 100%; height: 100%; max-height: 420px; object-fit: cover; }
+    .story-text p { font-size: 1rem; color: var(--text); line-height: 1.8; margin-bottom: 1rem; }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-text strong { color: var(--navy); font-weight: 700; }
+    @media (max-width: 760px) { .story-row { grid-template-columns: 1fr; gap: 1.25rem; } .story-row.reverse .story-media { order: 0; } }
+
+    /* ── PULL NOTE ── */
+    .pull { max-width: 860px; margin: 0 auto; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 70%, #0f3d72 100%); color: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 2.5rem 2.25rem; text-align: center; }
+    .pull p { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-style: italic; line-height: 1.5; color: #fff; }
+
+    /* ── GALLERY ── */
+    .gallery { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .gallery figure { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1.5px solid var(--border); aspect-ratio: 4 / 3; transition: box-shadow .2s, transform .2s, border-color .2s; }
+    .gallery figure:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(7,44,94,.2); }
+    .gallery img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 760px) { .gallery { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 460px) { .gallery { grid-template-columns: 1fr; } }
+
+    /* ── CTA ── */
+    .cta-band { max-width: 900px; margin: 0 auto; text-align: center; }
+    .cta-band h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; color: var(--navy); margin-bottom: .85rem; }
+    .cta-band p { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 620px; margin: 0 auto 1.75rem; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .btn-primary-l { display: inline-flex; align-items: center; gap: .5rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .9rem; letter-spacing: .02em; text-transform: uppercase; padding: .9rem 1.8rem; border-radius: .45rem; text-decoration: none; box-shadow: 0 8px 24px rgba(15,122,229,.35); transition: background .2s, transform .15s; }
+    .btn-primary-l:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline-l { display: inline-flex; align-items: center; gap: .5rem; border: 1.5px solid var(--border); color: var(--navy); font-weight: 700; font-size: .9rem; letter-spacing: .02em; text-transform: uppercase; padding: .9rem 1.8rem; border-radius: .45rem; text-decoration: none; transition: border-color .2s, background .2s; }
+    .btn-outline-l:hover { border-color: var(--navy); background: var(--bg-soft); }
+
+    /* ── CONTACT ── */
+    .contact-grid { max-width: 820px; margin: 2.5rem auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .contact-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.5rem; text-align: center; text-decoration: none; color: inherit; transition: box-shadow .2s, transform .2s, border-color .2s; }
+    .contact-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: rgba(7,44,94,.2); }
+    .contact-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+    .contact-label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+    .contact-value { font-size: .9rem; font-weight: 700; color: var(--navy); word-break: break-word; }
+    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold); }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 640px; margin-left: auto; margin-right: auto; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .001ms !important; } .gallery figure:hover, .contact-card:hover { transform: none; } }
+  </style>
+</head>
+<body>
+
+<a href="#story" class="skip-link">Skip to our story</a>
+
+<!-- NAV -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item"><a href="/">Home</a></div>
+      <div class="nav-item" id="equivItem">
+        <a href="/dental-equivalency-in-canada/" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="equivMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+            <a href="/mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">AFK &amp; OSCE mock exams, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
+            <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/dental-equivalency-in-canada/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
+            <a href="/#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="https://www.confidentist.ca/our-team/" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="https://www.confidentist.ca/gallery/" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
+      <a href="/#upcoming" class="btn-cta">Explore Courses</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <a href="/#upcoming">Explore Courses <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Courses</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="https://www.confidentist.ca/our-team/" class="sub" target="_blank" rel="noopener">Our Team</a>
+  <a href="https://www.confidentist.ca/gallery/" class="sub" target="_blank" rel="noopener">Gallery</a>
+  <div class="mp-label">More</div>
+  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-photo" style="background-image:url('/images/our-history/history-4.jpg');" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">🕊️ About Us · Our History</p>
+    <h1>A Decade of Guiding Dentists <em>Home to Canada</em></h1>
+    <p class="hero-sub">Over a decade ago, ConfiDentist was founded with a single mission — to help internationally trained dentists pass their exams and become practicing Canadian dentists.</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">10<span>+</span></div><div class="stat-label">Years of Experience</div></div>
+  <div class="stat"><div class="stat-num">1,000<span>+</span></div><div class="stat-label">Dentists Trained</div></div>
+  <div class="stat"><div class="stat-num">Dozens</div><div class="stat-label">of Instructors</div></div>
+  <div class="stat"><div class="stat-num">8<span>mo</span></div><div class="stat-label">The Founder's Own Journey</div></div>
+</div>
+
+<!-- FOUNDER QUOTE -->
+<section class="section" id="story">
+  <div class="section-inner">
+    <div class="founder">
+      <figure class="founder-figure">
+        <img src="/images/our-history/history-5.jpg" alt="Dr. Mehdi Adibrad, founder of ConfiDentist" width="1200" height="1500" loading="lazy" />
+      </figure>
+      <div class="founder-quote">
+        <div class="qmark" aria-hidden="true">&ldquo;</div>
+        <blockquote>He believed that many people shared his dream of becoming a dentist in Canada. They aspired to a high quality of life but needed guidance to navigate this path. He knew that with the right and professional services, he could help many dentists and peers achieve their goals. This is how ConfiDentist was born.</blockquote>
+        <cite>Dr. Mehdi Adibrad<small>Founder, ConfiDentist</small></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Our Story</span>
+      <h2 class="section-title">How ConfiDentist Began</h2>
+    </div>
+
+    <div class="story-row">
+      <div class="story-media"><img src="/images/our-history/history-1.jpg" alt="ConfiDentist early days" width="1200" height="800" loading="lazy" /></div>
+      <div class="story-text">
+        <p>Over a decade ago, ConfiDentist was established with a mission: to assist international dentists in passing their exams and becoming practicing Canadian dentists. Dr. Mehdi, the founder, had himself gone through this process in <strong>8 months</strong> and realized the need for a company that could offer these services with the highest quality.</p>
+      </div>
+    </div>
+
+    <div class="story-row reverse">
+      <div class="story-media"><img src="/images/our-history/history-2.jpg" alt="ConfiDentist early classes" width="1200" height="800" loading="lazy" /></div>
+      <div class="story-text">
+        <p>Everything didn't go smoothly at first. There was limited access to educational spaces. Alongside his dental practice, Dr. Mehdi dedicated a significant amount of time to introducing his organization to the international dental community. Classes started with only a few students, but gradually, they realized that Dr. Mehdi's training was unique. They saw the results of the innovative teaching method he had developed.</p>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="story-media"><img src="/images/our-history/history-3.jpg" alt="ConfiDentist today" width="1200" height="800" loading="lazy" /></div>
+      <div class="story-text">
+        <p>Today, Dr. Mehdi feels proud. For over 10 years, ConfiDentist has trained numerous international dentists, guiding them through every step until they reach their final goals. Along the way, many experienced colleagues have joined him. Now, <strong>dozens of instructors</strong> are part of this thriving community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES / PULL -->
+<section class="section">
+  <div class="section-inner">
+    <div class="pull">
+      <p>Commitment to high-quality education, experienced instructors, online and offline resources, and continually updated learning materials have positioned the ConfiDentist family as a leading organization in educational services for international students.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENT-FIRST -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="story-row">
+      <div class="story-media"><img src="/images/our-history/history-6.jpg" alt="The ConfiDentist community" width="1200" height="800" loading="lazy" /></div>
+      <div class="story-text">
+        <p>We understand that all our students are going through unique immigration situations, and we strive to offer them suitable financial and family-oriented options. It is our honor to have a new member like you join us and accompany you on this journey.</p>
+        <p><strong>If you are serious about your path, our 10 years of experience will eliminate trial and error, guiding you directly on the right track.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Our Community</span>
+      <h2 class="section-title">Moments Along the Way</h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="/images/our-history/history-1.jpg" alt="ConfiDentist community moment" loading="lazy" /></figure>
+      <figure><img src="/images/our-history/history-2.jpg" alt="ConfiDentist community moment" loading="lazy" /></figure>
+      <figure><img src="/images/our-history/history-3.jpg" alt="ConfiDentist community moment" loading="lazy" /></figure>
+      <figure><img src="/images/our-history/history-4.jpg" alt="ConfiDentist community moment" loading="lazy" /></figure>
+      <figure><img src="/images/our-history/history-5.jpg" alt="ConfiDentist community moment" loading="lazy" /></figure>
+      <figure><img src="/images/our-history/history-6.jpg" alt="ConfiDentist community moment" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="cta-band">
+      <h2>Join the ConfiDentist Family</h2>
+      <p>It is our honor to accompany you on your journey to Canadian dental licensure. Explore our programs, or reach out and we'll help you find your path.</p>
+      <div class="cta-actions">
+        <a href="/#upcoming" class="btn-primary-l">Explore Courses <span aria-hidden="true">→</span></a>
+        <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-l">Contact Us</a>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:info@confidentist.ca">
+        <div class="contact-icon" aria-hidden="true">📧</div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">info@confidentist.ca</div>
+      </a>
+      <a class="contact-card" href="tel:+14373700122">
+        <div class="contact-icon" aria-hidden="true">📞</div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+1 (437) 370-0122</div>
+      </a>
+      <a class="contact-card" href="https://www.confidentist.ca/" target="_blank" rel="noopener">
+        <div class="contact-icon" aria-hidden="true">🌐</div>
+        <div class="contact-label">Web</div>
+        <div class="contact-value">www.confidentist.ca</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Home</a> &nbsp;·&nbsp;
+    <a href="/our-history/">Our History</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+<script>
+(function () {
+  function initMega(itemId, triggerId) {
+    var item = document.getElementById(itemId);
+    var trigger = document.getElementById(triggerId);
+    if (!item || !trigger) return;
+    var closeTimer;
+    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
+    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
+    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
+    item.addEventListener('mouseenter', function () { open(true); });
+    item.addEventListener('mouseleave', scheduleClose);
+    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
+    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
+  }
+  function initMobile() {
+    var body = document.body;
+    var btn = document.getElementById('hamburger');
+    var panel = document.getElementById('mobilePanel');
+    var backdrop = document.getElementById('navBackdrop');
+    if (!btn || !panel || !backdrop) return;
+    var lastFocus = null;
+    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
+    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
+    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
+    backdrop.addEventListener('click', close);
+    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && body.classList.contains('mobile-open')) close(); });
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    initMega('equivItem', 'equivTrigger');
+    initMega('ceItem', 'ceTrigger');
+    initMega('resItem', 'resTrigger');
+    initMega('aboutItem', 'aboutTrigger');
+    initMobile();
+  });
+})();
+</script>
+</body>
+</html>
