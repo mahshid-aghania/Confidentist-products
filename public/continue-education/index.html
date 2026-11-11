@@ -142,7 +142,20 @@
     .course-cta { margin-top: auto; padding-top: 1.1rem; }
     .course-cta a { display: block; text-align: center; background: var(--gold); color: #fff; font-weight: 700; font-size: .82rem; letter-spacing: .03em; text-transform: uppercase; padding: .8rem; border-radius: .4rem; text-decoration: none; transition: background .2s, transform .15s; }
     .course-cta a:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .course-img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--bg-soft); }
     @media (max-width: 680px) { .course-grid { grid-template-columns: 1fr; } }
+
+    /* ── FEATURED BANNERS ── */
+    .media-band { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    .media-band figure { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); border: 1.5px solid var(--border); background: #fff; }
+    .media-band img { display: block; width: 100%; height: auto; }
+    @media (max-width: 720px) { .media-band { grid-template-columns: 1fr; } }
+
+    /* ── FLYER GALLERY ── */
+    .flyer-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.1rem; max-width: 1120px; margin: 0 auto; }
+    .flyer { border-radius: var(--radius); overflow: hidden; background: #fff; border: 1.5px solid var(--border); box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .2s, border-color .2s; }
+    .flyer:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(7,44,94,.2); }
+    .flyer img { display: block; width: 100%; height: auto; }
 
     /* ── PRIME BANNER ── */
     .prime { max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 70%, #0f3d72 100%); color: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 2.5rem 2.25rem; position: relative; overflow: hidden; text-align: center; }
@@ -296,6 +309,10 @@
       <p>Dive into a world of <strong>cutting-edge knowledge and practical skills</strong> designed to empower and elevate your dental practice. Our CE courses are built for dental professionals who want to stay at the forefront of modern dentistry.</p>
       <p>Whether you learn best in the operatory or from the comfort of your home, ConfiDentist offers flexible formats, expert faculty, and a community that grows with you.</p>
     </div>
+    <div class="media-band" style="margin-top:3rem;">
+      <figure><img src="/images/continue-education/hero-banner.png" alt="ConfiDentist Continuing Education" width="1400" height="788" loading="lazy" /></figure>
+      <figure><img src="/images/continue-education/feature-banner.jpeg" alt="ConfiDentist Continuing Education featured course" width="1200" height="900" loading="lazy" /></figure>
+    </div>
   </div>
 </section>
 
@@ -342,6 +359,7 @@
     </div>
     <div class="course-grid">
       <div class="course-card">
+        <img class="course-img" src="/images/continue-education/upcoming-1.png" alt="EXOCAD Essentials — ConfiDentist CE course" width="1400" height="1400" loading="lazy" />
         <div class="course-top">
           <span class="course-badge">Online Course</span>
           <h3>EXOCAD Essentials</h3>
@@ -356,6 +374,7 @@
         </div>
       </div>
       <div class="course-card">
+        <img class="course-img" src="/images/continue-education/upcoming-2.png" alt="Orthodontic &amp; Clear Alignment — ConfiDentist CE course" width="1400" height="1400" loading="lazy" />
         <div class="course-top">
           <span class="course-badge">Online Course</span>
           <h3>Orthodontic &amp; Clear Alignment</h3>
@@ -393,24 +412,50 @@
       <h2 class="section-title">A Track Record of Hands-On Learning</h2>
       <p class="section-desc">A selection of the practical, clinician-led courses we've delivered to the ConfiDentist community.</p>
     </div>
-    <div class="archive-wrap">
-      <div class="archive-grid">
-        <div class="archive-item">Orthodontics Hands-On Course</div>
-        <div class="archive-item">The New Age of Cosmetic Dentistry</div>
-        <div class="archive-item">Orthodontics for GPs</div>
-        <div class="archive-item">Same Day Smile</div>
-        <div class="archive-item">Porcelain Laminate Veneers</div>
-        <div class="archive-item">The Dental Practice Protection Toolkit</div>
-        <div class="archive-item">Tax Essentials for Dentists</div>
-        <div class="archive-item">Botox Training Course for Dentists</div>
-        <div class="archive-item">Veneer Bonding</div>
-        <div class="archive-item">Composite Resin Veneers</div>
-        <div class="archive-item">Contemporary Endodontics</div>
-        <div class="archive-item">Orthodontics for Dental Hygienists &amp; Assistants — Level II</div>
-        <div class="archive-item">The Magic of Composite Dentistry</div>
-        <div class="archive-item">Masterclass in Oral Surgery — Practice Essentials</div>
-        <div class="archive-item">Immediate Implant Placement in the Esthetic Area</div>
-      </div>
+    <div class="flyer-gallery">
+        <figure class="flyer"><img src="/images/continue-education/prev-01.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-02.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-03.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-04.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-05.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-06.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-07.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-08.png" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-09.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-10.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-11.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-12.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-13.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-14.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-15.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-16.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-17.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-18.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-19.png" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-20.png" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-21.png" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-22.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-23.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-24.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-25.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-26.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-27.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-28.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-29.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-30.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-31.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-32.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-33.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-34.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-35.png" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-36.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-37.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-38.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-39.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-40.png" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-41.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-42.jpg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
+        <figure class="flyer"><img src="/images/continue-education/prev-43.jpeg" alt="ConfiDentist CE course flyer" loading="lazy" /></figure>
     </div>
   </div>
 </section>
