@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions | ConfiDentist</title>
+  <meta name="description" content="ConfiDentist Terms &amp; Conditions — the Enrolment Agreement and Copyright Acknowledgement Agreement governing enrolment in ConfiDentist courses." />
+  <link rel="canonical" href="https://product.confidentist.ca/terms-and-conditions/" />
+  <meta property="og:title" content="Terms &amp; Conditions | ConfiDentist" />
+  <meta property="og:description" content="The Enrolment Agreement and Copyright Acknowledgement Agreement for ConfiDentist courses." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+      --navy-deep:   #041b3d;
+      --nav-h:       74px;
+      --maxw:        1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem; }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    /* ── SITE HEADER / MEGA MENU ── */
+    .site-header { position: sticky; top: 0; z-index: 500; min-height: var(--nav-h); display: flex; align-items: center; background: #ffffff; border-bottom: 1px solid var(--gold); box-shadow: 0 4px 22px rgba(7,44,94,.08); }
+    .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
+    .brand span { color: var(--gold-dark); }
+    .primary-nav { display: flex; align-items: center; gap: .25rem; }
+    .nav-item { position: relative; }
+    .nav-item > a, .nav-item > button { font-family: inherit; background: none; border: none; cursor: pointer; color: #1a2b3c; font-size: .82rem; font-weight: 500; letter-spacing: .02em; padding: .6rem .85rem; border-radius: .35rem; display: inline-flex; align-items: center; gap: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .nav-item > a:hover, .nav-item > button:hover, .nav-item > a:focus-visible, .nav-item > button:focus-visible { color: #072c5e; background: rgba(7,44,94,.06); }
+    .nav-item .chev { width: 12px; height: 12px; transition: transform .2s; }
+    .nav-item.open .chev { transform: rotate(180deg); }
+    .mega { position: absolute; top: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(-6px); width: min(680px, 92vw); background: #fff; color: var(--text); border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 1.25rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 600; }
+    .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega.mega-sm { width: min(460px, 92vw); }
+    .mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
+    .mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+    .mega a { display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem; transition: background .15s; text-decoration: none; }
+    .mega a:hover, .mega a:focus-visible { background: var(--bg-soft); }
+    .mega .m-abbr { flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem; }
+    .mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+    .mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; text-decoration: none; }
+    .nav-actions { display: flex; align-items: center; gap: .5rem; }
+    .util-link { color: #1a2b3c; font-size: .78rem; font-weight: 500; padding: .5rem .55rem; border-radius: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .util-link:hover { color: #072c5e; background: rgba(7,44,94,.06); }
+    .btn-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .6rem 1.15rem; border-radius: .35rem; transition: background .2s, transform .15s; white-space: nowrap; text-decoration: none; }
+    .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 620; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #072c5e; margin: 5px 0; border-radius: 2px; transition: transform .3s, opacity .2s; }
+    .mobile-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-open .hamburger span:nth-child(2) { opacity: 0; }
+    .mobile-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-panel { position: fixed; inset: 0 0 0 auto; width: min(400px, 88vw); z-index: 610; background: var(--navy-deep); padding: calc(var(--nav-h) + .5rem) 1.5rem 2rem; transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow-y: auto; display: flex; flex-direction: column; gap: .25rem; border-left: 2px solid var(--gold); }
+    .mobile-open .mobile-panel { transform: translateX(0); }
+    .mobile-panel a { color: #fff; font-size: 1.05rem; font-weight: 500; padding: .85rem .25rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+    .mobile-panel a.sub { font-size: .92rem; font-weight: 400; color: rgba(255,255,255,.72); padding-left: 1rem; }
+    .mobile-panel .mp-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 1.25rem 0 .35rem; }
+    .mobile-panel .btn-cta { text-align: center; justify-content: center; display: flex; margin-top: 1.25rem; padding: .9rem; font-size: .85rem; }
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(4,27,61,.55); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity .3s; z-index: 590; }
+    .mobile-open .nav-backdrop { opacity: 1; visibility: visible; }
+    body.no-scroll { overflow: hidden; }
+    @media (max-width: 1160px) { .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; } .hamburger { display: block; } }
+
+    /* ── HERO ── */
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); padding: 4rem 1.5rem 3.5rem; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-inner { max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(15,122,229,.15); border: 1px solid rgba(15,122,229,.4); color: var(--gold-light); border-radius: .35rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.18; color: #fff; margin-bottom: 1rem; }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.82); max-width: 580px; margin: 0 auto; line-height: 1.7; font-weight: 300; }
+
+    /* ── ACCORDION ── */
+    .acc-section { padding: 3.5rem 1.5rem 4rem; }
+    .acc-wrap { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; }
+    .acc-item { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; transition: box-shadow .25s, border-color .25s; }
+    .acc-item.open { box-shadow: var(--shadow-lg); border-color: rgba(15,122,229,.4); }
+    .acc-head { width: 100%; display: flex; align-items: center; gap: 1.1rem; padding: 1.4rem 1.6rem; background: none; border: none; cursor: pointer; text-align: left; font-family: inherit; transition: background .2s; }
+    .acc-head:hover { background: var(--bg-soft); }
+    .acc-item.open .acc-head { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 70%, #0f3d72 100%); }
+    .acc-num { flex-shrink: 0; width: 46px; height: 46px; border-radius: .6rem; display: grid; place-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; color: #fff; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); transition: background .2s; }
+    .acc-item.open .acc-num { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); }
+    .acc-label { flex: 1; min-width: 0; }
+    .acc-title { display: block; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); line-height: 1.25; transition: color .2s; }
+    .acc-sub { display: block; font-size: .78rem; color: var(--muted); margin-top: .2rem; transition: color .2s; }
+    .acc-item.open .acc-title { color: #fff; }
+    .acc-item.open .acc-sub { color: rgba(255,255,255,.75); }
+    .acc-chev { flex-shrink: 0; width: 22px; height: 22px; color: var(--gold-dark); transition: transform .3s, color .2s; }
+    .acc-item.open .acc-chev { transform: rotate(180deg); color: #fff; }
+    .acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+    .acc-item.open .acc-panel { grid-template-rows: 1fr; }
+    .acc-panel-inner { overflow: hidden; }
+    .acc-body { padding: .5rem 1.8rem 2rem; border-top: 1px solid var(--border); }
+    .acc-item.open .acc-body { padding-top: 1.6rem; }
+
+    /* legal content */
+    .legal h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 1.8rem 0 .7rem; padding-left: .9rem; border-left: 3px solid var(--gold); }
+    .legal h3:first-child { margin-top: .4rem; }
+    .legal h4 { font-size: .9rem; font-weight: 700; color: var(--navy-mid); margin: 1.2rem 0 .5rem; }
+    .legal p { font-size: .92rem; color: var(--text); line-height: 1.75; margin-bottom: .8rem; }
+    .legal p.intro { color: var(--muted); }
+    .legal ul, .legal ol { margin: 0 0 1rem 1.3rem; }
+    .legal li { font-size: .92rem; color: var(--text); line-height: 1.7; margin-bottom: .55rem; padding-left: .2rem; }
+    .legal ul ul, .legal ol ul, .legal ul ol { margin-top: .55rem; margin-bottom: .3rem; }
+    .legal ul { list-style: none; margin-left: 0; }
+    .legal ul > li { position: relative; padding-left: 1.4rem; }
+    .legal ul > li::before { content: ''; position: absolute; left: .2rem; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .legal ul ul > li::before { background: var(--teal); }
+    .legal ol { list-style: decimal; }
+    .legal strong { color: var(--navy); font-weight: 700; }
+    .legal .lead { background: var(--gold-bg); border: 1px solid rgba(15,122,229,.25); border-radius: .6rem; padding: 1rem 1.2rem; font-size: .9rem; color: var(--navy); line-height: 1.7; margin-bottom: 1.4rem; }
+
+    .toc-note { max-width: 900px; margin: 0 auto 2rem; text-align: center; font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    .section { padding: 3.5rem 1.5rem; }
+    .section.alt { background: var(--bg-soft); }
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+    .section-head { max-width: 680px; margin: 0 auto 2rem; text-align: center; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .contact-grid { max-width: 820px; margin: 2rem auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .contact-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.5rem; text-align: center; text-decoration: none; color: inherit; transition: box-shadow .2s, transform .2s, border-color .2s; }
+    .contact-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: rgba(7,44,94,.2); }
+    .contact-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+    .contact-label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+    .contact-value { font-size: .9rem; font-weight: 700; color: var(--navy); word-break: break-word; }
+    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold); }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .001ms !important; } }
+  </style>
+</head>
+<body>
+
+<a href="#agreements" class="skip-link">Skip to the agreements</a>
+
+<!-- NAV -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item"><a href="/">Home</a></div>
+      <div class="nav-item" id="equivItem">
+        <a href="/dental-equivalency-in-canada/" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="equivMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+            <a href="/mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">AFK &amp; OSCE mock exams, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
+            <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/dental-equivalency-in-canada/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
+            <a href="/#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">CE Programs
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
+      <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
+      <a href="/#upcoming" class="btn-cta">Explore Courses</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <a href="/#upcoming">Explore Courses <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Courses</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE Programs</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <div class="mp-label">More</div>
+  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
+  <a href="https://www.confidentist.ca/my-account/">Student Login</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">📄 Terms &amp; Conditions</p>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="hero-sub">Please review the agreements that govern enrolment in ConfiDentist courses. Select an agreement below to read it in full.</p>
+  </div>
+</header>
+
+<!-- ACCORDIONS -->
+<section class="acc-section" id="agreements">
+  <p class="toc-note">Two agreements apply to your enrolment with ConfiDentist. Tap each one to expand the full terms.</p>
+  <div class="acc-wrap">
+
+    <!-- ACCORDION 1 — ENROLMENT AGREEMENT -->
+    <div class="acc-item" id="acc1">
+      <button type="button" class="acc-head" aria-expanded="false" aria-controls="acc1-panel" data-acc="acc1">
+        <span class="acc-num">01</span>
+        <span class="acc-label">
+          <span class="acc-title">Enrolment Agreement</span>
+          <span class="acc-sub">Course fees, registration, services, cancellation, conduct &amp; more</span>
+        </span>
+        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-panel" id="acc1-panel" role="region" aria-labelledby="acc1">
+        <div class="acc-panel-inner">
+          <div class="acc-body legal">
+
+            <h3>A. Course Fee</h3>
+            <ul>
+              <li>The Student shall pay the Course Fee to Confidentist upon signing of this agreement.</li>
+              <li>Confidentist course credits are non-refundable, non-transferable, and expire after 6 months.</li>
+              <li>When a Student is eligible for multiple discounts or offers, only one discount or offer (the highest in value) will be applied to the Course Fee.</li>
+            </ul>
+
+            <h3>B. Application and Registration Process</h3>
+            <ul>
+              <li>Upon signing this Agreement and completing the registration form, the Student's application for enrollment in the Course will be deemed to have been submitted (the "Enrollment Application").</li>
+              <li>All courses and packages are non-combinable; registering for one course or package precludes the ability to combine it with another.</li>
+              <li>Confidentist will review the Enrollment Application and may interview the Student to determine eligibility.</li>
+              <li>Should Confidentist not accept the Enrollment Application, in its sole and absolute discretion, Confidentist will communicate such the rejection to the Student within three (3) weeks of submission of the Application.</li>
+              <li>Promo codes and discounts are not applicable to any crash course.</li>
+              <li>The Student shall be deemed to have been successfully enrolled in the Course if Confidentist does not communicate the rejection within three (3) weeks of submission of the Enrollment Application.</li>
+              <li>The Student who Postponed their course, have to take their postponed course within a year. We can not postpone it more than a Year.</li>
+              <li>Confidentist reserves the right to void registration, If a student registers for any courses using a coupon code that is not explicitly designated for them. Confidentist may, at its discretion, communicate with the student to address the misuse of coupon codes.</li>
+            </ul>
+
+            <h3>C. Description of Services</h3>
+            <ul>
+              <li>In exchange for the payment of the Course Fee, the Student will be enrolled in the Course and will gain access to all offered sessions of the Course, as more particularly set out in the Course outline.</li>
+              <li>The Student acknowledges that timing within the sessions will be managed by the instructor and allocated to groups and/or individuals as the instructor sees fit.</li>
+              <li>The Student understands in this Course all the answers to the questions, the materials, and the presentations provided by instructors are based on the latest textbooks and references; however, it is the Student's own responsibility to ensure that these materials and answers are up-to-date and meet the Student's particular needs.</li>
+              <li>The Student acknowledges that exam results cannot be guaranteed by Confidentist. The Student further acknowledges that this program is just to help the Student improve their knowledge and clinical skills but does not guarantee admission to a dental school.</li>
+              <li>ConfiDentist provides students with recordings of all its live lectures on ConfiPortal, available within 24 hours after each live session. Recordings are not provided for Review sessions, Mock Exams, and Mock Exam discussions (non-recorded sessions). Students are required to be present in class during these sessions.</li>
+              <li>If a student misses any of the non-recorded sessions, they may watch the session on-site at the ConfiDentist office by scheduling a prior appointment.</li>
+              <li>All our courses come with one set of booklet(s):
+                <ul>
+                  <li>If a student receives the booklet(s) and later decides to postpone their course, any updates to the booklet(s) will require the student to pay the printing fee.</li>
+                  <li>If a student has already received the booklet(s) and ConfiDentist updates the material mid-course, ConfiDentist will cover the printing fee.</li>
+                </ul>
+              </li>
+              <li>Mock and Mini Mock Exam discussions will not be available to watch online after the scheduled session.</li>
+            </ul>
+
+            <h4>Course Repeat Policy (AFK &amp; ACJ)</h4>
+            <p><strong>1. Course Repeats</strong></p>
+            <ul>
+              <li>AFK and ACJ courses may be taken a maximum of two (2) times per student.</li>
+              <li>One initial enrollment.</li>
+              <li>One repeat only if the student attended at least 70% of live lectures in the previous batch.</li>
+            </ul>
+            <p><strong>2. Mock Exam Policy</strong></p>
+            <ul>
+              <li>Each mock exam may be taken once only.</li>
+              <li>Mock exams cannot be repeated.</li>
+              <li>Mock exams may be postponed one (1) time only, subject to company scheduling.</li>
+              <li>No further postponements or repeats will be granted.</li>
+            </ul>
+            <p><strong>3. Mock Discussion Policy (AFK &amp; ACJ)</strong></p>
+            <ul>
+              <li>Mock discussions (live or pre-recorded) are provided one time only.</li>
+              <li>No repeats and no access to recordings are permitted.</li>
+              <li>Attendance is required at the scheduled time set by the company.</li>
+              <li>Failure to attend will result in forfeiture of access.</li>
+            </ul>
+
+            <h3>D. Cancellation and Refund Policy</h3>
+            <ul>
+              <li>Confidentist shall do their best to offer the Courses at the scheduled times and with the pre-determined instructors. Subject to the foregoing, Confidentist shall have the right to adjust the Course timelines, instructors, and the number of sessions and to cancel sessions or a Course at its reasonable discretion ("Cancellation by Confidentist").</li>
+              <li>In the event of a Cancellation by Confidentist of any sessions of the Course or the Course in its entirety, Confidentist shall provide written notice of such cancellation to the Student and shall reimburse the Student for the canceled sessions. In the event of a Cancellation by Confidentist, the Student shall not be entitled to receive any additional compensation.</li>
+              <li>A student who intends to cancel or withdraw from the Course must provide written notice of the cancellation to Confidentist ("Cancellation by Student").</li>
+              <li>The notice of Cancellation by the Student must be signed and dated and must contain the expected last date of attendance of the Student.</li>
+              <li>In the event of a Cancellation by a Student, Confidentist will not refund or credit any part of the Course Fee where
+                <ul>
+                  <li>The course has fewer than eight (8) students enrolled;</li>
+                  <li>The student is on a payment plan;</li>
+                  <li>The service provided is an on-demand service;</li>
+                  <li>The service provided is a scheduled one-on-one session;</li>
+                  <li>The service provided (whole/part) is postponed to another date;</li>
+                  <li>The service provided is included in the ConfiDentist repeat program;</li>
+                  <li>Once the course content has been accessed, including but not limited to video lectures (recorded or live), quizzes, or study materials;</li>
+                  <li>The course Fee or the service arrangement has been modified at the request of the Student; and</li>
+                  <li>Course content (whole/part) has been printed with the student's legal name.</li>
+                </ul>
+              </li>
+              <li>Where Section 5 does not apply, in the event of a Cancellation by Student, Confidentist will deduct a cancellation fee from the Course Fee and will refund the balance, if any, to the Student (the "Cancellation Fee"). The Cancellation Fee will be:
+                <ul>
+                  <li>25% of the Course Fee if the Student fails to provide three (3) weeks' written notice of the Cancellation before the start date of the course;</li>
+                  <li>50% of the Course Fee if the Student fails to provide one (1) week's written notice of the Cancellation before the start of the course; and</li>
+                  <li>100% of the Course Fee if the Student fails to provide the notice after the start of the course.</li>
+                </ul>
+              </li>
+              <li>Students can not postpone their assigned mock exam to another cycle unless they inform the office a week (Seven Days) before the exam, if they fail to do so they have to attend the mock exam and can not postpone it to another time.</li>
+              <li>If the Student is eligible to transfer their registered course or a portion of it to another Student and later decides to register for the same course again, the Student will be considered a first-time registrant and will not be eligible for a loyalty discount.</li>
+              <li>Confidentist does not postpone, refund, or change the date for complementary courses or mock exams.</li>
+              <li>Students who register for our bundle packages must complete the first course within 18 months and the second course within an additional 18 months. If a customer fails to complete a course within its designated timeframe, they will be charged in full for the completed portion of the course, and the remaining amount will be refunded.</li>
+            </ul>
+
+            <h3>E. Consent to Electronic Communications</h3>
+            <ul>
+              <li>The Student hereby subscribes to and agrees to receive Email and/or SMS communication, announcements, and/or updates pertaining to the Course, other relevant courses, and/or Confidentist's service offerings that may be of interest.</li>
+              <li>Confidentist may send Email and/or SMS communication for up to 24 months after the completion of the Course.</li>
+              <li>The Student may choose to opt out of receiving Email and/or SMS communication from Confidentist at any time by using the unsubscribe button in the Email and/or SMS communication or by requesting the same from Confidentist.</li>
+            </ul>
+
+            <h3>F. Property and Equipment Damage Agreement</h3>
+            <ul>
+              <li>The Student hereby acknowledges, understands, and accepts responsibility for intentionally or unintentionally loss of, or causing any damage to any property of Confidentist, including any equipment and material located at the premises of Confidentist.</li>
+              <li>Should Confidentist, in its reasonable discretion, determine that the Student has lost or caused any damage to the property of the Confidentis, the Student shall compensate Confidentist for any and all costs associated with the restoration or replacement of such property, as determined by Confidentist in its reasonable discretion.</li>
+              <li>The Student shall forthwith inform Confidentist of any and all damage caused to any property of Confidentist.</li>
+              <li>The Student shall remove equipment from the premises of Confidentist only upon obtaining the written consent of Confidentist and in all such cases, the Student shall return the equipment in the same condition in which it was received.</li>
+              <li>The Student acknowledges that Confidentist will have the right to forthwith terminate this agreement, without any refund, and seek damages from the Student, should the Student engage in vandalism or intentional destruction of Confidentist property.</li>
+            </ul>
+
+            <h3>G. Code of Conduct</h3>
+            <ul>
+              <li>The Student shall at all times abide by the Code of Conduct of Confidentist, as same may be updated from time to time.</li>
+              <li>Subject to Section G1 hereof, the Student shall
+                <ul>
+                  <li>exercise common courtesy and professionalism at all times while on Confidentist premises or when dealing with Confidentist staff, instructors, and other trainees.</li>
+                  <li>operate/use Confidentist property within the allocated time, with the utmost care, while following the standards and instructions provided by Confidentist and/or its instructors.</li>
+                  <li>not record any of the sessions or any other parts of the Course, whether in audio or video formats.</li>
+                  <li>not disrupt the sessions by engaging in loud side conversations, playing music, and repetitive questions/arguments with the instructor.</li>
+                  <li>not solicit, advertise or sell any material or services during the sessions or on Confidentist property.</li>
+                  <li>not receive instructions/training from anyone other than Confidentist's instructors without the prior written consent of Confidentist.</li>
+                  <li>not facilitate or allow entry onto the premises, of individuals who are not part of the Course.</li>
+                  <li>not defame, abuse, harass, stalk, threaten, or otherwise violate the legal rights (such as rights of privacy and publicity) of others.</li>
+                  <li>not publish, post, upload, distribute, disseminate or otherwise make available any content that is: false, inaccurate, inappropriate, profane, defamatory, libelous, harmful, vulgar, obscene, indecent, abusive, or harassing on the Confidentist forum.</li>
+                  <li>not interfere or disrupt any other person's use or enjoyment of the Confidentist's premises and/or Services.</li>
+                </ul>
+              </li>
+              <li>The Student must immediately report to Confidentist any behavior by the Student or anyone else on Confidentist property, that does not comply with the Code of Conduct or the terms of this Agreement.</li>
+              <li>Students are prohibited from engaging in activities run by other competing establishments, including teaching, learning, marketing, soliciting &amp; recruiting clients, etc. while enrolled with ConfiDentist. Violation of this policy may result in disciplinary action, including but not limited to dismissal from the course without refund.</li>
+              <li>The Student acknowledges that violation of the aforementioned terms of conduct is an offense, subject to disciplinary actions and can result in immediate termination from the Courses without any refund.</li>
+            </ul>
+
+            <h3>H. Copyrights</h3>
+            <ul>
+              <li>All course materials are the property of Confidentist and have been made available to the Student solely for personal use and for the purposes of completion of the Course by the Student. As between Confidentist and the Student, Confidentist owns all rights, title and interest in and to the services and program materials. The Student acknowledges and agrees that the services and program materials are provided to the Student only in accordance with the terms and conditions of this Agreement. Except for the limited rights granted in this Agreement, all rights are reserved by Confidentist.</li>
+              <li>It is strictly prohibited to transmit, reproduce, sell or distribute any course materials in any form or by any means, including but not limited to photocopying, recording, or other electronic or mechanical methods, without the prior written consent of Confidentist' Management.</li>
+              <li>Confidentist grants the Student a limited, revocable, non-exclusive, non-transferable ability to access and/or use the program materials for the Student's personal, non-commercial use.</li>
+              <li>The Student acknowledges that the Student shall not use any of the materials (course booklets, mock examinations, course handouts, video, and any virtual postings) in any manner, or for any purpose other than as expressly permitted by this Agreement.</li>
+              <li>The Student shall not create any derivative work of any of the materials provided to the Student as part of the Course.</li>
+              <li>The Student shall not sell, resell or reproduce, or cause or permit any other parties to sell, resell or reproduce any of the materials provided to the Student by Confidentist.</li>
+            </ul>
+
+            <h3>I. Bodily Injury Release</h3>
+            <ul>
+              <li>The Student hereby acknowledges and accepts full responsibility for the Student's safety in using any of the equipment, agrees, and understands that the Student shall ensure that the Student possesses the required level of skill and knowledge to safely use any and all equipment and material used during the Courses.</li>
+              <li>The Student represents and warrants that the Student has read the classroom safety instructions and that the Student possesses the required skill and knowledge to operate and maintain the equipment and material that is used as part of the Course.</li>
+              <li>The Student agrees to observe and employ all rules and practices in place to minimize the risk of injury.</li>
+              <li>The Student shall not use any of the equipment and material which the Student cannot use safely and shall seek assistance from Confidentist.</li>
+              <li>The Student hereby releases, waives, discharges, and covenants not to sue, and agrees to hold Confidentist, its directors, officers, agents, volunteers, employees and representatives harmless from and against any and all liabilities, demands, claims, or injuries, including death, that the Student may sustain during or in conjunction with operating equipment or material while on the premises of Confidentist and while using the equipment provided by Confidentist at home.</li>
+            </ul>
+
+            <h3>J. Privacy Notice</h3>
+            <ul>
+              <li>The Student acknowledges that Confidentist will use the Student's personal information for the purpose of provision of the Services to the Student as well as for the purposes of managing Confidentist's business operations.</li>
+              <li>The Student hereby permits Confidentist to publish, reproduce, digitize, display, and otherwise use, (a) the Student's legal name, image, likeness, voice, and (b) photographs, recordings, videotapes, and audiovisual materials of the Student, for the purposes of advertising or promotion of Confidentist services. The Student acknowledges that Confidentist will not have any obligations to make a payment to the Student for the use of such material. The Student acknowledges that the Student's image may be edited, copied, exhibited, published or distributed and hereby waives the right to inspect or approve the finished product wherein the Student's likeness appears. The Student understands that the Student's likeness may be used in diverse educational and/or promotional settings within an unrestricted geographic area. Without limiting the generality of the foregoing, Confidentist may use the Student's likeness in
+                <ul>
+                  <li>Conference presentations</li>
+                  <li>Educational presentations or courses</li>
+                  <li>Informational presentations</li>
+                  <li>On-line educational courses</li>
+                  <li>Educational videos</li>
+                  <li>Promotional content</li>
+                </ul>
+              </li>
+              <li>The Student may refuse or withdraw consent to the use and disclosure of their personal information at any time, in written format, subject to contractual and other legal obligations. However, doing so may preclude entitlement to particular benefits or services.</li>
+              <li>SMS messaging opt-in data will not be shared with third parties.</li>
+              <li>Confidentist within its sole discretion reserves the right to disclose any information it deems necessary and appropriate to satisfy any applicable law, regulation, legal process, or governmental request.</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCORDION 2 — COPYRIGHT ACKNOWLEDGEMENT AGREEMENT -->
+    <div class="acc-item" id="acc2">
+      <button type="button" class="acc-head" aria-expanded="false" aria-controls="acc2-panel" data-acc="acc2">
+        <span class="acc-num">02</span>
+        <span class="acc-label">
+          <span class="acc-title">Copyright Acknowledgement Agreement</span>
+          <span class="acc-sub">Your use of ConfiDentist booklets, quizzes &amp; mock exams</span>
+        </span>
+        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-panel" id="acc2-panel" role="region" aria-labelledby="acc2">
+        <div class="acc-panel-inner">
+          <div class="acc-body legal">
+            <p class="intro">THIS COPYRIGHT ACKNOWLEDGEMENT AGREEMENT (the "Agreement") is entered into by and between the undersigned User ("User") and ConfiDentist Group Corp., a corporation the full postal address of which is 265 Rimrock Rd., Unit 209, North York, Ontario, M3J 3A6, Canada ("ConfiDentist") (each individually a "Party" and together the "Parties").</p>
+            <p class="intro"><strong>WHEREAS,</strong> ConfiDentist is the owner of copyright in the original, literary work entitled "Booklets, Quizzes, and Mock Exams", for which Certificate of Copyright Registration No. 1201112 has been issued by the Canadian Intellectual Property Office (the "Work");</p>
+            <p class="intro"><strong>AND WHEREAS,</strong> User will be provided with one (1) hardcopy of the Work by ConfiDentist in connection with User's participation and/or enrolment in a dental education course offered by ConfiDentist;</p>
+            <p class="intro"><strong>AND WHEREAS,</strong> the Parties wish to confirm the terms on which ConfiDentist is providing User with a copy of the Work;</p>
+            <p class="lead"><strong>NOW THEREFORE,</strong> in consideration of the mutual promises and obligations herein, and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the Parties agree as follows:</p>
+            <ol>
+              <li>ConfiDentist will provide User with a single hardcopy of the Work (the "Copy").</li>
+              <li>User acknowledges that the Work and the Copy are subject to copyright and that ConfiDentist is the owner of that copyright.</li>
+              <li>User further acknowledges that, as owner of copyright in the Work, ConfiDentist has the exclusive right to produce, reproduce, publish and perform the Work, or any substantial part.</li>
+              <li>User further acknowledges that copyright protection for the Work and the Copy is not limited to Canada but extends to at least each of the (181) contracting parties to the Berne Convention for the Protection of Literary and Artistic Works.</li>
+              <li>User shall not, in respect of the Copy, do anything which, pursuant to section 3(1) of the Canadian Copyright Act (R.S.C., 1985, C-42), ConfiDentist, as the owner of copyright in the Work, has the exclusive right to do. Without limiting the generality of the foregoing, User shall not:
+                <ul>
+                  <li>publish the Copy, or any substantial part thereof, in any material form whatsoever; or</li>
+                  <li>reproduce the Copy, or any substantial part thereof, in any material form whatsoever, including by photocopying, scanning, or photographing the Copy.</li>
+                </ul>
+              </li>
+              <li>User acknowledges that the doing of anything contained within paragraph 5 above will constitute not only a breach of this Agreement but also an infringement of ConfiDentist's copyright in the Work.</li>
+              <li>User shall not:
+                <ul>
+                  <li>sell or transfer ownership of the Copy;</li>
+                  <li>share or distribute the Copy in any way, in any form, and for any purpose whatsoever;</li>
+                  <li>remove one or more pages from the Copy;</li>
+                  <li>remove, redact or obscure any text in the Copy;</li>
+                  <li>remove any trademarks from the Copy;</li>
+                  <li>remove any copyright notices from the Copy; or</li>
+                  <li>change or amend any questions or answers contained in the Copy.</li>
+                </ul>
+              </li>
+              <li>Suppose ConfiDentist has at any time reason to believe that User has breached any one or more of the terms of this Agreement. In that case, ConfiDentist shall notify User of the same and request the return of the Copy and any copies which User may have made thereof (contrary to the terms of this Agreement) to ConfiDentist. User shall promptly return same to ConfiDentist.</li>
+              <li>No remedy referred to in this Agreement is intended to be exclusive, but each shall be cumulative and in addition to any other remedy referred to in this Agreement or otherwise available under law, which may include statutory damages for copyright infringement under section 38.1(1) of the Copyright Act (R.S.C., 1985, c. C-42) of up to $20,000.</li>
+              <li>This Agreement shall be governed by and construed in accordance with the laws in force in the Province of Ontario and any applicable federal laws of Canada.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Questions about these terms?</span>
+      <h2 class="section-title">We're Here to Help</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:info@confidentist.ca">
+        <div class="contact-icon" aria-hidden="true">📧</div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">info@confidentist.ca</div>
+      </a>
+      <a class="contact-card" href="tel:+14373700122">
+        <div class="contact-icon" aria-hidden="true">📞</div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+1 (437) 370-0122</div>
+      </a>
+      <a class="contact-card" href="https://maps.google.com/?q=265+Rimrock+Rd+Unit+209+North+York+ON+M3J+3A6" target="_blank" rel="noopener">
+        <div class="contact-icon" aria-hidden="true">📍</div>
+        <div class="contact-label">Address</div>
+        <div class="contact-value">265 Rimrock Rd, Unit 209, North York, ON M3J 3A6</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confi<span>Dentist</span></div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Home</a> &nbsp;·&nbsp;
+    <a href="/terms-and-conditions/">Terms &amp; Conditions</a> &nbsp;·&nbsp;
+    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+<script>
+(function () {
+  function initMega(itemId, triggerId) {
+    var item = document.getElementById(itemId);
+    var trigger = document.getElementById(triggerId);
+    if (!item || !trigger) return;
+    var closeTimer;
+    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
+    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
+    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
+    item.addEventListener('mouseenter', function () { open(true); });
+    item.addEventListener('mouseleave', scheduleClose);
+    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
+    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
+  }
+  function initMobile() {
+    var body = document.body;
+    var btn = document.getElementById('hamburger');
+    var panel = document.getElementById('mobilePanel');
+    var backdrop = document.getElementById('navBackdrop');
+    if (!btn || !panel || !backdrop) return;
+    var lastFocus = null;
+    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
+    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
+    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
+    backdrop.addEventListener('click', close);
+    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && body.classList.contains('mobile-open')) close(); });
+  }
+  function initAccordion() {
+    var heads = document.querySelectorAll('.acc-head');
+    heads.forEach(function (head) {
+      head.addEventListener('click', function () {
+        var item = document.getElementById(head.getAttribute('data-acc'));
+        if (!item) return;
+        var isOpen = item.classList.toggle('open');
+        head.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    initMega('equivItem', 'equivTrigger');
+    initMega('ceItem', 'ceTrigger');
+    initMega('resItem', 'resTrigger');
+    initMobile();
+    initAccordion();
+  });
+})();
+</script>
+</body>
+</html>
