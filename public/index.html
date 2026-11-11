@@ -941,7 +941,77 @@
       .reveal { opacity: 1; transform: none; }
       .scroll-cue .mouse::after { animation: none; }
     }
+    /* ═══════════ PREMIUM MOTION LAYER (additive; gated by html.premium) ═══════════
+       Active only when JS adds .premium (motion allowed AND not Save-Data). Reduced-motion,
+       Save-Data and no-JS render exactly as before. Animates transform/opacity/box-shadow
+       only — the resting appearance (colours, fonts, sizes, text, images, spacing, layout)
+       is unchanged. */
+    .btn-primary svg, .btn-outline svg { transition: transform .2s ease; }
+    .btn-primary:hover svg, .btn-outline:hover svg { transform: translateX(3px); }
+
+    @media (prefers-reduced-motion: no-preference) {
+      /* 1 · Header fades in while sliding down 12px */
+      html.premium .site-header { animation: pmNavDrop .6s cubic-bezier(.2,.8,.2,1) both; }
+
+      /* 1 · Eyebrow fades in, letter-spacing easing to its natural .12em */
+      html.premium .hero-eyebrow { animation: pmEyebrow .8s ease both; animation-delay: .25s; }
+
+      /* 1 · Headline reveals line by line (masked wipe-up); lines built by JS */
+      html.premium .hero-heading-panel h1:not(.hl-ready) { opacity: 0; }
+      html.premium .hl-mask { display: block; overflow: hidden; padding: .16em .06em; margin: -.16em -.06em; }
+      html.premium .hl-inner { display: block; transform: translateY(110%); animation: pmLineUp .9s cubic-bezier(.2,.8,.2,1) both; }
+      html.premium .hl-mask:nth-child(1) .hl-inner { animation-delay: .35s; }
+      html.premium .hl-mask:nth-child(2) .hl-inner { animation-delay: .47s; }
+      /* 1 · "Canada" gets a one-time underline drawn left → right */
+      html.premium .hl-em { position: relative; }
+      html.premium .hl-em::after { content: ''; position: absolute; left: 0; right: 0; bottom: -.04em; height: 2px; border-radius: 2px; background: #8bc4f5; transform: scaleX(0); transform-origin: left center; animation: pmDraw .6s ease both; animation-delay: 1.15s; }
+
+      /* 1 · Subheading fades up 16px, then the two buttons fade up with a 0.1s stagger */
+      html.premium .hero-sub { animation: pmFadeUp16 .6s ease both; animation-delay: 1.1s; }
+      html.premium .hero-actions .btn-primary { animation: pmFadeUp16 .6s ease both; animation-delay: 1.25s; }
+      html.premium .hero-actions .btn-outline { animation: pmFadeUp16 .6s ease both; animation-delay: 1.35s; }
+
+      /* 1 · Scroll cue fades in last, then gently bobs (keeps its translateX(-50%)) */
+      html.premium .scroll-cue { animation: pmCueIn .6s ease both, pmCueBob 2s ease-in-out infinite; animation-delay: 1.55s, 2.2s; }
+
+      /* 2 · Hero video: slow cinematic push-in once it can play (fade is already handled) */
+      html.premium .hero { overflow: hidden; }
+      html.premium .hero-video.ready { animation: pmPush 20s ease-out both; }
+
+      /* 10 · Closing CTA background: one slow breathing pulse (looping) */
+      html.premium .final-bg { animation: pmBreathe 6s ease-in-out infinite; }
+
+      /* 11 · Mobile: ~60% distance, ~80% duration */
+      @media (max-width: 700px) {
+        html.premium .hero-eyebrow { animation-duration: .64s; }
+        html.premium .hl-inner { animation-duration: .72s; }
+        html.premium .hero-sub,
+        html.premium .hero-actions .btn-primary,
+        html.premium .hero-actions .btn-outline { animation-duration: .48s; }
+      }
+    }
+
+    @keyframes pmNavDrop { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+    @keyframes pmEyebrow { from { opacity: 0; letter-spacing: .3em; } to { opacity: 1; letter-spacing: .12em; } }
+    @keyframes pmLineUp { from { transform: translateY(110%); } to { transform: translateY(0); } }
+    @keyframes pmDraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes pmFadeUp16 { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes pmCueIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pmCueBob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -6px); } }
+    @keyframes pmPush { from { transform: scale(1) translateZ(0); } to { transform: scale(1.06) translateZ(0); } }
+    @keyframes pmBreathe { 0%, 100% { opacity: .9; } 50% { opacity: 1; } }
   </style>
+  <script>
+    /* Enable the premium motion layer before first paint — only when motion is welcome
+       and the visitor isn't on Save-Data. No JS / reduced-motion / Save-Data => unchanged. */
+    (function () {
+      try {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var conn = navigator.connection || {};
+        if (!reduce && !conn.saveData) document.documentElement.classList.add('premium');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -1102,6 +1172,26 @@
     Scroll
   </a>
 </section>
+<script>
+  /* Build the hero headline into masked lines for the one-time wipe-up entrance.
+     Runs during parse (before first paint) so there is no flash; only when .premium is on. */
+  (function () {
+    if (!document.documentElement.classList.contains('premium')) return;
+    var h1 = document.querySelector('.hero-heading-panel h1');
+    if (!h1) return;
+    try {
+      var lines = h1.innerHTML.split(/<br\s*\/?>/i);
+      h1.innerHTML = lines.map(function (ln) {
+        return '<span class="hl-mask"><span class="hl-inner">' + ln + '</span></span>';
+      }).join('');
+      var em = h1.querySelector('em');
+      if (em) em.classList.add('hl-em');
+      h1.classList.add('hl-ready');
+    } catch (e) {
+      h1.classList.add('hl-ready'); /* failsafe: always reveal the headline */
+    }
+  })();
+</script>
 
 <!-- ═══════════ PROGRAM FINDER (guided pathway selector) ═══════════ -->
 <section class="section journey-finder" id="journey" aria-labelledby="finder-title">
