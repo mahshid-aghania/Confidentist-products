@@ -1241,13 +1241,6 @@
       <p class="lead">Explore the preparation pathway that best matches your current stage. Select any step to learn more about the relevant ConfiDentist program, preparation format and next recommended action.</p>
     </div>
 
-    <!-- Orientation control -->
-    <div class="pw-orient reveal" role="group" aria-label="Emphasise a pathway" id="pwOrient">
-      <button type="button" data-orient="eq" aria-pressed="false">Dental Equivalency</button>
-      <button type="button" data-orient="adat" aria-pressed="false">Advanced Dental Admission</button>
-      <button type="button" data-orient="both" aria-pressed="true">View Both Paths</button>
-    </div>
-
     <!-- Screen-reader status for orientation / selection changes -->
     <p class="sr-only" role="status" aria-live="polite" id="pwLive"></p>
 
@@ -2274,7 +2267,7 @@ const pathway = (() => {
     chartEl.classList.remove('pw-focus-eq', 'pw-focus-adat');
     if (mode === 'eq') chartEl.classList.add('pw-focus-eq');
     else if (mode === 'adat') chartEl.classList.add('pw-focus-adat');
-    orientEl.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.orient === mode ? 'true' : 'false'));
+    if (orientEl) orientEl.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.orient === mode ? 'true' : 'false'));
     if (liveEl) liveEl.textContent = mode === 'both'
       ? 'Showing both pathways.'
       : (mode === 'eq' ? 'Emphasising the Dental Equivalency pathway.' : 'Emphasising the Advanced Dental Admission pathway.');
@@ -2301,7 +2294,7 @@ const pathway = (() => {
     if (!chartEl || !rowsEl) return;
     render();
     chartEl.addEventListener('keydown', onKey);
-    orientEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) setOrient(b.dataset.orient); });
+    if (orientEl) orientEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) setOrient(b.dataset.orient); });
     layout();
     if ('ResizeObserver' in window) { new ResizeObserver(schedule).observe(chartEl.querySelector('.pw-viewport')); }
     window.addEventListener('resize', schedule);
