@@ -72,6 +72,20 @@ const INSTALLMENTS: Record<
       'May 10, 2027',
     ],
   },
+  // Comprehensive (Aug 2027 early-bird, $4,749): 5 equal monthly payments of
+  // $949.80 — first today, then 4 monthly. 949.80 × 5 = 4,749.00.
+  'comprehensive-aug-2027': {
+    first: 949.8,
+    monthly: 949.8,
+    count: 4,
+    name: 'AFK Comprehensive – Aug 2027 · Installment 1 of 5',
+    dates: [
+      'December 10, 2026',
+      'January 10, 2027',
+      'February 10, 2027',
+      'March 10, 2027',
+    ],
+  },
 }
 
 // Unique, human-readable order number assigned to every registrant.
