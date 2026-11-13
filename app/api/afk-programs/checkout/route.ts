@@ -62,6 +62,8 @@ function genOrderNumber(): string {
 // Flat shipping rates (CAD cents) for the printed booklets, by region. The buyer
 // selects the matching option in Stripe Checkout against their delivery address.
 const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
+  // Pickup — collect the printed booklets in person, no shipping fee.
+  { name: 'Pickup — collect in person (no shipping fee)', amountCents: 0 },
   { name: 'Shipping — within Canada', amountCents: 7500 },
   { name: 'Shipping — United States', amountCents: 15000 },
   { name: 'Shipping — Australia', amountCents: 25000 },
@@ -130,6 +132,11 @@ export async function GET(req: Request) {
   params.set('line_items[0][price_data][currency]', 'cad')
   params.set('line_items[0][price_data][unit_amount]', String(Math.round(basePrice * 100)))
   params.set('line_items[0][price_data][product_data][name]', lineName)
+  // Product tax category for Stripe Tax: "Training Services - Live Virtual"
+  // (live, instructor-led online exam-prep cohorts). This tells Stripe how the
+  // course is taxed per jurisdiction; without it Stripe falls back to the account
+  // default category. Change to txcd_20060044 ("Training services") if preferred.
+  params.set('line_items[0][price_data][product_data][tax_code]', 'txcd_20060045')
   // Price is pre-tax; Stripe adds the calculated tax on top.
   params.set('line_items[0][price_data][tax_behavior]', 'exclusive')
 
