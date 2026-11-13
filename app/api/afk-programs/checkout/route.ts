@@ -61,9 +61,11 @@ function genOrderNumber(): string {
 
 // Flat shipping rates (CAD cents) for the printed booklets, by region. The buyer
 // selects the matching option in Stripe Checkout against their delivery address.
+// NOTE: Stripe Checkout allows a MAXIMUM of 5 shipping_options. Keep this list
+// at 5 or fewer entries, or session creation fails with
+// "Array shipping_options exceeded maximum 5 allowed elements." To offer an
+// in-person pickup option, consolidate a region so the total stays ≤ 5.
 const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
-  // Pickup — collect the printed booklets in person, no shipping fee.
-  { name: 'Pickup — collect in person (no shipping fee)', amountCents: 0 },
   { name: 'Shipping — within Canada', amountCents: 7500 },
   { name: 'Shipping — United States', amountCents: 15000 },
   { name: 'Shipping — Australia', amountCents: 25000 },
