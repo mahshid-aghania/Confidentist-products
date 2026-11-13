@@ -65,12 +65,14 @@ function genOrderNumber(): string {
 // at 5 or fewer entries, or session creation fails with
 // "Array shipping_options exceeded maximum 5 allowed elements." To offer an
 // in-person pickup option, consolidate a region so the total stays ≤ 5.
+// 5 options total (Stripe's max): Pickup + 4 regions. Australia is folded into
+// "Asia & Oceania" ($400) to make room for Pickup while staying within the cap.
 const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
+  { name: 'Pickup — collect in person (no shipping fee)', amountCents: 0 },
   { name: 'Shipping — within Canada', amountCents: 7500 },
   { name: 'Shipping — United States', amountCents: 15000 },
-  { name: 'Shipping — Australia', amountCents: 25000 },
   { name: 'Shipping — Europe & Africa', amountCents: 35000 },
-  { name: 'Shipping — Asia', amountCents: 40000 },
+  { name: 'Shipping — Asia & Oceania', amountCents: 40000 },
 ]
 
 // Countries the residential/shipping address may be in (ISO 3166-1 alpha-2).
