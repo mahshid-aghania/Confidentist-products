@@ -497,6 +497,38 @@
     .installment-note { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.55; }
     .installment-note strong { color: var(--navy); font-weight: 600; }
 
+    /* ── PROMINENT PROVINCE STEP ── */
+    .tax-region.step { max-width: 640px; border: 2px solid var(--gold); background: var(--gold-bg); }
+    .tax-region .step-badge { display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--gold); padding: .28rem .8rem; border-radius: .3rem; margin-bottom: .7rem; }
+    .tax-region.step label { font-size: .92rem; }
+    .tax-region.step .hint { font-weight: 500; color: var(--navy); background: #fff; border: 1px solid rgba(15,122,229,.25); border-radius: .5rem; padding: .65rem .85rem; margin-top: .85rem; }
+
+    /* ── INSTALLMENT AS ACCORDION (native <details>) ── */
+    details.installment > summary { cursor: pointer; list-style: none; }
+    details.installment > summary::-webkit-details-marker { display: none; }
+    details.installment > summary.installment-head::after { content: '+'; margin-left: auto; font-size: 1.4rem; line-height: 1; color: var(--gold-dark); }
+    details.installment[open] > summary.installment-head::after { content: '\2013'; }
+    details.installment > summary:hover { background: var(--gold-bg); }
+    details.installment[open] { border-color: var(--gold); }
+
+    /* ── DELIVERY (pickup / shipping) ACCORDION ── */
+    .pay-label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin: 1.1rem 0 .5rem; }
+    .delivery-acc { max-width: 940px; margin: 1.75rem auto 0; }
+    .delivery-note { text-align: center; font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: .8rem; }
+    .delivery-note strong { color: var(--navy); font-weight: 700; }
+    details.ship-acc { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+    details.ship-acc > summary { cursor: pointer; list-style: none; padding: .95rem 1.25rem; display: flex; align-items: center; gap: .6rem; font-weight: 600; color: var(--navy); }
+    details.ship-acc > summary::-webkit-details-marker { display: none; }
+    details.ship-acc > summary::after { content: '+'; margin-left: auto; font-size: 1.35rem; line-height: 1; color: var(--gold-dark); }
+    details.ship-acc[open] > summary::after { content: '\2013'; }
+    details.ship-acc[open] { border-color: var(--gold); }
+    details.ship-acc > summary:hover { color: var(--gold-dark); }
+    .ship-body { padding: .2rem 1.25rem 1.1rem; border-top: 1px solid var(--border); }
+    .ship-row { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--border); font-size: .88rem; color: var(--muted); }
+    .ship-row:last-child { border-bottom: none; }
+    .ship-row b { color: var(--navy); font-weight: 700; white-space: nowrap; }
+    .ship-row.free b { color: var(--gold-dark); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .compare-wrap { display: none; }
@@ -723,9 +755,10 @@
       <p class="pkg-middle-desc" style="margin-bottom:0;">Choose between the Extended and Comprehensive pathways below based on your preparation needs and desired level of support.</p>
     </div>
 
-    <!-- Province selector — sets the sales-tax rate applied at checkout -->
-    <div class="tax-region" id="taxRegion">
-      <label for="provinceSelect">Where will you be billed? (sets your sales tax)</label>
+    <!-- STEP 1 · Province selector — sets the sales-tax rate applied at checkout -->
+    <div class="tax-region step" id="taxRegion">
+      <span class="step-badge">Step 1 · Select your province</span>
+      <label for="provinceSelect">Where will you be billed? (this sets your sales tax)</label>
       <select id="provinceSelect" aria-describedby="taxHint">
         <option value="ON">Ontario — HST 13%</option>
         <option value="QC">Quebec — GST 5%</option>
@@ -742,7 +775,7 @@
         <option value="NU">Nunavut — GST 5%</option>
         <option value="INTL">Outside Canada — no tax</option>
       </select>
-      <p class="hint" id="taxHint">Sales tax is applied at checkout based on your province.</p>
+      <p class="hint" id="taxHint">Choose your province so we can show your tax and total before you check out.</p>
     </div>
 
     <div class="price-grid">
@@ -781,23 +814,24 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
         </ul>
+        <p class="pay-label">Payment options</p>
         <div class="price-cohorts">
-          <p class="price-cohorts-head">Choose your exam cohort</p>
+          <p class="price-cohorts-head">Pay in full — choose your exam cohort</p>
           <div class="price-cohort featured">
             <div class="price-cohort-head">
               <span class="price-cohort-name">August 2027 Exam</span>
               <span class="price-cohort-amt">$6,499 <small>CAD + tax</small></span>
             </div>
             <p class="price-cohort-meta">Starts December 2026 · 8-month program</p>
-            <a class="price-cta navy" href="/api/afk-programs/checkout/?p=extended-aug-2027">Register for August 2027 Exam →</a>
+            <a class="price-cta navy" href="/api/afk-programs/checkout/?p=extended-aug-2027">Pay in full — Register →</a>
           </div>
         </div>
 
-        <div class="installment">
-          <div class="installment-head">
+        <details class="installment">
+          <summary class="installment-head">
             <span class="installment-radio" aria-hidden="true"></span>
-            <span class="installment-title">Pay by Installment</span>
-          </div>
+            <span class="installment-title">Pay in installments (6 + 1)</span>
+          </summary>
           <div class="installment-body">
             <div class="installment-plan">
               <svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
@@ -822,7 +856,7 @@
             <p class="installment-note">Course fee <strong>$6,499 CAD</strong> — $1,429.78 today, then 6 monthly payments of $844.87. <strong>Sales tax is added automatically at checkout based on your billing address</strong>, and applied to each future payment.</p>
             <a class="price-cta gold" style="margin-top:1.1rem;" href="/api/afk-programs/checkout/?p=extended-aug-2027&amp;plan=installment">Pay First Installment — $1,429.78 + tax →</a>
           </div>
-        </div>
+        </details>
       </article>
 
       <!-- COMPREHENSIVE -->
@@ -878,6 +912,21 @@
         </div>
       </article>
 
+    </div>
+
+    <!-- Delivery options — printed booklets. Final choice is made on the checkout page. -->
+    <div class="delivery-acc">
+      <p class="delivery-note"><strong>Printed booklets:</strong> choose free <strong>pickup in person</strong> (no shipping fee) or have them shipped — you select this on the secure checkout page.</p>
+      <details class="ship-acc">
+        <summary>Shipping &amp; pickup rates</summary>
+        <div class="ship-body">
+          <div class="ship-row free"><span>Pickup — collect in person</span><b>No shipping fee</b></div>
+          <div class="ship-row"><span>Within Canada</span><b>$75</b></div>
+          <div class="ship-row"><span>United States</span><b>$150</b></div>
+          <div class="ship-row"><span>Europe &amp; Africa</span><b>$350</b></div>
+          <div class="ship-row"><span>Asia &amp; Oceania</span><b>$400</b></div>
+        </div>
+      </details>
     </div>
 
     <div style="text-align:center;margin-top:1.75rem;">
@@ -1068,22 +1117,27 @@
   function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
   function apply() {
     var r = sel.value;
-    var rate = RATES[r] != null ? RATES[r] : 0.13;
-    // Carry the chosen region into every AFK checkout link (replace any existing one).
-    document.querySelectorAll('a[href*="/api/afk-programs/checkout/"]').forEach(function (a) {
-      var base = a.getAttribute('href').replace(/[?&]region=[^&]*/, '');
-      var join = base.indexOf('?') > -1 ? '&' : '?';
-      a.setAttribute('href', base + join + 'region=' + r);
-    });
-    // Show the estimated total for each package (course price only; excludes shipping).
+    var rate = RATES.hasOwnProperty(r) ? RATES[r] : 0.13;
+    // 1) Update the estimate FIRST so it always reflects the current selection.
     if (hint) {
       if (rate === 0) {
         hint.textContent = 'No Canadian sales tax applies outside Canada. Final amount is confirmed at checkout.';
       } else {
-        hint.innerHTML = LABELS[r] + ' applies. Estimated total — Extended ' + fmt(6499 * (1 + rate)) +
-          ' · Comprehensive (early-bird) ' + fmt(4749 * (1 + rate)) + '. Excludes shipping; confirmed at checkout.';
+        hint.innerHTML = '<strong>' + LABELS[r] + '</strong> applies. Estimated total — Extended ' +
+          fmt(6499 * (1 + rate)) + ' · Comprehensive (early-bird) ' + fmt(4749 * (1 + rate)) +
+          '. Excludes shipping; confirmed at checkout.';
       }
     }
+    // 2) Carry the chosen region into every AFK checkout link (replace any existing one).
+    try {
+      var links = document.querySelectorAll('a[href*="/api/afk-programs/checkout/"]');
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute('href') || '';
+        var base = href.replace(/[?&]region=[^&]*/, '');
+        var join = base.indexOf('?') > -1 ? '&' : '?';
+        links[i].setAttribute('href', base + join + 'region=' + r);
+      }
+    } catch (e) { /* link rewrite is best-effort; the estimate above still updates */ }
   }
   sel.addEventListener('change', apply);
   apply();
