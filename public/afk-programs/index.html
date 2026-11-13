@@ -723,6 +723,28 @@
       <p class="pkg-middle-desc" style="margin-bottom:0;">Choose between the Extended and Comprehensive pathways below based on your preparation needs and desired level of support.</p>
     </div>
 
+    <!-- Province selector — sets the sales-tax rate applied at checkout -->
+    <div class="tax-region" id="taxRegion">
+      <label for="provinceSelect">Where will you be billed? (sets your sales tax)</label>
+      <select id="provinceSelect" aria-describedby="taxHint">
+        <option value="ON">Ontario — HST 13%</option>
+        <option value="QC">Quebec — GST 5%</option>
+        <option value="BC">British Columbia — GST 5%</option>
+        <option value="AB">Alberta — GST 5%</option>
+        <option value="MB">Manitoba — GST 5%</option>
+        <option value="SK">Saskatchewan — GST 5%</option>
+        <option value="NS">Nova Scotia — HST 14%</option>
+        <option value="NB">New Brunswick — HST 15%</option>
+        <option value="NL">Newfoundland &amp; Labrador — HST 15%</option>
+        <option value="PE">Prince Edward Island — HST 15%</option>
+        <option value="YT">Yukon — GST 5%</option>
+        <option value="NT">Northwest Territories — GST 5%</option>
+        <option value="NU">Nunavut — GST 5%</option>
+        <option value="INTL">Outside Canada — no tax</option>
+      </select>
+      <p class="hint" id="taxHint">Sales tax is applied at checkout based on your province.</p>
+    </div>
+
     <div class="price-grid">
 
       <!-- EXTENDED -->
@@ -1033,6 +1055,39 @@
       });
     });
   })();
+</script>
+
+<!-- Province selector → carry region into checkout links + show estimated totals -->
+<script>
+(function () {
+  var RATES  = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.05, BC:0.05, MB:0.05, SK:0.05, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
+  var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
+  var sel = document.getElementById('provinceSelect');
+  var hint = document.getElementById('taxHint');
+  if (!sel) return;
+  function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function apply() {
+    var r = sel.value;
+    var rate = RATES[r] != null ? RATES[r] : 0.13;
+    // Carry the chosen region into every AFK checkout link (replace any existing one).
+    document.querySelectorAll('a[href*="/api/afk-programs/checkout/"]').forEach(function (a) {
+      var base = a.getAttribute('href').replace(/[?&]region=[^&]*/, '');
+      var join = base.indexOf('?') > -1 ? '&' : '?';
+      a.setAttribute('href', base + join + 'region=' + r);
+    });
+    // Show the estimated total for each package (course price only; excludes shipping).
+    if (hint) {
+      if (rate === 0) {
+        hint.textContent = 'No Canadian sales tax applies outside Canada. Final amount is confirmed at checkout.';
+      } else {
+        hint.innerHTML = LABELS[r] + ' applies. Estimated total — Extended ' + fmt(6499 * (1 + rate)) +
+          ' · Comprehensive (early-bird) ' + fmt(4749 * (1 + rate)) + '. Excludes shipping; confirmed at checkout.';
+      }
+    }
+  }
+  sel.addEventListener('change', apply);
+  apply();
+})();
 </script>
 
 </body>

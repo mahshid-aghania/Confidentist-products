@@ -17,11 +17,33 @@ import { NextResponse } from 'next/server'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-// Sales tax is handled by Stripe Tax (automatic_tax): Stripe calculates the correct
-// GST/HST/PST/QST from the buyer's billing address at checkout, and 0% outside Canada.
-// No tax rates are hard-coded here.
+// Sales tax: HARD-CODED province rates. The buyer picks their province on the AFK
+// page; it's passed as ?region=XX and the matching rate is added as its own line item
+// so the Stripe total matches the on-page pricing. Outside Canada (INTL) = tax-free.
+//
+// NOTE: this charges tax regardless of CRA registration status. Once ConfiDentist is
+// registered for GST/HST, switch back to Stripe Tax (automatic_tax) — see
+// STRIPE-TAX-SETUP.md. Rates reflect the chosen treatment: HST provinces at their HST
+// rate; GST-only (5%) for AB/BC/SK/MB/QC and the territories. Confirm with filings.
+const TAX_RATES: Record<string, { rate: number; label: string }> = {
+  ON: { rate: 0.13, label: 'HST (13%)' },
+  NB: { rate: 0.15, label: 'HST (15%)' },
+  NL: { rate: 0.15, label: 'HST (15%)' },
+  PE: { rate: 0.15, label: 'HST (15%)' },
+  NS: { rate: 0.14, label: 'HST (14%)' },
+  QC: { rate: 0.05, label: 'GST (5%)' },
+  BC: { rate: 0.05, label: 'GST (5%)' },
+  MB: { rate: 0.05, label: 'GST (5%)' },
+  SK: { rate: 0.05, label: 'GST (5%)' },
+  AB: { rate: 0.05, label: 'GST (5%)' },
+  YT: { rate: 0.05, label: 'GST (5%)' },
+  NT: { rate: 0.05, label: 'GST (5%)' },
+  NU: { rate: 0.05, label: 'GST (5%)' },
+  INTL: { rate: 0, label: 'No tax (outside Canada)' },
+}
+const DEFAULT_REGION = 'ON'
 
-// Program prices in CAD (pre-HST). Keys MUST match the ?p= values on /afk-programs/.
+// Program prices in CAD (pre-tax). Keys MUST match the ?p= values on /afk-programs/.
 const PROGRAMS: Record<string, { name: string; price: number }> = {
   'extended-aug-2027': { name: 'AFK Extended – Aug 2027', price: 6499 },
   'comprehensive-feb-2027': { name: 'AFK Comprehensive – Feb 2027', price: 4999 },
@@ -128,21 +150,31 @@ export async function GET(req: Request) {
   // Order number assigned to this registrant — carried in metadata for the receipt.
   const orderNumber = genOrderNumber()
 
+  // Buyer's province (from the AFK page selector) → hard-coded sales-tax rate.
+  // Unknown/missing region falls back to the home province (Ontario).
+  const regionParam = (url.searchParams.get('region') || '').trim().toUpperCase()
+  const region = TAX_RATES[regionParam] ? regionParam : DEFAULT_REGION
+  const taxInfo = TAX_RATES[region]
+  const taxRate = taxInfo.rate
+  // Tax on THIS payment (full course, or just the first installment).
+  const paidTaxCents = Math.round(basePrice * taxRate * 100)
+  // Tax on the FULL course price (for installment receipts / records).
+  const courseTaxCents = Math.round(program.price * taxRate * 100)
+
   const params = new URLSearchParams()
   params.set('mode', 'payment')
-  // Stripe Tax: calculate sales tax from the buyer's billing address automatically.
-  params.set('automatic_tax[enabled]', 'true')
   params.set('line_items[0][quantity]', '1')
   params.set('line_items[0][price_data][currency]', 'cad')
   params.set('line_items[0][price_data][unit_amount]', String(Math.round(basePrice * 100)))
   params.set('line_items[0][price_data][product_data][name]', lineName)
-  // Product tax category for Stripe Tax: "Training Services - Live Virtual"
-  // (live, instructor-led online exam-prep cohorts). This tells Stripe how the
-  // course is taxed per jurisdiction; without it Stripe falls back to the account
-  // default category. Change to txcd_20060044 ("Training services") if preferred.
-  params.set('line_items[0][price_data][product_data][tax_code]', 'txcd_20060045')
-  // Price is pre-tax; Stripe adds the calculated tax on top.
-  params.set('line_items[0][price_data][tax_behavior]', 'exclusive')
+  // Hard-coded province sales tax as its own line item. Skipped entirely when the
+  // rate is 0 (outside Canada). NOTE: this is NOT Stripe Tax — see TAX_RATES above.
+  if (paidTaxCents > 0) {
+    params.set('line_items[1][quantity]', '1')
+    params.set('line_items[1][price_data][currency]', 'cad')
+    params.set('line_items[1][price_data][unit_amount]', String(paidTaxCents))
+    params.set('line_items[1][price_data][product_data][name]', `Sales tax — ${region} · ${taxInfo.label}`)
+  }
 
   // Collect the buyer's full details at checkout.
   // Billing address (required) + residential/delivery address (shipping) with
@@ -158,7 +190,6 @@ export async function GET(req: Request) {
     params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][amount]`, String(s.amountCents))
     params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][currency]`, 'cad')
     params.set(`shipping_options[${i}][shipping_rate_data][display_name]`, s.name)
-    params.set(`shipping_options[${i}][shipping_rate_data][tax_behavior]`, 'exclusive')
   })
   params.set('custom_fields[0][key]', 'first_name')
   params.set('custom_fields[0][label][type]', 'custom')
@@ -180,8 +211,14 @@ export async function GET(req: Request) {
   params.set('metadata[order_number]', orderNumber)
   params.set('metadata[course_name]', program.name)
   params.set('metadata[course_subtotal]', program.price.toFixed(2))
-  // Tax is computed by Stripe Tax; the webhook reads the actual amount from the session.
-  params.set('metadata[tax_mode]', 'auto')
+  // Hard-coded province tax — recorded in metadata so the webhook/receipt use the
+  // correct amount (Stripe's total_details.amount_tax is 0 for a line-item tax).
+  params.set('metadata[tax_mode]', 'hardcoded')
+  params.set('metadata[tax_region]', region)
+  params.set('metadata[tax_label]', taxInfo.label)
+  params.set('metadata[tax_rate]', String(taxRate))
+  params.set('metadata[paid_tax]', (paidTaxCents / 100).toFixed(2))
+  params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
   if (isInstallment) {
     const inst = INSTALLMENTS[key]
     if (inst) {

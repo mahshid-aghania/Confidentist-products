@@ -447,9 +447,15 @@ export async function POST(req: Request) {
           const orderNo = (typeof meta['order_number'] === 'string' && meta['order_number']) || reference
           const cleanCourse =
             (typeof meta['course_name'] === 'string' && meta['course_name']) || courseName
-          // Stripe Tax computed the tax — read the real amounts from the session.
+          // Hard-coded province tax is carried in metadata (Stripe's amount_tax is 0
+          // for a line-item tax); fall back to Stripe Tax's amount_tax if present.
+          const metaPaidTaxCents = Math.round(num(meta['paid_tax']) * 100)
           const taxCents =
-            typeof totalDetails['amount_tax'] === 'number' ? (totalDetails['amount_tax'] as number) : 0
+            metaPaidTaxCents > 0
+              ? metaPaidTaxCents
+              : typeof totalDetails['amount_tax'] === 'number'
+                ? (totalDetails['amount_tax'] as number)
+                : 0
           const tax = taxCents / 100
           const shipping = shipCents / 100
           const paidNow = amountTotal / 100
@@ -570,8 +576,16 @@ export async function POST(req: Request) {
           const paymentIntent =
             typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
           const recTotals = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+          // Prefer the hard-coded tax recorded in metadata; fall back to Stripe Tax.
+          const metaRecTaxCents = Math.round(
+            Number((typeof meta['paid_tax'] === 'string' ? meta['paid_tax'] : '') || 0) * 100,
+          )
           const paidTaxCents =
-            typeof recTotals['amount_tax'] === 'number' ? (recTotals['amount_tax'] as number) : 0
+            metaRecTaxCents > 0
+              ? metaRecTaxCents
+              : typeof recTotals['amount_tax'] === 'number'
+                ? (recTotals['amount_tax'] as number)
+                : 0
           const result = await recordMockOrder(supabase, {
             email,
             firstName: cf('first_name'),
