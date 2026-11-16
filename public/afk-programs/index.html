@@ -551,6 +551,12 @@
       .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
       .path-btn:hover .path-chevron, .path-btn:focus-visible .path-chevron { transform: none; }
     }
+    /* February 2027 schedule circle button */
+    .sched-circle { display: inline-block; line-height: 0; transition: transform .2s ease; }
+    .sched-circle img { width: 168px; height: 168px; clip-path: circle(42% at 50% 50%); display: block; filter: drop-shadow(0 8px 20px rgba(21,87,214,.28)); transition: filter .2s ease; }
+    .sched-circle:hover { transform: translateY(-3px) scale(1.03); }
+    .sched-circle:hover img { filter: drop-shadow(0 12px 28px rgba(21,87,214,.42)); }
+    .sched-circle:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; border-radius: 50%; }
   </style>
 <!-- confi-nav-assets v1 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1014,7 +1020,9 @@
     </div>
 
     <div style="text-align:center;margin-top:1.75rem;">
-      <a href="/afk-schedule-feb-2027/" style="font-size:.85rem;font-weight:700;color:var(--gold-dark);text-decoration:none;">View the February 2027 schedule →</a>
+      <a href="/afk-schedule-feb-2027/" class="sched-circle" aria-label="View the February 2027 AFK schedule">
+        <img src="/images/afk/feb-2027-schedule.png" alt="February 2027 Schedule" width="400" height="400" loading="lazy" />
+      </a>
     </div>
   </div>
 </section>
