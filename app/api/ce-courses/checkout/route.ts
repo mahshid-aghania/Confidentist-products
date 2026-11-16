@@ -21,6 +21,7 @@ export const dynamic = 'force-dynamic'
 const COURSES: Record<string, { name: string; price: number; credits: number }> = {
   'exocad-essentials': { name: 'EXOCAD Essentials', price: 300, credits: 4 },
   'orthodontic-clear-alignment': { name: 'Orthodontic and Clear Alignment', price: 349, credits: 5 },
+  'orthodontics-for-gps': { name: 'Orthodontics for GPs', price: 5750, credits: 48 },
 }
 
 // Unique, human-readable order number assigned to every registrant.
