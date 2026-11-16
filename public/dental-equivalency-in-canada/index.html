@@ -185,8 +185,20 @@
     .osce-examdate svg { width: 16px; height: 16px; color: var(--gold-dark); flex-shrink: 0; }
     .osce-uni { background: var(--teal-light); border: 1px solid rgba(59,175,191,.35); border-radius: .5rem; padding: .85rem 1.1rem; font-size: .84rem; color: var(--navy); line-height: 1.6; text-align: center; margin-bottom: 1.5rem; }
     .osce-pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; align-items: stretch; container-type: inline-size; }
-    /* When the packages stack into one column, drop the Extended-card spacers. */
-    @container (max-width: 620px) { .afk-cohorts.afk-ghost, .osce-earlybird.afk-ghost { display: none; } }
+    /* Align every row across the two AFK cards: make each card a subgrid of a
+       shared 12-row track so corresponding sections line up regardless of how
+       their text wraps. Both cards have the identical 12-element sequence
+       (the Extended card uses the invisible .afk-ghost spacers to match). */
+    .afk-pkgs { grid-template-rows: repeat(12, auto); row-gap: 0; }
+    .afk-pkgs > .osce-card { display: grid; grid-template-rows: subgrid; grid-row: 1 / -1; }
+    .afk-pkgs > .osce-card > .osce-badge { justify-self: start; }
+    /* When the packages stack into one column (mobile), revert to normal card
+       flow and drop the Extended-card spacers. */
+    @container (max-width: 620px) {
+      .afk-pkgs { grid-template-rows: none; row-gap: 1.25rem; }
+      .afk-pkgs > .osce-card { display: flex; grid-row: auto; grid-template-rows: none; }
+      .afk-cohorts.afk-ghost, .osce-earlybird.afk-ghost { display: none; }
+    }
     .osce-pkgs.is-single { grid-template-columns: minmax(0, 540px); justify-content: center; }
     .osce-card { display: flex; flex-direction: column; background: #fff; border: 2px solid var(--gold); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-md); height: 100%; }
     .osce-badge { align-self: flex-start; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .75rem; border-radius: .3rem; margin-bottom: .9rem; background: var(--gold); color: #fff; }
@@ -915,7 +927,7 @@ const pathwayNav = (() => {
       <span>Upcoming NDEB AFK exam dates: <strong>February 5, 2027</strong> and <strong>August 13, 2027</strong>. Course start dates are shown with each package below. <a href="https://ndeb-bned.ca/examination-dates-and-locations/" target="_blank" rel="noopener">View the official NDEB schedule</a>.</span>
     </p>
 
-    <div class="osce-pkgs">
+    <div class="osce-pkgs afk-pkgs">
 
       <!-- Package A: Extended -->
       <article class="osce-card afk-card-ext">
