@@ -1,0 +1,158 @@
+/* ============================================================================
+   ConfiDentist — shared site navigation  (confi-nav v1)
+   Single source of truth for the primary navbar used on EVERY page.
+   Extracted verbatim from public/index.html; CSS variables are scoped to the
+   nav elements so this file is self-contained and never changes a page's own
+   palette. Do not fork — edit here only.
+   ============================================================================ */
+
+/* Nav-local design tokens (scoped: they cascade only into the nav subtrees) */
+.site-header, .mobile-panel, .backdrop, .nav-spacer {
+  --nav-h: 74px;
+  --navy: #072C5E;
+  --navy-deep: #041b3d;
+  --gold: #0f7ae5;
+  --gold-dark: #0a5cb8;
+  --gold-light: #5cb2f7;
+  --maxw: 1200px;
+  --radius: .75rem;
+  --shadow-lg: 0 8px 40px rgba(7,44,94,.14);
+  --border: #dde3ee;
+  --text: #1a1f2e;
+  --bg-soft: #f6f8fb;
+  --muted: #586175;
+}
+
+/* Prevent the off-canvas mobile panel from creating horizontal scroll */
+body { overflow-x: hidden; }
+body.no-scroll { overflow: hidden; }
+
+/* ── Isolation ──
+   Many pages style bare element selectors (nav, nav a, header, button, …).
+   Because the shared markup reuses <nav>, <header>, <a>, <button>, those page
+   rules can bleed in (e.g. a navy box behind the menu). Neutralize the common
+   offenders with class-level selectors that out-rank element selectors. */
+.site-header, .site-header *, .mobile-panel, .mobile-panel *, .backdrop, .nav-spacer { box-sizing: border-box; }
+.site-header nav.primary-nav {
+  background: transparent; border: 0; box-shadow: none; position: static;
+  top: auto; right: auto; bottom: auto; left: auto; height: auto; width: auto;
+  max-width: none; min-height: 0; margin: 0; padding: 0; backdrop-filter: none; filter: none;
+}
+.site-header .header-inner, .site-header .nav-actions { background: transparent; border: 0; box-shadow: none; }
+
+/* ─────────────  HEADER / NAV  ───────────── */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 500;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  transition: background .35s ease, box-shadow .35s ease, border-color .35s ease, height .35s ease;
+  background: #ffffff;
+  border-bottom: 1px solid var(--gold);
+}
+.site-header.solid {
+  background: #ffffff;
+  box-shadow: 0 6px 30px rgba(7,44,94,.12);
+  border-bottom-color: var(--gold);
+  height: 64px;
+}
+.site-header a { text-decoration: none; }
+.header-inner {
+  width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+.site-header .brand {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e;
+  letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
+}
+.site-header .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
+.site-header .brand span { color: var(--gold-dark); }
+.site-header .brand small { display:block; font-family:'Inter',sans-serif; font-size:.52rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(7,44,94,.55); margin-top:2px; }
+
+/* Desktop primary nav */
+.primary-nav { display: flex; align-items: center; gap: .25rem; }
+.nav-item { position: relative; }
+.site-header .nav-item > a, .site-header .nav-item > button {
+  font-family: inherit; background: transparent; border: none; box-shadow: none; cursor: pointer;
+  color: #1a2b3c; font-size: .82rem; font-weight: 500; letter-spacing: .02em;
+  padding: .6rem .85rem; border-radius: .35rem; display: inline-flex; align-items: center; gap: .35rem;
+  transition: color .18s, background .18s;
+}
+.nav-item > a:hover, .nav-item > button:hover, .nav-item > a:focus-visible, .nav-item > button:focus-visible { color: #072c5e; background: rgba(7,44,94,.06); }
+.nav-item .chev { width: 12px; height: 12px; transition: transform .2s; }
+.nav-item.open .chev { transform: rotate(180deg); }
+
+/* Mega menu */
+.mega {
+  position: absolute; top: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(-6px);
+  width: min(680px, 92vw); background: #fff; color: var(--text);
+  border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+  padding: 1.25rem; opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease; z-index: 600;
+}
+.nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.mega.mega-sm { width: min(460px, 92vw); }
+.mega.mega-xs { width: min(360px, 92vw); }
+.mega.mega-xs .mega-grid { grid-template-columns: 1fr; }
+.mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
+.mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+.mega a {
+  display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem;
+  transition: background .15s; text-decoration: none;
+}
+.mega a:hover, .mega a:focus-visible { background: var(--bg-soft); }
+.mega .m-abbr {
+  flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff;
+  font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem;
+}
+.mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+.mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+.mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+.mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; text-decoration: none; }
+
+/* Utility / actions */
+.nav-actions { display: flex; align-items: center; gap: .5rem; }
+.nav-actions .util-link { color: #1a2b3c; font-size: .78rem; font-weight: 500; padding: .5rem .55rem; border-radius: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+.nav-actions .util-link:hover { color: #072c5e; background: rgba(7,44,94,.06); }
+.site-header .btn-cta, .mobile-panel .btn-cta {
+  background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  padding: .6rem 1.15rem; border-radius: .35rem; transition: background .2s, transform .15s; white-space: nowrap; text-decoration: none;
+}
+.site-header .btn-cta:hover, .mobile-panel .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* Hamburger */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 620; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #072c5e; margin: 5px 0; border-radius: 2px; transition: transform .3s, opacity .2s; }
+.mobile-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-open .hamburger span:nth-child(2) { opacity: 0; }
+.mobile-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile slide-in panel */
+.mobile-panel {
+  position: fixed; inset: 0 0 0 auto; width: min(400px, 88vw); z-index: 610;
+  background: var(--navy-deep); padding: calc(var(--nav-h) + .5rem) 1.5rem 2rem;
+  transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1);
+  overflow-y: auto; display: flex; flex-direction: column; gap: .25rem;
+  border-left: 2px solid var(--gold);
+}
+.mobile-open .mobile-panel { transform: translateX(0); }
+.mobile-panel a { color: #fff; font-size: 1.05rem; font-weight: 500; padding: .85rem .25rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+.mobile-panel a.sub { font-size: .92rem; font-weight: 400; color: rgba(255,255,255,.72); padding-left: 1rem; }
+.mobile-panel .mp-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 1.25rem 0 .35rem; }
+.mobile-panel .btn-cta { text-align: center; justify-content: center; display: flex; margin-top: 1.25rem; padding: .9rem; font-size: .85rem; }
+.backdrop { position: fixed; inset: 0; background: rgba(4,27,61,.55); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity .3s; z-index: 590; }
+.mobile-open .backdrop { opacity: 1; visibility: visible; }
+
+/* Spacer: pushes page content below the fixed header (every page except the
+   homepage, whose full-height hero sits under the header by design). */
+.nav-spacer { height: var(--nav-h); }
+
+/* Collapse the primary nav to the mobile menu before it crowds */
+@media (max-width: 1160px) {
+  .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; }
+  .hamburger { display: block; }
+}
+@media (max-width: 360px) {
+  .header-inner { padding: 0 1rem; }
+  .site-header .brand { font-size: 1.15rem; }
+}
