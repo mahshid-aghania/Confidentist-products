@@ -184,7 +184,9 @@
     .osce-examdate { display: inline-flex; align-items: center; gap: .5rem; margin-top: .3rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .55rem .95rem; font-size: .88rem; font-weight: 600; color: var(--navy); }
     .osce-examdate svg { width: 16px; height: 16px; color: var(--gold-dark); flex-shrink: 0; }
     .osce-uni { background: var(--teal-light); border: 1px solid rgba(59,175,191,.35); border-radius: .5rem; padding: .85rem 1.1rem; font-size: .84rem; color: var(--navy); line-height: 1.6; text-align: center; margin-bottom: 1.5rem; }
-    .osce-pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; align-items: stretch; }
+    .osce-pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; align-items: stretch; container-type: inline-size; }
+    /* When the packages stack into one column, drop the Extended-card spacers. */
+    @container (max-width: 620px) { .afk-cohorts.afk-ghost, .osce-earlybird.afk-ghost { display: none; } }
     .osce-pkgs.is-single { grid-template-columns: minmax(0, 540px); justify-content: center; }
     .osce-card { display: flex; flex-direction: column; background: #fff; border: 2px solid var(--gold); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-md); height: 100%; }
     .osce-badge { align-self: flex-start; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .75rem; border-radius: .3rem; margin-bottom: .9rem; background: var(--gold); color: #fff; }
@@ -268,6 +270,10 @@
     .afk-cohort:has(input:checked) { border-color: var(--gold-dark); background: var(--gold-bg); box-shadow: 0 4px 14px rgba(15,122,229,.18); }
     .afk-cohort-t { font-weight: 700; font-size: .84rem; color: var(--navy); }
     .afk-cohort-s { font-size: .72rem; color: var(--muted); }
+    /* Invisible height-matched spacers on the Extended card so its rows line up
+       with the Comprehensive card (which has the cohort selector + early-bird note). */
+    .afk-ghost { visibility: hidden; }
+    .afk-cohorts.afk-ghost .afk-ghost-legend { grid-column: 1 / -1; padding: 0; }
 
     .afk-diff-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .afk-diff { width: 100%; border-collapse: collapse; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; font-size: .88rem; }
@@ -916,9 +922,15 @@ const pathwayNav = (() => {
         <span class="osce-badge afk-badge-exp">Most Expanded</span>
         <h4>Extended</h4>
         <p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">A longer preparation timeline with additional lectures and personalized study support.</p>
+        <div class="afk-cohorts afk-ghost" aria-hidden="true">
+          <p class="osce-sub afk-ghost-legend" style="margin:0 0 .1rem">Choose your exam cohort</p>
+          <span class="afk-cohort"><span class="afk-cohort-t">August 2027 exam</span><span class="afk-cohort-s">Starts February 2027</span></span>
+          <span class="afk-cohort"><span class="afk-cohort-t">February 2027 exam</span><span class="afk-cohort-s">In progress · started July 2026</span></span>
+        </div>
         <p class="osce-start">Course starts <strong>December 13, 2026</strong> · Target exam <strong>August 13, 2027</strong></p>
         <div class="osce-amount"><span class="osce-price-reg">$6,999</span><span class="osce-price">$6,499</span></div>
         <p class="osce-hst"><strong>CAD</strong> + HST</p>
+        <p class="osce-earlybird afk-ghost" aria-hidden="true">Early-bird discount valid until 10 days before the course start date. Current discounted pricing is confirmed at checkout.</p>
         <div class="osce-bench">
           <p class="osce-bench-h">Best suited for</p>
           <ul>
