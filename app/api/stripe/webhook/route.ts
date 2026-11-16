@@ -159,6 +159,7 @@ export async function POST(req: Request) {
 
       // Record the purchase in the orders tables (idempotent — Stripe retries this webhook).
       let recorded = false
+      let orderNo: string | undefined
       try {
         const result = await recordMockOrder(supabase, {
           email,
@@ -180,9 +181,11 @@ export async function POST(req: Request) {
           sin: '',
           createdVia: 'ce-courses-checkout',
           orderNumberPrefix: 'CE',
+          sequentialOrderNumber: true, // WooCommerce-style numeric order number (continues the sequence)
           rawSession: session,
         })
         recorded = result.recorded
+        orderNo = result.orderNumber
         if (result.error) console.error('ce order record error', result.error)
       } catch (e) {
         console.error('ce order record failed', e)
@@ -197,7 +200,7 @@ export async function POST(req: Request) {
             customerEmail: email,
             customerPhone: phone,
             amountLabel,
-            reference,
+            reference: orderNo ? `Order #${orderNo}` : reference,
           })
           await sendEmail({ to: email, bcc: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...rendered })
           emailed = true
@@ -219,7 +222,7 @@ export async function POST(req: Request) {
           postalCode,
           selectionLabel,
           amountLabel,
-          reference,
+          reference: orderNo ? `Order #${orderNo}` : reference,
           when,
         })
         await sendEmail({ to: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...note })

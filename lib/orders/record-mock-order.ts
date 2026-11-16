@@ -32,6 +32,9 @@ export type MockOrderInput = {
   createdVia: string // e.g. "osce-mock-checkout" | "afk-mock-checkout"
   orderNumberPrefix: string // e.g. "OSCE" | "AFK"
   orderNumber?: string // explicit order number (e.g. "AFK-20261110-4F7A"); overrides the generated one
+  sequentialOrderNumber?: boolean // assign the next WooCommerce-style numeric order number
+  // (atomic via the confi_order_number_seq sequence) and use it for both order_number and
+  // wc_order_id. Ignored if `orderNumber` is given.
   shipping?: {
     firstName?: string
     lastName?: string
@@ -72,7 +75,7 @@ function splitName(full: string): { first: string; last: string } {
 export async function recordMockOrder(
   supabase: SupabaseClient,
   d: MockOrderInput,
-): Promise<{ recorded: boolean; skipped?: boolean; orderId?: string; error?: string }> {
+): Promise<{ recorded: boolean; skipped?: boolean; orderId?: string; orderNumber?: string; error?: string }> {
   const nowIso = new Date().toISOString()
 
   const fromFull = splitName(d.name || '')
@@ -82,10 +85,16 @@ export async function recordMockOrder(
   // Idempotency: if we've already recorded this Stripe session, do nothing.
   const { data: existing } = await supabase
     .from('orders')
-    .select('id')
+    .select('id, order_number')
     .eq('order_key', d.sessionId)
     .maybeSingle()
-  if (existing?.id) return { recorded: false, skipped: true, orderId: existing.id as string }
+  if (existing?.id)
+    return {
+      recorded: false,
+      skipped: true,
+      orderId: existing.id as string,
+      orderNumber: (existing.order_number as string) ?? undefined,
+    }
 
   // Find or create the customer by email.
   let customerId: string | undefined
@@ -119,11 +128,27 @@ export async function recordMockOrder(
   const subtotal = round2(total - tax)
   const currency = d.currency || 'CAD'
 
+  // Resolve the order number. For sequential (WooCommerce-style) numbering, reserve the
+  // next value atomically from the sequence and use it for both order_number and wc_order_id.
+  // This runs after the idempotency check above, so a webhook retry never burns a number.
+  let resolvedOrderNumber = d.orderNumber
+  let resolvedWcOrderId: number = syntheticWcOrderId(d.sessionId)
+  if (!resolvedOrderNumber && d.sequentialOrderNumber) {
+    const { data: seqNo, error: seqErr } = await supabase.rpc('next_confi_order_number')
+    const n = typeof seqNo === 'number' ? seqNo : Number(seqNo)
+    if (seqErr || !Number.isFinite(n)) {
+      return { recorded: false, error: `order number seq: ${seqErr?.message ?? 'no value'}` }
+    }
+    resolvedOrderNumber = String(n)
+    resolvedWcOrderId = n
+  }
+  const finalOrderNumber = resolvedOrderNumber || `${d.orderNumberPrefix}-${d.sessionId.slice(-8)}`
+
   const { data: order, error: orderErr } = await supabase
     .from('orders')
     .insert({
-      wc_order_id: syntheticWcOrderId(d.sessionId),
-      order_number: d.orderNumber || `${d.orderNumberPrefix}-${d.sessionId.slice(-8)}`,
+      wc_order_id: resolvedWcOrderId,
+      order_number: finalOrderNumber,
       status: 'completed',
       currency,
       customer_id: customerId ?? null,
@@ -205,5 +230,5 @@ export async function recordMockOrder(
     })
   }
 
-  return { recorded: true, orderId }
+  return { recorded: true, orderId, orderNumber: finalOrderNumber }
 }
