@@ -551,12 +551,12 @@
       .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
       .path-btn:hover .path-chevron, .path-btn:focus-visible .path-chevron { transform: none; }
     }
-    /* February 2027 schedule circle button */
+    /* February 2027 schedule 3D button */
     .sched-circle { display: inline-block; line-height: 0; transition: transform .2s ease; }
-    .sched-circle img { width: 168px; height: 168px; clip-path: circle(42% at 50% 50%); display: block; filter: drop-shadow(0 8px 20px rgba(21,87,214,.28)); transition: filter .2s ease; }
-    .sched-circle:hover { transform: translateY(-3px) scale(1.03); }
-    .sched-circle:hover img { filter: drop-shadow(0 12px 28px rgba(21,87,214,.42)); }
-    .sched-circle:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; border-radius: 50%; }
+    .sched-circle img { width: 230px; height: 230px; display: block; }
+    .sched-circle:hover { transform: translateY(-4px) scale(1.04); }
+    .sched-circle:focus-visible { outline: 3px solid var(--teal); outline-offset: 6px; border-radius: 50%; }
+    @media (max-width: 480px) { .sched-circle img { width: 190px; height: 190px; } }
   </style>
 <!-- confi-nav-assets v1 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1019,9 +1019,9 @@
       </details>
     </div>
 
-    <div style="text-align:center;margin-top:1.75rem;">
+    <div style="text-align:left;margin-top:1.75rem;">
       <a href="/afk-schedule-feb-2027/" class="sched-circle" aria-label="View the February 2027 AFK schedule">
-        <img src="/images/afk/feb-2027-schedule.png" alt="February 2027 Schedule" width="400" height="400" loading="lazy" />
+        <img src="/images/afk/feb-2027-schedule.png" alt="February 2027 Schedule" width="440" height="440" loading="lazy" />
       </a>
     </div>
   </div>
