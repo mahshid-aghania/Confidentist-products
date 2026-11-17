@@ -205,6 +205,16 @@
       table.sched tbody tr.is-rec td[data-label="Format"] .fmt { color: #fff; }
       table.sched tbody tr.is-rec td[data-label="Format"] .fmt .dot { background: #fff; }
     }
+    /* schedule search */
+    .sched-search { position: relative; max-width: 560px; margin: 0 auto 1.6rem; display: flex; align-items: center; }
+    .sched-search > svg { position: absolute; left: 1rem; width: 18px; height: 18px; color: var(--muted); pointer-events: none; }
+    .sched-search input { width: 100%; padding: .85rem 2.75rem; border: 1.5px solid var(--border); border-radius: 2rem; font-size: .95rem; font-family: inherit; color: var(--text); background: #fff; -webkit-appearance: none; }
+    .sched-search input::-webkit-search-decoration, .sched-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+    .sched-search input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(59,175,191,.18); }
+    .sched-search-clear { position: absolute; right: .55rem; background: none; border: none; font-size: 1.5rem; line-height: 1; color: var(--muted); cursor: pointer; padding: .1rem .55rem; border-radius: 50%; }
+    .sched-search-clear:hover { color: var(--navy); }
+    .sched-search-empty { text-align: center; color: var(--muted); font-size: .95rem; margin: 1.5rem 0; }
+    tr.sched-hidden, .block-group.sched-hidden { display: none !important; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
@@ -407,6 +417,13 @@
 <!-- FULL SCHEDULE -->
 <section class="section alt" id="schedule">
   <div class="section-inner wide">
+
+    <div class="sched-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="schedSearch" placeholder="Search sessions — topic, instructor, date…" aria-label="Search the schedule" autocomplete="off" />
+      <button type="button" class="sched-search-clear" id="schedSearchClear" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    <p class="sched-search-empty" id="schedSearchEmpty" hidden>No sessions match your search. Try a different term.</p>
 
     <div class="legend">
       <span class="lg"><span class="dot live"></span>Online / Live</span>
@@ -637,5 +654,34 @@
 </footer>
 
 <script src="/_assets/nav.js" defer></script>
+<script>
+/* schedule search script */
+(function () {
+  var input = document.getElementById('schedSearch');
+  if (!input) return;
+  var clear = document.getElementById('schedSearchClear');
+  var empty = document.getElementById('schedSearchEmpty');
+  var rows = [].slice.call(document.querySelectorAll('table.sched tbody tr'));
+  var groups = [].slice.call(document.querySelectorAll('.block-group'));
+  rows.forEach(function (r) { r.setAttribute('data-txt', r.textContent.toLowerCase().replace(/\s+/g, ' ')); });
+  function apply() {
+    var q = input.value.trim().toLowerCase();
+    if (clear) clear.hidden = q === '';
+    var any = false;
+    rows.forEach(function (r) {
+      var match = q === '' || r.getAttribute('data-txt').indexOf(q) > -1;
+      r.classList.toggle('sched-hidden', !match);
+      if (match) any = true;
+    });
+    groups.forEach(function (g) {
+      var vis = g.querySelectorAll('table.sched tbody tr:not(.sched-hidden)').length;
+      g.classList.toggle('sched-hidden', q !== '' && vis === 0);
+    });
+    if (empty) empty.hidden = !(q !== '' && !any);
+  }
+  input.addEventListener('input', apply);
+  if (clear) clear.addEventListener('click', function () { input.value = ''; apply(); input.focus(); });
+})();
+</script>
 </body>
 </html>
