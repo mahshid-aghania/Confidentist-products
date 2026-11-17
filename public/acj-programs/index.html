@@ -215,6 +215,12 @@
     .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--gold); color:#fff; font-weight:700; font-size:.9rem; padding:.9rem 1.5rem; border-radius:.4rem; text-decoration:none; transition:background .2s, gap .18s; }
     .program-card:hover .prog-cta { gap:.8rem; background:var(--gold-light); }
     .prog-cta svg { width:16px; height:16px; }
+    /* May 2027 schedule circle button (matches AFK Feb 2027 badge) */
+    .sched-circle { display: inline-block; line-height: 0; transition: transform .2s ease; }
+    .sched-circle img { width: 230px; height: 230px; display: block; }
+    .sched-circle:hover { transform: translateY(-4px) scale(1.04); }
+    .sched-circle:focus-visible { outline: 3px solid #1f7ae8; outline-offset: 6px; border-radius: 50%; }
+    @media (max-width: 480px) { .sched-circle img { width: 190px; height: 190px; } }
     .prog-reassure { text-align:center; font-size:.76rem; color:var(--muted); margin-top:.7rem; }
 
     /* MOCK BREAKDOWN */
@@ -618,6 +624,12 @@
         <p class="prog-reassure">Secure checkout · Interest-free installment plans available</p>
         <a href="/acj-schedule-may-2027/" class="btn-ghost" style="width:100%;margin-top:.7rem;">View the Full May 2027 Schedule →</a>
       </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.75rem;">
+      <a href="/acj-schedule-may-2027/" class="sched-circle" aria-label="View the May 2027 ACJ schedule">
+        <img src="/images/acj/may-2027-schedule.png" alt="May 2027 Schedule" width="440" height="440" loading="lazy" />
+      </a>
     </div>
   </div>
 </section>
