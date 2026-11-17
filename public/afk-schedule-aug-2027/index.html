@@ -215,6 +215,14 @@
     .sched-search-clear:hover { color: var(--navy); }
     .sched-search-empty { text-align: center; color: var(--muted); font-size: .95rem; margin: 1.5rem 0; }
     tr.sched-hidden, .block-group.sched-hidden { display: none !important; }
+    /* full mock highlight (light blue) */
+    @media (max-width: 640px) {
+      table.sched tbody tr.is-lightblue th { background: #4a90d9; }
+      table.sched tbody tr.is-lightblue td[data-label="Format"] { background: #4a90d9; color: #fff; }
+      table.sched tbody tr.is-lightblue td[data-label="Format"]::before { color: #fff; }
+      table.sched tbody tr.is-lightblue td[data-label="Format"] .fmt { color: #fff; }
+      table.sched tbody tr.is-lightblue td[data-label="Format"] .fmt .dot { background: #fff; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
@@ -598,9 +606,9 @@
             <tr class="is-live"><th scope="row">56</th><td data-label="Date">16 Jul 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Full Mock exam 2</td><td data-label="Instructor">Exam admin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
             <tr class="is-live"><th scope="row">57</th><td data-label="Date">17 Jul 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 2-1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
             <tr class="is-live"><th scope="row">58</th><td data-label="Date">18 Jul 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 2-2</td><td data-label="Instructor">Dr. Hanna</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">59</th><td data-label="Date">23 Jul 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Full Mock exam 3</td><td data-label="Instructor">Exam admin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">60</th><td data-label="Date">24 Jul 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 3-1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">61</th><td data-label="Date">25 Jul 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 3-2</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr class="is-live is-lightblue"><th scope="row">59</th><td data-label="Date">23 Jul 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Full Mock exam 3</td><td data-label="Instructor">Exam admin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr class="is-live is-lightblue"><th scope="row">60</th><td data-label="Date">24 Jul 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 3-1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
+            <tr class="is-live is-lightblue"><th scope="row">61</th><td data-label="Date">25 Jul 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 3-2</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
             <tr class="is-live"><th scope="row">62</th><td data-label="Date">30 Jul 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Full Mock exam 4</td><td data-label="Instructor">Exam admin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
             <tr class="is-live"><th scope="row">63</th><td data-label="Date">31 Jul 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 4-1</td><td data-label="Instructor">Dr. Hanna</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
             <tr class="is-live"><th scope="row">64</th><td data-label="Date">1 Aug 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM – 3:00 PM</td><td data-label="Topic" class="topic">Discussion 4-2</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
