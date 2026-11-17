@@ -377,33 +377,8 @@
 
 <script>
 (function () {
-  function initMega(itemId, triggerId) {
-    var item = document.getElementById(itemId), trigger = document.getElementById(triggerId);
-    if (!item || !trigger) return;
-    var closeTimer;
-    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
-    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
-    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
-    item.addEventListener('mouseenter', function () { open(true); });
-    item.addEventListener('mouseleave', scheduleClose);
-    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
-    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
-  }
-  function initMobile() {
-    var body = document.body, btn = document.getElementById('hamburger'),
-        panel = document.getElementById('mobilePanel'), backdrop = document.getElementById('navBackdrop');
-    if (!btn || !panel || !backdrop) return;
-    var lastFocus = null;
-    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
-    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var f = panel.querySelector('a'); if (f) f.focus(); }
-    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
-    backdrop.addEventListener('click', close);
-    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && body.classList.contains('mobile-open')) close(); });
-  }
   document.addEventListener('DOMContentLoaded', function () {
-    initMega('equivItem', 'equivTrigger'); initMega('resItem', 'resTrigger'); initMobile();
-    var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+         var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
   });
 })();
 </script>

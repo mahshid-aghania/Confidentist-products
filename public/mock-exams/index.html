@@ -725,52 +725,6 @@
   </p>
   <p style="margin-top:1.25rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
 </footer>
-
-<!-- Header: mega-menu + mobile nav -->
-<script>
-(function () {
-  function initMega(itemId, triggerId) {
-    var item = document.getElementById(itemId);
-    var trigger = document.getElementById(triggerId);
-    if (!item || !trigger) return;
-    var closeTimer;
-    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
-    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
-    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
-    item.addEventListener('mouseenter', function () { open(true); });
-    item.addEventListener('mouseleave', scheduleClose);
-    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
-    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
-  }
-  function initMobile() {
-    var body = document.body;
-    var btn = document.getElementById('hamburger');
-    var panel = document.getElementById('mobilePanel');
-    var backdrop = document.getElementById('navBackdrop');
-    if (!btn || !panel || !backdrop) return;
-    var lastFocus = null;
-    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
-    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
-    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
-    backdrop.addEventListener('click', close);
-    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && body.classList.contains('mobile-open')) close();
-      if (e.key === 'Tab' && body.classList.contains('mobile-open')) {
-        var f = panel.querySelectorAll('a, button'); if (!f.length) return;
-        var first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    initMega('equivItem', 'equivTrigger');
-    initMega('resItem', 'resTrigger');
-    initMobile();
-  });
-})();
-</script>
 <script src="/_assets/nav.js" defer></script>
 </body>
 </html>
