@@ -356,7 +356,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ received: true, osce_mock: ref, emailed, notified, recorded })
     }
 
-    if (ref.startsWith('acj-') || ref.startsWith('afk-')) {
+    if (ref.startsWith('acj-') || ref.startsWith('afk-') || ref.startsWith('adat-')) {
       const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
       const email =
         (typeof details['email'] === 'string' && (details['email'] as string)) ||
@@ -367,7 +367,12 @@ export async function POST(req: Request) {
       const currency =
         typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
       const courseName =
-        meta.course || (ref.startsWith('afk-') ? 'AFK Feb 2027 Subjects' : 'ACJ Comprehensive Program')
+        meta.course ||
+        (ref.startsWith('afk-')
+          ? 'AFK Feb 2027 Subjects'
+          : ref.startsWith('adat-')
+            ? 'ADAT Program'
+            : 'ACJ Comprehensive Program')
       const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
 
       let emailed = false
@@ -391,7 +396,7 @@ export async function POST(req: Request) {
       // the team inbox — student name + family name, email, phone, SIN, billing
       // address, residential (delivery) address and the chosen shipping option.
       let notified = false
-      if (ref.startsWith('afk-')) {
+      if (ref.startsWith('afk-') || ref.startsWith('adat-')) {
         try {
           const str = (v: unknown) => (typeof v === 'string' ? v : '')
           const esc = (s: string) =>
@@ -557,7 +562,7 @@ export async function POST(req: Request) {
       // AFK: record the order in Supabase so it shows in the dashboard alongside
       // the WooCommerce-synced orders (idempotent on the Stripe session id).
       let recorded = false
-      if (ref.startsWith('afk-')) {
+      if (ref.startsWith('afk-') || ref.startsWith('adat-')) {
         try {
           const str = (v: unknown) => (typeof v === 'string' ? v : '')
           const addr = (details['address'] as Record<string, unknown> | undefined) ?? {}
@@ -607,8 +612,8 @@ export async function POST(req: Request) {
             sessionId: reference,
             paymentIntent,
             sin: cf('sin'),
-            createdVia: 'afk-programs-checkout',
-            orderNumberPrefix: 'AFK',
+            createdVia: ref.startsWith('adat-') ? 'adat-programs-checkout' : 'afk-programs-checkout',
+            orderNumberPrefix: ref.startsWith('adat-') ? 'ADAT' : 'AFK',
             orderNumber:
               (typeof meta['order_number'] === 'string' && meta['order_number']) || undefined,
             shipping: {
