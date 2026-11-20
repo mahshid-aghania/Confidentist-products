@@ -181,7 +181,10 @@ export async function POST(req: Request) {
           sin: '',
           createdVia: 'ce-courses-checkout',
           orderNumberPrefix: 'CE',
-          sequentialOrderNumber: true, // WooCommerce-style numeric order number (continues the sequence)
+          // Use the numeric order number minted at checkout (carried in metadata) so the admin
+          // email, the recorded order row, and any links all show the same number. Falls back to
+          // recordMockOrder's own sequence mint if absent. Numbers stay above the WooCommerce range.
+          orderNumber: (typeof meta['order_number'] === 'string' && meta['order_number']) || undefined,
           rawSession: session,
         })
         recorded = result.recorded

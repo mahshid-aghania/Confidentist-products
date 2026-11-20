@@ -30,11 +30,14 @@ export type MockOrderInput = {
   paymentIntent?: string // Stripe PaymentIntent id, if present
   sin?: string // sensitive; stored only in orders.raw
   createdVia: string // e.g. "osce-mock-checkout" | "afk-mock-checkout"
-  orderNumberPrefix: string // e.g. "OSCE" | "AFK"
-  orderNumber?: string // explicit order number (e.g. "AFK-20261110-4F7A"); overrides the generated one
-  sequentialOrderNumber?: boolean // assign the next WooCommerce-style numeric order number
-  // (atomic via the confi_order_number_seq sequence) and use it for both order_number and
-  // wc_order_id. Ignored if `orderNumber` is given.
+  orderNumberPrefix: string // e.g. "OSCE" | "AFK" — used only for payment_method_title now
+  orderNumber?: string // optional explicit order number; honored ONLY if numeric, else ignored.
+  // Order numbers are otherwise minted numerically from confi_order_number_seq (seeded above the
+  // WooCommerce range). Non-numeric values (e.g. legacy "AFK-20261110-4F7A") are ignored.
+  sequentialOrderNumber?: boolean // DEPRECATED — ignored. Numbering is always numeric from the
+  // (reseeded) confi_order_number_seq. The sequence must stay ABOVE WooCommerce's live id range so
+  // a number never collides with a real WC order (incident: a sequence inside the WC range gave
+  // #59020 to both a buyer here AND a real WooCommerce order).
   shipping?: {
     firstName?: string
     lastName?: string
@@ -128,21 +131,28 @@ export async function recordMockOrder(
   const subtotal = round2(total - tax)
   const currency = d.currency || 'CAD'
 
-  // Resolve the order number. For sequential (WooCommerce-style) numbering, reserve the
-  // next value atomically from the sequence and use it for both order_number and wc_order_id.
-  // This runs after the idempotency check above, so a webhook retry never burns a number.
-  let resolvedOrderNumber = d.orderNumber
-  let resolvedWcOrderId: number = syntheticWcOrderId(d.sessionId)
-  if (!resolvedOrderNumber && d.sequentialOrderNumber) {
+  // Resolve the order number. RULE: an order number minted here must NEVER collide with a
+  // WooCommerce order number. Order numbers are plain numeric, drawn from confi_order_number_seq,
+  // which is seeded ABOVE WooCommerce's live order-id range (currently ~59k; the sequence starts
+  // at 71001) so a generated number can't equal a real WooCommerce order. If WooCommerce ever
+  // approaches this range, reseed the sequence higher — never let it enter the WC range again.
+  // (Incident: a sequence inside the WC range produced #59020 for both a buyer here AND a real
+  // WooCommerce order.) `wc_order_id` stays the synthetic id (~9e12–1e13), decoupled from
+  // order_number, so a later WooCommerce sync of the same numeric id can't break the unique
+  // constraint. Minting happens after the idempotency check above, so retries never burn a number.
+  const resolvedWcOrderId: number = syntheticWcOrderId(d.sessionId)
+  // Honor an explicitly provided numeric order number; ignore non-numeric (e.g. legacy prefixed)
+  // values so every order gets a clean number.
+  let finalOrderNumber =
+    d.orderNumber && /^[0-9]+$/.test(d.orderNumber) ? d.orderNumber : ''
+  if (!finalOrderNumber) {
     const { data: seqNo, error: seqErr } = await supabase.rpc('next_confi_order_number')
     const n = typeof seqNo === 'number' ? seqNo : Number(seqNo)
     if (seqErr || !Number.isFinite(n)) {
       return { recorded: false, error: `order number seq: ${seqErr?.message ?? 'no value'}` }
     }
-    resolvedOrderNumber = String(n)
-    resolvedWcOrderId = n
+    finalOrderNumber = String(n)
   }
-  const finalOrderNumber = resolvedOrderNumber || `${d.orderNumberPrefix}-${d.sessionId.slice(-8)}`
 
   const { data: order, error: orderErr } = await supabase
     .from('orders')

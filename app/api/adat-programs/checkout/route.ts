@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { nextOrderNumber } from '@/lib/orders/next-order-number'
 
 // GET /api/adat-programs/checkout?p=<key>  — Stripe Checkout for an ADAT program
 // purchase (Comprehensive / Crash). Prices live HERE (server-side source of truth);
@@ -42,13 +43,6 @@ const DEFAULT_REGION = 'ON'
 const PROGRAMS: Record<string, { name: string; price: number }> = {
   comprehensive: { name: 'ADAT Comprehensive Program', price: 3999 },
   crash: { name: 'ADAT Crash Program', price: 2200 },
-}
-
-// Unique, human-readable order number assigned to every registrant.
-function genOrderNumber(): string {
-  const ymd = new Date().toISOString().slice(0, 10).replace(/-/g, '')
-  const rand = Math.random().toString(36).slice(2, 6).toUpperCase()
-  return `ADAT-${ymd}-${rand}`
 }
 
 // Flat shipping rates (CAD cents) for the printed booklets, by region. Stripe Checkout
@@ -101,7 +95,7 @@ export async function GET(req: Request) {
   const lineName = program.name
 
   // Order number assigned to this registrant — carried in metadata for the receipt.
-  const orderNumber = genOrderNumber()
+  const orderNumber = await nextOrderNumber()
 
   // Buyer's province → hard-coded sales-tax rate. Defaults to Ontario (no selector).
   const regionParam = (url.searchParams.get('region') || '').trim().toUpperCase()
