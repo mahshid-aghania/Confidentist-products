@@ -658,6 +658,32 @@
     .path-card.selected .pc-check { opacity: 1; transform: scale(1); }
     .pc-check svg { width: 12px; height: 12px; }
 
+    /* ===== Gold finder treatment (matches AFK Guided Program Finder) ===== */
+    #journey.journey-finder { position: relative; overflow: hidden;
+      background: radial-gradient(120% 90% at 85% -10%, #fdfbf5 0%, #f6efe1 42%, #efe6d2 100%), linear-gradient(180deg,#fcfaf4,#f4ecda); }
+    #journey .gpf-ribbon { position: absolute; pointer-events: none; z-index: 0; }
+    #journey .gpf-ribbon.tr { top: -40px; right: -30px; width: min(420px,42vw); opacity: .95; }
+    #journey .gpf-ribbon.br { bottom: -40px; right: 8%; width: min(360px,36vw); opacity: .9; }
+    #journey .finder-panel { position: relative; z-index: 2; }
+    #journey .h-title { position: relative; display: inline-block; }
+    #journey .h-title::after { content: ''; display: block; width: min(340px,72%); height: 6px; margin-top: .3rem; border-radius: 3px;
+      background: linear-gradient(90deg,#8a6a1c,#f3dd8e 45%,#caa149 65%,#8f6d22); }
+    #journey .q-title { display: inline-flex; align-items: center; gap: .55rem; color: var(--navy);
+      background: linear-gradient(90deg,#f6e9c2,#efdca0 60%,#f6e9c2); padding: .5rem 1.3rem; border-radius: 999px;
+      border: 1px solid rgba(154,115,34,.35); box-shadow: 0 2px 10px rgba(154,115,34,.18); }
+    #journey .q-title::before { content: ''; width: 30px; height: 30px; flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none'%3E%3Ccircle cx='24' cy='24' r='21' stroke='%23c9a24a' stroke-width='2.5'/%3E%3Ccircle cx='24' cy='24' r='15' stroke='%23c9a24a' stroke-width='1.2' opacity='.6'/%3E%3Cpath d='M24 11 27 21 24 24 21 21Z' fill='%23caa149'/%3E%3Cpath d='M24 37 21 27 24 24 27 27Z' fill='%238f6d22'/%3E%3Ccircle cx='24' cy='24' r='2.4' fill='%23f3dd8e'/%3E%3C/svg%3E") center/contain no-repeat; }
+    #journey .path-card { border: 2px solid transparent;
+      background: linear-gradient(158deg,#0a2f61 0%,#103e7f 55%,#0a2a57 120%) padding-box,
+                  linear-gradient(135deg,#8a6a1c,#e6c86a 22%,#f7e9b0 38%,#caa149 55%,#8f6d22 80%,#e4c56a) border-box;
+      box-shadow: 0 10px 30px rgba(7,44,94,.22), 0 0 22px rgba(201,162,74,.35); }
+    #journey .path-card:hover { border-color: transparent; box-shadow: 0 16px 40px rgba(7,44,94,.28), 0 0 30px rgba(201,162,74,.55); }
+    #journey .path-card.selected { box-shadow: 0 0 0 3px rgba(243,221,142,.6), 0 12px 34px rgba(7,44,94,.26); }
+    #journey .pc-icon { background: linear-gradient(155deg,#0e356f,#0a2850); border: 1.5px solid rgba(243,221,142,.55); color: #f3dd8e; }
+    #journey .pc-cta { align-self: flex-start; color: #20365f; padding: .7rem 1.35rem; border-radius: 999px;
+      background: linear-gradient(90deg,#e9c86a,#f6e6a4 50%,#d9b457); box-shadow: 0 4px 14px rgba(154,115,34,.35); }
+    #journey .pc-check { color: var(--navy); background: #f3dd8e; }
+
     /* Question card */
     .q-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-md); padding: clamp(1.5rem, 3vw, 2.5rem); }
     .q-title { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 2.4vw, 1.9rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .4rem; }
@@ -1216,6 +1242,10 @@
 
 <!-- ═══════════ PROGRAM FINDER (guided pathway selector) ═══════════ -->
 <section class="section journey-finder" id="journey" aria-labelledby="finder-title">
+  <svg class="gpf-ribbon tr" viewBox="0 0 400 220" fill="none" aria-hidden="true"><defs><linearGradient id="gpfGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6a1c"/><stop offset=".4" stop-color="#f3dd8e"/><stop offset=".6" stop-color="#caa149"/><stop offset="1" stop-color="#8f6d22"/></linearGradient></defs>
+    <path d="M10 60 C120 10 260 30 390 -10 C300 60 180 70 60 120 C180 90 300 80 400 40 C280 120 120 120 10 60Z" fill="url(#gpfGold)"/>
+    <path d="M40 150 C160 110 300 120 410 80 C320 150 190 160 70 200 C190 170 310 160 410 120 C300 200 150 200 40 150Z" fill="url(#gpfGold)" opacity=".7"/></svg>
+  <svg class="gpf-ribbon br" viewBox="0 0 400 160" fill="none" aria-hidden="true"><path d="M0 80 C120 30 260 40 400 10 C300 80 170 90 50 130 C180 100 300 90 400 60 C270 130 120 130 0 80Z" fill="url(#gpfGold)"/></svg>
   <div class="finder-panel">
     <div class="reveal" style="max-width:680px;">
       <span class="kicker">Find the Right Path for You</span>
