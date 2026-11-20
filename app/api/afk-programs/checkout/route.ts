@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { nextOrderNumber } from '@/lib/orders/next-order-number'
 
 // GET /api/afk-programs/checkout?p=<key>  — Stripe Checkout for a full AFK program
 // purchase (Extended / Comprehensive cohorts). Prices live HERE (server-side source
@@ -88,13 +89,6 @@ const INSTALLMENTS: Record<
   },
 }
 
-// Unique, human-readable order number assigned to every registrant.
-function genOrderNumber(): string {
-  const ymd = new Date().toISOString().slice(0, 10).replace(/-/g, '')
-  const rand = Math.random().toString(36).slice(2, 6).toUpperCase()
-  return `AFK-${ymd}-${rand}`
-}
-
 // Flat shipping rates (CAD cents) for the printed booklets, by region. The buyer
 // selects the matching option in Stripe Checkout against their delivery address.
 // NOTE: Stripe Checkout allows a MAXIMUM of 5 shipping_options. Keep this list
@@ -162,7 +156,8 @@ export async function GET(req: Request) {
   }
 
   // Order number assigned to this registrant — carried in metadata for the receipt.
-  const orderNumber = genOrderNumber()
+  // Plain numeric, minted above the WooCommerce id range (see nextOrderNumber).
+  const orderNumber = await nextOrderNumber()
 
   // Buyer's province (from the AFK page selector) → hard-coded sales-tax rate.
   // Unknown/missing region falls back to the home province (Ontario).

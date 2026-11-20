@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { nextOrderNumber } from '@/lib/orders/next-order-number'
 
 // GET /api/ce-courses/checkout?p=<key>  — Stripe Checkout for a Continuing Education
 // (CE) online course from /continue-education/. Prices live HERE (server-side source
@@ -24,12 +25,6 @@ const COURSES: Record<string, { name: string; price: number; credits: number }> 
   'orthodontics-for-gps': { name: 'Orthodontics for GPs', price: 5750, credits: 48 },
 }
 
-// Unique, human-readable order number assigned to every registrant.
-function genOrderNumber(): string {
-  const ymd = new Date().toISOString().slice(0, 10).replace(/-/g, '')
-  const rand = Math.random().toString(36).slice(2, 6).toUpperCase()
-  return `CE-${ymd}-${rand}`
-}
 
 export async function GET(req: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY
@@ -49,7 +44,7 @@ export async function GET(req: Request) {
   }
 
   // Order number assigned to this registrant — carried in metadata for the receipt.
-  const orderNumber = genOrderNumber()
+  const orderNumber = await nextOrderNumber()
 
   const params = new URLSearchParams()
   params.set('mode', 'payment')
