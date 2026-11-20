@@ -188,12 +188,17 @@
     }
     .mega a:hover, .mega a:focus-visible { background: var(--bg-soft); }
     .mega .m-abbr {
-      flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff;
-      font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem;
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: .7rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      background: linear-gradient(155deg, #0b2f66 0%, #2a5db5 100%); color: #fff;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: .78rem; line-height: 1;
+      box-shadow: 0 4px 10px rgba(11, 47, 102, .28);
     }
-    .mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
-    .mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .mega .m-abbr::after {
+      content: ''; width: 20px; height: 3px; border-radius: 2px; background: #e4b43e;
+    }
+    .mega .m-t { display: block; font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+    .mega .m-d { display: block; font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
     .mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
     .mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; }
 
