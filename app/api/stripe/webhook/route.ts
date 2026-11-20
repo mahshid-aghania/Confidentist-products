@@ -181,7 +181,10 @@ export async function POST(req: Request) {
           sin: '',
           createdVia: 'ce-courses-checkout',
           orderNumberPrefix: 'CE',
-          sequentialOrderNumber: true, // WooCommerce-style numeric order number (continues the sequence)
+          // Use the collision-proof prefixed order number minted at checkout (CE-YYYYMMDD-XXXX).
+          // NEVER a WooCommerce-range numeric sequence — WooCommerce mints its own ids in that
+          // range, so a shared counter collides (incident: #59020 hit a buyer AND a real WC order).
+          orderNumber: (typeof meta['order_number'] === 'string' && meta['order_number']) || undefined,
           rawSession: session,
         })
         recorded = result.recorded
