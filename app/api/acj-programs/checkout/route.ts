@@ -24,11 +24,11 @@ const HST_RATE = 0.13
 const TOTAL_CENTS = Math.round(BASE_CENTS * (1 + HST_RATE)) // 343407
 
 // Installment plan — base amounts (pre-HST), matching the on-page schedule.
-// 499.92 + 4 × 634.85 = 3,039.32 base. 13% HST is added to each payment, so the
-// first charge now = round(499.92 × 1.13) = $564.91.
+// 1,000 + 4 × 509.75 = 3,039.00 base. 13% HST is added to each payment, so the
+// first charge now = 1,000 × 1.13 = $1,130.00.
 const INSTALLMENT = {
-  firstBase: 499.92,
-  monthlyBase: 634.85,
+  firstBase: 1000,
+  monthlyBase: 509.75,
   count: 4,
   name: 'ACJ Comprehensive – May 2027 · Installment 1 of 5',
   dates: ['December 23, 2026', 'January 23, 2027', 'February 23, 2027', 'March 23, 2027'],
