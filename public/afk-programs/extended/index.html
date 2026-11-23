@@ -497,11 +497,15 @@
     .installment-note { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.55; }
     .installment-note strong { color: var(--navy); font-weight: 600; }
 
-    /* ── PROMINENT PROVINCE STEP ── */
-    .tax-region.step { max-width: 640px; border: 2px solid var(--gold); background: var(--gold-bg); }
-    .tax-region .step-badge { display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--gold); padding: .28rem .8rem; border-radius: .3rem; margin-bottom: .7rem; }
-    .tax-region.step label { font-size: .92rem; }
-    .tax-region.step .hint { font-weight: 500; color: var(--navy); background: #fff; border: 1px solid rgba(15,122,229,.25); border-radius: .5rem; padding: .65rem .85rem; margin-top: .85rem; }
+    /* ── PROMINENT PROVINCE STEP (emphasised so buyers don't skip their tax) ── */
+    .tax-region.step { max-width: 640px; border: 3px solid var(--gold); background: var(--gold-bg); box-shadow: 0 0 0 4px rgba(15,122,229,.12), var(--shadow-md); animation: taxPulse 2.2s ease-in-out infinite; }
+    .tax-region.step:focus-within, .tax-region.step.chosen { animation: none; box-shadow: 0 0 0 4px rgba(15,122,229,.18), var(--shadow-md); }
+    @keyframes taxPulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(15,122,229,.10), var(--shadow-sm); } 50% { box-shadow: 0 0 0 8px rgba(15,122,229,.24), var(--shadow-md); } }
+    .tax-region .step-badge { display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--gold); padding: .42rem 1.05rem; border-radius: .35rem; margin-bottom: .9rem; }
+    .tax-region.step label { font-size: 1.1rem; font-weight: 800; color: var(--navy); text-transform: none; letter-spacing: 0; }
+    .tax-region.step label strong { color: var(--gold-dark); }
+    .tax-region.step select { font-size: 1.05rem; font-weight: 700; border: 2.5px solid var(--gold); background: #fff; color: var(--navy); max-width: 380px; }
+    .tax-region.step .hint { font-weight: 700; font-size: .84rem; color: var(--navy); background: #fff; border: 1.5px solid rgba(15,122,229,.35); border-radius: .5rem; padding: .75rem .9rem; margin-top: .95rem; }
 
     /* ── INSTALLMENT AS ACCORDION (native <details>) ── */
     details.installment > summary { cursor: pointer; list-style: none; }
@@ -768,7 +772,7 @@
     <!-- STEP 1 · Province selector — sets the sales-tax rate applied at checkout -->
     <div class="tax-region step" id="taxRegion">
       <span class="step-badge">Step 1 · Select your province</span>
-      <label for="provinceSelect">Where will you be billed? (this sets your sales tax)</label>
+      <label for="provinceSelect">Where will you be billed? <strong>(this sets your sales tax — please choose)</strong></label>
       <select id="provinceSelect" aria-describedby="taxHint">
         <option value="ON">Ontario — HST 13%</option>
         <option value="QC">Quebec — GST 5%</option>
@@ -962,7 +966,7 @@
       }
     } catch (e) { /* best-effort */ }
   }
-  sel.addEventListener('change', apply);
+  sel.addEventListener('change', function () { var box = document.getElementById('taxRegion'); if (box) box.classList.add('chosen'); apply(); });
   apply();
 })();
 </script>
