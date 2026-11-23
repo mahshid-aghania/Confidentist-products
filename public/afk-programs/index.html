@@ -816,28 +816,6 @@
       <p class="pkg-middle-desc" style="margin-bottom:0;">Choose between the Extended and Comprehensive pathways below based on your preparation needs and desired level of support.</p>
     </div>
 
-    <!-- STEP 1 · Province selector — sets the sales-tax rate applied at checkout -->
-    <div class="tax-region step" id="taxRegion">
-      <span class="step-badge">Step 1 · Select your province</span>
-      <label for="provinceSelect">Where will you be billed? (this sets your sales tax)</label>
-      <select id="provinceSelect" aria-describedby="taxHint">
-        <option value="ON">Ontario — HST 13%</option>
-        <option value="QC">Quebec — GST 5%</option>
-        <option value="BC">British Columbia — GST 5%</option>
-        <option value="AB">Alberta — GST 5%</option>
-        <option value="MB">Manitoba — GST 5%</option>
-        <option value="SK">Saskatchewan — GST 5%</option>
-        <option value="NS">Nova Scotia — HST 14%</option>
-        <option value="NB">New Brunswick — HST 15%</option>
-        <option value="NL">Newfoundland &amp; Labrador — HST 15%</option>
-        <option value="PE">Prince Edward Island — HST 15%</option>
-        <option value="YT">Yukon — GST 5%</option>
-        <option value="NT">Northwest Territories — GST 5%</option>
-        <option value="NU">Nunavut — GST 5%</option>
-        <option value="INTL">Outside Canada — no tax</option>
-      </select>
-      <p class="hint" id="taxHint">Choose your province so we can show your tax and total before you check out.</p>
-    </div>
 
     <div class="price-grid">
 
@@ -876,49 +854,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 initial enrollment + 2 repeats within 2 years</li>
         </ul>
-        <p class="pay-label">Payment options</p>
-        <div class="price-cohorts">
-          <p class="price-cohorts-head">Pay in full — choose your exam cohort</p>
-          <div class="price-cohort featured">
-            <div class="price-cohort-head">
-              <span class="price-cohort-name">August 2027 Exam</span>
-              <span class="price-cohort-amt">$6,499 <small>CAD + tax</small></span>
-            </div>
-            <p class="price-cohort-meta">Starts December 2026 · 8-month program</p>
-            <a class="price-cta navy" href="/api/afk-programs/checkout/?p=extended-aug-2027">Pay in full — Register →</a>
-          </div>
-        </div>
-
-        <details class="installment">
-          <summary class="installment-head">
-            <span class="installment-radio" aria-hidden="true"></span>
-            <span class="installment-title">Pay in installments (6 + 1)</span>
-          </summary>
-          <div class="installment-body">
-            <div class="installment-plan">
-              <svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              <div>
-                <p class="installment-plan-name">6 + 1 Payments</p>
-                <p class="installment-plan-sub">Pay an installment of: <strong>$1,429.78</strong> today <span style="white-space:nowrap">+ applicable tax</span></p>
-              </div>
-            </div>
-            <table class="installment-table">
-              <thead>
-                <tr><th scope="col">Payment Date</th><th scope="col">Amount</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>December 10, 2026</td><td>$844.87</td></tr>
-                <tr><td>January 10, 2027</td><td>$844.87</td></tr>
-                <tr><td>February 10, 2027</td><td>$844.87</td></tr>
-                <tr><td>March 10, 2027</td><td>$844.87</td></tr>
-                <tr><td>April 10, 2027</td><td>$844.87</td></tr>
-                <tr><td>May 10, 2027</td><td>$844.87</td></tr>
-              </tbody>
-            </table>
-            <p class="installment-note">Course fee <strong>$6,499 CAD</strong> — $1,429.78 today, then 6 monthly payments of $844.87. <strong>Sales tax is added automatically at checkout based on your billing address</strong>, and applied to each future payment.</p>
-            <a class="price-cta gold" style="margin-top:1.1rem;" href="/api/afk-programs/checkout/?p=extended-aug-2027&amp;plan=installment">Pay First Installment — $1,429.78 + tax →</a>
-          </div>
-        </details>
+        <a class="price-cta navy" href="/afk-programs/extended/">View details &amp; register →</a>
       </article>
 
       <!-- COMPREHENSIVE -->
@@ -931,7 +867,7 @@
           <span class="price-now">$4,749</span>
         </div>
         <p class="price-hst"><strong>CAD</strong> + tax · early-bird price</p>
-        <p class="price-earlybird">The early-bird discount is valid until 10 days before the course start date. A February 2027 exam cohort (started July 2026) is also available at $4,999 + tax.</p>
+        <p class="price-earlybird">The early-bird discount is valid until 10 days before the course start date.</p>
 
         <hr class="price-divider" />
         <p class="price-subhead">Best suited for</p>
@@ -954,74 +890,11 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 initial enrollment + 1 repeat within 2 years</li>
         </ul>
-        <p class="pay-label">Payment options</p>
-        <div class="price-cohorts">
-          <p class="price-cohorts-head">Pay in full — choose your exam cohort</p>
-          <div class="price-cohort">
-            <div class="price-cohort-head">
-              <span class="price-cohort-name">February 2027 Exam</span>
-              <span class="price-cohort-amt">$4,999 <small>CAD + tax</small></span>
-            </div>
-            <p class="price-cohort-meta">Course started July 2026 · 6-month program</p>
-            <a class="price-cta navy" href="/api/afk-programs/checkout/?p=comprehensive-feb-2027">Register for February 2027 Exam →</a>
-          </div>
-          <div class="price-cohort featured">
-            <div class="price-cohort-head">
-              <span class="price-cohort-name">August 2027 Exam</span>
-              <span class="price-cohort-amt">$4,749 <small>CAD + tax · early-bird</small></span>
-            </div>
-            <p class="price-cohort-meta">Starts February 2027 · 6-month program</p>
-            <a class="price-cta gold" href="/api/afk-programs/checkout/?p=comprehensive-aug-2027">Pay in full — Register →</a>
-          </div>
-        </div>
-
-        <details class="installment">
-          <summary class="installment-head">
-            <span class="installment-radio" aria-hidden="true"></span>
-            <span class="installment-title">Pay in installments (5 payments)</span>
-          </summary>
-          <div class="installment-body">
-            <div class="installment-plan">
-              <svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              <div>
-                <p class="installment-plan-name">5 Monthly Payments</p>
-                <p class="installment-plan-sub"><strong>$1,000</strong> today, then 4 monthly payments of <strong>$937.25</strong> <span style="white-space:nowrap">+ applicable tax</span></p>
-              </div>
-            </div>
-            <table class="installment-table">
-              <thead>
-                <tr><th scope="col">Payment Date</th><th scope="col">Amount</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Today (at checkout)</td><td>$1,000.00</td></tr>
-                <tr><td>December 10, 2026</td><td>$937.25</td></tr>
-                <tr><td>January 10, 2027</td><td>$937.25</td></tr>
-                <tr><td>February 10, 2027</td><td>$937.25</td></tr>
-                <tr><td>March 10, 2027</td><td>$937.25</td></tr>
-              </tbody>
-            </table>
-            <p class="installment-note">Early-bird fee <strong>$4,749 CAD</strong> — $1,000 today, then 4 monthly payments of $937.25. <strong>Applicable sales tax is added at checkout based on your province</strong>, and applied to each payment. Available on the August 2027 (early-bird) cohort.</p>
-            <a class="price-cta gold" style="margin-top:1.1rem;" href="/api/afk-programs/checkout/?p=comprehensive-aug-2027&amp;plan=installment">Pay First Installment — $1,000 + tax →</a>
-          </div>
-        </details>
+        <a class="price-cta gold" href="/afk-programs/comprehensive/">View details &amp; register →</a>
       </article>
 
     </div>
 
-    <!-- Delivery options — printed booklets. Final choice is made on the checkout page. -->
-    <div class="delivery-acc">
-      <p class="delivery-note"><strong>Printed booklets:</strong> choose free <strong>pickup in person</strong> (no shipping fee) or have them shipped — you select this on the secure checkout page.</p>
-      <details class="ship-acc">
-        <summary>Shipping &amp; pickup rates</summary>
-        <div class="ship-body">
-          <div class="ship-row free"><span>Pickup — collect in person</span><b>No shipping fee</b></div>
-          <div class="ship-row"><span>Within Canada</span><b>$75</b></div>
-          <div class="ship-row"><span>United States</span><b>$150</b></div>
-          <div class="ship-row"><span>Europe &amp; Africa</span><b>$350</b></div>
-          <div class="ship-row"><span>Asia &amp; Oceania</span><b>$400</b></div>
-        </div>
-      </details>
-    </div>
 
     <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.75rem;">
       <a href="/afk-schedule-feb-2027/" class="sched-circle" aria-label="View the February 2027 AFK schedule">
@@ -1159,43 +1032,6 @@
   })();
 </script>
 
-<!-- Province selector → carry region into checkout links + show estimated totals -->
-<script>
-(function () {
-  var RATES  = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.05, BC:0.05, MB:0.05, SK:0.05, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
-  var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
-  var sel = document.getElementById('provinceSelect');
-  var hint = document.getElementById('taxHint');
-  if (!sel) return;
-  function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
-  function apply() {
-    var r = sel.value;
-    var rate = RATES.hasOwnProperty(r) ? RATES[r] : 0.13;
-    // 1) Update the estimate FIRST so it always reflects the current selection.
-    if (hint) {
-      if (rate === 0) {
-        hint.textContent = 'No Canadian sales tax applies outside Canada. Final amount is confirmed at checkout.';
-      } else {
-        hint.innerHTML = '<strong>' + LABELS[r] + '</strong> applies. Estimated total — Extended ' +
-          fmt(6499 * (1 + rate)) + ' · Comprehensive (early-bird) ' + fmt(4749 * (1 + rate)) +
-          '. Excludes shipping; confirmed at checkout.';
-      }
-    }
-    // 2) Carry the chosen region into every AFK checkout link (replace any existing one).
-    try {
-      var links = document.querySelectorAll('a[href*="/api/afk-programs/checkout/"]');
-      for (var i = 0; i < links.length; i++) {
-        var href = links[i].getAttribute('href') || '';
-        var base = href.replace(/[?&]region=[^&]*/, '');
-        var join = base.indexOf('?') > -1 ? '&' : '?';
-        links[i].setAttribute('href', base + join + 'region=' + r);
-      }
-    } catch (e) { /* link rewrite is best-effort; the estimate above still updates */ }
-  }
-  sel.addEventListener('change', apply);
-  apply();
-})();
-</script>
 
 <script src="/_assets/nav.js" defer></script>
 </body>
