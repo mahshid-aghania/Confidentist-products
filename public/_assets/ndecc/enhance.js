@@ -188,7 +188,7 @@
   /* ── 8 · Lazy-load the WebGL hero after first paint ────────────────── */
   function heroGL() {
     if (reduce || !document.getElementById('ndHeroVisual')) return;
-    var load = function () { var s = document.createElement('script'); s.src = '/_assets/ndecc/hero-particles.js'; s.async = true; document.body.appendChild(s); };
+    var load = function () { var s = document.createElement('script'); s.src = '/_assets/particles/tooth-particles.js'; s.async = true; document.body.appendChild(s); };
     var idle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 300); };
     if (document.readyState === 'complete') idle(load, { timeout: 1200 });
     else window.addEventListener('load', function () { idle(load, { timeout: 1200 }); });

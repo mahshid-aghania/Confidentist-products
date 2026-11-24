@@ -16,10 +16,10 @@
 .nd-hero .hero-inner { position: relative; z-index: 1; }
 
 @media (min-width: 1024px) {
-  .nd-hero { padding: 5.5rem 2rem 5rem; min-height: 600px; display: flex; align-items: center; }
-  .nd-hero .hero-inner { max-width: 1180px; width: 100%; text-align: left; padding-right: 47%; }
-  .nd-hero .hero-sub { margin-left: 0; }
-  .nd-hero .hero-actions { justify-content: flex-start; }
+  .nd-hero.nd-has-visual { padding: 5.5rem 2rem 5rem; min-height: 600px; display: flex; align-items: center; }
+  .nd-hero.nd-has-visual .hero-inner { max-width: 1180px; width: 100%; text-align: left; padding-right: 47%; }
+  .nd-has-visual .hero-sub { margin-left: 0; }
+  .nd-has-visual .hero-actions { justify-content: flex-start; }
   .nd-hero-visual { width: min(46vw, 600px); right: max(1rem, calc((100% - 1180px) / 2 - 1rem)); top: 50%; transform: translateY(-50%);
     /* keep the hero interactive over the sculpture */ pointer-events: none; }
   .nd-hero-visual::before { content: ''; position: absolute; inset: 4% 10%; border-radius: 50%;
