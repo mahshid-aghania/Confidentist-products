@@ -1,5 +1,5 @@
 # MiNa Family Dentistry — Off-Site Content Portfolio
-## 50 Articles Published on ConfiDentist (confidentist-products.vercel.app/blog/)
+## 50 Articles Published on ConfiDentist (product.confidentist.ca/blog/)
 
 **Why ConfiDentist is a legitimate publisher for this content.** ConfiDentist is a
 Canadian dental-equivalency education brand. Its instructors — **Dr. Mehdi Adibrad**
