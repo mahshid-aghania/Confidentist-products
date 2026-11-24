@@ -1,5 +1,5 @@
-// Detailed order receipt — used for course purchases that need a full breakdown
-// (Virtual OSCE course). Pure render function: no side effects.
+// Detailed order receipt — used for course purchases (Virtual OSCE, AFK programs,
+// ADAT programs, ACJ). Pure render function: no side effects.
 //
 // Shows: order number, course + original price, payment plan, every payment with its
 // own base amount + sales tax + total, the shipping option and price (charged on the
@@ -37,6 +37,7 @@ export type OrderReceiptData = {
   billingLines: string[] // address lines incl. city/province/postal code + country
   postalCode: string
   shippingLines: string[]
+  showShipping?: boolean // default true; false for online-only courses (hides all shipping info)
   sin?: string // admin only
   when?: string // admin only — timestamp
 }
@@ -51,6 +52,7 @@ const money = (n: number) =>
 
 export function renderOrderReceipt(d: OrderReceiptData): { subject: string; html: string; text: string } {
   const isAdmin = d.audience === 'admin'
+  const ship = d.showShipping !== false
   const name = [d.firstName, d.lastName].filter(Boolean).join(' ')
   const cell = 'padding:9px 12px;border-bottom:1px solid #eef1f5;font-size:14px;'
   const kv = (k: string, v: string, bold = false) =>
@@ -67,7 +69,7 @@ export function renderOrderReceipt(d: OrderReceiptData): { subject: string; html
         <td style="${cell}">${esc(p.label)}<br /><span style="color:${MUTED};font-size:12px">${esc(p.when)}</span></td>
         <td style="${cell}text-align:right">${money(p.base)}</td>
         <td style="${cell}text-align:right">${money(p.tax)}</td>
-        <td style="${cell}text-align:right">${p.shipping ? money(p.shipping) : '—'}</td>
+        ${ship ? `<td style="${cell}text-align:right">${p.shipping ? money(p.shipping) : '—'}</td>` : ''}
         <td style="${cell}text-align:right;font-weight:bold">${money(total)}</td>
         <td style="${cell}text-align:center;color:${p.status === 'Paid' ? '#0b8a3b' : MUTED};font-weight:bold">${p.status}</td>
       </tr>`
@@ -101,17 +103,17 @@ export function renderOrderReceipt(d: OrderReceiptData): { subject: string; html
         kv('Original price (before tax)', `${money(d.originalPrice)} ${esc(d.currency)}`) +
         kv(`Sales tax on full course · ${esc(d.taxLabel)}`, money(d.courseTaxTotal)) +
         kv('Payment plan', esc(d.planLabel)) +
-        kv('Shipping option', esc(d.shippingLabel)) +
+        (ship ? kv('Shipping option', esc(d.shippingLabel)) : '') +
         (d.discount > 0 ? kv('Discount (promo code)', `−${money(d.discount)}`) : '') +
         kv('Total paid now', `${money(d.paidNow)} ${esc(d.currency)}`, true),
     )}
 
-    ${section('Payments — amount, tax and shipping on each payment')}
+    ${section(ship ? 'Payments — amount, tax and shipping on each payment' : 'Payments — amount and tax on each payment')}
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6e9ee;border-radius:8px;border-collapse:separate">
-      <tr>${th('Payment', 'left')}${th('Amount')}${th('Tax')}${th('Shipping')}${th('Total')}${th('Status', 'center')}</tr>
+      <tr>${th('Payment', 'left')}${th('Amount')}${th('Tax')}${ship ? th('Shipping') : ''}${th('Total')}${th('Status', 'center')}</tr>
       ${payRows}
     </table>
-    <p style="font-size:12px;color:${MUTED};margin:8px 0 0;line-height:1.5">Tax: ${esc(d.taxLabel)}. Shipping is charged once, with the first payment.${
+    <p style="font-size:12px;color:${MUTED};margin:8px 0 0;line-height:1.5">Tax: ${esc(d.taxLabel)}.${ship ? ' Shipping is charged once, with the first payment.' : ''}${
       d.payments.length > 1 ? ' The remaining payment is collected by a secure Stripe link we email you before its due date.' : ''
     }${d.discount > 0 ? ' Amounts shown before the promo-code discount.' : ''}</p>
 
@@ -127,10 +129,10 @@ export function renderOrderReceipt(d: OrderReceiptData): { subject: string; html
     ${section('Billing address')}
     <p style="font-size:14px;line-height:1.6;margin:0">${d.billingLines.filter(Boolean).map(esc).join('<br />') || '—'}</p>
 
-    ${section('Shipping address')}
+    ${ship ? `${section('Shipping address')}
     <p style="font-size:14px;line-height:1.6;margin:0">${
       d.shippingLines.filter(Boolean).map(esc).join('<br />') || d.billingLines.filter(Boolean).map(esc).join('<br />') || '—'
-    }</p>
+    }</p>` : ''}
 
     ${isAdmin ? '' : `<p style="font-size:13px;line-height:1.55;color:${MUTED};margin:26px 0 0;">Questions about your enrollment? Just reply to this email.</p>`}
   </td></tr>
@@ -147,7 +149,7 @@ export function renderOrderReceipt(d: OrderReceiptData): { subject: string; html
   lines.push(`Original price (before tax): ${money(d.originalPrice)} ${d.currency}`)
   lines.push(`Sales tax on full course (${d.taxLabel}): ${money(d.courseTaxTotal)}`)
   lines.push(`Payment plan: ${d.planLabel}`)
-  lines.push(`Shipping option: ${d.shippingLabel}`)
+  if (ship) lines.push(`Shipping option: ${d.shippingLabel}`)
   if (d.discount > 0) lines.push(`Discount (promo code): -${money(d.discount)}`)
   lines.push(`Total paid now: ${money(d.paidNow)} ${d.currency}`, '', 'Payments:')
   for (const p of d.payments) {
@@ -158,7 +160,7 @@ export function renderOrderReceipt(d: OrderReceiptData): { subject: string; html
   lines.push('', `Name: ${name}`, `Email: ${d.email}`, `Phone: ${d.phone}`, `Postal code: ${d.postalCode}`)
   if (isAdmin) lines.push(`SIN: ${d.sin || ''}`)
   lines.push('', 'Billing address:', ...d.billingLines.filter(Boolean))
-  lines.push('', 'Shipping address:', ...(d.shippingLines.filter(Boolean).length ? d.shippingLines : d.billingLines).filter(Boolean))
+  if (ship) lines.push('', 'Shipping address:', ...(d.shippingLines.filter(Boolean).length ? d.shippingLines : d.billingLines).filter(Boolean))
 
   const subject = isAdmin
     ? `New order #${d.orderNumber} — ${name || d.email} — ${d.courseName}`
