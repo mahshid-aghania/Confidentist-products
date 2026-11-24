@@ -704,7 +704,7 @@ const PROGRAMS = {
   'ndecc-cs':    { name: 'NDECC Clinical Skills', route: '/ndecc-programs/clinical-skills/', cat: 'Clinical Training', delivery: 'In-person · Hands-on', format: 'Core Package', desc: 'Recorded demonstrations with supervised, hands-on practice in a fully equipped clinic setting.' },
   'ndecc-sj':    { name: 'NDECC Situational Judgement', route: '/ndecc-programs/situational-judgement/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Focused preparation for the NDECC Situational Judgement component.' },
   'ndecc-bundle':{ name: 'Complete NDECC Bundle', route: '/ndecc-programs/bundles/', cat: 'Bundles', delivery: 'Online + In-person', format: 'Both components', desc: 'Both NDECC components combined into one complete preparation package.' },
-  'osce':        { name: 'Virtual OSCE®', route: '/virtual-osce/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'A 2.5-month online course for the final NDEB equivalency step — lectures, quizzes, 3 full mock exams and a 1,500+ MCQ booklet, with November 2026 and March 2027 cohorts at $2,799 + HST.' },
+  'osce':        { name: 'Virtual OSCE®', route: '/virtual-osce/', cat: 'Clinical Training', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'A 2.5-month online course for the final NDEB equivalency step — lectures, quizzes, 3 full mock exams and a 1,500+ MCQ booklet, for the March 2027 cohort (starts December 19, 2026) at $2,799 + HST.' },
   'adat-hub':    { name: 'ADAT Preparation', route: '/adat-programs/', cat: 'University Preparation', delivery: 'Online · Live + Recorded', format: 'Comprehensive & Crash', desc: 'Structured, high-yield preparation for the Advanced Dental Admission Test.' },
   'adat-comp':   { name: 'ADAT Comprehensive', route: '/adat-programs/comprehensive/', cat: 'University Preparation', delivery: 'Online · Live + Recorded', format: 'Comprehensive', desc: 'Complete ADAT preparation across the knowledge areas the test measures.' },
   'adat-crash':  { name: 'ADAT Crash Course', route: '/adat-programs/crash/', cat: 'University Preparation', delivery: 'Online', format: 'Crash', desc: 'A focused, high-yield ADAT review for candidates who need efficient preparation.' },
@@ -1314,19 +1314,16 @@ const pathwayNav = (() => {
             "On making it this far! You've successfully navigated through all the necessary steps, and now you're at the final hurdle in the equivalency process — the OSCE exam. Your efforts have been invaluable, and we are confident that you will pass this last step with strength and determination.",
             "Based on our extensive experience, we've meticulously designed this course to meet all your needs for the OSCE exam. We're here to ensure you're fully prepared, confident, and ready to succeed.",
             "Welcome to our OSCE course — let's take this final step together!" ],
-            note: 'The next NDEB exam date is November 23, 2026',
+            note: 'The next NDEB exam date is March 1, 2027',
             noteHref: 'https://ndeb-bned.ca/',
             cta: { label: 'Compare OSCE Cohorts', scrollTo: '#oscePackages', href: '#oscePackages' } })
         + cPackages({ id: 'oscePackages', kicker: 'Virtual OSCE Packages', heading: 'Choose Your Exam Cohort', note: `<p class="osce-uni"><strong>University students:</strong> please email the office with your university email address to receive your special offer for the course or its mock exams.</p>` },
             [
-              cCard({ badge: 'Most Popular · Comprehensive', name: 'Comprehensive', start: 'Course starts September 12 · for the November 2026 exam', price: '$2,799', hst: '+ HST',
-                includes: ['Course orientation','2.5 months course','8 pre-recorded lectures','4 online quizzes','2 live quiz discussions & 2 pre-recorded discussions','3 full online mock exams (200 questions each)','6 live mock discussion sessions','2 handouts covering all important topics related to the Virtual OSCE exam','1 booklet including 1,500+ new multiple-choice questions for the written part'],
-                reg: { label: 'Register Now for November 2026', href: 'https://www.confidentist.ca/product/virtual-osce-course-november-2026/' } }),
-              cCard({ badge: 'Most Popular · Comprehensive', name: 'Comprehensive', start: 'Course starts November 21 · for the March 2027 exam', price: '$2,799', hst: '+ HST',
+              cCard({ badge: 'Most Popular · Comprehensive', name: 'Comprehensive', start: 'Course Start Date: December 19 · for the March 2027 exam', price: '$2,799', hst: '+ HST',
                 includes: ['Course orientation','2.5 months course','9 online lectures','4 online quizzes','3 full online mock exams (200 questions each)','6 online mock discussion sessions','2 handouts covering all important topics related to the Virtual OSCE exam','1 booklet including 1,500+ new multiple-choice questions for the written part'],
-                reg: { label: 'Register Now for March 2027', href: '/contact-us/' } })
+                reg: { label: 'Register Now for March 2027', href: '/virtual-osce/march-2027/' } })
             ])
-        + cSchedule({ kicker: 'Virtual OSCE Schedule', heading: 'Explore the OSCE Course Schedule', links: [ { label: 'OSCE Schedule — Nov 2026', href: '/contact-us/' }, { label: 'OSCE Schedule — March 2027', href: '/contact-us/' } ] })
+        + cSchedule({ kicker: 'Virtual OSCE Schedule', heading: 'Explore the OSCE Course Schedule', links: [ { label: 'OSCE Schedule — March 2027', href: '/virtual-osce-schedule-march-2027/' } ] })
         + cClosing(`To meet the diverse needs of our audience, ConfiDentist has designed the OSCE course in the best format, leveraging our many years of experience. <a href="mailto:info@confidentist.ca" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact our team</a> to learn more about this course and its features.`)
       )
     },

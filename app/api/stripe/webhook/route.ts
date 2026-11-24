@@ -5,6 +5,7 @@ import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
 import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
 import { renderMockAdminNotification } from '@/lib/email/mock-admin-notification'
 import { renderCourseReceipt } from '@/lib/email/course-receipt'
+import { renderOrderReceipt } from '@/lib/email/order-receipt'
 import { recordMockOrder } from '@/lib/orders/record-mock-order'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 import { renderEventConfirmation } from '@/lib/email/event-confirmation'
@@ -357,6 +358,176 @@ export async function POST(req: Request) {
         console.error('osce mock admin notification failed', e)
       }
       return NextResponse.json({ received: true, osce_mock: ref, emailed, notified, recorded })
+    }
+
+    // Virtual OSCE course (product page /virtual-osce/march-2027/). Detailed receipt:
+    // order number, original price, tax on each payment, shipping, phone and addresses.
+    if (ref.startsWith('virtual-osce-')) {
+      const str = (v: unknown) => (typeof v === 'string' ? v : '')
+      const num = (v: unknown) => Number(str(v) || 0)
+      const round2 = (n: number) => Math.round(n * 100) / 100
+      const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
+      const email = str(details['email']) || str(session['customer_email'])
+      const phone = str(details['phone'])
+      const amountTotal = typeof session['amount_total'] === 'number' ? (session['amount_total'] as number) : 0
+      const currency = str(session['currency']).toUpperCase() || 'CAD'
+      const reference = str(session['id']) || ref
+      const paymentIntent = str(session['payment_intent']) || undefined
+
+      const customFields = Array.isArray(session['custom_fields'])
+        ? (session['custom_fields'] as Array<Record<string, unknown>>)
+        : []
+      const cf = (key: string) => {
+        const field = customFields.find((f) => f['key'] === key)
+        const t = field?.['text'] as Record<string, unknown> | undefined
+        return str(t?.['value'])
+      }
+      const firstName = cf('first_name')
+      const lastName = cf('last_name')
+      const sin = cf('sin')
+
+      const addrLines = (a: Record<string, unknown> | undefined) => {
+        const ad = a ?? {}
+        const cityLine = [str(ad['city']), str(ad['state']), str(ad['postal_code'])].filter(Boolean).join(', ')
+        return [str(ad['line1']), str(ad['line2']), cityLine, str(ad['country'])].filter(Boolean)
+      }
+      const billAddr = (details['address'] as Record<string, unknown> | undefined) ?? {}
+      const shippingDetails =
+        (session['shipping_details'] as Record<string, unknown> | undefined) ??
+        ((session['collected_information'] as Record<string, unknown> | undefined)?.['shipping_details'] as
+          | Record<string, unknown>
+          | undefined) ??
+        {}
+      const shipAddr = (shippingDetails['address'] as Record<string, unknown> | undefined) ?? {}
+
+      const totals = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+      const shipCents = typeof totals['amount_shipping'] === 'number' ? (totals['amount_shipping'] as number) : 0
+      const discountCents = typeof totals['amount_discount'] === 'number' ? (totals['amount_discount'] as number) : 0
+      const shippingLabel =
+        ({
+          0: 'Pickup — collect in person (no shipping fee)',
+          7500: 'Shipping — within Canada',
+          15000: 'Shipping — United States',
+          35000: 'Shipping — Europe & Africa',
+          40000: 'Shipping — Asia & Oceania',
+        } as Record<number, string>)[shipCents] || `Shipping (${(shipCents / 100).toFixed(2)})`
+
+      const orderNo = str(meta['order_number']) || reference
+      const courseName = str(meta['course_name']) || 'Virtual OSCE Course – March 2027'
+      const isInstallment = meta['plan'] === 'installment'
+      const taxRate = num(meta['tax_rate'])
+      const taxLabel = `${str(meta['tax_label']) || 'Sales tax'} — ${str(meta['tax_region']) || 'ON'}`
+      const paidBase = num(meta['paid_base']) || (isInstallment ? num(meta['first_base']) : num(meta['course_subtotal']))
+      const paidTax = num(meta['paid_tax'])
+      const payments: import('@/lib/email/order-receipt').ReceiptPayment[] = []
+      if (isInstallment) {
+        const dates = str(meta['installment_dates']).split('|').filter(Boolean)
+        const n = Number(str(meta['num_payments']) || '2')
+        const later = num(meta['monthly_base'])
+        payments.push({ label: `Payment 1 of ${n}`, when: 'Paid today', base: paidBase, tax: paidTax, shipping: shipCents / 100, status: 'Paid' })
+        dates.forEach((d, i) =>
+          payments.push({ label: `Payment ${i + 2} of ${n}`, when: d, base: later, tax: round2(later * taxRate), shipping: 0, status: 'Upcoming' }),
+        )
+      } else {
+        payments.push({ label: 'Payment in full', when: 'Paid today', base: paidBase, tax: paidTax, shipping: shipCents / 100, status: 'Paid' })
+      }
+
+      const receiptBase = {
+        orderNumber: orderNo,
+        courseName,
+        courseStart: str(meta['course_start']) || undefined,
+        originalPrice: num(meta['course_subtotal']),
+        planLabel: isInstallment ? `${payments.length} payments (installment plan)` : 'Paid in full',
+        taxLabel,
+        courseTaxTotal: num(meta['course_tax']),
+        payments,
+        shippingLabel,
+        discount: discountCents / 100,
+        paidNow: amountTotal / 100,
+        currency,
+        firstName,
+        lastName,
+        email,
+        phone,
+        billingLines: addrLines(billAddr),
+        postalCode: str(billAddr['postal_code']),
+        shippingLines: addrLines(shipAddr),
+      }
+
+      let emailed = false
+      if (email) {
+        try {
+          const r = renderOrderReceipt({ ...receiptBase, audience: 'customer' })
+          await sendEmail({ to: email, replyTo: 'info@confidentist.ca', ...r })
+          emailed = true
+        } catch (e) {
+          console.error('virtual-osce receipt email failed', e)
+        }
+      }
+      let notified = false
+      try {
+        const r = renderOrderReceipt({
+          ...receiptBase,
+          audience: 'admin',
+          sin,
+          when: new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' }),
+        })
+        await sendEmail({ to: [...ADMIN_EMAILS, 'info@confidentist.ca'], replyTo: email || undefined, ...r })
+        notified = true
+      } catch (e) {
+        console.error('virtual-osce admin notification failed', e)
+      }
+
+      let recorded = false
+      try {
+        const result = await recordMockOrder(supabase, {
+          email,
+          firstName,
+          lastName,
+          phone,
+          addressLine1: str(billAddr['line1']),
+          addressLine2: str(billAddr['line2']),
+          city: str(billAddr['city']),
+          state: str(billAddr['state']),
+          postalCode: str(billAddr['postal_code']),
+          country: str(billAddr['country']),
+          productName: courseName,
+          amountTotalCents: amountTotal,
+          taxCents: Math.round(paidTax * 100),
+          currency,
+          sessionId: reference,
+          paymentIntent,
+          sin,
+          createdVia: 'virtual-osce-checkout',
+          orderNumberPrefix: 'OSCE',
+          orderNumber: str(meta['order_number']) || undefined,
+          shipping: {
+            firstName,
+            lastName,
+            addressLine1: str(shipAddr['line1']),
+            addressLine2: str(shipAddr['line2']),
+            city: str(shipAddr['city']),
+            state: str(shipAddr['state']),
+            postalCode: str(shipAddr['postal_code']),
+            country: str(shipAddr['country']),
+          },
+          extraRaw: {
+            plan: meta['plan'] || 'full',
+            num_payments: meta['num_payments'] || '1',
+            installment_first_base: meta['first_base'] || '',
+            installment_monthly_base: meta['monthly_base'] || '',
+            installment_dates: meta['installment_dates'] || '',
+            order_number: meta['order_number'] || '',
+            shipping_cents: shipCents,
+          },
+        })
+        recorded = result.recorded
+        if (result.error) console.error('virtual-osce order record error', result.error)
+      } catch (e) {
+        console.error('virtual-osce order record failed', e)
+      }
+
+      return NextResponse.json({ received: true, course: ref, emailed, notified, recorded })
     }
 
     if (ref.startsWith('acj-') || ref.startsWith('afk-') || ref.startsWith('adat-')) {
