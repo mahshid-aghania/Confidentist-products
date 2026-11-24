@@ -395,244 +395,368 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <p class="hero-eyebrow">Now Open · ACJ Preparation</p>
-    <h1>ACJ Preparation — <em>May 2027 Schedule</em></h1>
-    <p class="hero-sub">The complete session-by-session plan for the May 2027 ACJ cohort — radiology foundations, live learning with weekly quizzes and discussions, mini mock exams and full mock exams before your NDEB ACJ exam.</p>
-    <div class="hero-facts">
-      <span class="hero-fact">Course start: <strong>Oct 16, 2026</strong></span>
-      <span class="hero-fact">Program length: <strong>7 months</strong></span>
-      <span class="hero-fact">NDEB exam: <strong>May 4, 2027</strong></span>
-    </div>
-  </div>
-</header>
+<!-- SCHEDULE (cf design) -->
+<main class="sched-wrap" style="max-width:1400px;margin:0 auto;padding:2.5rem 1.25rem 3rem;">
+<style>
+.acj27 {
+  font-family: inherit;
+  color: #24394c;
+  max-width: 1200px;
+  margin: auto;
+  line-height: 1.6;
+}
+.acj27 * { box-sizing: border-box; }
+.acj27 { width: 100%; min-width: 0; }
+.acj27 th, .acj27 td { overflow-wrap: anywhere; }
+.acj27 header {
+  background: linear-gradient(120deg, #123650, #23658f);
+  padding: 32px;
+  border-radius: 16px;
+  color: #fff;
+}
+.acj27 header h2 {
+  color: #fff;
+  font-size: clamp(26px, 4vw, 40px);
+  margin: 8px 0;
+  line-height: 1.25;
+}
+.acj27 header p { color: #eaf4fb; margin: 0; }
+.acj27 .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+.acj27 .stats div {
+  background: #edf4fa;
+  border-radius: 10px;
+  padding: 18px;
+}
+.acj27 .stats strong {
+  display: block;
+  font-size: 23px;
+  color: #174b76;
+}
+.acj27 details {
+  border: 1px solid #dce6ef;
+  border-radius: 12px;
+  margin: 16px 0;
+  overflow: hidden;
+  background: #fff;
+}
+.acj27 summary {
+  cursor: pointer;
+  padding: 20px;
+  background: #edf4fa;
+  color: #174b76;
+  font-size: 18px;
+  font-weight: 700;
+}
+.acj27 .scroll {
+  overflow-x: auto;
+  padding: 0 14px 14px;
+}
+.acj27 table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 14px;
+}
+.acj27 caption {
+  text-align: left;
+  padding: 14px 0;
+  color: #536477;
+}
+.acj27 th {
+  text-align: left;
+  background: #174b76;
+  color: #fff;
+  padding: 12px;
+}
+.acj27 td {
+  padding: 12px;
+  vertical-align: top;
+  border-bottom: 1px solid #e4ebf2;
+}
+.acj27 td:nth-child(6) {
+  min-width: 0;
+  font-weight: 600;
+}
+.acj27 tbody tr:nth-child(even) { background: #f7f9fc; }
+.acj27 .badge {
+  display: inline-block;
+  background: #e6f1fb;
+  color: #174b76;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+.acj27 .recorded { background: #f0eafa; color: #634295; }
+.acj27 .mixed { background: #fff0d9; color: #805414; }
+.acj27 .note { font-size: 14px; color: #536477; }
+.acj27 .exam {
+  padding: 20px;
+  border-left: 4px solid #174b76;
+  border-radius: 8px;
+  background: #edf4fa;
+  margin-top: 20px;
+}
+.acj27 .exam strong { display: block; font-size: 20px; }
+.acj27 summary:focus-visible,
+.acj27 .scroll:focus-visible {
+  outline: 3px solid #287db8;
+  outline-offset: -3px;
+}
+@media (max-width: 640px) {
+  .acj27 .stats { grid-template-columns: repeat(2, 1fr); }
+  .acj27 header { padding: 24px; }
+  .acj27 summary { padding: 16px; font-size: 16px; }
+}
 
-<!-- OVERVIEW / NOTICE -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">How the Program Runs</span>
-      <h2 class="section-title">Your Path to the May 2027 Exam</h2>
-      <p class="section-desc">The schedule opens with a <strong>Foundation Phase</strong> of radiology lectures in October 2026, moves into a <strong>Live Learning Phase</strong> with weekly quizzes and live discussions, then finishes with <strong>mini mock</strong> and <strong>full mock exams</strong> ahead of your exam sitting.</p>
+/* Stack complete session details on phones and tablets. */
+@media (max-width: 1024px) {
+  .acj27 .scroll { overflow: visible; padding: 0 12px 12px; }
+  .acj27 table { display: block; width: 100%; min-width: 0; table-layout: auto; }
+  .acj27 caption { display: block; }
+  .acj27 thead {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip-path: inset(50%); white-space: nowrap; border: 0;
+  }
+  .acj27 tbody { display: block; width: 100%; }
+  .acj27 tbody tr {
+    display: block; width: 100%; margin: 0 0 14px;
+    border: 1px solid #dce6ef; border-radius: 10px;
+    background: #fff;
+  }
+  .acj27 tbody tr:nth-child(even) { background: #f7f9fc; }
+  .acj27 tbody td {
+    display: grid; grid-template-columns: minmax(0, 94px) minmax(0, 1fr);
+    gap: 12px; width: 100%; min-width: 0; padding: 10px 12px;
+    text-align: left; white-space: normal; overflow-wrap: anywhere;
+  }
+  .acj27 tbody td::before {
+    content: attr(data-label); font-weight: 700; color: #174b76;
+  }
+  .acj27 tbody td:last-child { border-bottom: 0; }
+  .acj27 tbody td:first-child {
+    background: #edf4fa; border-radius: 10px 10px 0 0; font-weight: 700;
+  }
+  .acj27 .badge { max-width: 100%; white-space: normal; justify-self: start; }
+}
+@media (max-width: 360px) {
+  .acj27 .stats div { padding: 12px; }
+  .acj27 .stats strong { font-size: 19px; }
+  .acj27 tbody td { grid-template-columns: minmax(0, 78px) minmax(0, 1fr); gap: 8px; }
+}
+
+/* Green session headers identify confirmed online live sessions. */
+@media (max-width: 1024px) {
+  .acj27 tbody tr.is-live td:first-child {
+    background: #d8f3df;
+    color: #14532d;
+    border-bottom-color: #b7dfc2;
+  }
+  .acj27 tbody tr.is-live td:first-child::before { color: #14532d; }
+}
+</style>
+<!-- Source: ACJ Oct13 worksheet. No timezone was supplied. -->
+<section class="acj27" aria-label="ACJ May 2027 course schedule">
+  <header>
+    <span>CONFIDENTIST · COURSE SCHEDULE</span>
+    <h2>ACJ — May 2027</h2>
+    <p>Foundation learning, live sessions, quiz discussions and mock exams.</p>
+  </header>
+
+  <div class="stats">
+    <div><strong>Oct 16, 2026</strong>Course begins</div>
+    <div><strong>20</strong>Quizzes</div>
+    <div><strong>10</strong>Mini mock exams</div>
+    <div><strong>4</strong>Full mock exams</div>
+  </div>
+
+  <p class="note">
+    Select a phase to open or close its schedule. On smaller screens,
+    each session appears as a card with all schedule details. Times appear as supplied in the course schedule.
+  </p>
+
+  <details open>
+    <summary>Phase 1: Foundation Phase</summary>
+    <div class="scroll" tabindex="0" role="region" aria-label="Foundation Phase schedule">
+      <table>
+        <caption>Phase 1: Foundation Phase</caption>
+        <thead>
+          <tr><th scope="col">Session</th><th scope="col">Format</th><th scope="col">Date</th><th scope="col">Time / Access</th><th scope="col">Day</th><th scope="col">Topic</th><th scope="col">Instructor</th></tr>
+        </thead>
+        <tbody>
+<tr class="is-live"><td data-label="Session">1</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Oct 16, 2026</td><td data-label="Time / Access">11:00 am - 12:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Course introduction</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr><td data-label="Session">Lecture 1</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 16, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Friday</td><td data-label="Topic">Radiology 1 (basic concepts)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 2</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 17, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology 2 (normal anatomy)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 3</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 18, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Radiology 3 (normal anatomy 2)+ Q&amp;A Session</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">—</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 19, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Monday</td><td data-label="Topic">Radiology 4 (Pathology)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 4</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 23, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Friday</td><td data-label="Topic">Radiology 5 (Cariology)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 5</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 24, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology 6 (Restorative dentistry)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 6</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 25, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Radiology 7 (Endodontics)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">—</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 26, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Monday</td><td data-label="Topic">Radiology 8 (Oral surgery)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 7</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Oct 30, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Friday</td><td data-label="Topic">Radiology 9 (Periodontics &amp; Implant)</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 8</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 1, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Quiz 1</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 9</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 1, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Quiz 2</td><td data-label="Instructor">Website</td></tr>
+<tr><td data-label="Session">—</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 1, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Quiz1 Discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr><td data-label="Session">—</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 1, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Quiz 2 Discussion</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 3</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 6, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 3</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 4</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 6, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 4</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 12</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 6, 2026</td><td data-label="Time / Access">01:30 pm - 02:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 3 Discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 13</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 6, 2026</td><td data-label="Time / Access">03:00 pm - 04:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 4 Discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="notice">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-      <span>Please be advised that the information below is subject to change. Session dates, times and formats may be adjusted; registered students are notified of any updates through ConfiPortal and the VIP WhatsApp group.</span>
+  </details>
+
+  <details open>
+    <summary>Phase 2: Live Learning Phase</summary>
+    <div class="scroll" tabindex="0" role="region" aria-label="Live Learning Phase schedule">
+      <table>
+        <caption>Phase 2: Live Learning Phase</caption>
+        <thead>
+          <tr><th scope="col">Session</th><th scope="col">Format</th><th scope="col">Date</th><th scope="col">Time / Access</th><th scope="col">Day</th><th scope="col">Topic</th><th scope="col">Instructor</th></tr>
+        </thead>
+        <tbody>
+<tr><td data-label="Session">Lecture 14</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 13, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Friday</td><td data-label="Topic">Periodontics: Diagnoses</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 15</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 13, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Friday</td><td data-label="Topic">Periodontics: Managements</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 16</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 14, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology Review 1</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr><td data-label="Session">Lecture 17</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 20, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Friday</td><td data-label="Topic">Pharmacology 1</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 18</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 20, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Friday</td><td data-label="Topic">Drug Prescription</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 19</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 21, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology Review 2</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr><td data-label="Session">Lecture 20</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 22, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Patient management in dentistry</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 21</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 22, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Medical emergencies in dentistry</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 5</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 27, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 5: Pharmacology</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 6</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 27, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 6: Periodontics</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 22</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 27, 2026</td><td data-label="Time / Access">01:30 pm - 02:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 5 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 23</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Nov 27, 2026</td><td data-label="Time / Access">03:00 pm - 04:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 6 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr><td data-label="Session">Lecture 24</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 28, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Orthodontics: Diagnosis</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 25</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Nov 29, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Orthodontics: management</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 7</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 4, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 7: Patient management</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 8</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 4, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 8: Medical emergencies</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 26</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 4, 2026</td><td data-label="Time / Access">05:30 pm - 07:00 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 7 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 27</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 4, 2026</td><td data-label="Time / Access">07:00 pm - 08:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 8 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr><td data-label="Session">—</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 5, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology Review 3</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 28</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 6, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Pediatric dentistry: diagnoses and managements</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 29</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 6, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Preventive dentistry &amp; Dental traumas</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 9</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 11, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 9: Orthodontics</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 10</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 11, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 10: Pediatric dentistry</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 31</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 11, 2026</td><td data-label="Time / Access">05:30 pm - 07:00 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 9 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 32</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 11, 2026</td><td data-label="Time / Access">07:00 pm - 08:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 10 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr><td data-label="Session">—</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 12, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Endodontics</td><td data-label="Instructor">Dr. Neda</td></tr>
+<tr><td data-label="Session">Lecture 33</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 13, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Oral surgery</td><td data-label="Instructor">Dr. Neda</td></tr>
+<tr><td data-label="Session">Lecture 34</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 13, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Sunday</td><td data-label="Topic">Radiology Review 4</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 11</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 18, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 11: Endodontics &amp; oral surgery</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 12</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 18, 2026</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 12: RADIOLOGY REVIEW</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 36</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 18, 2026</td><td data-label="Time / Access">01:30 pm - 02:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 11 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 37</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 18, 2026</td><td data-label="Time / Access">03:00 pm - 04:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 12 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 38</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 20, 2026</td><td data-label="Time / Access">10:00 am - 11:30 am</td><td data-label="Day">Sunday</td><td data-label="Topic">Radiology review 5 (Introducing New Concepts)</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 39</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Dec 20, 2026</td><td data-label="Time / Access">12:30 pm - 02:00 pm</td><td data-label="Day">Sunday</td><td data-label="Topic">Radiology review 5 (Introducing New Concepts)</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr><td data-label="Session">Lecture 40</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 21, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Monday</td><td data-label="Topic">Local anesthesia</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 41</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Dec 21, 2026</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Monday</td><td data-label="Topic">Diagnostic tests</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 13</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 8, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 13: LOCAL ANESTHESIA</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 14</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 8, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 14: DIAGNOSTIC TESTS</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 42</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 8, 2027</td><td data-label="Time / Access">01:30 pm - 02:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 13 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 43</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 8, 2027</td><td data-label="Time / Access">03:00 pm - 04:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 14 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr><td data-label="Session">Lecture 44</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Jan 9, 2027</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology Review 6</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 45</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 11, 2027</td><td data-label="Time / Access">10:00 am - 11:30 am</td><td data-label="Day">Monday</td><td data-label="Topic">Pathology 1</td><td data-label="Instructor">Dr. Neda</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 46</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 11, 2027</td><td data-label="Time / Access">12:00 pm- 04:00 pm</td><td data-label="Day">Monday</td><td data-label="Topic">Pathology 2</td><td data-label="Instructor">Dr. Neda</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 15</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 15, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">QUIZ 15: Cases review 1</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 16</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 15, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">QUIZ 16: Case review 2</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 47</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 15, 2027</td><td data-label="Time / Access">01:30 pm - 02:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 15 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 48</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 15, 2027</td><td data-label="Time / Access">03:00 pm - 04:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 16 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr><td data-label="Session">Lecture 49</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Jan 16, 2027</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology review 7</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 50</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 18, 2027</td><td data-label="Time / Access">10:00 am - 11:30 am</td><td data-label="Day">Monday</td><td data-label="Topic">Pathology 3</td><td data-label="Instructor">Dr. Neda</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 51</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 18, 2027</td><td data-label="Time / Access">12:00 pm - 04:00 pm</td><td data-label="Day">Monday</td><td data-label="Topic">Pathology 4</td><td data-label="Instructor">Dr. Neda</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 17</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 22, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 17: Pathology 1</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 18</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 22, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 18: Pathology 2</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 52</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 22, 2027</td><td data-label="Time / Access">01:30 pm - 02:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 17: discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 53</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 22, 2027</td><td data-label="Time / Access">03:00 pm - 04:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 18: discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr><td data-label="Session">Lecture 54</td><td data-label="Format"><span class="badge recorded">Pre-recorded</span></td><td data-label="Date">Jan 23, 2027</td><td data-label="Time / Access">ConfiPortal</td><td data-label="Day">Saturday</td><td data-label="Topic">Radiology Review 8</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 19</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 29, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 19 Radiology review</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Quiz 20</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 29, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 20 Radiology review</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 55</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 29, 2027</td><td data-label="Time / Access">01:30 pm - 02:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 19 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 56</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 29, 2027</td><td data-label="Time / Access">03:00 pm - 04:30 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Quiz 20 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 57</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 31, 2027</td><td data-label="Time / Access">10:00 am - 11:30 am</td><td data-label="Day">Sunday</td><td data-label="Topic">Radiology Review 9</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 58</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Jan 31, 2027</td><td data-label="Time / Access">12:30 pm - 02:00 pm</td><td data-label="Day">Sunday</td><td data-label="Topic">Radiology Review 10</td><td data-label="Instructor">Dr. Amin</td></tr>
+        </tbody>
+      </table>
     </div>
-    <nav class="jump" aria-label="Jump to a phase">
-      <a href="#foundation">Phase 1</a>
-      <a href="#live-learning">Phase 2</a>
-      <a href="#mini-mock">Phase 3</a>
-      <a href="#full-mock">Phase 4</a>
-      <a href="#exam">NDEB Exam</a>
-    </nav>
+  </details>
+
+  <details open>
+    <summary>Phase 3: Mini-Mock Exam Phase</summary>
+    <div class="scroll" tabindex="0" role="region" aria-label="Mini-Mock Exam Phase schedule">
+      <table>
+        <caption>Phase 3: Mini-Mock Exam Phase</caption>
+        <thead>
+          <tr><th scope="col">Session</th><th scope="col">Format</th><th scope="col">Date</th><th scope="col">Time / Access</th><th scope="col">Day</th><th scope="col">Topic</th><th scope="col">Instructor</th></tr>
+        </thead>
+        <tbody>
+<tr class="is-live"><td data-label="Session">Mini mock1</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 12, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 1</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock2</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 12, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 2</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 59</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 13, 2027</td><td data-label="Time / Access">02:00 pm - 03:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 1 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 60</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 13, 2027</td><td data-label="Time / Access">03:30 pm - 05:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 2 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock3</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 19, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 3</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock4</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 19, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 4</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 61</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 20, 2027</td><td data-label="Time / Access">02:00 pm - 03:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 3 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 62</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 20, 2027</td><td data-label="Time / Access">03:30 pm - 05:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 4 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock5</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 26, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 5</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock6</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 26, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 6</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 63</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 27, 2027</td><td data-label="Time / Access">02:00 pm - 03:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 5 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 64</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Feb 27, 2027</td><td data-label="Time / Access">03:30 pm - 05:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 6 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock7</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 5, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 7</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock8</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 5, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 8</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 65</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 6, 2027</td><td data-label="Time / Access">02:00 pm - 03:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 7 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 66</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 6, 2027</td><td data-label="Time / Access">03:30 pm - 05:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 8 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock9</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 12, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 9</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Mini mock10</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 12, 2027</td><td data-label="Time / Access">Activate 9:00 am</td><td data-label="Day">Friday</td><td data-label="Topic">Mini mock 10</td><td data-label="Instructor">Website</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 67</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 13, 2027</td><td data-label="Time / Access">02:00 pm - 03:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 9 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 68</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 13, 2027</td><td data-label="Time / Access">03:30 pm - 05:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Mini mock 10 discussion</td><td data-label="Instructor">Dr. Juyoung</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Phase 4: Full Mock Exams</summary>
+    <div class="scroll" tabindex="0" role="region" aria-label="Full Mock Exams schedule">
+      <table>
+        <caption>Phase 4: Full Mock Exams</caption>
+        <thead>
+          <tr><th scope="col">Session</th><th scope="col">Format</th><th scope="col">Date</th><th scope="col">Time / Access</th><th scope="col">Day</th><th scope="col">Topic</th><th scope="col">Instructor</th></tr>
+        </thead>
+        <tbody>
+<tr class="is-live"><td data-label="Session">Full mock 1</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 19, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Full Mock 1</td><td data-label="Instructor">Exam Admin</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 69</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 20, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Discussion1-1</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 70</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Mar 21, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Sunday</td><td data-label="Topic">Discussion1-2</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Full mock 2</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Apr 2, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Full Mock 2</td><td data-label="Instructor">Exam Admin</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 71</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Apr 3, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Discussion2-1</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 72</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Apr 4, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Sunday</td><td data-label="Topic">Discussion2-2</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr><td data-label="Session">Full mock 3</td><td data-label="Format"><span class="badge mixed">In-person or online</span></td><td data-label="Date">Apr 9, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Full Mock 3</td><td data-label="Instructor">Exam Admin</td></tr>
+<tr><td data-label="Session">Lecture 73</td><td data-label="Format"><span class="badge mixed">Live-in-person or Live-Prerecorded</span></td><td data-label="Date">Apr 10, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Discussion3-1</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr><td data-label="Session">Lecture 74</td><td data-label="Format"><span class="badge mixed">Live-in-person or Live-Prerecorded</span></td><td data-label="Date">Apr 11, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Sunday</td><td data-label="Topic">Discussion3-2</td><td data-label="Instructor">Dr. Amin</td></tr>
+<tr class="is-live"><td data-label="Session">Full mock 4</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Apr 16, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Friday</td><td data-label="Topic">Full Mock 4</td><td data-label="Instructor">Exam Admin</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 75</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Apr 17, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Saturday</td><td data-label="Topic">Discussion4-1</td><td data-label="Instructor">Dr. Mehdi</td></tr>
+<tr class="is-live"><td data-label="Session">Lecture 76</td><td data-label="Format"><span class="badge">Online- live</span></td><td data-label="Date">Apr 18, 2027</td><td data-label="Time / Access">10:00 am - 02:00 pm</td><td data-label="Day">Sunday</td><td data-label="Topic">Discussion4-2</td><td data-label="Instructor">Dr. Amin</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <div class="exam">
+    <strong>NDEB Exam</strong>
+    May 4, 2027 · Tuesday
+    <br>
+    <small>Date listed in the supplied course schedule.</small>
   </div>
 </section>
-
-<hr class="rule" />
-
-<!-- FULL SCHEDULE -->
-<section class="section alt" id="schedule">
-  <div class="section-inner wide">
-
-    <div class="sched-search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="search" id="schedSearch" placeholder="Search sessions — topic, instructor, date…" aria-label="Search the schedule" autocomplete="off" />
-      <button type="button" class="sched-search-clear" id="schedSearchClear" aria-label="Clear search" hidden>&times;</button>
-    </div>
-    <p class="sched-search-empty" id="schedSearchEmpty" hidden>No sessions match your search. Try a different term.</p>
-
-    <div class="legend">
-      <span class="lg"><span class="dot live"></span>Online / Live</span>
-      <span class="lg"><span class="dot rec"></span>Pre-recorded (ConfiPortal)</span>
-      <span class="lg"><span class="dot mock"></span>In-Person / Mock</span>
-    </div>
-
-    <div class="block-group">
-      <div class="block-head" id="foundation">
-        <span class="bnum">Phase 1</span>
-        <span class="btitle">Foundation Phase</span>
-        <span class="bdates">Oct – Nov 2026</span>
-      </div>
-      <div class="table-wrap">
-        <table class="sched"><caption>Foundation Phase schedule</caption>
-          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
-          <thead><tr><th scope="col">Session</th><th scope="col">Date</th><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Topic</th><th scope="col">Instructor</th><th scope="col">Format</th></tr></thead>
-          <tbody>
-            <tr class="is-live"><th scope="row">1</th><td data-label="Date">16 Oct 2026</td><td data-label="Day">Fri</td><td data-label="Time">11:00 AM–12:30 PM</td><td data-label="Topic" class="topic">Course introduction</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 1</th><td data-label="Date">16 Oct 2026</td><td data-label="Day">Fri</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 1 (basic concepts)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 2</th><td data-label="Date">17 Oct 2026</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 2 (normal anatomy)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 3</th><td data-label="Date">18 Oct 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 3 (normal anatomy 2)+ Q&amp;A Session</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">—</th><td data-label="Date">19 Oct 2026</td><td data-label="Day">Mon</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 4 (Pathology)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 4</th><td data-label="Date">23 Oct 2026</td><td data-label="Day">Fri</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 5 (Cariology)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 5</th><td data-label="Date">24 Oct 2026</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 6 (Restorative dentistry)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 6</th><td data-label="Date">25 Oct 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 7 (Endodontics)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">—</th><td data-label="Date">26 Oct 2026</td><td data-label="Day">Mon</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 8 (Oral surgery)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 7</th><td data-label="Date">30 Oct 2026</td><td data-label="Day">Fri</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology 9 (Periodontics &amp; Implant)</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 8</th><td data-label="Date">1 Nov 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Quiz 1</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 9</th><td data-label="Date">1 Nov 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Quiz 2</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">—</th><td data-label="Date">1 Nov 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Quiz1 Discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">—</th><td data-label="Date">1 Nov 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Quiz 2 Discussion</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 3</th><td data-label="Date">6 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 3</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 4</th><td data-label="Date">6 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 4</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 12</th><td data-label="Date">6 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">1:30 PM–2:30 PM</td><td data-label="Topic" class="topic">Quiz 3 Discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 13</th><td data-label="Date">6 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">3:00 PM–4:30 PM</td><td data-label="Topic" class="topic">Quiz 4 Discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="block-group">
-      <div class="block-head" id="live-learning">
-        <span class="bnum">Phase 2</span>
-        <span class="btitle">Live Learning Phase</span>
-        <span class="bdates">Nov 2026 – Jan 2027</span>
-      </div>
-      <div class="table-wrap">
-        <table class="sched"><caption>Live Learning Phase schedule</caption>
-          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
-          <tbody>
-            <tr class="is-rec"><th scope="row">Lecture 14</th><td data-label="Date">13 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Periodontics: Diagnoses</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 15</th><td data-label="Date">13 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Periodontics: Managements</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 16</th><td data-label="Date">14 Nov 2026</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology Review 1</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 17</th><td data-label="Date">20 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Pharmacology 1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 18</th><td data-label="Date">20 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Drug Prescription</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 19</th><td data-label="Date">21 Nov 2026</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology Review 2</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 20</th><td data-label="Date">22 Nov 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Patient management in dentistry</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 21</th><td data-label="Date">22 Nov 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Medical emergencies in dentistry</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 5</th><td data-label="Date">27 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 5: Pharmacology</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 6</th><td data-label="Date">27 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 6: Periodontics</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 22</th><td data-label="Date">27 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">1:30 PM–2:30 PM</td><td data-label="Topic" class="topic">Quiz 5 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 23</th><td data-label="Date">27 Nov 2026</td><td data-label="Day">Fri</td><td data-label="Time">3:00 PM–4:30 PM</td><td data-label="Topic" class="topic">Quiz 6 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 24</th><td data-label="Date">28 Nov 2026</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Orthodontics: Diagnosis</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 25</th><td data-label="Date">29 Nov 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Orthodontics: management</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 7</th><td data-label="Date">4 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 7: Patient management</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 8</th><td data-label="Date">4 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 8: Medical emergencies</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 26</th><td data-label="Date">4 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">5:30 PM–7:00 PM</td><td data-label="Topic" class="topic">Quiz 7 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 27</th><td data-label="Date">4 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">7:00 PM–8:30 PM</td><td data-label="Topic" class="topic">Quiz 8 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">—</th><td data-label="Date">5 Dec 2026</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology Review 3</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 28</th><td data-label="Date">6 Dec 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Pediatric dentistry: diagnoses and managements</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 29</th><td data-label="Date">6 Dec 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Preventive dentistry &amp; Dental traumas</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 9</th><td data-label="Date">11 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 9: Orthodontics</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 10</th><td data-label="Date">11 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 10: Pediatric dentistry</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 31</th><td data-label="Date">11 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">5:30 PM–7:00 PM</td><td data-label="Topic" class="topic">Quiz 9 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 32</th><td data-label="Date">11 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">7:00 PM–8:30 PM</td><td data-label="Topic" class="topic">Quiz 10 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">—</th><td data-label="Date">12 Dec 2026</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Endodontics</td><td data-label="Instructor">Dr. Neda</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 33</th><td data-label="Date">13 Dec 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Oral surgery</td><td data-label="Instructor">Dr. Neda</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 34</th><td data-label="Date">13 Dec 2026</td><td data-label="Day">Sun</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology Review 4</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 11</th><td data-label="Date">18 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 11: Endodontics &amp; oral surgery</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 12</th><td data-label="Date">18 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 12: RADIOLOGY REVIEW</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 36</th><td data-label="Date">18 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">1:30 PM–2:30 PM</td><td data-label="Topic" class="topic">Quiz 11 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 37</th><td data-label="Date">18 Dec 2026</td><td data-label="Day">Fri</td><td data-label="Time">3:00 PM–4:30 PM</td><td data-label="Topic" class="topic">Quiz 12 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 38</th><td data-label="Date">20 Dec 2026</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM–11:30 AM</td><td data-label="Topic" class="topic">Radiology review 5 (Introducing New Concepts)</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 39</th><td data-label="Date">20 Dec 2026</td><td data-label="Day">Sun</td><td data-label="Time">12:30 PM–2:00 PM</td><td data-label="Topic" class="topic">Radiology review 5 (Introducing New Concepts)</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 40</th><td data-label="Date">21 Dec 2026</td><td data-label="Day">Mon</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Local anesthesia</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 41</th><td data-label="Date">21 Dec 2026</td><td data-label="Day">Mon</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Diagnostic tests</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 13</th><td data-label="Date">8 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 13: LOCAL ANESTHESIA</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 14</th><td data-label="Date">8 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 14: DIAGNOSTIC TESTS</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 42</th><td data-label="Date">8 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">1:30 PM–2:30 PM</td><td data-label="Topic" class="topic">Quiz 13 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 43</th><td data-label="Date">8 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">3:00 PM–4:30 PM</td><td data-label="Topic" class="topic">Quiz 14 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 44</th><td data-label="Date">9 Jan 2027</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology Review 6</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 45</th><td data-label="Date">11 Jan 2027</td><td data-label="Day">Mon</td><td data-label="Time">10:00 AM–11:30 AM</td><td data-label="Topic" class="topic">Pathology 1</td><td data-label="Instructor">Dr. Neda</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 46</th><td data-label="Date">11 Jan 2027</td><td data-label="Day">Mon</td><td data-label="Time">12:00 PM–4:00 PM</td><td data-label="Topic" class="topic">Pathology 2</td><td data-label="Instructor">Dr. Neda</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 15</th><td data-label="Date">15 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">QUIZ 15: Cases review 1</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 16</th><td data-label="Date">15 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">QUIZ 16: Case review 2</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 47</th><td data-label="Date">15 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">1:30 PM–2:30 PM</td><td data-label="Topic" class="topic">Quiz 15 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 48</th><td data-label="Date">15 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">3:00 PM–4:30 PM</td><td data-label="Topic" class="topic">Quiz 16 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 49</th><td data-label="Date">16 Jan 2027</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology review 7</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 50</th><td data-label="Date">18 Jan 2027</td><td data-label="Day">Mon</td><td data-label="Time">10:00 AM–11:30 AM</td><td data-label="Topic" class="topic">Pathology 3</td><td data-label="Instructor">Dr. Neda</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 51</th><td data-label="Date">18 Jan 2027</td><td data-label="Day">Mon</td><td data-label="Time">12:00 PM–4:00 PM</td><td data-label="Topic" class="topic">Pathology 4</td><td data-label="Instructor">Dr. Neda</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 17</th><td data-label="Date">22 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 17: Pathology 1</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 18</th><td data-label="Date">22 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 18: Pathology 2</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 52</th><td data-label="Date">22 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">1:30 PM–2:30 PM</td><td data-label="Topic" class="topic">Quiz 17: discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 53</th><td data-label="Date">22 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">3:00 PM–4:30 PM</td><td data-label="Topic" class="topic">Quiz 18: discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-rec"><th scope="row">Lecture 54</th><td data-label="Date">23 Jan 2027</td><td data-label="Day">Sat</td><td data-label="Time">ConfiPortal</td><td data-label="Topic" class="topic">Radiology Review 8</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot rec"></span>Pre-recorded</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 19</th><td data-label="Date">29 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 19 Radiology review</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Quiz 20</th><td data-label="Date">29 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Quiz 20 Radiology review</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 55</th><td data-label="Date">29 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">1:30 PM–2:30 PM</td><td data-label="Topic" class="topic">Quiz 19 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 56</th><td data-label="Date">29 Jan 2027</td><td data-label="Day">Fri</td><td data-label="Time">3:00 PM–4:30 PM</td><td data-label="Topic" class="topic">Quiz 20 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 57</th><td data-label="Date">31 Jan 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM–11:30 AM</td><td data-label="Topic" class="topic">Radiology Review 9</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 58</th><td data-label="Date">31 Jan 2027</td><td data-label="Day">Sun</td><td data-label="Time">12:30 PM–2:00 PM</td><td data-label="Topic" class="topic">Radiology Review 10</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="block-group">
-      <div class="block-head" id="mini-mock">
-        <span class="bnum">Phase 3</span>
-        <span class="btitle">Mini-Mock Exam Phase</span>
-        <span class="bdates">Feb – Mar 2027</span>
-      </div>
-      <div class="table-wrap">
-        <table class="sched"><caption>Mini-Mock Exam Phase schedule</caption>
-          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
-          <tbody>
-            <tr class="is-live mock-row"><th scope="row">Mini mock1</th><td data-label="Date">12 Feb 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 1</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock2</th><td data-label="Date">12 Feb 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 2</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 59</th><td data-label="Date">13 Feb 2027</td><td data-label="Day">Sat</td><td data-label="Time">2:00 PM–3:00 PM</td><td data-label="Topic" class="topic">Mini mock 1 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 60</th><td data-label="Date">13 Feb 2027</td><td data-label="Day">Sat</td><td data-label="Time">3:30 PM–5:00 PM</td><td data-label="Topic" class="topic">Mini mock 2 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock3</th><td data-label="Date">19 Feb 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 3</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock4</th><td data-label="Date">19 Feb 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 4</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 61</th><td data-label="Date">20 Feb 2027</td><td data-label="Day">Sat</td><td data-label="Time">2:00 PM–3:00 PM</td><td data-label="Topic" class="topic">Mini mock 3 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 62</th><td data-label="Date">20 Feb 2027</td><td data-label="Day">Sat</td><td data-label="Time">3:30 PM–5:00 PM</td><td data-label="Topic" class="topic">Mini mock 4 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock5</th><td data-label="Date">26 Feb 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 5</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock6</th><td data-label="Date">26 Feb 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 6</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 63</th><td data-label="Date">27 Feb 2027</td><td data-label="Day">Sat</td><td data-label="Time">2:00 PM–3:00 PM</td><td data-label="Topic" class="topic">Mini mock 5 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 64</th><td data-label="Date">27 Feb 2027</td><td data-label="Day">Sat</td><td data-label="Time">3:30 PM–5:00 PM</td><td data-label="Topic" class="topic">Mini mock 6 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock7</th><td data-label="Date">5 Mar 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 7</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock8</th><td data-label="Date">5 Mar 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 8</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 65</th><td data-label="Date">6 Mar 2027</td><td data-label="Day">Sat</td><td data-label="Time">2:00 PM–3:00 PM</td><td data-label="Topic" class="topic">Mini mock 7 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 66</th><td data-label="Date">6 Mar 2027</td><td data-label="Day">Sat</td><td data-label="Time">3:30 PM–5:00 PM</td><td data-label="Topic" class="topic">Mini mock 8 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock9</th><td data-label="Date">12 Mar 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 9</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live mock-row"><th scope="row">Mini mock10</th><td data-label="Date">12 Mar 2027</td><td data-label="Day">Fri</td><td data-label="Time">Activate 9:00 AM</td><td data-label="Topic" class="topic">Mini mock 10</td><td data-label="Instructor">Website</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 67</th><td data-label="Date">13 Mar 2027</td><td data-label="Day">Sat</td><td data-label="Time">2:00 PM–3:00 PM</td><td data-label="Topic" class="topic">Mini mock 9 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-live"><th scope="row">Lecture 68</th><td data-label="Date">13 Mar 2027</td><td data-label="Day">Sat</td><td data-label="Time">3:30 PM–5:00 PM</td><td data-label="Topic" class="topic">Mini mock 10 discussion</td><td data-label="Instructor">Dr. Juyoung</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="block-group">
-      <div class="block-head" id="full-mock">
-        <span class="bnum">Phase 4</span>
-        <span class="btitle">Full Mock Exams</span>
-        <span class="bdates">Mar – Apr 2027</span>
-      </div>
-      <div class="table-wrap">
-        <table class="sched"><caption>Full Mock Exams schedule</caption>
-          <colgroup><col class="c-sess"/><col class="c-date"/><col class="c-day"/><col class="c-time"/><col class="c-topic"/><col class="c-inst"/><col class="c-fmt"/></colgroup>
-          <tbody>
-            <tr class="is-mock1 is-live mock-row"><th scope="row">Full mock 1</th><td data-label="Date">19 Mar 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Full Mock 1</td><td data-label="Instructor">Exam Admin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock1 is-live"><th scope="row">Lecture 69</th><td data-label="Date">20 Mar 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion1-1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock1 is-live"><th scope="row">Lecture 70</th><td data-label="Date">21 Mar 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion1-2</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock2 is-live mock-row"><th scope="row">Full mock 2</th><td data-label="Date">2 Apr 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Full Mock 2</td><td data-label="Instructor">Exam Admin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock2 is-live"><th scope="row">Lecture 71</th><td data-label="Date">3 Apr 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion2-1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock2 is-live"><th scope="row">Lecture 72</th><td data-label="Date">4 Apr 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion2-2</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock3 mock-row"><th scope="row">Full mock 3</th><td data-label="Date">9 Apr 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Full Mock 3</td><td data-label="Instructor">Exam Admin</td><td data-label="Format"><span class="fmt"><span class="dot mock"></span>In-Person or Online</span></td></tr>
-            <tr class="is-mock3"><th scope="row">Lecture 73</th><td data-label="Date">10 Apr 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion3-1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot mock"></span>Live-in-person or Live-Prerecorded</span></td></tr>
-            <tr class="is-mock3"><th scope="row">Lecture 74</th><td data-label="Date">11 Apr 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion3-2</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot mock"></span>Live-in-person or Live-Prerecorded</span></td></tr>
-            <tr class="is-mock4 is-live mock-row"><th scope="row">Full mock 4</th><td data-label="Date">16 Apr 2027</td><td data-label="Day">Fri</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Full Mock 4</td><td data-label="Instructor">Exam Admin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock4 is-live"><th scope="row">Lecture 75</th><td data-label="Date">17 Apr 2027</td><td data-label="Day">Sat</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion4-1</td><td data-label="Instructor">Dr. Mehdi</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-            <tr class="is-mock4 is-live"><th scope="row">Lecture 76</th><td data-label="Date">18 Apr 2027</td><td data-label="Day">Sun</td><td data-label="Time">10:00 AM–2:00 PM</td><td data-label="Topic" class="topic">Discussion4-2</td><td data-label="Instructor">Dr. Amin</td><td data-label="Format"><span class="fmt"><span class="dot live"></span>Online / Live</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<hr class="rule" />
-
-<section class="section" id="exam">
-  <div class="section-inner">
-    <div class="exam-card">
-      <div class="lbl">Your Exam Date</div>
-      <div class="date">May 4, 2027</div>
-      <p>NDEB exam — Tuesday. Everything in this schedule is timed to have you fully prepared and reviewed before this sitting.</p>
-    </div>
-  </div>
-</section>
+</main>
 
 <section class="final-cta">
   <div class="final-inner">
@@ -665,34 +789,5 @@
 </footer>
 
 <script src="/_assets/nav.js" defer></script>
-<script>
-/* schedule search script */
-(function () {
-  var input = document.getElementById('schedSearch');
-  if (!input) return;
-  var clear = document.getElementById('schedSearchClear');
-  var empty = document.getElementById('schedSearchEmpty');
-  var rows = [].slice.call(document.querySelectorAll('table.sched tbody tr'));
-  var groups = [].slice.call(document.querySelectorAll('.block-group'));
-  rows.forEach(function (r) { r.setAttribute('data-txt', r.textContent.toLowerCase().replace(/\s+/g, ' ')); });
-  function apply() {
-    var q = input.value.trim().toLowerCase();
-    if (clear) clear.hidden = q === '';
-    var any = false;
-    rows.forEach(function (r) {
-      var match = q === '' || r.getAttribute('data-txt').indexOf(q) > -1;
-      r.classList.toggle('sched-hidden', !match);
-      if (match) any = true;
-    });
-    groups.forEach(function (g) {
-      var vis = g.querySelectorAll('table.sched tbody tr:not(.sched-hidden)').length;
-      g.classList.toggle('sched-hidden', q !== '' && vis === 0);
-    });
-    if (empty) empty.hidden = !(q !== '' && !any);
-  }
-  input.addEventListener('input', apply);
-  if (clear) clear.addEventListener('click', function () { input.value = ''; apply(); input.focus(); });
-})();
-</script>
 </body>
 </html>
