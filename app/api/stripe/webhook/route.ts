@@ -369,6 +369,7 @@ export async function POST(req: Request) {
       ['afk-programs-', { defaultCourseName: 'AFK Program', createdVia: 'afk-programs-checkout', orderNumberPrefix: 'AFK', ships: true }],
       ['adat-programs-', { defaultCourseName: 'ADAT Program', createdVia: 'adat-programs-checkout', orderNumberPrefix: 'ADAT', ships: true }],
       ['acj-', { defaultCourseName: 'ACJ Comprehensive Program', createdVia: 'acj-programs-checkout', orderNumberPrefix: 'ACJ', ships: false }],
+      ['ndecc-', { defaultCourseName: 'NDECC Program', createdVia: 'ndecc-checkout', orderNumberPrefix: 'NDECC', ships: false }],
     ]
     const courseOrder = COURSE_ORDERS.find(([prefix]) => ref.startsWith(prefix))
     if (courseOrder) {
