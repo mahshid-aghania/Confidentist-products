@@ -58,14 +58,15 @@ const TAX_RATES: Record<string, { rate: number; label: string }> = {
 }
 const DEFAULT_REGION = 'ON'
 
-// Flat shipping rates for the printed booklet — same options as AFK.
-// Stripe Checkout allows a MAXIMUM of 5 shipping_options.
+// Flat shipping rates for the printed booklet — same options and prices as AFK.
+// Stripe Checkout pre-selects the FIRST option, so "within Canada" is listed first
+// (the default); pickup is still available. MAXIMUM of 5 shipping_options.
 const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
-  { name: 'Pickup — collect in person (no shipping fee)', amountCents: 0 },
   { name: 'Shipping — within Canada', amountCents: 7500 },
   { name: 'Shipping — United States', amountCents: 15000 },
   { name: 'Shipping — Europe & Africa', amountCents: 35000 },
   { name: 'Shipping — Asia & Oceania', amountCents: 40000 },
+  { name: 'Pickup — collect in person (no shipping fee)', amountCents: 0 },
 ]
 
 const SHIPPING_COUNTRIES = [

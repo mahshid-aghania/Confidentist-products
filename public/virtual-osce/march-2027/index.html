@@ -326,6 +326,21 @@
     .tax-region.step label strong { color: var(--gold-dark); }
     .tax-region.step select { font-size: 1.05rem; font-weight: 700; border: 2.5px solid var(--gold); background: #fff; color: var(--navy); max-width: 380px; }
     .tax-region.step .hint { font-weight: 700; font-size: .84rem; color: var(--navy); background: #fff; border: 1.5px solid rgba(15,122,229,.35); border-radius: .5rem; padding: .75rem .9rem; margin-top: .95rem; }
+    .delivery-acc { max-width: 540px; margin: 1.5rem auto 0; }
+    .delivery-note { text-align: center; font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: .8rem; }
+    .delivery-note strong { color: var(--navy); font-weight: 700; }
+    details.ship-acc { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+    details.ship-acc > summary { cursor: pointer; list-style: none; padding: .95rem 1.25rem; display: flex; align-items: center; gap: .6rem; font-weight: 600; color: var(--navy); }
+    details.ship-acc > summary::-webkit-details-marker { display: none; }
+    details.ship-acc > summary::after { content: '+'; margin-left: auto; font-size: 1.35rem; line-height: 1; color: var(--gold-dark); }
+    details.ship-acc[open] > summary::after { content: '\2013'; }
+    details.ship-acc[open] { border-color: var(--gold); }
+    details.ship-acc > summary:hover { color: var(--gold-dark); }
+    .ship-body { padding: .2rem 1.25rem 1.1rem; border-top: 1px solid var(--border); }
+    .ship-row { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--border); font-size: .88rem; color: var(--muted); }
+    .ship-row:last-child { border-bottom: none; }
+    .ship-row b { color: var(--navy); font-weight: 700; white-space: nowrap; }
+    .ship-row.free b { color: var(--gold-dark); }
   </style>
 <!-- confi-nav-assets v1 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -579,6 +594,22 @@
 
         <p class="prog-reassure">Secure checkout · Interest-free installment plan available</p>
       </div>
+    </div>
+
+
+    <!-- Delivery options — printed booklet. Final choice is made on the checkout page. -->
+    <div class="delivery-acc">
+      <p class="delivery-note"><strong>Printed booklet:</strong> shipped <strong>within Canada</strong> by default — you can choose another region or free <strong>pickup in person</strong> on the secure checkout page. Shipping is charged once, with your first payment.</p>
+      <details class="ship-acc">
+        <summary>Shipping &amp; pickup rates</summary>
+        <div class="ship-body">
+          <div class="ship-row"><span>Within Canada (default)</span><b>$75</b></div>
+          <div class="ship-row"><span>United States</span><b>$150</b></div>
+          <div class="ship-row"><span>Europe &amp; Africa</span><b>$350</b></div>
+          <div class="ship-row"><span>Asia &amp; Oceania</span><b>$400</b></div>
+          <div class="ship-row free"><span>Pickup — collect in person</span><b>No shipping fee</b></div>
+        </div>
+      </details>
     </div>
 
     <div style="text-align:center;margin-top:1.75rem;">
