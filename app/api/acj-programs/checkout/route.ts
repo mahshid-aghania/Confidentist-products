@@ -1,12 +1,15 @@
 import { NextResponse } from 'next/server'
+import { nextOrderNumber } from '@/lib/orders/next-order-number'
 
 // GET /api/acj-programs/checkout                     — pay the ACJ Comprehensive program in full
 // GET /api/acj-programs/checkout?plan=installment     — pay only the FIRST installment now
 // Optional on both:  &region=<XX>                     — province, sets the sales-tax rate
 //
 // Creates a Stripe Checkout Session on the fly and 303-redirects the buyer to it.
-// Stripe Checkout collects email + phone; the webhook (client_reference_id starting
-// "acj-") emails the receipt and bccs the team.
+// Stripe Checkout collects email, phone, the student's name, billing address and an
+// optional SIN. An order number is minted here (shared sequence, see nextOrderNumber);
+// the webhook (client_reference_id starting "acj-") sends the detailed receipt, notifies
+// the team and records the order.
 //
 // The buyer picks their province on /acj-programs/comprehensive/; it arrives as
 // ?region=XX and the matching sales tax is added as its OWN line item so the Stripe
@@ -81,6 +84,14 @@ export async function GET(req: Request) {
     ? 'First installment (1 of 5) for the 7-month ACJ Comprehensive program'
     : '7-month comprehensive ACJ preparation'
 
+  let orderNumber: string
+  try {
+    orderNumber = await nextOrderNumber()
+  } catch (e) {
+    console.error('acj order number error', e)
+    return NextResponse.json({ error: 'Could not start checkout. Please try again.' }, { status: 502 })
+  }
+
   const params = new URLSearchParams()
   params.set('mode', 'payment')
   params.set('line_items[0][quantity]', '1')
@@ -96,11 +107,27 @@ export async function GET(req: Request) {
     params.set('line_items[1][price_data][product_data][name]', `Sales tax — ${region} · ${taxInfo.label}`)
   }
   params.set('phone_number_collection[enabled]', 'true')
+  params.set('billing_address_collection', 'required')
+  params.set('custom_fields[0][key]', 'first_name')
+  params.set('custom_fields[0][label][type]', 'custom')
+  params.set('custom_fields[0][label][custom]', 'Student first name')
+  params.set('custom_fields[0][type]', 'text')
+  params.set('custom_fields[1][key]', 'last_name')
+  params.set('custom_fields[1][label][type]', 'custom')
+  params.set('custom_fields[1][label][custom]', 'Student family name')
+  params.set('custom_fields[1][type]', 'text')
+  params.set('custom_fields[2][key]', 'sin')
+  params.set('custom_fields[2][label][type]', 'custom')
+  params.set('custom_fields[2][label][custom]', 'Social Insurance Number (SIN)')
+  params.set('custom_fields[2][type]', 'text')
+  params.set('custom_fields[2][optional]', 'true')
   params.set('allow_promotion_codes', 'true')
   params.set('client_reference_id', clientRef)
   params.set('metadata[product]', clientRef)
   params.set('metadata[course]', lineName)
   params.set('metadata[course_name]', COURSE_NAME)
+  params.set('metadata[order_number]', orderNumber)
+  params.set('metadata[paid_base]', (baseCents / 100).toFixed(2))
   params.set('metadata[course_subtotal]', (BASE_CENTS / 100).toFixed(2))
   params.set('metadata[tax_mode]', 'hardcoded')
   params.set('metadata[tax_region]', region)
@@ -110,16 +137,6 @@ export async function GET(req: Request) {
   params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
 
   if (isInstallment) {
-    // Collect the student's name so the remaining payment links can be issued.
-    params.set('custom_fields[0][key]', 'first_name')
-    params.set('custom_fields[0][label][type]', 'custom')
-    params.set('custom_fields[0][label][custom]', 'Student first name')
-    params.set('custom_fields[0][type]', 'text')
-    params.set('custom_fields[1][key]', 'last_name')
-    params.set('custom_fields[1][label][type]', 'custom')
-    params.set('custom_fields[1][label][custom]', 'Student family name')
-    params.set('custom_fields[1][type]', 'text')
-
     params.set('metadata[plan]', 'installment')
     params.set('metadata[num_payments]', String(INSTALLMENT.count + 1))
     params.set('metadata[first_base]', INSTALLMENT.firstBase.toFixed(2))
