@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Situational Judgement Mock Exam Program | NDECC | ConfiDentist</title>
+  <meta name="description" content="The Situational Judgement Mock Exam gives NDECC candidates 2 to 8 full mocks with written and role-play stations, one-on-one feedback after every session and private post-mock discussions — structured for completion in about four weeks." />
+  <link rel="canonical" href="https://confidentist-products.vercel.app/ndecc-programs/situational-judgement-mock-exam/" />
+  <meta property="og:title" content="Situational Judgement Mock Exam Program | ConfiDentist" />
+  <meta property="og:description" content="Full NDECC Situational Judgement mock exams with written and role-play stations, one-on-one feedback and private post-mock discussions." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #072C5E;
+      --navy-mid:    #1C3165;
+      --navy-light:  #213669;
+      --gold:        #0f7ae5;
+      --gold-dark:   #0a5cb8;
+      --gold-light:  #5cb2f7;
+      --gold-bg:     #e9f3fd;
+      --teal:        #3BAFBF;
+      --teal-light:  #e8f7f8;
+
+      --bg:          #ffffff;
+      --bg-soft:     #f6f8fb;
+      --bg-section:  #f0f3f8;
+      --text:        #1a1f2e;
+      --muted:       #586175;
+      --border:      #dde3ee;
+      --radius:      .75rem;
+      --shadow-sm:   0 1px 4px rgba(7,44,94,.06), 0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:   0 4px 24px rgba(7,44,94,.10), 0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:   0 8px 40px rgba(7,44,94,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; }
+
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--teal); outline-offset: 3px; border-radius: .3rem;
+    }
+    .skip-link { position: absolute; left: -999px; top: 0; z-index: 500; background: var(--gold); color: #fff; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 .4rem 0; text-decoration: none; }
+    .skip-link:focus { left: 0; }
+
+    nav { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 2px solid var(--gold); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .02em; display: flex; align-items: center; gap: .5rem; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-link { color: rgba(255,255,255,.75); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: #fff; }
+    .nav-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .5rem 1.25rem; border-radius: .35rem; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .crumbs { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .crumbs-inner { max-width: 1160px; margin: 0 auto; padding: .85rem 1.5rem; font-size: .78rem; color: var(--muted); }
+    .crumbs-inner a { color: var(--gold-dark); text-decoration: none; }
+    .crumbs-inner a:hover { text-decoration: underline; }
+    .crumbs-inner span[aria-current] { color: var(--navy); font-weight: 600; }
+    .crumbs-sep { margin: 0 .5rem; color: var(--border); }
+
+    .btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--gold); color: #fff; font-weight: 700; font-size: .88rem; letter-spacing: .03em; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; box-shadow: 0 4px 18px rgba(15,122,229,.35); transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid rgba(255,255,255,.3); color: #fff; font-size: .88rem; font-weight: 500; padding: .8rem 2rem; border-radius: .4rem; text-decoration: none; transition: background .2s, border-color .2s; }
+    .btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+    .btn-navy { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; background: var(--navy); color: #fff; font-weight: 700; font-size: .85rem; letter-spacing: .03em; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border: 1.5px solid var(--navy); color: var(--navy); font-weight: 700; font-size: .85rem; letter-spacing: .03em; padding: .8rem 1.75rem; border-radius: .4rem; text-decoration: none; transition: background .2s, color .2s, transform .15s; }
+    .btn-ghost:hover { background: var(--navy); color: #fff; transform: translateY(-1px); }
+
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%); padding: 4rem 1.5rem; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(15,122,229,.18); border: 1px solid rgba(15,122,229,.45); color: var(--gold-light); border-radius: .35rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 700; line-height: 1.18; color: #fff; margin-bottom: 1.1rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.03rem; color: rgba(255,255,255,.72); max-width: 620px; margin: 0 auto 2.25rem; line-height: 1.7; font-weight: 300; }
+    .hero-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    .section { padding: 4rem 1.5rem; }
+    .section.alt { background: var(--bg-soft); }
+    .section.navy-bg { background: var(--navy); }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-head { max-width: 660px; margin: 0 auto 2.5rem; text-align: center; }
+    .section-kicker { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .section-kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.2rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
+    .section.navy-bg .section-title { color: #fff; }
+    .section-desc { font-size: .95rem; color: var(--muted); line-height: 1.8; }
+    .section.navy-bg .section-desc { color: rgba(255,255,255,.68); }
+
+    .overview-row { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+    .ov-chip { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1.5px solid var(--border); border-radius: 2rem; padding: .55rem 1.1rem; font-size: .84rem; font-weight: 500; color: var(--navy); box-shadow: var(--shadow-sm); }
+    .ov-chip svg { width: 16px; height: 16px; color: var(--teal); flex-shrink: 0; }
+
+    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; align-items: stretch; }
+    .price-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); position: relative; }
+    .price-card.featured { border-color: var(--gold); border-width: 2px; box-shadow: var(--shadow-md); }
+    .price-badge { align-self: flex-start; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .32rem .8rem; border-radius: .3rem; margin-bottom: 1rem; }
+    .price-badge.core { background: var(--gold); color: #fff; }
+    .price-badge.mock { background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.3); }
+    .price-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .price-start { font-size: .82rem; font-weight: 600; color: var(--gold-dark); margin-bottom: 1.1rem; }
+    .price-amount { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+    .price-now { font-family: 'Playfair Display', serif; font-size: 1.95rem; font-weight: 700; color: var(--navy); }
+    .price-hst { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+    .price-hst strong { color: var(--navy); font-weight: 600; }
+    .price-divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+    .price-subhead { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: .75rem; }
+    .price-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; }
+    .price-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .86rem; color: var(--muted); line-height: 1.5; }
+    .price-list li svg { width: 15px; height: 15px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .price-card.featured .price-list li svg { color: var(--gold); }
+    .price-cta { margin-top: auto; width: 100%; }
+
+    .decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .decision-card { background: #fff; border: 1.5px solid var(--border); border-left: 4px solid var(--teal); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-sm); }
+    .decision-card.blue { border-left-color: var(--gold); }
+    .decision-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: .6rem; }
+    .decision-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+    .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .format-card { display: flex; gap: .85rem; align-items: flex-start; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.35rem; box-shadow: var(--shadow-sm); }
+    .format-card svg { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; margin-top: .1rem; }
+    .format-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+    .inst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+    .inst-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 1.5rem; text-align: center; transition: background .2s, border-color .2s; }
+    .inst-card:hover { background: rgba(255,255,255,.11); border-color: rgba(15,122,229,.3); }
+    .inst-monogram { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto .85rem; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; color: #fff; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); border: 1px solid rgba(255,255,255,.2); }
+    .inst-name { font-size: .95rem; font-weight: 600; color: #fff; line-height: 1.3; }
+    .inst-role { font-size: .72rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .08em; margin-top: .3rem; }
+    .inst-note { text-align: center; margin-top: 1.75rem; font-size: .82rem; color: rgba(255,255,255,.6); }
+
+    .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+    details { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details[open] { border-color: var(--navy); }
+    summary { padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: .9rem; color: var(--navy); list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--gold-dark); transition: transform .2s; flex-shrink: 0; margin-left: 1rem; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body { padding: 0 1.4rem 1.1rem; font-size: .86rem; color: var(--muted); line-height: 1.75; border-top: 1px solid var(--border); padding-top: .9rem; }
+    .faq-body a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+    .faq-body a:hover { text-decoration: underline; }
+
+    .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d72 100%); }
+    .final-inner { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+    .final-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3.2vw,2.3rem); font-weight: 700; color: #fff; margin-bottom: .85rem; }
+    .final-inner p { font-size: 1rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 2rem; }
+    .final-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2.5rem 1.5rem; text-align: center; font-size: .78rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .footer-logo span { color: var(--gold-light); }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer { margin-top: 1.25rem; font-size: .68rem; opacity: .5; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    @media (max-width: 520px) {
+      .nav-link { display: none; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-white { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
+    }
+  </style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+</head>
+<body>
+
+<a href="#package" class="skip-link">Skip to package options</a>
+
+<!-- confi-nav v1 start -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <a href="/">Home</a>
+      </div>
+      <div class="nav-item" id="equivItem">
+        <a href="/dental-equivalency-in-canada/" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">
+          Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="equivMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+            <a href="/mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">AFK &amp; OSCE mock exams, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
+            <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
+            <a href="#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">
+          Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="#journey" class="btn-cta">Find My Program</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile navigation -->
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
+  <div class="mp-label">More</div>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="#upcoming" class="btn-cta">Register Now</a>
+</nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <a href="/ndecc-programs/">NDECC Programs</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">Situational Judgement Mock Exam Program</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Situational Judgement Mock Exam Program</p>
+    <h1>Rehearse the Situational Judgement Exam <em>With Real Stations</em></h1>
+    <p class="hero-sub">Sit full NDECC Situational Judgement mock exams built from written and role-play stations — with one-on-one feedback after every session and private post-mock discussions, structured for completion in about four weeks.</p>
+    <div class="hero-actions">
+      <a href="#package" class="btn-gold">View the Program →</a>
+      <a href="/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">At a Glance</span>
+      <h2 class="section-title">What the Situational Judgement Mock Exam Delivers</h2>
+    </div>
+    <div class="overview-row">
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 to 8 full mocks</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Written &amp; role-play stations</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One-on-one feedback</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private discussions</span>
+      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>~4-week structure</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section alt" id="package">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">The Program</span>
+      <h2 class="section-title">Situational Judgement Mock Exam</h2>
+      <p class="section-desc">Choose the number of full mocks that fits your preparation. Every mock is built from written and role-play stations, with one-on-one feedback after each session and a private post-mock discussion.</p>
+    </div>
+
+    <div class="price-grid">
+
+      <!-- SITUATIONAL JUDGEMENT MOCK EXAM -->
+      <article class="price-card featured">
+        <span class="price-badge mock">Most Exclusive</span>
+        <h3 class="price-name">Situational Judgement Mock Exam</h3>
+        <p class="price-start">Full mocks with written &amp; role-play stations</p>
+        <div class="price-amount">
+          <span class="price-now">From $1,200</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST · depending on the number of mocks</p>
+
+        <hr class="price-divider" />
+        <p class="price-subhead">Best suited for</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Candidates who want realistic rehearsal and feedback on situational-judgement stations</li>
+        </ul>
+        <p class="price-subhead">What's included</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 to 8 full mock exams</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Written and role-play stations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One-on-one feedback after each session</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Structured for completion in about 4 weeks</li>
+        </ul>
+        <a class="btn-gold price-cta" href="https://www.confidentist.ca/product/situational-judgement-mock-exam-new-design/">Register Now →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">How It Works</span>
+      <h2 class="section-title">Your Mock Exam Structure</h2>
+      <p class="section-desc">Each mock recreates the Situational Judgement exam through written and role-play stations, followed by focused feedback.</p>
+    </div>
+    <div class="format-grid">
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><p>Written stations that mirror the format and timing of the real exam.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><p>Role-play stations with trained assessors to practise real decision-making.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p>One-on-one feedback after each session to target your weak points.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m23 7-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><p>Private post-mock discussions to review scenarios and your reasoning.</p></div>
+      <div class="format-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><p>Structured for completion in about four weeks — 2 to 8 mocks.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section navy-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker" style="color:var(--gold-light)">Your Instructors</span>
+      <h2 class="section-title">Coached by Instructors Who Passed</h2>
+      <p class="section-desc">Your mocks are run and reviewed by instructors who passed the NDECC with 700-series results and know what examiners look for in situational-judgement stations.</p>
+    </div>
+    <div class="inst-grid">
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">AA</div><div class="inst-name">Dr. Amin Asadollahi</div><div class="inst-role">NDECC Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">AS</div><div class="inst-name">Dr. Aidin Soroudi</div><div class="inst-role">NDECC Instructor</div></div>
+      <div class="inst-card"><div class="inst-monogram" aria-hidden="true">JJ</div><div class="inst-name">Dr. Juyoung Jung</div><div class="inst-role">NDECC Instructor</div></div>
+    </div>
+    <p class="inst-note">Instructors passed the NDECC exam with 700-series results.</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>How many mock exams can I take?</summary>
+        <div class="faq-body">You can book 2 to 8 full mock exams, starting from $1,200 + HST. The program is structured for completion in about four weeks.</div>
+      </details>
+      <details>
+        <summary>What do the mocks include?</summary>
+        <div class="faq-body">Each mock is built from written and role-play stations that mirror the real Situational Judgement exam, followed by one-on-one feedback and a private post-mock discussion.</div>
+      </details>
+      <details>
+        <summary>Do I get feedback after each mock?</summary>
+        <div class="faq-body">Yes — you receive one-on-one feedback after every session, plus private post-mock discussions to review scenarios and strengthen your reasoning.</div>
+      </details>
+      <details>
+        <summary>Is this part of the Situational Judgement course?</summary>
+        <div class="faq-body">The mock exam is a standalone program. For the full course plus mocks and the Clinical Skills component together, see <a href="/ndecc-programs/bundles/">NDECC Bundles — Your Complete Path to Success</a>, or the <a href="/ndecc-programs/situational-judgement/">NDECC Situational Judgement</a> program.</div>
+      </details>
+      <details>
+        <summary>Who can I contact with questions?</summary>
+        <div class="faq-body">Reach out to <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or call <a href="tel:+14373700122">+1 437 370 0122</a>. For technical support, contact <a href="mailto:admin@confidentist.ca">admin@confidentist.ca</a>.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Register for the Situational Judgement Mock Exam</h2>
+    <p>Book full mocks with written and role-play stations — with one-on-one feedback after every session and private post-mock discussions.</p>
+    <div class="final-actions">
+      <a href="https://www.confidentist.ca/product/situational-judgement-mock-exam-new-design/" class="btn-gold">Register Now →</a>
+      <a href="/ndecc-programs/bundles/" class="btn-outline-white">See NDECC Bundles →</a>
+      <a href="/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logos" style="display:flex;justify-content:center;align-items:center;gap:1.1rem;flex-wrap:wrap;background:#fff;border-radius:14px;padding:.85rem 1.4rem;width:fit-content;max-width:92%;margin:0 auto 1.1rem;box-shadow:0 6px 20px rgba(0,0,0,.18);">
+    <a href="/" aria-label="ConfiDentist home" style="display:inline-flex;align-items:center;"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px;width:auto;display:block;" /></a>
+    <span aria-hidden="true" style="width:1px;height:40px;background:rgba(0,0,0,.14);"></span>
+    <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" style="height:44px;width:auto;display:block;" /></a>
+  </div>
+  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
+  <p style="margin-top:.75rem;">
+    <a href="/">Courses</a> &nbsp;·&nbsp;
+    <a href="/ndecc-programs/">NDECC Programs</a> &nbsp;·&nbsp;
+    <a href="/contact-us/">Contact Us</a>
+  </p>
+  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+</footer>
+
+<script src="/_assets/nav.js" defer></script>
+</body>
+</html>

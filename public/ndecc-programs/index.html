@@ -128,7 +128,11 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%);
+      background:
+        linear-gradient(135deg, rgba(10,31,59,.80) 0%, rgba(13,52,97,.68) 55%, rgba(15,61,114,.70) 100%),
+        url("/images/ndecc-hero.jpg");
+      background-size: cover;
+      background-position: center;
       padding: 4.5rem 1.5rem 4rem;
       position: relative; overflow: hidden;
     }
@@ -516,6 +520,25 @@
     </div>
   </div>
 </header>
+
+<!-- 1b · NDECC PROGRAM MENU -->
+<section class="ndecc-menu-wrap">
+  <style>
+    .ndecc-menu-wrap{padding:2.75rem 1rem .75rem;}
+    .ndecc-menu{display:flex;flex-direction:column;max-width:660px;margin:0 auto;border-radius:.9rem;overflow:hidden;box-shadow:0 10px 30px rgba(7,44,94,.14);background:linear-gradient(180deg,#bcd6ec 0%,#8fb3d6 100%);border:1px solid rgba(255,255,255,.5);}
+    .ndecc-menu a{font-family:'Playfair Display',serif;color:#072C5E;font-size:1.12rem;font-weight:600;line-height:1.35;padding:1.05rem 1.6rem;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.45);transition:background .15s ease,padding-left .15s ease;}
+    .ndecc-menu a:last-child{border-bottom:none;}
+    .ndecc-menu a:hover,.ndecc-menu a:focus-visible{background:rgba(255,255,255,.3);padding-left:1.9rem;outline:none;}
+    @media (max-width:560px){.ndecc-menu a{font-size:1rem;padding:.9rem 1.25rem;}}
+  </style>
+  <nav class="ndecc-menu" aria-label="NDECC programs">
+    <a href="/ndecc-programs/clinical-skills/">NDECC Clinical Skills</a>
+    <a href="/ndecc-programs/skills-mock-exam/">Confidentist Skills Mock Exam Program</a>
+    <a href="/ndecc-programs/situational-judgement/">NDECC Situational Judgement</a>
+    <a href="/ndecc-programs/situational-judgement-mock-exam/">Situational Judgement Mock Exam Program</a>
+    <a href="/ndecc-programs/bundles/">NDECC Bundles — Your Complete Path to Success</a>
+  </nav>
+</section>
 
 <!-- 2 · INTRODUCTION -->
 <section class="section">
