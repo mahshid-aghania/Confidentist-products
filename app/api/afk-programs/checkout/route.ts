@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { SHIPPING_COUNTRIES, REST_OF_WORLD_LABEL } from '@/lib/stripe/shipping'
 import { nextOrderNumber } from '@/lib/orders/next-order-number'
 
 // GET /api/afk-programs/checkout?p=<key>  — Stripe Checkout for a full AFK program
@@ -102,27 +103,10 @@ const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
   { name: 'Shipping — within Canada', amountCents: 7500 },
   { name: 'Shipping — United States', amountCents: 15000 },
   { name: 'Shipping — Europe & Africa', amountCents: 35000 },
-  { name: 'Shipping — Asia & Oceania', amountCents: 40000 },
+  { name: REST_OF_WORLD_LABEL, amountCents: 40000 },
 ]
 
-// Countries the residential/shipping address may be in (ISO 3166-1 alpha-2).
-const SHIPPING_COUNTRIES = [
-  'CA', 'US',
-  // Europe
-  'GB', 'IE', 'FR', 'DE', 'IT', 'ES', 'PT', 'NL', 'BE', 'LU', 'CH', 'AT', 'SE', 'NO',
-  'DK', 'FI', 'IS', 'PL', 'CZ', 'SK', 'HU', 'RO', 'BG', 'GR', 'HR', 'SI', 'RS', 'UA',
-  'EE', 'LV', 'LT', 'CY', 'MT',
-  // Africa
-  'ZA', 'NG', 'EG', 'KE', 'GH', 'MA', 'TN', 'DZ', 'ET', 'TZ', 'UG', 'ZW', 'ZM', 'CM', 'SN', 'CI',
-  // Asia & Middle East
-  'IN', 'PK', 'BD', 'LK', 'NP', 'CN', 'HK', 'JP', 'KR', 'TW', 'SG', 'MY', 'TH', 'VN',
-  'PH', 'ID', 'AE', 'SA', 'QA', 'KW', 'BH', 'OM', 'JO', 'LB', 'IQ', 'IL', 'TR',
-  'KZ', 'UZ', 'AZ', 'GE', 'AM',
-  // Oceania
-  'AU', 'NZ',
-  // Latin America
-  'MX', 'BR', 'AR', 'CL', 'CO', 'PE',
-]
+// Every country Stripe ships to — see lib/stripe/shipping.ts.
 
 export async function GET(req: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY
