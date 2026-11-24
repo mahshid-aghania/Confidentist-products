@@ -7,9 +7,9 @@ import { nextOrderNumber } from '@/lib/orders/next-order-number'
 // Prices and installment splits live HERE (server-side source of truth) and match the
 // former confidentist.ca WooCommerce products; the page only sends keys.
 //
-// Tax: NDECC courses and mock exams are delivered IN PERSON at the North York centre, so
-// Ontario HST (13%) applies to every buyer (place of supply = Ontario). It's added as its
-// own line item, like the other hard-coded-tax checkouts.
+// Tax: the buyer picks their province on the product page (same selector and rates as
+// the AFK / ACJ checkouts); it arrives as &region=XX and the matching sales tax is added
+// as its own line item. Unknown/missing region → Ontario. Outside Canada (INTL) → no tax.
 //
 // Installments: the first payment is charged now; the rest are collected monthly by
 // manually-issued Stripe links (same process as AFK/ACJ). Due dates are one month apart,
@@ -20,9 +20,23 @@ import { nextOrderNumber } from '@/lib/orders/next-order-number'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-const TAX_RATE = 0.13
-const TAX_LABEL = 'HST (13%)'
-const TAX_REGION = 'ON'
+const TAX_RATES: Record<string, { rate: number; label: string }> = {
+  ON: { rate: 0.13, label: 'HST (13%)' },
+  NB: { rate: 0.15, label: 'HST (15%)' },
+  NL: { rate: 0.15, label: 'HST (15%)' },
+  PE: { rate: 0.15, label: 'HST (15%)' },
+  NS: { rate: 0.14, label: 'HST (14%)' },
+  QC: { rate: 0.05, label: 'GST (5%)' },
+  BC: { rate: 0.05, label: 'GST (5%)' },
+  MB: { rate: 0.05, label: 'GST (5%)' },
+  SK: { rate: 0.05, label: 'GST (5%)' },
+  AB: { rate: 0.05, label: 'GST (5%)' },
+  YT: { rate: 0.05, label: 'GST (5%)' },
+  NT: { rate: 0.05, label: 'GST (5%)' },
+  NU: { rate: 0.05, label: 'GST (5%)' },
+  INTL: { rate: 0, label: 'No tax (outside Canada)' },
+}
+const DEFAULT_REGION = 'ON'
 
 type Option = { label: string; price: number }
 type Plan = { first: number; later: number[] } // pre-tax amounts; sum = option price
@@ -119,6 +133,11 @@ export async function GET(req: Request) {
   const month = (url.searchParams.get('m') || '').trim()
   const monthLabel = key === 'sj-mock' && SJ_MOCK_MONTHS.includes(month) ? month : ''
 
+  const regionParam = (url.searchParams.get('region') || '').trim().toUpperCase()
+  const TAX_REGION = TAX_RATES[regionParam] ? regionParam : DEFAULT_REGION
+  const TAX_RATE = TAX_RATES[TAX_REGION].rate
+  const TAX_LABEL = TAX_RATES[TAX_REGION].label
+
   const isInstallment = (url.searchParams.get('plan') || '').trim() === 'installment' && !!product.installments
   const plan = isInstallment && product.installments ? product.installments(option.price) : null
   const basePrice = plan ? plan.first : option.price
@@ -144,10 +163,12 @@ export async function GET(req: Request) {
   params.set('line_items[0][price_data][currency]', 'cad')
   params.set('line_items[0][price_data][unit_amount]', String(Math.round(basePrice * 100)))
   params.set('line_items[0][price_data][product_data][name]', lineName)
-  params.set('line_items[1][quantity]', '1')
-  params.set('line_items[1][price_data][currency]', 'cad')
-  params.set('line_items[1][price_data][unit_amount]', String(paidTaxCents))
-  params.set('line_items[1][price_data][product_data][name]', `Sales tax — ${TAX_REGION} · ${TAX_LABEL}`)
+  if (paidTaxCents > 0) {
+    params.set('line_items[1][quantity]', '1')
+    params.set('line_items[1][price_data][currency]', 'cad')
+    params.set('line_items[1][price_data][unit_amount]', String(paidTaxCents))
+    params.set('line_items[1][price_data][product_data][name]', `Sales tax — ${TAX_REGION} · ${TAX_LABEL}`)
+  }
 
   params.set('billing_address_collection', 'required')
   params.set('phone_number_collection[enabled]', 'true')

@@ -516,12 +516,34 @@
 
 <section class="section alt" id="register">
   <div class="section-inner">
+    <!-- STEP 1 · Province selector — sets the sales-tax rate applied at checkout -->
+    <div class="tax-region step" id="taxRegion">
+      <span class="step-badge">Step 1 · Select your province</span>
+      <label for="provinceSelect">Where will you be billed? <strong>(this sets your sales tax — please choose)</strong></label>
+      <select id="provinceSelect" aria-describedby="taxHint">
+        <option value="ON">Ontario — HST 13%</option>
+        <option value="QC">Quebec — GST 5%</option>
+        <option value="BC">British Columbia — GST 5%</option>
+        <option value="AB">Alberta — GST 5%</option>
+        <option value="MB">Manitoba — GST 5%</option>
+        <option value="SK">Saskatchewan — GST 5%</option>
+        <option value="NS">Nova Scotia — HST 14%</option>
+        <option value="NB">New Brunswick — HST 15%</option>
+        <option value="NL">Newfoundland &amp; Labrador — HST 15%</option>
+        <option value="PE">Prince Edward Island — HST 15%</option>
+        <option value="YT">Yukon — GST 5%</option>
+        <option value="NT">Northwest Territories — GST 5%</option>
+        <option value="NU">Nunavut — GST 5%</option>
+        <option value="INTL">Outside Canada — no tax</option>
+      </select>
+      <p class="hint" id="taxHint">Choose your province so we can show your tax and total before you check out.</p>
+    </div>
     <div style="max-width:540px;margin:0 auto;">
       <div class="program-card featured">
         <span class="prog-badge">Most Exclusive</span>
         <h3 class="prog-title">Professional NDECC Skills Mock Exam</h3>
         <div class="prog-price"><span class="prog-now" id="priceNow">$1,250</span></div>
-        <p class="prog-hst"><strong>CAD</strong> + 13% HST <span id="totalNote"></span></p>
+        <p class="prog-hst"><strong>CAD</strong> + applicable sales tax <span id="totalNote"></span></p>
         <div class="opt-row"><label for="optSelect">Number of mock exams</label><select id="optSelect"><option value="1">1 Mock Exam — $1,250</option><option value="2">2 Mock Exams — $2,400</option><option value="3">3 Mock Exams — $3,200</option><option value="4">4 Mock Exams — $4,000</option><option value="5">5 Mock Exams — $4,500</option></select></div>
 
         <p class="prog-subhead">⭐ What's Included</p>
@@ -535,7 +557,7 @@
 
         <a href="#" class="prog-cta" id="fullCta">Pay in full — Register Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 
-        <p class="prog-reassure">Secure checkout · In-person at our North York centre · 13% HST applies</p>
+        <p class="prog-reassure">Secure checkout · In-person at our North York centre · Sales tax based on your province</p>
       </div>
     </div>
   </div>
@@ -574,7 +596,9 @@
 <script>
 (function () {
   var C = {"key": "skills-mock", "plan": null, "opts": [["1", "1 Mock Exam", 1250], ["2", "2 Mock Exams", 2400], ["3", "3 Mock Exams", 3200], ["4", "4 Mock Exams", 4000], ["5", "5 Mock Exams", 4500]], "hasMonths": false};
-  var RATE = 0.13;
+  var RATES = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.05, BC:0.05, MB:0.05, SK:0.05, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
+  var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
+  var prov = document.getElementById('provinceSelect'), hint = document.getElementById('taxHint');
   var opt = document.getElementById('optSelect'), mon = document.getElementById('monthSelect');
   function r2(n) { return Math.round(n * 100) / 100; }
   function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
@@ -592,21 +616,25 @@
     var key = opt ? opt.value : C.opts[0][0];
     var o = C.opts.filter(function (x) { return x[0] === key; })[0] || C.opts[0];
     var price = o[2];
+    var reg = prov ? prov.value : 'ON', RATE = RATES.hasOwnProperty(reg) ? RATES[reg] : 0.13, TL = RATE ? '+ tax' : '';
     document.getElementById('priceNow').textContent = fmt(price).replace('.00', '');
-    document.getElementById('totalNote').textContent = '· ' + fmt(r2(price * (1 + RATE))) + ' total with HST';
-    var q = '/api/ndecc/checkout/?p=' + C.key + '&o=' + encodeURIComponent(key) + (mon ? '&m=' + encodeURIComponent(mon.value) : '');
+    document.getElementById('totalNote').textContent = RATE ? '· ' + fmt(r2(price * (1 + RATE))) + ' total with ' + LABELS[reg] : '· no Canadian sales tax outside Canada';
+    if (hint) hint.innerHTML = RATE ? '<strong>' + LABELS[reg] + '</strong> applies. Total with tax: ' + fmt(r2(price * (1 + RATE))) + '. Confirmed at checkout.' : 'No Canadian sales tax applies outside Canada. Final amount is confirmed at checkout.';
+    var q = '/api/ndecc/checkout/?p=' + C.key + '&o=' + encodeURIComponent(key) + (mon ? '&m=' + encodeURIComponent(mon.value) : '') + '&region=' + encodeURIComponent(reg);
     document.getElementById('fullCta').setAttribute('href', q);
     var p = plan(price), rows = document.getElementById('planRows'), cta = document.getElementById('instCta');
     if (p && rows && cta) {
-      var h = '<tr><td>Today (at checkout)</td><td>' + fmt(p.first) + ' + HST</td></tr>';
-      p.later.forEach(function (a, i) { h += '<tr><td>' + addMonths(i + 1) + '</td><td>' + fmt(a) + ' + HST</td></tr>'; });
+      var h = '<tr><td>Today (at checkout)</td><td>' + fmt(p.first) + (TL ? ' ' + TL : '') + '</td></tr>';
+      p.later.forEach(function (a, i) { h += '<tr><td>' + addMonths(i + 1) + '</td><td>' + fmt(a) + (TL ? ' ' + TL : '') + '</td></tr>'; });
       rows.innerHTML = h;
       cta.setAttribute('href', q + '&plan=installment');
-      cta.textContent = 'Pay First Installment — ' + fmt(p.first) + ' + HST →';
+      cta.textContent = 'Pay First Installment — ' + fmt(p.first) + (TL ? ' ' + TL : '') + ' →';
     }
   }
   try { var pre = new URLSearchParams(location.search).get('o'); if (opt && pre && C.opts.some(function (x) { return x[0] === pre; })) opt.value = pre; } catch (e) {}
   if (opt) opt.addEventListener('change', apply);
+  if (mon) mon.addEventListener('change', apply);
+  if (prov) prov.addEventListener('change', function () { var b = document.getElementById('taxRegion'); if (b) b.classList.add('chosen'); apply(); });
   apply();
 })();
 </script>

@@ -1,4 +1,7 @@
-/* ConfiDentist NDECC — GPU particle hero (WebGL2, no dependencies).
+/* ConfiDentist — GPU tooth particle sculpture (WebGL2, no dependencies).
+ * Reusable: add <div id="ndHeroVisual" class="nd-hero-visual"> (with an optional fallback
+ * <svg> inside) to any page, include /_assets/ndecc/enhance.css (or equivalent sizing CSS)
+ * and load this script. Showcase/demo: /lab/tooth-particles/
  *
  * A dental-inspired particle sculpture (stylized molar) rendered with a GPU particle
  * system:
