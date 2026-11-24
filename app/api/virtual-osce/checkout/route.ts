@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { SHIPPING_COUNTRIES, REST_OF_WORLD_LABEL } from '@/lib/stripe/shipping'
 import { nextOrderNumber } from '@/lib/orders/next-order-number'
 
 // GET /api/virtual-osce/checkout                    — pay the Virtual OSCE course (March 2027) in full
@@ -65,22 +66,11 @@ const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
   { name: 'Shipping — within Canada', amountCents: 7500 },
   { name: 'Shipping — United States', amountCents: 15000 },
   { name: 'Shipping — Europe & Africa', amountCents: 35000 },
-  { name: 'Shipping — Asia & Oceania', amountCents: 40000 },
+  { name: REST_OF_WORLD_LABEL, amountCents: 40000 },
   { name: 'Pickup — collect in person (no shipping fee)', amountCents: 0 },
 ]
 
-const SHIPPING_COUNTRIES = [
-  'CA', 'US',
-  'GB', 'IE', 'FR', 'DE', 'IT', 'ES', 'PT', 'NL', 'BE', 'LU', 'CH', 'AT', 'SE', 'NO',
-  'DK', 'FI', 'IS', 'PL', 'CZ', 'SK', 'HU', 'RO', 'BG', 'GR', 'HR', 'SI', 'RS', 'UA',
-  'EE', 'LV', 'LT', 'CY', 'MT',
-  'ZA', 'NG', 'EG', 'KE', 'GH', 'MA', 'TN', 'DZ', 'ET', 'TZ', 'UG', 'ZW', 'ZM', 'CM', 'SN', 'CI',
-  'IN', 'PK', 'BD', 'LK', 'NP', 'CN', 'HK', 'JP', 'KR', 'TW', 'SG', 'MY', 'TH', 'VN',
-  'PH', 'ID', 'AE', 'SA', 'QA', 'KW', 'BH', 'OM', 'JO', 'LB', 'IQ', 'IL', 'TR',
-  'KZ', 'UZ', 'AZ', 'GE', 'AM',
-  'AU', 'NZ',
-  'MX', 'BR', 'AR', 'CL', 'CO', 'PE',
-]
+// Every country Stripe ships to — see lib/stripe/shipping.ts.
 
 export async function GET(req: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY

@@ -409,7 +409,7 @@ export async function POST(req: Request) {
           7500: 'Shipping — within Canada',
           15000: 'Shipping — United States',
           35000: 'Shipping — Europe & Africa',
-          40000: 'Shipping — Asia & Oceania',
+          40000: 'Shipping — Asia, Oceania & rest of world',
         } as Record<number, string>)[shipCents] || `Shipping (${(shipCents / 100).toFixed(2)})`
 
       const orderNo = str(meta['order_number']) || reference
@@ -618,7 +618,7 @@ export async function POST(req: Request) {
               ? (totalDetails['amount_shipping'] as number)
               : 0
           const shipRegion =
-            ({ 7500: 'All over Canada', 15000: 'United States', 25000: 'Australia', 35000: 'Europe & Africa', 40000: 'Asia' } as Record<number, string>)[
+            ({ 7500: 'All over Canada', 15000: 'United States', 25000: 'Australia', 35000: 'Europe & Africa', 40000: 'Asia, Oceania & rest of world' } as Record<number, string>)[
               shipCents
             ] || (shipCents > 0 ? 'Shipping' : '—')
 
