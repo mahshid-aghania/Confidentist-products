@@ -1,0 +1,139 @@
+/* ConfiDentist NDECC page — motion & interaction layer.
+ * Loaded ONLY on /ndecc-programs/. Purely additive: no content, links or prices change.
+ * Hidden "reveal" states apply only after enhance.js adds html.nd-js, so the page is
+ * fully visible without JavaScript. Everything is disabled for prefers-reduced-motion. */
+
+@property --nd-ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+
+/* ── HERO: layout with the particle sculpture on the right ── */
+.nd-hero { background-position: center calc(50% + var(--nd-par, 0px)); }
+.nd-hero-visual { position: absolute; z-index: 0; pointer-events: none; aspect-ratio: 1 / 1; }
+.nd-hero-visual svg, .nd-hero-visual canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.nd-hero-visual canvas { opacity: 0; transition: opacity 1.2s ease; }
+.nd-hero-visual svg { transition: opacity .9s ease; }
+.nd-hero-visual.nd-gl-live canvas { opacity: 1; }
+.nd-hero-visual.nd-gl-live svg { opacity: 0; }
+.nd-hero .hero-inner { position: relative; z-index: 1; }
+
+@media (min-width: 1024px) {
+  .nd-hero { padding: 5.5rem 2rem 5rem; min-height: 600px; display: flex; align-items: center; }
+  .nd-hero .hero-inner { max-width: 1180px; width: 100%; text-align: left; padding-right: 47%; }
+  .nd-hero .hero-sub { margin-left: 0; }
+  .nd-hero .hero-actions { justify-content: flex-start; }
+  .nd-hero-visual { width: min(46vw, 600px); right: max(1rem, calc((100% - 1180px) / 2 - 1rem)); top: 50%; transform: translateY(-50%);
+    /* keep the hero interactive over the sculpture */ pointer-events: none; }
+  .nd-hero-visual::before { content: ''; position: absolute; inset: 4% 10%; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(4,27,61,.78), rgba(7,44,94,.5) 55%, rgba(15,122,229,.06) 80%, transparent 100%); }
+}
+@media (max-width: 1023.98px) {
+  .nd-hero-visual { width: min(64vw, 360px); right: -24%; top: 6%; opacity: .24; }
+}
+
+/* Entrance sequence (non-blocking; content is in the DOM and clickable immediately) */
+@keyframes ndUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes ndReveal { from { clip-path: inset(0 0 100% 0); transform: translateY(18px); } to { clip-path: inset(0 0 -10% 0); transform: none; } }
+@keyframes ndFade { from { opacity: 0; } to { opacity: 1; } }
+.nd-hero .hero-eyebrow { animation: ndUp .6s cubic-bezier(.2,.7,.2,1) .05s both; }
+.nd-hero h1 { animation: ndReveal .9s cubic-bezier(.2,.7,.2,1) .12s both; }
+.nd-hero .hero-sub { animation: ndUp .8s cubic-bezier(.2,.7,.2,1) .32s both; }
+.nd-hero .hero-actions > * { animation: ndUp .7s cubic-bezier(.2,.7,.2,1) both; }
+.nd-hero .hero-actions > :nth-child(1) { animation-delay: .46s; }
+.nd-hero .hero-actions > :nth-child(2) { animation-delay: .56s; }
+.nd-hero-visual { animation: ndFade 1.1s ease .1s both; }
+
+/* ── SCROLL REVEALS (JS-gated) ── */
+html.nd-js .nd-reveal { opacity: 0; transform: translateY(18px); transition: opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1); transition-delay: var(--nd-d, 0ms); }
+html.nd-js .nd-reveal.nd-in { opacity: 1; transform: none; }
+html.nd-js tr.nd-reveal { transform: translateX(-10px); }
+html.nd-js tr.nd-reveal.nd-in { transform: none; }
+
+/* Animated decorative line under section titles */
+.section-head .section-title::after { content: ''; display: block; width: 56px; height: 2px; margin: .95rem auto 0; border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--teal)); transform: scaleX(0); transform-origin: center; transition: transform 1s cubic-bezier(.2,.7,.2,1) .25s; }
+.section-head.nd-in .section-title::after, html:not(.nd-js) .section-head .section-title::after { transform: scaleX(1); }
+
+/* ── PROGRAM CARDS ── */
+.program-card { position: relative; transform: perspective(1000px) rotateX(var(--nd-rx, 0deg)) rotateY(var(--nd-ry, 0deg)) translateY(var(--nd-lift, 0px));
+  transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease, border-color .3s ease; will-change: transform; }
+.program-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s ease;
+  background: radial-gradient(460px circle at var(--nd-mx, 50%) var(--nd-my, 0%), rgba(15,122,229,.10), rgba(59,175,191,.05) 35%, transparent 60%); }
+html .program-card:hover { --nd-lift: -6px; transform: perspective(1000px) rotateX(var(--nd-rx, 0deg)) rotateY(var(--nd-ry, 0deg)) translateY(var(--nd-lift)); box-shadow: 0 18px 50px rgba(7,44,94,.16), 0 2px 8px rgba(7,44,94,.06); }
+.program-card:hover::after { opacity: 1; }
+.program-card.nd-tilting { transition: transform .12s linear, box-shadow .45s ease, border-color .3s ease; }
+.program-card .prog-cta svg { transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+.program-card:hover .prog-cta svg { transform: translateX(4px); }
+.program-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* The Brilliant Bundle — refined animated border + soft brand gradient */
+@keyframes ndSpin { to { --nd-ang: 360deg; } }
+.program-card.gold { border-color: transparent;
+  background: linear-gradient(180deg, #ffffff 0%, #f6faff 100%) padding-box,
+              conic-gradient(from var(--nd-ang), rgba(15,122,229,.18), #0f7ae5, #5cb2f7, rgba(59,175,191,.75), rgba(15,122,229,.18)) border-box;
+  animation: ndSpin 9s linear infinite; }
+
+/* ── BUTTONS: light sweep, magnetic, arrow, pressed ── */
+.btn-gold, .btn-outline-white, .btn-navy, .btn-ghost { position: relative; overflow: hidden; isolation: isolate; }
+.btn-gold::after, .btn-outline-white::after, .btn-navy::after, .btn-ghost::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.32) 50%, transparent 70%); transform: translateX(-120%); transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.btn-gold:hover::after, .btn-outline-white:hover::after, .btn-navy:hover::after, .btn-ghost:hover::after { transform: translateX(120%); }
+html .nd-mag { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+html .nd-mag:hover { transform: translate3d(var(--nd-bx, 0px), calc(var(--nd-by, 0px) - 2px), 0); }
+html .nd-mag:active { transform: translate3d(var(--nd-bx, 0px), var(--nd-by, 0px), 0) scale(.975); transition-duration: .08s; }
+.btn-outline-white:hover { box-shadow: 0 0 0 1px rgba(92,178,247,.55), 0 8px 24px rgba(15,122,229,.25); }
+.btn-ghost:hover, .btn-navy:hover { box-shadow: 0 8px 24px rgba(7,44,94,.22); }
+.nd-arrow { display: inline-block; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+a:hover > .nd-arrow, a:focus-visible > .nd-arrow { transform: translateX(4px); }
+.btn-gold:focus-visible, .btn-outline-white:focus-visible, .btn-navy:focus-visible, .btn-ghost:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+
+/* ── COMPARISON TABLE ── */
+table.compare th, table.compare td { transition: background-color .3s ease, color .3s ease; }
+table.compare tbody tr:hover th { background: var(--gold-bg); }
+table.compare .nd-col { background: rgba(15,122,229,.045); color: var(--text); }
+table.compare thead th.nd-col { background: var(--navy-mid); box-shadow: inset 0 -3px 0 var(--gold-light); }
+table.compare tbody th.nd-col { background: var(--gold-bg); }
+.compare-wrap { box-shadow: 0 10px 40px rgba(7,44,94,.08), 0 1px 4px rgba(7,44,94,.05); }
+.cmp-card { transition: transform .35s ease, box-shadow .35s ease; }
+
+/* ── DECISION SUPPORT / INTRO: particle-field background ── */
+.nd-field { position: relative; isolation: isolate; }
+.nd-field > canvas.nd-field-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: .9; }
+.decision-card { transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease, border-color .3s ease; }
+.decision-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(7,44,94,.12); }
+
+/* ── WHY CONFIDENTIST: icon micro-animations ── */
+.trust-card { transition: background .3s ease, border-color .3s ease, transform .4s cubic-bezier(.2,.7,.2,1); }
+.trust-card:hover { transform: translateY(-3px); }
+.trust-icon { position: relative; overflow: hidden; }
+@keyframes ndShine { from { transform: translateX(-130%) rotate(20deg); } to { transform: translateX(130%) rotate(20deg); } }
+@keyframes ndLift { 0%,100% { transform: none; } 45% { transform: translateY(-5px) rotate(-8deg); } }
+@keyframes ndRing { 0% { box-shadow: 0 0 0 0 rgba(92,178,247,.55); } 100% { box-shadow: 0 0 0 12px rgba(92,178,247,0); } }
+@keyframes ndSnap { 0% { transform: rotate(-16deg) scale(.85); } 60% { transform: rotate(5deg) scale(1.06); } 100% { transform: none; } }
+@keyframes ndSlide { 0% { transform: translateX(-7px); opacity: .4; } 100% { transform: none; opacity: 1; } }
+.trust-card:nth-child(1) .trust-icon::after { content: ''; position: absolute; inset: -20% -40%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent); transform: translateX(-130%) rotate(20deg); }
+.trust-card.nd-in:nth-child(1) .trust-icon::after, .trust-card:nth-child(1):hover .trust-icon::after { animation: ndShine 1.1s ease .2s; }
+.trust-card.nd-in:nth-child(2) .trust-icon, .trust-card:nth-child(2):hover .trust-icon { animation: ndLift .9s cubic-bezier(.2,.7,.2,1) .25s; }
+.trust-card.nd-in:nth-child(3) .trust-icon, .trust-card:nth-child(3):hover .trust-icon { animation: ndRing 1.2s ease-out .3s; }
+.trust-card.nd-in:nth-child(4) .trust-icon, .trust-card:nth-child(4):hover .trust-icon { animation: ndSnap .8s cubic-bezier(.2,.7,.2,1) .35s; }
+.trust-card.nd-in:nth-child(5) .trust-icon, .trust-card:nth-child(5):hover .trust-icon { animation: ndSlide .8s cubic-bezier(.2,.7,.2,1) .4s; }
+
+/* ── FAQ ── */
+.faq details { transition: border-color .3s ease, box-shadow .3s ease; }
+.faq details:hover { border-color: rgba(7,44,94,.35); }
+.faq details[open] { box-shadow: 0 8px 28px rgba(7,44,94,.08); }
+.faq summary { transition: color .2s ease, background-color .2s ease; }
+.faq summary:hover { background: var(--bg-soft); }
+.faq summary:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; border-radius: var(--radius); }
+.faq summary::after { transition: transform .35s cubic-bezier(.2,.7,.2,1), color .2s ease; }
+.faq .faq-body { transition: opacity .35s ease .05s; }
+.faq details.nd-closing .faq-body { opacity: 0; transition-delay: 0s; }
+
+/* ── REDUCED MOTION: switch everything off ── */
+@media (prefers-reduced-motion: reduce) {
+  .nd-hero .hero-eyebrow, .nd-hero h1, .nd-hero .hero-sub, .nd-hero .hero-actions > *, .nd-hero-visual,
+  .program-card.gold, .trust-card .trust-icon, .trust-card .trust-icon::after { animation: none !important; }
+  html.nd-js .nd-reveal { opacity: 1 !important; transform: none !important; }
+  .section-head .section-title::after { transform: scaleX(1); }
+  .program-card, html .program-card:hover, html .nd-mag:hover { transform: none !important; }
+  .btn-gold::after, .btn-outline-white::after, .btn-navy::after, .btn-ghost::after { display: none; }
+}
+html .program-card.gold:hover { border-color: transparent; }
