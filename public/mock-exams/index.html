@@ -762,24 +762,15 @@
         <div class="pkg-name">Situational Judgement Mock Exam</div>
         <div class="pkg-desc">NDECC Situational Judgement · exam-realistic written + role-play practice</div>
         <div class="pkg-price">$1,200 – $3,100</div>
-        <div class="pkg-price-note">CAD + applicable sales tax · paid in full</div>
+        <div class="pkg-price-note">2, 4 or 8 mocks · CAD + applicable sales tax · paid in full</div>
         <p class="pkg-sub">What's included</p>
         <ul class="pkg-features">
-          <li>Full mocks (written + role-play)</li>
+          <li>2, 4 or 8 full mocks (written + role-play)</li>
           <li>1-on-1 feedback after each mock</li>
           <li>Private post-mock discussions</li>
           <li>Structured for completion in 4 weeks</li>
         </ul>
-        <fieldset class="sjm-opts">
-          <legend>Choose your package</legend>
-          <label class="sjm-opt"><input type="radio" name="sjm" value="2" data-price="1200" checked /><span class="sjm-dot" aria-hidden="true"></span><span class="sjm-label">2 Situational Mocks</span><span class="sjm-amt">$1,200</span></label>
-          <label class="sjm-opt"><input type="radio" name="sjm" value="4" data-price="2300" /><span class="sjm-dot" aria-hidden="true"></span><span class="sjm-label">4 Situational Mocks</span><span class="sjm-amt">$2,300</span></label>
-          <label class="sjm-opt"><input type="radio" name="sjm" value="8" data-price="3100" /><span class="sjm-dot" aria-hidden="true"></span><span class="sjm-label">8 Situational Mocks</span><span class="sjm-amt">$3,100</span></label>
-        </fieldset>
-        <label class="sjm-prov" for="sjmProv">Province (sets your sales tax)</label>
-        <select class="sjm-select" id="sjmProv"><option value="ON">Ontario — HST 13%</option><option value="QC">Quebec — GST 5%</option><option value="BC">British Columbia — GST 5%</option><option value="AB">Alberta — GST 5%</option><option value="MB">Manitoba — GST 5%</option><option value="SK">Saskatchewan — GST 5%</option><option value="NS">Nova Scotia — HST 14%</option><option value="NB">New Brunswick — HST 15%</option><option value="NL">Newfoundland &amp; Labrador — HST 15%</option><option value="PE">Prince Edward Island — HST 15%</option><option value="YT">Yukon — GST 5%</option><option value="NT">Northwest Territories — GST 5%</option><option value="NU">Nunavut — GST 5%</option><option value="INTL">Outside Canada — no tax</option></select>
-        <p class="sjm-total" id="sjmTotal" aria-live="polite"></p>
-        <a href="/api/ndecc/checkout/?p=sj-mock&amp;o=2&amp;region=ON" class="pkg-btn pkg-btn-solid" id="sjmCta">Register Now →</a>
+        <a href="/situational-judgement-mock-exams/" class="pkg-btn pkg-btn-solid">Register Now →</a>
       </div>
     </div>
   </div>
@@ -804,22 +795,5 @@
   <p style="margin-top:1.25rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
 </footer>
 <script src="/_assets/nav.js" defer></script>
-<script>
-(function () {
-  var box = document.getElementById('sjMock'); if (!box) return;
-  var RATES = { ON:.13, NB:.15, NL:.15, PE:.15, NS:.14, QC:.05, BC:.05, MB:.05, SK:.05, AB:.05, YT:.05, NT:.05, NU:.05, INTL:0 };
-  var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
-  var prov = document.getElementById('sjmProv'), out = document.getElementById('sjmTotal'), cta = document.getElementById('sjmCta');
-  function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
-  function apply() {
-    var r = box.querySelector('input[name="sjm"]:checked'), price = +r.dataset.price, reg = prov.value, rate = RATES[reg] || 0;
-    var tax = Math.round(price * rate * 100) / 100;
-    out.textContent = rate ? fmt(price) + ' + ' + LABELS[reg] + ' ' + fmt(tax) + ' = ' + fmt(price + tax) + ' total' : fmt(price) + ' · no Canadian sales tax outside Canada';
-    cta.href = '/api/ndecc/checkout/?p=sj-mock&o=' + r.value + '&region=' + encodeURIComponent(reg);
-    cta.textContent = 'Register Now — ' + fmt(price + tax).replace('.00', '') + ' →';
-  }
-  box.addEventListener('change', apply); apply();
-})();
-</script>
 </body>
 </html>
