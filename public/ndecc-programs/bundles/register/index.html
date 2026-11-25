@@ -542,7 +542,7 @@
       <div class="program-card featured">
         <span class="prog-badge">All-inclusive</span>
         <h3 class="prog-title">The Brilliant Bundle – 2026</h3>
-        <div class="prog-price"><span class="prog-reg">$25,598.02</span><span class="prog-now" id="priceNow">$24,999.02</span></div>
+        <div class="prog-price"><span class="prog-reg">$25,249</span><span class="prog-now" id="priceNow">$24,499</span></div>
         <p class="prog-hst"><strong>CAD</strong> + applicable sales tax <span id="totalNote"></span></p>
 
         <p class="prog-subhead">⭐ What's Included</p>
@@ -607,7 +607,7 @@
 <!-- Option selector → price, installment plan and checkout links -->
 <script>
 (function () {
-  var C = {"key": "bundle", "plan": "bundle", "opts": [["full", "All-inclusive NDECC program", 24999.02]], "hasMonths": false};
+  var C = {"key": "bundle", "plan": "bundle", "opts": [["full", "All-inclusive NDECC program", 24499]], "hasMonths": false};
   var RATES = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.05, BC:0.05, MB:0.05, SK:0.05, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
   var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
   var prov = document.getElementById('provinceSelect'), hint = document.getElementById('taxHint');
@@ -617,7 +617,7 @@
   function plan(price) {
     if (C.plan === '2+1') { var l = r2(price * 0.3); return { first: r2(price - 2 * l), later: [l, l] }; }
     if (C.plan === 'half') { var h = r2(price / 2); return { first: r2(price - h), later: [h] }; }
-    if (C.plan === 'bundle') { return { first: 4998.8, later: [3333.37, 3333.37, 3333.37, 3333.37, 3333.37, 3333.37] }; }
+    if (C.plan === 'bundle') { return { first: 4899.82, later: [3266.53, 3266.53, 3266.53, 3266.53, 3266.53, 3266.53] }; }
     return null;
   }
   function addMonths(n) {

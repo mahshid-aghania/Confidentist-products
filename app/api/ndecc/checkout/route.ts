@@ -99,9 +99,9 @@ const NDECC_PRODUCTS: Record<string, Product> = {
   bundle: {
     name: 'The Brilliant Bundle – 2026 (NDECC)',
     page: '/ndecc-programs/bundles/register/',
-    options: { full: { label: 'All-inclusive NDECC program', price: 24999.02 } },
-    // Matches the old payment plan exactly: 4,998.80 now + 6 × 3,333.37.
-    installments: () => ({ first: 4998.8, later: Array(6).fill(3333.37) }),
+    options: { full: { label: 'All-inclusive NDECC program', price: 24499 } },
+    // Bundle price $24,499 (regular $25,249): 4,899.82 now + 6 × 3,266.53 = 24,499.00.
+    installments: () => ({ first: 4899.82, later: Array(6).fill(3266.53) }),
   },
 }
 

@@ -107,6 +107,8 @@
     .price-start { font-size: .86rem; color: var(--muted); margin-bottom: 1.1rem; }
     .price-amount { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; justify-content: center; }
     .price-now { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--navy); }
+    .price-was { font-size: 1.35rem; font-weight: 600; color: var(--muted); }
+    .price-was s { text-decoration-thickness: 2px; text-decoration-color: #c0392b; }
     .price-hst { font-size: .82rem; color: var(--muted); margin-top: .3rem; }
     .price-hst strong { color: var(--navy); font-weight: 600; }
     .price-earlybird { font-size: .82rem; color: var(--muted); line-height: 1.55; margin-top: .85rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .6rem .85rem; }
@@ -368,29 +370,8 @@
 
 <hr class="rule" />
 
-<!-- BUNDLE PRICE -->
-<section class="section alt" id="bundle">
-  <div class="section-inner">
-    <div class="bundle-price">
-      <article class="price-card">
-        <span class="price-badge">Complete NDECC Path</span>
-        <h2 class="price-name">The Brilliant Bundle</h2>
-        <p class="price-start">Clinical Skills + Situational Judgement — courses and mock exams</p>
-        <div class="price-amount">
-          <span class="price-now">$24,999</span>
-        </div>
-        <p class="price-hst"><strong>CAD</strong> + HST</p>
-        <p class="price-earlybird">Pay in installments with zero interest.</p>
-        <a class="btn-gold price-cta" href="/ndecc-programs/bundles/register/">Register Now →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<hr class="rule" />
-
 <!-- WHAT'S INSIDE -->
-<section class="section">
+<section class="section alt">
   <div class="section-inner">
     <div class="section-head">
       <span class="section-kicker">What's Inside</span>
@@ -431,6 +412,28 @@
       </div>
     </div>
     <div class="tools-note"><span class="tag">Included</span><span class="txt"><strong>Plus basic tools</strong> — the essential tools you need to begin your course are included in the bundle.</span></div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- BUNDLE PRICE -->
+<section class="section" id="bundle">
+  <div class="section-inner">
+    <div class="bundle-price">
+      <article class="price-card">
+        <span class="price-badge">Complete NDECC Path</span>
+        <h2 class="price-name">The Brilliant Bundle</h2>
+        <p class="price-start">Clinical Skills + Situational Judgement — courses and mock exams</p>
+        <div class="price-amount">
+          <span class="price-was" aria-label="Regular price $25,249"><s>$25,249</s></span>
+          <span class="price-now" aria-label="Bundle price $24,499">$24,499</span>
+        </div>
+        <p class="price-hst"><strong>CAD</strong> + HST</p>
+        <p class="price-earlybird">Pay in installments with zero interest.</p>
+        <a class="btn-gold price-cta" href="/ndecc-programs/bundles/register/">Register Now →</a>
+      </article>
+    </div>
   </div>
 </section>
 
