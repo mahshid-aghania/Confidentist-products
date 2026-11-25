@@ -113,6 +113,24 @@
     .price-cta { margin-top: 1.5rem; width: 100%; }
 
     /* Bundle component cards */
+    .inc-tables { display: grid; gap: 2rem; }
+    .inc-block { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; border-top: 4px solid var(--teal); }
+    .inc-block.sj { border-top-color: var(--gold); }
+    .inc-block-head { display: flex; align-items: center; gap: .85rem; flex-wrap: wrap; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .inc-block-head h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin: 0; }
+    .inc-block-head .tag { margin: 0; font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--teal); padding: .3rem .7rem; border-radius: .3rem; }
+    .inc-block.sj .inc-block-head .tag { background: var(--gold); }
+    .inc-table-wrap { overflow-x: auto; }
+    .inc-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .9rem; }
+    .inc-table th { text-align: left; background: var(--teal-light); color: var(--navy); font-weight: 700; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; padding: .85rem 1.5rem; }
+    .inc-block.sj .inc-table th { background: var(--gold-bg); }
+    .inc-table th + th, .inc-table td + td { border-left: 1px solid var(--border); }
+    .inc-table td { padding: .85rem 1.5rem; color: var(--text, #2d3748); border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+    .inc-table tbody tr:nth-child(even) td { background: #fafcfe; }
+    .inc-table td svg { width: 16px; height: 16px; color: var(--teal); vertical-align: -3px; margin-right: .55rem; flex-shrink: 0; }
+    .inc-block.sj .inc-table td svg { color: var(--gold); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 600px) { .inc-table th, .inc-table td { padding: .7rem .8rem; font-size: .82rem; } .inc-table td svg { display: none; } .inc-block-head { padding: 1rem; } }
     .bundle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
     .bundle-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.85rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--teal); }
     .bundle-card.sj { border-top-color: var(--gold); }
@@ -376,52 +394,38 @@
       <h2 class="section-title">Everything the Bundle Includes</h2>
       <p class="section-desc">Four complete programs across both NDECC components, plus the basic tools to begin.</p>
     </div>
-    <div class="bundle-grid">
-
-      <div class="bundle-card">
-        <span class="tag">Clinical Skills</span>
-        <h3>Clinical Skills Course</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded technique demonstrations</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-day in-person lab access</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5-day onsite coaching</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mentorship and feedback</li>
-        </ul>
+    <div class="inc-tables">
+      <div class="inc-block cs">
+        <div class="inc-block-head"><span class="tag">Clinical Skills</span><h3>Course + Mock Exams</h3></div>
+        <div class="inc-table-wrap">
+          <table class="inc-table">
+            <caption class="sr-only">Clinical Skills: Clinical Skills Course compared with Clinical Skills Mock Exams</caption>
+            <thead><tr><th scope="col">Clinical Skills Course</th><th scope="col">Clinical Skills Mock Exams</th></tr></thead>
+            <tbody>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded technique demonstrations</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 full mock exams</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-day in-person lab access</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Complete set of instruments</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5-day onsite coaching</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-hour supervision &amp; infection control</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mentorship and feedback</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-hour post-exam discussion</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div class="bundle-card">
-        <span class="tag">Clinical Skills</span>
-        <h3>Clinical Skills Mock Exams</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 full mock exams</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Complete set of instruments</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-hour supervision &amp; infection control</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-hour post-exam discussion</li>
-        </ul>
+      <div class="inc-block sj">
+        <div class="inc-block-head"><span class="tag">Situational Judgement</span><h3>Course + Mock Exams</h3></div>
+        <div class="inc-table-wrap">
+          <table class="inc-table">
+            <caption class="sr-only">Situational Judgement: Situational Judgement Course compared with Situational Judgement Mock Exams</caption>
+            <thead><tr><th scope="col">Situational Judgement Course</th><th scope="col">Situational Judgement Mock Exams</th></tr></thead>
+            <tbody>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>16 sessions of 4 hours each</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mocks (written + role-play)</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Month 1 recorded, months 2–3 in-person</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-on-1 feedback after each mock</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios covered</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Structured for completion in 4 weeks</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
-      <div class="bundle-card sj">
-        <span class="tag">Situational Judgement</span>
-        <h3>Situational Judgement Course</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>16 sessions of 4 hours each</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Month 1 recorded, months 2–3 in-person</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios covered</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
-        </ul>
-      </div>
-
-      <div class="bundle-card sj">
-        <span class="tag">Situational Judgement</span>
-        <h3>Situational Judgement Mock Exams</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mocks (written + role-play)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-on-1 feedback after each mock</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Structured for completion in 4 weeks</li>
-        </ul>
-      </div>
-
     </div>
     <p class="tools-note"><strong>Plus basic tools</strong> — the essential tools you need to begin your course are included in the bundle.</p>
   </div>
