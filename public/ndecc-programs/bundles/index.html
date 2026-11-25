@@ -141,7 +141,10 @@
     .inc-list li svg { width: 15px; height: 15px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
     .bundle-card.sj .inc-list li svg { color: var(--gold); }
 
-    .tools-note { max-width: 760px; margin: 2rem auto 0; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.35rem; font-size: .88rem; color: var(--muted); line-height: 1.6; text-align: center; }
+    .tools-note { margin: 2rem 0 0; position: relative; display: flex; align-items: center; gap: .85rem; flex-wrap: wrap; background: linear-gradient(90deg, var(--teal-light), var(--gold-bg)); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; padding: 1.25rem 1.5rem; font-size: .95rem; color: var(--text); line-height: 1.6; }
+    .tools-note::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    .tools-note .tag { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: linear-gradient(90deg, var(--teal), var(--gold)); padding: .3rem .7rem; border-radius: .3rem; white-space: nowrap; }
+    .tools-note span.txt { flex: 1 1 260px; }
     .tools-note strong { color: var(--navy); }
 
     .decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -427,7 +430,7 @@
         </div>
       </div>
     </div>
-    <p class="tools-note"><strong>Plus basic tools</strong> — the essential tools you need to begin your course are included in the bundle.</p>
+    <div class="tools-note"><span class="tag">Included</span><span class="txt"><strong>Plus basic tools</strong> — the essential tools you need to begin your course are included in the bundle.</span></div>
   </div>
 </section>
 
