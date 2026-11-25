@@ -339,9 +339,29 @@
       position: relative;
     }
     .pkg-card.featured.excl::before { content: 'Most Exclusive'; }
+    #choose .packages-grid { max-width: 1000px !important; grid-template-columns: 1fr !important; gap: 1.5rem; }
+    @media (min-width: 760px) { #choose .packages-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    #choose .pkg-card.featured::before { white-space: nowrap; }
     #choose .pkg-card { display: flex; flex-direction: column; }
     #choose .pkg-card .pkg-btn { margin-top: auto; }
     .pkg-sub { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin: 0 0 .55rem; }
+    /* Situational Judgement mock — radio options */
+    .sjm-opts { border: 0; margin: 0 0 1rem; padding: 0; display: grid; gap: .5rem; }
+    .sjm-opts legend { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: .55rem; padding: 0; }
+    .sjm-opt { position: relative; display: flex; align-items: center; gap: .75rem; padding: .7rem .9rem; border: 1.5px solid var(--border); border-radius: .65rem; background: #fff; cursor: pointer; transition: border-color .2s, background .2s, box-shadow .2s; }
+    .sjm-opt:hover { border-color: var(--gold-light); }
+    .sjm-opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .sjm-dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #b8c3d6; flex-shrink: 0; display: grid; place-items: center; transition: border-color .2s; }
+    .sjm-dot::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); transform: scale(0); transition: transform .2s cubic-bezier(.2,.8,.2,1.3); }
+    .sjm-label { flex: 1; font-size: .86rem; font-weight: 600; color: var(--navy); }
+    .sjm-amt { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--navy); }
+    .sjm-opt:has(input:checked) { border-color: var(--gold); background: var(--gold-bg); box-shadow: 0 0 0 3px rgba(15,122,229,.12); }
+    .sjm-opt:has(input:checked) .sjm-dot { border-color: var(--gold); }
+    .sjm-opt:has(input:checked) .sjm-dot::after { transform: scale(1); }
+    .sjm-opt:has(input:focus-visible) { outline: 3px solid var(--teal); outline-offset: 2px; }
+    .sjm-prov { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: .4rem; }
+    .sjm-select { width: 100%; padding: .6rem .75rem; border: 1.5px solid var(--border); border-radius: .55rem; font: inherit; font-size: .85rem; color: var(--navy); background: #fff; margin-bottom: .45rem; }
+    .sjm-total { font-size: .78rem; color: var(--muted); margin-bottom: 1.25rem; min-height: 1.2em; }
     .pkg-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: rgba(7,44,94,.2); }
     .pkg-card.featured { border-color: var(--navy); border-width: 2px; }
     .pkg-card.featured::before {
@@ -685,7 +705,7 @@
 <section class="section" id="choose">
   <div class="section-inner">
     <div class="section-kicker">Pick a Mock Exam</div>
-    <h2 class="section-title">Three Mock Exam Series</h2>
+    <h2 class="section-title">Four Mock Exam Series</h2>
     <p class="section-desc">Each mock mirrors the real exam format and includes a live instructor-led review. Choose the exam you're preparing for.</p>
     <div class="packages-grid" style="max-width:1180px; margin:2.5rem auto 0; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
       <div class="pkg-card featured">
@@ -734,6 +754,29 @@
         </ul>
         <a href="/ndecc-programs/skills-mock-exam/register/" class="pkg-btn pkg-btn-solid">Register Now →</a>
       </div>
+      <div class="pkg-card featured excl" id="sjMock">
+        <div class="pkg-name">Situational Judgement Mock Exam</div>
+        <div class="pkg-desc">NDECC Situational Judgement · exam-realistic written + role-play practice</div>
+        <div class="pkg-price">$1,200 – $3,100</div>
+        <div class="pkg-price-note">CAD + applicable sales tax · paid in full</div>
+        <p class="pkg-sub">What's included</p>
+        <ul class="pkg-features">
+          <li>Full mocks (written + role-play)</li>
+          <li>1-on-1 feedback after each mock</li>
+          <li>Private post-mock discussions</li>
+          <li>Structured for completion in 4 weeks</li>
+        </ul>
+        <fieldset class="sjm-opts">
+          <legend>Choose your package</legend>
+          <label class="sjm-opt"><input type="radio" name="sjm" value="2" data-price="1200" checked /><span class="sjm-dot" aria-hidden="true"></span><span class="sjm-label">2 Situational Mocks</span><span class="sjm-amt">$1,200</span></label>
+          <label class="sjm-opt"><input type="radio" name="sjm" value="4" data-price="2300" /><span class="sjm-dot" aria-hidden="true"></span><span class="sjm-label">4 Situational Mocks</span><span class="sjm-amt">$2,300</span></label>
+          <label class="sjm-opt"><input type="radio" name="sjm" value="8" data-price="3100" /><span class="sjm-dot" aria-hidden="true"></span><span class="sjm-label">8 Situational Mocks</span><span class="sjm-amt">$3,100</span></label>
+        </fieldset>
+        <label class="sjm-prov" for="sjmProv">Province (sets your sales tax)</label>
+        <select class="sjm-select" id="sjmProv"><option value="ON">Ontario — HST 13%</option><option value="QC">Quebec — GST 5%</option><option value="BC">British Columbia — GST 5%</option><option value="AB">Alberta — GST 5%</option><option value="MB">Manitoba — GST 5%</option><option value="SK">Saskatchewan — GST 5%</option><option value="NS">Nova Scotia — HST 14%</option><option value="NB">New Brunswick — HST 15%</option><option value="NL">Newfoundland &amp; Labrador — HST 15%</option><option value="PE">Prince Edward Island — HST 15%</option><option value="YT">Yukon — GST 5%</option><option value="NT">Northwest Territories — GST 5%</option><option value="NU">Nunavut — GST 5%</option><option value="INTL">Outside Canada — no tax</option></select>
+        <p class="sjm-total" id="sjmTotal" aria-live="polite"></p>
+        <a href="/api/ndecc/checkout/?p=sj-mock&amp;o=2&amp;region=ON" class="pkg-btn pkg-btn-solid" id="sjmCta">Register Now →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -757,5 +800,22 @@
   <p style="margin-top:1.25rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
 </footer>
 <script src="/_assets/nav.js" defer></script>
+<script>
+(function () {
+  var box = document.getElementById('sjMock'); if (!box) return;
+  var RATES = { ON:.13, NB:.15, NL:.15, PE:.15, NS:.14, QC:.05, BC:.05, MB:.05, SK:.05, AB:.05, YT:.05, NT:.05, NU:.05, INTL:0 };
+  var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
+  var prov = document.getElementById('sjmProv'), out = document.getElementById('sjmTotal'), cta = document.getElementById('sjmCta');
+  function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function apply() {
+    var r = box.querySelector('input[name="sjm"]:checked'), price = +r.dataset.price, reg = prov.value, rate = RATES[reg] || 0;
+    var tax = Math.round(price * rate * 100) / 100;
+    out.textContent = rate ? fmt(price) + ' + ' + LABELS[reg] + ' ' + fmt(tax) + ' = ' + fmt(price + tax) + ' total' : fmt(price) + ' · no Canadian sales tax outside Canada';
+    cta.href = '/api/ndecc/checkout/?p=sj-mock&o=' + r.value + '&region=' + encodeURIComponent(reg);
+    cta.textContent = 'Register Now — ' + fmt(price + tax).replace('.00', '') + ' →';
+  }
+  box.addEventListener('change', apply); apply();
+})();
+</script>
 </body>
 </html>
