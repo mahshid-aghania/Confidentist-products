@@ -45,6 +45,10 @@ type Product = {
   page: string
   options: Record<string, Option>
   installments?: (price: number) => Plan
+  // Fixed due dates for the later payments (instead of monthly from purchase).
+  dueDates?: string[]
+  // Installments only — no pay-in-full option.
+  installmentOnly?: boolean
 }
 
 const round2 = (n: number) => Math.round(n * 100) / 100
@@ -106,6 +110,17 @@ const NDECC_PRODUCTS: Record<string, Product> = {
     // Bundle price $24,499 (regular $25,249): 4,899.82 now + 6 × 3,266.53 = 24,499.00.
     installments: () => ({ first: 4899.82, later: Array(6).fill(3266.53) }),
   },
+  // Private plan (unlisted page /ndecc-programs/plan/practice-5m-pb/): Priyansh Behimani —
+  // 5-month practice program, $21,500 + tax in two payments of $10,750 + tax.
+  // Payment 1 at checkout; payment 2 due December 27, 2026 (&pay=2 charges it).
+  'practice-5m': {
+    name: 'NDECC 5-Month Practice Program',
+    page: '/ndecc-programs/plan/practice-5m-pb/',
+    options: { pb: { label: 'Private plan — Priyansh Behimani', price: 21500 } },
+    installments: () => ({ first: 10750, later: [10750] }),
+    dueDates: ['December 27, 2026'],
+    installmentOnly: true,
+  },
 }
 
 // SJ mock exams run on a chosen month; validated against this list.
@@ -141,16 +156,19 @@ export async function GET(req: Request) {
   const TAX_RATE = TAX_RATES[TAX_REGION].rate
   const TAX_LABEL = TAX_RATES[TAX_REGION].label
 
-  const isInstallment = (url.searchParams.get('plan') || '').trim() === 'installment' && !!product.installments
+  const isInstallment =
+    !!product.installments && (product.installmentOnly || (url.searchParams.get('plan') || '').trim() === 'installment')
   const plan = isInstallment && product.installments ? product.installments(option.price) : null
-  const basePrice = plan ? plan.first : option.price
+  // &pay=N charges installment N (N ≥ 2) of a fixed-date plan; default is the first payment.
+  const payNo = plan && product.dueDates ? Math.min(Math.max(Number(url.searchParams.get('pay') || '1') || 1, 1), plan.later.length + 1) : 1
+  const basePrice = plan ? (payNo > 1 ? plan.later[payNo - 2] : plan.first) : option.price
   const paidTaxCents = Math.round(basePrice * TAX_RATE * 100)
   const courseTaxCents = Math.round(option.price * TAX_RATE * 100)
   const optionName = `${option.label}${monthLabel ? ` · ${monthLabel}` : ''}`
   const courseName = `${product.name} — ${optionName}`
   const numPayments = plan ? plan.later.length + 1 : 1
-  const lineName = plan ? `${courseName} · Installment 1 of ${numPayments}` : courseName
-  const clientRef = `ndecc-${key}-${optKey}${plan ? '-installment' : ''}`
+  const lineName = plan ? `${courseName} · Installment ${payNo} of ${numPayments}` : courseName
+  const clientRef = `ndecc-${key}-${optKey}${plan ? '-installment' : ''}${payNo > 1 ? `-pay${payNo}` : ''}`
 
   let orderNumber: string
   try {
@@ -205,7 +223,7 @@ export async function GET(req: Request) {
   params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
   if (plan) {
     const now = new Date()
-    const dates = plan.later.map((_, i) => addMonths(now, i + 1))
+    const dates = product.dueDates ?? plan.later.map((_, i) => addMonths(now, i + 1))
     // Equal later payments (all current plans) — the receipt shows one amount per date.
     params.set('metadata[plan]', 'installment')
     params.set('metadata[num_payments]', String(numPayments))
@@ -213,6 +231,7 @@ export async function GET(req: Request) {
     params.set('metadata[monthly_base]', plan.later[0].toFixed(2))
     params.set('metadata[monthly_count]', String(plan.later.length))
     params.set('metadata[installment_dates]', dates.join('|'))
+    params.set('metadata[installment_number]', String(payNo))
   } else {
     params.set('metadata[plan]', 'full')
     params.set('metadata[num_payments]', '1')
