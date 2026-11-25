@@ -124,7 +124,8 @@ export async function POST(req: Request) {
       .from('order_installments')
       .update({ status: 'paid', paid_at: paidAt, source_status: 'paid (stripe gateway)' })
       .eq('id', gInst.id)
-      .eq('status', 'pending')
+      // Any unpaid state (pending or overdue) — an overdue installment paid late must flip to paid.
+      .neq('status', 'paid')
     if (updErr) {
       // Return 500 so Stripe retries rather than silently dropping the payment.
       console.error('gateway installment update failed', updErr)
