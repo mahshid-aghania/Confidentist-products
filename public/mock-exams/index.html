@@ -338,6 +338,10 @@
       transition: box-shadow .2s, transform .2s, border-color .2s;
       position: relative;
     }
+    .pkg-card.featured.excl::before { content: 'Most Exclusive'; }
+    #choose .pkg-card { display: flex; flex-direction: column; }
+    #choose .pkg-card .pkg-btn { margin-top: auto; }
+    .pkg-sub { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin: 0 0 .55rem; }
     .pkg-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: rgba(7,44,94,.2); }
     .pkg-card.featured { border-color: var(--navy); border-width: 2px; }
     .pkg-card.featured::before {
@@ -681,9 +685,9 @@
 <section class="section" id="choose">
   <div class="section-inner">
     <div class="section-kicker">Pick a Mock Exam</div>
-    <h2 class="section-title">Two Mock Exam Series</h2>
+    <h2 class="section-title">Three Mock Exam Series</h2>
     <p class="section-desc">Each mock mirrors the real exam format and includes a live instructor-led review. Choose the exam you're preparing for.</p>
-    <div class="packages-grid" style="max-width:780px; margin:2.5rem auto 0; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+    <div class="packages-grid" style="max-width:1180px; margin:2.5rem auto 0; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
       <div class="pkg-card featured">
         <div class="pkg-name">AFK Mock Exams</div>
         <div class="pkg-desc">Full &amp; mini mock exams for the Assessment of Fundamental Knowledge, with live review sessions.</div>
@@ -709,6 +713,26 @@
           <li>Personalized performance feedback</li>
         </ul>
         <a href="/osce-mock-exams/" class="pkg-btn pkg-btn-solid">View OSCE Mock Exam →</a>
+      </div>
+      <div class="pkg-card featured excl">
+        <div class="pkg-name">Skills Mock Exam</div>
+        <div class="pkg-desc">NDECC Clinical Skills · Add-on · exam-realistic practice</div>
+        <div class="pkg-price">From $1,250</div>
+        <div class="pkg-price-note">CAD + HST · $1,250–$4,500 depending on the number of mocks</div>
+        <p class="pkg-sub">Best suited for</p>
+        <ul class="pkg-features" style="margin-bottom:1.1rem;">
+          <li>Candidates who want hands-on rehearsal under exam-like conditions</li>
+        </ul>
+        <p class="pkg-sub">What's included</p>
+        <ul class="pkg-features">
+          <li>1 to 5 full mock exams</li>
+          <li>Complete set of instruments</li>
+          <li>8-hour supervision</li>
+          <li>Infection control protocols</li>
+          <li>1-hour discussion the next day</li>
+          <li>Conducted in a fully equipped clinic (bring your own loupes)</li>
+        </ul>
+        <a href="/ndecc-programs/skills-mock-exam/register/" class="pkg-btn pkg-btn-solid">Register Now →</a>
       </div>
     </div>
   </div>
