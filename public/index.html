@@ -806,6 +806,71 @@
     .reveal[data-delay="2"] { transition-delay: .16s; }
     .reveal[data-delay="3"] { transition-delay: .24s; }
 
+    /* ─────────────  CINEMATIC SECTION TRANSITIONS  ─────────────
+       Hero: the media stack (gradient, video, grade) is masked by an opaque block on
+       top plus a hand-tuned halftone tile (/_assets/fx/halftone-dissolve.svg) along the
+       bottom edge. The tile's dots shrink and thin out with an irregular, wandering front,
+       so the real video imagery fragments into dots and the hero's own background —
+       the exact top colour of the next section — shows through the gaps. The hero is
+       extended by most of the dissolve depth so the first view keeps its composition. */
+    :root { --seam: #f7f1e4; }               /* top colour of the Program Finder section */
+    .hero { --dissolve: 240px; --shift: calc(var(--dissolve) * .78);
+      height: calc(100svh + var(--shift)); min-height: calc(min(860px, 100svh) + var(--shift));
+      background: var(--seam); }
+    .hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+    @supports ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
+      .hero-media {
+        -webkit-mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve.svg");
+                mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve.svg");
+        -webkit-mask-size: 100% calc(100% - var(--dissolve) + 2px), auto var(--dissolve);
+                mask-size: 100% calc(100% - var(--dissolve) + 2px), auto var(--dissolve);
+        -webkit-mask-position: 0 0, 0 100%;
+                mask-position: 0 0, 0 100%;
+        -webkit-mask-repeat: no-repeat, repeat-x;
+                mask-repeat: no-repeat, repeat-x;
+      }
+    }
+    /* Fallback when masking is unavailable: a soft tonal fade into the next section. */
+    .hero-fade { display: none; }
+    @supports not ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
+      .hero-fade { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: var(--dissolve); z-index: 2; pointer-events: none;
+        background: linear-gradient(180deg, rgba(247,241,228,0) 0%, rgba(247,241,228,.55) 45%, var(--seam) 100%); }
+    }
+    /* Copy and controls stay outside the mask and sit above the dissolve, where they were. */
+    .hero .hero-content { bottom: calc(var(--shift) + clamp(3rem, 9vh, 7rem)); }
+    .hero .hero-video-btn { bottom: calc(var(--shift) + 1.75rem); }
+    .hero .scroll-cue { bottom: calc(var(--shift) + 1.4rem); }
+    /* Next section begins in exactly the colour the dots dissolve into. */
+    #journey.journey-finder { background:
+        linear-gradient(180deg, var(--seam) 0, rgba(247,241,228,0) 260px),
+        radial-gradient(120% 90% at 85% -10%, #fdfbf5 0%, #f6efe1 42%, #efe6d2 100%), linear-gradient(180deg,#fcfaf4,#f4ecda); }
+    @media (max-width: 767px) {
+      .hero { --dissolve: 120px; }
+      .hero .hero-content { bottom: calc(var(--shift) + 2rem); }
+    }
+
+    /* Restrained tonal blending between the remaining sections (no hard seams). */
+    #journey.journey-finder::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 160px; pointer-events: none; z-index: 0;
+      background: linear-gradient(180deg, rgba(251,253,255,0) 0%, #fbfdff 100%); }
+    .pathway { background: linear-gradient(180deg, #fbfdff 0%, var(--gold-bg) 70%, var(--bg-soft) 100%); }
+    /* One quiet echo of the hero: the closing navy band begins as a fine halftone
+       emerging from the light section above, then settles into the footer navy. */
+    .final { background: var(--bg-soft); }
+    @supports ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
+      .final-bg {
+        -webkit-mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve-up.svg");
+                mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve-up.svg");
+        -webkit-mask-size: 100% calc(100% - 150px + 2px), auto 150px;
+                mask-size: 100% calc(100% - 150px + 2px), auto 150px;
+        -webkit-mask-position: 0 100%, 37% 0;
+                mask-position: 0 100%, 37% 0;
+        -webkit-mask-repeat: no-repeat, repeat-x;
+                mask-repeat: no-repeat, repeat-x;
+      }
+    }
+    .final::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(4,27,61,0) 0%, #041b3d 100%); }
+
     /* ─────────────  RESPONSIVE  ───────────── */
     /* Mobile: keep the split-panel concept full-width in the lower area,
        leaving video visible above; header and content never overlap. */
@@ -1185,12 +1250,15 @@
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="top" aria-label="Introduction">
+  <div class="hero-media" aria-hidden="true">
   <div class="hero-bg" aria-hidden="true"></div>
   <video class="hero-video" id="heroVideo" muted loop playsinline preload="metadata"
          poster="/images/confidentist-hero-poster.jpg" aria-hidden="true" tabindex="-1">
     <source src="/videos/confidentist-hero.mp4" type="video/mp4" />
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
+  </div>
+  <div class="hero-fade" aria-hidden="true"></div>
 
   <div class="hero-content">
       <div class="hero-heading-panel">
