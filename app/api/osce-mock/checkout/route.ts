@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 // GET /api/osce-mock/checkout  — Stripe Checkout for the single OSCE Mock Exam
-// (March 2026). The price lives HERE (server-side source of truth), so the
+// (March 2027 sitting; 1, 2 or 3 mocks via ?n=). The price lives HERE (server-side source of truth), so the
 // amount can't be tampered with from the page. Creates a Checkout Session on
 // the fly and 303-redirects the buyer to Stripe. 13% HST is added as its own
 // line item so the Stripe total matches the on-page breakdown.
@@ -11,8 +11,12 @@ export const dynamic = 'force-dynamic'
 
 const HST_RATE = 0.13
 
-// OSCE Mock Exam price in CAD.
-const OSCE_MOCK = { name: 'OSCE Mock Exam — March 2026', price: 500 }
+// OSCE Mock Exam packages in CAD (?n=1|2|3). Unknown/missing → 1 mock.
+const OSCE_MOCKS: Record<string, { name: string; price: number }> = {
+  '1': { name: 'OSCE Mock Exam — March 2027 · 1 Mock', price: 500 },
+  '2': { name: 'OSCE Mock Exam — March 2027 · 2 Mocks', price: 900 },
+  '3': { name: 'OSCE Mock Exam — March 2027 · 3 Mocks', price: 1300 },
+}
 
 export async function GET(req: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY
@@ -21,6 +25,8 @@ export async function GET(req: Request) {
   }
 
   const url = new URL(req.url)
+  const n = OSCE_MOCKS[url.searchParams.get('n') || ''] ? (url.searchParams.get('n') as string) : '1'
+  const OSCE_MOCK = OSCE_MOCKS[n]
   const pageUrl = `${url.origin}/osce-mock-exams/`
 
   const subtotal = OSCE_MOCK.price
@@ -60,8 +66,9 @@ export async function GET(req: Request) {
   params.set('custom_fields[2][type]', 'text')
   params.set('custom_fields[2][optional]', 'true')
   params.set('allow_promotion_codes', 'true')
-  params.set('client_reference_id', 'osce-mock-march-2026')
-  params.set('metadata[product]', 'osce-mock-march-2026')
+  params.set('client_reference_id', `osce-mock-march-2027-${n}`)
+  params.set('metadata[product]', `osce-mock-march-2027-${n}`)
+  params.set('metadata[mocks]', n)
   params.set('metadata[course]', OSCE_MOCK.name)
   params.set('success_url', `${pageUrl}?status=confirmed`)
   params.set('cancel_url', pageUrl)

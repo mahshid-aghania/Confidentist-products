@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OSCE Mock Exam — March 2026 · ConfiDentist</title>
-  <meta name="description" content="Sit a full simulated NDEB OSCE mock exam with ConfiDentist — exam-condition stations plus a live, instructor-led review. $500 CAD + HST, for the March 2026 sitting." />
+  <title>OSCE Mock Exam — March 2027 · ConfiDentist</title>
+  <meta name="description" content="Sit a full simulated NDEB OSCE mock exam with ConfiDentist — exam-condition stations plus a live, instructor-led review. $500 CAD + HST, for the March 2027 sitting." />
   <link rel="canonical" href="https://product.confidentist.ca/osce-mock-exams/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -442,6 +442,119 @@
     @media (max-width: 400px) {
       .trust-strip { gap: 1rem; }
     }
+    .mock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .mock-card {
+      background: #fff; border: 2px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      cursor: pointer; user-select: none; position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: border-color .2s, box-shadow .2s, transform .18s;
+    }
+    .mock-card:hover { border-color: var(--navy-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .mock-card.selected {
+      border-color: var(--navy);
+      background: linear-gradient(135deg, #f0f4fa 0%, #fff 100%);
+      box-shadow: 0 0 0 3px rgba(7,44,94,.12), var(--shadow-md);
+    }
+    /* Checkmark is drawn as an inline SVG so it never depends on a font glyph */
+    .mock-check {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 2px solid var(--border);
+      font-size: 0; color: transparent;
+      background: #fff;
+      transition: background-color .2s, border-color .2s;
+    }
+    .mock-card.selected .mock-check {
+      border-color: var(--navy); background-color: var(--navy);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5.5 5.5L20 6.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center; background-size: 13px 13px;
+    }
+    .mock-num {
+      font-size: .65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: .5rem; display: block;
+    }
+    .mock-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: .75rem; }
+    .mock-date { font-size: .78rem; color: var(--muted); margin-bottom: .65rem; display: flex; align-items: center; gap: .35rem; }
+    .mock-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+    .mock-tag {
+      font-size: .62rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: .25rem;
+      background: var(--teal-light); color: var(--teal); border: 1px solid rgba(59,175,191,.2);
+    }
+    .mock-tag.inperson { background: #edf7ee; color: #2d7a35; border-color: rgba(45,122,53,.2); }
+    .mock-price { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--navy); }
+    .mock-card.selected .mock-price { color: var(--gold-dark); }
+    .mock-price-note { font-size: .7rem; color: var(--muted); margin-top: .15rem; }
+
+    /* Mini mock pack card — gold accent to read as an add-on, not a 5th full mock */
+    .mock-card.mini { border-style: dashed; border-color: rgba(15,122,229,.55); }
+    .mock-card.mini:hover { border-color: var(--gold-dark); }
+    .mock-card.mini.selected {
+      border-style: solid; border-color: var(--gold-dark);
+      background: linear-gradient(135deg, var(--gold-bg) 0%, #fff 100%);
+      box-shadow: 0 0 0 3px rgba(15,122,229,.15), var(--shadow-md);
+    }
+    .mock-card.mini.selected .mock-check { background-color: var(--gold-dark); border-color: var(--gold-dark); }
+    .mock-price .was { font-size: .95rem; font-weight: 400; color: var(--muted); text-decoration: line-through; margin-right: .3rem; }
+    .mini-hint {
+      margin-top: .6rem; font-size: .68rem; font-weight: 600; line-height: 1.45;
+      color: var(--gold-dark); background: var(--gold-bg);
+      border: 1px solid rgba(15,122,229,.3); border-radius: .3rem;
+      padding: .35rem .55rem;
+    }
+    .mini-hint.unlocked { color: #2d7a35; background: #edf7ee; border-color: rgba(45,122,53,.25); }
+
+    /* Summary panel */
+    .bundle-summary {
+      background: var(--navy); border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 1.5rem; align-items: center;
+      box-shadow: var(--shadow-lg);
+      transition: opacity .2s;
+    }
+    .bundle-summary.empty { background: var(--bg-soft); border: 1.5px dashed var(--border); box-shadow: none; }
+    .summary-kicker { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+    .bundle-summary.empty .summary-kicker { color: var(--muted); }
+    .summary-list { list-style: none; display: flex; flex-direction: column; gap: .3rem; }
+    .summary-list li { font-size: .85rem; color: rgba(255,255,255,.75); display: flex; align-items: center; gap: .5rem; }
+    .summary-list li::before { content: '→'; font-size: .7rem; color: var(--gold); }
+    .bundle-summary.empty .summary-list li { color: var(--muted); }
+    .bundle-summary.empty .summary-list li::before { color: var(--muted); }
+    .summary-right { display: flex; flex-direction: column; align-items: flex-end; gap: .65rem; flex-shrink: 0; }
+    .summary-total-label { font-size: .65rem; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .12em; }
+    .bundle-summary.empty .summary-total-label { color: var(--muted); }
+    .summary-total { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .bundle-summary.empty .summary-total { color: var(--muted); }
+    .summary-saving {
+      font-size: .7rem; font-weight: 600; background: rgba(59,175,191,.15);
+      border: 1px solid rgba(59,175,191,.3); color: var(--teal);
+      padding: .2rem .65rem; border-radius: .25rem;
+    }
+    .summary-saving.hidden { visibility: hidden; }
+    .bundle-enroll-btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--gold); color: #fff;
+      font-weight: 700; font-size: .85rem; letter-spacing: .03em;
+      padding: .8rem 1.75rem; border-radius: .4rem;
+      border: none; cursor: pointer; white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(15,122,229,.25);
+      transition: background .2s, transform .15s;
+    }
+    .bundle-enroll-btn:hover:not(:disabled) { background: var(--gold-light); transform: translateY(-1px); }
+    .bundle-enroll-btn:disabled { background: #ccc; color: #888; cursor: not-allowed; box-shadow: none; }
+    /* OSCE mock — radio selector (AFK template) */
+    .osce-pick { border: 0; padding: 0; margin: 2rem 0 0; }
+    #osceEnroll { text-decoration: none; }
+    .osce-pick .mock-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .osce-pick .mock-card { cursor: pointer; display: block; }
+    .osce-pick input { position: absolute; opacity: 0; pointer-events: none; }
+    .osce-pick .mock-check { border-radius: 50%; }
+    .osce-pick .mock-card.selected .mock-check { background-image: none; box-shadow: inset 0 0 0 4px #fff; }
+    .osce-pick .mock-card:has(input:focus-visible) { outline: 3px solid var(--teal); outline-offset: 3px; }
+    .osce-pick .save-tag { display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #2d7a35; background: #edf7ee; border: 1px solid #b8e0bd; border-radius: .3rem; padding: .15rem .45rem; margin-top: .45rem; }
+    @media (max-width: 640px) { .bundle-summary { grid-template-columns: 1fr; } .summary-right { align-items: flex-start; } .bundle-enroll-btn { width: 100%; justify-content: center; } }
   </style>
 <!-- confi-nav-assets v1 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -595,19 +708,17 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">March 2026 Sitting · Enrollment Open</div>
+    <div class="hero-eyebrow">March 2027 Sitting · Enrollment Open</div>
     <h1>OSCE Mock Exam<em>Simulated OSCE, Online</em></h1>
     <p class="hero-sub">Sit a full OSCE mock under realistic exam conditions, then walk through every station in a live, instructor-led review — built to prepare internationally trained dentists for the NDEB OSCE.</p>
     <div class="hero-price-row">
-      <div class="hero-price-chip">
-        <span class="chip-label">OSCE Mock Exam</span>
-        <span class="chip-val">$500</span>
-        <span class="chip-note">CAD + HST</span>
-      </div>
+      <div class="hero-price-chip"><span class="chip-label">1 Mock</span><span class="chip-val">$500</span><span class="chip-note">CAD + HST</span></div>
+      <div class="hero-price-chip"><span class="chip-label">2 Mocks</span><span class="chip-val">$900</span><span class="chip-note">save $100</span></div>
+      <div class="hero-price-chip"><span class="chip-label">3 Mocks</span><span class="chip-val">$1,300</span><span class="chip-note">save $200</span></div>
     </div>
     <div class="hero-actions">
-      <a href="/api/osce-mock/checkout" class="btn-gold">Enroll Now →</a>
-      <a href="#enroll" class="btn-outline-white">View Details</a>
+      <a href="#enroll" class="btn-gold">Choose My Mocks →</a>
+      <a href="#schedule" class="btn-outline-white">View Details</a>
     </div>
   </div>
 </section>
@@ -628,40 +739,80 @@
   </div>
   <div class="trust-item">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-    March 2026 Sitting
+    March 2027 Sitting
   </div>
 </div>
 
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div><span class="stat-num">1</span><div class="stat-lbl">Full OSCE Mock</div></div>
+    <div><span class="stat-num">1–3</span><div class="stat-lbl">Full OSCE Mocks</div></div>
     <div><span class="stat-num">All</span><div class="stat-lbl">Stations Reviewed</div></div>
     <div><span class="stat-num">1:1</span><div class="stat-lbl">Personal Feedback</div></div>
     <div><span class="stat-num">10+</span><div class="stat-lbl">Years of Excellence</div></div>
   </div>
 </div>
 
-<!-- PRICE / ENROLL -->
-<section class="section alt" id="enroll">
+<!-- PICK YOUR MOCKS -->
+<section class="section" id="enroll">
   <div class="section-inner">
-    <div class="section-kicker">All-Inclusive</div>
-    <h2 class="section-title">OSCE Mock Exam Package — March 2026</h2>
-    <p class="section-desc">One full simulated OSCE mock with a complete instructor-led review. Prices are shown in CAD; 13% HST is added securely at checkout.</p>
-    <div class="packages-grid" style="max-width:420px; margin:2.5rem auto 0;">
-      <div class="pkg-card featured">
-        <div class="pkg-name">OSCE Mock Exam</div>
-        <div class="pkg-desc">A full, exam-condition OSCE mock for the March 2026 sitting.</div>
-        <div class="pkg-price">$500</div>
-        <div class="pkg-price-note">per mock · CAD + 13% HST</div>
-        <ul class="pkg-features">
-          <li>One full simulated OSCE mock exam</li>
+    <div class="section-kicker">Choose Your Package</div>
+    <h2 class="section-title">Pick Your OSCE Mocks</h2>
+    <p class="section-desc">Choose 1, 2 or 3 full OSCE mocks — the price updates instantly. Each mock includes an instructor-led review of every station. 13% HST is added securely at checkout.</p>
+    <fieldset class="osce-pick">
+      <legend class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Number of OSCE mocks</legend>
+      <div class="mock-grid">
+        <label class="mock-card selected">
+          <input type="radio" name="osceN" value="1" data-price="500" checked />
+          <div class="mock-check" aria-hidden="true"></div>
+          <span class="mock-num">Package · 01</span>
+          <div class="mock-name">1 OSCE Mock</div>
+          <div class="mock-date">📅 Ahead of the March 2027 NDEB OSCE</div>
+          <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag">Live Review</span></div>
+          <div class="mock-price">$500 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+          <div class="mock-price-note">one full simulated OSCE + HST</div>
+          
+        </label>
+        <label class="mock-card">
+          <input type="radio" name="osceN" value="2" data-price="900" />
+          <div class="mock-check" aria-hidden="true"></div>
+          <span class="mock-num">Package · 02</span>
+          <div class="mock-name">2 OSCE Mocks</div>
+          <div class="mock-date">📅 Ahead of the March 2027 NDEB OSCE</div>
+          <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag">Live Review</span></div>
+          <div class="mock-price">$900 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+          <div class="mock-price-note">2 full simulated OSCEs + HST</div>
+          <span class="save-tag">Save $100</span>
+        </label>
+        <label class="mock-card">
+          <input type="radio" name="osceN" value="3" data-price="1300" />
+          <div class="mock-check" aria-hidden="true"></div>
+          <span class="mock-num">Package · 03</span>
+          <div class="mock-name">3 OSCE Mocks</div>
+          <div class="mock-date">📅 Ahead of the March 2027 NDEB OSCE</div>
+          <div class="mock-tags"><span class="mock-tag">Online</span><span class="mock-tag">Live Review</span></div>
+          <div class="mock-price">$1,300 <span style="font-size:.8rem;font-weight:400;color:var(--muted)">CAD</span></div>
+          <div class="mock-price-note">3 full simulated OSCEs + HST</div>
+          <span class="save-tag">Save $200</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <div class="bundle-summary" id="osceSummary">
+      <div>
+        <div class="summary-kicker" id="osceCount">1 OSCE Mock selected</div>
+        <ul class="summary-list">
+          <li>Full simulated OSCE under exam conditions</li>
           <li>Instructor-led review of every station</li>
-          <li>Live, interactive discussion session</li>
           <li>Personalized performance feedback</li>
           <li>Fully online delivery</li>
         </ul>
-        <a href="/api/osce-mock/checkout" class="pkg-btn pkg-btn-solid">Enroll — $500 + HST →</a>
+      </div>
+      <div class="summary-right">
+        <div class="summary-total-label">Total</div>
+        <div class="summary-total" id="osceTotal">$500</div>
+        <div class="summary-saving" id="osceTax">+ HST $65.00 = $565.00</div>
+        <a class="bundle-enroll-btn" id="osceEnroll" href="/api/osce-mock/checkout/?n=1">Enroll — 1 Mock →</a>
       </div>
     </div>
     <p class="section-desc" style="text-align:center; max-width:640px; margin:1.75rem auto 0;">Previous students are welcome to <a href="/contact-us/" style="color:var(--gold-dark); font-weight:600; text-decoration:none;">contact the office</a> to receive a discount coupon code — it can be applied securely at checkout. Payment is processed through Stripe.</p>
@@ -674,11 +825,11 @@
 <section class="section" id="schedule">
   <div class="section-inner">
     <div class="section-kicker">Exam Date</div>
-    <h2 class="section-title">March 2026 Sitting</h2>
-    <p class="section-desc">The OSCE mock is scheduled ahead of the March 2026 NDEB OSCE. Exact session date, access link and preparation details are emailed upon enrollment, at least one week in advance.</p>
+    <h2 class="section-title">March 2027 Sitting</h2>
+    <p class="section-desc">The OSCE mock is scheduled ahead of the March 2027 NDEB OSCE. Exact session date, access link and preparation details are emailed upon enrollment, at least one week in advance.</p>
     <div class="sched-note" style="margin:0 auto; max-width:640px; padding:1rem 1.25rem; border:1px dashed rgba(15,122,229,.55); border-left:4px solid var(--gold-dark); border-radius:.5rem; background:#fbf8ef;">
       <strong style="display:block; color:var(--navy); font-size:.95rem; margin-bottom:.35rem;">OSCE Mock Exam</strong>
-      <p style="margin:0; font-size:.88rem; color:var(--muted);">Scheduled for <strong style="color:var(--gold-dark);">March 2026</strong>, in preparation for the NDEB OSCE. Delivered online with a live, instructor-led review session.</p>
+      <p style="margin:0; font-size:.88rem; color:var(--muted);">Scheduled for <strong style="color:var(--gold-dark);">March 2027</strong>, in preparation for the NDEB OSCE. Delivered online with a live, instructor-led review session.</p>
     </div>
   </div>
 </section>
@@ -708,10 +859,10 @@
     <div class="section-kicker">FAQ</div>
     <h2 class="section-title">Frequently Asked Questions</h2>
     <div class="faq">
-      <details><summary>Who is this OSCE mock exam designed for?</summary><div class="faq-body">The OSCE Mock Exam is designed for internationally trained dentists preparing for the NDEB Virtual OSCE — a key step toward Canadian dental licensure. It is ideal for candidates sitting the March 2026 exam.</div></details>
-      <details><summary>How much is the OSCE mock exam?</summary><div class="faq-body">One full OSCE mock exam is $500 CAD, plus 13% HST, which is added automatically at checkout. Previous students are welcome to contact the office for a discount coupon code, which can be applied securely during checkout.</div></details>
-      <details><summary>What is included?</summary><div class="faq-body">You get one full simulated OSCE mock under realistic exam conditions, a live instructor-led review of every station, personalized performance feedback, and a live Q&amp;A — all delivered online.</div></details>
-      <details><summary>When does the mock exam take place?</summary><div class="faq-body">The mock is scheduled for March 2026, ahead of the NDEB OSCE. The exact session date, access link and preparation details are emailed upon enrollment, at least one week in advance.</div></details>
+      <details><summary>Who is this OSCE mock exam designed for?</summary><div class="faq-body">The OSCE Mock Exam is designed for internationally trained dentists preparing for the NDEB Virtual OSCE — a key step toward Canadian dental licensure. It is ideal for candidates sitting the March 2027 exam.</div></details>
+      <details><summary>How much is the OSCE mock exam?</summary><div class="faq-body">One OSCE mock is $500, two mocks are $900 and three mocks are $1,300 (CAD), plus 13% HST, which is added automatically at checkout. Previous students are welcome to contact the office for a discount coupon code, which can be applied securely during checkout.</div></details>
+      <details><summary>What is included?</summary><div class="faq-body">You get one, two or three full simulated OSCE mocks under realistic exam conditions, a live instructor-led review of every station, personalized performance feedback, and a live Q&amp;A — all delivered online.</div></details>
+      <details><summary>When does the mock exam take place?</summary><div class="faq-body">The mock is scheduled for March 2027, ahead of the NDEB OSCE. The exact session date, access link and preparation details are emailed upon enrollment, at least one week in advance.</div></details>
       <details><summary>What happens if I miss the discussion session?</summary><div class="faq-body">No recordings are provided for missed live discussion sessions. It is essential to attend in real time (EST — Toronto time zone). If you missed a discussion, you must book an appointment to see the recorded discussion.</div></details>
       <details><summary>How do I enroll and pay?</summary><div class="faq-body">Click any Enroll button to check out securely through Stripe. HST is applied automatically. You will receive a confirmation email with all session details.</div></details>
     </div>
@@ -740,16 +891,34 @@
 <!-- STICKY CTA -->
 <div class="sticky-cta">
   <div class="sticky-info">
-    <strong>OSCE Mock Exam · March 2026</strong>
+    <strong>OSCE Mock Exam · March 2027</strong>
     <span>Simulated OSCE + live review · Enrollment open</span>
   </div>
   <div class="sticky-right">
-    <span class="sticky-price">$500 + HST</span>
-    <a href="/api/osce-mock/checkout" class="btn-gold">Enroll Now →</a>
+    <span class="sticky-price">From $500 + HST</span>
+    <a href="#enroll" class="btn-gold">Choose My Mocks →</a>
   </div>
 </div>
 
 
+<script>
+(function () {
+  var box = document.querySelector('.osce-pick'); if (!box) return;
+  function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function apply() {
+    var r = box.querySelector('input[name="osceN"]:checked'), n = +r.value, price = +r.dataset.price;
+    var hst = Math.round(price * 13) / 100;
+    box.querySelectorAll('.mock-card').forEach(function (c) { c.classList.toggle('selected', c.contains(r)); });
+    document.getElementById('osceCount').textContent = n + ' OSCE Mock' + (n > 1 ? 's' : '') + ' selected';
+    document.getElementById('osceTotal').textContent = '$' + price.toLocaleString('en-CA');
+    document.getElementById('osceTax').textContent = '+ HST ' + fmt(hst) + ' = ' + fmt(price + hst);
+    var a = document.getElementById('osceEnroll');
+    a.href = '/api/osce-mock/checkout/?n=' + n;
+    a.textContent = 'Enroll — ' + n + ' Mock' + (n > 1 ? 's' : '') + ' →';
+  }
+  box.addEventListener('change', apply); apply();
+})();
+</script>
 <script src="/_assets/nav.js" defer></script>
 </body>
 </html>

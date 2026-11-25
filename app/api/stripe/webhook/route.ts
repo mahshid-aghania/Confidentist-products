@@ -253,7 +253,7 @@ export async function POST(req: Request) {
         typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
       const amountLabel = `$${(amountTotal / 100).toFixed(2)} ${currency}`
       const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
-      const selectionLabel = meta.course || 'OSCE Mock Exam — March 2026'
+      const selectionLabel = meta.course || 'OSCE Mock Exam — March 2027'
 
       // Billing address (collected via billing_address_collection=required).
       const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
