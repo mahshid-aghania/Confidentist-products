@@ -49,6 +49,12 @@ type Product = {
   dueDates?: string[]
   // Installments only — no pay-in-full option.
   installmentOnly?: boolean
+  // Fixed order number shared by every payment of a private plan. Taken from the
+  // reserved band 70001–71000: above WooCommerce's ids (~59k) and below the
+  // confi_order_number_seq start (71001), so the sequence can never reuse it.
+  fixedOrderNumber?: string
+  // Show the shipping line ($0.00) on the receipt.
+  showZeroShipping?: boolean
 }
 
 const round2 = (n: number) => Math.round(n * 100) / 100
@@ -120,6 +126,8 @@ const NDECC_PRODUCTS: Record<string, Product> = {
     installments: () => ({ first: 10750, later: [10750] }),
     dueDates: ['December 27, 2026'],
     installmentOnly: true,
+    fixedOrderNumber: '70001',
+    showZeroShipping: true,
   },
 }
 
@@ -172,7 +180,7 @@ export async function GET(req: Request) {
 
   let orderNumber: string
   try {
-    orderNumber = await nextOrderNumber()
+    orderNumber = product.fixedOrderNumber ?? (await nextOrderNumber())
   } catch (e) {
     console.error('ndecc order number error', e)
     return NextResponse.json({ error: 'Could not start checkout. Please try again.' }, { status: 502 })
@@ -213,6 +221,7 @@ export async function GET(req: Request) {
   params.set('metadata[course]', lineName)
   params.set('metadata[course_name]', courseName)
   params.set('metadata[order_number]', orderNumber)
+  if (product.showZeroShipping) params.set('metadata[show_shipping]', '1')
   params.set('metadata[course_subtotal]', option.price.toFixed(2))
   params.set('metadata[tax_mode]', 'hardcoded')
   params.set('metadata[tax_region]', TAX_REGION)

@@ -80,9 +80,12 @@ export async function handleCourseOrder(
   const totals = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
   const shipCents = typeof totals['amount_shipping'] === 'number' ? (totals['amount_shipping'] as number) : 0
   const discountCents = typeof totals['amount_discount'] === 'number' ? (totals['amount_discount'] as number) : 0
+  const zeroShip = !opts.ships && meta['show_shipping'] === '1'
   const shippingLabel = opts.ships
     ? SHIPPING_LABELS[shipCents] || `Shipping (${(shipCents / 100).toFixed(2)})`
-    : 'Not applicable — online course'
+    : zeroShip
+      ? 'No shipping — $0.00'
+      : 'Not applicable — online course'
 
   const orderNo = str(meta['order_number']) || reference
   const courseName = str(meta['course_name']) || str(meta['course']) || opts.defaultCourseName
@@ -135,7 +138,7 @@ export async function handleCourseOrder(
     billingLines: addrLines(billAddr),
     postalCode: str(billAddr['postal_code']),
     shippingLines: opts.ships ? addrLines(shipAddr) : [],
-    showShipping: opts.ships,
+    showShipping: opts.ships || zeroShip,
   }
 
   let emailed = false
