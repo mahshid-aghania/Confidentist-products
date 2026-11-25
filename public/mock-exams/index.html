@@ -341,7 +341,7 @@
     .pkg-card.featured.excl::before { content: 'Most Exclusive'; }
     #choose .packages-grid { max-width: 1000px !important; grid-template-columns: 1fr !important; gap: 1.5rem; }
     @media (min-width: 760px) { #choose .packages-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-    #choose .pkg-card.featured::before { white-space: nowrap; }
+    #choose .pkg-card.featured::before { content: none; display: none; }
     #choose .pkg-card { display: flex; flex-direction: column; }
     #choose .pkg-card .pkg-btn { margin-top: auto; }
     .pkg-sub { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin: 0 0 .55rem; }
