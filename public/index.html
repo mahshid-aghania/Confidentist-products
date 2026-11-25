@@ -814,7 +814,7 @@
        the exact top colour of the next section — shows through the gaps. The hero is
        extended by most of the dissolve depth so the first view keeps its composition. */
     :root { --seam: #f7f1e4; }               /* top colour of the Program Finder section */
-    .hero { --dissolve: 220px; --shift: calc(var(--dissolve) * .78);
+    .hero { --dissolve: 110px; --shift: calc(var(--dissolve) * .78);
       height: calc(100svh + var(--shift)); min-height: calc(min(860px, 100svh) + var(--shift));
       background: var(--seam); }
     .hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
@@ -847,7 +847,7 @@
         linear-gradient(180deg, var(--seam) 0, rgba(247,241,228,0) 260px),
         radial-gradient(120% 90% at 85% -10%, #fdfbf5 0%, #f6efe1 42%, #efe6d2 100%), linear-gradient(180deg,#fcfaf4,#f4ecda); }
     @media (max-width: 767px) {
-      .hero { --dissolve: 120px; }
+      .hero { --dissolve: 60px; }
       .hero .hero-content { bottom: calc(var(--shift) + 2rem); }
     }
 
@@ -860,10 +860,10 @@
     .final { background: var(--bg-soft); }
     @supports ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
       .final-bg {
-        -webkit-mask-image: linear-gradient(0deg, #000 0, #000 calc(100% - 130px), rgba(0,0,0,.85) calc(100% - 110px), rgba(0,0,0,.55) calc(100% - 80px), rgba(0,0,0,.25) calc(100% - 50px), rgba(0,0,0,.06) calc(100% - 22px), rgba(0,0,0,0) 100%), url("/_assets/fx/grain-fade-up.svg");
-                mask-image: linear-gradient(0deg, #000 0, #000 calc(100% - 130px), rgba(0,0,0,.85) calc(100% - 110px), rgba(0,0,0,.55) calc(100% - 80px), rgba(0,0,0,.25) calc(100% - 50px), rgba(0,0,0,.06) calc(100% - 22px), rgba(0,0,0,0) 100%), url("/_assets/fx/grain-fade-up.svg");
-        -webkit-mask-size: 100% 100%, auto 130px;
-                mask-size: 100% 100%, auto 130px;
+        -webkit-mask-image: linear-gradient(0deg, #000 0, #000 calc(100% - 65px), rgba(0,0,0,.85) calc(100% - 55px), rgba(0,0,0,.55) calc(100% - 40px), rgba(0,0,0,.25) calc(100% - 25px), rgba(0,0,0,.06) calc(100% - 11px), rgba(0,0,0,0) 100%), url("/_assets/fx/grain-fade-up.svg");
+                mask-image: linear-gradient(0deg, #000 0, #000 calc(100% - 65px), rgba(0,0,0,.85) calc(100% - 55px), rgba(0,0,0,.55) calc(100% - 40px), rgba(0,0,0,.25) calc(100% - 25px), rgba(0,0,0,.06) calc(100% - 11px), rgba(0,0,0,0) 100%), url("/_assets/fx/grain-fade-up.svg");
+        -webkit-mask-size: 100% 100%, auto 65px;
+                mask-size: 100% 100%, auto 65px;
         -webkit-mask-position: 0 0, 37% 0;
                 mask-position: 0 0, 37% 0;
         -webkit-mask-repeat: no-repeat, repeat-x;
