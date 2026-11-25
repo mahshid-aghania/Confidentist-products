@@ -126,6 +126,9 @@
     .stats-bar { background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: 2rem 1.5rem; }
     .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 1.5rem; text-align: center; }
     .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--navy); display: block; }
+    /* Lining figures so 2, 4 and 8 are the same height (Playfair defaults to old-style numerals) */
+    .stat-num, .chip-val, .mock-price, .mock-name, .summary-total, .sticky-price { font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; }
+    .stats-inner > div:first-child .stat-num { font-size: 2.6rem; letter-spacing: .02em; }
     .stat-lbl { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; margin-top: .2rem; }
 
     /* ──────────────────────────────────────────
