@@ -436,6 +436,10 @@
       *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
       .pw-node:hover, .pw-card:hover, .btn-primary:hover { transform: none; }
     }
+    .pw-guide-cta { margin: 1.1rem 0 1.4rem; }
+    .pw-guide-btn { display: inline-flex; align-items: center; gap: .55rem; background: #0f7ae5; color: #fff; font-weight: 700; font-size: .95rem; padding: .9rem 1.6rem; border-radius: .55rem; text-decoration: none; box-shadow: 0 6px 18px rgba(15,122,229,.3); transition: background .2s, transform .15s; }
+    .pw-guide-btn:hover { background: #0a5cb8; transform: translateY(-1px); }
+    .pw-guide-btn svg { width: 16px; height: 16px; }
   </style>
 <!-- confi-nav-assets v1 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -941,777 +945,85 @@ const pathwayNav = (() => {
       cards: [ ['afk-hub', 'Recommended'], ['bundles', 'Bundle'], ['afk-mock', 'Mock practice'] ]
     },
     afk: {
-      label: 'Preparing for AFK',
-      heading: 'AFK',
-      html: `
-<div class="osce-panel">
-
-  <div class="afk-restart-row">
-    <button type="button" class="pw-restart" id="pwRestart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Start again</button>
-  </div>
-
-  <!-- 1. Achievement strip -->
-  <div class="afk-ach">
-    <div class="osce-block-head" style="margin-bottom:0">
-      <span class="kicker">Our Achievements</span>
-      <h2 class="h-title" id="pw-result-title" tabindex="-1" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Our Achievements: Real Results, Real Success!</h2>
-      <p class="osce-note-sub">Over the Past 10 Years</p>
-    </div>
-    <div class="osce-stats">
-      <div class="osce-stat"><div class="osce-stat-num">4,000+</div><div class="osce-stat-label">Students</div></div>
-      <div class="osce-stat"><div class="osce-stat-num">93.4%</div><div class="osce-stat-label">Passing Rate</div></div>
-      <div class="osce-stat"><div class="osce-stat-num">97%</div><div class="osce-stat-label">Satisfaction Rate</div></div>
-    </div>
-  </div>
-
-  <!-- 2. Welcome -->
-  <div class="osce-welcome">
-    <h3>Your AFK Journey Starts Here</h3>
-    <p>Congratulations on taking the first step toward your AFK exam. With structured learning, focused practice, and personal guidance, ConfiDentist is here to support your preparation. Choose the package that fits your schedule, study needs, and target exam.</p>
-    <a class="btn-primary afk-welcome-btn" id="afkCompareBtn" href="#afkPackages">Compare AFK Packages
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 13l7 7 7-7"/></svg>
-    </a>
-  </div>
-
-  <!-- 5 + 6. Exam-date notice + package comparison -->
-  <div id="afkPackages">
-    <div class="osce-block-head">
-      <span class="kicker">AFK Packages</span>
-      <h2 class="h-title" data-pkgs-title tabindex="-1" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Choose Your AFK Preparation Package</h2>
-      <p class="osce-note-sub" style="margin-top:.6rem;max-width:620px;margin-left:auto;margin-right:auto">Compare the study timeline, practice opportunities, and support included in each package.</p>
-    </div>
-
-    <p class="afk-examnote">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      <span>Upcoming NDEB AFK exam dates: <strong>February 5, 2027</strong> and <strong>August 13, 2027</strong>. Course start dates are shown with each package below. <a href="https://ndeb-bned.ca/examination-dates-and-locations/" target="_blank" rel="noopener">View the official NDEB schedule</a>.</span>
-    </p>
-
-    <div class="osce-pkgs afk-pkgs">
-
-      <!-- Package A: Extended -->
-      <article class="osce-card afk-card-ext">
-        <span class="osce-badge afk-badge-exp">Most Expanded</span>
-        <h4>Extended</h4>
-        <p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">A longer preparation timeline with additional lectures and personalized study support.</p>
-        <div class="afk-cohorts afk-ghost" aria-hidden="true">
-          <p class="osce-sub afk-ghost-legend" style="margin:0 0 .1rem">Choose your exam cohort</p>
-          <span class="afk-cohort"><span class="afk-cohort-t">August 2027 exam</span><span class="afk-cohort-s">Starts February 2027</span></span>
-          <span class="afk-cohort"><span class="afk-cohort-t">February 2027 exam</span><span class="afk-cohort-s">In progress · started July 2026</span></span>
-        </div>
-        <p class="osce-start">Course starts <strong>December 13, 2026</strong> · Target exam <strong>August 13, 2027</strong></p>
-        <div class="osce-amount"><span class="osce-price-reg">$6,999</span><span class="osce-price">$6,499</span></div>
-        <p class="osce-hst"><strong>CAD</strong> + HST</p>
-        <p class="osce-earlybird afk-ghost" aria-hidden="true">Early-bird discount valid until 10 days before the course start date. Current discounted pricing is confirmed at checkout.</p>
-        <div class="osce-bench">
-          <p class="osce-bench-h">Best suited for</p>
-          <ul>
-            <li>Candidates returning after a long gap in studies</li>
-            <li>Busy or working professionals</li>
-            <li>Candidates preparing while completing NDEB paperwork</li>
-            <li>Candidates who need a more manageable study pace</li>
-          </ul>
-        </div>
-        <p class="osce-sub">What's included</p>
-        <ul class="osce-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-month online training program</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>78 total lectures: live and prerecorded</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14 quizzes with discussion</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mini mock exams</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams and 8 discussion sessions — 1 attempt</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 final review sessions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized study plan</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mid-course progress evaluation session</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>VIP WhatsApp group membership</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets covering 13 topics</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 free attempt for lectures within 2 years of the registration date</li>
-        </ul>
-        <a class="osce-reg" href="https://www.confidentist.ca/product/afk-extended-aug-2026/">Register for August 2027 →</a>
-      </article>
-
-      <!-- Package B: Comprehensive (two cohorts) -->
-      <article class="osce-card afk-card-pop" id="compCard">
-        <span class="osce-badge">Most Popular</span>
-        <h4>Comprehensive</h4>
-        <p class="pw-result-intro" style="margin:0 0 .6rem;font-size:.9rem">A focused preparation pathway for candidates ready to commit to a more intensive study schedule.</p>
-
-        <fieldset class="afk-cohorts" aria-label="Choose your Comprehensive cohort">
-          <legend class="osce-sub" style="margin-top:0">Choose your exam cohort</legend>
-          <label class="afk-cohort">
-            <input type="radio" name="compCohort" value="aug" class="sr-only" checked>
-            <span class="afk-cohort-t">August 2027 exam</span>
-            <span class="afk-cohort-s">Starts February 2027</span>
-          </label>
-          <label class="afk-cohort">
-            <input type="radio" name="compCohort" value="feb" class="sr-only">
-            <span class="afk-cohort-t">February 2027 exam</span>
-            <span class="afk-cohort-s">In progress · started July 2026</span>
-          </label>
-        </fieldset>
-
-        <p class="osce-start">Course starts <strong data-c-start>February 2027</strong> · Target exam <strong data-c-exam>August 13, 2027</strong></p>
-        <div class="osce-amount" data-c-price><span class="osce-price">$4,999</span></div>
-        <p class="osce-hst" data-c-hst><strong>CAD</strong> + HST</p>
-        <p class="osce-earlybird" data-c-note>Early-bird discount valid until 10 days before the course start date. Current discounted pricing is confirmed at checkout.</p>
-        <div class="osce-bench">
-          <p class="osce-bench-h">Best suited for</p>
-          <ul>
-            <li>Candidates able to dedicate longer hours to studying</li>
-            <li>Retakers seeking more structure and guidance</li>
-            <li>Retakers who know which areas they need to improve</li>
-            <li>Candidates seeking a payment plan</li>
-          </ul>
-        </div>
-        <p class="osce-sub">What's included</p>
-        <ul class="osce-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-month online training program</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>65 total lectures: live and prerecorded</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 quizzes with discussion</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 mini mock exams</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams and 8 discussion sessions — 1 attempt</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 final review sessions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>VIP WhatsApp group membership</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets covering 13 topics</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 free attempt for lectures within 2 years of the registration date</li>
-        </ul>
-        <a class="osce-reg" data-c-reg href="https://www.confidentist.ca/product/afk-comprehensive-feb-2027-6p/">Register for August 2027 →</a>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- 7. Key differences -->
-  <div>
-    <div class="osce-block-head">
-      <span class="kicker">At a Glance</span>
-      <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Compare the Key Differences</h2>
-    </div>
-    <div class="afk-diff-wrap">
-      <table class="afk-diff">
-        <thead><tr><th scope="col">Feature</th><th scope="col">Extended</th><th scope="col">Comprehensive</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Training duration</th><td class="yes">8 months</td><td>6 months</td></tr>
-          <tr><th scope="row">Total lectures</th><td class="yes">78</td><td>65</td></tr>
-          <tr><th scope="row">Quizzes with discussion</th><td class="yes">14</td><td>11</td></tr>
-          <tr><th scope="row">Personalized study plan</th><td class="yes">Included</td><td>-</td></tr>
-          <tr><th scope="row">Mid-course progress evaluation</th><td class="yes">Included</td><td>-</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 8. Schedule -->
-  <div>
-    <div class="osce-block-head">
-      <span class="kicker">AFK Course Schedule</span>
-      <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Explore the AFK Course Schedule</h2>
-    </div>
-    <p class="osce-closing" style="margin-bottom:1.25rem">Explore the course format, session schedule, and learning experience to find the preparation pathway that fits your needs.</p>
-    <div class="osce-sched">
-      <a href="/afk-schedule-feb-2027/">View AFK Schedule — Comprehensive, February 5, 2027 exam cohort</a>
-    </div>
-  </div>
-
-  <p class="osce-closing">To meet the diverse needs of our audience, ConfiDentist has designed the AFK course in various formats, leveraging our many years of experience. <a href="/contact-us/" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact an advisor</a> to learn more about these courses and their features.</p>
-
-</div>`,
-      onMount: function (root) {
-        // Welcome "Compare AFK Packages" → smooth scroll (respecting reduced motion)
-        var cmp = root.querySelector('#afkCompareBtn');
-        var pkgs = root.querySelector('#afkPackages');
-        if (cmp && pkgs) cmp.addEventListener('click', function (e) {
-          e.preventDefault();
-          try { pkgs.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' }); } catch (_) {}
-          var h = pkgs.querySelector('[data-pkgs-title]');
-          if (h) h.focus({ preventScroll: true });
-          track('afk_compare_packages', {});
-        });
-
-        // Comprehensive cohort selector — updates price, dates, note and registration together.
-        var card = root.querySelector('#compCard');
-        if (!card) return;
-        var COH = {
-          aug: {
-            start: 'February 2027', exam: 'August 13, 2027',
-            priceHTML: '<span class="osce-price">$4,999</span>',
-            hst: '<strong>CAD</strong> + HST',
-            note: 'Early-bird discount valid until 10 days before the course start date. Current discounted pricing is confirmed at checkout.',
-            cta: 'Register for August 2027',
-            href: 'https://www.confidentist.ca/product/afk-comprehensive-feb-2027-6p/'
-          },
-          feb: {
-            start: 'July 12, 2026', exam: 'February 5, 2027',
-            priceHTML: '<span class="osce-price-reg">$4,999</span><span class="osce-price">$2,799</span>',
-            hst: '<strong>CAD</strong> + HST',
-            note: 'Limited-time discount. A flexible 3-installment payment plan is available at checkout.',
-            cta: 'Register for February 2027',
-            href: '/afk-feb-2027-comprehensive/'
-          }
-        };
-        function apply(key) {
-          var c = COH[key];
-          if (!c) return;
-          var set = function (sel, val, html) {
-            var el = card.querySelector(sel);
-            if (!el) return;
-            if (html) el.innerHTML = val; else el.textContent = val;
-          };
-          set('[data-c-start]', c.start);
-          set('[data-c-exam]', c.exam);
-          set('[data-c-price]', c.priceHTML, true);
-          set('[data-c-hst]', c.hst, true);
-          set('[data-c-note]', c.note);
-          var reg = card.querySelector('[data-c-reg]');
-          if (reg) { reg.textContent = c.cta + ' →'; reg.setAttribute('href', c.href); }
-          track('afk_cohort_selected', { cohort: key });
-        }
-        var radios = card.querySelectorAll('input[name="compCohort"]');
-        Array.prototype.forEach.call(radios, function (r) {
-          r.addEventListener('change', function () { if (r.checked) apply(r.value); });
-        });
-        apply('aug');
-      }
+      label: "Preparing for AFK",
+      heading: "AFK \u2014 Assessment of Fundamental Knowledge",
+      intro: "The AFK is the first NDEB equivalency exam. ConfiDentist offers two pathways \u2014 Comprehensive and Extended \u2014 with live sessions, recorded content and mock exams. Next NDEB AFK exam: Friday, August 13, 2027.",
+      guide: true,
+      primary: { label: "View AFK Programs & Register", href: "/afk-programs/" },
+      actions: [
+        { label: "AFK Comprehensive", desc: "Full program with schedule and registration", href: "/afk-programs/comprehensive/" },
+        { label: "AFK Extended", desc: "Extended pathway with schedule and registration", href: "/afk-programs/extended/" },
+        { label: "AFK Schedule \u2014 August 2027", desc: "Session dates and times", href: "/afk-schedule-aug-2027/" },
+        { label: "AFK Mock Exams", desc: "Choose 1 to 4 mock exams with live discussions", href: "/afk-mock-exams/" }
+      ]
     },
     acj: {
-      label: 'Preparing for ACJ',
-      heading: 'Take the Next Step in Your Dental Equivalency Journey',
-      html: cPanel(
-        cRestart()
-        + cAchievements({ titleId: 'pw-result-title', title: 'Our Achievements: Real Results, Real Success!', timeframe: 'Over the Past 10 Years', stats: [['4,500+','Students'],['92.3%','Passing Rate'],['96%','Satisfaction Rate']] })
-        + cWelcome({
-            heading: 'Take the Next Step in Your Dental Equivalency Journey',
-            paras: ['Prepare for the Assessment of Clinical Judgement with a structured seven-month course combining quizzes, mock exams, guided discussions, and private mentorship. The Comprehensive package is an online, 7-month program with 100+ sessions.'],
-            cta: { label: 'Explore the ACJ Package', scrollTo: '#acjPackages', href: '#acjPackages' }
-          })
-        + cPackages(
-            { id: 'acjPackages', gridClass: 'is-single', kicker: 'ACJ Packages', heading: 'Choose Your ACJ Preparation Package', sub: 'One comprehensive pathway covering quizzes, mock exams, discussions, and mentorship for the May 2027 ACJ exam.',
-              note: `<p class="afk-examnote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Target NDEB ACJ exam: <strong>May 2027</strong>. The course start date is shown on the package below.</span></p>` },
-            [ cCard({
-                variant: 'pop', badge: 'Most Popular', name: 'Comprehensive',
-                desc: 'A complete ACJ preparation pathway: quizzes, mini and full mock exams, guided discussions, and private mentorship.',
-                start: 'Course starts <strong>October 2026</strong> · Target exam <strong>May 2027</strong>',
-                priceReg: '$3,199', price: '$3,039', hst: '+ HST',
-                note: 'Early Bird Offer — save CAD $160. Interest-free installment plan available at checkout.',
-                groups: [
-                  { title: 'What\'s included', items: [
-                    '7-month online program · 100+ sessions',
-                    '20 quizzes with live discussions',
-                    'X-Ray Practice Library',
-                    '14 mock exams total: 10 mini mocks + 4 full mocks',
-                    '8 mock discussion sessions',
-                    'VIP WhatsApp group membership',
-                    'Private mentorship' ] },
-                  { title: 'Mini mock exam focus areas', items: [
-                    'Radiology review with discussion',
-                    'Case review with discussion',
-                    'Operative dentistry and radiology with discussion',
-                    'Pathology with discussion' ] }
-                ],
-                reg: { label: 'Register for May 2027 Exam — Now Open', href: 'https://www.confidentist.ca/product/acj-comprehensive-may-2027-copy/' },
-                reg2: { label: 'View ACJ Schedule — May 2027', href: '/acj-schedule-may-2027/' }
-              }) ]
-          )
-        + cSchedule({ kicker: 'ACJ Course Schedule', heading: 'Explore the ACJ Course Schedule', intro: 'Review the session schedule for the Comprehensive course targeting the May 2027 ACJ exam.', links: [ { label: 'View ACJ Schedule — May 2027', href: '/acj-schedule-may-2027/' } ] })
-        + cClosing(`Prepare for the Assessment of Clinical Judgement with ConfiDentist. <a href="mailto:info@confidentist.ca" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact our team</a> to learn more about the ACJ course and how it fits your preparation timeline.`)
-        + cContact()
-      )
+      label: "Preparing for ACJ",
+      heading: "ACJ \u2014 Assessment of Clinical Judgement",
+      intro: "After the AFK, the ACJ tests clinical judgement through case-based questions. Our ACJ program prepares you with structured sessions and practice for the May 2027 exam.",
+      guide: true,
+      primary: { label: "View ACJ Programs & Register", href: "/acj-programs/" },
+      actions: [
+        { label: "ACJ Schedule \u2014 May 2027", desc: "Session dates and times", href: "/acj-schedule-may-2027/" }
+      ]
     },
     ndecc: {
-      label: 'Preparing for NDECC',
-      heading: 'Prepare for Your Next Step with NDECC',
-      html: `<div class="osce-panel">`
-        + cRestart()
-        + `<div class="osce-block-head"><span class="kicker">NDECC Preparation</span><h2 class="h-title" id="pw-result-title" tabindex="-1" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Prepare for Your Next Step with NDECC</h2><p class="osce-note-sub" style="max-width:620px;margin-left:auto;margin-right:auto">Explore Clinical Skills and Situational Judgement preparation, or combine both through the Brilliant Bundle. Find the training, practice, and guidance that fit your preparation needs.</p></div>`
-        + `<div class="ndecc-tabs" role="tablist" aria-label="NDECC preparation options">
-    <button type="button" class="ndecc-tab" role="tab" id="ndtab-clinical" aria-controls="ndpanel-clinical" aria-selected="true" data-view="clinical"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8M9 2v3a6 6 0 0 0 .4 2.2L6 14a4 4 0 0 0 3.7 5.5h4.6A4 4 0 0 0 18 14l-3.4-6.8A6 6 0 0 0 15 5V2"/></svg>Clinical Skills</button>
-    <button type="button" class="ndecc-tab" role="tab" id="ndtab-sj" aria-controls="ndpanel-sj" aria-selected="false" tabindex="-1" data-view="sj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Situational Judgement</button>
-    <button type="button" class="ndecc-tab" role="tab" id="ndtab-bundle" aria-controls="ndpanel-bundle" aria-selected="false" tabindex="-1" data-view="bundle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8l9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg>Brilliant Bundle</button>
-  </div>`
-        + `<div class="ndecc-panel" role="tabpanel" id="ndpanel-clinical" aria-labelledby="ndtab-clinical">`
-          + cAchievements({ title: 'Our Achievements: Real Results, Real Success!', timeframe: 'Over the Past 10 Years', stats: [['1,500+','Students'],['75%','Passing Rate'],['93%','Satisfaction Rate']] })
-          + cWelcome({ heading: 'Build Your Clinical Skills with Guided, Hands-On Preparation', paras: ['Prepare for the Clinical Skills component with structured training, recorded demonstrations, coaching, and personalized feedback. ConfiDentist supports your progress through practical learning and mentorship.'], cta: { label: 'View Clinical Skills Package', scrollTo: '#pkgs-clinical', href: '#pkgs-clinical' } })
-          + cPackages({ id: 'pkgs-clinical', gridClass: 'is-single', kicker: 'Clinical Skills Packages', heading: 'Core Package' },
-              [ cCard({ variant: 'pop', badge: 'Core Package', name: 'Core Package', desc: 'Structured, hands-on Clinical Skills preparation with coaching and mentorship.', price: '$5,999', hst: '+ HST',
-                  bench: { title: 'Best suited for', items: ['Candidates seeking structured, focused preparation with hands-on support.'] },
-                  includes: ['3-month program','Recorded demonstrations','6-day lab access','Continuous coaching','Morning shifts','Mentorship and feedback'],
-                  footnote: 'As stated by ConfiDentist, program instructors passed the NDECC exam in the 700 series. Interest-free installment plan available at checkout.',
-                  reg: { label: 'Register for Clinical Skills', href: '/ndecc-programs/clinical-skills/register/' } }) ])
-          + cPackages({ kicker: 'Related Options', heading: 'Compare or Add Focused Practice' },
-              [ cCard({ variant: 'ext', badge: 'All-Inclusive', badgeClass: 'afk-badge-exp', name: 'The Brilliant Bundle', desc: 'Clinical Skills + Situational Judgement in one coordinated program.', price: '$24,499', hst: '+ HST', reg: { label: 'Explore the Brilliant Bundle', isButton: true, goto: 'bundle' } }),
-                cCard({ badge: 'Mock Only', name: 'Clinical Skills Mock Exam', desc: 'Mock exam only — does not include the full course.', price: '$1,250', hst: '+ HST', reg: { label: 'View Clinical Skills Mock Exam', href: '/ndecc-programs/skills-mock-exam/register/' } }) ])
-          + cClosing(`<strong>Materials and tools support:</strong> we aim to make commonly used training materials available to support your preparation. Availability may vary. <a href="mailto:info@confidentist.ca" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact our team</a> for current material options and pricing.`)
-        + `</div>`
-        + `<div class="ndecc-panel" role="tabpanel" id="ndpanel-sj" aria-labelledby="ndtab-sj" hidden>`
-          + cAchievements({ title: 'Our Achievements: Real Results, Real Success!', timeframe: 'Over the Past 3 Years', stats: [['200+','Students'],['81%','Passing Rate'],['93%','Satisfaction Rate']] })
-          + cWelcome({ heading: 'Practice Your Judgement. Strengthen Your Communication.', paras: ['Prepare through realistic scenarios, written exercises, role-play, and personalized feedback. Our private course combines recorded learning with small-group, in-person practice — private in-person classes run with up to 7 participants per class.'], cta: { label: 'Compare SJ Packages', scrollTo: '#pkgs-sj', href: '#pkgs-sj' } })
-          + cPackages({ id: 'pkgs-sj', kicker: 'Situational Judgement Packages', heading: 'Choose Your Situational Judgement Package', sub: 'Both packages share the same in-person core course. The Comprehensive package adds an 8-exam mock package.' },
-              [ cCard({ variant: 'pop', badge: 'Exclusive & Interactive', name: 'Comprehensive', desc: 'Core Package + Mock Exam Package', price: '$7,599', hst: '+ HST',
-                  groups: [
-                    { title: 'Core course includes', items: ['Participation in role-play and written exercises','64 hours of sessions (16 four-hour sessions)','200+ scenarios covered','Personalized feedback','Comprehensive learning resources','Recorded video explanations and course notes','3-month structure: Month 1 recorded videos; Months 2–3 in-person classes','Private class setting with up to 7 participants'] },
-                    { title: 'Mock exam package includes', items: ['8 full mock exams covering written and role-play stations','One-on-one personalized feedback after every mock','Private post-mock discussions','On-site delivery at the training centre','Mock package structured for completion in 4 weeks'] }
-                  ],
-                  reg: { label: 'Register for Comprehensive', href: '/ndecc-programs/situational-judgement/register/?o=comprehensive' } }),
-                cCard({ variant: 'ext', badge: 'Exclusive & Interactive', badgeClass: 'afk-badge-exp', name: 'Core', desc: 'The core in-person course, without the 8-mock exam package.', price: '$4,499', hst: '+ HST',
-                  includes: ['Participation in role-play and written exercises','64 hours of sessions (16 four-hour sessions)','200+ scenarios covered','Personalized feedback','Comprehensive learning resources','Recorded video explanations and course notes','3-month structure: Month 1 recorded videos; Months 2–3 in-person classes','Private class setting with up to 7 participants'],
-                  footnote: 'The 8 full mock exams are included with Comprehensive, not Core.',
-                  reg: { label: 'Register for Core', href: '/ndecc-programs/situational-judgement/register/' } }) ])
-          + cSchedule({ kicker: 'Situational Judgement Schedule', heading: 'Explore the Session Schedule', links: [ { label: 'View Situational Judgement Schedule', href: '/ndecc-programs/situational-judgement/' } ] })
-          + cPackages({ kicker: 'Related Options', heading: 'Bundle or Add Focused Practice' },
-              [ cCard({ variant: 'ext', badge: 'All-Inclusive', badgeClass: 'afk-badge-exp', name: 'The Brilliant Bundle', desc: 'Clinical Skills + Situational Judgement in one coordinated program.', price: '$24,499', hst: '+ HST', reg: { label: 'Explore the Brilliant Bundle', isButton: true, goto: 'bundle' } }),
-                cCard({ badge: 'Mock Only', name: 'Situational Judgement Mock Exam', desc: 'Mock exam only · available in multiple quantities. From $1,200 (2 mock exams) to $3,100 (8 mock exams).', price: '$1,200–$3,100', hst: '+ HST', reg: { label: 'Explore Mock Exam Options', href: '/ndecc-programs/situational-judgement-mock-exam/register/' } }) ])
-          + `<div class="ndecc-inst">
-      <div class="osce-block-head" style="margin-bottom:0">
-        <span class="kicker">Your Instructors</span>
-        <h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Learn From Experienced Clinicians</h2>
-      </div>
-      <div class="ndecc-inst-grid">
-        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">MA</div><div class="ndecc-inst-name">Dr. Mehdi Adibrad</div><div class="ndecc-inst-role">SJ Instructor</div></div>
-        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">AA</div><div class="ndecc-inst-name">Dr. Amin Asadollahi</div><div class="ndecc-inst-role">SJ Instructor</div></div>
-        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">MI</div><div class="ndecc-inst-name">Dr. Mark Ibrahim</div><div class="ndecc-inst-role">SJ Instructor</div></div>
-        <div class="ndecc-inst-card"><div class="ndecc-inst-mono" aria-hidden="true">FK</div><div class="ndecc-inst-name">Dr. Fardad Kamalian</div><div class="ndecc-inst-role">SJ Instructor</div></div>
-      </div>
-    </div>`
-        + `</div>`
-        + `<div class="ndecc-panel" role="tabpanel" id="ndpanel-bundle" aria-labelledby="ndtab-bundle" hidden>`
-          + cWelcome({ heading: 'The Brilliant Bundle', paras: ['Bring both components of your NDECC preparation together in one coordinated program. Explore the Clinical Skills and Situational Judgement training, practice, and support included in the Brilliant Bundle. The bundle is a coordinated program — its Clinical Skills duration, coaching days, and mock quantities differ from the standalone Core packages.'], cta: { label: 'View Bundle Inclusions', scrollTo: '#pkgs-bundle', href: '#pkgs-bundle' } })
-          + cPackages({ id: 'pkgs-bundle', gridClass: 'is-single', kicker: 'Brilliant Bundle', heading: 'The Brilliant Bundle' },
-              [ cCard({ variant: 'pop', badge: 'All-Inclusive', badgeClass: 'afk-badge-exp', name: 'The Brilliant Bundle', desc: 'Clinical Skills + Situational Judgement', price: '$24,499', hst: '+ HST', note: 'Interest-free installment plan available at checkout.',
-                  groups: [
-                    { title: 'Clinical Skills training', items: ['6-month program','Recorded demonstrations','6-day lab access','5-day onsite coaching','Mentorship and feedback'] },
-                    { title: 'Clinical Skills mock exams', items: ['5 full mock exams','Complete set of instruments','8-hour supervision','Infection control','1-hour post-mock discussion'] },
-                    { title: 'Situational Judgement training', items: ['Full role-play and written participation','16 four-hour sessions (64 hours total)','200+ scenarios','Personalized feedback','Comprehensive resources (Month 1 recorded; Months 2–3 in-person)'] },
-                    { title: 'Situational Judgement mock exams', items: ['8 full mock exams (written + role-play)','1-on-1 personalized feedback after each','Private post-mock discussions','Onsite at our centre','Structured for completion in 4 weeks'] },
-                    { title: 'Included tools & materials', items: ['Basic tools to begin your course'] }
-                  ],
-                  footnote: 'Material availability may vary and cannot be guaranteed at all times. Contact our team for current options.',
-                  reg: { label: 'Register for the Brilliant Bundle', href: '/ndecc-programs/bundles/register/' } }) ])
-          + cPackages({ kicker: 'Keep Exploring', heading: 'Review Each Component' },
-              [ cCard({ variant: 'ext', name: 'Clinical Skills', desc: 'Core Package training, lab access, and mentorship.', hst: false, reg: { label: 'Explore Clinical Skills', isButton: true, goto: 'clinical' } }),
-                cCard({ variant: 'ext', name: 'Situational Judgement', desc: 'Core and Comprehensive packages with mock exams.', hst: false, reg: { label: 'Explore Situational Judgement', isButton: true, goto: 'sj' } }) ])
-        + `</div>`
-        + cContact()
-        + `</div>`,
-      onMount: function (root) {
-        var VIEWS = ['clinical', 'sj', 'bundle'];
-        var tabs = Array.prototype.slice.call(root.querySelectorAll('.ndecc-tab'));
-        var tablist = root.querySelector('.ndecc-tabs');
-        var panels = {
-          clinical: root.querySelector('#ndpanel-clinical'),
-          sj: root.querySelector('#ndpanel-sj'),
-          bundle: root.querySelector('#ndpanel-bundle')
-        };
-        function currentView() {
-          for (var i = 0; i < tabs.length; i++) {
-            if (tabs[i].getAttribute('aria-selected') === 'true') return tabs[i].dataset.view;
-          }
-          return 'clinical';
-        }
-        function show(view, opts) {
-          opts = opts || {};
-          if (VIEWS.indexOf(view) < 0) view = 'clinical';
-          tabs.forEach(function (t) {
-            var on = t.dataset.view === view;
-            t.setAttribute('aria-selected', on ? 'true' : 'false');
-            t.setAttribute('tabindex', on ? '0' : '-1');
-          });
-          VIEWS.forEach(function (v) { if (panels[v]) panels[v].hidden = (v !== view); });
-          if (opts.sync !== false) {
-            try {
-              var params = new URLSearchParams(window.location.search);
-              params.set('stage', 'ndecc');
-              params.set('ndecc', view);
-              history.pushState({ pwStage: 'ndecc', ndecc: view }, '', window.location.pathname + '?' + params.toString());
-            } catch (_) {}
-          }
-          if (opts.focusTab) {
-            var at = tabs.filter(function (t) { return t.dataset.view === view; })[0];
-            if (at) try { at.focus(); } catch (_) {}
-          }
-          track('ndecc_view_selected', { view: view });
-        }
-        tabs.forEach(function (t) {
-          t.addEventListener('click', function () { show(t.dataset.view, { focusTab: false }); });
-        });
-        if (tablist) tablist.addEventListener('keydown', function (e) {
-          var idx = VIEWS.indexOf(currentView());
-          var ni = idx;
-          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') ni = (idx + 1) % VIEWS.length;
-          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ni = (idx - 1 + VIEWS.length) % VIEWS.length;
-          else if (e.key === 'Home') ni = 0;
-          else if (e.key === 'End') ni = VIEWS.length - 1;
-          else return;
-          e.preventDefault();
-          show(VIEWS[ni], { focusTab: true });
-        });
-        root.querySelectorAll('[data-goto]').forEach(function (b) {
-          b.addEventListener('click', function (e) {
-            e.preventDefault();
-            show(b.dataset.goto, { focusTab: false });
-            if (tablist) try { tablist.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' }); } catch (_) {}
-          });
-        });
-        var initView = null;
-        try { initView = new URLSearchParams(window.location.search).get('ndecc'); } catch (_) {}
-        show(initView || 'clinical', { sync: false });
-      }
+      label: "Preparing for NDECC",
+      heading: "NDECC \u2014 Clinical Skills & Situational Judgement",
+      intro: "The NDECC has two components: a hands-on Clinical Skills exam and a Situational Judgement exam. Choose a program for one component, or the Brilliant Bundle for both.",
+      guide: true,
+      primary: { label: "View NDECC Programs & Register", href: "/ndecc-programs/" },
+      actions: [
+        { label: "Clinical Skills", desc: "3- or 6-month hands-on course", href: "/ndecc-programs/clinical-skills/" },
+        { label: "Situational Judgement", desc: "Core and Comprehensive courses", href: "/ndecc-programs/situational-judgement/" },
+        { label: "The Brilliant Bundle", desc: "Both components, courses and mock exams together", href: "/ndecc-programs/bundles/" },
+        { label: "NDECC Mock Exams", desc: "Clinical Skills and Situational Judgement mocks", href: "/mock-exams/" }
+      ]
     },
     osce: {
-      label: 'Preparing for Virtual OSCE',
-      heading: 'Virtual OSCE',
-      html: cPanel(
-        cRestart()
-        + cAchievements({ titleId: 'pw-result-title', title: 'Our Achievements: Real Results, Real Success!', timeframe: 'Over the Past 10 Years', stats: [['1,000+','Students'],['99%','Passing Rate'],['100%','Satisfaction Rate']] })
-        + cWelcome({ heading: 'Congratulations', paras: [
-            "On making it this far! You've successfully navigated through all the necessary steps, and now you're at the final hurdle in the equivalency process — the OSCE exam. Your efforts have been invaluable, and we are confident that you will pass this last step with strength and determination.",
-            "Based on our extensive experience, we've meticulously designed this course to meet all your needs for the OSCE exam. We're here to ensure you're fully prepared, confident, and ready to succeed.",
-            "Welcome to our OSCE course — let's take this final step together!" ],
-            note: 'The next NDEB exam date is March 1, 2027',
-            noteHref: 'https://ndeb-bned.ca/',
-            cta: { label: 'Compare OSCE Cohorts', scrollTo: '#oscePackages', href: '#oscePackages' } })
-        + cPackages({ id: 'oscePackages', kicker: 'Virtual OSCE Packages', heading: 'Choose Your Exam Cohort', note: `<p class="osce-uni"><strong>University students:</strong> please email the office with your university email address to receive your special offer for the course or its mock exams.</p>` },
-            [
-              cCard({ badge: 'Most Popular · Comprehensive', name: 'Comprehensive', start: 'Course Start Date: December 19 · for the March 2027 exam', price: '$2,799', hst: '+ HST',
-                includes: ['Course orientation','2.5 months course','9 online lectures','4 online quizzes','3 full online mock exams (200 questions each)','6 online mock discussion sessions','2 handouts covering all important topics related to the Virtual OSCE exam','1 booklet including 1,500+ new multiple-choice questions for the written part'],
-                reg: { label: 'Register Now for March 2027', href: '/virtual-osce/march-2027/' } })
-            ])
-        + cSchedule({ kicker: 'Virtual OSCE Schedule', heading: 'Explore the OSCE Course Schedule', links: [ { label: 'OSCE Schedule — March 2027', href: '/virtual-osce-schedule-march-2027/' } ] })
-        + cClosing(`To meet the diverse needs of our audience, ConfiDentist has designed the OSCE course in the best format, leveraging our many years of experience. <a href="mailto:info@confidentist.ca" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact our team</a> to learn more about this course and its features.`)
-      )
+      label: "Preparing for Virtual OSCE",
+      heading: "Virtual OSCE",
+      intro: "Prepare for the NDEB Virtual OSCE with simulated stations, live practice and instructor feedback. The current course starts December 19 for the March 2027 exam.",
+      guide: true,
+      primary: { label: "View Virtual OSCE & Register", href: "/virtual-osce/" },
+      actions: [
+        { label: "Virtual OSCE \u2014 March 2027", desc: "Course details and registration", href: "/virtual-osce/march-2027/" },
+        { label: "OSCE Schedule \u2014 March 2027", desc: "Session dates and times", href: "/virtual-osce-schedule-march-2027/" },
+        { label: "OSCE Mock Exams", desc: "Choose 1, 2 or 3 full OSCE mocks", href: "/osce-mock-exams/" }
+      ]
     },
     adat: {
-      label: 'Preparing for ADAT',
-      heading: 'What Is the Advanced Dental Admission Test (ADAT)?',
-      html: cPanel(
-        cRestart()
-        + cAchievements({ titleId: 'pw-result-title', title: 'Our Achievements: Real Results, Real Success!', timeframe: 'Over the Past 3 Years', stats: [['100+','Students'],['91.2%','Passing Rate'],['98%','Satisfaction Rate']] })
-        + cWelcome({
-            heading: 'What Is the Advanced Dental Admission Test (ADAT)?',
-            paras: ['The Advanced Dental Admission Test (ADAT) is a standardized examination developed by the American Dental Association (ADA) to help advanced dental education programs assess applicants’ readiness for postgraduate training. It evaluates biomedical knowledge, clinical understanding, and critical thinking skills.'],
-            cta: { label: 'Explore ADAT Packages', scrollTo: '#adatPackages', href: '#adatPackages' }
-          })
-        + `<div>
-    <div class="osce-block-head"><span class="kicker">About the ADAT</span><h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Understanding the Exam</h2></div>
-    <p class="osce-closing" style="margin-bottom:1rem">Programs may consider ADAT scores alongside academic performance, clinical experience, research background, letters of recommendation, and personal statements. Requirements vary by institution and program, so candidates should confirm whether the ADAT is required or accepted by their intended programs.</p>
-    <p class="osce-closing" style="margin-bottom:1.5rem">In the United States, the ADAT is used by participating advanced dental education programs. Certain Canadian postgraduate programs may also accept it. Internationally trained dentists should confirm each program’s requirements and how the ADAT relates to other examinations they may need.</p>
-    <div style="max-width:620px;margin:0 auto;background:var(--bg-soft);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm)">
-      <p class="osce-sub" style="margin-top:0">Exam overview</p>
-      <ul class="osce-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 multiple-choice questions</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Biomedical Sciences</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical Sciences</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Research and Evidence-Based Dentistry</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A single testing session</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Scaled scoring</li>
-      </ul>
-    </div>
-  </div>`
-        + cPackages(
-            { id: 'adatPackages', kicker: 'ADAT Packages', heading: 'Choose Your ADAT Preparation Package', sub: 'Choose comprehensive preparation across all three subject areas or a focused course covering Evidence-Based Dentistry and Biomedical Science.' },
-            [
-              cCard({
-                variant: 'pop', badge: 'Most Popular', name: 'Comprehensive – 2026',
-                desc: 'Structured ADAT preparation covering Evidence-Based Dentistry, Biomedical Science, and Clinical Science.',
-                start: 'Started <strong>October 3, 2026</strong> · Completes <strong>February 15, 2027</strong>',
-                priceReg: '$4,200', price: '$3,999', hst: '+ HST',
-                note: 'Save CAD $201 · Course material access until the end of August 2027. Interest-free installment plan available at checkout.',
-                groups: [
-                  { title: 'Course coverage', items: ['Evidence-Based Dentistry (EBD)','Biomedical Science (BMS)','Clinical Science (CS)'] },
-                  { title: 'Course format', items: ['Hybrid learning format','Live and prerecorded sessions'] },
-                  { title: 'What\'s included', items: [
-                    '56 online sessions',
-                    '7 comprehensive booklets covering all subjects, with 1,500+ questions for self-study',
-                    '6 live Q&A sessions',
-                    '1 EBD mini mock exam with live discussion',
-                    '2 BMS mini mock exams with live discussions',
-                    '2 Clinical Science mini mock exams with live discussions',
-                    '3 full online mock exams with discussions' ] }
-                ],
-                reg: { label: 'Register for ADAT Comprehensive', href: 'https://www.confidentist.ca/product/adat-comprehensive-2026/' },
-                reg2: { label: 'View Comprehensive Schedule', href: '/adat-programs/comprehensive/' }
-              }),
-              cCard({
-                variant: 'ext', badge: 'Modular Hybrid', badgeClass: 'afk-badge-exp', name: 'Crash – 2026',
-                desc: 'Focused preparation covering Evidence-Based Dentistry and Biomedical Science.',
-                start: 'Started <strong>October 3, 2026</strong> · Completes <strong>November 21, 2026</strong>',
-                price: '$2,200', hst: '+ HST',
-                note: 'Course material access until the end of August 2027. Mini mock exam dates may be adjusted if required. Interest-free installment plan available at checkout.',
-                groups: [
-                  { title: 'Course coverage', items: ['Evidence-Based Dentistry (EBD)','Biomedical Science (BMS)'] },
-                  { title: 'Course format', items: ['Hybrid learning format','Live and prerecorded sessions'] },
-                  { title: 'What\'s included', items: [
-                    '24 online sessions',
-                    '3 live Q&A sessions',
-                    '1 EBD mini mock exam with live discussion',
-                    '2 BMS mini mock exams with live discussions',
-                    '4 booklets covering EBD and BMS subjects, with questions for self-study',
-                    '1 full online mock exam with live discussion' ] }
-                ],
-                footnote: 'Clinical Science coverage is included with Comprehensive, not this package.',
-                reg: { label: 'Register for ADAT Crash', href: 'https://www.confidentist.ca/product/adat-bms-ebd-module-hybrid-2026/' },
-                reg2: { label: 'View Modular Schedule', href: '/adat-programs/crash/' }
-              })
-            ])
-        + `<div>
-    <div class="osce-block-head"><span class="kicker">At a Glance</span><h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Compare the Key Differences</h2></div>
-    <div class="afk-diff-wrap">
-      <table class="afk-diff">
-        <thead><tr><th scope="col">Feature</th><th scope="col">Comprehensive</th><th scope="col">Crash</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Subject coverage</th><td class="yes">EBD, BMS, CS</td><td>EBD and BMS</td></tr>
-          <tr><th scope="row">Online sessions</th><td class="yes">56</td><td>24</td></tr>
-          <tr><th scope="row">Booklets</th><td class="yes">7</td><td>4</td></tr>
-          <tr><th scope="row">Live Q&amp;A sessions</th><td class="yes">6</td><td>3</td></tr>
-          <tr><th scope="row">Mini mock exams</th><td class="yes">5</td><td>3</td></tr>
-          <tr><th scope="row">Full mock exams</th><td class="yes">3</td><td>1</td></tr>
-          <tr><th scope="row">Completion date</th><td>February 15, 2027</td><td>November 21, 2026</td></tr>
-          <tr><th scope="row">Material access</th><td>Through August 2027</td><td>Through August 2027</td></tr>
-          <tr><th scope="row">Price before HST</th><td>CAD $3,999</td><td>CAD $2,200</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>`
-        + cSchedule({ kicker: 'ADAT Course Schedule', heading: 'Explore the ADAT Course Schedule', intro: 'Review the session schedule for each ADAT package.', links: [ { label: 'View Comprehensive Schedule', href: '/adat-programs/comprehensive/' }, { label: 'View Modular Schedule', href: '/adat-programs/crash/' } ] })
-        + cClosing(`The ADAT supports applications to advanced dental education programs; it does not replace the Canadian dental equivalency examinations. <a href="mailto:info@confidentist.ca" style="color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px">Contact our team</a> to learn more about ADAT preparation and confirm your program’s requirements.`)
-        + cContact()
-      )
+      label: "Preparing for ADAT",
+      heading: "ADAT \u2014 Advanced Dental Admission Test",
+      intro: "Applying to a Canadian dental program or specialty? Our ADAT preparation offers a Comprehensive program and a focused Crash course.",
+      guide: true,
+      primary: { label: "View ADAT Programs & Register", href: "/adat-programs/" },
+      actions: [
+        { label: "ADAT Comprehensive", desc: "Full preparation program", href: "/adat-programs/comprehensive/" },
+        { label: "ADAT Crash", desc: "Focused, shorter preparation", href: "/adat-programs/crash/" }
+      ]
     },
     university: {
-      label: 'University Admission',
-      heading: 'University Interview Preparation',
-      html: cPanel(
-        cRestart()
-        + cWelcome({
-            headingId: 'pw-result-title',
-            eyebrow: 'You passed the test, now let’s win the conversation',
-            heading: 'University Interview Preparation',
-            paras: [
-              'Congratulations on reaching the University Interview stage! You have reached an important milestone: your Canadian university interview. A strong application and exam score helped you get here—now it is time to demonstrate your professionalism, communication skills, and passion for dentistry.' ],
-            cta: { label: 'Explore the Preparation Package', scrollTo: '#uipPackages', href: '#uipPackages' }
-          })
-        + `<div>
-    <div class="osce-block-head"><span class="kicker">Complete Interview Preparation</span><h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Your Opportunity to Stand Out</h2></div>
-    <p class="osce-closing" style="margin-bottom:1rem">The interview allows you to showcase your personality, critical thinking, confidence, and professional presence. We are here to help you communicate these qualities clearly and effectively.</p>
-    <p class="osce-closing" style="margin-bottom:1.5rem">Drawing on years of experience supporting dental candidates, we have created an interview preparation course designed for this important stage.</p>
-    <div style="max-width:620px;margin:0 auto 1.5rem;background:var(--bg-soft);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm)">
-      <p class="osce-sub" style="margin-top:0">What we focus on</p>
-      <ul class="osce-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Technical and scientific questions</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ethical and situational scenarios</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Professional communication strategies</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clear and structured responses</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Confidence and mindset development</li>
-      </ul>
-    </div>
-    <p class="osce-closing">You have already completed demanding academic work. Now, prepare to communicate your thinking, experience, and professional strengths with confidence—let us take this important step together.</p>
-  </div>`
-        + cPackages(
-            { id: 'uipPackages', gridClass: 'is-single', kicker: 'The Package', heading: 'University Interview Preparation Package', sub: 'Combine structured recorded learning with a personalized coaching session to prepare for your university interview.' },
-            [ cCard({
-                variant: 'pop', badge: 'Most Comprehensive', name: 'University Interview Preparation',
-                desc: 'Combine structured recorded learning with a personalized coaching session to prepare for your university interview.',
-                price: '$899', hst: '+ HST',
-                groups: [
-                  { title: 'At a glance', items: [
-                    '2 recorded preparation sessions',
-                    '1 private 50-minute coaching session',
-                    'Q&A booklet',
-                    'On-demand video access' ] },
-                  { title: 'A. Structured recorded preparation (2 sessions)', items: [
-                    'Understanding the interview: format, flow, and expectations',
-                    'Question types: technical, scientific, ethical, and situational',
-                    'Communication strategies: professional tone, clear structure, and confident delivery',
-                    'Common mistakes to avoid: what interviewers notice and how to avoid common pitfalls',
-                    'Mindset coaching: building presence, confidence, and the ability to handle pressure',
-                    'Q&A booklet: practice questions you may encounter in a university interview' ] },
-                  { title: 'B. Private coaching session (1 × 50-minute session)', items: [
-                    'Scheduled approximately one week before your real interview',
-                    'Customized feedback based on your strengths and areas for improvement',
-                    'Strategy refinement tailored to your school and profile',
-                    'Practice answering challenging questions in a mock interview setting',
-                    'Practical tools to improve your delivery and mindset' ] },
-                  { title: 'C. Course access', items: [
-                    'On-demand access to the recorded video sessions' ] }
-                ],
-                reg: { label: 'Register Now', href: 'https://www.confidentist.ca/product/university-interview-preparation-2025-recorded/' }
-              }) ]
-          )
-        + `<div>
-    <div class="osce-block-head"><span class="kicker">Get Started</span><h2 class="h-title" style="font-size:clamp(1.4rem,2.8vw,1.95rem)">Prepare to Make a Confident Impression</h2></div>
-    <p class="osce-closing" style="margin-bottom:1.25rem">Build a clear approach to interview questions, strengthen your communication, and refine your delivery with structured preparation and personalized feedback.</p>
-    <div class="osce-sched"><a href="https://www.confidentist.ca/product/university-interview-preparation-2025-recorded/">Register for University Interview Preparation</a></div>
-  </div>`
-        + cContact()
-      )
+      label: "University Admission",
+      heading: "University Interview Preparation",
+      intro: "Prepare for Canadian dental school admission interviews with structured practice and feedback.",
+      guide: true,
+      primary: { label: "View Interview Preparation & Register", href: "/university-interview-preparation/" },
+      actions: [
+
+      ]
     },
     ce: {
-      label: 'Continuing Education & Learn & Travel',
-      heading: 'Keep Learning. Expand Your Perspective.',
-      html: cPanel(
-        cRestart()
-        + cWelcome({
-            eyebrow: 'Continuing Education & Learn & Travel',
-            heading: 'Keep Learning. Expand Your Perspective.',
-            headingId: 'pw-result-title',
-            paras: ['Explore dental continuing education courses and learning experiences that combine professional development with travel. Find an opportunity that fits your interests, schedule, and learning goals.'],
-            cta: { label: 'Explore Programs', scrollTo: '#cePrograms', href: '#cePrograms' }
-          })
-        + `<div id="cePrograms">`
-          + `<div class="ce-tabs" role="tablist" aria-label="Continuing Education categories">
-    <button type="button" class="ndecc-tab" role="tab" id="cetab-courses" aria-controls="cepanel-courses" aria-selected="true" data-view="courses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>CE Courses</button>
-    <button type="button" class="ndecc-tab" role="tab" id="cetab-travel" aria-controls="cepanel-travel" aria-selected="false" tabindex="-1" data-view="travel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9a1 1 0 0 0 .2 1.6L8 12l-2 2H4l-1 1 3 2 2 3 1-1v-2l2-2 2.9 4.8a1 1 0 0 0 1.6.2l.9-.9a1 1 0 0 0 .3-.9z"/></svg>Learn &amp; Travel</button>
-  </div>`
-          + `<div class="ndecc-panel" role="tabpanel" id="cepanel-courses" aria-labelledby="cetab-courses">`
-            + cPackages(
-                { gridClass: 'is-single', kicker: 'CE Courses', heading: 'Continuing Education Courses', sub: 'Explore focused learning opportunities designed to support your ongoing professional development in dentistry.' },
-                [ cCard({
-                    variant: 'pop', badge: 'Open · 4 CE Credits', name: 'EXOCAD Essentials',
-                    image: '/images/ce/ce-exocad-essentials.jpg', lightbox: true,
-                    imageAlt: 'EXOCAD Essentials CE course flyer — instructor Dr. Fariborz Vafaee (DDS), 4 CE credits, tuition $300 + HST',
-                    desc: 'Comprehensive training on EXOCAD software for digital dentistry with Dr. Fariborz Vafaee (DDS) — from smile design to crown and bridge design.',
-                    start: 'Online course · <strong>4 CE credits</strong>',
-                    price: '$300', hst: '+ HST',
-                    groups: [
-                      { title: 'What you will learn', items: [
-                        'Virtual articulator',
-                        'Smile design',
-                        'Customized reduction',
-                        'Connector design and menu navigation',
-                        'Crown design',
-                        'Bridge design with pre-op scan' ] },
-                      { title: 'What is included', items: [
-                        '4 CE credits',
-                        'Instruction by Dr. Fariborz Vafaee (DDS)',
-                        'PACE-approved · online delivery' ] }
-                    ],
-                    reg: { label: 'Register — $300 + HST', href: 'https://www.confidentist.ca/product/exocad-essentials/' }
-                  }) ]
-              )
-            + `<div class="ce-archive">
-    <div class="osce-block-head"><span class="kicker">Past CE Courses</span><h2 class="h-title" style="font-size:clamp(1.3rem,2.6vw,1.75rem)">Past CE Courses</h2><p class="osce-note-sub" style="max-width:640px;margin-left:auto;margin-right:auto">A visual archive of continuing-education courses ConfiDentist has previously offered. These sessions have concluded — select any poster to view it full-size. Contact our team about upcoming dates.</p></div>
-    <div class="ce-archive-head"><p class="osce-note-sub" style="margin:0">` + CE_ARCHIVE.length + ` past course posters</p><a class="ndecc-contact-btn" href="mailto:info@confidentist.ca?subject=Upcoming%20CE%20course%20enquiry">` + svgMail + `Contact Our Team</a></div>`
-            + ceArchiveGrid(CE_ARCHIVE)
-            + `</div>`
-          + `</div>`
-          + `<div class="ndecc-panel" role="tabpanel" id="cepanel-travel" aria-labelledby="cetab-travel" hidden>`
-            + cPackages(
-                { gridClass: 'is-single', kicker: 'Learn & Travel', heading: 'Learn & Travel', sub: 'Explore opportunities to combine dental learning with a travel experience. Review each program’s educational content, destination, dates, and inclusions before registering.' },
-                [ cCard({
-                    variant: 'pop', badge: '15 CE Credits', name: 'Confi Travel & Learn',
-                    desc: 'Earn CE credits while traveling. Elevate your knowledge, explore iconic destinations across China, and attend DenTech China 2026 — the 29th International Dental Exhibition.',
-                    start: 'October 21 – November 1, 2026 · Shanghai · Suzhou · Hangzhou · Beijing',
-                    priceReg: '$8,000', price: '$4,999', hst: 'Tax included',
-                    note: 'Limited seats. Complete your registration and payment on time to secure your spot.',
-                    groups: [
-                      { title: 'What is included', items: [
-                        '15 approved CE credits',
-                        '5-star hotels and spectacular land tour experiences',
-                        'Attendance at DenTech China 2026 (29th International Dental Exhibition)' ] },
-                      { title: 'Program experience', items: [
-                        'Network with global dental professionals',
-                        'Discover the latest dental innovations',
-                        'Grow your knowledge and practice' ] }
-                    ],
-                    footnote: 'Price shown in CAD, tax included. Contact our team for the full itinerary and inclusions before booking.',
-                    reg: { label: 'Book Your Tour', href: 'https://www.confidentist.ca/confidentist-china-seminar/' },
-                    reg2: { label: 'Contact our team', href: 'mailto:info@confidentist.ca?subject=Confi%20Travel%20%26%20Learn%20enquiry' }
-                  }) ]
-              )
-          + `</div>`
-        + `</div>`
-        + cContact()
-        + CE_LIGHTBOX
-      ),
-      onMount: function (root) {
-        var VIEWS = ['courses', 'travel'];
-        var tabs = Array.prototype.slice.call(root.querySelectorAll('.ce-tabs .ndecc-tab'));
-        var tablist = root.querySelector('.ce-tabs');
-        var panels = {
-          courses: root.querySelector('#cepanel-courses'),
-          travel: root.querySelector('#cepanel-travel')
-        };
-        function currentView() {
-          for (var i = 0; i < tabs.length; i++) {
-            if (tabs[i].getAttribute('aria-selected') === 'true') return tabs[i].dataset.view;
-          }
-          return 'courses';
-        }
-        function show(view, opts) {
-          opts = opts || {};
-          if (VIEWS.indexOf(view) < 0) view = 'courses';
-          tabs.forEach(function (t) {
-            var on = t.dataset.view === view;
-            t.setAttribute('aria-selected', on ? 'true' : 'false');
-            t.setAttribute('tabindex', on ? '0' : '-1');
-          });
-          VIEWS.forEach(function (v) { if (panels[v]) panels[v].hidden = (v !== view); });
-          if (opts.sync !== false) {
-            try {
-              var params = new URLSearchParams(window.location.search);
-              params.set('stage', 'ce');
-              params.set('ce', view);
-              history.pushState({ pwStage: 'ce', ce: view }, '', window.location.pathname + '?' + params.toString());
-            } catch (_) {}
-          }
-          if (opts.focusTab) {
-            var at = tabs.filter(function (t) { return t.dataset.view === view; })[0];
-            if (at) try { at.focus(); } catch (_) {}
-          }
-          track('ce_view_selected', { view: view });
-        }
-        tabs.forEach(function (t) {
-          t.addEventListener('click', function () { show(t.dataset.view, { focusTab: false }); });
-        });
-        if (tablist) tablist.addEventListener('keydown', function (e) {
-          var idx = VIEWS.indexOf(currentView());
-          var ni = idx;
-          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') ni = (idx + 1) % VIEWS.length;
-          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ni = (idx - 1 + VIEWS.length) % VIEWS.length;
-          else if (e.key === 'Home') ni = 0;
-          else if (e.key === 'End') ni = VIEWS.length - 1;
-          else return;
-          e.preventDefault();
-          show(VIEWS[ni], { focusTab: true });
-        });
-        var initView = null;
-        try { initView = new URLSearchParams(window.location.search).get('ce'); } catch (_) {}
-        show(initView || 'courses', { sync: false });
-
-        // ─── Poster lightbox (accessible: keyboard, focus restore, Esc/backdrop close) ───
-        var lb = root.querySelector('#ceLightbox');
-        if (lb) {
-          var lbImg = lb.querySelector('.ce-lightbox-img');
-          var lbCap = lb.querySelector('.ce-lightbox-cap');
-          var lbClose = lb.querySelector('.ce-lightbox-close');
-          var lastFocus = null;
-          function openLB(src, cap) {
-            lastFocus = document.activeElement;
-            lbImg.setAttribute('src', src);
-            lbImg.setAttribute('alt', cap || 'Course poster');
-            lbCap.textContent = cap || '';
-            lb.hidden = false;
-            try { document.body.style.overflow = 'hidden'; } catch (_) {}
-            try { lbClose.focus(); } catch (_) {}
-            track('ce_poster_opened', { src: src });
-          }
-          function closeLB() {
-            lb.hidden = true;
-            lbImg.setAttribute('src', '');
-            try { document.body.style.overflow = ''; } catch (_) {}
-            if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (_) {} }
-          }
-          root.querySelectorAll('.ce-poster-open').forEach(function (b) {
-            b.addEventListener('click', function () { openLB(b.getAttribute('data-src'), b.getAttribute('data-cap')); });
-          });
-          Array.prototype.forEach.call(lb.querySelectorAll('[data-close]'), function (x) {
-            x.addEventListener('click', closeLB);
-          });
-          lb.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') { e.preventDefault(); closeLB(); }
-            else if (e.key === 'Tab') { e.preventDefault(); try { lbClose.focus(); } catch (_) {} }
-          });
-        }
-      }
+      label: "Continuing Education & Learn & Travel",
+      heading: "Continuing Education",
+      intro: "Keep learning beyond the equivalency exams with continuing education (CE) courses for licensed dentists, plus our Travel & Learn programs.",
+      guide: true,
+      primary: { label: "View Continuing Education Courses", href: "/continue-education/" },
+      actions: [
+        { label: "Travel & Learn", desc: "Learning trips with ConfiDentist", href: "/travel-and-learn/" },
+        { label: "Educational Symposium", desc: "Our CE symposium", href: "/educational-symposium/" },
+        { label: "Orthodontics for GPs", desc: "CE course for general dentists", href: "/orthodontics-for-gps/" }
+      ]
     },
     unsure: {
       label: "I'm Not Sure",
@@ -1792,6 +1104,7 @@ const pathwayNav = (() => {
         '<div class="pw-result-head"><h2 id="pw-result-title" class="h-title" tabindex="-1" style="font-size:clamp(1.2rem,2.4vw,1.55rem)">' + esc(s.heading) + '</h2>'
         + '<button type="button" class="pw-restart" id="pwRestart">' + svgReset + 'Start again</button></div>'
         + '<p class="pw-result-intro">' + esc(s.intro) + '</p>'
+        + (s.guide && s.primary ? '<p class="pw-guide-cta"><a class="pw-guide-btn" href="' + esc(s.primary.href) + '">' + esc(s.primary.label) + ' ' + svgArrow + '</a></p>' : '')
         + body;
 
       if (s.primary) setPrimary(s.primary.label, s.primary.href);
