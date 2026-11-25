@@ -808,22 +808,24 @@
 
     /* ─────────────  CINEMATIC SECTION TRANSITIONS  ─────────────
        Hero: the media stack (gradient, video, grade) is masked by an opaque block on
-       top plus a hand-tuned halftone tile (/_assets/fx/halftone-dissolve.svg) along the
+       top plus a soft eased fade and a fine-grain tile (/_assets/fx/grain-fade.svg) along the
        bottom edge. The tile's dots shrink and thin out with an irregular, wandering front,
        so the real video imagery fragments into dots and the hero's own background —
        the exact top colour of the next section — shows through the gaps. The hero is
        extended by most of the dissolve depth so the first view keeps its composition. */
     :root { --seam: #f7f1e4; }               /* top colour of the Program Finder section */
-    .hero { --dissolve: 240px; --shift: calc(var(--dissolve) * .78);
+    .hero { --dissolve: 220px; --shift: calc(var(--dissolve) * .78);
       height: calc(100svh + var(--shift)); min-height: calc(min(860px, 100svh) + var(--shift));
       background: var(--seam); }
     .hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
     @supports ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
+      /* Soft, eased fade (no visible band) + a light sprinkle of fine grain that lingers a
+         little farther down in some places — the video melts away like mist. */
       .hero-media {
-        -webkit-mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve.svg");
-                mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve.svg");
-        -webkit-mask-size: 100% calc(100% - var(--dissolve) + 2px), auto var(--dissolve);
-                mask-size: 100% calc(100% - var(--dissolve) + 2px), auto var(--dissolve);
+        -webkit-mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - var(--dissolve)), rgba(0,0,0,.86) calc(100% - var(--dissolve) * .9), rgba(0,0,0,.58) calc(100% - var(--dissolve) * .78), rgba(0,0,0,.28) calc(100% - var(--dissolve) * .64), rgba(0,0,0,.08) calc(100% - var(--dissolve) * .5), rgba(0,0,0,0) calc(100% - var(--dissolve) * .36)), url("/_assets/fx/grain-fade.svg");
+                mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - var(--dissolve)), rgba(0,0,0,.86) calc(100% - var(--dissolve) * .9), rgba(0,0,0,.58) calc(100% - var(--dissolve) * .78), rgba(0,0,0,.28) calc(100% - var(--dissolve) * .64), rgba(0,0,0,.08) calc(100% - var(--dissolve) * .5), rgba(0,0,0,0) calc(100% - var(--dissolve) * .36)), url("/_assets/fx/grain-fade.svg");
+        -webkit-mask-size: 100% 100%, auto var(--dissolve);
+                mask-size: 100% 100%, auto var(--dissolve);
         -webkit-mask-position: 0 0, 0 100%;
                 mask-position: 0 0, 0 100%;
         -webkit-mask-repeat: no-repeat, repeat-x;
@@ -858,12 +860,12 @@
     .final { background: var(--bg-soft); }
     @supports ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
       .final-bg {
-        -webkit-mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve-up.svg");
-                mask-image: linear-gradient(#000, #000), url("/_assets/fx/halftone-dissolve-up.svg");
-        -webkit-mask-size: 100% calc(100% - 150px + 2px), auto 150px;
-                mask-size: 100% calc(100% - 150px + 2px), auto 150px;
-        -webkit-mask-position: 0 100%, 37% 0;
-                mask-position: 0 100%, 37% 0;
+        -webkit-mask-image: linear-gradient(0deg, #000 0, #000 calc(100% - 130px), rgba(0,0,0,.85) calc(100% - 110px), rgba(0,0,0,.55) calc(100% - 80px), rgba(0,0,0,.25) calc(100% - 50px), rgba(0,0,0,.06) calc(100% - 22px), rgba(0,0,0,0) 100%), url("/_assets/fx/grain-fade-up.svg");
+                mask-image: linear-gradient(0deg, #000 0, #000 calc(100% - 130px), rgba(0,0,0,.85) calc(100% - 110px), rgba(0,0,0,.55) calc(100% - 80px), rgba(0,0,0,.25) calc(100% - 50px), rgba(0,0,0,.06) calc(100% - 22px), rgba(0,0,0,0) 100%), url("/_assets/fx/grain-fade-up.svg");
+        -webkit-mask-size: 100% 100%, auto 130px;
+                mask-size: 100% 100%, auto 130px;
+        -webkit-mask-position: 0 0, 37% 0;
+                mask-position: 0 0, 37% 0;
         -webkit-mask-repeat: no-repeat, repeat-x;
                 mask-repeat: no-repeat, repeat-x;
       }
