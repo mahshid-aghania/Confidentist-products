@@ -540,14 +540,15 @@
     </div>
     <div style="max-width:540px;margin:0 auto;">
       <div class="program-card featured">
-        <span class="prog-badge">Core Package</span>
-        <h3 class="prog-title">NDECC Core Package – 2026</h3>
+        <span class="prog-badge" id="pkgBadge">Core Package</span>
+        <h3 class="prog-title">NDECC Clinical Skills Course – 2026</h3>
         <div class="prog-price"><span class="prog-now" id="priceNow">$5,999</span></div>
         <p class="prog-hst"><strong>CAD</strong> + applicable sales tax <span id="totalNote"></span></p>
+        <div class="opt-row"><label for="optSelect">Course length</label><select id="optSelect"><option value="3-month">3-Month Course (Core Package) — $5,999</option><option value="6-month">6-Month Course (Comprehensive Package) — $11,400</option></select></div>
 
         <p class="prog-subhead">⭐ What's Included</p>
         <ul class="prog-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>3-Month Program</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span id="lenItem">3-Month Program</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Recorded Demos</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>6-Day Lab Access</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Continuous Coaching*</span></li>
@@ -571,7 +572,6 @@
             <a class="prog-cta" style="margin-top:1.1rem;" id="instCta" href="#">Pay First Installment →</a>
           </div>
         </details>
-<p class="installment-note" style="margin-top:1rem;"><strong>6-Month Program ($11,400 CAD + HST):</strong> registration opening soon — <a href="/contact-us/" style="color:var(--gold-dark);font-weight:600;">contact an advisor</a> to reserve your place.</p>
         <p class="prog-reassure">Secure checkout · In-person at our North York centre · Sales tax based on your province</p>
       </div>
     </div>
@@ -610,7 +610,7 @@
 <!-- Option selector → price, installment plan and checkout links -->
 <script>
 (function () {
-  var C = {"key": "clinical-skills", "plan": "2+1", "opts": [["3-month", "3-Month Program \u00b7 Morning (8:00 AM \u2013 5:00 PM)", 5999]], "hasMonths": false};
+  var C = {"key": "clinical-skills", "plan": "2+1", "opts": [["3-month", "3-Month Program \u00b7 Morning (8:00 AM \u2013 5:00 PM)", 5999], ["6-month", "6-Month Program \u00b7 Comprehensive Package", 11400]], "hasMonths": false};
   var RATES = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.05, BC:0.05, MB:0.05, SK:0.05, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
   var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
   var prov = document.getElementById('provinceSelect'), hint = document.getElementById('taxHint');
@@ -633,6 +633,9 @@
     var price = o[2];
     var reg = prov ? prov.value : 'ON', RATE = RATES.hasOwnProperty(reg) ? RATES[reg] : 0.13, TL = RATE ? '+ tax' : '';
     document.getElementById('priceNow').textContent = fmt(price).replace('.00', '');
+    var six = key === '6-month', bd = document.getElementById('pkgBadge'), li = document.getElementById('lenItem');
+    if (bd) bd.textContent = six ? 'Comprehensive Package' : 'Core Package';
+    if (li) li.textContent = six ? '6-Month Program' : '3-Month Program';
     document.getElementById('totalNote').textContent = RATE ? '· ' + fmt(r2(price * (1 + RATE))) + ' total with ' + LABELS[reg] : '· no Canadian sales tax outside Canada';
     if (hint) hint.innerHTML = RATE ? '<strong>' + LABELS[reg] + '</strong> applies. Total with tax: ' + fmt(r2(price * (1 + RATE))) + '. Confirmed at checkout.' : 'No Canadian sales tax applies outside Canada. Final amount is confirmed at checkout.';
     var q = '/api/ndecc/checkout/?p=' + C.key + '&o=' + encodeURIComponent(key) + (mon ? '&m=' + encodeURIComponent(mon.value) : '') + '&region=' + encodeURIComponent(reg);
