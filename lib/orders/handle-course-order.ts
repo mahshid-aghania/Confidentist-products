@@ -101,10 +101,16 @@ export async function handleCourseOrder(
     const dates = str(meta['installment_dates']).split('|').filter(Boolean)
     const n = Number(str(meta['num_payments']) || String(dates.length + 1))
     const later = num(meta['monthly_base'])
-    payments.push({ label: `Payment 1 of ${n}`, when: 'Paid today', base: paidBase, tax: paidTax, shipping: shipCents / 100, status: 'Paid' })
-    dates.forEach((d, i) =>
-      payments.push({ label: `Payment ${i + 2} of ${n}`, when: d, base: later, tax: round2(later * taxRate), shipping: 0, status: 'Upcoming' }),
-    )
+    const instNo = Number(str(meta['installment_number']) || '1') || 1
+    if (instNo > 1) {
+      // A later installment of a fixed-date plan (paid from its own link): show just this payment.
+      payments.push({ label: `Payment ${instNo} of ${n}`, when: 'Paid today', base: paidBase, tax: paidTax, shipping: 0, status: 'Paid' })
+    } else {
+      payments.push({ label: `Payment 1 of ${n}`, when: 'Paid today', base: paidBase, tax: paidTax, shipping: shipCents / 100, status: 'Paid' })
+      dates.forEach((d, i) =>
+        payments.push({ label: `Payment ${i + 2} of ${n}`, when: d, base: later, tax: round2(later * taxRate), shipping: 0, status: 'Upcoming' }),
+      )
+    }
   } else {
     payments.push({ label: 'Payment in full', when: 'Paid today', base: paidBase, tax: paidTax, shipping: shipCents / 100, status: 'Paid' })
   }
@@ -114,7 +120,7 @@ export async function handleCourseOrder(
     courseName,
     courseStart: str(meta['course_start']) || undefined,
     originalPrice,
-    planLabel: isInstallment ? `${payments.length} payments (installment plan)` : 'Paid in full',
+    planLabel: isInstallment ? `${Number(str(meta['num_payments'])) || payments.length} payments (installment plan)` : 'Paid in full',
     taxLabel,
     courseTaxTotal: num(meta['course_tax']) || round2(originalPrice * taxRate),
     payments,
