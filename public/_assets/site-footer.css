@@ -10,7 +10,7 @@
 .cf-footer .cf-grid { max-width:var(--cf-maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:2.5rem; }
 .cf-footer .cf-brand-name { font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; font-weight:700; color:#fff; letter-spacing:.01em; margin-bottom:1rem; display:block; }
 .cf-footer .cf-brand-name span { color:var(--cf-gold-light); }
-.cf-footer .cf-brand p { font-size:.88rem; line-height:1.7; max-width:300px; margin-bottom:1.25rem; color:rgba(255,255,255,.62); }
+.cf-footer .cf-brand p { font-size:.88rem; line-height:1.7; max-width:340px; margin-bottom:1.25rem; color:rgba(255,255,255,.62); }
 .cf-footer .cf-contact { display:flex; flex-direction:column; gap:.5rem; font-size:.86rem; }
 .cf-footer .cf-contact a { display:inline-flex; align-items:flex-start; gap:.55rem; color:rgba(255,255,255,.72); transition:color .18s; line-height:1.45; }
 .cf-footer .cf-contact a:hover { color:#fff; }
