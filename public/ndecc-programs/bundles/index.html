@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NDECC Brilliant Bundle | Complete Clinical Skills &amp; Situational Judgement | ConfiDentist</title>
   <meta name="description" content="The Brilliant Bundle is ConfiDentist's complete NDECC pathway — the Clinical Skills course and mocks plus the Situational Judgement course and mocks, with basic tools and interest-free installments." />
-  <link rel="canonical" href="https://confidentist-products.vercel.app/ndecc-programs/bundles/" />
+  <link rel="canonical" href="https://product.confidentist.ca/ndecc-programs/bundles/" />
   <meta property="og:title" content="NDECC Brilliant Bundle | ConfiDentist" />
   <meta property="og:description" content="The complete NDECC pathway covering both components — Clinical Skills and Situational Judgement courses plus mock exams." />
   <meta property="og:type" content="website" />
@@ -107,12 +107,32 @@
     .price-start { font-size: .86rem; color: var(--muted); margin-bottom: 1.1rem; }
     .price-amount { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; justify-content: center; }
     .price-now { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--navy); }
+    .price-was { font-size: 1.35rem; font-weight: 600; color: var(--muted); }
+    .price-was s { text-decoration-thickness: 2px; text-decoration-color: #c0392b; }
     .price-hst { font-size: .82rem; color: var(--muted); margin-top: .3rem; }
     .price-hst strong { color: var(--navy); font-weight: 600; }
     .price-earlybird { font-size: .82rem; color: var(--muted); line-height: 1.55; margin-top: .85rem; background: var(--gold-bg); border: 1px solid rgba(15,122,229,.2); border-radius: .5rem; padding: .6rem .85rem; }
     .price-cta { margin-top: 1.5rem; width: 100%; }
 
     /* Bundle component cards */
+    .inc-tables { display: grid; gap: 2rem; }
+    .inc-block { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; border-top: 4px solid var(--teal); }
+    .inc-block.sj { border-top-color: var(--gold); }
+    .inc-block-head { display: flex; align-items: center; gap: .85rem; flex-wrap: wrap; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .inc-block-head h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin: 0; }
+    .inc-block-head .tag { margin: 0; font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--teal); padding: .3rem .7rem; border-radius: .3rem; }
+    .inc-block.sj .inc-block-head .tag { background: var(--gold); }
+    .inc-table-wrap { overflow-x: auto; }
+    .inc-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .9rem; }
+    .inc-table th { text-align: left; background: var(--teal-light); color: var(--navy); font-weight: 700; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; padding: .85rem 1.5rem; }
+    .inc-block.sj .inc-table th { background: var(--gold-bg); }
+    .inc-table th + th, .inc-table td + td { border-left: 1px solid var(--border); }
+    .inc-table td { padding: .85rem 1.5rem; color: var(--text, #2d3748); border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+    .inc-table tbody tr:nth-child(even) td { background: #fafcfe; }
+    .inc-table td svg { width: 16px; height: 16px; color: var(--teal); vertical-align: -3px; margin-right: .55rem; flex-shrink: 0; }
+    .inc-block.sj .inc-table td svg { color: var(--gold); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 600px) { .inc-table th, .inc-table td { padding: .7rem .8rem; font-size: .82rem; } .inc-table td svg { display: none; } .inc-block-head { padding: 1rem; } }
     .bundle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
     .bundle-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.85rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--teal); }
     .bundle-card.sj { border-top-color: var(--gold); }
@@ -123,7 +143,10 @@
     .inc-list li svg { width: 15px; height: 15px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
     .bundle-card.sj .inc-list li svg { color: var(--gold); }
 
-    .tools-note { max-width: 760px; margin: 2rem auto 0; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.35rem; font-size: .88rem; color: var(--muted); line-height: 1.6; text-align: center; }
+    .tools-note { margin: 2rem 0 0; position: relative; display: flex; align-items: center; gap: .85rem; flex-wrap: wrap; background: linear-gradient(90deg, var(--teal-light), var(--gold-bg)); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; padding: 1.25rem 1.5rem; font-size: .95rem; color: var(--text); line-height: 1.6; }
+    .tools-note::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    .tools-note .tag { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: linear-gradient(90deg, var(--teal), var(--gold)); padding: .3rem .7rem; border-radius: .3rem; white-space: nowrap; }
+    .tools-note span.txt { flex: 1 1 260px; }
     .tools-note strong { color: var(--navy); }
 
     .decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -167,22 +190,148 @@
       .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
     }
   </style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+  <link rel="stylesheet" href="/_assets/site-footer.css" />
 </head>
 <body>
 
 <a href="#bundle" class="skip-link">Skip to the bundle</a>
 
-<nav>
-  <div class="nav-inner">
-    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
-    <div class="nav-right">
-      <a href="/" class="nav-link">Courses</a>
-      <a href="/ndecc-programs/" class="nav-link">NDECC Programs</a>
-      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Contact an Advisor</a>
+<!-- confi-nav v1 start -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <a href="/">Home</a>
+      </div>
+      <div class="nav-item" id="equivItem">
+        <a href="/dental-equivalency-in-canada/" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">
+          Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="equivMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+            <a href="/mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">AFK &amp; OSCE mock exams, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
+            <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
+            <a href="#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">
+          Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="#journey" class="btn-cta">Find My Program</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+</header>
+
+<!-- Mobile navigation -->
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
+  <div class="mp-label">More</div>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="#upcoming" class="btn-cta">Register Now</a>
 </nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <div class="crumbs-inner">
@@ -199,7 +348,7 @@
     <p class="hero-sub">One pathway through the entire NDECC: the Clinical Skills course and mocks together with the Situational Judgement course and mocks, plus the basic tools to get started — with interest-free installments.</p>
     <div class="hero-actions">
       <a href="#bundle" class="btn-gold">See the Bundle →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+      <a href="/contact-us/" class="btn-outline-white">Contact an Advisor</a>
     </div>
   </div>
 </header>
@@ -222,8 +371,55 @@
 
 <hr class="rule" />
 
+<!-- WHAT'S INSIDE -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">What's Inside</span>
+      <h2 class="section-title">Everything the Bundle Includes</h2>
+      <p class="section-desc">Four complete programs across both NDECC components, plus the basic tools to begin.</p>
+    </div>
+    <div class="inc-tables">
+      <div class="inc-block cs">
+        <div class="inc-block-head"><span class="tag">Clinical Skills</span><h3>Course + Mock Exams</h3></div>
+        <div class="inc-table-wrap">
+          <table class="inc-table">
+            <caption class="sr-only">Clinical Skills: Clinical Skills Course compared with Clinical Skills Mock Exams</caption>
+            <thead><tr><th scope="col">Clinical Skills Course (6 months)</th><th scope="col">Clinical Skills Mock Exams</th></tr></thead>
+            <tbody>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded technique demonstrations</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 full mock exams</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-day in-person lab access</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Complete set of instruments</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5-day onsite coaching</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-hour supervision &amp; infection control</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mentorship and feedback</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-hour post-exam discussion</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="inc-block sj">
+        <div class="inc-block-head"><span class="tag">Situational Judgement</span><h3>Course + Mock Exams</h3></div>
+        <div class="inc-table-wrap">
+          <table class="inc-table">
+            <caption class="sr-only">Situational Judgement: Situational Judgement Course compared with Situational Judgement Mock Exams</caption>
+            <thead><tr><th scope="col">Situational Judgement Course (3 months)</th><th scope="col">Situational Judgement Mock Exams</th></tr></thead>
+            <tbody>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>16 sessions of 4 hours each</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mocks (written + role-play)</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Month 1 recorded, months 2–3 in-person</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-on-1 feedback after each mock</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios covered</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</td></tr>
+            <tr><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Structured for completion in 4 weeks</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tools-note"><span class="tag">Included</span><span class="txt"><strong>Plus basic tools</strong> — the essential tools you need to begin your course are included in the bundle.</span></div>
+  </div>
+</section>
+
+<hr class="rule" />
+
 <!-- BUNDLE PRICE -->
-<section class="section alt" id="bundle">
+<section class="section" id="bundle">
   <div class="section-inner">
     <div class="bundle-price">
       <article class="price-card">
@@ -231,74 +427,14 @@
         <h2 class="price-name">The Brilliant Bundle</h2>
         <p class="price-start">Clinical Skills + Situational Judgement — courses and mock exams</p>
         <div class="price-amount">
-          <span class="price-now">$24,999</span>
+          <span class="price-was" aria-label="Regular price $25,249"><s>$25,249</s></span>
+          <span class="price-now" aria-label="Bundle price $24,499">$24,499</span>
         </div>
         <p class="price-hst"><strong>CAD</strong> + HST</p>
         <p class="price-earlybird">Pay in installments with zero interest.</p>
-        <a class="btn-gold price-cta" href="https://www.confidentist.ca/product/the-brilliant-bundle-2026-2/">Register Now →</a>
+        <a class="btn-gold price-cta" href="/ndecc-programs/bundles/register/">Register Now →</a>
       </article>
     </div>
-  </div>
-</section>
-
-<hr class="rule" />
-
-<!-- WHAT'S INSIDE -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">What's Inside</span>
-      <h2 class="section-title">Everything the Bundle Includes</h2>
-      <p class="section-desc">Four complete programs across both NDECC components, plus the basic tools to begin.</p>
-    </div>
-    <div class="bundle-grid">
-
-      <div class="bundle-card">
-        <span class="tag">Clinical Skills</span>
-        <h3>Clinical Skills Course</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recorded technique demonstrations</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-day in-person lab access</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5-day onsite coaching</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mentorship and feedback</li>
-        </ul>
-      </div>
-
-      <div class="bundle-card">
-        <span class="tag">Clinical Skills</span>
-        <h3>Clinical Skills Mock Exams</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 full mock exams</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Complete set of instruments</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8-hour supervision &amp; infection control</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-hour post-exam discussion</li>
-        </ul>
-      </div>
-
-      <div class="bundle-card sj">
-        <span class="tag">Situational Judgement</span>
-        <h3>Situational Judgement Course</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>16 sessions of 4 hours each</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Month 1 recorded, months 2–3 in-person</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200+ scenarios covered</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized feedback</li>
-        </ul>
-      </div>
-
-      <div class="bundle-card sj">
-        <span class="tag">Situational Judgement</span>
-        <h3>Situational Judgement Mock Exams</h3>
-        <ul class="inc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 full mocks (written + role-play)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1-on-1 feedback after each mock</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private post-mock discussions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Structured for completion in 4 weeks</li>
-        </ul>
-      </div>
-
-    </div>
-    <p class="tools-note"><strong>Plus basic tools</strong> — the essential tools you need to begin your course are included in the bundle.</p>
   </div>
 </section>
 
@@ -368,24 +504,83 @@
     <h2>Take the Complete NDECC Path</h2>
     <p>Register for the Brilliant Bundle to prepare for both components together — or explore each program on its own.</p>
     <div class="final-actions">
-      <a href="https://www.confidentist.ca/product/the-brilliant-bundle-2026-2/" class="btn-gold">Register for the Bundle →</a>
+      <a href="/ndecc-programs/bundles/register/" class="btn-gold">Register for the Bundle →</a>
       <a href="/ndecc-programs/clinical-skills/" class="btn-outline-white">Clinical Skills →</a>
       <a href="/ndecc-programs/situational-judgement/" class="btn-outline-white">Situational Judgement →</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-logo">Confi<span>Dentist</span></div>
-  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
-  <p style="margin-top:.75rem;">
-    <a href="/">Courses</a> &nbsp;·&nbsp;
-    <a href="/ndecc-programs/">NDECC Programs</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
-  </p>
-  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
-  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+<footer class="cf-footer">
+  <div class="cf-grid">
+    <div class="cf-brand">
+      <a class="cf-brand-name" href="/">Confi<span>Dentist</span></a>
+      <p>Your trusted partner on the journey to Canadian dental licensure — exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists.</p>
+      <div class="cf-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=265+Rimrock+Rd+Ste+209%2C+North+York%2C+ON+M3J+3C6" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Address: 265 Rimrock Rd Ste 209, North York, ON M3J 3C6</span></a>
+      </div>
+    </div>
+
+    <div class="cf-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="/our-team/">Our Instructors</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="cf-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-logos">
+    <a href="/" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px" /></a>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <div class="cf-pace">
+      <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img style="height:44px" src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" /></a>
+      <p class="cf-pace-text">ConfiDentist Grp.<br />Nationally Approved PACE Program Provider for FAGD/MAGD credit.<br />Approval does not imply acceptance by any regulatory authority or AGD endorsement.<br />10/1/2025 to 9/30/2027.<br />Provider ID# 420454</p>
+    </div>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <a href="https://certification.esdc.gc.ca/lea-mcl/servlet/mclpub?curjsp=institution.jsp&amp;curactn=dwnld&amp;provid=1" target="_blank" rel="noopener noreferrer" aria-label="Canada Certified Educational Institution — Employment and Social Development Canada"><img src="/images/canada-certified-educational-institution.png" alt="Canada — Certified Educational Institution" style="height:56px" width="138" height="56" loading="lazy" /></a>
+  </div>
+
+  <div class="cf-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="cf-links">
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/our-team/">Our Team</a>
+      <a href="/contact-us/">Contact</a>
+    </div>
+  </div>
+  <p class="cf-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
 </footer>
 
+<script src="/_assets/nav.js" defer></script>
 </body>
 </html>

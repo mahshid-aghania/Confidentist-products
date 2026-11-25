@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Virtual OSCE® | NDEB OSCE Preparation Course | ConfiDentist</title>
-  <meta name="description" content="Prepare for the NDEB Virtual OSCE with ConfiDentist's fully online course — pre-recorded lectures, live Zoom discussions, 3 full mock exams, a 1,500+ MCQ booklet and private mentorship, for the November 2026 exam." />
-  <link rel="canonical" href="https://confidentist-products.vercel.app/virtual-osce/" />
+  <meta name="description" content="Prepare for the NDEB Virtual OSCE with ConfiDentist's fully online course — pre-recorded lectures, live Zoom discussions, 3 full mock exams, a 1,500+ MCQ booklet and private mentorship, for the March 2027 exam." />
+  <link rel="canonical" href="https://product.confidentist.ca/virtual-osce/" />
   <meta property="og:title" content="Virtual OSCE® | ConfiDentist" />
   <meta property="og:description" content="Fully online NDEB Virtual OSCE preparation — lectures, live discussions, mock exams, a 1,500+ MCQ booklet and mentorship." />
   <meta property="og:type" content="website" />
@@ -61,7 +61,7 @@
     }
     .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
     .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
-    .brand-logo { height: 2em; width: auto; display: block; flex: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
     .brand span { color: var(--gold-dark); }
     .primary-nav { display: flex; align-items: center; gap: .25rem; }
     .nav-item { position: relative; }
@@ -182,6 +182,8 @@
     .stats-note { text-align: center; font-size: .78rem; color: var(--muted); margin-top: 1.25rem; }
 
     /* Welcome / Congratulations */
+    .osce-pathway-2 { display: none; }
+    @media (max-width: 700px) { .osce-pathway-2 { display: block; } }
     .welcome { max-width: 760px; margin: 0 auto; background: var(--bg-soft); border: 1.5px solid var(--border); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 2rem; }
     .welcome h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: .85rem; }
     .welcome p { font-size: .95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
@@ -191,7 +193,7 @@
 
     /* Packages */
     .uni-note { max-width: 820px; margin: 0 auto 2rem; background: var(--teal-light); border: 1px solid rgba(59,175,191,.35); border-radius: .5rem; padding: .9rem 1.15rem; font-size: .84rem; color: var(--navy); line-height: 1.6; text-align: center; }
-    .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; align-items: stretch; }
+    .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 460px; margin: 0 auto; align-items: stretch; }
     .pkg-grid .price-card { height: 100%; }
     .schedule-row { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
     .closing-note { max-width: 720px; margin: 2.25rem auto 0; text-align: center; font-size: .9rem; color: var(--muted); line-height: 1.8; }
@@ -244,15 +246,22 @@
       .btn-gold:hover, .btn-navy:hover { transform: none; }
     }
   </style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+  <link rel="stylesheet" href="/_assets/site-footer.css" />
 </head>
 <body>
 
 <a href="#course" class="skip-link">Skip to the course</a>
 
 <!-- NAV (homepage header / Courses mega-menu) -->
+<!-- confi-nav v1 start -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo.png" alt="" class="brand-logo" width="214" height="256" />Confi<span>Dentist</span></a>
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
 
     <nav class="primary-nav" aria-label="Primary">
       <div class="nav-item">
@@ -277,7 +286,19 @@
           </div>
           <div class="mega-foot">
             <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
-            <a href="/#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+            <a href="#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
           </div>
         </div>
       </div>
@@ -289,19 +310,37 @@
         <div class="mega" id="resMega" role="menu" aria-label="Resources">
           <div class="mega-grid">
             <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
-            <a href="https://www.confidentist.ca/blog/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
           </div>
           <div class="mega-foot">
             <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-actions">
-      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
-      <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
-      <a href="/#journey" class="btn-cta">Find My Program</a>
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="#journey" class="btn-cta">Find My Program</a>
       <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
         <span></span><span></span><span></span>
       </button>
@@ -310,11 +349,14 @@
 </header>
 
 <!-- Mobile navigation -->
-<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
   <a href="/">Home <span aria-hidden="true">→</span></a>
-  <a href="/#journey">Find My Program <span aria-hidden="true">→</span></a>
-  <div class="mp-label">Courses</div>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
   <a href="/afk-programs/" class="sub">AFK Preparation</a>
   <a href="/acj-programs/" class="sub">ACJ Preparation</a>
   <a href="/ndecc-programs/" class="sub">NDECC</a>
@@ -324,15 +366,30 @@
   <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
   <a href="/course-bundles/" class="sub">Course Bundles</a>
   <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
   <div class="mp-label">Resources</div>
   <a href="/confitalk/" class="sub">ConfiTalk</a>
-  <a href="https://www.confidentist.ca/blog/" class="sub">Blog</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
   <div class="mp-label">More</div>
-  <a href="https://www.confidentist.ca/our-team/">Instructors</a>
-  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
-  <a href="https://www.confidentist.ca/my-account/">Student Login</a>
-  <a href="/#upcoming" class="btn-cta">Explore Courses</a>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="#upcoming" class="btn-cta">Register Now</a>
 </nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <div class="crumbs-inner">
@@ -348,7 +405,7 @@
     <p class="hero-sub">A fully online course that prepares internationally trained dentists for the NDEB Virtual OSCE — combining pre-recorded lectures, live discussions, full mock exams and a comprehensive question bank.</p>
     <div class="hero-actions">
       <a href="#course" class="btn-gold">View the Course →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+      <a href="/contact-us/" class="btn-outline-white">Contact an Advisor</a>
     </div>
   </div>
 </header>
@@ -389,7 +446,14 @@
       <p>On making it this far! You've successfully navigated through all the necessary steps, and now you're at the final hurdle in the equivalency process — the OSCE exam. Your efforts have been invaluable, and we are confident that you will pass this last step with strength and determination.</p>
       <p>Based on our extensive experience, we've meticulously designed this course to meet all your needs for the OSCE exam. We're here to ensure you're fully prepared, confident, and ready to succeed.</p>
       <p>Welcome to our OSCE course — let's take this final step together!</p>
-      <p class="exam-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>The next NDEB exam date is November 23, 2026</p>
+      <p class="exam-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><a href="https://ndeb-bned.ca/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">The next NDEB exam date is March 1, 2027</a></p>
+    </div>
+    <div class="osce-pathway" style="max-width:1100px;margin:2.25rem auto 0;">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/images/virtual-osce/Virtual-OSCE-Banner-smallscreen1.png" />
+        <img src="/images/virtual-osce/Virtual-OSCE-Banner-1.png" alt="Your path to Canadian licensure: AFK (Assessment of Fundamental Knowledge), ACJ (Assessment of Clinical Judgement), NDECC (Clinical Skills &amp; Situational Judgement), then the Virtual OSCE (Objective Structured Clinical Examination) — you are here" width="1839" height="286" style="width:100%;height:auto;display:block;" loading="lazy" />
+      </picture>
+      <img class="osce-pathway-2" src="/images/virtual-osce/Virtual-OSCE-Banner-smallscreen2.png" alt="" width="869" height="286" style="width:100%;height:auto;margin-top:.5rem;" loading="lazy" />
     </div>
   </div>
 </section>
@@ -420,43 +484,17 @@
     <div class="section-head">
       <span class="section-kicker">The Course</span>
       <h2 class="section-title">Virtual OSCE Packages</h2>
-      <p class="section-desc">Choose the exam cohort that matches your timeline — each package is a complete, structured 2.5-month online program.</p>
+      <p class="section-desc">A complete, structured 2.5-month online program for the March 2027 exam — course start date December 19, 2026.</p>
     </div>
 
     <p class="uni-note"><strong>University students:</strong> please email the office with your university email address to receive your special offer for the course or its mock exams.</p>
 
     <div class="pkg-grid">
-      <!-- November 2026 -->
-      <article class="price-card">
-        <span class="price-badge">Most Popular · Comprehensive</span>
-        <h3 class="price-name">Comprehensive</h3>
-        <p class="price-start">Course starts September 12 · for the November 2026 exam</p>
-        <div class="price-amount">
-          <span class="price-now">$2,799</span>
-        </div>
-        <p class="price-hst"><strong>CAD</strong> + HST</p>
-
-        <hr class="price-divider" />
-        <p class="price-subhead">What's included</p>
-        <ul class="price-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Course orientation</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2.5 months course</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 pre-recorded lectures</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 online quizzes</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 live quiz discussions &amp; 2 pre-recorded discussions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 full online mock exams (200 questions each)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6 live mock discussion sessions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 handouts covering all important topics related to the Virtual OSCE exam</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 booklet including 1,500+ new multiple-choice questions for the written part</li>
-        </ul>
-        <a class="btn-gold price-cta" href="https://www.confidentist.ca/product/virtual-osce-course-november-2026/">Register Now for November 2026 →</a>
-      </article>
-
       <!-- March 2027 -->
       <article class="price-card">
         <span class="price-badge">Most Popular · Comprehensive</span>
         <h3 class="price-name">Comprehensive</h3>
-        <p class="price-start">Course starts November 21 · for the March 2027 exam</p>
+        <p class="price-start">Course Start Date: December 19 · for the March 2027 exam</p>
         <div class="price-amount">
           <span class="price-now">$2,799</span>
         </div>
@@ -474,13 +512,12 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 handouts covering all important topics related to the Virtual OSCE exam</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 booklet including 1,500+ new multiple-choice questions for the written part</li>
         </ul>
-        <a class="btn-gold price-cta" href="https://www.confidentist.ca/contact-us/">Register Now for March 2027 →</a>
+        <a class="btn-gold price-cta" href="/virtual-osce/march-2027/">Register Now for March 2027 →</a>
       </article>
     </div>
 
     <div class="schedule-row">
-      <a class="btn-navy" href="https://www.confidentist.ca/contact-us/">OSCE Schedule — Nov 2026</a>
-      <a class="btn-navy" href="https://www.confidentist.ca/contact-us/">OSCE Schedule — March 2027</a>
+      <a class="btn-navy" href="/virtual-osce-schedule-march-2027/">OSCE Schedule — March 2027</a>
     </div>
 
     <p class="closing-note">To meet the diverse needs of our audience, ConfiDentist has designed the OSCE course in the best format, leveraging our many years of experience. Contact an advisor to learn more about this course and its features.</p>
@@ -574,70 +611,83 @@
 <section class="final-cta">
   <div class="final-inner">
     <h2>Register for the Virtual OSCE Course</h2>
-    <p>Secure your place for the November 2026 exam cohort and prepare for the final step of your NDEB equivalency with structured, exam-focused guidance.</p>
+    <p>Secure your place for the March 2027 exam cohort — the course starts December 19, 2026 — and prepare for the final step of your NDEB equivalency with structured, exam-focused guidance.</p>
     <div class="final-actions">
-      <a href="https://www.confidentist.ca/product/virtual-osce-course-november-2026/" class="btn-gold">Register Now for November 2026 →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+      <a href="/virtual-osce/march-2027/" class="btn-gold">Register Now for March 2027 →</a>
+      <a href="/contact-us/" class="btn-outline-white">Contact an Advisor</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-logo">Confi<span>Dentist</span></div>
-  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
-  <p style="margin-top:.75rem;">
-    <a href="/">Courses</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/resources/">Resources</a>
-  </p>
-  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
-  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
-</footer>
+<footer class="cf-footer">
+  <div class="cf-grid">
+    <div class="cf-brand">
+      <a class="cf-brand-name" href="/">Confi<span>Dentist</span></a>
+      <p>Your trusted partner on the journey to Canadian dental licensure — exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists.</p>
+      <div class="cf-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=265+Rimrock+Rd+Ste+209%2C+North+York%2C+ON+M3J+3C6" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Address: 265 Rimrock Rd Ste 209, North York, ON M3J 3C6</span></a>
+      </div>
+    </div>
 
-<!-- Header: mega-menu + mobile nav -->
-<script>
-(function () {
-  function initMega(itemId, triggerId) {
-    var item = document.getElementById(itemId);
-    var trigger = document.getElementById(triggerId);
-    if (!item || !trigger) return;
-    var closeTimer;
-    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
-    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
-    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
-    item.addEventListener('mouseenter', function () { open(true); });
-    item.addEventListener('mouseleave', scheduleClose);
-    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
-    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
-  }
-  function initMobile() {
-    var body = document.body;
-    var btn = document.getElementById('hamburger');
-    var panel = document.getElementById('mobilePanel');
-    var backdrop = document.getElementById('navBackdrop');
-    if (!btn || !panel || !backdrop) return;
-    var lastFocus = null;
-    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
-    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
-    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
-    backdrop.addEventListener('click', close);
-    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && body.classList.contains('mobile-open')) close();
-      if (e.key === 'Tab' && body.classList.contains('mobile-open')) {
-        var f = panel.querySelectorAll('a, button'); if (!f.length) return;
-        var first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    initMega('equivItem', 'equivTrigger');
-    initMega('resItem', 'resTrigger');
-    initMobile();
-  });
-})();
-</script>
+    <div class="cf-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="/our-team/">Our Instructors</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="cf-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-logos">
+    <a href="/" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px" /></a>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <div class="cf-pace">
+      <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img style="height:44px" src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" /></a>
+      <p class="cf-pace-text">ConfiDentist Grp.<br />Nationally Approved PACE Program Provider for FAGD/MAGD credit.<br />Approval does not imply acceptance by any regulatory authority or AGD endorsement.<br />10/1/2025 to 9/30/2027.<br />Provider ID# 420454</p>
+    </div>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <a href="https://certification.esdc.gc.ca/lea-mcl/servlet/mclpub?curjsp=institution.jsp&amp;curactn=dwnld&amp;provid=1" target="_blank" rel="noopener noreferrer" aria-label="Canada Certified Educational Institution — Employment and Social Development Canada"><img src="/images/canada-certified-educational-institution.png" alt="Canada — Certified Educational Institution" style="height:56px" width="138" height="56" loading="lazy" /></a>
+  </div>
+
+  <div class="cf-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="cf-links">
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/our-team/">Our Team</a>
+      <a href="/contact-us/">Contact</a>
+    </div>
+  </div>
+  <p class="cf-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+</footer>
+<script src="/_assets/nav.js" defer></script>
 </body>
 </html>

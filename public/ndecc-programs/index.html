@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NDECC Preparation Programs | Clinical Skills, Situational Judgement &amp; Bundles | ConfiDentist</title>
   <meta name="description" content="Prepare for the NDECC with ConfiDentist. Choose hands-on Clinical Skills training, interactive Situational Judgement preparation, dedicated mock exams, or the complete Brilliant Bundle covering both components." />
-  <link rel="canonical" href="https://confidentist-products.vercel.app/ndecc-programs/" />
+  <link rel="canonical" href="https://product.confidentist.ca/ndecc-programs/" />
   <meta property="og:title" content="NDECC Preparation Programs | ConfiDentist" />
   <meta property="og:description" content="Hands-on Clinical Skills, interactive Situational Judgement, mock exams and a complete NDECC bundle — choose the preparation path that fits you." />
   <meta property="og:type" content="website" />
@@ -72,7 +72,7 @@
     }
     .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
     .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
-    .brand-logo { height: 2em; width: auto; display: block; flex: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
     .brand span { color: var(--gold-dark); }
     .primary-nav { display: flex; align-items: center; gap: .25rem; }
     .nav-item { position: relative; }
@@ -128,7 +128,11 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0f3d72 100%);
+      background:
+        linear-gradient(135deg, rgba(10,31,59,.80) 0%, rgba(13,52,97,.68) 55%, rgba(15,61,114,.70) 100%),
+        url("/images/ndecc-hero.jpg");
+      background-size: cover;
+      background-position: center;
       padding: 4.5rem 1.5rem 4rem;
       position: relative; overflow: hidden;
     }
@@ -359,6 +363,13 @@
       .program-card:hover, .support-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
     }
   </style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+<link rel="stylesheet" href="/_assets/ndecc/enhance.css" />
+  <link rel="stylesheet" href="/_assets/site-footer.css" />
 </head>
 <body>
 
@@ -366,9 +377,10 @@
 
 <!-- NAV -->
 <!-- NAV (homepage header / Courses mega-menu) -->
+<!-- confi-nav v1 start -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo.png" alt="" class="brand-logo" width="214" height="256" />Confi<span>Dentist</span></a>
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
 
     <nav class="primary-nav" aria-label="Primary">
       <div class="nav-item">
@@ -393,7 +405,19 @@
           </div>
           <div class="mega-foot">
             <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
-            <a href="/#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+            <a href="#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
           </div>
         </div>
       </div>
@@ -405,19 +429,37 @@
         <div class="mega" id="resMega" role="menu" aria-label="Resources">
           <div class="mega-grid">
             <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
-            <a href="https://www.confidentist.ca/blog/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
           </div>
           <div class="mega-foot">
             <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-actions">
-      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
-      <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
-      <a href="/#journey" class="btn-cta">Find My Program</a>
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="#journey" class="btn-cta">Find My Program</a>
       <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
         <span></span><span></span><span></span>
       </button>
@@ -426,11 +468,14 @@
 </header>
 
 <!-- Mobile navigation -->
-<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
   <a href="/">Home <span aria-hidden="true">→</span></a>
-  <a href="/#journey">Find My Program <span aria-hidden="true">→</span></a>
-  <div class="mp-label">Courses</div>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
   <a href="/afk-programs/" class="sub">AFK Preparation</a>
   <a href="/acj-programs/" class="sub">ACJ Preparation</a>
   <a href="/ndecc-programs/" class="sub">NDECC</a>
@@ -440,25 +485,40 @@
   <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
   <a href="/course-bundles/" class="sub">Course Bundles</a>
   <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
   <div class="mp-label">Resources</div>
   <a href="/confitalk/" class="sub">ConfiTalk</a>
-  <a href="https://www.confidentist.ca/blog/" class="sub">Blog</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
   <div class="mp-label">More</div>
-  <a href="https://www.confidentist.ca/our-team/">Instructors</a>
-  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
-  <a href="https://www.confidentist.ca/my-account/">Student Login</a>
-  <a href="/#upcoming" class="btn-cta">Explore Courses</a>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="#upcoming" class="btn-cta">Register Now</a>
 </nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
 
 <!-- 1 · HERO -->
-<header class="hero">
+<header class="hero nd-hero">
   <div class="hero-inner">
     <p class="hero-eyebrow">NDECC Preparation by ConfiDentist</p>
     <h1>Prepare for the NDECC with <em>Confidence</em></h1>
     <p class="hero-sub">The NDECC assesses your clinical skills and your situational judgement. ConfiDentist offers focused, hands-on preparation for each component — or a complete bundle that covers both, taught by instructors who have passed the exam.</p>
     <div class="hero-actions">
-      <a href="#programs" class="btn-gold">Explore NDECC Programs →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+      <a href="#programs" class="btn-gold">Register Now →</a>
+      <a href="/contact-us/" class="btn-outline-white">Contact an Advisor</a>
     </div>
   </div>
 </header>
@@ -488,16 +548,24 @@
       <a class="program-card" href="/ndecc-programs/clinical-skills/" aria-label="View the NDECC Clinical Skills program">
         <span class="prog-badge">Hands-On Clinical Prep</span>
         <h3 class="prog-title">NDECC Clinical Skills</h3>
-        <p class="prog-price">From $5,999 CAD + HST</p>
+        <p class="prog-price">$5,999 – $11,400 CAD + HST</p>
+        <p class="prog-note" style="margin:-.35rem 0 .75rem;">3-month course $5,999 · 6-month course $11,400</p>
         <p class="prog-desc">Structured, hands-on preparation for the Clinical Skills component, combining recorded demonstrations with supervised in-person lab practice and continuous coaching.</p>
 
-        <p class="prog-subhead">Highlights</p>
+        <p class="prog-subhead">Clinical Skills Course <span style="text-transform:none;letter-spacing:0">(3 – 6 months)</span></p>
         <ul class="prog-list">
-          <li>3-month structured program</li>
-          <li>6 days of in-person lab access</li>
-          <li>Recorded technique demonstrations</li>
-          <li>Continuous coaching and feedback</li>
-          <li>Mentorship from 700-series instructors</li>
+          <li><span>Recorded technique demonstrations</span></li>
+          <li><span>6-day in-person lab access</span></li>
+          <li><span>5-day onsite coaching</span></li>
+          <li><span>Mentorship and feedback</span></li>
+        </ul>
+
+        <p class="prog-subhead">Clinical Skills Mock Exams</p>
+        <ul class="prog-list">
+          <li><span>5 full mock exams</span></li>
+          <li><span>Complete set of instruments</span></li>
+          <li><span>8-hour supervision &amp; infection control</span></li>
+          <li><span>1-hour post-exam discussion</span></li>
         </ul>
 
         <p class="prog-note">See the full inclusions, format and registration on the Clinical Skills details page.</p>
@@ -536,7 +604,7 @@
       <a class="program-card gold" href="/ndecc-programs/bundles/" aria-label="View the NDECC Brilliant Bundle covering both components">
         <span class="prog-badge">Complete NDECC Path</span>
         <h3 class="prog-title">The Brilliant Bundle</h3>
-        <p class="prog-price">$24,999 CAD + HST</p>
+        <p class="prog-price"><s style="color:var(--muted);font-weight:500;font-size:.85em;margin-right:.4rem">$25,249</s>$24,499 CAD + HST</p>
         <p class="prog-desc">The complete NDECC pathway: the Clinical Skills course and mocks together with the Situational Judgement course and mocks, plus your basic tools — with interest-free installments available.</p>
 
         <p class="prog-subhead">What it combines</p>
@@ -554,46 +622,6 @@
           View the Bundle
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<hr />
-
-<!-- 4 · MOCK EXAMS & SUPPORT -->
-<section class="section" id="mocks">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">Mock Exams &amp; Support</span>
-      <h2 class="section-title">Sharpen Up Before Exam Day</h2>
-      <p class="section-desc">Add dedicated, exam-realistic mock practice for either component, or book a complimentary work check with an instructor.</p>
-    </div>
-    <div class="support-grid">
-
-      <a class="support-card" href="https://www.confidentist.ca/product/professional-ndecc-skills-mock-exam-2025-01/" aria-label="Register for the Clinical Skills Mock Exam program">
-        <span class="support-badge">Most Exclusive</span>
-        <h3>Clinical Skills Mock Exam</h3>
-        <p class="support-price">From $1,250 CAD + HST</p>
-        <p>1 to 5 full mock exams in a fully equipped clinic setting, with a complete set of instruments, 8-hour supervision, infection control and a next-day discussion.</p>
-        <span class="support-link">Register Now <span aria-hidden="true">→</span></span>
-      </a>
-
-      <a class="support-card" href="https://www.confidentist.ca/product/situational-judgement-mock-exam-new-design/" aria-label="Register for the Situational Judgement Mock Exam program">
-        <span class="support-badge">Most Exclusive</span>
-        <h3>Situational Judgement Mock Exam</h3>
-        <p class="support-price">From $1,200 CAD + HST</p>
-        <p>2 to 8 full mocks with written and role-play stations, one-on-one feedback after each session and private post-mock discussions — structured for completion in 4 weeks.</p>
-        <span class="support-link">Register Now <span aria-hidden="true">→</span></span>
-      </a>
-
-      <a class="support-card" href="https://www.confidentist.ca/ndecc-confihelp/" aria-label="Book a free NDECC ConfiHelp session">
-        <span class="support-badge">Free Session</span>
-        <h3>NDECC ConfiHelp</h3>
-        <p class="support-price">Complimentary</p>
-        <p>A free, 30-minute private work check with an experienced instructor — personalized feedback, expert guidance and actionable tips to strengthen your clinical skills preparation.</p>
-        <span class="support-link">Book a Session <span aria-hidden="true">→</span></span>
       </a>
 
     </div>
@@ -627,7 +655,7 @@
           <tr><th scope="row">Format</th><td>Recorded demos + in-person lab</td><td>Recorded month 1, then in-person</td></tr>
           <tr><th scope="row">Practice style</th><td>Supervised lab work</td><td>Role-play &amp; written exercises</td></tr>
           <tr><th scope="row">Group size</th><td>Coaching &amp; morning shifts</td><td>Small groups, up to 7 people</td></tr>
-          <tr><th scope="row">From</th><td>$5,999 CAD + HST</td><td>$4,499 CAD + HST</td></tr>
+          <tr><th scope="row">Price</th><td>$5,999 – $11,400 CAD + HST</td><td>From $4,499 CAD + HST</td></tr>
           <tr class="compare-cta-row">
             <th scope="row">Next step</th>
             <td><a href="/ndecc-programs/clinical-skills/">View Clinical Skills <span aria-hidden="true">→</span></a></td>
@@ -644,7 +672,7 @@
         <div class="cmp-row"><div class="cmp-key">Focus</div><div class="cmp-val">Hands-on clinical technique</div></div>
         <div class="cmp-row"><div class="cmp-key">Format</div><div class="cmp-val">Recorded demos + in-person lab</div></div>
         <div class="cmp-row"><div class="cmp-key">Practice style</div><div class="cmp-val">Supervised lab work</div></div>
-        <div class="cmp-row"><div class="cmp-key">From</div><div class="cmp-val">$5,999 CAD + HST</div></div>
+        <div class="cmp-row"><div class="cmp-key">Price</div><div class="cmp-val">$5,999 – $11,400 CAD + HST</div></div>
         <a class="btn-navy" href="/ndecc-programs/clinical-skills/">View Clinical Skills →</a>
       </div>
       <div class="cmp-card sj">
@@ -683,7 +711,7 @@
       </div>
     </div>
     <div class="decision-actions">
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-navy">Speak With a ConfiDentist Advisor →</a>
+      <a href="/contact-us/" class="btn-navy">Speak With a ConfiDentist Advisor →</a>
     </div>
   </div>
 </section>
@@ -758,62 +786,76 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Confi<span>Dentist</span></div>
-  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
-  <p style="margin-top:.75rem;">
-    <a href="/">Courses</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/resources/">Resources</a>
-  </p>
-  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
-  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
-</footer>
+<footer class="cf-footer">
+  <div class="cf-grid">
+    <div class="cf-brand">
+      <a class="cf-brand-name" href="/">Confi<span>Dentist</span></a>
+      <p>Your trusted partner on the journey to Canadian dental licensure — exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists.</p>
+      <div class="cf-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=265+Rimrock+Rd+Ste+209%2C+North+York%2C+ON+M3J+3C6" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Address: 265 Rimrock Rd Ste 209, North York, ON M3J 3C6</span></a>
+      </div>
+    </div>
 
-<!-- Header: mega-menu + mobile nav -->
-<script>
-(function () {
-  function initMega(itemId, triggerId) {
-    var item = document.getElementById(itemId);
-    var trigger = document.getElementById(triggerId);
-    if (!item || !trigger) return;
-    var closeTimer;
-    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
-    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
-    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
-    item.addEventListener('mouseenter', function () { open(true); });
-    item.addEventListener('mouseleave', scheduleClose);
-    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
-    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
-  }
-  function initMobile() {
-    var body = document.body;
-    var btn = document.getElementById('hamburger');
-    var panel = document.getElementById('mobilePanel');
-    var backdrop = document.getElementById('navBackdrop');
-    if (!btn || !panel || !backdrop) return;
-    var lastFocus = null;
-    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
-    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
-    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
-    backdrop.addEventListener('click', close);
-    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && body.classList.contains('mobile-open')) close();
-      if (e.key === 'Tab' && body.classList.contains('mobile-open')) {
-        var f = panel.querySelectorAll('a, button'); if (!f.length) return;
-        var first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    initMega('equivItem', 'equivTrigger');
-    initMega('resItem', 'resTrigger');
-    initMobile();
-  });
-})();
-</script>
+    <div class="cf-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="/our-team/">Our Instructors</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="cf-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-logos">
+    <a href="/" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px" /></a>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <div class="cf-pace">
+      <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img style="height:44px" src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" /></a>
+      <p class="cf-pace-text">ConfiDentist Grp.<br />Nationally Approved PACE Program Provider for FAGD/MAGD credit.<br />Approval does not imply acceptance by any regulatory authority or AGD endorsement.<br />10/1/2025 to 9/30/2027.<br />Provider ID# 420454</p>
+    </div>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <a href="https://certification.esdc.gc.ca/lea-mcl/servlet/mclpub?curjsp=institution.jsp&amp;curactn=dwnld&amp;provid=1" target="_blank" rel="noopener noreferrer" aria-label="Canada Certified Educational Institution — Employment and Social Development Canada"><img src="/images/canada-certified-educational-institution.png" alt="Canada — Certified Educational Institution" style="height:56px" width="138" height="56" loading="lazy" /></a>
+  </div>
+
+  <div class="cf-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="cf-links">
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/our-team/">Our Team</a>
+      <a href="/contact-us/">Contact</a>
+    </div>
+  </div>
+  <p class="cf-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+</footer>
+<script src="/_assets/nav.js" defer></script>
+<script src="/_assets/ndecc/enhance.js" defer></script>
 </body>
 </html>

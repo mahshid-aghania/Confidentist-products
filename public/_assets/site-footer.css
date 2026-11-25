@@ -1,0 +1,49 @@
+/* ConfiDentist site-wide footer — same design as the homepage footer.
+   Scoped to .cf-footer so it looks identical on every page regardless of page CSS. */
+.cf-footer, .cf-footer * { box-sizing: border-box; }
+.cf-footer { --cf-navy-deep:#041b3d; --cf-gold:#0f7ae5; --cf-gold-light:#5cb2f7; --cf-gold-dark:#0a5cb8; --cf-maxw:1200px;
+  display:block; background:var(--cf-navy-deep); color:rgba(255,255,255,.62); padding:clamp(3rem,6vw,4.5rem) 1.5rem 2rem; margin:0;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif; font-size:16px; line-height:1.5; text-align:left; border:0; }
+.cf-footer p, .cf-footer ul, .cf-footer h4 { margin:0; padding:0; }
+.cf-footer a { text-decoration:none; color:inherit; }
+.cf-footer img { max-width:100%; }
+.cf-footer .cf-grid { max-width:var(--cf-maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:2.5rem; }
+.cf-footer .cf-brand-name { font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; font-weight:700; color:#fff; letter-spacing:.01em; margin-bottom:1rem; display:block; }
+.cf-footer .cf-brand-name span { color:var(--cf-gold-light); }
+.cf-footer .cf-brand p { font-size:.88rem; line-height:1.7; max-width:300px; margin-bottom:1.25rem; color:rgba(255,255,255,.62); }
+.cf-footer .cf-contact { display:flex; flex-direction:column; gap:.5rem; font-size:.86rem; }
+.cf-footer .cf-contact a { display:inline-flex; align-items:flex-start; gap:.55rem; color:rgba(255,255,255,.72); transition:color .18s; line-height:1.45; }
+.cf-footer .cf-contact a:hover { color:#fff; }
+.cf-footer .cf-contact svg { width:15px; height:15px; color:var(--cf-gold-light); flex-shrink:0; margin-top:.15em; }
+.cf-footer .cf-col h4 { font-family:'Inter',system-ui,sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#fff; margin-bottom:1.1rem; }
+.cf-footer .cf-col ul { list-style:none; display:flex; flex-direction:column; gap:.6rem; }
+.cf-footer .cf-col li { margin:0; padding:0; }
+.cf-footer .cf-col li::before { content:none; }
+.cf-footer .cf-col a { font-size:.86rem; color:rgba(255,255,255,.62); transition:color .18s; }
+.cf-footer .cf-col a:hover { color:var(--cf-gold-light); }
+.cf-footer .cf-social { display:flex; gap:.6rem; margin-top:1rem; }
+.cf-footer .cf-social a { width:36px; height:36px; border-radius:.5rem; border:1px solid rgba(255,255,255,.15); display:grid; place-items:center; color:rgba(255,255,255,.7); transition:background .18s,color .18s,border-color .18s; }
+.cf-footer .cf-social a:hover { background:var(--cf-gold); color:#fff; border-color:var(--cf-gold); }
+.cf-footer .cf-social svg { width:17px; height:17px; }
+.cf-footer .cf-logos { display:flex; justify-content:center; align-items:center; gap:1.1rem; flex-wrap:wrap; background:#fff; border-radius:14px; padding:.85rem 1.4rem; width:fit-content; max-width:92%; margin:2.25rem auto 0; box-shadow:0 6px 20px rgba(0,0,0,.18); }
+.cf-footer .cf-logos a { display:inline-flex; align-items:center; }
+.cf-footer .cf-logos img { display:block; width:auto; }
+.cf-footer .cf-sep { width:1px; height:40px; background:rgba(0,0,0,.14); }
+.cf-footer .cf-pace { display:flex; align-items:center; gap:.9rem; flex-wrap:wrap; justify-content:center; }
+.cf-footer .cf-pace-text { margin:0; color:#222; font-size:.7rem; line-height:1.4; text-align:left; max-width:360px; }
+.cf-footer .cf-bottom { max-width:var(--cf-maxw); margin:2.5rem auto 0; padding-top:1.75rem; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:.78rem; color:rgba(255,255,255,.5); }
+.cf-footer .cf-bottom .cf-links { display:flex; gap:1.25rem; flex-wrap:wrap; }
+.cf-footer .cf-bottom a { color:rgba(255,255,255,.6); }
+.cf-footer .cf-bottom a:hover { color:#fff; }
+.cf-footer .cf-disclaimer { max-width:var(--cf-maxw); margin:1.25rem auto 0; font-size:.72rem; color:rgba(255,255,255,.4); line-height:1.6; }
+@media (max-width:960px) { .cf-footer .cf-grid { grid-template-columns:1fr 1fr; gap:2rem; } .cf-footer .cf-brand { grid-column:1 / -1; } }
+@media (max-width:620px) {
+  .cf-footer .cf-grid { grid-template-columns:1fr; }
+  .cf-footer .cf-bottom { flex-direction:column; align-items:flex-start; }
+  .cf-footer .cf-sep { display:none; }
+  .cf-footer .cf-logos { flex-direction:column; }
+  .cf-footer .cf-pace { flex-direction:column; }
+  .cf-footer .cf-pace-text { text-align:center; }
+}
+/* Pages with a fixed bottom bar: keep the footer's last lines clear of it */
+body:has(.sticky-cta) .cf-footer { padding-bottom: 7rem; }

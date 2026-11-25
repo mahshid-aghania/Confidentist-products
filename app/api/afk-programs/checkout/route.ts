@@ -1,0 +1,250 @@
+import { NextResponse } from 'next/server'
+import { SHIPPING_COUNTRIES, REST_OF_WORLD_LABEL } from '@/lib/stripe/shipping'
+import { nextOrderNumber } from '@/lib/orders/next-order-number'
+
+// GET /api/afk-programs/checkout?p=<key>  — Stripe Checkout for a full AFK program
+// purchase (Extended / Comprehensive cohorts). Prices live HERE (server-side source
+// of truth); the page only sends a program key, so amounts can't be tampered with.
+// 13% HST is added as its own line item so the Stripe total matches the on-page
+// "+ HST" pricing. Creates a Checkout Session on the fly and 303-redirects to Stripe.
+//
+// At checkout we collect the buyer's full details so our record is complete:
+//   • First name + last name (required custom fields — Stripe's address form only
+//     captures a single combined name, so we ask explicitly)
+//   • Billing address (required) → address lines, city, postal code, country
+//   • Phone number
+//   • SIN (Social Insurance Number) as an optional custom field
+//
+// The webhook (client_reference_id starting "afk-") emails the receipt + bccs the team.
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
+
+// Sales tax: HARD-CODED province rates. The buyer picks their province on the AFK
+// page; it's passed as ?region=XX and the matching rate is added as its own line item
+// so the Stripe total matches the on-page pricing. Outside Canada (INTL) = tax-free.
+//
+// NOTE: this charges tax regardless of CRA registration status. Once ConfiDentist is
+// registered for GST/HST, switch back to Stripe Tax (automatic_tax) — see
+// STRIPE-TAX-SETUP.md. Rates reflect the chosen treatment: HST provinces at their HST
+// rate; GST-only (5%) for AB/BC/SK/MB/QC and the territories. Confirm with filings.
+const TAX_RATES: Record<string, { rate: number; label: string }> = {
+  ON: { rate: 0.13, label: 'HST (13%)' },
+  NB: { rate: 0.15, label: 'HST (15%)' },
+  NL: { rate: 0.15, label: 'HST (15%)' },
+  PE: { rate: 0.15, label: 'HST (15%)' },
+  NS: { rate: 0.14, label: 'HST (14%)' },
+  QC: { rate: 0.05, label: 'GST (5%)' },
+  BC: { rate: 0.05, label: 'GST (5%)' },
+  MB: { rate: 0.05, label: 'GST (5%)' },
+  SK: { rate: 0.05, label: 'GST (5%)' },
+  AB: { rate: 0.05, label: 'GST (5%)' },
+  YT: { rate: 0.05, label: 'GST (5%)' },
+  NT: { rate: 0.05, label: 'GST (5%)' },
+  NU: { rate: 0.05, label: 'GST (5%)' },
+  INTL: { rate: 0, label: 'No tax (outside Canada)' },
+}
+const DEFAULT_REGION = 'ON'
+
+// Program prices in CAD (pre-tax). Keys MUST match the ?p= values on /afk-programs/.
+const PROGRAMS: Record<string, { name: string; price: number }> = {
+  'extended-aug-2027': { name: 'AFK Extended – Aug 2027', price: 6499 },
+  'comprehensive-feb-2027': { name: 'AFK Comprehensive – Feb 2027', price: 4999 },
+  'comprehensive-aug-2027': { name: 'AFK Comprehensive – Aug 2027 (Early Bird)', price: 4749 },
+}
+
+// Installment plans (first payment, pre-HST). When ?plan=installment is passed we
+// charge only the FIRST payment now; the remaining payments are collected later via
+// manually-issued Stripe payment links. 13% HST is still added on top of each amount.
+// 6 + 1 plan: $1,429.78 today, then 6 × $844.87 monthly = $6,499 pre-HST total.
+const INSTALLMENTS: Record<
+  string,
+  { first: number; monthly: number; count: number; name: string; dates: string[] }
+> = {
+  'extended-aug-2027': {
+    first: 1429.78,
+    monthly: 844.87,
+    count: 6,
+    name: 'AFK Extended – Aug 2027 · Installment 1 of 7',
+    dates: [
+      'December 10, 2026',
+      'January 10, 2027',
+      'February 10, 2027',
+      'March 10, 2027',
+      'April 10, 2027',
+      'May 10, 2027',
+    ],
+  },
+  // Comprehensive (Aug 2027 early-bird, $4,749): $1,000 today, then 4 monthly
+  // payments of $937.25. 1,000 + 937.25 × 4 = 4,749.00.
+  'comprehensive-aug-2027': {
+    first: 1000,
+    monthly: 937.25,
+    count: 4,
+    name: 'AFK Comprehensive – Aug 2027 · Installment 1 of 5',
+    dates: [
+      'December 10, 2026',
+      'January 10, 2027',
+      'February 10, 2027',
+      'March 10, 2027',
+    ],
+  },
+}
+
+// Flat shipping rates (CAD cents) for the printed booklets, by region. The buyer
+// selects the matching option in Stripe Checkout against their delivery address.
+// NOTE: Stripe Checkout allows a MAXIMUM of 5 shipping_options. Keep this list
+// at 5 or fewer entries, or session creation fails with
+// "Array shipping_options exceeded maximum 5 allowed elements." To offer an
+// in-person pickup option, consolidate a region so the total stays ≤ 5.
+// 5 options total (Stripe's max): Pickup + 4 regions. Australia is folded into
+// "Asia & Oceania" ($400) to make room for Pickup while staying within the cap.
+const SHIPPING_OPTIONS: { name: string; amountCents: number }[] = [
+  { name: 'Pickup — collect in person (no shipping fee)', amountCents: 0 },
+  { name: 'Shipping — within Canada', amountCents: 7500 },
+  { name: 'Shipping — United States', amountCents: 15000 },
+  { name: 'Shipping — Europe & Africa', amountCents: 35000 },
+  { name: REST_OF_WORLD_LABEL, amountCents: 40000 },
+]
+
+// Every country Stripe ships to — see lib/stripe/shipping.ts.
+
+export async function GET(req: Request) {
+  const stripeKey = process.env.STRIPE_SECRET_KEY
+  if (!stripeKey) {
+    return NextResponse.json({ error: 'Payment is not configured.' }, { status: 500 })
+  }
+
+  const url = new URL(req.url)
+  const pageUrl = `${url.origin}/afk-programs/`
+
+  const key = (url.searchParams.get('p') || '').trim()
+  const program = PROGRAMS[key]
+
+  // Unknown / missing program → send them back to the page to pick a cohort.
+  if (!program) {
+    return NextResponse.redirect(pageUrl, 303)
+  }
+
+  // Optional installment plan: charge only the first payment now.
+  const isInstallment = (url.searchParams.get('plan') || '').trim() === 'installment'
+  let basePrice = program.price
+  let lineName = program.name
+  let refSuffix = ''
+  if (isInstallment) {
+    const inst = INSTALLMENTS[key]
+    // Installments aren't offered for this program → fall back to the page.
+    if (!inst) return NextResponse.redirect(pageUrl, 303)
+    basePrice = inst.first
+    lineName = inst.name
+    refSuffix = '-installment'
+  }
+
+  // Order number assigned to this registrant — carried in metadata for the receipt.
+  // Plain numeric, minted above the WooCommerce id range (see nextOrderNumber).
+  const orderNumber = await nextOrderNumber()
+
+  // Buyer's province (from the AFK page selector) → hard-coded sales-tax rate.
+  // Unknown/missing region falls back to the home province (Ontario).
+  const regionParam = (url.searchParams.get('region') || '').trim().toUpperCase()
+  const region = TAX_RATES[regionParam] ? regionParam : DEFAULT_REGION
+  const taxInfo = TAX_RATES[region]
+  const taxRate = taxInfo.rate
+  // Tax on THIS payment (full course, or just the first installment).
+  const paidTaxCents = Math.round(basePrice * taxRate * 100)
+  // Tax on the FULL course price (for installment receipts / records).
+  const courseTaxCents = Math.round(program.price * taxRate * 100)
+
+  const params = new URLSearchParams()
+  params.set('mode', 'payment')
+  params.set('line_items[0][quantity]', '1')
+  params.set('line_items[0][price_data][currency]', 'cad')
+  params.set('line_items[0][price_data][unit_amount]', String(Math.round(basePrice * 100)))
+  params.set('line_items[0][price_data][product_data][name]', lineName)
+  // Hard-coded province sales tax as its own line item. Skipped entirely when the
+  // rate is 0 (outside Canada). NOTE: this is NOT Stripe Tax — see TAX_RATES above.
+  if (paidTaxCents > 0) {
+    params.set('line_items[1][quantity]', '1')
+    params.set('line_items[1][price_data][currency]', 'cad')
+    params.set('line_items[1][price_data][unit_amount]', String(paidTaxCents))
+    params.set('line_items[1][price_data][product_data][name]', `Sales tax — ${region} · ${taxInfo.label}`)
+  }
+
+  // Collect the buyer's full details at checkout.
+  // Billing address (required) + residential/delivery address (shipping) with
+  // regional shipping rates, plus the student's name, phone and SIN.
+  params.set('billing_address_collection', 'required')
+  params.set('phone_number_collection[enabled]', 'true')
+  // Residential / delivery address — booklets ship here; drives shipping options.
+  SHIPPING_COUNTRIES.forEach((c, i) => {
+    params.set(`shipping_address_collection[allowed_countries][${i}]`, c)
+  })
+  SHIPPING_OPTIONS.forEach((s, i) => {
+    params.set(`shipping_options[${i}][shipping_rate_data][type]`, 'fixed_amount')
+    params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][amount]`, String(s.amountCents))
+    params.set(`shipping_options[${i}][shipping_rate_data][fixed_amount][currency]`, 'cad')
+    params.set(`shipping_options[${i}][shipping_rate_data][display_name]`, s.name)
+  })
+  params.set('custom_fields[0][key]', 'first_name')
+  params.set('custom_fields[0][label][type]', 'custom')
+  params.set('custom_fields[0][label][custom]', 'Student first name')
+  params.set('custom_fields[0][type]', 'text')
+  params.set('custom_fields[1][key]', 'last_name')
+  params.set('custom_fields[1][label][type]', 'custom')
+  params.set('custom_fields[1][label][custom]', 'Student family name')
+  params.set('custom_fields[1][type]', 'text')
+  params.set('custom_fields[2][key]', 'sin')
+  params.set('custom_fields[2][label][type]', 'custom')
+  params.set('custom_fields[2][label][custom]', 'Social Insurance Number (SIN)')
+  params.set('custom_fields[2][type]', 'text')
+  params.set('custom_fields[2][optional]', 'true')
+  params.set('allow_promotion_codes', 'true')
+  params.set('client_reference_id', `afk-programs-${key}${refSuffix}`)
+  params.set('metadata[product]', `afk-programs-${key}${refSuffix}`)
+  params.set('metadata[course]', lineName)
+  params.set('metadata[order_number]', orderNumber)
+  params.set('metadata[course_name]', program.name)
+  params.set('metadata[course_subtotal]', program.price.toFixed(2))
+  // Hard-coded province tax — recorded in metadata so the webhook/receipt use the
+  // correct amount (Stripe's total_details.amount_tax is 0 for a line-item tax).
+  params.set('metadata[tax_mode]', 'hardcoded')
+  params.set('metadata[tax_region]', region)
+  params.set('metadata[tax_label]', taxInfo.label)
+  params.set('metadata[tax_rate]', String(taxRate))
+  params.set('metadata[paid_tax]', (paidTaxCents / 100).toFixed(2))
+  params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
+  if (isInstallment) {
+    const inst = INSTALLMENTS[key]
+    if (inst) {
+      params.set('metadata[plan]', 'installment')
+      params.set('metadata[num_payments]', String(inst.count + 1))
+      // Pre-tax base amounts; Stripe Tax adds the tax on each payment.
+      params.set('metadata[first_base]', inst.first.toFixed(2))
+      params.set('metadata[monthly_base]', inst.monthly.toFixed(2))
+      params.set('metadata[monthly_count]', String(inst.count))
+      params.set('metadata[installment_dates]', inst.dates.join('|'))
+    }
+  } else {
+    params.set('metadata[plan]', 'full')
+    params.set('metadata[num_payments]', '1')
+  }
+  params.set('success_url', `${pageUrl}?status=confirmed`)
+  params.set('cancel_url', pageUrl)
+
+  const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${stripeKey}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: params.toString(),
+  })
+  const session = (await res.json()) as { url?: string; error?: { message?: string } }
+
+  if (!res.ok || !session.url) {
+    console.error('afk-programs checkout session error', session.error)
+    return NextResponse.json({ error: 'Could not start checkout. Please try again.' }, { status: 502 })
+  }
+
+  // 303 so the browser follows with a GET to Stripe's hosted checkout.
+  return NextResponse.redirect(session.url, 303)
+}

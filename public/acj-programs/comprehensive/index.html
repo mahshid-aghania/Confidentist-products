@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACJ Comprehensive | Complete ACJ Preparation | ConfiDentist</title>
-  <meta name="description" content="The ACJ Comprehensive program: a 6-month pathway with 111 sessions, quizzes, an X-ray practice library, 10 mini-mocks, 4 full mock exams and private mentorship." />
-  <link rel="canonical" href="https://confidentist-products.vercel.app/acj-programs/comprehensive/" />
-  <meta property="og:title" content="ACJ Comprehensive | ConfiDentist" />
-  <meta property="og:description" content="Complete ACJ preparation with structured sessions, mock exams and mentorship, offered in cohorts aligned to NDEB exam dates." />
+  <title>ACJ Comprehensive — May 2027 | Register | ConfiDentist</title>
+  <meta name="description" content="Prepare for the NDEB Assessment of Clinical Judgement (ACJ) with ConfiDentist's Comprehensive program — 7 months, 100+ live & pre-recorded sessions, 20 quizzes, 14 mock exams, X-ray library and private mentorship. Register for the May 2027 exam." />
+  <link rel="canonical" href="https://product.confidentist.ca/acj-programs/comprehensive/" />
+  <meta property="og:title" content="ACJ Preparation Program | ConfiDentist" />
+  <meta property="og:description" content="Prepare for the Assessment of Clinical Judgement with ConfiDentist's Comprehensive ACJ program — registration open for the May 2027 exam." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,27 +18,85 @@
       --navy:#072C5E; --navy-mid:#1C3165; --navy-light:#213669;
       --gold:#0f7ae5; --gold-dark:#0a5cb8; --gold-light:#5cb2f7; --gold-bg:#e9f3fd;
       --teal:#3BAFBF; --teal-light:#e8f7f8;
+      --amber:#f4b400; --amber-dark:#d99e00;
       --bg:#ffffff; --bg-soft:#f6f8fb; --text:#1a1f2e; --muted:#586175; --border:#dde3ee; --radius:.75rem;
       --shadow-sm:0 1px 4px rgba(7,44,94,.06),0 4px 16px rgba(7,44,94,.06);
       --shadow-md:0 4px 24px rgba(7,44,94,.10),0 1px 4px rgba(7,44,94,.06);
       --shadow-lg:0 8px 40px rgba(7,44,94,.14);
+      --navy-deep:   #041b3d;
+      --nav-h:       74px;
+      --maxw:        1200px;
     }
     html { scroll-behavior:smooth; }
     body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
     a { color:inherit; }
-    a:focus-visible, button:focus-visible { outline:3px solid var(--teal); outline-offset:3px; border-radius:.3rem; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid var(--teal); outline-offset:3px; border-radius:.3rem; }
     .skip-link { position:absolute; left:-999px; top:0; z-index:500; background:var(--gold); color:#fff; font-weight:700; padding:.6rem 1rem; border-radius:0 0 .4rem 0; text-decoration:none; }
     .skip-link:focus { left:0; }
 
-    nav.top { position:sticky; top:0; z-index:200; background:var(--navy); border-bottom:2px solid var(--gold); }
-    .nav-inner { max-width:1160px; margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:66px; }
-    .nav-logo { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:#fff; text-decoration:none; display:flex; align-items:center; gap:.5rem; }
-    .nav-logo span { color:var(--gold-light); }
-    .nav-right { display:flex; align-items:center; gap:1rem; }
-    .nav-link { color:rgba(255,255,255,.75); font-size:.82rem; text-decoration:none; transition:color .2s; }
-    .nav-link:hover { color:#fff; }
-    .nav-cta { background:var(--gold); color:#fff; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.5rem 1.25rem; border-radius:.35rem; text-decoration:none; transition:background .2s; }
-    .nav-cta:hover { background:var(--gold-light); }
+    /* ─────────────  SITE HEADER / MEGA MENU (ported from homepage)  ───────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 500;
+      min-height: var(--nav-h);
+      display: flex; align-items: center;
+      background: #ffffff; border-bottom: 1px solid var(--gold);
+      box-shadow: 0 4px 22px rgba(7,44,94,.08);
+    }
+    .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
+    .brand span { color: var(--gold-dark); }
+    .primary-nav { display: flex; align-items: center; gap: .25rem; }
+    .nav-item { position: relative; }
+    .nav-item > a, .nav-item > button {
+      font-family: inherit; background: none; border: none; cursor: pointer;
+      color: #1a2b3c; font-size: .82rem; font-weight: 500; letter-spacing: .02em;
+      padding: .6rem .85rem; border-radius: .35rem; display: inline-flex; align-items: center; gap: .35rem;
+      transition: color .18s, background .18s; text-decoration: none;
+    }
+    .nav-item > a:hover, .nav-item > button:hover, .nav-item > a:focus-visible, .nav-item > button:focus-visible { color: #072c5e; background: rgba(7,44,94,.06); }
+    .nav-item .chev { width: 12px; height: 12px; transition: transform .2s; }
+    .nav-item.open .chev { transform: rotate(180deg); }
+    .mega {
+      position: absolute; top: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(-6px);
+      width: min(680px, 92vw); background: #fff; color: var(--text);
+      border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+      padding: 1.25rem; opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease; z-index: 600;
+    }
+    .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
+    .mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+    .mega a { display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem; transition: background .15s; text-decoration: none; }
+    .mega a:hover, .mega a:focus-visible { background: var(--bg-soft); }
+    .mega .m-abbr { flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem; }
+    .mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+    .mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; text-decoration: none; }
+    .nav-actions { display: flex; align-items: center; gap: .5rem; }
+    .util-link { color: #1a2b3c; font-size: .78rem; font-weight: 500; padding: .5rem .55rem; border-radius: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .util-link:hover { color: #072c5e; background: rgba(7,44,94,.06); }
+    .btn-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .6rem 1.15rem; border-radius: .35rem; transition: background .2s, transform .15s; white-space: nowrap; text-decoration: none; }
+    .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 620; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #072c5e; margin: 5px 0; border-radius: 2px; transition: transform .3s, opacity .2s; }
+    .mobile-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-open .hamburger span:nth-child(2) { opacity: 0; }
+    .mobile-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-panel { position: fixed; inset: 0 0 0 auto; width: min(400px, 88vw); z-index: 610; background: var(--navy-deep); padding: calc(var(--nav-h) + .5rem) 1.5rem 2rem; transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow-y: auto; display: flex; flex-direction: column; gap: .25rem; border-left: 2px solid var(--gold); }
+    .mobile-open .mobile-panel { transform: translateX(0); }
+    .mobile-panel a { color: #fff; font-size: 1.05rem; font-weight: 500; padding: .85rem .25rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+    .mobile-panel a.sub { font-size: .92rem; font-weight: 400; color: rgba(255,255,255,.72); padding-left: 1rem; }
+    .mobile-panel .mp-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 1.25rem 0 .35rem; }
+    .mobile-panel .btn-cta { text-align: center; justify-content: center; display: flex; margin-top: 1.25rem; padding: .9rem; font-size: .85rem; }
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(4,27,61,.55); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity .3s; z-index: 590; }
+    .mobile-open .nav-backdrop { opacity: 1; visibility: visible; }
+    body.no-scroll { overflow: hidden; }
+    @media (max-width: 1160px) {
+      .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; }
+      .hamburger { display: block; }
+    }
 
     .crumbs { background:var(--bg-soft); border-bottom:1px solid var(--border); }
     .crumbs-inner { max-width:1160px; margin:0 auto; padding:.85rem 1.5rem; font-size:.78rem; color:var(--muted); }
@@ -60,56 +118,175 @@
     .hero::after { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
     .hero-inner { max-width:820px; margin:0 auto; text-align:center; position:relative; z-index:1; }
     .hero-eyebrow { display:inline-flex; align-items:center; gap:.5rem; background:rgba(15,122,229,.18); border:1px solid rgba(15,122,229,.45); color:var(--gold-light); border-radius:.35rem; font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.35rem 1rem; margin-bottom:1.5rem; }
-    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.6vw,3rem); font-weight:700; line-height:1.18; color:#fff; margin-bottom:1rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.6vw,3.2rem); font-weight:700; line-height:1.18; color:#fff; margin-bottom:1.1rem; }
     .hero h1 em { font-style:italic; color:var(--gold-light); }
-    .hero-sub { font-size:1.02rem; color:rgba(255,255,255,.72); max-width:600px; margin:0 auto 1.5rem; line-height:1.7; font-weight:300; }
-    .hero-price { display:inline-flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-bottom:2rem; }
-    .hero-reg { font-size:1.05rem; color:rgba(255,255,255,.5); text-decoration:line-through; }
-    .hero-now { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--gold-light); }
-    .hero-hst { font-size:.8rem; color:rgba(255,255,255,.6); align-self:center; }
+    .hero-sub { font-size:1.03rem; color:rgba(255,255,255,.72); max-width:620px; margin:0 auto 2.25rem; line-height:1.7; font-weight:300; }
     .hero-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
 
     .section { padding:4rem 1.5rem; }
     .section.alt { background:var(--bg-soft); }
+    .section.navy-bg { background:var(--navy); }
     .section-inner { max-width:1160px; margin:0 auto; }
-    .section-head { max-width:660px; margin:0 auto 2.5rem; text-align:center; }
+    .section-head { max-width:680px; margin:0 auto 2.5rem; text-align:center; }
     .section-kicker { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:.6rem; display:inline-flex; align-items:center; gap:.5rem; }
     .section-kicker::before { content:''; display:block; width:20px; height:2px; background:var(--gold); }
-    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.85rem; }
+    .section.navy-bg .section-kicker { color:var(--gold-light); }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.85rem; }
+    .section.navy-bg .section-title { color:#fff; }
     .section-desc { font-size:.95rem; color:var(--muted); line-height:1.8; }
+    .section.navy-bg .section-desc { color:rgba(255,255,255,.68); }
 
-    .overview-row { display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; }
-    .ov-chip { display:inline-flex; align-items:center; gap:.5rem; background:#fff; border:1.5px solid var(--border); border-radius:2rem; padding:.55rem 1.1rem; font-size:.84rem; font-weight:500; color:var(--navy); box-shadow:var(--shadow-sm); }
-    .ov-chip svg { width:16px; height:16px; color:var(--teal); flex-shrink:0; }
+    /* STATS (compact, light background) */
+    .stats-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; max-width:600px; margin:0 auto; }
+    .stat { flex:1 1 150px; min-width:134px; text-align:center; background:#fff; border:1.5px solid var(--border); border-radius:.6rem; padding:.85rem .75rem; box-shadow:var(--shadow-sm); }
+    .stat-num { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--navy); line-height:1; }
+    .stat-label { margin-top:.3rem; font-size:.68rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+    .stats-note { text-align:center; margin-top:1rem; font-size:.74rem; color:var(--muted); }
 
-    .detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; }
-    .detail-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); }
-    .detail-card h3 { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:1rem; }
-    .detail-list { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
-    .detail-list li { display:flex; align-items:flex-start; gap:.55rem; font-size:.88rem; color:var(--muted); line-height:1.5; }
-    .detail-list li svg { width:15px; height:15px; color:var(--teal); flex-shrink:0; margin-top:.15rem; }
-    .detail-list li strong { color:var(--navy); font-weight:600; }
+    /* EXAM PATHWAY (interactive) */
+    .pathway { max-width:980px; margin:0 auto; }
+    .path-steps { display:flex; align-items:flex-start; justify-content:center; gap:.5rem; flex-wrap:wrap; }
+    .path-step { flex:1 1 150px; min-width:134px; display:flex; flex-direction:column; align-items:center; background:none; border:none; padding:.4rem 0 0; cursor:pointer; font-family:inherit; }
+    .path-chev { position:relative; width:100%; background:var(--navy); color:#fff; padding:.85rem .6rem; font-family:'Playfair Display',serif; font-weight:700; font-size:.95rem; letter-spacing:.01em; clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%); display:flex; align-items:center; justify-content:center; gap:.35rem; transition:transform .18s, background .2s, box-shadow .2s; }
+    .path-step:first-child .path-chev { clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); }
+    .path-step:hover .path-chev, .path-step:focus-visible .path-chev { transform:translateY(-3px); box-shadow:0 8px 22px rgba(7,44,94,.22); }
+    .path-step:focus-visible { outline:none; }
+    .path-step.completed .path-chev { background:var(--teal); color:#fff; }
+    .path-step.current .path-chev { background:var(--amber); color:var(--navy); }
+    .path-step.dest .path-chev { background:var(--teal); color:#fff; }
+    .path-step.selected .path-chev { box-shadow:0 0 0 3px var(--gold), 0 8px 22px rgba(7,44,94,.22); }
+    .path-num { position:absolute; top:-10px; left:-6px; width:22px; height:22px; border-radius:50%; background:#fff; color:var(--navy); box-shadow:0 1px 4px rgba(7,44,94,.25); font-family:'Inter',sans-serif; font-size:.66rem; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .path-label { text-align:center; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-top:.7rem; line-height:1.4; padding:0 .25rem; }
+    .path-tag { margin-top:.55rem; font-size:.6rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:.24rem .6rem; border-radius:.3rem; white-space:nowrap; }
+    .path-tag.done { background:var(--teal-light); color:var(--teal); }
+    .path-tag.here { background:var(--amber); color:var(--navy); animation:pathpulse 2.2s infinite; }
+    .path-tag.soon { background:#fff; color:var(--muted); border:1px solid var(--border); }
+    .path-tag.dest { background:var(--teal-light); color:var(--teal); }
+    .path-detail .pd-status.dest { background:var(--teal-light); color:var(--teal); }
+    @keyframes pathpulse { 0%,100%{ box-shadow:0 0 0 0 rgba(244,180,0,.55);} 50%{ box-shadow:0 0 0 8px rgba(244,180,0,0);} }
 
-    .includes { max-width:820px; margin:0 auto; }
-    .includes-list { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:.7rem 1.5rem; }
-    .includes-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.9rem; color:var(--muted); line-height:1.55; }
-    .includes-list li svg { width:16px; height:16px; color:var(--gold); flex-shrink:0; margin-top:.15rem; }
+    .path-track { position:relative; height:5px; background:var(--border); border-radius:3px; max-width:820px; margin:2rem auto .25rem; }
+    .path-track-fill { position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:3px; transition:width 1s cubic-bezier(.4,0,.2,1); }
+    .path-track-label { text-align:center; font-size:.76rem; color:var(--muted); margin-top:.6rem; }
+    .path-track-label strong { color:var(--navy); }
 
-    /* COHORT CARDS */
-    .cohort-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:820px; margin:0 auto; }
-    .cohort-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.75rem; box-shadow:var(--shadow-sm); text-align:center; }
-    .cohort-card.featured { border-color:var(--gold); border-width:2px; }
-    .cohort-name { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:.4rem; }
-    .cohort-meta { font-size:.84rem; color:var(--muted); margin-bottom:.75rem; }
-    .cohort-price { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--navy); }
-    .cohort-hst { font-size:.76rem; color:var(--muted); margin-bottom:1.25rem; }
-    .cohort-card .btn-gold, .cohort-card .btn-ghost { width:100%; }
+    .path-detail { max-width:720px; margin:1.75rem auto 0; background:#fff; border:1.5px solid var(--border); border-left:4px solid var(--gold); border-radius:var(--radius); padding:1.5rem 1.75rem; box-shadow:var(--shadow-sm); }
+    .path-detail .pd-status { display:inline-block; font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:.24rem .6rem; border-radius:.3rem; margin-bottom:.7rem; }
+    .path-detail .pd-status.done { background:var(--teal-light); color:var(--teal); }
+    .path-detail .pd-status.here { background:var(--amber); color:var(--navy); }
+    .path-detail .pd-status.soon { background:var(--bg-soft); color:var(--muted); border:1px solid var(--border); }
+    .path-detail h3 { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--navy); margin-bottom:.6rem; }
+    .path-detail p { font-size:.9rem; color:var(--muted); line-height:1.75; margin-bottom:1rem; }
+    .path-detail .pd-link { display:inline-flex; align-items:center; gap:.4rem; font-weight:700; font-size:.84rem; color:var(--gold-dark); text-decoration:none; }
+    .path-detail .pd-link:hover { text-decoration:underline; }
+    .path-hint { text-align:center; font-size:.74rem; color:var(--muted); margin-top:1rem; }
+
+    .whatis { max-width:820px; margin:0 auto; }
+    .whatis p { font-size:.96rem; color:var(--muted); line-height:1.85; margin-bottom:1.25rem; }
+    .whatis .lead { color:var(--text); }
+    .whatis-note { font-size:.85rem; color:var(--muted); line-height:1.7; background:var(--gold-bg); border:1px solid rgba(15,122,229,.2); border-left:4px solid var(--gold); border-radius:.5rem; padding:1rem 1.25rem; }
+
+    /* WELCOME / CONGRATS */
+    .welcome { max-width:780px; margin:0 auto; background:linear-gradient(135deg,var(--gold-bg),#fff); border:1px solid rgba(15,122,229,.2); border-radius:var(--radius); padding:2rem 2.25rem; box-shadow:var(--shadow-sm); }
+    .welcome h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--navy); margin-bottom:.75rem; }
+    .welcome p { font-size:.95rem; color:var(--muted); line-height:1.85; }
+
+    /* COURSE FORMAT */
+    .format-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; max-width:820px; margin:0 auto 2.5rem; }
+    .format-item { text-align:center; background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.5rem 1rem; box-shadow:var(--shadow-sm); }
+    .format-num { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--navy); line-height:1; }
+    .format-label { margin-top:.45rem; font-size:.78rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+
+    .program-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:2rem; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); position:relative; overflow:hidden; }
+    .program-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--gold-dark),var(--gold-light)); }
+    .program-card.featured { border-color:var(--gold); border-width:2px; }
+    .prog-badge { align-self:flex-start; font-size:.64rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:.3rem; margin-bottom:1rem; background:var(--gold); color:#fff; border:1px solid var(--gold); }
+    .prog-title { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.35rem; }
+    .prog-starts { font-size:.82rem; color:var(--gold-dark); font-weight:600; margin-bottom:1rem; }
+    .prog-price { display:flex; align-items:baseline; gap:.55rem; flex-wrap:wrap; margin-bottom:.15rem; }
+    .prog-reg { font-size:1.05rem; color:var(--muted); text-decoration:line-through; }
+    .prog-now { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:700; color:var(--navy); }
+    .prog-hst { font-size:.78rem; color:var(--muted); margin-bottom:1.1rem; }
+    .prog-hst strong { color:var(--navy); font-weight:600; }
+    .prog-subhead { font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); margin-bottom:.6rem; }
+    .prog-list { list-style:none; display:flex; flex-direction:column; gap:.45rem; margin-bottom:1.35rem; }
+    .prog-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.85rem; color:var(--muted); line-height:1.45; }
+    .prog-list li svg { width:15px; height:15px; color:var(--gold); flex-shrink:0; margin-top:.15rem; }
+    .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--gold); color:#fff; font-weight:700; font-size:.9rem; padding:.9rem 1.5rem; border-radius:.4rem; text-decoration:none; transition:background .2s, gap .18s; }
+    .program-card:hover .prog-cta { gap:.8rem; background:var(--gold-light); }
+    .prog-cta svg { width:16px; height:16px; }
+    /* May 2027 schedule circle button (matches AFK Feb 2027 badge) */
+    .sched-circle { display: inline-block; line-height: 0; transition: transform .2s ease; }
+    .sched-circle img { width: 230px; height: 230px; display: block; }
+    .sched-circle:hover { transform: translateY(-4px) scale(1.04); }
+    .sched-circle:focus-visible { outline: 3px solid #1f7ae8; outline-offset: 6px; border-radius: 50%; }
+    @media (max-width: 480px) { .sched-circle img { width: 190px; height: 190px; } }
+    .prog-reassure { text-align:center; font-size:.76rem; color:var(--muted); margin-top:.7rem; }
+
+    /* ── INSTALLMENT PLAN (accordion) ── */
+    .installment { margin-top: 1.1rem; border: 1.5px solid var(--border); border-radius: .6rem; overflow: hidden; }
+    .installment-head { display: flex; align-items: center; gap: .6rem; padding: .85rem 1.1rem; background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .installment-radio { width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--gold); flex-shrink: 0; }
+    .installment-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--navy); }
+    .installment-body { padding: 1.1rem 1.25rem 1.2rem; }
+    .installment-plan { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: 1.1rem; }
+    .installment-plan .chk { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .installment-plan-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--navy); line-height: 1.2; }
+    .installment-plan-sub { font-size: .86rem; color: var(--muted); margin-top: .2rem; }
+    .installment-plan-sub strong { color: var(--gold-dark); font-weight: 700; }
+    .installment-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .installment-table th { text-align: left; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .45rem 0; border-bottom: 1px solid var(--border); }
+    .installment-table th:last-child, .installment-table td:last-child { text-align: right; }
+    .installment-table td { padding: .6rem 0; border-bottom: 1px solid var(--border); color: var(--text); }
+    .installment-table td:last-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .installment-table tr:last-child td { border-bottom: none; }
+    .installment-note { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.55; }
+    .installment-note strong { color: var(--navy); font-weight: 600; }
+    details.installment > summary { cursor: pointer; list-style: none; }
+    details.installment > summary::-webkit-details-marker { display: none; }
+    details.installment > summary.installment-head::after { content: '+'; margin-left: auto; font-size: 1.4rem; line-height: 1; color: var(--gold-dark); }
+    details.installment[open] > summary.installment-head::after { content: '\2013'; }
+    details.installment > summary:hover { background: var(--gold-bg); }
+    details.installment[open] { border-color: var(--gold); }
+
+    /* MOCK BREAKDOWN */
+    .mock-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+    .mock-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); }
+    .mock-card h4 { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:.85rem; display:flex; align-items:center; gap:.5rem; }
+    .mock-card h4 .count { font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; background:var(--gold-bg); color:var(--gold-dark); padding:.25rem .6rem; border-radius:.3rem; }
+    .mock-list { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .mock-list li { font-size:.85rem; color:var(--muted); line-height:1.5; padding-left:1.1rem; position:relative; }
+    .mock-list li::before { content:''; position:absolute; left:0; top:.5rem; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+    .mock-sub { font-size:.82rem; color:var(--muted); line-height:1.6; }
+
+    .inst-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.75rem 1.25rem; margin-top:2.5rem; max-width:1000px; margin-left:auto; margin-right:auto; }
+    .inst-card { display:flex; flex-direction:column; align-items:center; text-align:center; gap:.85rem; }
+    .inst-photo { width:128px; height:128px; border-radius:50%; object-fit:cover; object-position:top center; border:3px solid rgba(255,255,255,.14); box-shadow:0 6px 20px rgba(0,0,0,.28); background:rgba(255,255,255,.07); transition:border-color .2s, transform .2s; }
+    .inst-card:hover .inst-photo { border-color:var(--gold); transform:translateY(-3px); }
+    .inst-monogram { width:128px; height:128px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:2.4rem; color:#fff; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); border:3px solid rgba(255,255,255,.14); box-shadow:0 6px 20px rgba(0,0,0,.28); transition:border-color .2s, transform .2s; }
+    .inst-card:hover .inst-monogram { border-color:var(--gold); transform:translateY(-3px); }
+    .inst-name { font-size:.95rem; font-weight:700; color:#fff; line-height:1.3; }
+    .inst-role { font-size:.72rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-light); margin-top:.25rem; }
+    .inst-bio { font-size:.8rem; color:rgba(255,255,255,.64); line-height:1.6; margin-top:.55rem; max-width:240px; margin-left:auto; margin-right:auto; }
+
+    .faq { max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:.6rem; }
+    details { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    details[open] { border-color:var(--navy); }
+    summary { padding:1.1rem 1.4rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:.9rem; color:var(--navy); list-style:none; user-select:none; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:'+'; font-size:1.3rem; color:var(--gold-dark); transition:transform .2s; flex-shrink:0; margin-left:1rem; }
+    details[open] summary::after { transform:rotate(45deg); }
+    .faq-body { padding:0 1.4rem 1.1rem; font-size:.86rem; color:var(--muted); line-height:1.75; border-top:1px solid var(--border); padding-top:.9rem; }
+    .faq-body a { color:var(--gold-dark); text-decoration:none; font-weight:600; }
+    .faq-body a:hover { text-decoration:underline; }
 
     .final-cta { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#0f3d72 100%); }
     .final-inner { max-width:760px; margin:0 auto; padding:4rem 1.5rem; text-align:center; }
-    .final-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3.2vw,2.2rem); font-weight:700; color:#fff; margin-bottom:.85rem; }
+    .final-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3.2vw,2.3rem); font-weight:700; color:#fff; margin-bottom:.85rem; }
     .final-inner p { font-size:1rem; color:rgba(255,255,255,.7); line-height:1.7; margin-bottom:2rem; }
-    .final-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
+    .final-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; align-items:center; }
+    .final-textlink { color:var(--gold-light); font-weight:600; font-size:.88rem; text-decoration:none; }
+    .final-textlink:hover { text-decoration:underline; }
 
     footer { background:var(--navy); color:rgba(255,255,255,.5); padding:2.5rem 1.5rem; text-align:center; font-size:.78rem; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
     .footer-logo { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:.35rem; }
@@ -120,32 +297,180 @@
 
     hr.rule { border:none; border-top:1px solid var(--border); margin:0; }
 
-    @media (max-width:520px) {
+    @media (max-width:720px) {
+      .mock-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:560px) {
+      .stats-grid, .format-grid { grid-template-columns:1fr; }
       .nav-link { display:none; }
       .hero-actions .btn-gold, .hero-actions .btn-outline-white { width:100%; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior:auto; }
       *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
-      .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform:none; }
+      .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform:none; }
     }
+
+    /* ── TAX REGION SELECTOR (province → sales tax) ── */
+    .tax-region { max-width: 560px; margin: 0 auto 2.25rem; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.15rem 1.4rem; text-align: center; }
+    .tax-region label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); margin-bottom: .6rem; }
+    .tax-region select { font-family: inherit; font-size: .95rem; padding: .7rem .9rem; border: 1.5px solid var(--border); border-radius: .5rem; background: var(--bg-soft); color: var(--text); width: 100%; max-width: 360px; cursor: pointer; transition: border-color .18s; }
+    .tax-region select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(15,122,229,.12); }
+    .tax-region .hint { font-size: .76rem; color: var(--muted); margin-top: .65rem; line-height: 1.5; }
+    /* Prominent, emphasised step so buyers don't skip their tax */
+    .tax-region.step { max-width: 640px; border: 3px solid var(--gold); background: var(--gold-bg); box-shadow: 0 0 0 4px rgba(15,122,229,.12), var(--shadow-md); animation: taxPulse 2.2s ease-in-out infinite; }
+    .tax-region.step:focus-within, .tax-region.step.chosen { animation: none; box-shadow: 0 0 0 4px rgba(15,122,229,.18), var(--shadow-md); }
+    @keyframes taxPulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(15,122,229,.10), var(--shadow-sm); } 50% { box-shadow: 0 0 0 8px rgba(15,122,229,.24), var(--shadow-md); } }
+    .tax-region .step-badge { display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--gold); padding: .42rem 1.05rem; border-radius: .35rem; margin-bottom: .9rem; }
+    .tax-region.step label { font-size: 1.1rem; font-weight: 800; color: var(--navy); text-transform: none; letter-spacing: 0; }
+    .tax-region.step label strong { color: var(--gold-dark); }
+    .tax-region.step select { font-size: 1.05rem; font-weight: 700; border: 2.5px solid var(--gold); background: #fff; color: var(--navy); max-width: 380px; }
+    .tax-region.step .hint { font-weight: 700; font-size: .84rem; color: var(--navy); background: #fff; border: 1.5px solid rgba(15,122,229,.35); border-radius: .5rem; padding: .75rem .9rem; margin-top: .95rem; }
   </style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+  <link rel="stylesheet" href="/_assets/site-footer.css" />
 </head>
 <body>
 
-<a href="#includes" class="skip-link">Skip to what's included</a>
+<a href="#register" class="skip-link">Skip to registration</a>
 
-<nav class="top">
-  <div class="nav-inner">
-    <a href="https://www.confidentist.ca" class="nav-logo">Confi<span>Dentist</span></a>
-    <div class="nav-right">
-      <a href="/" class="nav-link">Courses</a>
-      <a href="/acj-programs/" class="nav-link">ACJ Programs</a>
-      <a href="https://www.confidentist.ca/resources/" class="nav-link">Resources</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="nav-cta">Speak With an Advisor</a>
+<!-- NAV (homepage header / Courses mega-menu) -->
+<!-- confi-nav v1 start -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <a href="/">Home</a>
+      </div>
+      <div class="nav-item" id="equivItem">
+        <a href="/dental-equivalency-in-canada/" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">
+          Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="equivMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+            <a href="/mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">AFK &amp; OSCE mock exams, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
+            <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
+            <a href="/acj-programs/" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">
+          Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="/acj-programs/" class="btn-cta">Find My Program</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+</header>
+
+<!-- Mobile navigation -->
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="/acj-programs/">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
+  <div class="mp-label">More</div>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="/acj-programs/" class="btn-cta">Register Now</a>
 </nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <div class="crumbs-inner">
@@ -157,126 +482,198 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">ACJ Comprehensive · Most Popular</p>
-    <h1>Complete ACJ Preparation, <em>Built Around the Exam</em></h1>
-    <p class="hero-sub">A complete, 6-month ACJ preparation program with structured sessions, quizzes, a radiology and case-based practice series, an extensive mock-exam sequence and private mentorship.</p>
-    <div class="hero-price">
-      <span class="hero-reg">$3,199</span>
-      <span class="hero-now">$3,039</span>
-      <span class="hero-hst">CAD + HST · early-bird</span>
-    </div>
+    <p class="hero-eyebrow">ACJ Comprehensive · May 2027 Exam</p>
+    <h1>Register for the <em>ACJ Comprehensive Program</em></h1>
+    <p class="hero-sub">Everything in one complete pathway — live sessions, 14 mock exams, an X-ray practice library and private mentorship. Choose your province, then pay in full or start the installment plan.</p>
     <div class="hero-actions">
-      <a href="#cohorts" class="btn-gold">Choose Your Cohort →</a>
-      <a href="/acj-programs/" class="btn-outline-white">← Back to ACJ Programs</a>
+      <a href="#register" class="btn-gold">Register for May 2027 →</a>
+      <a href="/acj-programs/" class="btn-outline-white">← All ACJ Info</a>
     </div>
   </div>
 </header>
 
-<!-- QUICK OVERVIEW -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">At a Glance</span>
-      <h2 class="section-title">Program Overview</h2>
-    </div>
-    <div class="overview-row">
-      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>6-month program</span>
-      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>111 total sessions</span>
-      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>10 mini-mocks · 4 full mocks</span>
-      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>X-ray practice library</span>
-      <span class="ov-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</span>
-    </div>
-  </div>
-</section>
-
 <hr class="rule" />
 
-<!-- COVERAGE / FORMAT / TIMELINE -->
-<section class="section alt">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">Details</span>
-      <h2 class="section-title">Coverage, Format &amp; Timeline</h2>
-    </div>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <h3>Program coverage</h3>
-        <ul class="detail-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Radiology</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clinical cases</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Operative dentistry</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pathology</li>
-        </ul>
-      </div>
-      <div class="detail-card">
-        <h3>Learning format</h3>
-        <ul class="detail-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live and pre-recorded sessions</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In-office X-ray practice library</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship &amp; VIP WhatsApp group</li>
-        </ul>
-      </div>
-      <div class="detail-card">
-        <h3>Timeline</h3>
-        <ul class="detail-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><strong>Duration:</strong> 6 months</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><strong>Cohorts:</strong> Nov 2026 &amp; May 2027 exams</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><strong>Access:</strong> Within 2–3 business days after registration</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="rule" />
-
-<!-- WHAT'S INCLUDED -->
-<section class="section" id="includes">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">What's Included</span>
-      <h2 class="section-title">Everything in the ACJ Comprehensive Program</h2>
-    </div>
-    <div class="includes">
-      <ul class="includes-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>111 total sessions</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>20 quizzes with live discussions</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>X-ray practice library (in-person office access)</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>10 mini-mock exams (radiology, cases, operative dentistry, pathology)</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4 full mock exams with 8 discussion sessions</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Access within 2–3 business days after registration</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<hr class="rule" />
-
-<!-- COHORTS -->
-<section class="section alt" id="cohorts">
+<!-- REGISTER -->
+<section class="section alt" id="register">
   <div class="section-inner">
     <div class="section-head">
       <span class="section-kicker">Register</span>
-      <h2 class="section-title">Choose Your Exam Cohort</h2>
-      <p class="section-desc">Select the cohort aligned to the NDEB exam date you plan to sit.</p>
+      <h2 class="section-title">The ACJ Comprehensive Package</h2>
+      <p class="section-desc">One complete program for the May 2027 exam — live sessions, the full mock-exam series and personalized mentorship. Pay in full or start the 5-payment installment plan.</p>
     </div>
-    <div class="cohort-grid">
-      <div class="cohort-card">
-        <div class="cohort-name">November 2026 Exam</div>
-        <div class="cohort-meta">Course starts April 2026 · 6 months</div>
-        <div class="cohort-price">$3,199</div>
-        <div class="cohort-hst">CAD + HST</div>
-        <a class="btn-ghost" href="https://www.confidentist.ca/product/acj-comprehensive-november-2026/">Register for November 2026 Exam →</a>
+
+    <!-- STEP 1 · Province selector — sets the sales-tax rate applied at checkout -->
+    <div class="tax-region step" id="taxRegion">
+      <span class="step-badge">Step 1 · Select your province</span>
+      <label for="provinceSelect">Where will you be billed? <strong>(this sets your sales tax — please choose)</strong></label>
+      <select id="provinceSelect" aria-describedby="taxHint">
+        <option value="ON">Ontario — HST 13%</option>
+        <option value="QC">Quebec — GST 5%</option>
+        <option value="BC">British Columbia — GST 5%</option>
+        <option value="AB">Alberta — GST 5%</option>
+        <option value="MB">Manitoba — GST 5%</option>
+        <option value="SK">Saskatchewan — GST 5%</option>
+        <option value="NS">Nova Scotia — HST 14%</option>
+        <option value="NB">New Brunswick — HST 15%</option>
+        <option value="NL">Newfoundland &amp; Labrador — HST 15%</option>
+        <option value="PE">Prince Edward Island — HST 15%</option>
+        <option value="YT">Yukon — GST 5%</option>
+        <option value="NT">Northwest Territories — GST 5%</option>
+        <option value="NU">Nunavut — GST 5%</option>
+        <option value="INTL">Outside Canada — no tax</option>
+      </select>
+      <p class="hint" id="taxHint">Choose your province so we can show your tax and total before you check out.</p>
+    </div>
+
+    <div style="max-width:540px;margin:0 auto;">
+      <div class="program-card featured">
+        <span class="prog-badge">Early-Bird Offer</span>
+        <h3 class="prog-title">ACJ Comprehensive</h3>
+        <p class="prog-starts">Starts October 2026 · Register for the May 2027 Exam — Now Open</p>
+
+        <div class="prog-price">
+          <span class="prog-reg">$3,199</span>
+          <span class="prog-now">$3,039</span>
+        </div>
+        <p class="prog-hst"><strong>CAD</strong> + applicable sales tax</p>
+
+        <p class="prog-subhead">⏳ Course Format</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Course Length:</strong> 7 Months</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Delivery Format:</strong> Online</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Total Sessions:</strong> 100+</span></li>
+        </ul>
+
+        <p class="prog-subhead">⭐ What's Included</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>20 Quizzes with Live Discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>X-Ray Practice Library</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14 Mock Exams with Discussions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Exclusive Membership in the VIP WhatsApp Group</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private Mentorship</li>
+        </ul>
+
+        <p class="prog-subhead">📝 Mock Exam Breakdown</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>10 Mini-Mock Exams:</strong>
+            <ul class="prog-list" style="margin:.45rem 0 0;padding-left:0;">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Radiology Review Mock Exam — with discussion</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Case Review Mock Exam — with discussion</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Operative Dentistry &amp; Radiology Mock Exam — with discussion</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pathology Mock Exam — with discussion</li>
+            </ul>
+          </span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><strong>4 Full Mock Exams</strong></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>8 Mock Discussion Sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 initial enrollment + 1 repeat within 2 years</li>
+        </ul>
+
+        <a href="/api/acj-programs/checkout" class="prog-cta">Pay in full — Register for May 2027 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+        <details class="installment">
+          <summary class="installment-head">
+            <span class="installment-radio" aria-hidden="true"></span>
+            <span class="installment-title">Pay in installments (5 payments)</span>
+          </summary>
+          <div class="installment-body">
+            <div class="installment-plan">
+              <svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div>
+                <p class="installment-plan-name">5 Monthly Payments</p>
+                <p class="installment-plan-sub"><strong>$1,000</strong> today, then 4 monthly payments of <strong>$509.75</strong> <span style="white-space:nowrap">+ tax</span></p>
+              </div>
+            </div>
+            <table class="installment-table">
+              <thead>
+                <tr><th scope="col">Payment Date</th><th scope="col">Amount</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Today (at checkout)</td><td>$1,000.00</td></tr>
+                <tr><td>December 23, 2026</td><td>$509.75</td></tr>
+                <tr><td>January 23, 2027</td><td>$509.75</td></tr>
+                <tr><td>February 23, 2027</td><td>$509.75</td></tr>
+                <tr><td>March 23, 2027</td><td>$509.75</td></tr>
+              </tbody>
+            </table>
+            <p class="installment-note">Course fee <strong>$3,039 CAD</strong> — $1,000 today, then 4 monthly payments of $509.75. <strong>Applicable sales tax is added to each payment based on your province.</strong> Each monthly payment is collected by a secure Stripe link we send you.</p>
+            <a class="prog-cta" style="margin-top:1.1rem;" href="/api/acj-programs/checkout?plan=installment">Pay First Installment — $1,000 + tax →</a>
+          </div>
+        </details>
+
+        <p class="prog-reassure">Secure checkout · Interest-free installment plans available</p>
       </div>
-      <div class="cohort-card featured">
-        <div class="cohort-name">May 2027 Exam</div>
-        <div class="cohort-meta">Course starts October 2026 · 6 months</div>
-        <div class="cohort-price">$3,039</div>
-        <div class="cohort-hst">CAD + HST · early-bird</div>
-        <a class="btn-gold" href="https://www.confidentist.ca/product/acj-comprehensive-may-2026-copy/">Register for May 2027 Exam →</a>
+    </div>
+
+    <div style="text-align:center;margin-top:1.75rem;">
+      <a href="/acj-schedule-may-2027/" class="sched-circle" aria-label="View the May 2027 ACJ schedule">
+        <img src="/images/acj/may-2027-schedule.png" alt="May 2027 Schedule" width="440" height="440" loading="lazy" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+<section class="section navy-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Meet Your Instructors</span>
+      <h2 class="section-title">Learn From Experienced Faculty</h2>
+      <p class="section-desc">Our instructors guide you through every phase — foundations, clinical lectures and the full mock-exam series. "We're excited to support you every step of the way and celebrate your achievements in our course."</p>
+    </div>
+    <div class="inst-grid">
+      <div class="inst-card">
+        <img class="inst-photo" src="/images/instructors/mehdi-adibrad.png" alt="Dr. Mehdi Adibrad" width="128" height="128" loading="lazy" />
+        <div><div class="inst-name">Dr. Mehdi Adibrad</div><div class="inst-role">Founder &amp; Head Instructor</div><p class="inst-bio">ConfiDentist’s founder — leads the ACJ foundations, core lectures and full mock-exam reviews.</p></div>
       </div>
+      <div class="inst-card">
+        <img class="inst-photo" src="/images/instructors/neda-kadivar.jpg" alt="Dr. Neda Kadivar" width="128" height="128" loading="lazy" />
+        <div><div class="inst-name">Dr. Neda Kadivar</div><div class="inst-role">Clinical Instructor</div><p class="inst-bio">Delivers core clinical lectures through the Live Learning phase of the ACJ program.</p></div>
+      </div>
+      <div class="inst-card">
+        <img class="inst-photo" src="/images/instructors/amin-asadollahi.png" alt="Dr. Amin Asadollahi" width="128" height="128" loading="lazy" />
+        <div><div class="inst-name">Dr. Amin Asadollahi</div><div class="inst-role">Clinical Instructor</div><p class="inst-bio">Teaches clinical lectures and leads the full mock-exam discussion sessions.</p></div>
+      </div>
+      <div class="inst-card">
+        <img class="inst-photo" src="/images/instructors/juyoung-jung.jpg" alt="Dr. Juyoung Jung" width="128" height="128" loading="lazy" />
+        <div><div class="inst-name">Dr. Juyoung Jung</div><div class="inst-role">Radiology &amp; Mock Exams</div><p class="inst-bio">Leads the radiology sessions and the mini-mock exam series.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-kicker">Questions</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is the course delivered entirely online?</summary>
+        <div class="faq-body">Yes. The ACJ Comprehensive program is delivered online through live Zoom lectures and pre-recorded content accessible via our portal. Occasional in-person sessions may be available at our North York office.</div>
+      </details>
+      <details>
+        <summary>Is mentorship included?</summary>
+        <div class="faq-body">Yes — a dedicated mentor supports you throughout the course, alongside membership in the exclusive VIP WhatsApp group.</div>
+      </details>
+      <details>
+        <summary>When do I get access after registering?</summary>
+        <div class="faq-body">Access is granted within 2–3 business days of registration.</div>
+      </details>
+      <details>
+        <summary>Are installment plans available?</summary>
+        <div class="faq-body">Yes — interest-free installment plans are available. Email <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or call <a href="tel:+14373700122">+1 437 370 0122</a> to set one up.</div>
+      </details>
+      <details>
+        <summary>Can I pause the course?</summary>
+        <div class="faq-body">Yes — the course can be paused and resumed with help from our team.</div>
+      </details>
+      <details>
+        <summary>Is live attendance mandatory?</summary>
+        <div class="faq-body">No, but live attendance is highly recommended for the best results, since sessions include live discussion.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -284,27 +681,121 @@
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="final-inner">
-    <h2>Register for the ACJ Comprehensive Program</h2>
-    <p>Secure your place in the complete ACJ preparation program and choose the exam cohort that fits your timeline.</p>
+    <h2>Questions Before You Register?</h2>
+    <p>Not sure if the ACJ Comprehensive program is the right fit? Talk to a ConfiDentist advisor or view the full May 2027 schedule.</p>
     <div class="final-actions">
-      <a href="https://www.confidentist.ca/product/acj-comprehensive-november-2026/" class="btn-gold">November 2026 Exam →</a>
-      <a href="https://www.confidentist.ca/product/acj-comprehensive-may-2026-copy/" class="btn-outline-white">May 2027 Exam →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Speak With an Advisor</a>
+      <a href="/contact-us/" class="btn-gold">Contact an Advisor →</a>
+      <a href="/acj-schedule-may-2027/" class="final-textlink">or view the full schedule</a>
     </div>
   </div>
 </section>
+<footer class="cf-footer">
+  <div class="cf-grid">
+    <div class="cf-brand">
+      <a class="cf-brand-name" href="/">Confi<span>Dentist</span></a>
+      <p>Your trusted partner on the journey to Canadian dental licensure — exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists.</p>
+      <div class="cf-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=265+Rimrock+Rd+Ste+209%2C+North+York%2C+ON+M3J+3C6" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Address: 265 Rimrock Rd Ste 209, North York, ON M3J 3C6</span></a>
+      </div>
+    </div>
 
-<footer>
-  <div class="footer-logo">Confi<span>Dentist</span></div>
-  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
-  <p style="margin-top:.75rem;">
-    <a href="/">Courses</a> &nbsp;·&nbsp;
-    <a href="/acj-programs/">ACJ Programs</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a>
-  </p>
-  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada. The ACJ is administered by the NDEB.</p>
-  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
+    <div class="cf-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="/our-team/">Our Instructors</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="cf-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-logos">
+    <a href="/" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px" /></a>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <div class="cf-pace">
+      <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img style="height:44px" src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" /></a>
+      <p class="cf-pace-text">ConfiDentist Grp.<br />Nationally Approved PACE Program Provider for FAGD/MAGD credit.<br />Approval does not imply acceptance by any regulatory authority or AGD endorsement.<br />10/1/2025 to 9/30/2027.<br />Provider ID# 420454</p>
+    </div>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <a href="https://certification.esdc.gc.ca/lea-mcl/servlet/mclpub?curjsp=institution.jsp&amp;curactn=dwnld&amp;provid=1" target="_blank" rel="noopener noreferrer" aria-label="Canada Certified Educational Institution — Employment and Social Development Canada"><img src="/images/canada-certified-educational-institution.png" alt="Canada — Certified Educational Institution" style="height:56px" width="138" height="56" loading="lazy" /></a>
+  </div>
+
+  <div class="cf-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="cf-links">
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/our-team/">Our Team</a>
+      <a href="/contact-us/">Contact</a>
+    </div>
+  </div>
+  <p class="cf-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
 </footer>
 
+<!-- Province selector → carry region into checkout links + show estimated total -->
+<script>
+(function () {
+  var RATES  = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.05, BC:0.05, MB:0.05, SK:0.05, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
+  var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
+  var FULL = 3039, FIRST = 1000;
+  var sel = document.getElementById('provinceSelect');
+  var hint = document.getElementById('taxHint');
+  if (!sel) return;
+  function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function apply() {
+    var r = sel.value;
+    var rate = RATES.hasOwnProperty(r) ? RATES[r] : 0.13;
+    if (hint) {
+      if (rate === 0) {
+        hint.textContent = 'No Canadian sales tax applies outside Canada. Final amount is confirmed at checkout.';
+      } else {
+        hint.innerHTML = '<strong>' + LABELS[r] + '</strong> applies. Estimated total — pay in full ' +
+          fmt(FULL * (1 + rate)) + ' · first installment ' + fmt(FIRST * (1 + rate)) + '. Confirmed at checkout.';
+      }
+    }
+    try {
+      var links = document.querySelectorAll('a[href*="/api/acj-programs/checkout"]');
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute('href') || '';
+        var base = href.replace(/[?&]region=[^&]*/, '');
+        var join = base.indexOf('?') > -1 ? '&' : '?';
+        links[i].setAttribute('href', base + join + 'region=' + r);
+      }
+    } catch (e) { /* best-effort */ }
+  }
+  sel.addEventListener('change', function () {
+    var box = document.getElementById('taxRegion'); if (box) box.classList.add('chosen'); apply();
+  });
+  apply();
+})();
+</script>
+<script src="/_assets/nav.js" defer></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import { renderInstallmentReceipt } from '@/lib/email/installment-receipt'
 import { renderMockExamReceipt, selectionFromRef } from '@/lib/email/mock-exam-receipt'
 import { renderMockAdminNotification } from '@/lib/email/mock-admin-notification'
 import { renderCourseReceipt } from '@/lib/email/course-receipt'
+import { handleCourseOrder } from '@/lib/orders/handle-course-order'
 import { recordMockOrder } from '@/lib/orders/record-mock-order'
 import { renderEventRegistrationNotification } from '@/lib/email/event-notification'
 import { renderEventConfirmation } from '@/lib/email/event-confirmation'
@@ -154,6 +155,137 @@ export async function POST(req: Request) {
         ? (session['client_reference_id'] as string)
         : ''
 
+    // Continuing Education online course (/continue-education/ → /api/ce-courses/checkout):
+    // online course, no shipping. Capture the buyer's details (name, email, phone,
+    // billing address) and send a customer receipt + a full-info admin notification.
+    // Sales tax is handled by Stripe Tax, so the tax portion is read from the session.
+    if (ref.startsWith('ce-')) {
+      const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
+      const email =
+        (typeof details['email'] === 'string' && (details['email'] as string)) ||
+        (typeof session['customer_email'] === 'string' ? (session['customer_email'] as string) : '')
+      const phone = typeof details['phone'] === 'string' ? (details['phone'] as string) : undefined
+      const name = typeof details['name'] === 'string' ? (details['name'] as string) : ''
+      const amountTotal =
+        typeof session['amount_total'] === 'number' ? (session['amount_total'] as number) : 0
+      const currency =
+        typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
+      const amountLabel = `$${(amountTotal / 100).toFixed(2)} ${currency}`
+      const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
+      const selectionLabel = meta.course || meta.course_name || 'ConfiDentist CE Course'
+
+      // Tax computed by Stripe Tax → read the actual tax amount from the session.
+      const totalDetails = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+      const taxCents =
+        typeof totalDetails['amount_tax'] === 'number' ? (totalDetails['amount_tax'] as number) : 0
+
+      // Billing address (collected via billing_address_collection=required).
+      const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
+      const str = (v: unknown) => (typeof v === 'string' ? v : '')
+      const line1 = str(a['line1'])
+      const line2 = str(a['line2'])
+      const city = str(a['city'])
+      const state = str(a['state'])
+      const country = str(a['country'])
+      const postalCode = str(a['postal_code'])
+      const cityLine = [city, state, postalCode].filter(Boolean).join(', ')
+      const addressLines = [line1, line2, cityLine, country]
+
+      // Custom fields collected at checkout: first_name, last_name (required).
+      const customFields = Array.isArray(session['custom_fields'])
+        ? (session['custom_fields'] as Array<Record<string, unknown>>)
+        : []
+      const cf = (key: string) => {
+        const field = customFields.find((f) => f['key'] === key)
+        const text = field?.['text'] as Record<string, unknown> | undefined
+        return typeof text?.['value'] === 'string' ? (text['value'] as string) : ''
+      }
+      const firstName = cf('first_name')
+      const lastName = cf('last_name')
+
+      const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+      const paymentIntent =
+        typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
+
+      // Record the purchase in the orders tables (idempotent — Stripe retries this webhook).
+      let recorded = false
+      let orderNo: string | undefined
+      try {
+        const result = await recordMockOrder(supabase, {
+          email,
+          firstName,
+          lastName,
+          phone: phone ?? '',
+          addressLine1: line1,
+          addressLine2: line2,
+          city,
+          state,
+          postalCode,
+          country,
+          productName: selectionLabel,
+          amountTotalCents: amountTotal,
+          taxCents,
+          currency,
+          sessionId: reference,
+          paymentIntent,
+          sin: '',
+          createdVia: 'ce-courses-checkout',
+          orderNumberPrefix: 'CE',
+          // Use the numeric order number minted at checkout (carried in metadata) so the admin
+          // email, the recorded order row, and any links all show the same number. Falls back to
+          // recordMockOrder's own sequence mint if absent. Numbers stay above the WooCommerce range.
+          orderNumber: (typeof meta['order_number'] === 'string' && meta['order_number']) || undefined,
+          rawSession: session,
+        })
+        recorded = result.recorded
+        orderNo = result.orderNumber
+        if (result.error) console.error('ce order record error', result.error)
+      } catch (e) {
+        console.error('ce order record failed', e)
+      }
+
+      let emailed = false
+      let notified = false
+      if (email) {
+        try {
+          const rendered = renderCourseReceipt({
+            courseName: selectionLabel,
+            customerEmail: email,
+            customerPhone: phone,
+            amountLabel,
+            reference: orderNo ? `Order #${orderNo}` : reference,
+          })
+          await sendEmail({ to: email, bcc: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...rendered })
+          emailed = true
+        } catch (e) {
+          console.error('ce receipt email failed', e)
+        }
+      }
+      // Full-info admin notification (name, phone, billing address).
+      try {
+        const note = renderMockAdminNotification({
+          productName: 'Continuing Education Course',
+          name: [firstName, lastName].filter(Boolean).join(' ') || name,
+          firstName,
+          lastName,
+          email,
+          phone: phone ?? '',
+          sin: '',
+          addressLines,
+          postalCode,
+          selectionLabel,
+          amountLabel,
+          reference: orderNo ? `Order #${orderNo}` : reference,
+          when,
+        })
+        await sendEmail({ to: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...note })
+        notified = true
+      } catch (e) {
+        console.error('ce admin notification failed', e)
+      }
+      return NextResponse.json({ received: true, ce_course: ref, emailed, notified, recorded })
+    }
+
     // OSCE Mock Exam (/osce-mock-exams/ → /api/osce-mock/checkout): capture the
     // buyer's full details (name, email, phone, billing address, postal code, SIN)
     // and send a customer receipt + a full-info admin notification.
@@ -170,7 +302,7 @@ export async function POST(req: Request) {
         typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
       const amountLabel = `$${(amountTotal / 100).toFixed(2)} ${currency}`
       const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
-      const selectionLabel = meta.course || 'OSCE Mock Exam — March 2026'
+      const selectionLabel = meta.course || 'OSCE Mock Exam — March 2027'
 
       // Billing address (collected via billing_address_collection=required).
       const a = (details['address'] as Record<string, unknown> | undefined) ?? {}
@@ -277,7 +409,25 @@ export async function POST(req: Request) {
       return NextResponse.json({ received: true, osce_mock: ref, emailed, notified, recorded })
     }
 
-    if (ref.startsWith('acj-') || ref.startsWith('afk-')) {
+    // Course purchases with a full checkout (Virtual OSCE, AFK programs, ADAT programs,
+    // ACJ): detailed receipt for the customer (order number, original price, tax on
+    // each payment, shipping, phone, billing + shipping address), the same plus SIN for
+    // the team, and the order is recorded. See lib/orders/handle-course-order.ts.
+    const COURSE_ORDERS: Array<[string, import('@/lib/orders/handle-course-order').CourseOrderOptions]> = [
+      ['virtual-osce-', { defaultCourseName: 'Virtual OSCE Course – March 2027', createdVia: 'virtual-osce-checkout', orderNumberPrefix: 'OSCE', ships: true }],
+      ['afk-programs-', { defaultCourseName: 'AFK Program', createdVia: 'afk-programs-checkout', orderNumberPrefix: 'AFK', ships: true }],
+      ['adat-programs-', { defaultCourseName: 'ADAT Program', createdVia: 'adat-programs-checkout', orderNumberPrefix: 'ADAT', ships: true }],
+      ['acj-', { defaultCourseName: 'ACJ Comprehensive Program', createdVia: 'acj-programs-checkout', orderNumberPrefix: 'ACJ', ships: false }],
+      ['ndecc-', { defaultCourseName: 'NDECC Program', createdVia: 'ndecc-checkout', orderNumberPrefix: 'NDECC', ships: false }],
+    ]
+    const courseOrder = COURSE_ORDERS.find(([prefix]) => ref.startsWith(prefix))
+    if (courseOrder) {
+      const result = await handleCourseOrder(supabase, session as Record<string, unknown>, meta, ref, courseOrder[1])
+      return NextResponse.json({ received: true, course: ref, ...result })
+    }
+
+    // AFK Feb 2027 subjects (/api/afk-subjects/checkout, ref "afk-subjects-") — short receipt.
+    if (ref.startsWith('acj-') || ref.startsWith('afk-') || ref.startsWith('adat-')) {
       const details = (session['customer_details'] as Record<string, unknown> | undefined) ?? {}
       const email =
         (typeof details['email'] === 'string' && (details['email'] as string)) ||
@@ -288,7 +438,12 @@ export async function POST(req: Request) {
       const currency =
         typeof session['currency'] === 'string' ? (session['currency'] as string).toUpperCase() : 'CAD'
       const courseName =
-        meta.course || (ref.startsWith('afk-') ? 'AFK Feb 2027 Subjects' : 'ACJ Comprehensive Program')
+        meta.course ||
+        (ref.startsWith('afk-')
+          ? 'AFK Feb 2027 Subjects'
+          : ref.startsWith('adat-')
+            ? 'ADAT Program'
+            : 'ACJ Comprehensive Program')
       const reference = typeof session['id'] === 'string' ? (session['id'] as string) : ref
 
       let emailed = false
@@ -301,13 +456,264 @@ export async function POST(req: Request) {
             amountLabel: `$${(amountTotal / 100).toFixed(2)} ${currency}`,
             reference,
           })
-          await sendEmail({ to: email, bcc: ADMIN_EMAILS, ...rendered })
+          await sendEmail({ to: email, bcc: [...ADMIN_EMAILS, 'info@confidentist.ca'], ...rendered })
           emailed = true
         } catch (e) {
           console.error('acj course receipt email failed', e)
         }
       }
-      return NextResponse.json({ received: true, course: ref, emailed })
+
+      // AFK: send a full-info admin notification so the complete record lands in
+      // the team inbox — student name + family name, email, phone, SIN, billing
+      // address, residential (delivery) address and the chosen shipping option.
+      let notified = false
+      if (ref.startsWith('afk-') || ref.startsWith('adat-')) {
+        try {
+          const str = (v: unknown) => (typeof v === 'string' ? v : '')
+          const esc = (s: string) =>
+            s.replace(/[&<>"']/g, (c) =>
+              ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string),
+            )
+          const fmtAddr = (a: Record<string, unknown> | undefined) => {
+            const ad = a ?? {}
+            const cityLine = [str(ad['city']), str(ad['state']), str(ad['postal_code'])]
+              .filter(Boolean)
+              .join(', ')
+            return [str(ad['line1']), str(ad['line2']), cityLine, str(ad['country'])]
+              .filter(Boolean)
+              .join('<br />')
+          }
+
+          // Custom fields (keys unchanged: first_name / last_name / sin).
+          const customFields = Array.isArray(session['custom_fields'])
+            ? (session['custom_fields'] as Array<Record<string, unknown>>)
+            : []
+          const cf = (key: string) => {
+            const field = customFields.find((f) => f['key'] === key)
+            const text = field?.['text'] as Record<string, unknown> | undefined
+            return typeof text?.['value'] === 'string' ? (text['value'] as string) : ''
+          }
+          const firstName = cf('first_name')
+          const lastName = cf('last_name')
+          const sin = cf('sin')
+          const studentName = [firstName, lastName].filter(Boolean).join(' ') || str(details['name'])
+
+          // Billing address (from customer_details) + residential/shipping address.
+          const billing = fmtAddr(details['address'] as Record<string, unknown> | undefined)
+          const shippingDetails =
+            (session['shipping_details'] as Record<string, unknown> | undefined) ??
+            ((session['collected_information'] as Record<string, unknown> | undefined)?.[
+              'shipping_details'
+            ] as Record<string, unknown> | undefined) ??
+            {}
+          const residential = fmtAddr(shippingDetails['address'] as Record<string, unknown> | undefined)
+
+          // Shipping amount charged + region label.
+          const totalDetails = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+          const shipCents =
+            typeof totalDetails['amount_shipping'] === 'number'
+              ? (totalDetails['amount_shipping'] as number)
+              : 0
+          const shipRegion =
+            ({ 7500: 'All over Canada', 15000: 'United States', 25000: 'Australia', 35000: 'Europe & Africa', 40000: 'Asia, Oceania & rest of world' } as Record<number, string>)[
+              shipCents
+            ] || (shipCents > 0 ? 'Shipping' : '—')
+
+          const when = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+          const money = (n: number) => `$${n.toFixed(2)}`
+          const num = (v: unknown) => Number((typeof v === 'string' ? v : '') || 0)
+
+          const orderNo = (typeof meta['order_number'] === 'string' && meta['order_number']) || reference
+          const cleanCourse =
+            (typeof meta['course_name'] === 'string' && meta['course_name']) || courseName
+          // Hard-coded province tax is carried in metadata (Stripe's amount_tax is 0
+          // for a line-item tax); fall back to Stripe Tax's amount_tax if present.
+          const metaPaidTaxCents = Math.round(num(meta['paid_tax']) * 100)
+          const taxCents =
+            metaPaidTaxCents > 0
+              ? metaPaidTaxCents
+              : typeof totalDetails['amount_tax'] === 'number'
+                ? (totalDetails['amount_tax'] as number)
+                : 0
+          const tax = taxCents / 100
+          const shipping = shipCents / 100
+          const paidNow = amountTotal / 100
+          const subtotal = (amountTotal - taxCents - shipCents) / 100
+          const isInstallment = meta['plan'] === 'installment'
+          const numPayments = (typeof meta['num_payments'] === 'string' && meta['num_payments']) || (isInstallment ? '7' : '1')
+          const monthlyBase = num(meta['monthly_base'])
+
+          // Partial payment schedule (installment only): deposit paid now + base monthly + tax.
+          let scheduleRows = ''
+          if (isInstallment) {
+            const dates = String(meta['installment_dates'] || '').split('|').filter(Boolean)
+            const srow = (id: string, when2: string, amt: string, status: string) =>
+              `<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(id)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(when2)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee;text-align:right">${esc(amt)}</td><td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(status)}</td></tr>`
+            scheduleRows += srow(`${orderNo}-1`, 'Deposit (paid now, incl. tax)', money(paidNow), 'Completed')
+            dates.forEach((d, i) => {
+              scheduleRows += srow(`${orderNo}-${i + 2}`, d, `${money(monthlyBase)} + tax`, 'Pending payment')
+            })
+          }
+
+          const row = (k: string, v: string) =>
+            `<tr><td style="padding:7px 0;color:#586175;width:180px;vertical-align:top">${k}</td><td style="padding:7px 0;font-weight:600;vertical-align:top">${v || '—'}</td></tr>`
+          const sumRow = (k: string, v: string, bold = false) =>
+            `<tr><td style="padding:6px 0;color:#586175">${k}</td><td style="padding:6px 0;text-align:right;${bold ? 'font-weight:700;color:#072C5E' : ''}">${v}</td></tr>`
+
+          const html = `
+            <div style="font-family:Arial,Helvetica,sans-serif;max-width:620px;margin:0 auto;color:#1a1f2e">
+              <h2 style="color:#072C5E;margin:0 0 .15rem">New order: #${esc(String(orderNo))}</h2>
+              <p style="color:#586175;margin:0 0 1.25rem">New registration from <strong>${esc(studentName || email)}</strong> · ${esc(when)} (Toronto)</p>
+
+              <h3 style="color:#072C5E;margin:1rem 0 .4rem;font-size:15px">Order summary</h3>
+              <table style="width:100%;border-collapse:collapse;font-size:14px">
+                ${sumRow(`${esc(cleanCourse)} × 1`, money(subtotal))}
+                ${sumRow('Subtotal', money(subtotal))}
+                ${sumRow(`Shipping: ${esc(shipRegion)}`, money(shipping))}
+                ${sumRow('Sales tax (Stripe Tax) · 821980398RT0001', money(tax))}
+                ${sumRow('Total paid now', `${money(paidNow)} ${currency}`, true)}
+                ${isInstallment ? sumRow('Payment plan', `${esc(String(numPayments))} payments (6 + 1)`) : sumRow('Payment', 'Paid in full')}
+                ${isInstallment ? sumRow('Future payments', `6 × ${money(monthlyBase)} + applicable tax (via links)`) : ''}
+              </table>
+
+              ${
+                isInstallment
+                  ? `<h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Partial payment details</h3>
+              <table style="width:100%;border-collapse:collapse;font-size:13px">
+                <thead><tr style="background:#f6f8fb">
+                  <th style="padding:6px 10px;text-align:left;color:#586175">ID</th>
+                  <th style="padding:6px 10px;text-align:left;color:#586175">Payment</th>
+                  <th style="padding:6px 10px;text-align:right;color:#586175">Amount</th>
+                  <th style="padding:6px 10px;text-align:left;color:#586175">Status</th>
+                </tr></thead>
+                <tbody>${scheduleRows}</tbody>
+              </table>`
+                  : ''
+              }
+
+              <h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Student &amp; contact</h3>
+              <table style="width:100%;border-collapse:collapse;font-size:14px">
+                ${row('Student first name', esc(firstName))}
+                ${row('Student family name', esc(lastName))}
+                ${row('Phone', esc(phone ?? ''))}
+                ${row('Email', esc(email))}
+                ${row('SIN', esc(sin))}
+                ${row('Order number', esc(String(orderNo)))}
+              </table>
+
+              <h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Billing address</h3>
+              <p style="font-size:14px;line-height:1.6;margin:0">${billing || '—'}<br />${esc(phone ?? '')}<br />${esc(email)}</p>
+
+              <h3 style="color:#072C5E;margin:1.5rem 0 .4rem;font-size:15px">Shipping address</h3>
+              <p style="font-size:14px;line-height:1.6;margin:0">${residential || billing || '—'}</p>
+            </div>`
+
+          const text =
+            `New order: #${orderNo}\nRegistration from ${studentName || email} (${when} Toronto)\n\n` +
+            `${cleanCourse}\nSubtotal: ${money(subtotal)}\nShipping (${shipRegion}): ${money(shipping)}\n` +
+            `Sales tax (Stripe Tax) · 821980398RT0001: ${money(tax)}\nTotal paid now: ${money(paidNow)} ${currency}\n` +
+            (isInstallment
+              ? `Payment plan: ${numPayments} payments (6 + 1)\nFuture payments: 6 × ${money(monthlyBase)} + applicable tax (via links)\n`
+              : `Payment: Paid in full ${money(paidNow)} ${currency}\n`) +
+            `\nStudent: ${studentName}\nPhone: ${phone ?? ''}\nEmail: ${email}\nSIN: ${sin}\nOrder number: ${orderNo}\n`
+
+          await sendEmail({
+            to: [...ADMIN_EMAILS, 'info@confidentist.ca'],
+            replyTo: email || undefined,
+            subject: `New order #${orderNo} — ${studentName || email} — ${cleanCourse}`,
+            html,
+            text,
+          })
+          notified = true
+        } catch (e) {
+          console.error('afk admin notification failed', e)
+        }
+      }
+
+      // AFK: record the order in Supabase so it shows in the dashboard alongside
+      // the WooCommerce-synced orders (idempotent on the Stripe session id).
+      let recorded = false
+      if (ref.startsWith('afk-') || ref.startsWith('adat-')) {
+        try {
+          const str = (v: unknown) => (typeof v === 'string' ? v : '')
+          const addr = (details['address'] as Record<string, unknown> | undefined) ?? {}
+          const shippingDetails =
+            (session['shipping_details'] as Record<string, unknown> | undefined) ??
+            ((session['collected_information'] as Record<string, unknown> | undefined)?.[
+              'shipping_details'
+            ] as Record<string, unknown> | undefined) ??
+            {}
+          const sAddr = (shippingDetails['address'] as Record<string, unknown> | undefined) ?? {}
+          const customFields = Array.isArray(session['custom_fields'])
+            ? (session['custom_fields'] as Array<Record<string, unknown>>)
+            : []
+          const cf = (key: string) => {
+            const field = customFields.find((f) => f['key'] === key)
+            const t = field?.['text'] as Record<string, unknown> | undefined
+            return typeof t?.['value'] === 'string' ? (t['value'] as string) : ''
+          }
+          const paymentIntent =
+            typeof session['payment_intent'] === 'string' ? (session['payment_intent'] as string) : undefined
+          const recTotals = (session['total_details'] as Record<string, unknown> | undefined) ?? {}
+          // Prefer the hard-coded tax recorded in metadata; fall back to Stripe Tax.
+          const metaRecTaxCents = Math.round(
+            Number((typeof meta['paid_tax'] === 'string' ? meta['paid_tax'] : '') || 0) * 100,
+          )
+          const paidTaxCents =
+            metaRecTaxCents > 0
+              ? metaRecTaxCents
+              : typeof recTotals['amount_tax'] === 'number'
+                ? (recTotals['amount_tax'] as number)
+                : 0
+          const result = await recordMockOrder(supabase, {
+            email,
+            firstName: cf('first_name'),
+            lastName: cf('last_name'),
+            phone: phone ?? '',
+            addressLine1: str(addr['line1']),
+            addressLine2: str(addr['line2']),
+            city: str(addr['city']),
+            state: str(addr['state']),
+            postalCode: str(addr['postal_code']),
+            country: str(addr['country']),
+            productName: (typeof meta['course_name'] === 'string' && meta['course_name']) || courseName,
+            amountTotalCents: amountTotal,
+            taxCents: paidTaxCents,
+            currency,
+            sessionId: reference,
+            paymentIntent,
+            sin: cf('sin'),
+            createdVia: ref.startsWith('adat-') ? 'adat-programs-checkout' : 'afk-programs-checkout',
+            orderNumberPrefix: ref.startsWith('adat-') ? 'ADAT' : 'AFK',
+            orderNumber:
+              (typeof meta['order_number'] === 'string' && meta['order_number']) || undefined,
+            shipping: {
+              firstName: cf('first_name'),
+              lastName: cf('last_name'),
+              addressLine1: str(sAddr['line1']),
+              addressLine2: str(sAddr['line2']),
+              city: str(sAddr['city']),
+              state: str(sAddr['state']),
+              postalCode: str(sAddr['postal_code']),
+              country: str(sAddr['country']),
+            },
+            extraRaw: {
+              plan: meta['plan'] || 'full',
+              num_payments: meta['num_payments'] || '1',
+              installment_first_base: meta['first_base'] || '',
+              installment_monthly_base: meta['monthly_base'] || '',
+              installment_dates: meta['installment_dates'] || '',
+              order_number: meta['order_number'] || '',
+            },
+          })
+          recorded = result.recorded
+          if (result.error) console.error('afk order record error', result.error)
+        } catch (e) {
+          console.error('afk order record failed', e)
+        }
+      }
+
+      return NextResponse.json({ received: true, course: ref, emailed, notified, recorded })
     }
 
     const regId = meta.registration_id || ref

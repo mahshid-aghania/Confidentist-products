@@ -1,21 +1,61 @@
 import { NextResponse } from 'next/server'
+import { nextOrderNumber } from '@/lib/orders/next-order-number'
 
-// GET /api/acj-programs/checkout  — one-click "Buy Now" for the ACJ Comprehensive
-// program on the static /acj-programs/ page. Creates a Stripe Checkout Session on
-// the fly (no pre-made Payment Link needed) and 303-redirects the buyer to it.
-// Stripe Checkout collects the email + phone; the webhook (client_reference_id
-// starting "acj-") emails the receipt and notifies the team.
+// GET /api/acj-programs/checkout                     — pay the ACJ Comprehensive program in full
+// GET /api/acj-programs/checkout?plan=installment     — pay only the FIRST installment now
+// Optional on both:  &region=<XX>                     — province, sets the sales-tax rate
+//
+// Creates a Stripe Checkout Session on the fly and 303-redirects the buyer to it.
+// Stripe Checkout collects email, phone, the student's name, billing address and an
+// optional SIN. An order number is minted here (shared sequence, see nextOrderNumber);
+// the webhook (client_reference_id starting "acj-") sends the detailed receipt, notifies
+// the team and records the order.
+//
+// The buyer picks their province on /acj-programs/comprehensive/; it arrives as
+// ?region=XX and the matching sales tax is added as its OWN line item so the Stripe
+// total matches the on-page estimate. Installment plan: the first payment is charged
+// now; the remaining 4 payments are collected later via manually-issued Stripe links
+// (same process as AFK). On the installment path we also collect the student's
+// first/last name so those follow-up links can be addressed.
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 const COURSE_NAME = 'ACJ Comprehensive Program (7-month)'
 const CLIENT_REF = 'acj-comprehensive'
 
-// $3,039 CAD + 13% Ontario HST, baked into the charge (same convention as the
-// ortho event in app/events/registry.ts). Total = $3,434.07 CAD.
+// $3,039 CAD base (pre-tax). Ontario buyer: + 13% HST = $3,434.07 (unchanged).
 const BASE_CENTS = 303900
-const HST_RATE = 0.13
-const TOTAL_CENTS = Math.round(BASE_CENTS * (1 + HST_RATE)) // 343407
+
+// Hard-coded province sales-tax rates (same convention as /api/afk-programs). This is
+// NOT Stripe Tax — see STRIPE-TAX-SETUP.md. HST provinces at their HST rate; GST-only
+// (5%) elsewhere; outside Canada (INTL) = tax-free.
+const TAX_RATES: Record<string, { rate: number; label: string }> = {
+  ON: { rate: 0.13, label: 'HST (13%)' },
+  NB: { rate: 0.15, label: 'HST (15%)' },
+  NL: { rate: 0.15, label: 'HST (15%)' },
+  PE: { rate: 0.15, label: 'HST (15%)' },
+  NS: { rate: 0.14, label: 'HST (14%)' },
+  QC: { rate: 0.05, label: 'GST (5%)' },
+  BC: { rate: 0.05, label: 'GST (5%)' },
+  MB: { rate: 0.05, label: 'GST (5%)' },
+  SK: { rate: 0.05, label: 'GST (5%)' },
+  AB: { rate: 0.05, label: 'GST (5%)' },
+  YT: { rate: 0.05, label: 'GST (5%)' },
+  NT: { rate: 0.05, label: 'GST (5%)' },
+  NU: { rate: 0.05, label: 'GST (5%)' },
+  INTL: { rate: 0, label: 'No tax (outside Canada)' },
+}
+const DEFAULT_REGION = 'ON'
+
+// Installment plan — base amounts (pre-tax), matching the on-page schedule.
+// 1,000 + 4 × 509.75 = 3,039.00 base. Sales tax is added to each payment.
+const INSTALLMENT = {
+  firstBase: 1000,
+  monthlyBase: 509.75,
+  count: 4,
+  name: 'ACJ Comprehensive – May 2027 · Installment 1 of 5',
+  dates: ['December 23, 2026', 'January 23, 2027', 'February 23, 2027', 'March 23, 2027'],
+}
 
 export async function GET(req: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY
@@ -23,24 +63,91 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: 'Payment is not configured.' }, { status: 500 })
   }
 
-  const origin = new URL(req.url).origin
-  const pageUrl = `${origin}/acj-programs/`
+  const url = new URL(req.url)
+  const pageUrl = `${url.origin}/acj-programs/`
+
+  const isInstallment = (url.searchParams.get('plan') || '').trim() === 'installment'
+
+  // Province → hard-coded sales-tax rate (unknown/missing falls back to Ontario).
+  const regionParam = (url.searchParams.get('region') || '').trim().toUpperCase()
+  const region = TAX_RATES[regionParam] ? regionParam : DEFAULT_REGION
+  const taxInfo = TAX_RATES[region]
+  const taxRate = taxInfo.rate
+
+  // Amount charged now (pre-tax): full price, or just the first installment.
+  const baseCents = isInstallment ? Math.round(INSTALLMENT.firstBase * 100) : BASE_CENTS
+  const paidTaxCents = Math.round(baseCents * taxRate)
+  const courseTaxCents = Math.round(BASE_CENTS * taxRate)
+  const lineName = isInstallment ? INSTALLMENT.name : COURSE_NAME
+  const clientRef = isInstallment ? `${CLIENT_REF}-installment` : CLIENT_REF
+  const lineDescription = isInstallment
+    ? 'First installment (1 of 5) for the 7-month ACJ Comprehensive program'
+    : '7-month comprehensive ACJ preparation'
+
+  let orderNumber: string
+  try {
+    orderNumber = await nextOrderNumber()
+  } catch (e) {
+    console.error('acj order number error', e)
+    return NextResponse.json({ error: 'Could not start checkout. Please try again.' }, { status: 502 })
+  }
 
   const params = new URLSearchParams()
   params.set('mode', 'payment')
   params.set('line_items[0][quantity]', '1')
   params.set('line_items[0][price_data][currency]', 'cad')
-  params.set('line_items[0][price_data][unit_amount]', String(TOTAL_CENTS))
-  params.set('line_items[0][price_data][product_data][name]', COURSE_NAME)
-  params.set(
-    'line_items[0][price_data][product_data][description]',
-    '7-month comprehensive ACJ preparation — incl. 13% HST',
-  )
+  params.set('line_items[0][price_data][unit_amount]', String(baseCents))
+  params.set('line_items[0][price_data][product_data][name]', lineName)
+  params.set('line_items[0][price_data][product_data][description]', lineDescription)
+  // Hard-coded province sales tax as its own line item (skipped outside Canada).
+  if (paidTaxCents > 0) {
+    params.set('line_items[1][quantity]', '1')
+    params.set('line_items[1][price_data][currency]', 'cad')
+    params.set('line_items[1][price_data][unit_amount]', String(paidTaxCents))
+    params.set('line_items[1][price_data][product_data][name]', `Sales tax — ${region} · ${taxInfo.label}`)
+  }
   params.set('phone_number_collection[enabled]', 'true')
+  params.set('billing_address_collection', 'required')
+  params.set('custom_fields[0][key]', 'first_name')
+  params.set('custom_fields[0][label][type]', 'custom')
+  params.set('custom_fields[0][label][custom]', 'Student first name')
+  params.set('custom_fields[0][type]', 'text')
+  params.set('custom_fields[1][key]', 'last_name')
+  params.set('custom_fields[1][label][type]', 'custom')
+  params.set('custom_fields[1][label][custom]', 'Student family name')
+  params.set('custom_fields[1][type]', 'text')
+  params.set('custom_fields[2][key]', 'sin')
+  params.set('custom_fields[2][label][type]', 'custom')
+  params.set('custom_fields[2][label][custom]', 'Social Insurance Number (SIN)')
+  params.set('custom_fields[2][type]', 'text')
+  params.set('custom_fields[2][optional]', 'true')
   params.set('allow_promotion_codes', 'true')
-  params.set('client_reference_id', CLIENT_REF)
-  params.set('metadata[product]', CLIENT_REF)
-  params.set('metadata[course]', COURSE_NAME)
+  params.set('client_reference_id', clientRef)
+  params.set('metadata[product]', clientRef)
+  params.set('metadata[course]', lineName)
+  params.set('metadata[course_name]', COURSE_NAME)
+  params.set('metadata[order_number]', orderNumber)
+  params.set('metadata[paid_base]', (baseCents / 100).toFixed(2))
+  params.set('metadata[course_subtotal]', (BASE_CENTS / 100).toFixed(2))
+  params.set('metadata[tax_mode]', 'hardcoded')
+  params.set('metadata[tax_region]', region)
+  params.set('metadata[tax_label]', taxInfo.label)
+  params.set('metadata[tax_rate]', String(taxRate))
+  params.set('metadata[paid_tax]', (paidTaxCents / 100).toFixed(2))
+  params.set('metadata[course_tax]', (courseTaxCents / 100).toFixed(2))
+
+  if (isInstallment) {
+    params.set('metadata[plan]', 'installment')
+    params.set('metadata[num_payments]', String(INSTALLMENT.count + 1))
+    params.set('metadata[first_base]', INSTALLMENT.firstBase.toFixed(2))
+    params.set('metadata[monthly_base]', INSTALLMENT.monthlyBase.toFixed(2))
+    params.set('metadata[monthly_count]', String(INSTALLMENT.count))
+    params.set('metadata[installment_dates]', INSTALLMENT.dates.join('|'))
+  } else {
+    params.set('metadata[plan]', 'full')
+    params.set('metadata[num_payments]', '1')
+  }
+
   params.set('success_url', `${pageUrl}?status=confirmed`)
   params.set('cancel_url', pageUrl)
 

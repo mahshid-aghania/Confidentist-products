@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AFK Preparation Programs | Full Package &amp; Subject-Based | ConfiDentist</title>
   <meta name="description" content="Explore ConfiDentist's AFK Full Package (Extended and Comprehensive) with full inclusions and pricing, plus a flexible subject-based pathway for focused AFK exam preparation." />
-  <link rel="canonical" href="https://confidentist-products.vercel.app/afk-programs/" />
+  <link rel="canonical" href="https://product.confidentist.ca/afk-programs/" />
   <meta property="og:title" content="AFK Preparation Programs | ConfiDentist" />
   <meta property="og:description" content="Choose the AFK preparation path that's right for you — the complete Full Package or a flexible subject-based program." />
   <meta property="og:type" content="website" />
@@ -72,7 +72,7 @@
     }
     .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
     .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
-    .brand-logo { height: 2em; width: auto; display: block; flex: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
     .brand span { color: var(--gold-dark); }
     .primary-nav { display: flex; align-items: center; gap: .25rem; }
     .nav-item { position: relative; }
@@ -470,6 +470,65 @@
     .path-detail h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
     .path-detail p { font-size: .92rem; color: var(--muted); line-height: 1.75; }
 
+    /* ── TAX REGION SELECTOR ── */
+    .tax-region { max-width: 540px; margin: 0 auto 2.5rem; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.15rem 1.4rem; text-align: center; }
+    .tax-region label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); margin-bottom: .6rem; }
+    .tax-region select { font-family: inherit; font-size: .95rem; padding: .7rem .9rem; border: 1.5px solid var(--border); border-radius: .5rem; background: var(--bg-soft); color: var(--text); width: 100%; max-width: 360px; cursor: pointer; transition: border-color .18s; }
+    .tax-region select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(15,122,229,.12); }
+    .tax-region .hint { font-size: .76rem; color: var(--muted); margin-top: .65rem; line-height: 1.5; }
+
+    /* ── INSTALLMENT PLAN ── */
+    .installment { margin-top: 1.25rem; border: 1.5px solid var(--border); border-radius: .6rem; overflow: hidden; }
+    .installment-head { display: flex; align-items: center; gap: .6rem; padding: .85rem 1.1rem; background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .installment-radio { width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--gold); flex-shrink: 0; }
+    .installment-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--navy); }
+    .installment-body { padding: 1.1rem 1.25rem 1.2rem; }
+    .installment-plan { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: 1.1rem; }
+    .installment-plan .chk { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .installment-plan-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--navy); line-height: 1.2; }
+    .installment-plan-sub { font-size: .86rem; color: var(--muted); margin-top: .2rem; }
+    .installment-plan-sub strong { color: var(--gold-dark); font-weight: 700; }
+    .installment-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .installment-table th { text-align: left; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .45rem 0; border-bottom: 1px solid var(--border); }
+    .installment-table th:last-child, .installment-table td:last-child { text-align: right; }
+    .installment-table td { padding: .6rem 0; border-bottom: 1px solid var(--border); color: var(--text); }
+    .installment-table td:last-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .installment-table tr:last-child td { border-bottom: none; }
+    .installment-note { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.55; }
+    .installment-note strong { color: var(--navy); font-weight: 600; }
+
+    /* ── PROMINENT PROVINCE STEP ── */
+    .tax-region.step { max-width: 640px; border: 2px solid var(--gold); background: var(--gold-bg); }
+    .tax-region .step-badge { display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--gold); padding: .28rem .8rem; border-radius: .3rem; margin-bottom: .7rem; }
+    .tax-region.step label { font-size: .92rem; }
+    .tax-region.step .hint { font-weight: 500; color: var(--navy); background: #fff; border: 1px solid rgba(15,122,229,.25); border-radius: .5rem; padding: .65rem .85rem; margin-top: .85rem; }
+
+    /* ── INSTALLMENT AS ACCORDION (native <details>) ── */
+    details.installment > summary { cursor: pointer; list-style: none; }
+    details.installment > summary::-webkit-details-marker { display: none; }
+    details.installment > summary.installment-head::after { content: '+'; margin-left: auto; font-size: 1.4rem; line-height: 1; color: var(--gold-dark); }
+    details.installment[open] > summary.installment-head::after { content: '\2013'; }
+    details.installment > summary:hover { background: var(--gold-bg); }
+    details.installment[open] { border-color: var(--gold); }
+
+    /* ── DELIVERY (pickup / shipping) ACCORDION ── */
+    .pay-label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin: 1.1rem 0 .5rem; }
+    .delivery-acc { max-width: 940px; margin: 1.75rem auto 0; }
+    .delivery-note { text-align: center; font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: .8rem; }
+    .delivery-note strong { color: var(--navy); font-weight: 700; }
+    details.ship-acc { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+    details.ship-acc > summary { cursor: pointer; list-style: none; padding: .95rem 1.25rem; display: flex; align-items: center; gap: .6rem; font-weight: 600; color: var(--navy); }
+    details.ship-acc > summary::-webkit-details-marker { display: none; }
+    details.ship-acc > summary::after { content: '+'; margin-left: auto; font-size: 1.35rem; line-height: 1; color: var(--gold-dark); }
+    details.ship-acc[open] > summary::after { content: '\2013'; }
+    details.ship-acc[open] { border-color: var(--gold); }
+    details.ship-acc > summary:hover { color: var(--gold-dark); }
+    .ship-body { padding: .2rem 1.25rem 1.1rem; border-top: 1px solid var(--border); }
+    .ship-row { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--border); font-size: .88rem; color: var(--muted); }
+    .ship-row:last-child { border-bottom: none; }
+    .ship-row b { color: var(--navy); font-weight: 700; white-space: nowrap; }
+    .ship-row.free b { color: var(--gold-dark); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .compare-wrap { display: none; }
@@ -492,7 +551,59 @@
       .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform: none; }
       .path-btn:hover .path-chevron, .path-btn:focus-visible .path-chevron { transform: none; }
     }
-  </style>
+    /* February 2027 schedule 3D button */
+    .sched-circle { display: inline-block; line-height: 0; transition: transform .2s ease; }
+    .sched-circle img { width: 230px; height: 230px; display: block; }
+    .sched-circle:hover { transform: translateY(-4px) scale(1.04); }
+    .sched-circle:focus-visible { outline: 3px solid var(--teal); outline-offset: 6px; border-radius: 50%; }
+    @media (max-width: 480px) { .sched-circle img { width: 190px; height: 190px; } }
+      /* ===== Guided Program Finder (ornate) ===== */
+    .gpf{ position:relative; overflow:hidden; border-radius:20px; padding:clamp(2rem,4vw,3.5rem);
+      background:radial-gradient(120% 90% at 85% -10%, #fdfbf5 0%, #f6efe1 42%, #efe6d2 100%), linear-gradient(180deg,#fcfaf4,#f4ecda); }
+    .gpf::before{ content:''; position:absolute; inset:0; pointer-events:none; opacity:.5;
+      background:radial-gradient(60% 40% at 15% 110%, rgba(201,162,74,.10), transparent 60%), radial-gradient(50% 50% at 110% 20%, rgba(201,162,74,.10), transparent 60%); }
+    .gpf-ribbon{ position:absolute; pointer-events:none; z-index:0; }
+    .gpf-ribbon.tr{ top:-40px; right:-30px; width:min(420px,45vw); opacity:.95; }
+    .gpf-ribbon.br{ bottom:-50px; right:8%; width:min(360px,40vw); opacity:.9; }
+    .gpf-inner{ position:relative; z-index:2; max-width:var(--maxw); margin:0 auto; }
+    .gpf-title{ font-family:'Playfair Display',serif; font-weight:800; color:var(--navy);
+      font-size:clamp(2rem,4.4vw,3.2rem); line-height:1.08; letter-spacing:-.01em; display:inline-block; position:relative; margin:0; }
+    .gpf-title .gpf-uline{ display:block; width:min(360px,70%); height:14px; margin-top:.15rem; }
+    .gpf-lead{ margin-top:1rem; max-width:620px; color:#2b3345; font-size:1.05rem; line-height:1.7; }
+    .gpf-qrow{ display:flex; align-items:center; gap:.9rem; margin-top:2.2rem; }
+    .gpf-compass{ flex-shrink:0; width:52px; height:52px; }
+    .gpf-pill{ font-family:'Playfair Display',serif; font-weight:700; color:var(--navy);
+      font-size:clamp(1.2rem,2.4vw,1.8rem); line-height:1; padding:.6rem 1.4rem; border-radius:999px;
+      background:linear-gradient(90deg,#f6e9c2 0%,#efdca0 60%,#f6e9c2 100%); border:1px solid rgba(154,115,34,.35); box-shadow:0 2px 10px rgba(154,115,34,.18); }
+    .gpf-sub{ margin:.7rem 0 0 4rem; color:var(--muted); font-size:.95rem; }
+    .gpf-cards{ display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; margin-top:1.6rem; }
+    .gpf-card{ position:relative; border-radius:22px; padding:3px; text-decoration:none; display:block;
+      background:linear-gradient(135deg,#8a6a1c 0%,#e6c86a 22%,#f7e9b0 38%,#caa149 55%,#8f6d22 80%,#e4c56a 100%);
+      box-shadow:0 10px 30px rgba(7,44,94,.22), 0 0 22px rgba(201,162,74,.35); transition:transform .18s, box-shadow .2s; }
+    .gpf-card:hover{ transform:translateY(-4px); box-shadow:0 16px 40px rgba(7,44,94,.28), 0 0 30px rgba(201,162,74,.55); }
+    .gpf-card-in{ position:relative; overflow:hidden; border-radius:19px; padding:clamp(1.6rem,2.6vw,2.2rem);
+      background:linear-gradient(158deg,#0a2f61 0%,#103e7f 55%,#0a2a57 120%); color:#fff; display:flex; flex-direction:column; gap:1rem; min-height:300px; }
+    .gpf-wm{ position:absolute; top:-24px; right:-18px; width:150px; height:150px; opacity:.09; color:#ffd98a; }
+    .gpf-wm svg{ width:100%; height:100%; }
+    .gpf-ico{ position:relative; z-index:1; width:58px; height:58px; border-radius:14px; display:grid; place-items:center;
+      background:linear-gradient(155deg,#0e356f,#0a2850); border:1.5px solid rgba(243,221,142,.55); box-shadow:inset 0 0 0 1px rgba(243,221,142,.15), 0 4px 12px rgba(0,0,0,.25); }
+    .gpf-ico svg{ width:30px; height:30px; color:#f3dd8e; }
+    .gpf-h{ position:relative; z-index:1; font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(1.4rem,2.3vw,1.8rem); line-height:1.1; margin:0; }
+    .gpf-d{ position:relative; z-index:1; color:#cdd8ea; font-size:.95rem; line-height:1.65; flex:1; }
+    .gpf-cta{ position:relative; z-index:1; align-self:flex-start; display:inline-flex; align-items:center; gap:.55rem;
+      font-weight:700; font-size:.98rem; color:#20365f; text-decoration:none; padding:.7rem 1.4rem; border-radius:999px;
+      background:linear-gradient(90deg,#e9c86a 0%,#f6e6a4 50%,#d9b457 100%); box-shadow:0 4px 14px rgba(154,115,34,.35); }
+    .gpf-cta svg{ width:18px; height:18px; transition:transform .18s; }
+    .gpf-card:hover .gpf-cta svg{ transform:translateX(3px); }
+    .gpf-rib{ position:absolute; bottom:-14px; right:-10px; width:180px; opacity:.9; z-index:0; }
+    @media(max-width:760px){ .gpf-cards{ grid-template-columns:1fr; } .gpf-sub{ margin-left:0; } }
+</style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+  <link rel="stylesheet" href="/_assets/site-footer.css" />
 </head>
 <body>
 
@@ -500,9 +611,10 @@
 
 <!-- NAV -->
 <!-- NAV (homepage header / Courses mega-menu) -->
+<!-- confi-nav v1 start -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo.png" alt="" class="brand-logo" width="214" height="256" />Confi<span>Dentist</span></a>
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
 
     <nav class="primary-nav" aria-label="Primary">
       <div class="nav-item">
@@ -527,7 +639,19 @@
           </div>
           <div class="mega-foot">
             <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
-            <a href="/#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+            <a href="#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
           </div>
         </div>
       </div>
@@ -539,19 +663,37 @@
         <div class="mega" id="resMega" role="menu" aria-label="Resources">
           <div class="mega-grid">
             <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
-            <a href="https://www.confidentist.ca/blog/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
           </div>
           <div class="mega-foot">
             <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-actions">
-      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
-      <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
-      <a href="/#journey" class="btn-cta">Find My Program</a>
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="#journey" class="btn-cta">Find My Program</a>
       <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
         <span></span><span></span><span></span>
       </button>
@@ -560,11 +702,14 @@
 </header>
 
 <!-- Mobile navigation -->
-<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
   <a href="/">Home <span aria-hidden="true">→</span></a>
-  <a href="/#journey">Find My Program <span aria-hidden="true">→</span></a>
-  <div class="mp-label">Courses</div>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
   <a href="/afk-programs/" class="sub">AFK Preparation</a>
   <a href="/acj-programs/" class="sub">ACJ Preparation</a>
   <a href="/ndecc-programs/" class="sub">NDECC</a>
@@ -574,15 +719,30 @@
   <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
   <a href="/course-bundles/" class="sub">Course Bundles</a>
   <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
   <div class="mp-label">Resources</div>
   <a href="/confitalk/" class="sub">ConfiTalk</a>
-  <a href="https://www.confidentist.ca/blog/" class="sub">Blog</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
   <div class="mp-label">More</div>
-  <a href="https://www.confidentist.ca/our-team/">Instructors</a>
-  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
-  <a href="https://www.confidentist.ca/my-account/">Student Login</a>
-  <a href="/#upcoming" class="btn-cta">Explore Courses</a>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="#upcoming" class="btn-cta">Register Now</a>
 </nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
 
 <!-- 1 · HERO -->
 <header class="hero">
@@ -590,92 +750,53 @@
     <h1>Choose the AFK Preparation Path That's <em>Right for You</em></h1>
     <div class="hero-actions">
       <a href="#programs" class="btn-gold">Compare Your Options →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Contact an Advisor</a>
+      <a href="/contact-us/" class="btn-outline-white">Contact an Advisor</a>
     </div>
   </div>
 </header>
 
-<!-- 1.5 · WELCOME & LICENSURE JOURNEY -->
-<section class="section" id="journey">
+<!-- 2 · GUIDED PROGRAM FINDER -->
+<section class="section" id="journey" aria-labelledby="gpf-title">
   <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">Your Licensure Journey</span>
-      <h2 class="section-title">Welcome to Your AFK Journey</h2>
-    </div>
+    <div class="gpf">
+      <svg class="gpf-ribbon tr" viewBox="0 0 400 220" fill="none" aria-hidden="true"><defs><linearGradient id="gpfGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6a1c"/><stop offset=".4" stop-color="#f3dd8e"/><stop offset=".6" stop-color="#caa149"/><stop offset="1" stop-color="#8f6d22"/></linearGradient></defs>
+        <path d="M10 60 C120 10 260 30 390 -10 C300 60 180 70 60 120 C180 90 300 80 400 40 C280 120 120 120 10 60Z" fill="url(#gpfGold)"/>
+        <path d="M40 150 C160 110 300 120 410 80 C320 150 190 160 70 200 C190 170 310 160 410 120 C300 200 150 200 40 150Z" fill="url(#gpfGold)" opacity=".7"/></svg>
+      <svg class="gpf-ribbon br" viewBox="0 0 400 160" fill="none" aria-hidden="true"><path d="M0 80 C120 30 260 40 400 10 C300 80 170 90 50 130 C180 100 300 90 400 60 C270 130 120 130 0 80Z" fill="url(#gpfGold)"/></svg>
 
-    <div class="journey-lead">
-      <p>Congratulations on taking the first step toward your goal—the <strong>AFK exam</strong>! Welcome to this exciting journey. Remember, you can achieve this, just as countless students have done before. Trust in yourself and the process.</p>
-      <p>With years of experience behind us, we've designed a course with everything you need for success. Trust us, follow our guidance, and you'll find success waiting for you at the finish line. Welcome to our AFK course—let's start this journey to success together.</p>
-    </div>
+      <div class="gpf-inner">
+        <h2 class="gpf-title" id="gpf-title">A Guided Program Finder
+          <svg class="gpf-uline" viewBox="0 0 360 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C90 2 150 2 220 6 C280 9 320 8 358 3" stroke="url(#gpfGold)" stroke-width="5" stroke-linecap="round" fill="none"/></svg>
+        </h2>
+        <p class="gpf-lead">Tell us what you are working toward on your AFK journey, and we will guide you to the right ConfiDentist preparation path. Most visitors find their fit in a few seconds — no email required.</p>
 
-    <!-- Interactive pathway diagram -->
-    <div class="pathway" role="group" aria-label="Canadian dental licensure examination pathway. Select an exam to read more.">
+        <div class="gpf-qrow">
+          <svg class="gpf-compass" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="21" stroke="url(#gpfGold)" stroke-width="2.5"/><circle cx="24" cy="24" r="15" stroke="url(#gpfGold)" stroke-width="1.2" opacity=".6"/><path d="M24 11 27 21 24 24 21 21Z" fill="#caa149"/><path d="M24 37 21 27 24 24 27 27Z" fill="#8f6d22"/><circle cx="24" cy="24" r="2.4" fill="#f3dd8e"/></svg>
+          <span class="gpf-pill">What would you like to accomplish?</span>
+        </div>
+        <p class="gpf-sub">Select a path to begin. You can restart at any time.</p>
 
-      <!-- STEP 1 · AFK (you are here) -->
-      <div class="path-step active">
-        <button type="button" class="path-btn" aria-pressed="true" aria-controls="path-detail"
-          data-title="AFK · Assessment of Fundamental Knowledge"
-          data-desc="A written examination testing the foundational biomedical, dental and clinical knowledge expected of a graduating dentist. This is where your ConfiDentist journey begins — and where all of our preparation is focused.">
-          <span class="path-chevron">
-            <span class="path-abbr">AFK</span>
-            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
-          </span>
-        </button>
-        <div class="path-label">Assessment of Fundamental Knowledge</div>
-        <span class="path-here">You are here</span>
+        <div class="gpf-cards">
+          <a class="gpf-card" href="/afk-programs/full-package/">
+            <span class="gpf-card-in">
+              <span class="gpf-wm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+              <span class="gpf-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+              <span class="gpf-h">AFK Full Package</span>
+              <span class="gpf-d">The complete, structured AFK pathway — live and recorded lectures, quizzes, mock exams, booklets and mentorship, covering the entire AFK syllabus.</span>
+              <span class="gpf-cta">Explore the Full Package <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="gpf-card" href="#subject-based">
+            <span class="gpf-card-in">
+              <span class="gpf-wm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+              <span class="gpf-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+              <span class="gpf-h">AFK Subject-Based Program</span>
+              <span class="gpf-d">Focus your time where you need it most. Choose individual AFK subjects and build a flexible, modular plan around your strengths and gaps.</span>
+              <span class="gpf-cta">Explore Subject-Based <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+        </div>
       </div>
-
-      <div class="path-arrow" aria-hidden="true"><svg viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="9" x2="16" y2="9" stroke-dasharray="3 3"/><path d="M13 4l5 5-5 5"/></svg></div>
-
-      <!-- STEP 2 · ACJ -->
-      <div class="path-step">
-        <button type="button" class="path-btn" aria-pressed="false" aria-controls="path-detail"
-          data-title="ACJ · Assessment of Clinical Judgement"
-          data-desc="A written examination that evaluates your clinical reasoning and decision-making across a range of patient-care scenarios.">
-          <span class="path-chevron">
-            <span class="path-abbr" style="padding-left:1.1rem">ACJ</span>
-            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-          </span>
-        </button>
-        <div class="path-label">Assessment of Clinical Judgement</div>
-      </div>
-
-      <div class="path-arrow" aria-hidden="true"><svg viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="9" x2="16" y2="9" stroke-dasharray="3 3"/><path d="M13 4l5 5-5 5"/></svg></div>
-
-      <!-- STEP 3 · NDECC -->
-      <div class="path-step">
-        <button type="button" class="path-btn" aria-pressed="false" aria-controls="path-detail"
-          data-title="NDECC · National Dental Examination Clinical Competency"
-          data-desc="A performance-based examination assessing hands-on clinical skills together with situational judgement.">
-          <span class="path-chevron">
-            <span class="path-abbr">NDECC</span>
-            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
-          </span>
-        </button>
-        <div class="path-label">Clinical Skills &amp; Situational Judgement</div>
-      </div>
-
-      <div class="path-arrow" aria-hidden="true"><svg viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="9" x2="16" y2="9" stroke-dasharray="3 3"/><path d="M13 4l5 5-5 5"/></svg></div>
-
-      <!-- STEP 4 · VIRTUAL OSCE -->
-      <div class="path-step">
-        <button type="button" class="path-btn" aria-pressed="false" aria-controls="path-detail"
-          data-title="Virtual OSCE · Objective Structured Clinical Examination"
-          data-desc="A station-based assessment of applied clinical competencies, delivered in a virtual format — the final examination on the pathway to licensure.">
-          <span class="path-chevron">
-            <span class="path-abbr">VIRTUAL<small>OSCE</small></span>
-            <svg class="path-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          </span>
-        </button>
-        <div class="path-label">Objective Structured Clinical Examination</div>
-      </div>
-
-    </div>
-
-    <!-- Detail panel (updates on selection) -->
-    <div class="path-detail" id="path-detail" aria-live="polite">
-      <h3>AFK · Assessment of Fundamental Knowledge</h3>
-      <p>A written examination testing the foundational biomedical, dental and clinical knowledge expected of a graduating dentist. This is where your ConfiDentist journey begins — and where all of our preparation is focused.</p>
     </div>
   </div>
 </section>
@@ -696,6 +817,7 @@
       <p class="pkg-middle-desc" style="margin-bottom:0;">Choose between the Extended and Comprehensive pathways below based on your preparation needs and desired level of support.</p>
     </div>
 
+
     <div class="price-grid">
 
       <!-- EXTENDED -->
@@ -707,7 +829,7 @@
           <span class="price-reg">$6,999</span>
           <span class="price-now">$6,499</span>
         </div>
-        <p class="price-hst"><strong>CAD</strong> + HST</p>
+        <p class="price-hst"><strong>CAD</strong> + tax</p>
         <p class="price-earlybird">More time to prepare, with personalized support. This 8-month program includes a personalized study plan and a mid-course progress evaluation to help you stay on track.</p>
 
         <hr class="price-divider" />
@@ -731,18 +853,9 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mid-course progress evaluation session</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 initial enrollment + 2 repeats within 2 years</li>
         </ul>
-        <div class="price-cohorts">
-          <p class="price-cohorts-head">Choose your exam cohort</p>
-          <div class="price-cohort featured">
-            <div class="price-cohort-head">
-              <span class="price-cohort-name">August 2027 Exam</span>
-              <span class="price-cohort-amt">$6,499 <small>CAD + HST</small></span>
-            </div>
-            <p class="price-cohort-meta">Starts December 2026 · 8-month program</p>
-            <a class="price-cta navy" href="https://www.confidentist.ca/product/afk-extended-aug-2026/">Register for August 2027 Exam →</a>
-          </div>
-        </div>
+        <a class="price-cta navy" href="/afk-programs/extended/">View details &amp; register →</a>
       </article>
 
       <!-- COMPREHENSIVE -->
@@ -754,8 +867,8 @@
           <span class="price-reg">$4,999</span>
           <span class="price-now">$4,749</span>
         </div>
-        <p class="price-hst"><strong>CAD</strong> + HST · early-bird price</p>
-        <p class="price-earlybird">The early-bird discount is valid until 10 days before the course start date. A February 2027 exam cohort (started July 2026) is also available at $4,999 + HST.</p>
+        <p class="price-hst"><strong>CAD</strong> + tax · early-bird price</p>
+        <p class="price-earlybird">The early-bird discount is valid until 10 days before the course start date.</p>
 
         <hr class="price-divider" />
         <p class="price-subhead">Best suited for</p>
@@ -776,32 +889,21 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private mentorship</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Membership in the VIP WhatsApp group</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>11 updated booklets (13 topics)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 initial enrollment + 1 repeat within 2 years</li>
         </ul>
-        <div class="price-cohorts">
-          <p class="price-cohorts-head">Choose your exam cohort</p>
-          <div class="price-cohort">
-            <div class="price-cohort-head">
-              <span class="price-cohort-name">February 2027 Exam</span>
-              <span class="price-cohort-amt">$4,999 <small>CAD + HST</small></span>
-            </div>
-            <p class="price-cohort-meta">Course started July 2026 · 6-month program</p>
-            <a class="price-cta navy" href="https://www.confidentist.ca/product/afk-comprehensive-aug-feb-2027/">Register for February 2027 Exam →</a>
-          </div>
-          <div class="price-cohort featured">
-            <div class="price-cohort-head">
-              <span class="price-cohort-name">August 2027 Exam</span>
-              <span class="price-cohort-amt">$4,749 <small>CAD + HST · early-bird</small></span>
-            </div>
-            <p class="price-cohort-meta">Starts February 2027 · 6-month program</p>
-            <a class="price-cta gold" href="https://www.confidentist.ca/product/afk-comprehensive-feb-2027-6p/">Register for August 2027 Exam →</a>
-          </div>
-        </div>
+        <a class="price-cta gold" href="/afk-programs/comprehensive/">View details &amp; register →</a>
       </article>
 
     </div>
 
-    <div style="text-align:center;margin-top:1.75rem;">
-      <a href="/afk-schedule-feb-2027/" style="font-size:.85rem;font-weight:700;color:var(--gold-dark);text-decoration:none;">View the February 2027 schedule →</a>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.75rem;">
+      <a href="/afk-schedule-feb-2027/" class="sched-circle" aria-label="View the February 2027 AFK schedule">
+        <img src="/images/afk/feb-2027-schedule.png" alt="February 2027 Schedule" width="440" height="440" loading="lazy" />
+      </a>
+      <a href="/afk-schedule-aug-2027/" class="sched-circle" aria-label="View the August 2027 AFK schedule">
+        <img src="/images/afk/aug-2027-schedule.png" alt="August 2027 Schedule" width="440" height="440" loading="lazy" />
+      </a>
     </div>
   </div>
 </section>
@@ -857,7 +959,7 @@
     </div>
 
     <div class="pathway-advisor">
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-navy">Speak With a ConfiDentist Advisor →</a>
+      <a href="/contact-us/" class="btn-navy">Speak With a ConfiDentist Advisor →</a>
     </div>
   </div>
 </section>
@@ -893,63 +995,75 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Confi<span>Dentist</span></div>
-  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
-  <p style="margin-top:.75rem;">
-    <a href="/">Courses</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/resources/">Resources</a>
-  </p>
-  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
-  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
-</footer>
+<footer class="cf-footer">
+  <div class="cf-grid">
+    <div class="cf-brand">
+      <a class="cf-brand-name" href="/">Confi<span>Dentist</span></a>
+      <p>Your trusted partner on the journey to Canadian dental licensure — exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists.</p>
+      <div class="cf-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=265+Rimrock+Rd+Ste+209%2C+North+York%2C+ON+M3J+3C6" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Address: 265 Rimrock Rd Ste 209, North York, ON M3J 3C6</span></a>
+      </div>
+    </div>
 
-<!-- Header: mega-menu + mobile nav -->
-<script>
-(function () {
-  function initMega(itemId, triggerId) {
-    var item = document.getElementById(itemId);
-    var trigger = document.getElementById(triggerId);
-    if (!item || !trigger) return;
-    var closeTimer;
-    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
-    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
-    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
-    item.addEventListener('mouseenter', function () { open(true); });
-    item.addEventListener('mouseleave', scheduleClose);
-    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
-    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
-  }
-  function initMobile() {
-    var body = document.body;
-    var btn = document.getElementById('hamburger');
-    var panel = document.getElementById('mobilePanel');
-    var backdrop = document.getElementById('navBackdrop');
-    if (!btn || !panel || !backdrop) return;
-    var lastFocus = null;
-    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
-    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
-    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
-    backdrop.addEventListener('click', close);
-    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && body.classList.contains('mobile-open')) close();
-      if (e.key === 'Tab' && body.classList.contains('mobile-open')) {
-        var f = panel.querySelectorAll('a, button'); if (!f.length) return;
-        var first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    initMega('equivItem', 'equivTrigger');
-    initMega('resItem', 'resTrigger');
-    initMobile();
-  });
-})();
-</script>
+    <div class="cf-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="/our-team/">Our Instructors</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="cf-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-logos">
+    <a href="/" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px" /></a>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <div class="cf-pace">
+      <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img style="height:44px" src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" /></a>
+      <p class="cf-pace-text">ConfiDentist Grp.<br />Nationally Approved PACE Program Provider for FAGD/MAGD credit.<br />Approval does not imply acceptance by any regulatory authority or AGD endorsement.<br />10/1/2025 to 9/30/2027.<br />Provider ID# 420454</p>
+    </div>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <a href="https://certification.esdc.gc.ca/lea-mcl/servlet/mclpub?curjsp=institution.jsp&amp;curactn=dwnld&amp;provid=1" target="_blank" rel="noopener noreferrer" aria-label="Canada Certified Educational Institution — Employment and Social Development Canada"><img src="/images/canada-certified-educational-institution.png" alt="Canada — Certified Educational Institution" style="height:56px" width="138" height="56" loading="lazy" /></a>
+  </div>
+
+  <div class="cf-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="cf-links">
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/our-team/">Our Team</a>
+      <a href="/contact-us/">Contact</a>
+    </div>
+  </div>
+  <p class="cf-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+</footer>
 
 <script>
   (function () {
@@ -977,5 +1091,7 @@
   })();
 </script>
 
+
+<script src="/_assets/nav.js" defer></script>
 </body>
 </html>

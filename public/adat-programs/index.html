@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ADAT Preparation Programs | Comprehensive &amp; Crash Courses | ConfiDentist</title>
   <meta name="description" content="Compare ConfiDentist's ADAT Comprehensive and Crash programs, featuring live and pre-recorded learning, exam-oriented booklets, Q&A sessions and mock examinations." />
-  <link rel="canonical" href="https://confidentist-products.vercel.app/adat-programs/" />
+  <link rel="canonical" href="https://product.confidentist.ca/adat-programs/" />
   <meta property="og:title" content="ADAT Preparation Programs | ConfiDentist" />
   <meta property="og:description" content="Compare ConfiDentist's ADAT Comprehensive and Crash preparation programs and choose the pathway that fits your goals." />
   <meta property="og:type" content="website" />
@@ -48,7 +48,7 @@
     }
     .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
     .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
-    .brand-logo { height: 2em; width: auto; display: block; flex: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
     .brand span { color: var(--gold-dark); }
     .primary-nav { display: flex; align-items: center; gap: .25rem; }
     .nav-item { position: relative; }
@@ -184,10 +184,10 @@
     .prog-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.85rem; color:var(--muted); line-height:1.45; }
     .prog-list li svg { width:15px; height:15px; color:var(--teal); flex-shrink:0; margin-top:.15rem; }
     .program-card.featured .prog-list li svg { color:var(--gold); }
-    .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--navy); color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.03em; padding:.8rem 1.5rem; border-radius:.4rem; transition:background .2s, gap .18s; }
+    .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--gold); color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.03em; padding:.8rem 1.5rem; border-radius:.4rem; transition:background .2s, gap .18s; }
     .program-card.featured .prog-cta { background:var(--gold); }
     .program-card:hover .prog-cta { gap:.8rem; }
-    .program-card:hover .prog-cta { background:var(--navy-mid); }
+    .program-card:hover .prog-cta { background:var(--gold-light); }
     .program-card.featured:hover .prog-cta { background:var(--gold-light); }
     .prog-cta svg { width:16px; height:16px; }
 
@@ -317,6 +317,12 @@
       .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform:none; }
     }
   </style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+  <link rel="stylesheet" href="/_assets/site-footer.css" />
 </head>
 <body>
 
@@ -324,9 +330,10 @@
 
 <!-- NAV -->
 <!-- NAV (homepage header / Courses mega-menu) -->
+<!-- confi-nav v1 start -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo.png" alt="" class="brand-logo" width="214" height="256" />Confi<span>Dentist</span></a>
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
 
     <nav class="primary-nav" aria-label="Primary">
       <div class="nav-item">
@@ -351,7 +358,19 @@
           </div>
           <div class="mega-foot">
             <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
-            <a href="/#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+            <a href="#upcoming" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
           </div>
         </div>
       </div>
@@ -363,19 +382,37 @@
         <div class="mega" id="resMega" role="menu" aria-label="Resources">
           <div class="mega-grid">
             <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
-            <a href="https://www.confidentist.ca/blog/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
           </div>
           <div class="mega-foot">
             <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-actions">
-      <a href="https://www.confidentist.ca/contact-us/" class="util-link">Contact</a>
-      <a href="https://www.confidentist.ca/my-account/" class="util-link">Student Login</a>
-      <a href="/#journey" class="btn-cta">Find My Program</a>
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="#journey" class="btn-cta">Find My Program</a>
       <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
         <span></span><span></span><span></span>
       </button>
@@ -384,11 +421,14 @@
 </header>
 
 <!-- Mobile navigation -->
-<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
   <a href="/">Home <span aria-hidden="true">→</span></a>
-  <a href="/#journey">Find My Program <span aria-hidden="true">→</span></a>
-  <div class="mp-label">Courses</div>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="#journey">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
   <a href="/afk-programs/" class="sub">AFK Preparation</a>
   <a href="/acj-programs/" class="sub">ACJ Preparation</a>
   <a href="/ndecc-programs/" class="sub">NDECC</a>
@@ -398,15 +438,30 @@
   <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
   <a href="/course-bundles/" class="sub">Course Bundles</a>
   <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
   <div class="mp-label">Resources</div>
   <a href="/confitalk/" class="sub">ConfiTalk</a>
-  <a href="https://www.confidentist.ca/blog/" class="sub">Blog</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
   <div class="mp-label">More</div>
-  <a href="https://www.confidentist.ca/our-team/">Instructors</a>
-  <a href="https://www.confidentist.ca/contact-us/">Contact</a>
-  <a href="https://www.confidentist.ca/my-account/">Student Login</a>
-  <a href="/#upcoming" class="btn-cta">Explore Courses</a>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="#upcoming" class="btn-cta">Register Now</a>
 </nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
 
 <!-- BREADCRUMBS -->
 <nav class="crumbs" aria-label="Breadcrumb">
@@ -423,8 +478,8 @@
     <h1>Prepare for the ADAT with a Program <em>Built Around Your Goals</em></h1>
     <p class="hero-sub">Build the biomedical, clinical and evidence-based dentistry knowledge required for the ADAT through structured lectures, exam-oriented resources, guided practice and realistic mock examinations.</p>
     <div class="hero-actions">
-      <a href="#adat-programs" class="btn-gold">Explore ADAT Programs →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-outline-white">Speak With an Advisor</a>
+      <a href="#adat-programs" class="btn-gold">Register Now →</a>
+      <a href="/contact-us/" class="btn-outline-white">Speak With an Advisor</a>
     </div>
   </div>
 </header>
@@ -499,38 +554,6 @@
 </section>
 
 <hr class="rule" />
-
-<!-- CORE AREAS -->
-<section class="section alt">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-kicker">Exam Coverage</span>
-      <h2 class="section-title">Core Areas of the ADAT</h2>
-      <p class="section-desc">The ADAT consists of 200 multiple-choice questions divided across three main areas.</p>
-    </div>
-    <div class="core-grid">
-      <div class="core-card">
-        <div class="core-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0M5.52 16h12.96"/></svg></div>
-        <h3>Biomedical Sciences</h3>
-        <p>Foundational biomedical knowledge relevant to advanced dental education and clinical practice.</p>
-      </div>
-      <div class="core-card">
-        <div class="core-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M9 16l2 2 4-4"/></svg></div>
-        <h3>Clinical Sciences</h3>
-        <p>Application of clinical concepts across major areas of dentistry.</p>
-      </div>
-      <div class="core-card">
-        <div class="core-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></div>
-        <h3>Research &amp; Evidence-Based Dentistry</h3>
-        <p>Research interpretation, critical thinking and evidence-based clinical decision-making.</p>
-      </div>
-    </div>
-    <p class="core-note">Exam structure is set by the American Dental Association. Confirm current details on the official ADAT website.</p>
-  </div>
-</section>
-
-<hr class="rule" />
-
 <!-- PROGRAM SELECTION -->
 <section class="section" id="adat-programs">
   <div class="section-inner">
@@ -543,7 +566,7 @@
     <div class="program-grid">
 
       <!-- COMPREHENSIVE -->
-      <a class="program-card featured" href="/adat-programs/comprehensive/" aria-label="Explore the ADAT Comprehensive 2026 program">
+      <a class="program-card featured" href="/api/adat-programs/checkout/?p=comprehensive" aria-label="Register for the ADAT Comprehensive 2026 program">
         <span class="prog-badge">Most Popular</span>
         <h3 class="prog-title">ADAT Comprehensive – 2026</h3>
         <div class="prog-price"><span class="prog-reg">$4,200</span><span class="prog-now">$3,999</span></div>
@@ -561,11 +584,11 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1,500+ self-study questions</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5 mini-mocks · 3 full mock exams</li>
         </ul>
-        <span class="prog-cta">Explore Comprehensive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="prog-cta">Register Comprehensive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
       <!-- CRASH -->
-      <a class="program-card" href="/adat-programs/crash/" aria-label="Explore the ADAT Crash 2026 program">
+      <a class="program-card" href="/api/adat-programs/checkout/?p=crash" aria-label="Register for the ADAT Crash 2026 program">
         <span class="prog-badge">Focused Preparation</span><span class="prog-tag">Modular Hybrid</span>
         <h3 class="prog-title">ADAT Crash – 2026</h3>
         <div class="prog-price"><span class="prog-now">$2,200</span></div>
@@ -582,7 +605,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 live Q&amp;A sessions</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 mini-mocks · 1 full mock exam</li>
         </ul>
-        <span class="prog-cta">Explore Crash Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="prog-cta">Register Crash Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
     </div>
@@ -616,11 +639,6 @@
           <tr><th scope="row">Completion date</th><td>February 15, 2027</td><td>November 21, 2026</td></tr>
           <tr><th scope="row">Material access</th><td>Until end of August 2027</td><td>Until end of August 2027</td></tr>
           <tr><th scope="row">Best suited for</th><td>Complete ADAT preparation</td><td>Focused EBD and BMS preparation</td></tr>
-          <tr class="compare-cta-row">
-            <th scope="row">Next step</th>
-            <td><a class="full" href="/adat-programs/comprehensive/">View Comprehensive <span aria-hidden="true">→</span></a></td>
-            <td><a class="sub" href="/adat-programs/crash/">View Crash Program <span aria-hidden="true">→</span></a></td>
-          </tr>
         </tbody>
       </table>
     </div>
@@ -638,7 +656,7 @@
         <div class="cmp-row"><div class="cmp-key">Completion date</div><div class="cmp-val">February 15, 2027</div></div>
         <div class="cmp-row"><div class="cmp-key">Material access</div><div class="cmp-val">Until end of August 2027</div></div>
         <div class="cmp-row"><div class="cmp-key">Best suited for</div><div class="cmp-val">Complete ADAT preparation</div></div>
-        <a class="btn-gold" href="/adat-programs/comprehensive/">View Comprehensive →</a>
+        <a class="btn-gold" href="/api/adat-programs/checkout/?p=comprehensive">Register Comprehensive →</a>
       </div>
       <div class="cmp-card sub">
         <div class="cmp-card-head">ADAT Crash</div>
@@ -652,7 +670,7 @@
         <div class="cmp-row"><div class="cmp-key">Completion date</div><div class="cmp-val">November 21, 2026</div></div>
         <div class="cmp-row"><div class="cmp-key">Material access</div><div class="cmp-val">Until end of August 2027</div></div>
         <div class="cmp-row"><div class="cmp-key">Best suited for</div><div class="cmp-val">Focused EBD and BMS preparation</div></div>
-        <a class="btn-navy" href="/adat-programs/crash/">View Crash Program →</a>
+        <a class="btn-gold" href="/api/adat-programs/checkout/?p=crash">Register Crash Program →</a>
       </div>
     </div>
   </div>
@@ -679,7 +697,7 @@
     </div>
     <div class="decision-tailored">
       <p>If you require a specialized course plan, ConfiDentist can assess your goals, schedule and preferred learning approach to discuss a tailored option.</p>
-      <a href="https://www.confidentist.ca/contact-us/" class="btn-navy">Ask About a Tailored Plan →</a>
+      <a href="/contact-us/" class="btn-navy">Ask About a Tailored Plan →</a>
     </div>
   </div>
 </section>
@@ -700,7 +718,7 @@
         <div><div class="inst-name">Dr. Hannah Safiaghdam</div><div class="inst-role">ADAT Instructor</div></div>
       </div>
       <div class="inst-card">
-        <div class="inst-monogram" aria-hidden="true">NM</div>
+        <img class="inst-photo" src="/images/instructors/negar-madihi.jpg" alt="Dr. Negar Madihi" width="128" height="128" loading="lazy" />
         <div><div class="inst-name">Dr. Negar Madihi</div><div class="inst-role">ADAT Instructor</div></div>
       </div>
       <div class="inst-card">
@@ -736,7 +754,7 @@
       <details><summary>Are installment plans available?</summary><div class="faq-body">For information about payment and installment options, please contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> before registering.</div></details>
       <details><summary>Are booklets shipped outside Canada?</summary><div class="faq-body">The programs include comprehensive booklets. For questions about delivery to your location, contact <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> so we can confirm the available options.</div></details>
       <details><summary>Is attendance at live sessions mandatory?</summary><div class="faq-body">The programs blend live sessions with pre-recorded lectures you can access on demand. If you cannot attend a live session, please contact us so we can advise on the best approach.</div></details>
-      <details><summary>Can I request a tailored ADAT course?</summary><div class="faq-body">Yes. If you need a specialized plan, ConfiDentist can assess your goals, schedule and preferred learning approach to discuss a tailored option. Reach out via our <a href="https://www.confidentist.ca/contact-us/">contact page</a>.</div></details>
+      <details><summary>Can I request a tailored ADAT course?</summary><div class="faq-body">Yes. If you need a specialized plan, ConfiDentist can assess your goals, schedule and preferred learning approach to discuss a tailored option. Reach out via our <a href="/contact-us/">contact page</a>.</div></details>
       <details><summary>Who should I contact for technical support?</summary><div class="faq-body">For technical support, contact <a href="mailto:admin@confidentist.ca">admin@confidentist.ca</a>, <a href="mailto:info@confidentist.ca">info@confidentist.ca</a> or <a href="mailto:confiportal@confidentist.ca">confiportal@confidentist.ca</a>. You can also call <a href="tel:+14373700122">+1 437 370 0122</a>.</div></details>
     </div>
   </div>
@@ -748,71 +766,83 @@
     <h2>Start Your ADAT Preparation with ConfiDentist</h2>
     <p>Compare the complete and focused preparation options, then choose the program that best supports your academic goals and study schedule.</p>
     <div class="final-actions">
-      <a href="/adat-programs/comprehensive/" class="btn-gold">Explore Comprehensive →</a>
-      <a href="/adat-programs/crash/" class="btn-outline-white">Explore Crash Program →</a>
-      <a href="https://www.confidentist.ca/contact-us/" class="final-textlink">Speak With an Advisor</a>
+      <a href="/api/adat-programs/checkout/?p=comprehensive" class="btn-gold">Register Comprehensive →</a>
+      <a href="/api/adat-programs/checkout/?p=crash" class="btn-outline-white">Register Crash Program →</a>
+      <a href="/contact-us/" class="final-textlink">Speak With an Advisor</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Confi<span>Dentist</span></div>
-  <p>Your trusted partner on the journey to Canadian dental licensure.</p>
-  <p style="margin-top:.75rem;">
-    <a href="/">Courses</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/contact-us/">Contact Us</a> &nbsp;·&nbsp;
-    <a href="https://www.confidentist.ca/resources/">Resources</a>
-  </p>
-  <p class="footer-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada. The ADAT is administered by the American Dental Association.</p>
-  <p style="margin-top:1rem;font-size:.7rem;opacity:.5;">© 2026 ConfiDentist. All rights reserved.</p>
-</footer>
+<footer class="cf-footer">
+  <div class="cf-grid">
+    <div class="cf-brand">
+      <a class="cf-brand-name" href="/">Confi<span>Dentist</span></a>
+      <p>Your trusted partner on the journey to Canadian dental licensure — exam preparation, mock examinations, clinical training and mentorship for internationally trained dentists.</p>
+      <div class="cf-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=265+Rimrock+Rd+Ste+209%2C+North+York%2C+ON+M3J+3C6" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Address: 265 Rimrock Rd Ste 209, North York, ON M3J 3C6</span></a>
+      </div>
+    </div>
 
-<!-- Header: mega-menu + mobile nav -->
-<script>
-(function () {
-  function initMega(itemId, triggerId) {
-    var item = document.getElementById(itemId);
-    var trigger = document.getElementById(triggerId);
-    if (!item || !trigger) return;
-    var closeTimer;
-    function open(state) { clearTimeout(closeTimer); item.classList.toggle('open', state); trigger.setAttribute('aria-expanded', String(state)); }
-    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { open(false); }, 180); }
-    trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(!item.classList.contains('open')); });
-    item.addEventListener('mouseenter', function () { open(true); });
-    item.addEventListener('mouseleave', scheduleClose);
-    document.addEventListener('click', function (e) { if (!item.contains(e.target)) open(false); });
-    item.addEventListener('keyup', function (e) { if (e.key === 'Escape') { open(false); trigger.focus(); } });
-  }
-  function initMobile() {
-    var body = document.body;
-    var btn = document.getElementById('hamburger');
-    var panel = document.getElementById('mobilePanel');
-    var backdrop = document.getElementById('navBackdrop');
-    if (!btn || !panel || !backdrop) return;
-    var lastFocus = null;
-    function close() { body.classList.remove('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); if (lastFocus) lastFocus.focus(); }
-    function open() { lastFocus = document.activeElement; body.classList.add('mobile-open', 'no-scroll'); btn.setAttribute('aria-expanded', 'true'); panel.setAttribute('aria-hidden', 'false'); var first = panel.querySelector('a'); if (first) first.focus(); }
-    btn.addEventListener('click', function () { body.classList.contains('mobile-open') ? close() : open(); });
-    backdrop.addEventListener('click', close);
-    panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && body.classList.contains('mobile-open')) close();
-      if (e.key === 'Tab' && body.classList.contains('mobile-open')) {
-        var f = panel.querySelectorAll('a, button'); if (!f.length) return;
-        var first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    initMega('equivItem', 'equivTrigger');
-    initMega('resItem', 'resTrigger');
-    initMobile();
-  });
-})();
-</script>
+    <div class="cf-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="/our-team/">Our Instructors</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="cf-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-logos">
+    <a href="/" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px" /></a>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <div class="cf-pace">
+      <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img style="height:44px" src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" /></a>
+      <p class="cf-pace-text">ConfiDentist Grp.<br />Nationally Approved PACE Program Provider for FAGD/MAGD credit.<br />Approval does not imply acceptance by any regulatory authority or AGD endorsement.<br />10/1/2025 to 9/30/2027.<br />Provider ID# 420454</p>
+    </div>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <a href="https://certification.esdc.gc.ca/lea-mcl/servlet/mclpub?curjsp=institution.jsp&amp;curactn=dwnld&amp;provid=1" target="_blank" rel="noopener noreferrer" aria-label="Canada Certified Educational Institution — Employment and Social Development Canada"><img src="/images/canada-certified-educational-institution.png" alt="Canada — Certified Educational Institution" style="height:56px" width="138" height="56" loading="lazy" /></a>
+  </div>
+
+  <div class="cf-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="cf-links">
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/our-team/">Our Team</a>
+      <a href="/contact-us/">Contact</a>
+    </div>
+  </div>
+  <p class="cf-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+</footer>
 
 <script>
 (function () {
@@ -888,5 +918,6 @@
 })();
 </script>
 
+<script src="/_assets/nav.js" defer></script>
 </body>
 </html>

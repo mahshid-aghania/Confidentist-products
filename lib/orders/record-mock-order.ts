@@ -30,7 +30,25 @@ export type MockOrderInput = {
   paymentIntent?: string // Stripe PaymentIntent id, if present
   sin?: string // sensitive; stored only in orders.raw
   createdVia: string // e.g. "osce-mock-checkout" | "afk-mock-checkout"
-  orderNumberPrefix: string // e.g. "OSCE" | "AFK"
+  orderNumberPrefix: string // e.g. "OSCE" | "AFK" — used only for payment_method_title now
+  orderNumber?: string // optional explicit order number; honored ONLY if numeric, else ignored.
+  // Order numbers are otherwise minted numerically from confi_order_number_seq (seeded above the
+  // WooCommerce range). Non-numeric values (e.g. legacy "AFK-20261110-4F7A") are ignored.
+  sequentialOrderNumber?: boolean // DEPRECATED — ignored. Numbering is always numeric from the
+  // (reseeded) confi_order_number_seq. The sequence must stay ABOVE WooCommerce's live id range so
+  // a number never collides with a real WC order (incident: a sequence inside the WC range gave
+  // #59020 to both a buyer here AND a real WooCommerce order).
+  shipping?: {
+    firstName?: string
+    lastName?: string
+    addressLine1?: string
+    addressLine2?: string
+    city?: string
+    state?: string
+    postalCode?: string
+    country?: string
+  } // residential / delivery address → recorded as a second 'shipping' address row
+  extraRaw?: Record<string, unknown> // merged into orders.raw (e.g. installment schedule)
   rawSession?: unknown // full Stripe session, stored in orders.raw for fidelity
 }
 
@@ -60,7 +78,7 @@ function splitName(full: string): { first: string; last: string } {
 export async function recordMockOrder(
   supabase: SupabaseClient,
   d: MockOrderInput,
-): Promise<{ recorded: boolean; skipped?: boolean; orderId?: string; error?: string }> {
+): Promise<{ recorded: boolean; skipped?: boolean; orderId?: string; orderNumber?: string; error?: string }> {
   const nowIso = new Date().toISOString()
 
   const fromFull = splitName(d.name || '')
@@ -70,10 +88,16 @@ export async function recordMockOrder(
   // Idempotency: if we've already recorded this Stripe session, do nothing.
   const { data: existing } = await supabase
     .from('orders')
-    .select('id')
+    .select('id, order_number')
     .eq('order_key', d.sessionId)
     .maybeSingle()
-  if (existing?.id) return { recorded: false, skipped: true, orderId: existing.id as string }
+  if (existing?.id)
+    return {
+      recorded: false,
+      skipped: true,
+      orderId: existing.id as string,
+      orderNumber: (existing.order_number as string) ?? undefined,
+    }
 
   // Find or create the customer by email.
   let customerId: string | undefined
@@ -107,11 +131,34 @@ export async function recordMockOrder(
   const subtotal = round2(total - tax)
   const currency = d.currency || 'CAD'
 
+  // Resolve the order number. RULE: an order number minted here must NEVER collide with a
+  // WooCommerce order number. Order numbers are plain numeric, drawn from confi_order_number_seq,
+  // which is seeded ABOVE WooCommerce's live order-id range (currently ~59k; the sequence starts
+  // at 71001) so a generated number can't equal a real WooCommerce order. If WooCommerce ever
+  // approaches this range, reseed the sequence higher — never let it enter the WC range again.
+  // (Incident: a sequence inside the WC range produced #59020 for both a buyer here AND a real
+  // WooCommerce order.) `wc_order_id` stays the synthetic id (~9e12–1e13), decoupled from
+  // order_number, so a later WooCommerce sync of the same numeric id can't break the unique
+  // constraint. Minting happens after the idempotency check above, so retries never burn a number.
+  const resolvedWcOrderId: number = syntheticWcOrderId(d.sessionId)
+  // Honor an explicitly provided numeric order number; ignore non-numeric (e.g. legacy prefixed)
+  // values so every order gets a clean number.
+  let finalOrderNumber =
+    d.orderNumber && /^[0-9]+$/.test(d.orderNumber) ? d.orderNumber : ''
+  if (!finalOrderNumber) {
+    const { data: seqNo, error: seqErr } = await supabase.rpc('next_confi_order_number')
+    const n = typeof seqNo === 'number' ? seqNo : Number(seqNo)
+    if (seqErr || !Number.isFinite(n)) {
+      return { recorded: false, error: `order number seq: ${seqErr?.message ?? 'no value'}` }
+    }
+    finalOrderNumber = String(n)
+  }
+
   const { data: order, error: orderErr } = await supabase
     .from('orders')
     .insert({
-      wc_order_id: syntheticWcOrderId(d.sessionId),
-      order_number: `${d.orderNumberPrefix}-${d.sessionId.slice(-8)}`,
+      wc_order_id: resolvedWcOrderId,
+      order_number: finalOrderNumber,
       status: 'completed',
       currency,
       customer_id: customerId ?? null,
@@ -131,6 +178,7 @@ export async function recordMockOrder(
         stripe_payment_intent: d.paymentIntent ?? null,
         sin: d.sin || null, // sensitive — kept here, not in a dedicated column
         session: d.rawSession ?? null,
+        ...(d.extraRaw ?? {}),
       },
     })
     .select('id')
@@ -155,6 +203,22 @@ export async function recordMockOrder(
     phone: d.phone || null,
   })
 
+  // Residential / delivery address (when collected) → second 'shipping' row.
+  if (d.shipping && (d.shipping.addressLine1 || d.shipping.city || d.shipping.postalCode)) {
+    await supabase.from('order_addresses').insert({
+      order_id: orderId,
+      type: 'shipping',
+      first_name: d.shipping.firstName || firstName || null,
+      last_name: d.shipping.lastName || lastName || null,
+      address_1: d.shipping.addressLine1 || null,
+      address_2: d.shipping.addressLine2 || null,
+      city: d.shipping.city || null,
+      state: d.shipping.state || null,
+      postcode: d.shipping.postalCode || null,
+      country: d.shipping.country || null,
+    })
+  }
+
   await supabase.from('order_line_items').insert({
     order_id: orderId,
     name: d.productName,
@@ -176,5 +240,5 @@ export async function recordMockOrder(
     })
   }
 
-  return { recorded: true, orderId }
+  return { recorded: true, orderId, orderNumber: finalOrderNumber }
 }
