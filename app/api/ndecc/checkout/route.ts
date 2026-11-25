@@ -63,7 +63,10 @@ const NDECC_PRODUCTS: Record<string, Product> = {
   'clinical-skills': {
     name: 'NDECC Clinical Skills – Core Package 2026',
     page: '/ndecc-programs/clinical-skills/register/',
-    options: { '3-month': { label: '3-Month Program (Morning, 8:00 AM – 5:00 PM)', price: 5999 } },
+    options: {
+      '3-month': { label: '3-Month Program (Morning, 8:00 AM – 5:00 PM)', price: 5999 },
+      '6-month': { label: '6-Month Program · Comprehensive Package', price: 11400 },
+    },
     installments: twoPlusOne,
   },
   'skills-mock': {
