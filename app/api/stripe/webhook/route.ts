@@ -778,13 +778,37 @@ export async function POST(req: Request) {
     return NextResponse.json({ received: true, registration: reg.id, confirmed, notified })
   }
 
-  // 1) Find the installment this Payment Link belongs to.
-  const { data: instData, error: instErr } = await supabase
+  // 1) Find the installment this Payment Link belongs to: first by the link id the
+  //    dashboard stored, then by the `wc_payment_id` (e.g. "58131-3") carried in the
+  //    link's metadata — links made by hand in Stripe are never stored on the row.
+  const { data: instData, error: instByLinkErr } = await supabase
     .from('order_installments')
     .select('id, order_id, sequence, status, amount, currency, wc_payment_id')
     .eq('stripe_payment_link_id', plink)
-    .single()
-  const inst = instData as InstallmentRow | null
+    .maybeSingle()
+  let inst = instData as InstallmentRow | null
+  let instErr = instByLinkErr
+  if (!inst) {
+    const sMeta = (session['metadata'] as Record<string, string> | undefined) ?? {}
+    const ref = String(sMeta['wc_payment_id'] || sMeta['order_id'] || '').trim()
+    if (/^[0-9]+-[0-9]+$/.test(ref)) {
+      const { data: byRef, error: byRefErr } = await supabase
+        .from('order_installments')
+        .select('id, order_id, sequence, status, amount, currency, wc_payment_id')
+        .eq('wc_payment_id', ref)
+        .maybeSingle()
+      inst = byRef as InstallmentRow | null
+      instErr = byRefErr
+      if (inst) {
+        // Remember the link on the row so retries / reports match it directly.
+        await supabase
+          .from('order_installments')
+          .update({ stripe_payment_link_id: plink })
+          .eq('id', inst.id)
+          .is('stripe_payment_link_id', null)
+      }
+    }
+  }
 
   if (instErr || !inst) {
     // Not an installment link — check if it's a one-time AFK Mock Exams purchase
