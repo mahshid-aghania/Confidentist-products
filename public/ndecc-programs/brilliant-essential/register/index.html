@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Brilliant Bundle — Essential | Register | ConfiDentist</title>
+  <meta name="description" content="Register for the NDECC Brilliant Bundle — Essential at ConfiDentist. $20,500 CAD in 3 installments ($7,000 deposit + 2 × $6,750). Basic tools not included. Secure Stripe checkout." />
+  <link rel="canonical" href="https://product.confidentist.ca/ndecc-programs/brilliant-essential/register/" />
+  <meta property="og:title" content="The Brilliant Bundle — Essential | ConfiDentist" />
+  <meta property="og:description" content="Register for the NDECC Brilliant Bundle — Essential. $20,500 CAD in 3 installments. Basic tools not included." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --navy:#072C5E; --navy-mid:#1C3165; --navy-light:#213669;
+      --gold:#0f7ae5; --gold-dark:#0a5cb8; --gold-light:#5cb2f7; --gold-bg:#e9f3fd;
+      --teal:#3BAFBF; --teal-light:#e8f7f8;
+      --amber:#f4b400; --amber-dark:#d99e00;
+      --bg:#ffffff; --bg-soft:#f6f8fb; --text:#1a1f2e; --muted:#586175; --border:#dde3ee; --radius:.75rem;
+      --shadow-sm:0 1px 4px rgba(7,44,94,.06),0 4px 16px rgba(7,44,94,.06);
+      --shadow-md:0 4px 24px rgba(7,44,94,.10),0 1px 4px rgba(7,44,94,.06);
+      --shadow-lg:0 8px 40px rgba(7,44,94,.14);
+      --navy-deep:   #041b3d;
+      --nav-h:       74px;
+      --maxw:        1200px;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
+    a { color:inherit; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid var(--teal); outline-offset:3px; border-radius:.3rem; }
+    .skip-link { position:absolute; left:-999px; top:0; z-index:500; background:var(--gold); color:#fff; font-weight:700; padding:.6rem 1rem; border-radius:0 0 .4rem 0; text-decoration:none; }
+    .skip-link:focus { left:0; }
+
+    /* ─────────────  SITE HEADER / MEGA MENU (ported from homepage)  ───────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 500;
+      min-height: var(--nav-h);
+      display: flex; align-items: center;
+      background: #ffffff; border-bottom: 1px solid var(--gold);
+      box-shadow: 0 4px 22px rgba(7,44,94,.08);
+    }
+    .header-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #072c5e; letter-spacing: .01em; display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; text-decoration: none; }
+    .brand-logo { height: 2.4em; width: auto; display: block; flex: none; }
+    .brand span { color: var(--gold-dark); }
+    .primary-nav { display: flex; align-items: center; gap: .25rem; }
+    .nav-item { position: relative; }
+    .nav-item > a, .nav-item > button {
+      font-family: inherit; background: none; border: none; cursor: pointer;
+      color: #1a2b3c; font-size: .82rem; font-weight: 500; letter-spacing: .02em;
+      padding: .6rem .85rem; border-radius: .35rem; display: inline-flex; align-items: center; gap: .35rem;
+      transition: color .18s, background .18s; text-decoration: none;
+    }
+    .nav-item > a:hover, .nav-item > button:hover, .nav-item > a:focus-visible, .nav-item > button:focus-visible { color: #072c5e; background: rgba(7,44,94,.06); }
+    .nav-item .chev { width: 12px; height: 12px; transition: transform .2s; }
+    .nav-item.open .chev { transform: rotate(180deg); }
+    .mega {
+      position: absolute; top: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(-6px);
+      width: min(680px, 92vw); background: #fff; color: var(--text);
+      border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+      padding: 1.25rem; opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease; z-index: 600;
+    }
+    .nav-item.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .mega::before { content: ''; position: absolute; left: 0; right: 0; top: -.65rem; height: .65rem; }
+    .mega-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+    .mega a { display: flex; gap: .75rem; align-items: flex-start; padding: .7rem .8rem; border-radius: .5rem; transition: background .15s; text-decoration: none; }
+    .mega a:hover, .mega a:focus-visible { background: var(--bg-soft); }
+    .mega .m-abbr { flex-shrink: 0; width: 40px; height: 40px; border-radius: .5rem; display: grid; place-items: center; background: linear-gradient(135deg, var(--navy), var(--gold-dark)); color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: .8rem; }
+    .mega .m-t { font-weight: 600; font-size: .86rem; color: var(--navy); line-height: 1.2; }
+    .mega .m-d { font-size: .74rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .mega-foot { margin-top: .5rem; padding-top: .85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .mega-foot a.all { font-weight: 700; font-size: .8rem; color: var(--gold-dark); display: inline-flex; gap: .35rem; text-decoration: none; }
+    .nav-actions { display: flex; align-items: center; gap: .5rem; }
+    .util-link { color: #1a2b3c; font-size: .78rem; font-weight: 500; padding: .5rem .55rem; border-radius: .35rem; transition: color .18s, background .18s; text-decoration: none; }
+    .util-link:hover { color: #072c5e; background: rgba(7,44,94,.06); }
+    .btn-cta { background: var(--gold); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .6rem 1.15rem; border-radius: .35rem; transition: background .2s, transform .15s; white-space: nowrap; text-decoration: none; }
+    .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 620; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #072c5e; margin: 5px 0; border-radius: 2px; transition: transform .3s, opacity .2s; }
+    .mobile-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-open .hamburger span:nth-child(2) { opacity: 0; }
+    .mobile-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-panel { position: fixed; inset: 0 0 0 auto; width: min(400px, 88vw); z-index: 610; background: var(--navy-deep); padding: calc(var(--nav-h) + .5rem) 1.5rem 2rem; transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow-y: auto; display: flex; flex-direction: column; gap: .25rem; border-left: 2px solid var(--gold); }
+    .mobile-open .mobile-panel { transform: translateX(0); }
+    .mobile-panel a { color: #fff; font-size: 1.05rem; font-weight: 500; padding: .85rem .25rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+    .mobile-panel a.sub { font-size: .92rem; font-weight: 400; color: rgba(255,255,255,.72); padding-left: 1rem; }
+    .mobile-panel .mp-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 1.25rem 0 .35rem; }
+    .mobile-panel .btn-cta { text-align: center; justify-content: center; display: flex; margin-top: 1.25rem; padding: .9rem; font-size: .85rem; }
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(4,27,61,.55); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity .3s; z-index: 590; }
+    .mobile-open .nav-backdrop { opacity: 1; visibility: visible; }
+    body.no-scroll { overflow: hidden; }
+    @media (max-width: 1160px) {
+      .primary-nav, .nav-actions .util-link, .nav-actions .btn-cta { display: none; }
+      .hamburger { display: block; }
+    }
+
+    .crumbs { background:var(--bg-soft); border-bottom:1px solid var(--border); }
+    .crumbs-inner { max-width:1160px; margin:0 auto; padding:.85rem 1.5rem; font-size:.78rem; color:var(--muted); }
+    .crumbs-inner a { color:var(--gold-dark); text-decoration:none; }
+    .crumbs-inner a:hover { text-decoration:underline; }
+    .crumbs-inner span[aria-current] { color:var(--navy); font-weight:600; }
+    .crumbs-sep { margin:0 .5rem; color:var(--border); }
+
+    .btn-gold { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; background:var(--gold); color:#fff; font-weight:700; font-size:.88rem; padding:.8rem 2rem; border-radius:.4rem; text-decoration:none; box-shadow:0 4px 18px rgba(15,122,229,.35); transition:background .2s, transform .15s, box-shadow .2s; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); box-shadow:0 6px 24px rgba(15,122,229,.45); }
+    .btn-outline-white { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border:1.5px solid rgba(255,255,255,.3); color:#fff; font-size:.88rem; font-weight:500; padding:.8rem 2rem; border-radius:.4rem; text-decoration:none; transition:background .2s, border-color .2s; }
+    .btn-outline-white:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5); }
+    .btn-navy { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; background:var(--navy); color:#fff; font-weight:700; font-size:.85rem; padding:.8rem 1.75rem; border-radius:.4rem; text-decoration:none; transition:background .2s, transform .15s; }
+    .btn-navy:hover { background:var(--navy-mid); transform:translateY(-1px); }
+    .btn-ghost { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border:1.5px solid var(--navy); color:var(--navy); font-weight:700; font-size:.85rem; padding:.8rem 1.75rem; border-radius:.4rem; text-decoration:none; transition:background .2s, color .2s, transform .15s; }
+    .btn-ghost:hover { background:var(--navy); color:#fff; transform:translateY(-1px); }
+
+    .hero { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 55%,#0f3d72 100%); padding:4rem 1.5rem; position:relative; overflow:hidden; }
+    .hero::after { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
+    .hero-inner { max-width:820px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:.5rem; background:rgba(15,122,229,.18); border:1px solid rgba(15,122,229,.45); color:var(--gold-light); border-radius:.35rem; font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.35rem 1rem; margin-bottom:1.5rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.6vw,3.2rem); font-weight:700; line-height:1.18; color:#fff; margin-bottom:1.1rem; }
+    .hero h1 em { font-style:italic; color:var(--gold-light); }
+    .hero-sub { font-size:1.03rem; color:rgba(255,255,255,.72); max-width:620px; margin:0 auto 2.25rem; line-height:1.7; font-weight:300; }
+    .hero-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
+
+    .section { padding:4rem 1.5rem; }
+    .section.alt { background:var(--bg-soft); }
+    .section.navy-bg { background:var(--navy); }
+    .section-inner { max-width:1160px; margin:0 auto; }
+    .section-head { max-width:680px; margin:0 auto 2.5rem; text-align:center; }
+    .section-kicker { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:.6rem; display:inline-flex; align-items:center; gap:.5rem; }
+    .section-kicker::before { content:''; display:block; width:20px; height:2px; background:var(--gold); }
+    .section.navy-bg .section-kicker { color:var(--gold-light); }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.85rem; }
+    .section.navy-bg .section-title { color:#fff; }
+    .section-desc { font-size:.95rem; color:var(--muted); line-height:1.8; }
+    .section.navy-bg .section-desc { color:rgba(255,255,255,.68); }
+
+    /* STATS (compact, light background) */
+    .stats-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; max-width:600px; margin:0 auto; }
+    .stat { flex:1 1 150px; min-width:134px; text-align:center; background:#fff; border:1.5px solid var(--border); border-radius:.6rem; padding:.85rem .75rem; box-shadow:var(--shadow-sm); }
+    .stat-num { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--navy); line-height:1; }
+    .stat-label { margin-top:.3rem; font-size:.68rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+    .stats-note { text-align:center; margin-top:1rem; font-size:.74rem; color:var(--muted); }
+
+    /* EXAM PATHWAY (interactive) */
+    .pathway { max-width:980px; margin:0 auto; }
+    .path-steps { display:flex; align-items:flex-start; justify-content:center; gap:.5rem; flex-wrap:wrap; }
+    .path-step { flex:1 1 150px; min-width:134px; display:flex; flex-direction:column; align-items:center; background:none; border:none; padding:.4rem 0 0; cursor:pointer; font-family:inherit; }
+    .path-chev { position:relative; width:100%; background:var(--navy); color:#fff; padding:.85rem .6rem; font-family:'Playfair Display',serif; font-weight:700; font-size:.95rem; letter-spacing:.01em; clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%); display:flex; align-items:center; justify-content:center; gap:.35rem; transition:transform .18s, background .2s, box-shadow .2s; }
+    .path-step:first-child .path-chev { clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); }
+    .path-step:hover .path-chev, .path-step:focus-visible .path-chev { transform:translateY(-3px); box-shadow:0 8px 22px rgba(7,44,94,.22); }
+    .path-step:focus-visible { outline:none; }
+    .path-step.completed .path-chev { background:var(--teal); color:#fff; }
+    .path-step.current .path-chev { background:var(--amber); color:var(--navy); }
+    .path-step.dest .path-chev { background:var(--teal); color:#fff; }
+    .path-step.selected .path-chev { box-shadow:0 0 0 3px var(--gold), 0 8px 22px rgba(7,44,94,.22); }
+    .path-num { position:absolute; top:-10px; left:-6px; width:22px; height:22px; border-radius:50%; background:#fff; color:var(--navy); box-shadow:0 1px 4px rgba(7,44,94,.25); font-family:'Inter',sans-serif; font-size:.66rem; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .path-label { text-align:center; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-top:.7rem; line-height:1.4; padding:0 .25rem; }
+    .path-tag { margin-top:.55rem; font-size:.6rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:.24rem .6rem; border-radius:.3rem; white-space:nowrap; }
+    .path-tag.done { background:var(--teal-light); color:var(--teal); }
+    .path-tag.here { background:var(--amber); color:var(--navy); animation:pathpulse 2.2s infinite; }
+    .path-tag.soon { background:#fff; color:var(--muted); border:1px solid var(--border); }
+    .path-tag.dest { background:var(--teal-light); color:var(--teal); }
+    .path-detail .pd-status.dest { background:var(--teal-light); color:var(--teal); }
+    @keyframes pathpulse { 0%,100%{ box-shadow:0 0 0 0 rgba(244,180,0,.55);} 50%{ box-shadow:0 0 0 8px rgba(244,180,0,0);} }
+
+    .path-track { position:relative; height:5px; background:var(--border); border-radius:3px; max-width:820px; margin:2rem auto .25rem; }
+    .path-track-fill { position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:3px; transition:width 1s cubic-bezier(.4,0,.2,1); }
+    .path-track-label { text-align:center; font-size:.76rem; color:var(--muted); margin-top:.6rem; }
+    .path-track-label strong { color:var(--navy); }
+
+    .path-detail { max-width:720px; margin:1.75rem auto 0; background:#fff; border:1.5px solid var(--border); border-left:4px solid var(--gold); border-radius:var(--radius); padding:1.5rem 1.75rem; box-shadow:var(--shadow-sm); }
+    .path-detail .pd-status { display:inline-block; font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:.24rem .6rem; border-radius:.3rem; margin-bottom:.7rem; }
+    .path-detail .pd-status.done { background:var(--teal-light); color:var(--teal); }
+    .path-detail .pd-status.here { background:var(--amber); color:var(--navy); }
+    .path-detail .pd-status.soon { background:var(--bg-soft); color:var(--muted); border:1px solid var(--border); }
+    .path-detail h3 { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--navy); margin-bottom:.6rem; }
+    .path-detail p { font-size:.9rem; color:var(--muted); line-height:1.75; margin-bottom:1rem; }
+    .path-detail .pd-link { display:inline-flex; align-items:center; gap:.4rem; font-weight:700; font-size:.84rem; color:var(--gold-dark); text-decoration:none; }
+    .path-detail .pd-link:hover { text-decoration:underline; }
+    .path-hint { text-align:center; font-size:.74rem; color:var(--muted); margin-top:1rem; }
+
+    .whatis { max-width:820px; margin:0 auto; }
+    .whatis p { font-size:.96rem; color:var(--muted); line-height:1.85; margin-bottom:1.25rem; }
+    .whatis .lead { color:var(--text); }
+    .whatis-note { font-size:.85rem; color:var(--muted); line-height:1.7; background:var(--gold-bg); border:1px solid rgba(15,122,229,.2); border-left:4px solid var(--gold); border-radius:.5rem; padding:1rem 1.25rem; }
+
+    /* WELCOME / CONGRATS */
+    .welcome { max-width:780px; margin:0 auto; background:linear-gradient(135deg,var(--gold-bg),#fff); border:1px solid rgba(15,122,229,.2); border-radius:var(--radius); padding:2rem 2.25rem; box-shadow:var(--shadow-sm); }
+    .welcome h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--navy); margin-bottom:.75rem; }
+    .welcome p { font-size:.95rem; color:var(--muted); line-height:1.85; }
+
+    /* COURSE FORMAT */
+    .format-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; max-width:820px; margin:0 auto 2.5rem; }
+    .format-item { text-align:center; background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.5rem 1rem; box-shadow:var(--shadow-sm); }
+    .format-num { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--navy); line-height:1; }
+    .format-label { margin-top:.45rem; font-size:.78rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+
+    .program-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:2rem; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); position:relative; overflow:hidden; }
+    .program-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--gold-dark),var(--gold-light)); }
+    .program-card.featured { border-color:var(--gold); border-width:2px; }
+    .prog-badge { align-self:flex-start; font-size:.64rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:.3rem; margin-bottom:1rem; background:var(--gold); color:#fff; border:1px solid var(--gold); }
+    .prog-title { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.35rem; }
+    .prog-starts { font-size:.82rem; color:var(--gold-dark); font-weight:600; margin-bottom:1rem; }
+    .prog-price { display:flex; align-items:baseline; gap:.55rem; flex-wrap:wrap; margin-bottom:.15rem; }
+    .prog-reg { font-size:1.05rem; color:var(--muted); text-decoration:line-through; }
+    .prog-now { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:700; color:var(--navy); }
+    .prog-hst { font-size:.78rem; color:var(--muted); margin-bottom:1.1rem; }
+    .prog-hst strong { color:var(--navy); font-weight:600; }
+    .prog-subhead { font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); margin-bottom:.6rem; }
+    .prog-list { list-style:none; display:flex; flex-direction:column; gap:.45rem; margin-bottom:1.35rem; }
+    .prog-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.85rem; color:var(--muted); line-height:1.45; }
+    .prog-list li svg { width:15px; height:15px; color:var(--gold); flex-shrink:0; margin-top:.15rem; }
+    .prog-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%; background:var(--gold); color:#fff; font-weight:700; font-size:.9rem; padding:.9rem 1.5rem; border-radius:.4rem; text-decoration:none; transition:background .2s, gap .18s; }
+    .program-card:hover .prog-cta { gap:.8rem; background:var(--gold-light); }
+    .prog-cta svg { width:16px; height:16px; }
+    /* May 2027 schedule circle button (matches AFK Feb 2027 badge) */
+    .sched-circle { display: inline-block; line-height: 0; transition: transform .2s ease; }
+    .sched-circle img { width: 230px; height: 230px; display: block; }
+    .sched-circle:hover { transform: translateY(-4px) scale(1.04); }
+    .sched-circle:focus-visible { outline: 3px solid #1f7ae8; outline-offset: 6px; border-radius: 50%; }
+    @media (max-width: 480px) { .sched-circle img { width: 190px; height: 190px; } }
+    .prog-reassure { text-align:center; font-size:.76rem; color:var(--muted); margin-top:.7rem; }
+
+    /* ── INSTALLMENT PLAN (accordion) ── */
+    .installment { margin-top: 1.1rem; border: 1.5px solid var(--border); border-radius: .6rem; overflow: hidden; }
+    .installment-head { display: flex; align-items: center; gap: .6rem; padding: .85rem 1.1rem; background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+    .installment-radio { width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--gold); flex-shrink: 0; }
+    .installment-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--navy); }
+    .installment-body { padding: 1.1rem 1.25rem 1.2rem; }
+    .installment-plan { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: 1.1rem; }
+    .installment-plan .chk { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; margin-top: .15rem; }
+    .installment-plan-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--navy); line-height: 1.2; }
+    .installment-plan-sub { font-size: .86rem; color: var(--muted); margin-top: .2rem; }
+    .installment-plan-sub strong { color: var(--gold-dark); font-weight: 700; }
+    .installment-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .installment-table th { text-align: left; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .45rem 0; border-bottom: 1px solid var(--border); }
+    .installment-table th:last-child, .installment-table td:last-child { text-align: right; }
+    .installment-table td { padding: .6rem 0; border-bottom: 1px solid var(--border); color: var(--text); }
+    .installment-table td:last-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .installment-table tr:last-child td { border-bottom: none; }
+    .installment-note { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.55; }
+    .installment-note strong { color: var(--navy); font-weight: 600; }
+    details.installment > summary { cursor: pointer; list-style: none; }
+    details.installment > summary::-webkit-details-marker { display: none; }
+    details.installment > summary.installment-head::after { content: '+'; margin-left: auto; font-size: 1.4rem; line-height: 1; color: var(--gold-dark); }
+    details.installment[open] > summary.installment-head::after { content: '\2013'; }
+    details.installment > summary:hover { background: var(--gold-bg); }
+    details.installment[open] { border-color: var(--gold); }
+
+    /* MOCK BREAKDOWN */
+    .mock-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+    .mock-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); }
+    .mock-card h4 { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:.85rem; display:flex; align-items:center; gap:.5rem; }
+    .mock-card h4 .count { font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; background:var(--gold-bg); color:var(--gold-dark); padding:.25rem .6rem; border-radius:.3rem; }
+    .mock-list { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .mock-list li { font-size:.85rem; color:var(--muted); line-height:1.5; padding-left:1.1rem; position:relative; }
+    .mock-list li::before { content:''; position:absolute; left:0; top:.5rem; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+    .mock-sub { font-size:.82rem; color:var(--muted); line-height:1.6; }
+
+    .inst-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.75rem 1.25rem; margin-top:2.5rem; max-width:1000px; margin-left:auto; margin-right:auto; }
+    .inst-card { display:flex; flex-direction:column; align-items:center; text-align:center; gap:.85rem; }
+    .inst-photo { width:128px; height:128px; border-radius:50%; object-fit:cover; object-position:top center; border:3px solid rgba(255,255,255,.14); box-shadow:0 6px 20px rgba(0,0,0,.28); background:rgba(255,255,255,.07); transition:border-color .2s, transform .2s; }
+    .inst-card:hover .inst-photo { border-color:var(--gold); transform:translateY(-3px); }
+    .inst-monogram { width:128px; height:128px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:2.4rem; color:#fff; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); border:3px solid rgba(255,255,255,.14); box-shadow:0 6px 20px rgba(0,0,0,.28); transition:border-color .2s, transform .2s; }
+    .inst-card:hover .inst-monogram { border-color:var(--gold); transform:translateY(-3px); }
+    .inst-name { font-size:.95rem; font-weight:700; color:#fff; line-height:1.3; }
+    .inst-role { font-size:.72rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-light); margin-top:.25rem; }
+    .inst-bio { font-size:.8rem; color:rgba(255,255,255,.64); line-height:1.6; margin-top:.55rem; max-width:240px; margin-left:auto; margin-right:auto; }
+
+    .faq { max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:.6rem; }
+    details { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    details[open] { border-color:var(--navy); }
+    summary { padding:1.1rem 1.4rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:.9rem; color:var(--navy); list-style:none; user-select:none; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:'+'; font-size:1.3rem; color:var(--gold-dark); transition:transform .2s; flex-shrink:0; margin-left:1rem; }
+    details[open] summary::after { transform:rotate(45deg); }
+    .faq-body { padding:0 1.4rem 1.1rem; font-size:.86rem; color:var(--muted); line-height:1.75; border-top:1px solid var(--border); padding-top:.9rem; }
+    .faq-body a { color:var(--gold-dark); text-decoration:none; font-weight:600; }
+    .faq-body a:hover { text-decoration:underline; }
+
+    .final-cta { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#0f3d72 100%); }
+    .final-inner { max-width:760px; margin:0 auto; padding:4rem 1.5rem; text-align:center; }
+    .final-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3.2vw,2.3rem); font-weight:700; color:#fff; margin-bottom:.85rem; }
+    .final-inner p { font-size:1rem; color:rgba(255,255,255,.7); line-height:1.7; margin-bottom:2rem; }
+    .final-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; align-items:center; }
+    .final-textlink { color:var(--gold-light); font-weight:600; font-size:.88rem; text-decoration:none; }
+    .final-textlink:hover { text-decoration:underline; }
+
+    footer { background:var(--navy); color:rgba(255,255,255,.5); padding:2.5rem 1.5rem; text-align:center; font-size:.78rem; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:.35rem; }
+    .footer-logo span { color:var(--gold-light); }
+    footer a { color:var(--gold-light); text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+    .footer-disclaimer { margin-top:1.25rem; font-size:.68rem; opacity:.5; max-width:640px; margin-left:auto; margin-right:auto; }
+
+    hr.rule { border:none; border-top:1px solid var(--border); margin:0; }
+
+    @media (max-width:720px) {
+      .mock-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:560px) {
+      .stats-grid, .format-grid { grid-template-columns:1fr; }
+      .nav-link { display:none; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-white { width:100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
+      .program-card:hover, .btn-gold:hover, .btn-navy:hover, .btn-ghost:hover { transform:none; }
+    }
+
+    /* ── TAX REGION SELECTOR (province → sales tax) ── */
+    .tax-region { max-width: 560px; margin: 0 auto 2.25rem; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.15rem 1.4rem; text-align: center; }
+    .tax-region label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); margin-bottom: .6rem; }
+    .tax-region select { font-family: inherit; font-size: .95rem; padding: .7rem .9rem; border: 1.5px solid var(--border); border-radius: .5rem; background: var(--bg-soft); color: var(--text); width: 100%; max-width: 360px; cursor: pointer; transition: border-color .18s; }
+    .tax-region select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(15,122,229,.12); }
+    .tax-region .hint { font-size: .76rem; color: var(--muted); margin-top: .65rem; line-height: 1.5; }
+    /* Prominent, emphasised step so buyers don't skip their tax */
+    .tax-region.step { max-width: 640px; border: 3px solid var(--gold); background: var(--gold-bg); box-shadow: 0 0 0 4px rgba(15,122,229,.12), var(--shadow-md); animation: taxPulse 2.2s ease-in-out infinite; }
+    .tax-region.step:focus-within, .tax-region.step.chosen { animation: none; box-shadow: 0 0 0 4px rgba(15,122,229,.18), var(--shadow-md); }
+    @keyframes taxPulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(15,122,229,.10), var(--shadow-sm); } 50% { box-shadow: 0 0 0 8px rgba(15,122,229,.24), var(--shadow-md); } }
+    .tax-region .step-badge { display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--gold); padding: .42rem 1.05rem; border-radius: .35rem; margin-bottom: .9rem; }
+    .tax-region.step label { font-size: 1.1rem; font-weight: 800; color: var(--navy); text-transform: none; letter-spacing: 0; }
+    .tax-region.step label strong { color: var(--gold-dark); }
+    .tax-region.step select { font-size: 1.05rem; font-weight: 700; border: 2.5px solid var(--gold); background: #fff; color: var(--navy); max-width: 380px; }
+    .tax-region.step .hint { font-weight: 700; font-size: .84rem; color: var(--navy); background: #fff; border: 1.5px solid rgba(15,122,229,.35); border-radius: .5rem; padding: .75rem .9rem; margin-top: .95rem; }
+    .delivery-acc { max-width: 540px; margin: 1.5rem auto 0; }
+    .delivery-note { text-align: center; font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: .8rem; }
+    .delivery-note strong { color: var(--navy); font-weight: 700; }
+    details.ship-acc { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+    details.ship-acc > summary { cursor: pointer; list-style: none; padding: .95rem 1.25rem; display: flex; align-items: center; gap: .6rem; font-weight: 600; color: var(--navy); }
+    details.ship-acc > summary::-webkit-details-marker { display: none; }
+    details.ship-acc > summary::after { content: '+'; margin-left: auto; font-size: 1.35rem; line-height: 1; color: var(--gold-dark); }
+    details.ship-acc[open] > summary::after { content: '\2013'; }
+    details.ship-acc[open] { border-color: var(--gold); }
+    details.ship-acc > summary:hover { color: var(--gold-dark); }
+    .ship-body { padding: .2rem 1.25rem 1.1rem; border-top: 1px solid var(--border); }
+    .ship-row { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--border); font-size: .88rem; color: var(--muted); }
+    .ship-row:last-child { border-bottom: none; }
+    .ship-row b { color: var(--navy); font-weight: 700; white-space: nowrap; }
+    .ship-row.free b { color: var(--gold-dark); }
+    .opt-row { margin: 1rem 0 .25rem; }
+    .opt-row label { display:block; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--navy); margin-bottom:.45rem; }
+    .opt-row select { width:100%; font-family:inherit; font-size:.98rem; font-weight:600; padding:.7rem .9rem; border:1.5px solid var(--border); border-radius:.5rem; background:#fff; color:var(--navy); }
+    .opt-row select:focus { outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(15,122,229,.12); }
+    .tax-line { font-size:.82rem; color:var(--muted); margin-top:.35rem; }
+  </style>
+<!-- confi-nav-assets v1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/_assets/nav.css" />
+  <link rel="stylesheet" href="/_assets/site-footer.css" />
+</head>
+<body>
+
+<a href="#register" class="skip-link">Skip to registration</a>
+
+<!-- NAV (homepage header / Courses mega-menu) -->
+<!-- confi-nav v1 start -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" class="brand-logo" width="2172" height="724" /></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <a href="/">Home</a>
+      </div>
+      <div class="nav-item" id="equivItem">
+        <a href="/dental-equivalency-in-canada/" aria-haspopup="true" aria-expanded="false" aria-controls="equivMega" id="equivTrigger">
+          Courses
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="equivMega" role="menu" aria-label="Courses">
+          <div class="mega-grid">
+            <a href="/afk-programs/" role="menuitem"><span class="m-abbr">AFK</span><span><span class="m-t">AFK Preparation</span><span class="m-d">Assessment of Fundamental Knowledge</span></span></a>
+            <a href="/acj-programs/" role="menuitem"><span class="m-abbr">ACJ</span><span><span class="m-t">ACJ Preparation</span><span class="m-d">Assessment of Clinical Judgement</span></span></a>
+            <a href="/ndecc-programs/" role="menuitem"><span class="m-abbr">ND</span><span><span class="m-t">NDECC</span><span class="m-d">Clinical Skills &amp; Situational Judgement</span></span></a>
+            <a href="/virtual-osce/" role="menuitem"><span class="m-abbr">OS</span><span><span class="m-t">Virtual OSCE®</span><span class="m-d">Simulated OSCE stations, online</span></span></a>
+            <a href="/adat-programs/" role="menuitem"><span class="m-abbr">AD</span><span><span class="m-t">ADAT</span><span class="m-d">Advanced Dental Admission Test</span></span></a>
+            <a href="/university-interview-preparation/" role="menuitem"><span class="m-abbr">UI</span><span><span class="m-t">University Interviews</span><span class="m-d">Admissions interview coaching</span></span></a>
+            <a href="/mock-exams/" role="menuitem"><span class="m-abbr">MK</span><span><span class="m-t">Mock Exams</span><span class="m-d">AFK &amp; OSCE mock exams, live review</span></span></a>
+            <a href="/course-bundles/" role="menuitem"><span class="m-abbr">CB</span><span><span class="m-t">Course Bundles</span><span class="m-d">Combine programs &amp; save</span></span></a>
+            <a href="/private-sessions/" role="menuitem"><span class="m-abbr">1:1</span><span><span class="m-t">Private Sessions</span><span class="m-d">One-on-one tutoring, tailored</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="/dental-equivalency/" role="menuitem" class="all">The Preparation Roadmap <span aria-hidden="true">→</span></a>
+            <a href="/acj-programs/" role="menuitem" class="all">View all programs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="ceItem">
+        <a href="/continue-education/" aria-haspopup="true" aria-expanded="false" aria-controls="ceMega" id="ceTrigger">
+          CE
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-sm" id="ceMega" role="menu" aria-label="CE Programs">
+          <div class="mega-grid">
+            <a href="/continue-education/" role="menuitem"><span class="m-abbr">CE</span><span><span class="m-t">Continuing Education</span><span class="m-d">CE courses &amp; credits for dental pros</span></span></a>
+            <a href="/travel-and-learn/" role="menuitem"><span class="m-abbr">TL</span><span><span class="m-t">Travel &amp; Learn</span><span class="m-d">Earn CE credits on global seminars</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resItem">
+        <a href="/confitalk/" aria-haspopup="true" aria-expanded="false" aria-controls="resMega" id="resTrigger">
+          Resources
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega" id="resMega" role="menu" aria-label="Resources">
+          <div class="mega-grid">
+            <a href="/confitalk/" role="menuitem"><span class="m-abbr">CT</span><span><span class="m-t">ConfiTalk</span><span class="m-d">Free video series from our instructors</span></span></a>
+            <a href="/blogs/" role="menuitem"><span class="m-abbr">BL</span><span><span class="m-t">Blog</span><span class="m-d">Articles &amp; exam guidance</span></span></a>
+            <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" role="menuitem" target="_blank" rel="noopener"><span class="m-abbr">CP</span><span><span class="m-t">ConfiPortal</span><span class="m-d">Secure student materials portal</span></span></a>
+            <a href="/ndecc-confihelp/" role="menuitem"><span class="m-abbr">CH</span><span><span class="m-t">ConfiHelp</span><span class="m-d">NDECC exam help &amp; support</span></span></a>
+            <a href="/pathway" role="menuitem"><span class="m-abbr">PW</span><span><span class="m-t">Pathway</span><span class="m-d">Your Canadian licensure roadmap</span></span></a>
+            <a href="/rewards/" role="menuitem"><span class="m-abbr">PR</span><span><span class="m-t">Points &amp; Rewards</span><span class="m-d">Earn a discount on your next course</span></span></a>
+            <a href="/terms-and-conditions/" role="menuitem"><span class="m-abbr">TC</span><span><span class="m-t">Terms &amp; Conditions</span><span class="m-d">Our enrollment terms &amp; policies</span></span></a>
+            <a href="/faq/" role="menuitem"><span class="m-abbr">FAQ</span><span><span class="m-t">FAQ</span><span class="m-d">Answers on exams, courses &amp; licensure</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <a href="https://www.youtube.com/@confi-dentist" role="menuitem" class="all" target="_blank" rel="noopener">Our YouTube channel <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="aboutItem">
+        <a href="/our-history/" aria-haspopup="true" aria-expanded="false" aria-controls="aboutMega" id="aboutTrigger">About Us
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="mega mega-xs" id="aboutMega" role="menu" aria-label="About Us">
+          <div class="mega-grid">
+            <a href="/our-history/" role="menuitem"><span class="m-abbr">OH</span><span><span class="m-t">Our History</span><span class="m-d">A decade guiding dentists to Canada</span></span></a>
+            <a href="/our-team/" role="menuitem"><span class="m-abbr">OT</span><span><span class="m-t">Our Team</span><span class="m-d">Meet our instructors &amp; mentors</span></span></a>
+            <a href="/gallery/" role="menuitem"><span class="m-abbr">GA</span><span><span class="m-t">Gallery</span><span class="m-d">Moments from our community</span></span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="/contact-us/" class="util-link">Contact</a>
+      <a href="/dental-equivalency/" class="btn-cta">Preparation Roadmap</a>
+      <a href="/ndecc-programs/" class="btn-cta">Find My Program</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile navigation -->
+<div class="backdrop" id="backdrop" tabindex="-1"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Mobile" aria-hidden="true">
+  <a href="/">Home <span aria-hidden="true">→</span></a>
+  <a href="/dental-equivalency/">Preparation Roadmap <span aria-hidden="true">→</span></a>
+  <a href="/ndecc-programs/">Find My Program <span aria-hidden="true">→</span></a>
+  <div class="mp-label">Choose a Path</div>
+  <a href="/dental-equivalency-in-canada/" class="sub">Courses</a>
+  <div class="mp-label">Programs</div>
+  <a href="/afk-programs/" class="sub">AFK Preparation</a>
+  <a href="/acj-programs/" class="sub">ACJ Preparation</a>
+  <a href="/ndecc-programs/" class="sub">NDECC</a>
+  <a href="/virtual-osce/" class="sub">Virtual OSCE®</a>
+  <a href="/adat-programs/" class="sub">ADAT</a>
+  <a href="/university-interview-preparation/" class="sub">University Interviews</a>
+  <a href="/mock-exams/" class="sub">Mock Exams — AFK &amp; OSCE</a>
+  <a href="/course-bundles/" class="sub">Course Bundles</a>
+  <a href="/private-sessions/" class="sub">Private Sessions</a>
+  <div class="mp-label">CE</div>
+  <a href="/continue-education/" class="sub">Continuing Education</a>
+  <a href="/travel-and-learn/" class="sub">Travel &amp; Learn</a>
+  <div class="mp-label">Resources</div>
+  <a href="/confitalk/" class="sub">ConfiTalk</a>
+  <a href="/blogs/" class="sub">Blog</a>
+  <a href="https://view.protectedpdf.com/portal/Confidentist/LogIn" class="sub" target="_blank" rel="noopener">ConfiPortal</a>
+  <a href="/ndecc-confihelp/" class="sub">ConfiHelp</a>
+  <a href="/pathway" class="sub">Pathway</a>
+  <a href="/rewards/" class="sub">Points &amp; Rewards</a>
+  <a href="/terms-and-conditions/" class="sub">Terms &amp; Conditions</a>
+  <a href="/faq/" class="sub">FAQ</a>
+  <div class="mp-label">About Us</div>
+  <a href="/our-history/" class="sub">Our History</a>
+  <a href="/our-team/" class="sub">Our Team</a>
+  <a href="/gallery/" class="sub">Gallery</a>
+  <div class="mp-label">More</div>
+  <a href="/our-team/">Instructors</a>
+  <a href="/contact-us/">Contact</a>
+  <a href="#register" class="btn-cta">Register Now</a>
+</nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+<!-- confi-nav v1 end -->
+<div class="nav-backdrop" id="navBackdrop" tabindex="-1"></div>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs-inner">
+    <a href="/">Home</a><span class="crumbs-sep">/</span>
+    <a href="/ndecc-programs/">NDECC</a><span class="crumbs-sep">/</span>
+    <a href="/ndecc-programs/brilliant-essential/">Brilliant Bundle — Essential</a><span class="crumbs-sep">/</span>
+    <span aria-current="page">Register</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">NDECC · Complete Path · Essential</p>
+    <h1>Register for <em>The Brilliant Bundle — Essential</em></h1>
+    <p class="hero-sub">The complete NDECC program — the Clinical Skills course and mock exams together with the Situational Judgement course and mock exams. $20,500 CAD in 3 installments. Basic tools not included.</p>
+    <div class="hero-actions">
+      <a href="#register" class="btn-gold">Register Now →</a>
+      <a href="/ndecc-programs/brilliant-essential/" class="btn-outline-white">← Program details</a>
+    </div>
+  </div>
+</header>
+
+<hr class="rule" />
+
+<section class="section alt" id="register">
+  <div class="section-inner">
+    <!-- STEP 1 · Province selector — sets the sales-tax rate applied at checkout -->
+    <div class="tax-region step" id="taxRegion">
+      <span class="step-badge">Step 1 · Select your province</span>
+      <label for="provinceSelect">Where will you be billed? <strong>(this sets your sales tax — please choose)</strong></label>
+      <select id="provinceSelect" aria-describedby="taxHint">
+        <option value="ON">Ontario — HST 13%</option>
+        <option value="QC">Quebec — GST 5%</option>
+        <option value="BC">British Columbia — GST 5%</option>
+        <option value="AB">Alberta — GST 5%</option>
+        <option value="MB">Manitoba — GST 5%</option>
+        <option value="SK">Saskatchewan — GST 5%</option>
+        <option value="NS">Nova Scotia — HST 14%</option>
+        <option value="NB">New Brunswick — HST 15%</option>
+        <option value="NL">Newfoundland &amp; Labrador — HST 15%</option>
+        <option value="PE">Prince Edward Island — HST 15%</option>
+        <option value="YT">Yukon — GST 5%</option>
+        <option value="NT">Northwest Territories — GST 5%</option>
+        <option value="NU">Nunavut — GST 5%</option>
+        <option value="INTL">Outside Canada — no tax</option>
+      </select>
+      <p class="hint" id="taxHint">Choose your province so we can show your tax and total before you check out.</p>
+    </div>
+    <div style="max-width:540px;margin:0 auto;">
+      <div class="program-card featured">
+        <span class="prog-badge">Essential</span>
+        <h3 class="prog-title">The Brilliant Bundle — Essential</h3>
+        <div class="prog-price"><span class="prog-now" id="priceNow">$20,500</span></div>
+        <p class="prog-hst"><strong>CAD</strong> + applicable sales tax <span id="totalNote"></span></p>
+
+        <p class="prog-subhead">⭐ What's Included</p>
+        <ul class="prog-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Clinical Skills Course</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Clinical Skills Mock Exams</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Situational Judgement Course — 3 months: the 1st month is recorded videos; the 2nd and 3rd months are in-person classes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Situational Judgement Mock Exams</span></li>
+        </ul>
+        <p class="installment-note" style="margin:-.5rem 0 1.1rem;"><strong>Please note:</strong> the Essential bundle <strong>does not include basic tools</strong>. You bring your own or ask an advisor about adding a tools kit separately.</p>
+
+        <a href="#" class="prog-cta" id="fullCta">Pay in full — Register Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <details class="installment" open>
+          <summary class="installment-head">
+            <span class="installment-radio" aria-hidden="true"></span>
+            <span class="installment-title">Pay in installments (3 payments)</span>
+          </summary>
+          <div class="installment-body">
+            <table class="installment-table">
+              <thead><tr><th scope="col">Payment Date</th><th scope="col">Amount</th></tr></thead>
+              <tbody id="planRows"></tbody>
+            </table>
+            <p class="installment-note">The first payment is charged today; the remaining payments are due monthly from your purchase date. <strong>Applicable sales tax (based on your province) is added to each payment.</strong> Each later payment is collected by a secure Stripe link we send you.</p>
+            <a class="prog-cta" style="margin-top:1.1rem;" id="instCta" href="#">Pay First Installment →</a>
+          </div>
+        </details>
+
+        <p class="prog-reassure">Secure checkout · In-person at our North York centre · Sales tax based on your province</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Questions Before You Register?</h2>
+    <p>Talk to a ConfiDentist advisor about the right NDECC preparation for you.</p>
+    <div class="final-actions">
+      <a href="/contact-us/" class="btn-gold">Contact an Advisor →</a>
+      <a href="/ndecc-programs/" class="final-textlink">or compare all NDECC programs</a>
+    </div>
+  </div>
+</section>
+<footer class="cf-footer">
+  <div class="cf-grid">
+    <div class="cf-brand">
+      <a class="cf-brand-name" href="/">Confi<span>Dentist</span></a>
+      <p>Your trusted partner in Canadian dental licensure and professional development — offering comprehensive exam preparation, mock examinations, clinical training, and mentorship for internationally trained dentists, alongside high-quality continuing education (CE) courses for licensed dentists.</p>
+      <div class="cf-contact">
+        <a href="tel:+14373700122"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 437 370 0122</a>
+        <a href="mailto:info@confidentist.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@confidentist.ca</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=265+Rimrock+Rd+Ste+209%2C+North+York%2C+ON+M3J+3C6" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Address: 265 Rimrock Rd Ste 209, North York, ON M3J 3C6</span></a>
+      </div>
+    </div>
+
+    <div class="cf-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/afk-programs/">AFK Preparation</a></li>
+        <li><a href="/acj-programs/">ACJ Preparation</a></li>
+        <li><a href="/ndecc-programs/">NDECC</a></li>
+        <li><a href="/virtual-osce/">Virtual OSCE®</a></li>
+        <li><a href="/adat-programs/">ADAT</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>Student Resources</h4>
+      <ul>
+        <li><a href="/afk-mock-exams/">Mock Exams</a></li>
+        <li><a href="/course-bundles/">Course Bundles</a></li>
+        <li><a href="/private-sessions/">Private Sessions</a></li>
+        <li><a href="/university-interview-preparation/">Interview Prep</a></li>
+        <li><a href="https://www.confidentist.ca/blog/">Resources &amp; Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="cf-col">
+      <h4>ConfiDentist</h4>
+      <ul>
+        <li><a href="/our-team/">Our Instructors</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="https://www.confidentist.ca">Main Website</a></li>
+      </ul>
+      <div class="cf-social" aria-label="Social media">
+        <a href="https://www.confidentist.ca" aria-label="ConfiDentist website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="mailto:info@confidentist.ca" aria-label="Email ConfiDentist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-logos">
+    <a href="/" aria-label="ConfiDentist home"><img src="/images/confidentist-logo-full.png" alt="ConfiDentist" style="height:34px" /></a>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <div class="cf-pace">
+      <a href="https://www.agd.org/education/learn/find-a-pace-provider/pace" target="_blank" rel="noopener noreferrer" aria-label="AGD PACE Approved Program Provider — Program Approval for Continuing Education"><img style="height:44px" src="/images/agd-pace-logo.png" alt="AGD PACE — Program Approval for Continuing Education" /></a>
+      <p class="cf-pace-text">ConfiDentist Grp.<br />Nationally Approved PACE Program Provider for FAGD/MAGD credit.<br />Approval does not imply acceptance by any regulatory authority or AGD endorsement.<br />10/1/2025 to 9/30/2027.<br />Provider ID# 420454</p>
+    </div>
+    <span class="cf-sep" aria-hidden="true"></span>
+    <a href="https://certification.esdc.gc.ca/lea-mcl/servlet/mclpub?curjsp=institution.jsp&amp;curactn=dwnld&amp;provid=1" target="_blank" rel="noopener noreferrer" aria-label="Canada Certified Educational Institution — Employment and Social Development Canada"><img src="/images/canada-certified-educational-institution.png" alt="Canada — Certified Educational Institution" style="height:56px" width="138" height="56" loading="lazy" /></a>
+  </div>
+
+  <div class="cf-bottom">
+    <div>© <span id="year">2026</span> ConfiDentist. All rights reserved.</div>
+    <div class="cf-links">
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/our-team/">Our Team</a>
+      <a href="/contact-us/">Contact</a>
+    </div>
+  </div>
+  <p class="cf-disclaimer">ConfiDentist Group is not affiliated with or endorsed by The National Dental Examination Board of Canada.</p>
+</footer>
+
+<!-- Option selector → price, installment plan and checkout links -->
+<script>
+(function () {
+  var C = {"key": "bundle-essential", "plan": "bundle-essential", "opts": [["full", "NDECC Brilliant Bundle — Essential", 20500]], "hasMonths": false};
+  var RATES = { ON:0.13, NB:0.15, NL:0.15, PE:0.15, NS:0.14, QC:0.05, BC:0.05, MB:0.05, SK:0.05, AB:0.05, YT:0.05, NT:0.05, NU:0.05, INTL:0 };
+  var LABELS = { ON:'HST 13%', NB:'HST 15%', NL:'HST 15%', PE:'HST 15%', NS:'HST 14%', QC:'GST 5%', BC:'GST 5%', MB:'GST 5%', SK:'GST 5%', AB:'GST 5%', YT:'GST 5%', NT:'GST 5%', NU:'GST 5%', INTL:'no tax' };
+  var prov = document.getElementById('provinceSelect'), hint = document.getElementById('taxHint');
+  var opt = document.getElementById('optSelect'), mon = document.getElementById('monthSelect');
+  function r2(n) { return Math.round(n * 100) / 100; }
+  function fmt(n) { return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function plan(price) {
+    if (C.plan === '2+1') { var l = r2(price * 0.3); return { first: r2(price - 2 * l), later: [l, l] }; }
+    if (C.plan === 'half') { var h = r2(price / 2); return { first: r2(price - h), later: [h] }; }
+    if (C.plan === 'bundle') { return { first: 4899.82, later: [3266.53, 3266.53, 3266.53, 3266.53, 3266.53, 3266.53] }; }
+    if (C.plan === 'bundle-essential') { return { first: 7000, later: [6750, 6750] }; }
+    return null;
+  }
+  function addMonths(n) {
+    var d = new Date(), day = d.getDate(); d.setMonth(d.getMonth() + n); if (d.getDate() < day) d.setDate(0);
+    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+  function apply() {
+    var key = opt ? opt.value : C.opts[0][0];
+    var o = C.opts.filter(function (x) { return x[0] === key; })[0] || C.opts[0];
+    var price = o[2];
+    var reg = prov ? prov.value : 'ON', RATE = RATES.hasOwnProperty(reg) ? RATES[reg] : 0.13, TL = RATE ? '+ tax' : '';
+    document.getElementById('priceNow').textContent = fmt(price).replace('.00', '');
+    document.getElementById('totalNote').textContent = RATE ? '· ' + fmt(r2(price * (1 + RATE))) + ' total with ' + LABELS[reg] : '· no Canadian sales tax outside Canada';
+    if (hint) hint.innerHTML = RATE ? '<strong>' + LABELS[reg] + '</strong> applies. Total with tax: ' + fmt(r2(price * (1 + RATE))) + '. Confirmed at checkout.' : 'No Canadian sales tax applies outside Canada. Final amount is confirmed at checkout.';
+    var q = '/api/ndecc/checkout/?p=' + C.key + '&o=' + encodeURIComponent(key) + (mon ? '&m=' + encodeURIComponent(mon.value) : '') + '&region=' + encodeURIComponent(reg);
+    document.getElementById('fullCta').setAttribute('href', q);
+    var p = plan(price), rows = document.getElementById('planRows'), cta = document.getElementById('instCta');
+    if (p && rows && cta) {
+      var h = '<tr><td>Today (at checkout)</td><td>' + fmt(p.first) + (TL ? ' ' + TL : '') + '</td></tr>';
+      p.later.forEach(function (a, i) { h += '<tr><td>' + addMonths(i + 1) + '</td><td>' + fmt(a) + (TL ? ' ' + TL : '') + '</td></tr>'; });
+      rows.innerHTML = h;
+      cta.setAttribute('href', q + '&plan=installment');
+      cta.textContent = 'Pay First Installment — ' + fmt(p.first) + (TL ? ' ' + TL : '') + ' →';
+    }
+  }
+  try { var pre = new URLSearchParams(location.search).get('o'); if (opt && pre && C.opts.some(function (x) { return x[0] === pre; })) opt.value = pre; } catch (e) {}
+  if (opt) opt.addEventListener('change', apply);
+  if (mon) mon.addEventListener('change', apply);
+  if (prov) prov.addEventListener('change', function () { var b = document.getElementById('taxRegion'); if (b) b.classList.add('chosen'); apply(); });
+  apply();
+})();
+</script>
+<script src="/_assets/nav.js" defer></script>
+</body>
+</html>

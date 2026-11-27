@@ -116,6 +116,13 @@ const NDECC_PRODUCTS: Record<string, Product> = {
     // Bundle price $24,499 (regular $25,249): 4,899.82 now + 6 × 3,266.53 = 24,499.00.
     installments: () => ({ first: 4899.82, later: Array(6).fill(3266.53) }),
   },
+  'bundle-essential': {
+    name: 'The Brilliant Bundle – Essential (NDECC)',
+    page: '/ndecc-programs/brilliant-essential/register/',
+    options: { full: { label: 'Complete NDECC program (Essential — basic tools not included)', price: 20500 } },
+    // Essential bundle $20,500 in 3 installments: $7,000 now + 2 × $6,750 = $20,500.
+    installments: () => ({ first: 7000, later: [6750, 6750] }),
+  },
   // Private plan (unlisted page /ndecc-programs/plan/practice-5m-pb/): Priyansh Behimani —
   // 5-month practice program, $21,500 + tax in two payments of $10,750 + tax.
   // Payment 1 at checkout; payment 2 due December 27, 2026 (&pay=2 charges it).
