@@ -5,6 +5,14 @@ import SiteNav from './components/SiteNav'
 export const metadata = {
   title: 'ConfiDentist',
   description: 'ConfiDentist dental exam preparation.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 // Root layout — applies to the new Next.js (dynamic) routes, e.g. /events.
